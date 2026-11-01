@@ -7,7 +7,7 @@ import json
 import re
 import subprocess
 from scripts.build.project import ROOT, atomic_write, load, profiles, project_path
-from scripts.build.source_asm import statements
+from scripts.build.source_asm import statements, source_files
 from scripts.authoring.indexed_records import KINDS as INDEXED_KINDS
 
 INCLUDE = re.compile(r'\binclude\s+"([^"\n]+)"', re.I)
@@ -66,7 +66,7 @@ def inventory(root=ROOT):
     mapping_tables = set()
     demo_runs = set()
     anonymous = {}
-    for path in sorted((root / "src").rglob("*.asm")):
+    for path in source_files(root):
         name = path.relative_to(root).as_posix()
         pending = []
         active = None
@@ -169,7 +169,7 @@ def audit(root=ROOT, baseline=False):
     if layout.get("schema") != "sonic2.source_layout" or layout.get("schema_version") != 1:
         raise ValueError("Unsupported source layout schema")
     rows = {item["path"]: item for item in layout["modules"]}
-    actual = {path.relative_to(root).as_posix() for path in (root / "src").rglob("*.asm")}
+    actual = {path.relative_to(root).as_posix() for path in source_files(root)}
     if len(rows) != len(layout["modules"]) or set(rows) != actual:
         raise ValueError("Source registry does not own every assembly file exactly once")
     entry = profiles(root)["entry"]

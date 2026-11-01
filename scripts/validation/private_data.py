@@ -60,9 +60,11 @@ def payload_problem(data, name, private_hashes, allowed):
         return "does not match its explicit binary allowlist identity"
     if name.startswith(FORBIDDEN_PREFIXES) or PurePosixPath(name).suffix.lower() in FORBIDDEN_EXTENSIONS:
         return "uses a forbidden private/generated path or extension"
-    if PurePosixPath(name).suffix.lower() == ".asm" and re.search(rb"(?m)^zPSG_Env[0-9]+:\s*\n[ \t]+db\b", data):
+    if PurePosixPath(name).suffix.lower() in {".asm", ".s", ".inc"} and re.search(
+        rb"(?m)^zPSG_Env[0-9]+:\s*\n[ \t]+db\b", data
+    ):
         return "contains inline PSG envelope content"
-    if PurePosixPath(name).suffix.lower() == ".asm":
+    if PurePosixPath(name).suffix.lower() in {".asm", ".s", ".inc"}:
         code = b"\n".join(line.split(b";", 1)[0] for line in data.splitlines())
         if re.search(
             rb"\b(?:smpsHeaderStartSong|smpsHeaderVoice|smpsHeaderTempo|smpsHeaderSFXChannel|smpsVcAlgorithm)\b",

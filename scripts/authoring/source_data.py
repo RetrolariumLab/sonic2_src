@@ -18,6 +18,7 @@ from scripts.authoring import (
 from scripts.authoring.asset_document import Document, Target
 from scripts.authoring.struct_formats import Codec
 from scripts.authoring.indexed_records import KINDS as INDEXED_KINDS
+from scripts.build.source_asm import source_files
 
 BINCLUDE = re.compile(r'\bbinclude\s+"([^"\n]+)"', re.I)
 GLOBAL = re.compile(r"^([A-Za-z_][\w]*):")
@@ -119,7 +120,7 @@ def private_placements(context, root=ROOT):
 def parent_scopes(root=ROOT):
     """Find the lexical global label at each registered include site."""
     result = {}
-    for source in sorted((root / "src").rglob("*.asm")):
+    for source in source_files(root):
         scope = None
         for raw in source.read_text().splitlines():
             body = raw.split(";", 1)[0]

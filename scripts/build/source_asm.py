@@ -6,6 +6,13 @@ from scripts.build.listing_source import ListingIndex
 LABEL = re.compile(r"^([A-Za-z_.][\w.]*)(?::|\s|$)")
 
 
+def source_files(root):
+    """Discover every source regardless of its processor or declaration suffix."""
+    return sorted(
+        path for path in (root / "src").rglob("*") if path.is_file() and path.suffix in {".s", ".inc", ".asm"}
+    )
+
+
 def statements(text, initial_scope=None):
     """Yield physical declarations outside macro templates, with lexical scopes."""
     lines = text.splitlines()

@@ -11,11 +11,10 @@ reachable history. Runtime coverage remains limited to the declared scenario.
 | `rev00` | `gameRevision = 0` | Direct original-image byte comparison and direct relocated MAME golden comparison |
 | `rev01` | `gameRevision = 1` | Direct original-image byte comparison and direct relocated MAME golden comparison |
 
-Both profiles enter `src/main.asm` and share the same engine modules. The
-original revision conditionals remain in place; community modification switches
-do not. A path selected only in one profile is still registered as a private
-input. Fresh AS listing consumers determine the selection and addresses for each
-run.
+Both profiles enter `src/main.s` and share the same engine modules. The original
+revision conditionals remain in place; community modification switches do not. A
+path selected only in one profile is still registered as a private input. Fresh
+AS listing consumers determine the selection and addresses for each run.
 
 Runtime coverage uses the same scenario contract for each revision and that
 revision's own original-ROM goldens. The attract sequence includes normal and

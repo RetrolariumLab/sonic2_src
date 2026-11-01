@@ -1,0 +1,7 @@
+                include "src/audio/capacities.inc"
+                include "src/game/objects/abi.inc"
+                include "src/game/identifiers_geometry.inc"
+                include "src/memory/ram_general.inc"
+                include "src/memory/ram_overlays.inc"
+                include "src/memory/hardware.inc"
+                include "src/rendering/art_tile_allocations.inc"

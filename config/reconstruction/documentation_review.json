@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "reviewed",
-  "scope": "Complete corpus after merging the independently verified ROM-only preservation boundary.",
+  "scope": "Complete corpus after semantic filename, processor-suffix and primary-owner polish.",
   "reviewer": "Codex",
   "findings": [
     {
@@ -37,6 +37,10 @@
       "resolution": "Make extraction part of the actual aggregate, protect existing edits and document the direct ROM-only acceptance command."
     },
     {
+      "id": "DOC-009",
+      "resolution": "Use short context-aware source names, processor suffixes and real shared-zone consumers without changing preservation origins or compiled content."
+    },
+    {
       "id": "DOC-019",
       "resolution": "Move exact AS build-313 dependencies and GPL text to a verified ignored cache, retain the full Saxman permission notice in its implementation, and bind linear history references to the new preservation boundary."
     }
@@ -52,7 +56,7 @@
       "path": "docs/architecture.md",
       "action": "updated",
       "reason": "Explain subsystem responsibilities and canonical fact owners without duplicating detailed format or runtime contracts.",
-      "sha256": "e8cfa2fb7a0e7689e693bb06f9623847c05af20d70ee8cc95f9e88ec0c62e27a"
+      "sha256": "080f95f34bccfe1a4963dc49f9a4055d1aecd020e17dfda78aff83405585ccc8"
     },
     {
       "path": "docs/architecture_decisions.md",
@@ -88,7 +92,7 @@
       "path": "docs/memory.md",
       "action": "updated",
       "reason": "Keep hardware, RAM and Z80 address spaces together; values remain summaries checked against source symbols.",
-      "sha256": "7998ae572d99090caf2e4806342120dc165d2d950de564de7e27097f8966d76c"
+      "sha256": "bbdb549d555dbd6a2fde8492a56156950ec42ca5365c5341354ad029f601a55f"
     },
     {
       "path": "docs/provenance.md",
@@ -98,9 +102,9 @@
     },
     {
       "path": "docs/revisions.md",
-      "action": "new",
+      "action": "updated",
       "reason": "Explain shared-engine profile selection, direct runtime evidence and excluded variants without copying legal input hashes.",
-      "sha256": "7d86e2c90f53ce580622e3803e09b62944fad13b3642808f0b7b283810850135"
+      "sha256": "e8f98cade8fca6a4b03fd54479fc49cf9f102c53ea42fe5946bfd11e09a11d28"
     },
     {
       "path": "docs/runtime.md",
@@ -110,9 +114,9 @@
     },
     {
       "path": "docs/source_layout.md",
-      "action": "new",
+      "action": "updated",
       "reason": "Describe semantic module cohesion, adjacent data owners, original range coverage and justified size exceptions.",
-      "sha256": "1500572a16e250d6a4abe00e3a60dbb3c499f1546ab690ee14104098a37cfd31"
+      "sha256": "12b912899d16c76f704b2b2baaceadc65d4ca525191df84182575c80e71b322a"
     },
     {
       "path": "docs/source_reconstruction_2_0.md",
@@ -122,9 +126,9 @@
     },
     {
       "path": "docs/style.md",
-      "action": "retained",
+      "action": "updated",
       "reason": "Explain the AS syntax compatibility bridge and shared formatter lifecycle separately from build prerequisites.",
-      "sha256": "5180d810e2ee42817ac1b76a06284f216187c865b54f7a2ff1508ed31aa260ec"
+      "sha256": "58edcfcf49e2663be3923cda5b8b796463a84bbd70997d22b4201e03456ed071"
     },
     {
       "path": "docs/unknowns.md",

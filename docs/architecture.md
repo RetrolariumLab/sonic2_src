@@ -1,6 +1,6 @@
 # Architecture and fact ownership
 
-The canonical entry point is `src/main.asm`. `config/revision_profiles.json`
+The canonical entry point is `src/main.s`. `config/revision_profiles.json`
 supplies the accepted retail defines, content ABI and output paths. Semantic
 modules preserve the original include order while separating subsystem owners.
 The same source builds both revisions; the intermediate preservation gate is

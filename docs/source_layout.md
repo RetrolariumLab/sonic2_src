@@ -6,7 +6,7 @@ coordinates and fingerprints against the accepted preservation commit.
 `config/reconstruction/label_renames.json` records original-label changes; the
 mechanical move does not rename those symbols.
 
-`src/main.asm` sets up the assembler and includes the modules in their original
+`src/main.s` sets up the assembler and includes the modules in their original
 order. Include order controls physical ROM layout; folder order does not. Both
 revisions use this same engine and select retail differences with the profile's
 `gameRevision` define. There are no per-revision engine copies.
@@ -26,7 +26,7 @@ revisions use this same engine and select retail differences with the profile's
 | `src/audio`                         | 68000 audio interface, container, capacities and Z80 engine modules            |
 | `src/ui`                            | Title/menu, result screens, HUD and other screen modes                         |
 
-An object's `main.asm` names one original object responsibility. Additional
+An object's `main.s` names one original object responsibility. Additional
 component modules have behavior names. Source-owned mappings, DPLC and small
 path tables live in that owner's `data/` folder. Shared tables have one physical
 owner, even when several object IDs consume them. Sonic and Tails own their
@@ -59,3 +59,31 @@ already used for runtime validation. This byte evidence complements a semantic
 review of names, ownership and cohesion; it does not by itself establish those
 properties. See [architecture](architecture.md), [formats](data_formats.md) and
 [content workflow](content_workflow.md).
+
+## Source names and processor suffixes
+
+Source basenames use lowercase snake_case and at most three words. Directories
+provide the zone, subsystem and primary entity context; filenames do not repeat
+object IDs or enumerate every child object. Original assembly labels and object
+dispatch IDs remain unchanged.
+
+The `.s` suffix identifies 68000 code and emitted tables. Shared constants,
+hardware/RAM declarations, macros and assembler setup use `.inc`. Z80 driver
+modules retain `.asm`. All three suffixes participate in source ownership,
+content discovery, style checks and private-data audits.
+
+Object implementations are grouped by `enemies`, `items`, `bosses`, `effects`,
+`player`, `scenery` and `environment` under `src/game/objects`. Environment
+owners use zone directories where the implementation belongs to one zone; shared
+implementations use `common`. Special-stage objects live under
+`src/game/special_stage/objects`, and screen objects under `src/ui/objects`.
+Preserved unused implementations have an explicit `unused` owner. Their data
+ledgers remain adjacent in each owner's `data` directory, with short names such
+as `mappings.s`, `mappings_a.s` and `paths.s`.
+
+Zone ownership follows actual placement consumers and source use rather than an
+imported filename alone. The formerly ARZ-named swinging platform serves ARZ,
+MCZ and OOZ; the CNZ-named conveyor also serves MTZ and WFZ. Both belong to
+`environment/common`. Round and hexagonal CNZ bumpers have distinct owners.
+Moving these files changes no include position, source-range origin, symbolic
+label or ROM byte.

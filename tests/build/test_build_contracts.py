@@ -9,6 +9,7 @@ import unittest
 from unittest.mock import patch
 from scripts.build.build_rom import assemble, patch_image, prepare_audio
 from scripts.build.project import ROOT, load, project_path, toolchain
+from scripts.build.source_asm import source_files
 
 
 class BuildContractTests(unittest.TestCase):
@@ -79,9 +80,7 @@ class BuildContractTests(unittest.TestCase):
 
     def test_source_accepts_only_original_build_options(self):
         options = r"fixBugs|allOptimizations|skipChecksumCheck|zeroOffsetOptimization|removeJmpTos|addsubOptimize|relativeLea|useFullWaterTables|FixMusicAndSFXDataBugs|FixDriverBugs|OptimiseDriver|padToPowerOfTwo"
-        for path in ROOT.rglob("*.asm"):
-            if path.is_relative_to(ROOT / "build") or path.is_relative_to(ROOT / "data"):
-                continue
+        for path in source_files(ROOT):
             code = "\n".join(line.split(";", 1)[0] for line in path.read_text().splitlines())
             with self.subTest(path=path.relative_to(ROOT)):
                 self.assertIsNone(re.search(r"\b(?:" + options + r")\b", code, re.I))

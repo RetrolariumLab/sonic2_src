@@ -6,11 +6,12 @@ commands call scripts/validation/lint_project.py, which invokes Kit.
 
 ## Original AS syntax compatibility
 
-The pinned Kit's ASL source discovery recognizes .s and .inc, while this import
-uses .asm. Its current label lexer also omits uncolonized labels, local and
-anonymous labels, dotted equates, and several AS declaration forms. Formatting
-those forms directly can turn a label into an unknown instruction. A synthetic
-assembly probe reproduces that failure.
+The project uses .s for 68000 code and emitted tables, .inc for shared
+declarations, and .asm for Z80 modules. The pinned Kit's ASL discovery
+recognizes .s and .inc. Its current label lexer also omits uncolonized labels,
+local and anonymous labels, dotted equates, and several AS declaration forms.
+Formatting those forms directly can turn a label into an unknown instruction. A
+synthetic assembly probe reproduces that failure.
 
 scripts/validation/asm_style.py makes a disposable .s mirror under build/. It
 presents each original AS label as a simple named colon label, asks rltool lint

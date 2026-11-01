@@ -26,11 +26,11 @@ class StructureTests(unittest.TestCase):
         self.write(name, json.dumps(value))
 
     def fixture(self, body="Entry: rts\n"):
-        self.write("src/main.asm", body)
+        self.write("src/main.s", body)
         sha = hashlib.sha256(body.encode()).hexdigest()
         lines = len(body.splitlines())
         row = {
-            "path": "src/main.asm",
+            "path": "src/main.s",
             "owner": "entry",
             "responsibility": "Synthetic entry",
             "physical_lines": lines,
@@ -44,9 +44,9 @@ class StructureTests(unittest.TestCase):
         layout = {
             "schema": "sonic2.source_layout",
             "schema_version": 1,
-            "entry": "src/main.asm",
+            "entry": "src/main.s",
             "modules": [row],
-            "include_graph": {"src/main.asm": []},
+            "include_graph": {"src/main.s": []},
             "baseline": {"commit": None},
             "original_sources": [{"path": "old.asm", "physical_lines": lines, "sha256": sha}],
         }
@@ -55,7 +55,7 @@ class StructureTests(unittest.TestCase):
             "config/reconstruction/label_renames.json",
             {"schema": "sonic2.label_renames", "schema_version": 1, "renames": []},
         )
-        self.config("config/revision_profiles.json", {"entry": "src/main.asm", "profiles": []})
+        self.config("config/revision_profiles.json", {"entry": "src/main.s", "profiles": []})
         self.config("config/audio.json", {"songs": [], "effects": [], "samples": []})
         self.config("config/authoring/data_formats.json", {"artifacts": []})
         return layout
@@ -67,20 +67,23 @@ class StructureTests(unittest.TestCase):
     def test_stale_success_report_is_removed_on_failure(self):
         self.fixture()
         self.write("build/source-layout-check.json", '{"passed":true}')
-        self.write("src/main.asm", "Changed: rts\n")
+        self.write("src/main.s", "Changed: rts\n")
         with self.assertRaisesRegex(ValueError, "stale size or bytes"):
             audit(self.root)
         self.assertFalse((self.root / "build/source-layout-check.json").exists())
 
     def test_undeclared_source_file_is_rejected(self):
-        self.fixture()
-        self.write("src/orphan.asm", "Orphan: rts\n")
-        with self.assertRaisesRegex(ValueError, "every assembly file"):
-            audit(self.root)
+        for suffix in (".s", ".inc", ".asm"):
+            with self.subTest(suffix=suffix):
+                self.fixture()
+                self.write("src/orphan" + suffix, "Orphan: rts\n")
+                with self.assertRaisesRegex(ValueError, "every assembly file"):
+                    audit(self.root)
+                (self.root / ("src/orphan" + suffix)).unlink()
 
     def test_include_cycle_is_rejected(self):
-        layout = self.fixture(' include "src/main.asm"\n')
-        layout["include_graph"]["src/main.asm"] = ["src/main.asm"]
+        layout = self.fixture(' include "src/main.s"\n')
+        layout["include_graph"]["src/main.s"] = ["src/main.s"]
         self.config("config/reconstruction/source_layout.json", layout)
         with self.assertRaisesRegex(ValueError, "include cycle"):
             audit(self.root)
@@ -93,8 +96,12 @@ class StructureTests(unittest.TestCase):
             audit(self.root)
 
     def test_inventory_finds_a_byte_table_without_an_animation_name(self):
-        self.write("src/data.asm", "off_unusual: offsetTable\n offsetTableEntry.w First\nFirst: dc.b 3,0,$FF\n")
-        self.assertEqual(inventory(self.root)["data_tables"], {("src/data.asm", "off_unusual")})
+        for suffix in (".s", ".inc", ".asm"):
+            with self.subTest(suffix=suffix):
+                name = "src/data" + suffix
+                self.write(name, "off_unusual: offsetTable\n offsetTableEntry.w First\nFirst: dc.b 3,0,$FF\n")
+                self.assertEqual(inventory(self.root)["data_tables"], {(name, "off_unusual")})
+                (self.root / name).unlink()
 
     def test_macro_definition_is_not_an_authored_demo_run(self):
         self.write("src/macros.asm", "demoinput macro buttons,time\n dc.b 0,0\n endm\n")

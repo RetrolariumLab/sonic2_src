@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 3
+    "commit_count": 4
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -75,6 +75,13 @@
       "id": "stage_c12",
       "kind": "tooling",
       "summary": "Integrate the complete reconstruction gate and corpus; retain the original accepted profiles and their complete evidence.",
+      "commits": ["aba4e8cc26e67013800f9c2653ea49893241b441"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "stage_c13",
+      "kind": "source",
+      "summary": "Polish source filenames and semantic owners; retain the original accepted profiles and their complete evidence.",
       "commits": ["release-commit"],
       "evidence": ["config/reconstruction/source_layout.json"]
     }
