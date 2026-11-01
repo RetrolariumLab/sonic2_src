@@ -117,7 +117,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/game/objects/environment/common/sliding_platform/main.s",
+      "source": "src/game/objects/environment/common/sliding_platform.s",
       "macro": "obj7A_properties",
       "code_sha256": "352505d1ba49fefa57c4eee00650c3643ffab6274cda922fc2ef8109d8c16d54",
       "role": "content_record",
@@ -125,7 +125,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/game/objects/environment/common/static_platform/main.s",
+      "source": "src/game/objects/environment/common/static_platform.s",
       "macro": "obj6B_properties",
       "code_sha256": "a4215572089b7c0bef060f01ff5834115709b8fb0a5ecbca1726f7d7eae2ef34",
       "role": "content_record",
@@ -133,7 +133,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/game/objects/environment/cpz/spin_tube/main.s",
+      "source": "src/game/objects/environment/cpz/spin_tube.s",
       "macro": "obj1E67Size",
       "code_sha256": "240af46fc9e60376cff8a76c526700e030f3971b449eb4355fdedada6e84475e",
       "role": "content_record",
@@ -141,7 +141,7 @@
       "format_owner": "pulley-children-s2"
     },
     {
-      "source": "src/game/objects/environment/ooz/sliding_spikes/main.s",
+      "source": "src/game/objects/environment/ooz/sliding_spikes.s",
       "macro": "obj43_properties",
       "code_sha256": "8dade5cb08ff7bc602a2dc2d00bac933a638877d0b7dbf6d628f8acee5fbe948",
       "role": "content_record",
@@ -157,7 +157,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/game/objects/items/monitor_contents/main.s",
+      "source": "src/game/objects/items/monitor_contents.s",
       "macro": "TeleportTableEntry",
       "code_sha256": "8dd1fd8899bd9ea13cfbd6fdc370c1a281972494d063a5e35dd860d4273ae31e",
       "role": "content_record",
@@ -165,7 +165,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/game/objects/items/monitor_contents/main.s",
+      "source": "src/game/objects/items/monitor_contents.s",
       "macro": "obj0e_make_sprite_position",
       "code_sha256": "13d28e6464e2cfded96bf36774f1ccbef7081e41eb6c1bf0f34422d100acf7d7",
       "role": "content_record",
@@ -189,7 +189,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/game/special_stage/objects/character_shadow/main.s",
+      "source": "src/game/special_stage/objects/character_shadow.s",
       "macro": "obj63_data",
       "code_sha256": "8787146632338076dd4955114949ded2861cd1b5ee02091a14e1e320b6d02e24",
       "role": "content_record",
@@ -405,7 +405,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/ui/objects/level/title_cards/main.s",
+      "source": "src/ui/objects/level/title_cards.s",
       "macro": "titlecardobjdata",
       "code_sha256": "2a9999e93e5e980b256fd48004d6435d22b2e9701422a7b101169214b0d1ddb5",
       "role": "content_record",
@@ -413,7 +413,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/ui/objects/sega/sonic/main.s",
+      "source": "src/ui/objects/sega/sonic.s",
       "macro": "map_piece",
       "code_sha256": "a391789bee2bbd1c742e80b4e361d9f8e91e15c5adfcdf56839e453a0a2a570c",
       "role": "content_record",
@@ -421,7 +421,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "source": "src/ui/objects/title/palette_cycle.s",
       "macro": "C9PalInfo",
       "code_sha256": "58c9139cdb1512eff3fd9f2c77995eea6be128cdee5bc0a7ec537329b991a09f",
       "role": "content_record",
@@ -429,7 +429,7 @@
       "format_owner": "engine-records-s2"
     },
     {
-      "source": "src/ui/objects/two_player/results/main.s",
+      "source": "src/ui/objects/two_player/results.s",
       "macro": "obj21_make_position",
       "code_sha256": "6282645b2a8d754a37a974d8f6af7329469b2df3e84c9d044cc031b631c589c2",
       "role": "content_record",

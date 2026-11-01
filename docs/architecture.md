@@ -25,9 +25,9 @@ ranges and size exceptions.
   `src/audio/z80/driver.asm` includes executable driver modules and engine
   tables. Stored songs/effects, FM voices, PSG envelopes and DAC/PCM are private
   content inputs.
-- Source-defined mappings, DPLC and engine/content tables live beside their
-  subsystem owners. Their inline form is preserved; original binary graphics,
-  level and collision assets are extracted under data/.
+- Source-defined mappings, DPLC and engine/content tables are inline within a
+  cohesive owner or have an explicit shared physical owner. Original binary
+  graphics, level and collision assets are extracted under data/.
 
 ## Authoritative facts
 

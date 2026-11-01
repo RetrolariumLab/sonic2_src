@@ -4,9 +4,10 @@ from pathlib import Path
 import json
 import tempfile
 import unittest
+from scripts.validation.semantics import fingerprint
 from scripts.build.project import ROOT
 from scripts.build.listing_source import ListingIndex, SourceRow
-from scripts.authoring.source_data import private_placements, animation_roundtrip, demo_roundtrip
+from scripts.authoring.source_data import private_placements, animation_roundtrip, demo_roundtrip, tube_path_roundtrip
 
 
 class SourceDataTests(unittest.TestCase):
@@ -143,6 +144,27 @@ class SourceDataTests(unittest.TestCase):
         context["symbols"]["Demo_Test"] = 18
         with self.assertRaisesRegex(ValueError, "first record"):
             demo_roundtrip({"source": name, "root_symbol": "Demo_Test", "codec": "demo-input-s2"}, context)
+
+    def test_inline_tube_paths_stop_before_the_next_table_and_code(self):
+        name = "src/tube.s"
+        data = ["Paths: offsetTable", " offsetTableEntry.w Point", "Point: dc.w 4", " dc.w 16,32"]
+        lines = ["Entry: rts", *data, "Other: offsetTable", " offsetTableEntry.w Elsewhere", "After: rts"]
+        context = {
+            "revision": "test",
+            "rom": bytes(16) + bytes.fromhex("0002 0004 0010 0020") + bytes(8),
+            "symbols": {"Paths": 16},
+            "listing": ListingIndex({(name, 6): 24}, [], {name: lines}, {}),
+        }
+        artifact = {
+            "source": name,
+            "codec": "tube-path-s2",
+            "root_symbol": "Paths",
+            "source_region": {"first_line": 2, "last_line": 5, "code_sha256": fingerprint("\n".join(data), {})},
+        }
+        report = tube_path_roundtrip(artifact, context)
+        self.assertEqual(report["references"], 1)
+        self.assertEqual(report["end_exclusive"], 24)
+        self.assertTrue(report["zero_edit"])
 
 
 if __name__ == "__main__":

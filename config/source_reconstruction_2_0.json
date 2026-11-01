@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 7
+    "commit_count": 8
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -103,6 +103,13 @@
       "id": "stage_c16",
       "kind": "source",
       "summary": "Consolidate adjacent modules and shorten the scrolling manager; retain the original accepted profiles and their complete evidence.",
+      "commits": ["8ccdb5d339e0fe3667adfeee0c35adebb5a99b18"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "stage_c17",
+      "kind": "source",
+      "summary": "Flatten cohesive object source owners; retain the original accepted profiles and their complete evidence.",
       "commits": ["release-commit"],
       "evidence": ["config/reconstruction/source_layout.json"]
     }

@@ -7039,44 +7039,68 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/collision_switcher/data/mappings.s",
+      "source": "src/game/objects/environment/common/collision_switcher.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj03",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 238,
+        "last_line": 290,
+        "initial_scope": "Obj03_MapUnc_1FFB8",
+        "code_sha256": "b77a508ef958830831b2a1497db0a7631f16a6dadec30352dcbf327f753d8308"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/water_surface/data/mappings_a.s",
+      "source": "src/game/objects/environment/common/water_surface.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj04_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 107,
+        "last_line": 160,
+        "initial_scope": "Obj04_MapUnc_20A0E",
+        "code_sha256": "678b35567cd345069aef0b8664a215a5a2cf8298a386b87bdbb317cc9c43f4ef"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/water_surface/data/mappings_b.s",
+      "source": "src/game/objects/environment/common/water_surface.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj04_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 165,
+        "last_line": 201,
+        "initial_scope": "Obj04_MapUnc_20AFE",
+        "code_sha256": "0157128e45a4459d17275603f497941ef2b23758793bf7553e6ce59634e0414f"
+      }
     },
     {
-      "source": "src/game/objects/player/splash_dust/data/mappings.s",
+      "source": "src/game/objects/player/splash_dust.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj08",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 197,
+        "last_line": 308,
+        "initial_scope": "Obj08_MapUnc_1DF5E",
+        "code_sha256": "58e54e437af978a90713ab84157212574782e3b38d003372c8499fb93a6a37ca"
+      }
     },
     {
       "source": "src/game/special_stage/objects/sonic/data/mappings.s",
@@ -7089,44 +7113,68 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cpz/pipe/data/mappings.s",
+      "source": "src/game/objects/environment/cpz/pipe.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj0B",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 103,
+        "last_line": 135,
+        "initial_scope": "Obj0B_MapUnc_201A0",
+        "code_sha256": "6656275012f2c4a5c8e91b9018b379808baf59e30e883fd2eab5a4cb232e1e73"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/floating_platform/data/mappings.s",
+      "source": "src/game/objects/environment/common/floating_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj0C",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 91,
+        "last_line": 98,
+        "initial_scope": "Obj0C_MapUnc_202FA",
+        "code_sha256": "84defd202c55409df8c778c3ea5d591d353731ebbbc429f942799d4da9e766aa"
+      }
     },
     {
-      "source": "src/game/objects/items/signpost/data/mappings_a.s",
+      "source": "src/game/objects/items/signpost.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj0D_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 344,
+        "last_line": 386,
+        "initial_scope": "Obj0D_MapUnc_195BE",
+        "code_sha256": "2ca9f524315ae82e5a9dde1aa5962a6e023d1df20c3e1cfc5efe9b35ff893e85"
+      }
     },
     {
-      "source": "src/game/objects/items/signpost/data/mappings_b.s",
+      "source": "src/game/objects/items/signpost.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj0D_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 392,
+        "last_line": 434,
+        "initial_scope": "Obj0D_MapUnc_19656",
+        "code_sha256": "86563245a52417917f7ab93cf45beb7c34afd023da8538cfe0508d86f92da286"
+      }
     },
     {
       "source": "src/ui/objects/title/animations/data/mappings.s",
@@ -7139,174 +7187,276 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/ui/objects/title/menu/data/mappings.s",
+      "source": "src/ui/objects/title/menu.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj0F",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 107,
+        "last_line": 145,
+        "initial_scope": "Obj0F_MapUnc_13B70",
+        "code_sha256": "4b4c40aab6e950d8c863c86041110a607219e9493145898ef4e8bd6370e97297"
+      }
     },
     {
-      "source": "src/game/special_stage/objects/tails/data/mappings.s",
+      "source": "src/game/special_stage/objects/tails.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj10",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 294,
+        "last_line": 432,
+        "initial_scope": "Obj10_MapUnc_34B3E",
+        "code_sha256": "e7f0dfb7a69ad3fd7a21e22ee7bec257e639736bce1249f48e7f632c5b957c38"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/bridge/data/mappings_a.s",
+      "source": "src/game/objects/environment/common/bridge.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj11_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 505,
+        "last_line": 537,
+        "initial_scope": "Obj11_MapUnc_FC28",
+        "code_sha256": "7b9f06c87c5cdaa291d4e55ede443545634e04eaea796b415b8a2c877df2fd3d"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/bridge/data/mappings_b.s",
+      "source": "src/game/objects/environment/common/bridge.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj11_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 543,
+        "last_line": 555,
+        "initial_scope": "Obj11_MapUnc_FC70",
+        "code_sha256": "d0ae22444cb3d4ac890332511cf98b2e4453f3f79a32e5b78d6b1e11ce38f433"
+      }
     },
     {
-      "source": "src/game/objects/environment/hpz/emerald/data/mappings.s",
+      "source": "src/game/objects/environment/hpz/emerald.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj12",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 40,
+        "last_line": 48,
+        "initial_scope": "Obj12_MapUnc_20382",
+        "code_sha256": "e72bd006722071768cfcc4f07ef896b462267da2df33ac4ad818848fbe0d7d05"
+      }
     },
     {
-      "source": "src/game/objects/environment/hpz/waterfall/data/mappings.s",
+      "source": "src/game/objects/environment/hpz/waterfall.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj13",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 128,
+        "last_line": 338,
+        "initial_scope": "Obj13_MapUnc_20528",
+        "code_sha256": "2ddc1236ef751fad7594d883661fe98b58f73a08079b94c6726ba59a27d0c540"
+      }
     },
     {
-      "source": "src/game/objects/environment/htz/seesaw/data/mappings_a.s",
+      "source": "src/game/objects/environment/htz/seesaw.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj14_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 338,
+        "last_line": 366,
+        "initial_scope": "Obj14_MapUnc_21CF0",
+        "code_sha256": "1ff51c1af186ad6c6bdcf95a60ad61fd300ab6ed597a5f7a23f1cd4aeec4ab94"
+      }
     },
     {
-      "source": "src/game/objects/environment/htz/seesaw/data/mappings_b.s",
+      "source": "src/game/objects/environment/htz/seesaw.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj14_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 371,
+        "last_line": 383,
+        "initial_scope": "Obj14_MapUnc_21D7C",
+        "code_sha256": "5dd8c7eeeeca91b8d89bd36f9d38cc08599257fe544be8219bfc6eba2d0efaa1"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/swinging_platform/data/mappings_a.s",
+      "source": "src/game/objects/environment/common/swinging_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj15_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 473,
+        "last_line": 493,
+        "initial_scope": "Obj15_MapUnc_101E8",
+        "code_sha256": "5dc8f6ad48e435df87482f3af997e6801adf9696e22bcb4678f6400eb8e25f37"
+      }
     },
     {
-      "source": "src/game/objects/environment/htz/diagonal_lift/data/mappings.s",
+      "source": "src/game/objects/environment/htz/diagonal_lift.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj16",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 122,
+        "last_line": 170,
+        "initial_scope": "Obj16_MapUnc_21F14",
+        "code_sha256": "0cacfe4770b3e0771a08ac3786ddf643cf45fbf5d58359ca0c68d005d3bd9a3b"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/spiked_helix/data/mappings.s",
+      "source": "src/game/objects/environment/common/spiked_helix.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj17",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 135,
+        "last_line": 176,
+        "initial_scope": "Obj17_MapUnc_10452",
+        "code_sha256": "4bc595394558ade643a3ab965d1c2c095200fbdfb61d1265fbb09732f276510c"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/platforms/data/mappings_a.s",
+      "source": "src/game/objects/environment/common/platforms.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj18_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 455,
+        "last_line": 475,
+        "initial_scope": "Obj18_MapUnc_107F6",
+        "code_sha256": "547932ad19219160f83637705a72e18df730fa6fb38ac2f9614c00beb31ccf76"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/platforms/data/mappings_b.s",
+      "source": "src/game/objects/environment/common/platforms.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj18_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 480,
+        "last_line": 500,
+        "initial_scope": "Obj18_MapUnc_1084E",
+        "code_sha256": "ce41b1119c044e57a6a61c01067cc746e678a1f3ab05cca26c113b99a7f0a850"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/moving_platforms/data/mappings.s",
+      "source": "src/game/objects/environment/common/moving_platforms.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj19",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 243,
+        "last_line": 271,
+        "initial_scope": "Obj19_MapUnc_2222A",
+        "code_sha256": "43c9fabcb59b43174b04450a518ebe5b0740c3992d9802e409b38cf11e981023"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/collapsing_floors/data/ledge_mappings_a.s",
+      "source": "src/game/objects/environment/common/collapsing_floors.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1A_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 321,
+        "last_line": 421,
+        "initial_scope": "Obj1A_MapUnc_10C6C",
+        "code_sha256": "07082ad582a41b70c04ace3f0088f20cbafc11d3a6cf20bf5e4a3e179cbd7968"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/collapsing_floors/data/ledge_mappings_b.s",
+      "source": "src/game/objects/environment/common/collapsing_floors.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1A_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 484,
+        "last_line": 515,
+        "initial_scope": "Obj1A_MapUnc_1101C",
+        "code_sha256": "800c3637467fa539dd5314efc05fa71c1dfc26dc756517837aa4e88c10e1fa10"
+      }
     },
     {
-      "source": "src/game/objects/environment/cpz/speed_booster/data/mappings.s",
+      "source": "src/game/objects/environment/cpz/speed_booster.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1B",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 109,
+        "last_line": 122,
+        "initial_scope": "Obj1B_MapUnc_223E2",
+        "code_sha256": "e73754f78b8a563987619a5df7e86f0bb4606eb5ecd0af7570d6875657ee4ccd"
+      }
     },
     {
       "source": "src/game/objects/environment/common/bridge_stake/data/mappings_a.s",
@@ -7359,104 +7509,164 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cpz/blue_balls/data/mappings.s",
+      "source": "src/game/objects/environment/cpz/blue_balls.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1D",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 136,
+        "last_line": 143,
+        "initial_scope": "Obj1D_MapUnc_22576",
+        "code_sha256": "08163424805de2d8fa06394924f8b436921031dba82c0c90c8d35eca06fff7e9"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/collapsing_floors/data/floor_mappings_a.s",
+      "source": "src/game/objects/environment/common/collapsing_floors.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1F_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 426,
+        "last_line": 468,
+        "initial_scope": "Obj1F_MapUnc_10F0C",
+        "code_sha256": "3dc68e3cb8588553ef251d712f8b7a2efe5fe15aa578b3808dbbfc1fda5a2047"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/collapsing_floors/data/floor_mappings_b.s",
+      "source": "src/game/objects/environment/common/collapsing_floors.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1F_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 520,
+        "last_line": 535,
+        "initial_scope": "Obj1F_MapUnc_110C6",
+        "code_sha256": "7c4cb0d8158595686e4f740755423b48d1a56c11b86a076d7aefa2c24f86ae5d"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/collapsing_floors/data/mappings_c.s",
+      "source": "src/game/objects/environment/common/collapsing_floors.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1F_c",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 540,
+        "last_line": 560,
+        "initial_scope": "Obj1F_MapUnc_11106",
+        "code_sha256": "5ccadd74c33b0b2732f5535608c3808f9c09e2d3e72a463c1b16ec013c461e37"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/collapsing_floors/data/mappings_d.s",
+      "source": "src/game/objects/environment/common/collapsing_floors.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1F_d",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 565,
+        "last_line": 587,
+        "initial_scope": "Obj1F_MapUnc_1115E",
+        "code_sha256": "f125d59d1cc82e71bb5bf7bbd53940b50aef35def094e97ba09d293174c9f2d4"
+      }
     },
     {
-      "source": "src/game/objects/bosses/htz/lava_bubble/data/mappings_a.s",
+      "source": "src/game/objects/bosses/htz/lava_bubble.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj20_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 202,
+        "last_line": 233,
+        "initial_scope": "Obj20_MapUnc_23254",
+        "code_sha256": "1a5a8e7a50de32fec84b192c60138f2cc6feb8ae7cacd4f294b88682320c85e0"
+      }
     },
     {
-      "source": "src/game/objects/bosses/htz/lava_bubble/data/mappings_b.s",
+      "source": "src/game/objects/bosses/htz/lava_bubble.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj20_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 238,
+        "last_line": 270,
+        "initial_scope": "Obj20_MapUnc_23294",
+        "code_sha256": "eda2bb60c919e329684c994c3eb94b6e2d35574bfe881e0050a270aabdea1d58"
+      }
     },
     {
-      "source": "src/ui/objects/two_player/results/data/mappings.s",
+      "source": "src/ui/objects/two_player/results.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj21",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 64,
+        "last_line": 87,
+        "initial_scope": "Obj21_MapUnc_8146",
+        "code_sha256": "0387337a77b5d634ce2a9467d1264958f324acbff3f3e3929917d922395649c1"
+      }
     },
     {
-      "source": "src/game/objects/environment/arz/arrow_shooter/data/mappings.s",
+      "source": "src/game/objects/environment/arz/arrow_shooter.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj22",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 134,
+        "last_line": 166,
+        "initial_scope": "Obj22_MapUnc_25804",
+        "code_sha256": "7d931228c4b84864bdb16dd0d1e5517983e1bbc613a1322d975c463242875752"
+      }
     },
     {
-      "source": "src/game/objects/environment/arz/falling_pillar/data/mappings.s",
+      "source": "src/game/objects/environment/arz/falling_pillar.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj23",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 136,
+        "last_line": 163,
+        "initial_scope": "Obj23_MapUnc_259E6",
+        "code_sha256": "8439f699538248291abbcca1fb3673c39448bcb90d801d33bf1278b5c3145f68"
+      }
     },
     {
       "source": "src/game/objects/items/monitor/data/mappings.s",
@@ -7469,14 +7679,20 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/effects/explosion/data/mappings.s",
+      "source": "src/game/objects/effects/explosion.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj27",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 53,
+        "last_line": 80,
+        "initial_scope": "Obj27_MapUnc_21120",
+        "code_sha256": "a94b1ab27ed75e13f0758ddc3a4a26e7e3dc499d0fc81c580259fde5c8e78fd5"
+      }
     },
     {
       "source": "src/game/objects/items/animals/data/mappings_a.s",
@@ -7529,174 +7745,276 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/items/points/data/mappings.s",
+      "source": "src/game/objects/items/points.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj29",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 54,
+        "last_line": 94,
+        "initial_scope": "Obj29_MapUnc_11ED0",
+        "code_sha256": "9bd60258e00f2ad2b68347ccff92eaf5212f80175e5681d3f9405bdf75876dad"
+      }
     },
     {
-      "source": "src/game/objects/environment/mcz/stomper/data/mappings.s",
+      "source": "src/game/objects/environment/mcz/stomper.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj2A",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 57,
+        "last_line": 69,
+        "initial_scope": "Obj2A_MapUnc_11666",
+        "code_sha256": "fc233cb94f08f2a977cafa35cbbc4515de273b4fe6daa560eed87d3679d81647"
+      }
     },
     {
-      "source": "src/game/objects/environment/arz/rising_pillar/data/mappings.s",
+      "source": "src/game/objects/environment/arz/rising_pillar.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj2B",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 211,
+        "last_line": 403,
+        "initial_scope": "Obj2B_MapUnc_25C6E",
+        "code_sha256": "cfdd039f702cd84c4f4669f8ddc61b3eb17511233f5d8894e44c17f7e96f5d06"
+      }
     },
     {
-      "source": "src/game/objects/environment/arz/leaf_spawner/data/mappings.s",
+      "source": "src/game/objects/environment/arz/leaf_spawner.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj2C",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 193,
+        "last_line": 215,
+        "initial_scope": "Obj2C_MapUnc_2631E",
+        "code_sha256": "fd1444a17e1f4b11c3d686876e4a9379f8ecf08a07b2e1cefb133e61faf1f155"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/one_way_barrier/data/mappings.s",
+      "source": "src/game/objects/environment/common/one_way_barrier.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj2D",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 139,
+        "last_line": 167,
+        "initial_scope": "Obj2D_MapUnc_11822",
+        "code_sha256": "e07d8e4a48d7e1987dc833a56b75a18a2bd171a85d8616e4d16dcb9cfab4ebc2"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/smashable_blocks/data/mappings.s",
+      "source": "src/game/objects/environment/common/smashable_blocks.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj2F",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 376,
+        "last_line": 445,
+        "initial_scope": "Obj2F_MapUnc_236FA",
+        "code_sha256": "ae8cc58f26c7bcccd5e96e5d23c8198c5788213df865470f3b04c6e1ec3c767c"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/lava_collision/data/mappings_a.s",
+      "source": "src/game/objects/environment/common/lava_collision.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj31_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 61,
+        "last_line": 69,
+        "initial_scope": "Obj31_MapUnc_20E6C",
+        "code_sha256": "9456ea2e233e664fa155e5521dcd3e0ffc53a4a743d6f56f585764621dd11256"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/lava_collision/data/mappings_b.s",
+      "source": "src/game/objects/environment/common/lava_collision.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj31_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 74,
+        "last_line": 100,
+        "initial_scope": "Obj31_MapUnc_20E74",
+        "code_sha256": "360be76b0caa978702a7e3aec732da3f104c0b62c430841b0e5788db870932a2"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/smashable_blocks/data/mappings_a.s",
+      "source": "src/game/objects/environment/common/smashable_blocks.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj32_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 450,
+        "last_line": 462,
+        "initial_scope": "Obj32_MapUnc_23852",
+        "code_sha256": "2f6ae52a3c76c012b51c84e506b7d33746b9d235215b0de2f889b7739a9ec927"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/smashable_blocks/data/mappings_b.s",
+      "source": "src/game/objects/environment/common/smashable_blocks.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj32_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 467,
+        "last_line": 477,
+        "initial_scope": "Obj32_MapUnc_23886",
+        "code_sha256": "224301a425c790453c59f14b9ce7068583a2085b4370a82c575590aad926d96d"
+      }
     },
     {
-      "source": "src/game/objects/environment/ooz/green_platform/data/mappings_a.s",
+      "source": "src/game/objects/environment/ooz/green_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj33_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 237,
+        "last_line": 245,
+        "initial_scope": "Obj33_MapUnc_23DDC",
+        "code_sha256": "6fb04d629b3a8da85b79296d155260660e400f86ec6381045e29a36f3a5245b8"
+      }
     },
     {
-      "source": "src/game/objects/environment/ooz/green_platform/data/mappings_b.s",
+      "source": "src/game/objects/environment/ooz/green_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj33_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 250,
+        "last_line": 270,
+        "initial_scope": "Obj33_MapUnc_23DF0",
+        "code_sha256": "0cf3b8d3f9cd28e8be5e389e8327382c63792e02ba79561a452211e0f3f57989"
+      }
     },
     {
-      "source": "src/game/objects/items/invincibility_stars/data/mappings.s",
+      "source": "src/game/objects/items/invincibility_stars.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj35",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 242,
+        "last_line": 288,
+        "initial_scope": "Obj35_MapUnc_1DCBC",
+        "code_sha256": "c6dbd9c2d67f51d75569594b5e8f2802a97a4a0854850f83b7a533a5dd6c55cc"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/spikes/data/mappings.s",
+      "source": "src/game/objects/environment/common/spikes.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj36",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 264,
+        "last_line": 338,
+        "initial_scope": "Obj36_MapUnc_15B68",
+        "code_sha256": "17441421bef8b964a98d95e98f9a53672f986c3805ff0dfb4b6fdf6300d29f96"
+      }
     },
     {
-      "source": "src/game/objects/items/rings/data/mappings_a.s",
+      "source": "src/game/objects/items/rings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj37_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 451,
+        "last_line": 497,
+        "initial_scope": "Obj25_MapUnc_12382",
+        "code_sha256": "2a92ed54340774b1049265939b10df2a691e0f97faf80d6115cd4d3b42adbedd"
+      }
     },
     {
-      "source": "src/game/objects/items/rings/data/mappings_b.s",
+      "source": "src/game/objects/items/rings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj37_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 502,
+        "last_line": 550,
+        "initial_scope": "Obj37_MapUnc_123E6",
+        "code_sha256": "375df1399c85dd8e57eecb3c2aec5acd14519e63e9b899e08c554d5d253ec473"
+      }
     },
     {
-      "source": "src/game/objects/items/rings/data/mappings_c.s",
+      "source": "src/game/objects/items/rings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj37_c",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 555,
+        "last_line": 617,
+        "initial_scope": "Obj37_MapUnc_124E6",
+        "code_sha256": "5dd77277d56aae0fbd0f94133215fbe0b6a0abd93607554f67923d7fca21f97b"
+      }
     },
     {
       "source": "src/game/objects/items/shield/data/mappings.s",
@@ -7719,194 +8037,308 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/purple_rock/data/mappings.s",
+      "source": "src/game/objects/environment/common/purple_rock.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj3B",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 45,
+        "last_line": 53,
+        "initial_scope": "Obj3B_MapUnc_15D2E",
+        "code_sha256": "a3928e3bb8e2dae6e48c8a408b71277184b6beda4af095ea793efdf5e5803257"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/smashable_wall/data/mappings.s",
+      "source": "src/game/objects/environment/common/smashable_wall.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj3C",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 132,
+        "last_line": 170,
+        "initial_scope": "Obj3C_MapUnc_15ECC",
+        "code_sha256": "642bb60c587eb9edd744f45a9e98784234374334d72a2ccd8bdcc8680442c9c4"
+      }
     },
     {
-      "source": "src/game/objects/environment/ooz/launcher_cap/data/mappings.s",
+      "source": "src/game/objects/environment/ooz/launcher_cap.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj3D",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 273,
+        "last_line": 331,
+        "initial_scope": "Obj3D_MapUnc_250BA",
+        "code_sha256": "119b3161d9db328bda7dddd9c19fd77d0e6573821df77447d82a0de43a3e877c"
+      }
     },
     {
-      "source": "src/game/objects/items/prison_capsule/data/mappings.s",
+      "source": "src/game/objects/items/prison_capsule.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj3E",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 219,
+        "last_line": 278,
+        "initial_scope": "Obj3E_MapUnc_3F436",
+        "code_sha256": "d7049954223493fced78cc0d6ae3d59c40563fa77161f6a55783901027092a48"
+      }
     },
     {
-      "source": "src/game/objects/environment/ooz/fan/data/mappings_a.s",
+      "source": "src/game/objects/environment/ooz/fan.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj3F_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 222,
+        "last_line": 271,
+        "initial_scope": "Obj3F_MapUnc_2AA12",
+        "code_sha256": "f283eaed1b8c9169f1aa159da43d844b434c61798f18b4d14a1a8351088b92e4"
+      }
     },
     {
-      "source": "src/game/objects/environment/ooz/fan/data/mappings_b.s",
+      "source": "src/game/objects/environment/ooz/fan.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj3F_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 274,
+        "last_line": 323,
+        "initial_scope": "Obj3F_MapUnc_2AAC4",
+        "code_sha256": "2b1c436d82037817d53936fc56e655fe54b2f23a43c55de77178f25d1154cf6f"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/springboard/data/mappings.s",
+      "source": "src/game/objects/environment/common/springboard.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj40",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 203,
+        "last_line": 217,
+        "initial_scope": "Obj40_MapUnc_265F4",
+        "code_sha256": "24a6c7aaf7a0889211c861f3b59d816daf8709e63245d9574d1346b1ef8b8c09"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/steam_spring/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/steam_spring.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj42",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 187,
+        "last_line": 235,
+        "initial_scope": "Obj42_MapUnc_2686C",
+        "code_sha256": "52834dc00cb32deec8cc8c304ee91fccd976a7378b958b8dfdaca4f5c27d8fca"
+      }
     },
     {
-      "source": "src/game/objects/environment/ooz/sliding_spikes/data/mappings.s",
+      "source": "src/game/objects/environment/ooz/sliding_spikes.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj43",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 166,
+        "last_line": 178,
+        "initial_scope": "Obj43_MapUnc_23FE0",
+        "code_sha256": "2047df4a6e00307af32790a9f4fe3d2f7b1ed12537f1983070b124ae716d8dfb"
+      }
     },
     {
-      "source": "src/game/objects/environment/cnz/round_bumper/data/mappings.s",
+      "source": "src/game/objects/environment/cnz/round_bumper.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj44",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 103,
+        "last_line": 119,
+        "initial_scope": "Obj44_MapUnc_1F85A",
+        "code_sha256": "d8cd9f0abc2a594c556b0b74e57631d5d72d3d5978a52f0a9d75b386d7b3c318"
+      }
     },
     {
-      "source": "src/game/objects/environment/ooz/pressure_spring/data/mappings.s",
+      "source": "src/game/objects/environment/ooz/pressure_spring.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj45",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 398,
+        "last_line": 661,
+        "initial_scope": "Obj45_MapUnc_2451A",
+        "code_sha256": "bdda85c30bcdd2bc13e1987da71e7d93a8ed30978ee14d298d34483649536789"
+      }
     },
     {
-      "source": "src/game/objects/environment/ooz/ball/data/mappings.s",
+      "source": "src/game/objects/environment/ooz/ball.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj46",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 203,
+        "last_line": 233,
+        "initial_scope": "Obj46_MapUnc_24C52",
+        "code_sha256": "819f89803e6c0979e9798b1495da7e34262c6658d746d88f542df2131da79660"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/button/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/button.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj47",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 63,
+        "last_line": 80,
+        "initial_scope": "Obj47_MapUnc_24D96",
+        "code_sha256": "0a61707130f03514e74831bfa0e602fbb32b66af58238673a718186977dffc2d"
+      }
     },
     {
-      "source": "src/game/objects/environment/ooz/cannon/data/mappings.s",
+      "source": "src/game/objects/environment/ooz/cannon.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj48",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 264,
+        "last_line": 342,
+        "initial_scope": "Obj48_MapUnc_254FE",
+        "code_sha256": "cfffafc02b5221727f3e9f847900a0737accd3b7978c69b56f91c433c951e5c6"
+      }
     },
     {
-      "source": "src/game/objects/environment/ehz/waterfall/data/mappings.s",
+      "source": "src/game/objects/environment/ehz/waterfall.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj49",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 66,
+        "last_line": 142,
+        "initial_scope": "Obj49_MapUnc_20C50",
+        "code_sha256": "ce2e7481928f71c9139f0509ad3121f58f4cb737ef750770a399885a0bcc4a6c"
+      }
     },
     {
-      "source": "src/game/objects/enemies/octus/data/mappings.s",
+      "source": "src/game/objects/enemies/octus.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj4A",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 185,
+        "last_line": 232,
+        "initial_scope": "Obj4A_MapUnc_2CBFE",
+        "code_sha256": "d4d2315261ae0b18c112dd6ea9657d5350c511e58c94225221203a09d77ea431"
+      }
     },
     {
-      "source": "src/game/objects/enemies/buzzer/data/mappings.s",
+      "source": "src/game/objects/enemies/buzzer.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj4B",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 232,
+        "last_line": 274,
+        "initial_scope": "Obj4B_MapUnc_2D2EA",
+        "code_sha256": "a124669228f22092629d3a199447d7007563421dcc14b806b3042502c4385dde"
+      }
     },
     {
-      "source": "src/game/objects/enemies/aquis/data/mappings.s",
+      "source": "src/game/objects/enemies/aquis.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj50",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 265,
+        "last_line": 318,
+        "initial_scope": "Obj50_MapUnc_2CF94",
+        "code_sha256": "a953daa9cb3bfecd7f58d1db229520ebdc88bd8a7a24b848c2513ce1f035c636"
+      }
     },
     {
-      "source": "src/game/objects/bosses/cnz/data/mappings.s",
+      "source": "src/game/objects/bosses/cnz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj51",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 658,
+        "last_line": 775,
+        "initial_scope": "Obj51_MapUnc_320EA",
+        "code_sha256": "ee6ff2eb2f3451dc3a6aa6c7c4c31d863ed7c78590be7763d3c11fab3d2e025d"
+      }
     },
     {
       "source": "src/game/objects/bosses/htz/data/mappings_a.s",
@@ -7939,74 +8371,116 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/ooz/data/mappings.s",
+      "source": "src/game/objects/bosses/ooz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj55",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 718,
+        "last_line": 824,
+        "initial_scope": "Obj55_MapUnc_33756",
+        "code_sha256": "cbdb138a834062641941842330ba45405c7a927288242b429714775a80112c6d"
+      }
     },
     {
-      "source": "src/game/objects/bosses/ehz/data/mappings_a.s",
+      "source": "src/game/objects/bosses/ehz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj56_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 835,
+        "last_line": 888,
+        "initial_scope": "Obj56_MapUnc_2F970",
+        "code_sha256": "09854e28cfdf5188b8a53d8bcfead9d02884e5220765ba81ea997bcf5abb0f9b"
+      }
     },
     {
-      "source": "src/game/objects/bosses/ehz/data/mappings_b.s",
+      "source": "src/game/objects/bosses/ehz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj56_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 910,
+        "last_line": 954,
+        "initial_scope": "Obj56_MapUnc_2FA58",
+        "code_sha256": "fc97143f8e3f7424a965434fee8cb0951cd2c0b13cac3b8d0af3040a65cbdd29"
+      }
     },
     {
-      "source": "src/game/objects/bosses/ehz/data/mappings_c.s",
+      "source": "src/game/objects/bosses/ehz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj56_c",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 980,
+        "last_line": 1038,
+        "initial_scope": "Obj56_MapUnc_2FAF8",
+        "code_sha256": "62fd1ec24da407e944910abd2fe552e5a4642facd96094ca109846a3e56b0906"
+      }
     },
     {
-      "source": "src/game/objects/bosses/mcz/data/mappings.s",
+      "source": "src/game/objects/bosses/mcz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj57",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 544,
+        "last_line": 677,
+        "initial_scope": "Obj57_MapUnc_316EC",
+        "code_sha256": "eb72bdfb8f2b891c0d59260e6f39f5162f6168e8d86faa886af92521bd9a7c51"
+      }
     },
     {
-      "source": "src/game/objects/bosses/common/explosions/data/mappings.s",
+      "source": "src/game/objects/bosses/common/explosions.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj58",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 45,
+        "last_line": 82,
+        "initial_scope": "Obj58_MapUnc_2D50A",
+        "code_sha256": "7b51ca837befd51efc1fea00c378d5cd896075b37c82a75c7618335abc2861e4"
+      }
     },
     {
-      "source": "src/game/special_stage/objects/chaos_emerald/data/mappings.s",
+      "source": "src/game/special_stage/objects/chaos_emerald.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj59",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 286,
+        "last_line": 338,
+        "initial_scope": "Obj59_MapUnc_3625A",
+        "code_sha256": "e2dabcbc73be40b90a48ee6b6efff201e319a8b89fa5c65530d76961f1c20332"
+      }
     },
     {
       "source": "src/game/special_stage/objects/messages/data/mappings.s",
@@ -8029,14 +8503,20 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/masher/data/mappings.s",
+      "source": "src/game/objects/enemies/masher.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj5C",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 62,
+        "last_line": 78,
+        "initial_scope": "Obj5C_MapUnc_2D442",
+        "code_sha256": "74915fc1c26f8851c8efded69d032242339f6c195a197d8156ed4a689686d401"
+      }
     },
     {
       "source": "src/game/objects/bosses/cpz/data/mappings_a.s",
@@ -8079,34 +8559,52 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/hud/data/mappings.s",
+      "source": "src/game/special_stage/objects/hud.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj5E",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 104,
+        "last_line": 136,
+        "initial_scope": "Obj5E_MapUnc_7070",
+        "code_sha256": "36c84610b2c6ac175b8598733314bf62bed4b7dba496375ba4f849225ccf0309"
+      }
     },
     {
-      "source": "src/game/special_stage/objects/start_banner/data/mappings_a.s",
+      "source": "src/game/special_stage/objects/start_banner.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Obj5F_MapUnc_7240.offsets",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 128,
+        "last_line": 178,
+        "initial_scope": "Obj5F_MapUnc_7240",
+        "code_sha256": "021ae8ec3786898794b883639ce4674d7c10f1298b46937d1f20ee1b6fc25061"
+      }
     },
     {
-      "source": "src/game/special_stage/objects/start_banner/data/mappings_b.s",
+      "source": "src/game/special_stage/objects/start_banner.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj5F_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 183,
+        "last_line": 240,
+        "initial_scope": "Obj5F_MapUnc_72D2",
+        "code_sha256": "b0eb360ba9df9408fa90db6d705d31307b298d1591340aa0c66841b3ce1ebac2"
+      }
     },
     {
       "source": "src/game/special_stage/objects/rings_bombs/data/mappings.s",
@@ -8119,334 +8617,532 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/character_shadow/data/mappings.s",
+      "source": "src/game/special_stage/objects/character_shadow.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj63",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 136,
+        "last_line": 288,
+        "initial_scope": "Obj63_MapUnc_34492",
+        "code_sha256": "0e73b4f30b5bc596c98fb9a6d4276ed377bb59a079c03f99fe860189da64070e"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/twin_crusher/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/twin_crusher.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj64",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 135,
+        "last_line": 159,
+        "initial_scope": "Obj64_MapUnc_26A5C",
+        "code_sha256": "0eb659ff559f37d1283c9a24e3df1385184a5efb7316cd49ed5085f0f7674619"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/long_platform/data/mappings_a.s",
+      "source": "src/game/objects/environment/mtz/long_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj65_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 400,
+        "last_line": 418,
+        "initial_scope": "Obj65_Obj6A_Obj6B_MapUnc_26EC8",
+        "code_sha256": "4f235e4721f4536e557f792293a20e8276952a5f4357df77a9397bf0472d97ba"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/long_platform/data/mappings_b.s",
+      "source": "src/game/objects/environment/mtz/long_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj65_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 423,
+        "last_line": 443,
+        "initial_scope": "Obj65_MapUnc_26F04",
+        "code_sha256": "b710835c0fdd3aa83cf4d74bf745ebd3f5ac0c86652861281582a4a241c23075"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/spring_walls/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/spring_walls.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj66",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 156,
+        "last_line": 170,
+        "initial_scope": "Obj66_MapUnc_27120",
+        "code_sha256": "167a4ab7036b79f25792cd2e3c970605ea974829ae669fc7b1030a5efcfa5380"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/spin_tube/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/spin_tube.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj67",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 387,
+        "last_line": 403,
+        "initial_scope": "Obj67_MapUnc_27548",
+        "code_sha256": "35f907ec78a51b3cc99ee66338c0ed83618713d4e534fef95904512d7f35640f"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/harpoon_block/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/harpoon_block.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj68",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 164,
+        "last_line": 192,
+        "initial_scope": "Obj68_Obj6D_MapUnc_27750",
+        "code_sha256": "27f9516d7ef035ae509d9168f9343f287b1521a997fc352cb76ebe9c98e40776"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/nut/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/nut.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj69",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 168,
+        "last_line": 197,
+        "initial_scope": "Obj69_MapUnc_27A26",
+        "code_sha256": "4c7c0315882161f5df6236c4b8885340033b1c7a8cd002541ba6717a21c767c9"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/shifting_platform/data/mappings.s",
+      "source": "src/game/objects/environment/common/shifting_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj6A",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 204,
+        "last_line": 214,
+        "initial_scope": "Obj6A_MapUnc_27D30",
+        "code_sha256": "0d3250d59fff4452eb333981c1646b9dbae6aa7f8335c868ac72566b3b76e9f4"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/static_platform/data/mappings.s",
+      "source": "src/game/objects/environment/common/static_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj6B",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 401,
+        "last_line": 408,
+        "initial_scope": "Obj6B_MapUnc_2800E",
+        "code_sha256": "f27ea1b63ece15def74f312a93729c32e7d368367a13045d4a4ce2da43ef126a"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/pulley_platform/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/pulley_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj6C",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 251,
+        "last_line": 259,
+        "initial_scope": "Obj6C_MapUnc_28372",
+        "code_sha256": "77173a9d434ba34dd182dabb4dac51574a16e5aa074f86b030fed21df2c922a3"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/circular_platform/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/circular_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj6E",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 142,
+        "last_line": 175,
+        "initial_scope": "Obj6E_MapUnc_2852C",
+        "code_sha256": "2057e1c5dc82d9f6658d19c23e34b92f4e3e5bf1e7c903dfbf063cff506ddb0f"
+      }
     },
     {
-      "source": "src/game/special_stage/objects/results/data/mappings.s",
+      "source": "src/game/special_stage/objects/results.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj6F",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 780,
+        "last_line": 1098,
+        "initial_scope": "Obj6F_MapUnc_14ED0",
+        "code_sha256": "3dd4629f44b1cfe1f78f639f68a5dbf5e6cb23eb127c38671a53794b74a356d4"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/giant_cog/data/mappings.s",
+      "source": "src/game/objects/environment/mtz/giant_cog.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj70",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 178,
+        "last_line": 344,
+        "initial_scope": "Obj70_MapUnc_28786",
+        "code_sha256": "337490d509c64b5a32e3fe3f61ab5c3d31f84774d1c7e5557c970a1d08721cfd"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/stake_orb/data/mappings_a.s",
+      "source": "src/game/objects/environment/common/stake_orb.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj71_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 59,
+        "last_line": 83,
+        "initial_scope": "Obj71_MapUnc_11396",
+        "code_sha256": "479675d386b61258add8f3cb98e438929b4eae385278d664e95e94a5862792be"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/stake_orb/data/mappings_b.s",
+      "source": "src/game/objects/environment/common/stake_orb.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj71_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 108,
+        "last_line": 144,
+        "initial_scope": "Obj71_MapUnc_11576",
+        "code_sha256": "36496062f4754b70406df0050d1cf1a6091eefcbe7a9c787dd9db8c318c6859f"
+      }
     },
     {
-      "source": "src/game/objects/unused/mcz_platform/data/mappings.s",
+      "source": "src/game/objects/unused/mcz_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj73",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 185,
+        "last_line": 192,
+        "initial_scope": "Obj73_MapUnc_28B9C",
+        "code_sha256": "2c915a4031c0593e625b927ec38fd281cb19a1faa300f71679c435b608d297e6"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/invisible_solid_block/data/mappings.s",
+      "source": "src/game/objects/environment/common/invisible_solid_block.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj74",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 62,
+        "last_line": 88,
+        "initial_scope": "Obj74_MapUnc_20F66",
+        "code_sha256": "7e0d48b2fd645f83db9c8c3fcebef2aae230b672b76d1c8923853e08e53abf71"
+      }
     },
     {
-      "source": "src/game/objects/environment/mcz/brick/data/mappings.s",
+      "source": "src/game/objects/environment/mcz/brick.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj75",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 156,
+        "last_line": 175,
+        "initial_scope": "Obj75_MapUnc_28D8A",
+        "code_sha256": "95aa651723f1d64ca65655760777b447f2f7a9c708b196325ea9ee919ea5cc00"
+      }
     },
     {
-      "source": "src/game/objects/environment/mcz/sliding_spikes/data/mappings.s",
+      "source": "src/game/objects/environment/mcz/sliding_spikes.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj76",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 124,
+        "last_line": 136,
+        "initial_scope": "Obj76_MapUnc_28F3A",
+        "code_sha256": "aae72411cc2cac3e187778945784980ae88680b5593061fadf2477a467b4f6d8"
+      }
     },
     {
-      "source": "src/game/objects/environment/mcz/bridge/data/mappings.s",
+      "source": "src/game/objects/environment/mcz/bridge.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj77",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 90,
+        "last_line": 152,
+        "initial_scope": "Obj77_MapUnc_29064",
+        "code_sha256": "b4524cf8f81462c61d03975c02469f55182c171c5d8df550708f050e20f3092f"
+      }
     },
     {
-      "source": "src/game/objects/items/starpost/data/mappings_a.s",
+      "source": "src/game/objects/items/starpost.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj79_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 253,
+        "last_line": 288,
+        "initial_scope": "Obj79_MapUnc_1F424",
+        "code_sha256": "7eb8917ad73c7bd50938439916dcb7c3a9f6395560646f5b683f171c38ce8567"
+      }
     },
     {
-      "source": "src/game/objects/items/starpost/data/mappings_b.s",
+      "source": "src/game/objects/items/starpost.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj79_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 293,
+        "last_line": 310,
+        "initial_scope": "Obj79_MapUnc_1F4A0",
+        "code_sha256": "00ffae0cbda6a8909e63aee3d2507a0dde08a5954dc74984eca45f53d4c33299"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/sliding_platform/data/mappings.s",
+      "source": "src/game/objects/environment/common/sliding_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj7A",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 178,
+        "last_line": 186,
+        "initial_scope": "Obj7A_MapUnc_29564",
+        "code_sha256": "6d1d317939386fe8b53f1c841a3104569ffd9c4408108b70955b6fee882b52d5"
+      }
     },
     {
-      "source": "src/game/objects/environment/cpz/spring_lid/data/mappings.s",
+      "source": "src/game/objects/environment/cpz/spring_lid.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj7B",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 170,
+        "last_line": 195,
+        "initial_scope": "Obj7B_MapUnc_29780",
+        "code_sha256": "0b0fc1bd8da9b9dcaf5ad5c97ec06b7f0b90f42964baa51716e2438ff6863aa6"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/pylon/data/mappings.s",
+      "source": "src/game/objects/environment/common/pylon.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj7C",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 47,
+        "last_line": 62,
+        "initial_scope": "Obj7C_MapUnc_2103C",
+        "code_sha256": "7f58728dae9bbd7cf5703c026c79670c11c10109e5b57af3e9590708022e6007"
+      }
     },
     {
-      "source": "src/game/objects/items/hidden_bonuses/data/mappings.s",
+      "source": "src/game/objects/items/hidden_bonuses.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj7D",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 87,
+        "last_line": 108,
+        "initial_scope": "Obj7D_MapUnc_1F6FE",
+        "code_sha256": "a0e62e240b92ccd70286fc5485e2306ddadd8204d8d531d1df74b5fa7baf1124"
+      }
     },
     {
-      "source": "src/game/objects/items/super_sonic_stars/data/mappings.s",
+      "source": "src/game/objects/items/super_sonic_stars.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj7E",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 78,
+        "last_line": 110,
+        "initial_scope": "Obj7E_MapUnc_1E1BE",
+        "code_sha256": "c1cecb16dbc45abd3348b4536b87d75f20c7252ef72b6aaf3cfc924e4bcd0a29"
+      }
     },
     {
-      "source": "src/game/objects/environment/mcz/vine_switch/data/mappings.s",
+      "source": "src/game/objects/environment/mcz/vine_switch.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj7F",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 109,
+        "last_line": 125,
+        "initial_scope": "Obj7F_MapUnc_29938",
+        "code_sha256": "7822c8c17d2bbb20e8559e59f36cc3c15cbba3302e95cd53d7892efbab38a117"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/moving_vine/data/mappings_a.s",
+      "source": "src/game/objects/environment/common/moving_vine.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj80_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 265,
+        "last_line": 337,
+        "initial_scope": "Obj80_MapUnc_29C64",
+        "code_sha256": "86a49929dbc12104a3ec544db2c7e861aa46aebf489f75c306828bee7ea1b53c"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/moving_vine/data/mappings_b.s",
+      "source": "src/game/objects/environment/common/moving_vine.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj80_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 342,
+        "last_line": 458,
+        "initial_scope": "Obj80_MapUnc_29DD0",
+        "code_sha256": "325b95aea1d0e8bbcfc3720bdf64433a3e52424fb99bfd670e94f5e8aa791d74"
+      }
     },
     {
-      "source": "src/game/objects/environment/mcz/drawbridge/data/mappings.s",
+      "source": "src/game/objects/environment/mcz/drawbridge.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj81",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 199,
+        "last_line": 210,
+        "initial_scope": "Obj81_MapUnc_2A24E",
+        "code_sha256": "27bf99aa99236981bcefbba418dfe7dff27e0632fe7b4ad6caa3de737c35219a"
+      }
     },
     {
-      "source": "src/game/objects/environment/arz/swinging_platform/data/mappings.s",
+      "source": "src/game/objects/environment/arz/swinging_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj82",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 223,
+        "last_line": 244,
+        "initial_scope": "Obj82_MapUnc_2A476",
+        "code_sha256": "255140f8423beca56a34f9434d5812f8f525d46863441bb48a6fb29b4c3095ca"
+      }
     },
     {
       "source": "src/game/objects/environment/arz/triple_platform/data/mappings.s",
@@ -8459,484 +9155,772 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cnz/plunger/data/mappings_a.s",
+      "source": "src/game/objects/environment/cnz/plunger.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj85_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 416,
+        "last_line": 450,
+        "initial_scope": "Obj85_MapUnc_2B07E",
+        "code_sha256": "22716ca4d07911ec9165207457bc55d5e011438609c8deef65d0ffcc8d93dae4"
+      }
     },
     {
-      "source": "src/game/objects/environment/cnz/plunger/data/mappings_b.s",
+      "source": "src/game/objects/environment/cnz/plunger.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj85_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 452,
+        "last_line": 477,
+        "initial_scope": "Obj85_MapUnc_2B0EC",
+        "code_sha256": "e5781095e43d1ca27e834bd9517760d2610adb24406b519247ff22857e039560"
+      }
     },
     {
-      "source": "src/game/objects/environment/cnz/pinball_flipper/data/mappings.s",
+      "source": "src/game/objects/environment/cnz/pinball_flipper.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj86",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 256,
+        "last_line": 300,
+        "initial_scope": "Obj86_MapUnc_2B45A",
+        "code_sha256": "8e2633513bfae61468486d95184c2f11fb3baad70bad211fc550d67e19b8d489"
+      }
     },
     {
-      "source": "src/game/special_stage/objects/tails/data/tail_mappings.s",
+      "source": "src/game/special_stage/objects/tails.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj88",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 448,
+        "last_line": 555,
+        "initial_scope": "Obj88_MapUnc_34DA8",
+        "code_sha256": "60afa77905caeb9544e43312ae080b89046ab5b989d70ed83ea666faaf26ab97"
+      }
     },
     {
-      "source": "src/game/objects/bosses/arz/data/mappings_a.s",
+      "source": "src/game/objects/bosses/arz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj89_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 810,
+        "last_line": 843,
+        "initial_scope": "Obj89_MapUnc_30D68",
+        "code_sha256": "2fd07a30bfeb1c0cb4c3842d25028cb4dcd7df7eebbc12401a235c3c9aefbc10"
+      }
     },
     {
-      "source": "src/game/objects/bosses/arz/data/mappings_b.s",
+      "source": "src/game/objects/bosses/arz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj89_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 866,
+        "last_line": 952,
+        "initial_scope": "Obj89_MapUnc_30E04",
+        "code_sha256": "af56094bfcc2fad4df38ac2855f7152d97cc34bdbf24d0d685ad61cb31b6ef1a"
+      }
     },
     {
-      "source": "src/ui/objects/credits/data/mappings.s",
+      "source": "src/ui/objects/credits.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj8A",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 45,
+        "last_line": 295,
+        "initial_scope": "Obj8A_MapUnc_3EB4E",
+        "code_sha256": "862b0b3237bfd103701703bfceb9855e04c7ec6c513b2ed4045d467752d89cac"
+      }
     },
     {
-      "source": "src/game/objects/enemies/whisp/data/mappings.s",
+      "source": "src/game/objects/enemies/whisp.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj8C",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 114,
+        "last_line": 128,
+        "initial_scope": "Obj8C_MapUnc_36A4E",
+        "code_sha256": "8953ac9937a894804b99619616256db48ed09fa4cf5e70ea686a38b139474ad6"
+      }
     },
     {
-      "source": "src/game/objects/enemies/chop_chop/data/mappings.s",
+      "source": "src/game/objects/enemies/chop_chop.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj91",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 161,
+        "last_line": 173,
+        "initial_scope": "Obj91_MapUnc_36EF6",
+        "code_sha256": "8fd3fcefd03a61ac39b5666f441e5f85e51b0ac84219010a4172e7e556233ba2"
+      }
     },
     {
-      "source": "src/game/objects/enemies/spiker/data/mappings.s",
+      "source": "src/game/objects/enemies/spiker.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj93",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 166,
+        "last_line": 199,
+        "initial_scope": "Obj92_Obj93_MapUnc_37092",
+        "code_sha256": "19f815382b582b4ac22487c22bd2b02ae43e132625fcf1d27feb95d7d433e57c"
+      }
     },
     {
-      "source": "src/game/objects/enemies/sol/data/mappings.s",
+      "source": "src/game/objects/enemies/sol.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj95",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 186,
+        "last_line": 213,
+        "initial_scope": "Obj95_MapUnc_372E6",
+        "code_sha256": "113a2c119877138021575a849c4ea0a5fb2ab3da1be97644fe841084b37d52ab"
+      }
     },
     {
-      "source": "src/game/objects/enemies/rexon/data/mappings.s",
+      "source": "src/game/objects/enemies/rexon.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj97",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 377,
+        "last_line": 399,
+        "initial_scope": "Obj94_Obj98_MapUnc_37678",
+        "code_sha256": "eac5b3b6cab84733e92b881675287c8656360186f26a6dbd682ddc28372636b5"
+      }
     },
     {
-      "source": "src/game/objects/enemies/nebula/data/mappings.s",
+      "source": "src/game/objects/enemies/nebula.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj99",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 89,
+        "last_line": 128,
+        "initial_scope": "Obj99_Obj98_MapUnc_3789A",
+        "code_sha256": "85b3073b00bd9785a48fbbe5c119a8456f8478414e60bd0cec2a4da8193f46c7"
+      }
     },
     {
-      "source": "src/game/objects/enemies/balkiry_jet/data/mappings.s",
+      "source": "src/game/objects/enemies/balkiry_jet.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj9C",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 96,
+        "last_line": 152,
+        "initial_scope": "Obj9A_Obj98_MapUnc_37B62",
+        "code_sha256": "f35a04462e8280462927a2ad916a6bd6bc905e4f037c470eade3bb9b1e18042b"
+      }
     },
     {
-      "source": "src/game/objects/enemies/coconuts/data/mappings.s",
+      "source": "src/game/objects/enemies/coconuts.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj9D",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 174,
+        "last_line": 206,
+        "initial_scope": "Obj9D_Obj98_MapUnc_37D96",
+        "code_sha256": "39a2a9e7db002f89e5ebf299bfa33bfdd7c82413e7ff16f59b38f4c4ab17e586"
+      }
     },
     {
-      "source": "src/game/objects/enemies/crawltron/data/mappings.s",
+      "source": "src/game/objects/enemies/crawltron.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj9E",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 174,
+        "last_line": 187,
+        "initial_scope": "Obj9E_MapUnc_37FF2",
+        "code_sha256": "14aabe99c8e9a7deb574c694c87f92eb2b50bb8e7dd5efbdb667d84874e0ae48"
+      }
     },
     {
-      "source": "src/game/objects/enemies/shellcracker/data/mappings.s",
+      "source": "src/game/objects/enemies/shellcracker.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objA0",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 363,
+        "last_line": 406,
+        "initial_scope": "Obj9F_MapUnc_38314",
+        "code_sha256": "d39415f2f42380df08c1c754e5fafb096743db4adc4a904bbaadd07924839a25"
+      }
     },
     {
-      "source": "src/game/objects/enemies/slicer/data/mappings.s",
+      "source": "src/game/objects/enemies/slicer.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objA2",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 240,
+        "last_line": 317,
+        "initial_scope": "ObjA1_MapUnc_385E2",
+        "code_sha256": "a902cc3510611856100271ec05572fbfde7b0fe5140511d9805c5082c0431e80"
+      }
     },
     {
-      "source": "src/game/objects/enemies/flasher/data/mappings.s",
+      "source": "src/game/objects/enemies/flasher.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objA3",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 187,
+        "last_line": 228,
+        "initial_scope": "ObjA3_MapUnc_388F0",
+        "code_sha256": "266cf1ea40ff747cd2cbefbbf0a62fe372a5b48b6a194370cf95da84c1bca670"
+      }
     },
     {
-      "source": "src/game/objects/enemies/asteron/data/mappings.s",
+      "source": "src/game/objects/enemies/asteron.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objA4",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 133,
+        "last_line": 163,
+        "initial_scope": "ObjA4_Obj98_MapUnc_38A96",
+        "code_sha256": "19f4d458f1bad1cf8f568fc501d0ef2cc22d596c459449f3cd12138414ef59cf"
+      }
     },
     {
-      "source": "src/game/objects/enemies/spiny/data/mappings.s",
+      "source": "src/game/objects/enemies/spiny.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objA6",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 206,
+        "last_line": 266,
+        "initial_scope": "ObjA5_ObjA6_Obj98_MapUnc_38CCA",
+        "code_sha256": "ecfa0e152a34ad7ce3ae194c496f3d76ccce6211f97b4a47219799684d88932f"
+      }
     },
     {
-      "source": "src/game/objects/enemies/balkiry/data/mappings.s",
+      "source": "src/game/objects/enemies/balkiry.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objAC",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 38,
+        "last_line": 57,
+        "initial_scope": "ObjAC_MapUnc_393CC",
+        "code_sha256": "05189f08e1086eba0aec1ed4375cd8a980a0eb9e1a1c76c20476aa77b94d5d7a"
+      }
     },
     {
-      "source": "src/game/objects/enemies/clucker/data/mappings.s",
+      "source": "src/game/objects/enemies/clucker.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objAE",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 181,
+        "last_line": 307,
+        "initial_scope": "ObjAD_Obj98_MapUnc_395B4",
+        "code_sha256": "50d03ebbef4bf411031613148e405bd8feb0247394a9afcc6dd8955264de2a12"
+      }
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/data/mappings_a.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objAF_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 768,
+        "last_line": 919,
+        "initial_scope": "ObjAF_Obj98_MapUnc_39E68",
+        "code_sha256": "5a17f59b20bd07499ebed9faf7e4a8544422c8b9616108deac355bbf1ae0b76e"
+      }
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/data/mappings_b.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objAF_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 924,
+        "last_line": 996,
+        "initial_scope": "ObjAF_MapUnc_3A08C",
+        "code_sha256": "50b110a32c1a40331bbb5a8ca5d9a6638453ef46ae9be435f63c02654acbf452"
+      }
     },
     {
-      "source": "src/ui/objects/sega/sonic/data/mappings.s",
+      "source": "src/ui/objects/sega/sonic.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB1",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 355,
+        "last_line": 403,
+        "initial_scope": "ObjB1_MapUnc_3A5A6",
+        "code_sha256": "a4848aa1b97d5b5585cb0db76cf5d19ddaf2fccbb58b286565617ca141a04b5e"
+      }
     },
     {
-      "source": "src/game/objects/scenery/tornado/data/mappings_a.s",
+      "source": "src/game/objects/scenery/tornado.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB2_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 852,
+        "last_line": 966,
+        "initial_scope": "ObjB2_MapUnc_3AFF2",
+        "code_sha256": "c1b5d5da89540a544ee2371cb2749151407c1643c47a44382f1059899647718f"
+      }
     },
     {
-      "source": "src/game/objects/scenery/tornado/data/mappings_b.s",
+      "source": "src/game/objects/scenery/tornado.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB2_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 971,
+        "last_line": 993,
+        "initial_scope": "ObjB2_MapUnc_3B292",
+        "code_sha256": "e23ba827ebf5faab88cde7ebc1f67f0d1ff76b56988651eb8de8fa824b5380c1"
+      }
     },
     {
-      "source": "src/game/objects/scenery/clouds/data/mappings.s",
+      "source": "src/game/objects/scenery/clouds.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB3",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 43,
+        "last_line": 64,
+        "initial_scope": "ObjB3_MapUnc_3B32C",
+        "code_sha256": "afa2e61c9ef2e6e8bb7ba6df17672f81b5154e5429860fcb8ee9ac601475710f"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/vertical_propeller/data/mappings.s",
+      "source": "src/game/objects/environment/common/vertical_propeller.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB4",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 46,
+        "last_line": 66,
+        "initial_scope": "ObjB4_MapUnc_3B3BE",
+        "code_sha256": "bfd7a51925573dcebbc46a3c241d598c0cc561e67d1ab9e9028f897a647fe397"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/horizontal_propeller/data/mappings.s",
+      "source": "src/game/objects/environment/common/horizontal_propeller.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB5",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 118,
+        "last_line": 158,
+        "initial_scope": "ObjB5_MapUnc_3B548",
+        "code_sha256": "de755f445db480e3d6c63da7315ee495cbafbe5bd2bc46ab8b805a40e08797f2"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/tilting_platform/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/tilting_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB6",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 289,
+        "last_line": 315,
+        "initial_scope": "ObjB6_MapUnc_3B856",
+        "code_sha256": "8e0a42fcbde4640ccdeaf32171de2fb3e1971af20ed9a1d25bf29c3543a75d32"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/huge_laser/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/huge_laser.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB7",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 30,
+        "last_line": 52,
+        "initial_scope": "ObjB7_MapUnc_3B8E4",
+        "code_sha256": "54de3f12c6c0ca9b5e18828aaba986a8b0cd2aeb65633aaa523d8c88e855973a"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/wall_turret/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/wall_turret.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB8",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 108,
+        "last_line": 142,
+        "initial_scope": "ObjB8_Obj98_MapUnc_3BA46",
+        "code_sha256": "5edabd16ed96c3d00fe30159217b1e5268d7d8f85e329ba29452af28fb8f4728"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/cutscene_laser/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/cutscene_laser.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objB9",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 49,
+        "last_line": 61,
+        "initial_scope": "ObjB9_MapUnc_3BB18",
+        "code_sha256": "4c6037fec34d84b45c4d481ad5eeec12600ce3b9de0f743c97c17f99715f0d97"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/wheel/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/wheel.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objBA",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 27,
+        "last_line": 34,
+        "initial_scope": "ObjBA_MapUnc_3BB70",
+        "code_sha256": "2a4a2ce607efe226a55552cccfed9adb17f263ed1953a6002417d2c50224d3a0"
+      }
     },
     {
-      "source": "src/game/objects/unused/deleted_object/data/mappings.s",
+      "source": "src/game/objects/unused/deleted_object.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objBB",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 27,
+        "last_line": 36,
+        "initial_scope": "ObjBB_MapUnc_3BBA0",
+        "code_sha256": "fe2428838bf18cbfa234bf74d998adc147074506f9b9f8d0db6768a51b189a86"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/escape_jet/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/escape_jet.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objBC",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 37,
+        "last_line": 45,
+        "initial_scope": "ObjBC_MapUnc_3BC08",
+        "code_sha256": "af770cb5c4442502973790715982c167e87bd1ff4705ce99e4ca8e43a93735de"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/platforms/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/platforms.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objBD",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 131,
+        "last_line": 151,
+        "initial_scope": "ObjBD_MapUnc_3BD3E",
+        "code_sha256": "5e7afd1414040ecfbf78531102af0a5bfd1232d904d6bd834ca0414bd72cd584"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/cannon_platform/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/cannon_platform.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objBE",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 92,
+        "last_line": 124,
+        "initial_scope": "ObjBE_MapUnc_3BE46",
+        "code_sha256": "b3e6f5a23063209ac73eb7700922d06bc50ea8a4802387b30fcb4a7e58d59fe6"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/destructible_pole/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/destructible_pole.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objBF",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 35,
+        "last_line": 52,
+        "initial_scope": "ObjBF_MapUnc_3BEE0",
+        "code_sha256": "0e8d9d2a5e703075787b11a40a8e5d65ad201790a430d5fcebddb4db711b37b5"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/launcher/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/launcher.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objC0",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 168,
+        "last_line": 176,
+        "initial_scope": "ObjC0_MapUnc_3C098",
+        "code_sha256": "f025fb3f1ad50beeb16e2a952fecfc27cabd5d5746f17c399d2823ede7cc4ca1"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/breakable_plating/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/breakable_plating.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objC1",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 193,
+        "last_line": 237,
+        "initial_scope": "ObjC1_MapUnc_3C280",
+        "code_sha256": "09057da0184c2831e2b16d44d209b921dc373f6d47e3a0819f51fec429c4a084"
+      }
     },
     {
-      "source": "src/game/objects/environment/wfz/rivet_switch/data/mappings.s",
+      "source": "src/game/objects/environment/wfz/rivet_switch.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objC2",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 56,
+        "last_line": 64,
+        "initial_scope": "ObjC2_MapUnc_3C3C2",
+        "code_sha256": "d18aef50ab4b63c5c05b8c0fe2ce74c31f0adb144ac00e0bbfdcf9f25d402ee8"
+      }
     },
     {
-      "source": "src/game/objects/bosses/wfz/data/mappings_a.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objC5_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 878,
+        "last_line": 1007,
+        "initial_scope": "ObjC5_MapUnc_3CCD8",
+        "code_sha256": "2d5a6328e452b7cb0ebb813cad0feb5344d527e6a9838df9ce95d8bf191489be"
+      }
     },
     {
-      "source": "src/game/objects/bosses/wfz/data/mappings_b.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objC5_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 1012,
+        "last_line": 1020,
+        "initial_scope": "ObjC5_MapUnc_3CEBC",
+        "code_sha256": "f93a3ef8ada9e356b726b22953ea9bf156f9f976df447e40b40095d1b4af6071"
+      }
     },
     {
-      "source": "src/game/objects/bosses/eggman/data/mappings_a.s",
+      "source": "src/game/objects/bosses/eggman.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objC6_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 214,
+        "last_line": 274,
+        "initial_scope": "ObjC6_MapUnc_3D0EE",
+        "code_sha256": "7b335645969c12239eb96ca8b6630c1bb1b1f59e3fd79d2169bc927fa6be9c5a"
+      }
     },
     {
-      "source": "src/game/objects/bosses/eggman/data/mappings_b.s",
+      "source": "src/game/objects/bosses/eggman.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objC6_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 279,
+        "last_line": 307,
+        "initial_scope": "ObjC6_MapUnc_3D1DE",
+        "code_sha256": "af7f18650f9b463d3f908e76ca6fb90a6af6f7c2006723b56b722da939aae872"
+      }
     },
     {
       "source": "src/game/objects/bosses/death_egg_robot/data/mappings.s",
@@ -8949,14 +9933,20 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/crawl/data/mappings.s",
+      "source": "src/game/objects/enemies/crawl.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objC8",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 195,
+        "last_line": 226,
+        "initial_scope": "ObjC8_MapUnc_3D450",
+        "code_sha256": "b392ab99fa29b1161eb438534bdffddc8dc47471c5c42ebb6e4c4c0095e1284b"
+      }
     },
     {
       "source": "src/ui/objects/ending/propeller/data/mappings.s",
@@ -8969,34 +9959,52 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cnz/snake_block/data/mappings.s",
+      "source": "src/game/objects/environment/cnz/snake_block.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objD2",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 129,
+        "last_line": 225,
+        "initial_scope": "ObjD2_MapUnc_2B694",
+        "code_sha256": "043c7d6e72dbbae193aa65599e14b0ea4e2036bb9cd5d3135375dd9cc7d5136c"
+      }
     },
     {
-      "source": "src/game/objects/environment/cnz/big_block/data/mappings.s",
+      "source": "src/game/objects/environment/cnz/big_block.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objD4",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 86,
+        "last_line": 96,
+        "initial_scope": "ObjD4_MapUnc_2B9CA",
+        "code_sha256": "6931d456859d960495efd81fefbe02f26bf01e95bc7ec6884bacf9d6c51559bc"
+      }
     },
     {
-      "source": "src/game/objects/environment/cnz/elevator/data/mappings.s",
+      "source": "src/game/objects/environment/cnz/elevator.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objD5",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 124,
+        "last_line": 132,
+        "initial_scope": "ObjD5_MapUnc_2BB40",
+        "code_sha256": "c5cb349e60f1bb51f751c58bdca3169d5d46f44775d43c0fcbbeb194b1498041"
+      }
     },
     {
       "source": "src/game/objects/environment/cnz/points_cage/data/mappings_a.s",
@@ -9019,24 +10027,36 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cnz/hex_bumper/data/mappings.s",
+      "source": "src/game/objects/environment/cnz/hex_bumper.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objD7",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 174,
+        "last_line": 200,
+        "initial_scope": "ObjD7_MapUnc_2C626",
+        "code_sha256": "53fb9ba474c9bc454d4f2376c68e6d561f3ba4d1a62ab84af6fdda09f82446d0"
+      }
     },
     {
-      "source": "src/game/objects/environment/cnz/point_block/data/mappings.s",
+      "source": "src/game/objects/environment/cnz/point_block.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objD8",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 209,
+        "last_line": 241,
+        "initial_scope": "ObjD8_MapUnc_2C8C4",
+        "code_sha256": "44a5cd51ab5a17496328a282285faae70366c2bdfaeda8e67b41ea61e1dbc71b"
+      }
     },
     {
       "source": "src/ui/objects/continue/text/data/mappings.s",
@@ -9069,7 +10089,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/player/splash_dust/data/dplc.s",
+      "source": "src/game/objects/player/splash_dust.s",
       "storage": "assembly",
       "codec": "dplc-s2",
       "root_symbol": "DPLC_obj08",
@@ -9081,10 +10101,16 @@
         "source_asset": "art/uncompressed/Splash and skid dust.bin",
         "source_symbol": "ArtUnc_SplashAndDust",
         "destination_policy": "original_per_frame_transfer"
+      },
+      "source_region": {
+        "first_line": 313,
+        "last_line": 415,
+        "initial_scope": "Obj08_MapRUnc_1E074",
+        "code_sha256": "3837c0acdc61d895cdd00effc5504447fed2116bcf5a75fc66c34324dc0703c2"
       }
     },
     {
-      "source": "src/game/objects/items/signpost/data/dplc.s",
+      "source": "src/game/objects/items/signpost.s",
       "storage": "assembly",
       "codec": "dplc-s2",
       "root_symbol": "DPLC_obj0D",
@@ -9096,6 +10122,12 @@
         "source_asset": "art/uncompressed/Signpost.bin",
         "source_symbol": "ArtUnc_Signpost",
         "destination_policy": "original_per_frame_transfer"
+      },
+      "source_region": {
+        "first_line": 439,
+        "last_line": 471,
+        "initial_scope": "Obj0D_MapRUnc_196EE",
+        "code_sha256": "480fed49cf8702b9f8f9044563f5d64ad4b98dd9781ab58a5f0192b824890de3"
       }
     },
     {
@@ -9139,7 +10171,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/player/tails_tail/main.s",
+      "source": "src/game/objects/player/tails_tail.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Obj05AniData",
@@ -9149,7 +10181,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/player/splash_dust/main.s",
+      "source": "src/game/objects/player/splash_dust.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj08",
@@ -9159,7 +10191,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cpz/pipe/main.s",
+      "source": "src/game/objects/environment/cpz/pipe.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj0B",
@@ -9169,7 +10201,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/items/signpost/main.s",
+      "source": "src/game/objects/items/signpost.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj0D",
@@ -9179,7 +10211,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/ui/objects/title/menu/main.s",
+      "source": "src/ui/objects/title/menu.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj0E",
@@ -9189,7 +10221,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/tails/main.s",
+      "source": "src/game/special_stage/objects/tails.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Tails_Animation",
@@ -9199,7 +10231,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/tails/main.s",
+      "source": "src/game/special_stage/objects/tails.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj88",
@@ -9209,7 +10241,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/htz/lava_bubble/main.s",
+      "source": "src/game/objects/bosses/htz/lava_bubble.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj20",
@@ -9219,7 +10251,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/arz/arrow_shooter/main.s",
+      "source": "src/game/objects/environment/arz/arrow_shooter.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj22",
@@ -9229,7 +10261,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/arz/bubbles/main.s",
+      "source": "src/game/objects/environment/arz/bubbles.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj24",
@@ -9239,7 +10271,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/items/rings/main.s",
+      "source": "src/game/objects/items/rings.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_Ring",
@@ -9249,7 +10281,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/items/monitor_contents/main.s",
+      "source": "src/game/objects/items/monitor_contents.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj26",
@@ -9259,7 +10291,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/ooz/green_platform/main.s",
+      "source": "src/game/objects/environment/ooz/green_platform.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj33",
@@ -9269,7 +10301,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/items/invincibility_stars/main.s",
+      "source": "src/game/objects/items/invincibility_stars.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj38",
@@ -9279,7 +10311,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/items/prison_capsule/main.s",
+      "source": "src/game/objects/items/prison_capsule.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj3E",
@@ -9289,7 +10321,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/springboard/main.s",
+      "source": "src/game/objects/environment/common/springboard.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj40",
@@ -9299,7 +10331,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/springs/main.s",
+      "source": "src/game/objects/environment/common/springs.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj41",
@@ -9309,7 +10341,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cnz/round_bumper/main.s",
+      "source": "src/game/objects/environment/cnz/round_bumper.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj44",
@@ -9319,7 +10351,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/ooz/pressure_spring/main.s",
+      "source": "src/game/objects/environment/ooz/pressure_spring.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj45",
@@ -9329,7 +10361,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/octus/main.s",
+      "source": "src/game/objects/enemies/octus.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj4A",
@@ -9339,7 +10371,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/buzzer/main.s",
+      "source": "src/game/objects/enemies/buzzer.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj4B",
@@ -9349,7 +10381,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/aquis/main.s",
+      "source": "src/game/objects/enemies/aquis.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj50",
@@ -9359,7 +10391,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/cnz/main.s",
+      "source": "src/game/objects/bosses/cnz.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj51",
@@ -9380,7 +10412,7 @@
       "retail_control_hazards": [["backward_cursor_wrap", 39, 3]]
     },
     {
-      "source": "src/game/objects/bosses/ooz/main.s",
+      "source": "src/game/objects/bosses/ooz.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj55",
@@ -9390,7 +10422,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/ehz/main.s",
+      "source": "src/game/objects/bosses/ehz.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj56_a",
@@ -9400,7 +10432,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/ehz/main.s",
+      "source": "src/game/objects/bosses/ehz.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj56_b",
@@ -9410,7 +10442,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/ehz/main.s",
+      "source": "src/game/objects/bosses/ehz.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj56_c",
@@ -9420,7 +10452,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/mcz/main.s",
+      "source": "src/game/objects/bosses/mcz.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj57",
@@ -9430,7 +10462,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/chaos_emerald/main.s",
+      "source": "src/game/special_stage/objects/chaos_emerald.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "ChaosEmerald_Animation",
@@ -9440,7 +10472,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/chaos_emerald/main.s",
+      "source": "src/game/special_stage/objects/chaos_emerald.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj5B_obj60",
@@ -9450,7 +10482,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/chaos_emerald/main.s",
+      "source": "src/game/special_stage/objects/chaos_emerald.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj61",
@@ -9460,7 +10492,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/masher/main.s",
+      "source": "src/game/objects/enemies/masher.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj5C",
@@ -9470,7 +10502,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/mtz/spin_tube/main.s",
+      "source": "src/game/objects/environment/mtz/spin_tube.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj67",
@@ -9480,7 +10512,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/stake_orb/main.s",
+      "source": "src/game/objects/environment/common/stake_orb.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj71",
@@ -9490,7 +10522,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/mcz/bridge/main.s",
+      "source": "src/game/objects/environment/mcz/bridge.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj77",
@@ -9500,7 +10532,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/items/starpost/main.s",
+      "source": "src/game/objects/items/starpost.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj79",
@@ -9510,7 +10542,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cpz/spring_lid/main.s",
+      "source": "src/game/objects/environment/cpz/spring_lid.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj7B",
@@ -9520,7 +10552,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cnz/pinball_flipper/main.s",
+      "source": "src/game/objects/environment/cnz/pinball_flipper.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj86",
@@ -9530,7 +10562,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/arz/main.s",
+      "source": "src/game/objects/bosses/arz.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj89_a",
@@ -9540,7 +10572,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/arz/main.s",
+      "source": "src/game/objects/bosses/arz.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj89_b",
@@ -9550,7 +10582,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/whisp/main.s",
+      "source": "src/game/objects/enemies/whisp.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj8C",
@@ -9560,7 +10592,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/grounder/main.s",
+      "source": "src/game/objects/enemies/grounder.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj8D_a",
@@ -9570,7 +10602,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/grounder/main.s",
+      "source": "src/game/objects/enemies/grounder.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj8D_b",
@@ -9580,7 +10612,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/chop_chop/main.s",
+      "source": "src/game/objects/enemies/chop_chop.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj91",
@@ -9590,7 +10622,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/spiker/main.s",
+      "source": "src/game/objects/enemies/spiker.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj92",
@@ -9600,7 +10632,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/sol/main.s",
+      "source": "src/game/objects/enemies/sol.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj95_a",
@@ -9610,7 +10642,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/sol/main.s",
+      "source": "src/game/objects/enemies/sol.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj95_b",
@@ -9620,7 +10652,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/nebula/main.s",
+      "source": "src/game/objects/enemies/nebula.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj99",
@@ -9630,7 +10662,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/balkiry_jet/main.s",
+      "source": "src/game/objects/enemies/balkiry_jet.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_TurtloidShot",
@@ -9640,7 +10672,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/balkiry_jet/main.s",
+      "source": "src/game/objects/enemies/balkiry_jet.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj9A",
@@ -9650,7 +10682,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/balkiry_jet/main.s",
+      "source": "src/game/objects/enemies/balkiry_jet.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj9C",
@@ -9660,7 +10692,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/coconuts/main.s",
+      "source": "src/game/objects/enemies/coconuts.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj09",
@@ -9670,7 +10702,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/shellcracker/main.s",
+      "source": "src/game/objects/enemies/shellcracker.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_obj9F",
@@ -9680,7 +10712,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/slicer/main.s",
+      "source": "src/game/objects/enemies/slicer.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objA1",
@@ -9690,7 +10722,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/slicer/main.s",
+      "source": "src/game/objects/enemies/slicer.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objA2",
@@ -9700,7 +10732,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/flasher/main.s",
+      "source": "src/game/objects/enemies/flasher.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objA3_a",
@@ -9710,7 +10742,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/flasher/main.s",
+      "source": "src/game/objects/enemies/flasher.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objA3_b",
@@ -9720,7 +10752,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/flasher/main.s",
+      "source": "src/game/objects/enemies/flasher.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objA3_c",
@@ -9730,7 +10762,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/asteron/main.s",
+      "source": "src/game/objects/enemies/asteron.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objA4",
@@ -9740,7 +10772,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/spiny/main.s",
+      "source": "src/game/objects/enemies/spiny.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objA5",
@@ -9750,7 +10782,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/spiny/main.s",
+      "source": "src/game/objects/enemies/spiny.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objA6",
@@ -9760,7 +10792,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/spiny/main.s",
+      "source": "src/game/objects/enemies/spiny.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_SpinyShot",
@@ -9770,7 +10802,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objA7",
@@ -9780,7 +10812,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/clucker/main.s",
+      "source": "src/game/objects/enemies/clucker.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objAE_a",
@@ -9790,7 +10822,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/clucker/main.s",
+      "source": "src/game/objects/enemies/clucker.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objAE_b",
@@ -9800,7 +10832,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/clucker/main.s",
+      "source": "src/game/objects/enemies/clucker.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objAE_c",
@@ -9810,7 +10842,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/clucker/main.s",
+      "source": "src/game/objects/enemies/clucker.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_CluckerShot",
@@ -9820,7 +10852,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/main.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "MechaSonicBoss_Animation",
@@ -9830,7 +10862,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/main.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objAF_c",
@@ -9840,7 +10872,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/ui/objects/sega/sonic/main.s",
+      "source": "src/ui/objects/sega/sonic.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objB0",
@@ -9850,7 +10882,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/scenery/tornado/main.s",
+      "source": "src/game/objects/scenery/tornado.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objB2_a",
@@ -9860,7 +10892,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/scenery/tornado/main.s",
+      "source": "src/game/objects/scenery/tornado.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objB2_b",
@@ -9870,7 +10902,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/vertical_propeller/main.s",
+      "source": "src/game/objects/environment/common/vertical_propeller.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objB4",
@@ -9880,7 +10912,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/horizontal_propeller/main.s",
+      "source": "src/game/objects/environment/common/horizontal_propeller.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objB5",
@@ -9890,7 +10922,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/wfz/tilting_platform/main.s",
+      "source": "src/game/objects/environment/wfz/tilting_platform.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objB6",
@@ -9900,7 +10932,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/wfz/wall_turret/main.s",
+      "source": "src/game/objects/environment/wfz/wall_turret.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_WallTurretShot",
@@ -9910,7 +10942,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/wfz/platforms/main.s",
+      "source": "src/game/objects/environment/wfz/platforms.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objBD",
@@ -9920,7 +10952,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/wfz/cannon_platform/main.s",
+      "source": "src/game/objects/environment/wfz/cannon_platform.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objBE",
@@ -9930,7 +10962,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/wfz/destructible_pole/main.s",
+      "source": "src/game/objects/environment/wfz/destructible_pole.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objBF",
@@ -10000,7 +11032,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/wfz/breakable_plating/main.s",
+      "source": "src/game/objects/environment/wfz/breakable_plating.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objC1",
@@ -10010,7 +11042,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objC5",
@@ -10020,7 +11052,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/eggman/main.s",
+      "source": "src/game/objects/bosses/eggman.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objC5_objC6",
@@ -10030,7 +11062,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/eggman/main.s",
+      "source": "src/game/objects/bosses/eggman.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objC6",
@@ -10040,7 +11072,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/crawl/main.s",
+      "source": "src/game/objects/enemies/crawl.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objC8",
@@ -10080,7 +11112,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cnz/hex_bumper/main.s",
+      "source": "src/game/objects/environment/cnz/hex_bumper.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objD7",
@@ -10090,7 +11122,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cnz/point_block/main.s",
+      "source": "src/game/objects/environment/cnz/point_block.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objD8",
@@ -10100,7 +11132,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/ui/objects/continue/player/main.s",
+      "source": "src/ui/objects/continue/player.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objDB",
@@ -10110,7 +11142,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cnz/ring_prize/main.s",
+      "source": "src/game/objects/environment/cnz/ring_prize.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "Ani_objDC",
@@ -10210,7 +11242,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/character_shadow/main.s",
+      "source": "src/game/special_stage/objects/character_shadow.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "CharacterShadow_Animation",
@@ -10220,7 +11252,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/main.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "storage": "assembly",
       "codec": "animation-object-s2",
       "root_symbol": "MechaSonicBoss_Animation_Variant2",
@@ -10230,7 +11262,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cpz/spin_tube/data/paths_a.s",
+      "source": "src/game/objects/environment/cpz/spin_tube.s",
       "storage": "assembly",
       "codec": "tube-path-s2",
       "root_symbol": "CpzSpinTube_TubePaths",
@@ -10238,10 +11270,16 @@
       "allocation": "source_owned_path_container",
       "address_space": "m68000-rom",
       "revisions": ["rev00", "rev01"],
-      "coordinate_space": "object_relative_word_offsets"
+      "coordinate_space": "object_relative_word_offsets",
+      "source_region": {
+        "first_line": 402,
+        "last_line": 760,
+        "initial_scope": "loc_22952",
+        "code_sha256": "03f543f514a298c34d0ead0b2f5adc42185bd5e3728dd44cf15762df378ceae5"
+      }
     },
     {
-      "source": "src/game/objects/environment/cpz/spin_tube/data/paths_b.s",
+      "source": "src/game/objects/environment/cpz/spin_tube.s",
       "storage": "assembly",
       "codec": "tube-path-s2",
       "root_symbol": "CpzSpinTube_TubePaths_Variant2",
@@ -10249,10 +11287,16 @@
       "allocation": "source_owned_path_container",
       "address_space": "m68000-rom",
       "revisions": ["rev00", "rev01"],
-      "coordinate_space": "level_word_positions"
+      "coordinate_space": "level_word_positions",
+      "source_region": {
+        "first_line": 765,
+        "last_line": 897,
+        "initial_scope": "loc_22952",
+        "code_sha256": "f5cf160b45855b648182bf5e919247bb0eb41f9ddd9267176e70de6abddcb6c7"
+      }
     },
     {
-      "source": "src/game/objects/environment/mtz/spin_tube/data/paths.s",
+      "source": "src/game/objects/environment/mtz/spin_tube.s",
       "storage": "assembly",
       "codec": "tube-path-s2",
       "root_symbol": "MtzSpinTube_TubePaths",
@@ -10260,7 +11304,13 @@
       "allocation": "source_owned_path_container",
       "address_space": "m68000-rom",
       "revisions": ["rev00", "rev01"],
-      "coordinate_space": "level_word_positions"
+      "coordinate_space": "level_word_positions",
+      "source_region": {
+        "first_line": 254,
+        "last_line": 372,
+        "initial_scope": "loc_273DE",
+        "code_sha256": "0dae3f14ca187531f7456d0529e2561d961c45d05b216cbfa865f22e6230867f"
+      }
     },
     {
       "source": "src/game/special_stage/track_data.s",
@@ -10308,7 +11358,7 @@
       ]
     },
     {
-      "source": "src/game/special_stage/objects/hud/main.s",
+      "source": "src/game/special_stage/objects/hud.s",
       "root_symbol": "SSHUDLayout",
       "codec": "hud-layout-s2",
       "storage": "assembly",
@@ -10319,7 +11369,7 @@
       "frame_table_symbol": "Obj5E_MapUnc_7070"
     },
     {
-      "source": "src/game/objects/environment/mtz/pulley_platform/main.s",
+      "source": "src/game/objects/environment/mtz/pulley_platform.s",
       "root_symbol": "MtzPulleyPlatform_PulleyPath",
       "codec": "pulley-path-s2",
       "storage": "assembly",
@@ -10329,7 +11379,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/mtz/pulley_platform/main.s",
+      "source": "src/game/objects/environment/mtz/pulley_platform.s",
       "root_symbol": "MtzPulleyPlatform_PulleyChildren",
       "codec": "pulley-children-s2",
       "storage": "assembly",
@@ -10339,7 +11389,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/ui/objects/ending/tornado_trigger/main.s",
+      "source": "src/ui/objects/ending/tornado_trigger.s",
       "root_symbol": "EndingTornadoTrigger_EndingFrames",
       "codec": "ending-frames-s2",
       "storage": "assembly",
@@ -10372,7 +11422,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/swinging_platform/main.s",
+      "source": "src/game/objects/environment/common/swinging_platform.s",
       "root_symbol": "Obj15_MapUnc_102DE",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10383,7 +11433,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/swinging_platform/main.s",
+      "source": "src/game/objects/environment/common/swinging_platform.s",
       "root_symbol": "Obj15_Obj7A_MapUnc_10256",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10394,7 +11444,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/arz/bubbles/main.s",
+      "source": "src/game/objects/environment/arz/bubbles.s",
       "root_symbol": "Obj24_MapUnc_1FBF6",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10405,7 +11455,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/arz/bubbles/main.s",
+      "source": "src/game/objects/environment/arz/bubbles.s",
       "root_symbol": "Obj24_MapUnc_1FC18",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10416,7 +11466,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/springs/main.s",
+      "source": "src/game/objects/environment/common/springs.s",
       "root_symbol": "Obj41_MapUnc_1901C",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10427,7 +11477,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/common/springs/main.s",
+      "source": "src/game/objects/environment/common/springs.s",
       "root_symbol": "Obj41_MapUnc_19032",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10438,7 +11488,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/character_shadow/main.s",
+      "source": "src/game/special_stage/objects/character_shadow.s",
       "root_symbol": "Obj09_MapRUnc_345FA",
       "codec": "special-stage-dplc-s2",
       "layout": "shared_frame_views",
@@ -10474,7 +11524,7 @@
       }
     },
     {
-      "source": "src/game/special_stage/objects/results/main.s",
+      "source": "src/game/special_stage/objects/results.s",
       "root_symbol": "MapUnc_EOLTitleCards",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10485,7 +11535,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/special_stage/objects/results/main.s",
+      "source": "src/game/special_stage/objects/results.s",
       "root_symbol": "MapUnc_TitleCards",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10496,7 +11546,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/grounder/main.s",
+      "source": "src/game/objects/enemies/grounder.s",
       "root_symbol": "Obj8D_MapUnc_36CF0",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10507,7 +11557,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/grounder/main.s",
+      "source": "src/game/objects/enemies/grounder.s",
       "root_symbol": "Obj90_MapUnc_36CFA",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10518,7 +11568,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/grounder/main.s",
+      "source": "src/game/objects/enemies/grounder.s",
       "root_symbol": "Obj90_MapUnc_36D00",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10529,7 +11579,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "root_symbol": "ObjA7_ObjA8_ObjA9_Obj98_MapUnc_3921A",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -10540,7 +11590,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "root_symbol": "ObjAA_MapUnc_39228",
       "codec": "sprite-s2",
       "layout": "shared_frame_views",
@@ -11826,7 +12876,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/eggman/main.s",
+      "source": "src/game/objects/bosses/eggman.s",
       "root_symbol": "ObjC6_SubObjData3",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11837,7 +12887,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/eggman/main.s",
+      "source": "src/game/objects/bosses/eggman.s",
       "root_symbol": "ObjC6_SubObjData4",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11848,7 +12898,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/eggman/main.s",
+      "source": "src/game/objects/bosses/eggman.s",
       "root_symbol": "ObjC6_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11859,7 +12909,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/eggman/main.s",
+      "source": "src/game/objects/bosses/eggman.s",
       "root_symbol": "EggmanBoss_EggmanChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11870,7 +12920,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/eggman/main.s",
+      "source": "src/game/objects/bosses/eggman.s",
       "root_symbol": "EggmanBoss_EggmanChildSlot3C",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11881,7 +12931,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/main.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "root_symbol": "MechaSonic_ProjectileSpawnRecords",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11892,7 +12942,7 @@
       "record_kinds": ["projectile_burst"]
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/main.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "root_symbol": "MechaSonicBoss_MechaSonicChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11903,7 +12953,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/main.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "root_symbol": "MechaSonicBoss_MechaSonicChildSlot3C",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11914,7 +12964,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/main.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "root_symbol": "MechaSonicBoss_MechaSonicChildSlot3A",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11925,7 +12975,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/main.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "root_symbol": "ObjAF_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11936,7 +12986,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/mecha_sonic/main.s",
+      "source": "src/game/objects/bosses/mecha_sonic.s",
       "root_symbol": "ObjAF_SubObjData3",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11947,7 +12997,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ChildObject_ObjC5LaserWall",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11958,7 +13008,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ChildObject_ObjC5Platform",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11969,7 +13019,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ChildObject_ObjC5PlatformHurt",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11980,7 +13030,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ChildObject_ObjC5LaserShooter",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -11991,7 +13041,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ChildObject_ObjC5PlatformReleaser",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12002,7 +13052,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ChildObject_ObjC5Laser",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12013,7 +13063,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ChildObject_ObjC5Robotnik",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12024,7 +13074,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ChildObject_ObjC5RobotnikPlatform",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12035,7 +13085,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ObjC5_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12046,7 +13096,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ObjC5_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12057,7 +13107,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ObjC5_SubObjData3",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12068,7 +13118,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ObjC6_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12079,7 +13129,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/bosses/wfz/main.s",
+      "source": "src/game/objects/bosses/wfz.s",
       "root_symbol": "ObjC5_SubObjData4",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12090,7 +13140,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/asteron/main.s",
+      "source": "src/game/objects/enemies/asteron.s",
       "root_symbol": "Asteron_ProjectileSpawnRecords",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12101,7 +13151,7 @@
       "record_kinds": ["projectile_burst"]
     },
     {
-      "source": "src/game/objects/enemies/asteron/main.s",
+      "source": "src/game/objects/enemies/asteron.s",
       "root_symbol": "ObjA4_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12112,7 +13162,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/balkiry/main.s",
+      "source": "src/game/objects/enemies/balkiry.s",
       "root_symbol": "ObjAC_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12123,7 +13173,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/balkiry_jet/main.s",
+      "source": "src/game/objects/enemies/balkiry_jet.s",
       "root_symbol": "Obj9A_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12134,7 +13184,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/balkiry_jet/main.s",
+      "source": "src/game/objects/enemies/balkiry_jet.s",
       "root_symbol": "Obj9B_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12145,7 +13195,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/balkiry_jet/main.s",
+      "source": "src/game/objects/enemies/balkiry_jet.s",
       "root_symbol": "Obj9C_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12156,7 +13206,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/chop_chop/main.s",
+      "source": "src/game/objects/enemies/chop_chop.s",
       "root_symbol": "Obj91_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12167,7 +13217,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/clucker/main.s",
+      "source": "src/game/objects/enemies/clucker.s",
       "root_symbol": "ObjAD_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12178,7 +13228,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/clucker/main.s",
+      "source": "src/game/objects/enemies/clucker.s",
       "root_symbol": "ObjAD_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12189,7 +13239,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/coconuts/main.s",
+      "source": "src/game/objects/enemies/coconuts.s",
       "root_symbol": "Obj9D_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12200,7 +13250,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/crawl/main.s",
+      "source": "src/game/objects/enemies/crawl.s",
       "root_symbol": "ObjC8_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12211,7 +13261,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/crawltron/main.s",
+      "source": "src/game/objects/enemies/crawltron.s",
       "root_symbol": "Obj9E_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12222,7 +13272,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/flasher/main.s",
+      "source": "src/game/objects/enemies/flasher.s",
       "root_symbol": "ObjA3_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12233,7 +13283,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "root_symbol": "EnemiesGrabber_GrabberBoxChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12244,7 +13294,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "root_symbol": "EnemiesGrabber_GrabberLegsChildSlot3C",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12255,7 +13305,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "root_symbol": "EnemiesGrabber_GrabberStringChildSlot3A",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12266,7 +13316,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "root_symbol": "ObjA7_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12277,7 +13327,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "root_symbol": "ObjA7_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12288,7 +13338,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "root_symbol": "ObjA8_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12299,7 +13349,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/grabber/main.s",
+      "source": "src/game/objects/enemies/grabber.s",
       "root_symbol": "ObjA8_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12310,7 +13360,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/grounder/main.s",
+      "source": "src/game/objects/enemies/grounder.s",
       "root_symbol": "Obj8D_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12321,7 +13371,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/grounder/main.s",
+      "source": "src/game/objects/enemies/grounder.s",
       "root_symbol": "Obj90_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12332,7 +13382,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/grounder/main.s",
+      "source": "src/game/objects/enemies/grounder.s",
       "root_symbol": "Obj90_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12343,7 +13393,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/nebula/main.s",
+      "source": "src/game/objects/enemies/nebula.s",
       "root_symbol": "Obj99_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12354,7 +13404,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "Obj94_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12365,7 +13415,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "Obj99_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12376,7 +13426,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "Obj9A_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12387,7 +13437,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "Obj9D_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12398,7 +13448,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "ObjA4_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12409,7 +13459,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "ObjA6_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12420,7 +13470,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "ObjA7_SubObjData3",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12431,7 +13481,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "ObjAD_SubObjData3",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12442,7 +13492,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "ObjAF_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12453,7 +13503,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity/main.s",
+      "source": "src/game/objects/enemies/projectile_with_gravity.s",
       "root_symbol": "ObjB8_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12464,7 +13514,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/rexon/main.s",
+      "source": "src/game/objects/enemies/rexon.s",
       "root_symbol": "Obj94_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12475,7 +13525,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/shellcracker/main.s",
+      "source": "src/game/objects/enemies/shellcracker.s",
       "root_symbol": "Obj9F_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12486,7 +13536,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/shellcracker/main.s",
+      "source": "src/game/objects/enemies/shellcracker.s",
       "root_symbol": "ObjA0_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12497,7 +13547,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/slicer/main.s",
+      "source": "src/game/objects/enemies/slicer.s",
       "root_symbol": "ObjA1_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12508,7 +13558,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/slicer/main.s",
+      "source": "src/game/objects/enemies/slicer.s",
       "root_symbol": "ObjA2_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12519,7 +13569,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/spiker/main.s",
+      "source": "src/game/objects/enemies/spiker.s",
       "root_symbol": "Obj92_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12530,7 +13580,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/spiny/main.s",
+      "source": "src/game/objects/enemies/spiny.s",
       "root_symbol": "ObjA5_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12541,7 +13591,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/whisp/main.s",
+      "source": "src/game/objects/enemies/whisp.s",
       "root_symbol": "Obj8C_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12563,7 +13613,7 @@
       "record_kinds": ["objsubdecl"]
     },
     {
-      "source": "src/game/objects/environment/common/horizontal_propeller/main.s",
+      "source": "src/game/objects/environment/common/horizontal_propeller.s",
       "root_symbol": "ObjB5_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12574,7 +13624,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/common/sliding_platform/main.s",
+      "source": "src/game/objects/environment/common/sliding_platform.s",
       "root_symbol": "Obj7A_Properties",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12585,7 +13635,7 @@
       "record_kinds": ["obj7a_properties"]
     },
     {
-      "source": "src/game/objects/environment/common/stake_orb/main.s",
+      "source": "src/game/objects/environment/common/stake_orb.s",
       "root_symbol": "Obj71_InitData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12596,7 +13646,7 @@
       "record_kinds": ["objsubdecl"]
     },
     {
-      "source": "src/game/objects/environment/common/static_platform/main.s",
+      "source": "src/game/objects/environment/common/static_platform.s",
       "root_symbol": "Obj6B_Properties",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12607,7 +13657,7 @@
       "record_kinds": ["obj6b_properties"]
     },
     {
-      "source": "src/game/objects/environment/common/vertical_propeller/main.s",
+      "source": "src/game/objects/environment/common/vertical_propeller.s",
       "root_symbol": "ObjB4_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12618,7 +13668,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/ooz/sliding_spikes/main.s",
+      "source": "src/game/objects/environment/ooz/sliding_spikes.s",
       "root_symbol": "Obj43_Properties",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12629,7 +13679,7 @@
       "record_kinds": ["obj43_properties"]
     },
     {
-      "source": "src/game/objects/environment/wfz/breakable_plating/main.s",
+      "source": "src/game/objects/environment/wfz/breakable_plating.s",
       "root_symbol": "ObjC1_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12640,7 +13690,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/cannon_platform/main.s",
+      "source": "src/game/objects/environment/wfz/cannon_platform.s",
       "root_symbol": "ObjBE_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12651,7 +13701,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/cutscene_laser/main.s",
+      "source": "src/game/objects/environment/wfz/cutscene_laser.s",
       "root_symbol": "ObjB9_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12662,7 +13712,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/cutscene_smoke/main.s",
+      "source": "src/game/objects/environment/wfz/cutscene_smoke.s",
       "root_symbol": "ObjC3_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12673,7 +13723,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/destructible_pole/main.s",
+      "source": "src/game/objects/environment/wfz/destructible_pole.s",
       "root_symbol": "ObjBE_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12684,7 +13734,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/escape_jet/main.s",
+      "source": "src/game/objects/environment/wfz/escape_jet.s",
       "root_symbol": "ObjBC_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12695,7 +13745,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/huge_laser/main.s",
+      "source": "src/game/objects/environment/wfz/huge_laser.s",
       "root_symbol": "ObjB7_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12706,7 +13756,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/launcher/main.s",
+      "source": "src/game/objects/environment/wfz/launcher.s",
       "root_symbol": "ObjC0_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12717,7 +13767,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/platforms/main.s",
+      "source": "src/game/objects/environment/wfz/platforms.s",
       "root_symbol": "ObjBD_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12728,7 +13778,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/rivet_switch/main.s",
+      "source": "src/game/objects/environment/wfz/rivet_switch.s",
       "root_symbol": "ObjC2_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12739,7 +13789,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/tilting_platform/main.s",
+      "source": "src/game/objects/environment/wfz/tilting_platform.s",
       "root_symbol": "ObjB6_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12750,7 +13800,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/wall_turret/main.s",
+      "source": "src/game/objects/environment/wfz/wall_turret.s",
       "root_symbol": "ObjB8_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12761,7 +13811,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/environment/wfz/wheel/main.s",
+      "source": "src/game/objects/environment/wfz/wheel.s",
       "root_symbol": "ObjBA_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12904,7 +13954,7 @@
       "record_kinds": ["obj28decl"]
     },
     {
-      "source": "src/game/objects/items/monitor_contents/main.s",
+      "source": "src/game/objects/items/monitor_contents.s",
       "root_symbol": "teleport_swap_table",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12915,7 +13965,7 @@
       "record_kinds": ["teleporttableentry"]
     },
     {
-      "source": "src/game/objects/scenery/clouds/main.s",
+      "source": "src/game/objects/scenery/clouds.s",
       "root_symbol": "ObjB3_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12926,7 +13976,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/scenery/tornado/main.s",
+      "source": "src/game/objects/scenery/tornado.s",
       "root_symbol": "SceneryTornado_TornadoChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12937,7 +13987,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/scenery/tornado/main.s",
+      "source": "src/game/objects/scenery/tornado.s",
       "root_symbol": "SceneryTornado_TornadoChildSlot3C",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12948,7 +13998,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/scenery/tornado/main.s",
+      "source": "src/game/objects/scenery/tornado.s",
       "root_symbol": "SceneryTornado_TornadoChildSlot3A",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12959,7 +14009,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/game/objects/scenery/tornado/main.s",
+      "source": "src/game/objects/scenery/tornado.s",
       "root_symbol": "ObjB2_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12970,7 +14020,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/scenery/tornado/main.s",
+      "source": "src/game/objects/scenery/tornado.s",
       "root_symbol": "ObjB2_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -12981,7 +14031,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/unused/deleted_object/main.s",
+      "source": "src/game/objects/unused/deleted_object.s",
       "root_symbol": "ObjBB_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13003,7 +14053,7 @@
       "record_kinds": ["titleletters"]
     },
     {
-      "source": "src/game/special_stage/objects/character_shadow/main.s",
+      "source": "src/game/special_stage/objects/character_shadow.s",
       "root_symbol": "SpecialStageShadow_OrientationRecords",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13014,7 +14064,7 @@
       "record_kinds": ["obj63_data"]
     },
     {
-      "source": "src/game/special_stage/objects/results/main.s",
+      "source": "src/game/special_stage/objects/results.s",
       "root_symbol": "Obj6F_SubObjectMetaData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15060,7 +16110,7 @@
       "record_kinds": ["objda_make_x_positions"]
     },
     {
-      "source": "src/ui/objects/level/title_cards/main.s",
+      "source": "src/ui/objects/level/title_cards.s",
       "root_symbol": "Obj34_TitleCardData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15071,7 +16121,7 @@
       "record_kinds": ["titlecardobjdata"]
     },
     {
-      "source": "src/ui/objects/sega/sonic/main.s",
+      "source": "src/ui/objects/sega/sonic.s",
       "root_symbol": "SonicRunningSpriteScaleData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15082,7 +16132,7 @@
       "record_kinds": ["sprite_scale"]
     },
     {
-      "source": "src/ui/objects/sega/sonic/main.s",
+      "source": "src/ui/objects/sega/sonic.s",
       "root_symbol": "ObjB0_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15093,7 +16143,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/ui/objects/sega/sonic/main.s",
+      "source": "src/ui/objects/sega/sonic.s",
       "root_symbol": "ObjB1_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15159,7 +16209,7 @@
       "record_kinds": ["obj0e_make_sprite_position"]
     },
     {
-      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "source": "src/ui/objects/title/palette_cycle.s",
       "root_symbol": "PaletteTransition_TitleEmblemFromBlack",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15170,7 +16220,7 @@
       "record_kinds": ["c9palinfo"]
     },
     {
-      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "source": "src/ui/objects/title/palette_cycle.s",
       "root_symbol": "PaletteTransition_TitleBackgroundDown",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15181,7 +16231,7 @@
       "record_kinds": ["c9palinfo"]
     },
     {
-      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "source": "src/ui/objects/title/palette_cycle.s",
       "root_symbol": "PaletteTransition_EndingPhotosDown",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15192,7 +16242,7 @@
       "record_kinds": ["c9palinfo"]
     },
     {
-      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "source": "src/ui/objects/title/palette_cycle.s",
       "root_symbol": "PaletteTransition_EndingPhotosToWhite",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15203,7 +16253,7 @@
       "record_kinds": ["c9palinfo"]
     },
     {
-      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "source": "src/ui/objects/title/palette_cycle.s",
       "root_symbol": "PaletteTransition_EndingSonicDown",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15214,7 +16264,7 @@
       "record_kinds": ["c9palinfo"]
     },
     {
-      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "source": "src/ui/objects/title/palette_cycle.s",
       "root_symbol": "PaletteTransition_EndingBackgroundDown",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15225,7 +16275,7 @@
       "record_kinds": ["c9palinfo"]
     },
     {
-      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "source": "src/ui/objects/title/palette_cycle.s",
       "root_symbol": "PaletteTransition_EndingSuperSonicDown",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15236,7 +16286,7 @@
       "record_kinds": ["c9palinfo"]
     },
     {
-      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "source": "src/ui/objects/title/palette_cycle.s",
       "root_symbol": "PaletteTransition_EndingTailsDown",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -15247,7 +16297,7 @@
       "record_kinds": ["c9palinfo"]
     },
     {
-      "source": "src/ui/objects/two_player/results/main.s",
+      "source": "src/ui/objects/two_player/results.s",
       "root_symbol": "Obj21_PositionTable",
       "codec": "engine-records-s2",
       "storage": "assembly",

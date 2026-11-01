@@ -27,12 +27,13 @@ revisions use this same engine and select retail differences with the profile's
 | `src/audio`                         | 68000 audio interface, container, capacities and Z80 engine modules            |
 | `src/ui`                            | Title/menu, result screens, HUD and other screen modes                         |
 
-An object's `main.s` names one original object responsibility. Additional
-component modules have behavior names. Source-owned mappings, DPLC and small
-path tables live in that owner's `data/` folder. Shared tables have one physical
-owner, even when several object IDs consume them. Sonic and Tails own their
-mapping and dynamic pattern ledgers. Math, generic sprite output and audio
-resume procedures belong to their subsystems rather than the object folder.
+A cohesive object normally lives in one named file, such as
+`environment/mcz/sliding_spikes.s`. Its source-owned mappings, DPLC and small
+path tables are inline at their original include positions. Compound owners,
+shared tables and physically separated fragments retain named component files or
+an explicit `data/` owner. Sonic and Tails keep their large mapping and pattern
+ledgers. Math, generic sprite output and audio resume procedures remain in their
+subsystems.
 
 Player movement and large boss implementations are split at named functional
 boundaries. The constants wrapper includes independent files for object ABI,
@@ -42,23 +43,31 @@ selection, global controls, SMPS commands, tables, decompression and state.
 Private song/SFX/sample includes remain generated build inputs, not source
 modules or tracked content.
 
-The registry gives each source file an owner, responsibility, original source
-coordinates and byte hash. Main source modules also carry canonical ROM ranges
-for both accepted profiles. Original physical source coordinates are covered
-once, including setup and tail directives. Every literal source include must
-reach a registered module or an explicitly declared generated audio wrapper. The
-include graph must have no cycle or orphan.
+The registry gives each source file an owner, responsibility and byte hash.
+Schema 2 adds `original_segments` for a module containing more than one original
+source slice; legacy single-slice rows retain their original coordinate fields.
+Every segment keeps its accepted source path, physical line coordinates and
+SHA-256. The baseline audit covers all original source lines exactly once,
+including setup and tail directives, and checks each segment against the exact
+accepted commit. Main modules also retain both canonical ROM ranges. Every
+literal source include reaches a registered module or a declared generated audio
+wrapper; the include graph has no cycle or orphan.
 
-No executable module exceeds 900 physical lines. The two larger Sonic mapping
-and DPLC ledgers are explicit size exceptions: each is one indexed table and its
-complete frame bodies. Their macro grammar and every frame reference are
-machine-checked. Small complete declarations and synchronization entry points
-also carry reasons instead of being padded or merged across unrelated owners.
+The ordinary physical-line limit remains 900. Two pure Sonic mapping/DPLC
+ledgers retain their machine-checked macro grammar and frame-reference proofs.
+Seven complete object files have separate `cohesive_object_module` exceptions,
+each with a named root, a reason, multiple checked original segments and an
+explicit maximum. Growth beyond that module's reviewed maximum fails the check;
+these exceptions do not raise the general limit. Small complete declarations and
+synchronization entry points retain explicit boundary reasons.
 
-Mechanical moves preserve exact canonical ROM bytes and the relocated ROMs
-already used for runtime validation. This byte evidence complements a semantic
-review of names, ownership and cohesion; it does not by itself establish those
-properties. See [architecture](architecture.md), [formats](data_formats.md) and
+Mechanical moves preserve exact canonical ROM bytes. Relocation probes are
+regenerated from the current source boundaries and checked against unchanged
+original-input runtime goldens. An inline table may expose another unreachable
+return site to the probe generator, so the experimental probe image need not
+have its former hash. This byte and runtime evidence complements a semantic
+review of names, ownership and cohesion; it does not establish them by itself.
+See [architecture](architecture.md), [formats](data_formats.md) and
 [content workflow](content_workflow.md).
 
 ## Source names and processor suffixes
@@ -79,9 +88,9 @@ Object implementations are grouped by `enemies`, `items`, `bosses`, `effects`,
 owners use zone directories where the implementation belongs to one zone; shared
 implementations use `common`. Special-stage objects live under
 `src/game/special_stage/objects`, and screen objects under `src/ui/objects`.
-Preserved unused implementations have an explicit `unused` owner. Their data
-ledgers remain adjacent in each owner's `data` directory, with short names such
-as `mappings.s`, `mappings_a.s` and `paths.s`.
+Preserved unused implementations have an explicit `unused` owner. Retained
+separate ledgers use short names such as `mappings.s`, `mappings_a.s` and
+`paths.s`; directly owned ledgers are inline in the named object module.
 
 Zone ownership follows actual placement consumers and source use rather than an
 imported filename alone. The formerly ARZ-named swinging platform serves ARZ,
@@ -92,17 +101,37 @@ label or ROM byte.
 
 ## Cohesive object modules
 
-The source tree has 612 modules after joining three adjacent pairs. The
-concatenated source text retains its original order, with every public label and
-both revision layouts preserved.
+The tree has 437 assembly modules after flattening 170 single-entry object
+owners: 139 incorporate their 175 local source-data files, and 31 already had
+one implementation file. Data was inserted exactly where its include appeared;
+no emitted statement, declaration order or compiled symbol value moved. Shared
+or physically separated owners retain their existing boundaries.
 
-| Module                                                            | Responsibility                                                  | Physical lines |
-| ----------------------------------------------------------------- | --------------------------------------------------------------- | -------------: |
-| [Object dispatch](../src/game/objects/dispatch.s)                 | RunObjects, player-death dispatch and the owned Obj_Index table |            337 |
-| [Platform contacts](../src/game/objects/common/platform_object.s) | Flat/sloped platform contacts and their player-carry helpers    |            451 |
-| [Starpost](../src/game/objects/items/starpost/main.s)             | Checkpoint states and their special-stage star children         |            388 |
+| Module                                                                     | Responsibility                                     | Physical lines |
+| -------------------------------------------------------------------------- | -------------------------------------------------- | -------------: |
+| [Object dispatch](../src/game/objects/dispatch.s)                          | RunObjects and the owned Obj_Index table           |            337 |
+| [Platform contacts](../src/game/objects/common/platform_object.s)          | Platform contacts and player-carry helpers         |            451 |
+| [Starpost](../src/game/objects/items/starpost.s)                           | Checkpoint, special-stage stars and their mappings |            442 |
+| [MCZ sliding spikes](../src/game/objects/environment/mcz/sliding_spikes.s) | Sliding spike object and its mappings              |            145 |
+| [OOZ sliding spikes](../src/game/objects/environment/ooz/sliding_spikes.s) | OOZ spike object and its mappings                  |            191 |
 
-The original coordinates remain one continuous range for each joined module.
-Sprite mappings stay in their existing adjacent data ledgers. The symbol proof
-registry and explicit unknown ledger follow the new physical owners; no label is
-renamed by this consolidation.
+Inline ordinary sprite/DPLC and tube-path ledgers have a `source_region` in the
+format registry. Its physical bounds, entry scope and normalized code hash keep
+parsers inside that ledger, excluding surrounding instructions and other tables.
+Sprite inventory compares qualified table roots rather than whole filenames.
+
+| Explicit object exception                  | Maximum physical lines |
+| ------------------------------------------ | ---------------------: |
+| `game/objects/environment/cpz/spin_tube.s` |                    906 |
+| `game/objects/bosses/arz.s`                |                    967 |
+| `game/objects/scenery/tornado.s`           |                    999 |
+| `game/objects/bosses/mecha_sonic.s`        |                   1002 |
+| `game/objects/bosses/wfz.s`                |                   1026 |
+| `game/objects/bosses/ehz.s`                |                   1053 |
+| `game/special_stage/objects/results.s`     |                   1101 |
+
+The symbol proof registry and explicit unknown ledger follow the current
+physical owners. Three declaration fingerprints change only because their
+file-boundary/include context became inline; their original compiled endpoints
+and the complete expanded source text remain checked. No label is renamed by
+this consolidation.

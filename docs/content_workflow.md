@@ -103,11 +103,13 @@ patch set, including shared-cell agreement, before returning a modified byte
 view. Neither API writes to source files or replaces canonical private inputs.
 
 `source_data.mapping_document` opens an ordinary assembly-owned sprite or DPLC
-ledger from a fresh canonical context. Its frozen handler additionally binds
-DPLC source-art bounds and each original frame's transfer window. A legal-width
-pointer or tile count is insufficient when it leaves those allocations.
-Special-stage shared frame views bind corresponding per-selector source RAM
-partitions and VRAM transfer budgets. See [formats](data_formats.md).
+ledger from a fresh canonical context. A reviewed source region isolates an
+inlined ledger from the surrounding instructions and neighbouring tables. Its
+frozen handler additionally binds DPLC source-art bounds and each original
+frame's transfer window. A legal-width pointer or tile count is insufficient
+when it leaves those allocations. Special-stage shared frame views bind
+corresponding per-selector source RAM partitions and VRAM transfer budgets. See
+[formats](data_formats.md).
 
 The complete aggregate also supports a ROM-only checkout through
 `make source-2-check CORE_SOURCE="path/to/retrolarium-core"`. Its preservation

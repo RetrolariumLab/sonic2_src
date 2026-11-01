@@ -20,6 +20,7 @@ from scripts.authoring.asset_document import Document, Target
 from scripts.authoring.struct_formats import Codec
 from scripts.authoring.indexed_records import KINDS as INDEXED_KINDS
 from scripts.build.source_asm import source_files
+from scripts.authoring.source_regions import region_lines
 
 BINCLUDE = re.compile(r'\bbinclude\s+"([^"\n]+)"', re.I)
 GLOBAL = re.compile(r"^([A-Za-z_][\w]*):")
@@ -146,14 +147,15 @@ def source_bytes(context, start, end, name):
 def mapping_document(artifact, context, parents, root=ROOT):
     name = artifact["source"]
     table = context["symbols"]
-    scope = parents.get(name)
+    lines = region_lines(artifact, project_path(name, root).read_text().splitlines())
+    scope = (artifact.get("source_region") or {}).get("initial_scope", parents.get(name))
     first = None
     active = None
     ends = []
     frames = []
     count = 0
     kind = None
-    for raw in project_path(name, root).read_text().splitlines():
+    for raw in lines:
         body = raw.split(";", 1)[0].rstrip()
         if not body.strip():
             continue
@@ -243,10 +245,15 @@ def mapping_roundtrip(artifact, context, parents, root=ROOT):
 def root_line(artifact, context):
     name = artifact["source"]
     lines = context["listing"].source_lines[name]
+    region_lines(artifact, lines)
+    region = artifact.get("source_region") or {}
+    first, last = region.get("first_line", 1), region.get("last_line", len(lines))
     found = [
         number
         for number, line in enumerate(lines)
-        if (match := GLOBAL.match(line.split(";", 1)[0])) and match[1] == artifact["root_symbol"]
+        if first <= number + 1 <= last
+        and (match := GLOBAL.match(line.split(";", 1)[0]))
+        and match[1] == artifact["root_symbol"]
     ]
     if len(found) != 1:
         raise ValueError("Source table root is not unique: " + artifact["root_symbol"])
@@ -341,9 +348,12 @@ def demo_roundtrip(artifact, context):
 def tube_path_roundtrip(artifact, context):
     name = artifact["source"]
     lines, begin = root_line(artifact, context)
-    count = sum(bool(re.search(r"\boffsetTableEntry\.w\b", raw.split(";", 1)[0], re.I)) for raw in lines[begin + 1 :])
+    last = (artifact.get("source_region") or {}).get("last_line", len(lines))
+    count = sum(
+        bool(re.search(r"\boffsetTableEntry\.w\b", raw.split(";", 1)[0], re.I)) for raw in lines[begin + 1 : last]
+    )
     start = context["symbols"][artifact["root_symbol"]]
-    end = context["listing"].pc(name, len(lines) + 1)
+    end = context["listing"].pc(name, last + 1)
     data = source_bytes(context, start, end, name)
     model = tube_paths.decode(data, count)
     if tube_paths.encode(model) != data:

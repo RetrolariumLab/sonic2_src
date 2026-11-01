@@ -53,6 +53,14 @@
       "resolution": "Join three adjacent pairs into object dispatch, platform contacts and starpost states; update physical owners while preserving all labels, bodies and revision ranges."
     },
     {
+      "id": "DOC-013",
+      "resolution": "Replace redundant main/data directory layers with 170 named object files; preserve multi-origin coordinate coverage, reviewed source regions and seven per-object size maxima."
+    },
+    {
+      "id": "DOC-014",
+      "resolution": "Clarify that a source-boundary change can alter the regenerated relocation probe, without altering canonical bytes or the original-input runtime goldens."
+    },
+    {
       "id": "DOC-019",
       "resolution": "Move exact AS build-313 dependencies and GPL text to a verified ignored cache, retain the full Saxman permission notice in its implementation, and bind linear history references to the new preservation boundary."
     }
@@ -73,8 +81,8 @@
     {
       "path": "docs/architecture.md",
       "action": "updated",
-      "reason": "Explain subsystem responsibilities and canonical fact owners without duplicating detailed format or runtime contracts.",
-      "sha256": "080f95f34bccfe1a4963dc49f9a4055d1aecd020e17dfda78aff83405585ccc8"
+      "reason": "Align the flattened object layout, checked original source segments, seven bounded size exceptions and isolated inline-ledger regions; preserve all existing runtime, authoring and rights limits.",
+      "sha256": "ebdc9f616efd31144ec15b86ccede01097dc7195fdc8eb061e2d1949e97be9d7"
     },
     {
       "path": "docs/architecture_decisions.md",
@@ -91,14 +99,14 @@
     {
       "path": "docs/content_workflow.md",
       "action": "updated",
-      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
-      "sha256": "ebb1ba8c607d5c98e537d87dd73377412509dd43620a4ea94bc17bad62d5d323"
+      "reason": "Align the flattened object layout, checked original source segments, seven bounded size exceptions and isolated inline-ledger regions; preserve all existing runtime, authoring and rights limits.",
+      "sha256": "41a6d1ebc609733dc9621f098ea0027cc3e738098b792dfa88aac92192b960c5"
     },
     {
       "path": "docs/data_formats.md",
       "action": "updated",
-      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
-      "sha256": "d6db4103a76ccf8be9035e3f159371fff305e96d304a0755f101ff68b55a3a6e"
+      "reason": "Align the flattened object layout, checked original source segments, seven bounded size exceptions and isolated inline-ledger regions; preserve all existing runtime, authoring and rights limits.",
+      "sha256": "6c1a837ba01bbf13388ec469b1bc8055545142091376159db75e788fcac8b093"
     },
     {
       "path": "docs/index.md",
@@ -133,8 +141,8 @@
     {
       "path": "docs/source_layout.md",
       "action": "updated",
-      "reason": "Document three cohesive adjacent object-module joins, their responsibilities and preserved source order and labels.",
-      "sha256": "63421a5cc57a880d88fe9314457784aa0611d380f0aee7219ecb749c64ca8902"
+      "reason": "Distinguish preserved canonical ROM identity from regenerated relocation probes: inlining exposes one additional unreachable return site, while original-input runtime goldens remain unchanged.",
+      "sha256": "1aecd0f2afdc9c56a974e2b7515a3c6b319b8f7a3449452dc93e9eec70ef63da"
     },
     {
       "path": "docs/source_reconstruction_2_0.md",
@@ -157,8 +165,8 @@
     {
       "path": "docs/unknowns.md",
       "action": "updated",
-      "reason": "Update the physical module inventory to 612; retain the explicit unknown-symbol scope and unchanged semantic evidence.",
-      "sha256": "e7f0b9bdaf7835f9f81be15584af578b06b034a60260e33bdfd28179a947f590"
+      "reason": "Align the flattened object layout, checked original source segments, seven bounded size exceptions and isolated inline-ledger regions; preserve all existing runtime, authoring and rights limits.",
+      "sha256": "ad9b28b14412e5388ce9c8ccef15a66698f1f34f105e9bc4bff5048e974c4a97"
     },
     {
       "path": "docs/validation.md",

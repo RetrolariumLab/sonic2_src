@@ -59,6 +59,9 @@ def ledger(text):
 
 
 def inventory(root=ROOT):
+    from scripts.authoring.source_data import parent_scopes
+
+    parents = parent_scopes(root)
     first_operations = {}
     local_operations = {}
     offset_tables = []
@@ -72,7 +75,7 @@ def inventory(root=ROOT):
         active = None
         previous_demo = False
         anonymous[name] = []
-        for number, label, scope, operation, arguments in statements(path.read_text()):
+        for number, label, scope, operation, arguments in statements(path.read_text(), parents.get(name)):
             if label:
                 pending.append(label)
                 if label.startswith("@"):
@@ -81,6 +84,7 @@ def inventory(root=ROOT):
                     previous_demo = False
             if not operation:
                 continue
+            declaration = pending[-1] if pending else scope
             for value in pending:
                 local_operations[(name, value)] = operation
                 if not value.startswith("@"):
@@ -88,7 +92,7 @@ def inventory(root=ROOT):
             pending = []
             if operation == "mappingstable":
                 sprite_files.add(name)
-                mapping_tables.add((name, scope))
+                mapping_tables.add((name, declaration))
             if operation == "demoinput" and not previous_demo:
                 demo_runs.add((name, scope))
             previous_demo = operation == "demoinput"
@@ -124,24 +128,49 @@ def inventory(root=ROOT):
     }
 
 
+def original_segments(row):
+    """Keep legacy single-source rows readable and reject ambiguous composites."""
+    if "original_segments" not in row:
+        return [row]
+    segments = row["original_segments"]
+    if (
+        not isinstance(segments, list)
+        or not segments
+        or any(key in row for key in ("original_path", "original_first_line", "original_last_line", "source_sha256"))
+    ):
+        raise ValueError("Ambiguous composite source coordinates: " + row["path"])
+    if any(not isinstance(item, dict) or item.get("original_first_line") is None for item in segments):
+        raise ValueError("Composite source segment lacks concrete coordinates: " + row["path"])
+    return segments
+
+
 def check_ranges(layout, root=ROOT, baseline=False):
     original = {item["path"]: item for item in layout["original_sources"]}
     if len(original) != len(layout["original_sources"]):
         raise ValueError("Duplicate preservation source owner")
+    segments = [(row["path"], item) for row in layout["modules"] for item in original_segments(row)]
+    if {item.get("original_path") for _, item in segments} != set(original):
+        raise ValueError("Source modules refer to undeclared preservation owners")
+    for path, item in segments:
+        first, last = item.get("original_first_line"), item.get("original_last_line")
+        if first is None and last is None and item.get("kind") == "include_order":
+            continue
+        if type(first) is not int or type(last) is not int or first < 1 or last < first:
+            raise ValueError("Invalid original source coordinates: " + path)
+        if not DIGEST.fullmatch(item.get("source_sha256", "")):
+            raise ValueError("Missing original range fingerprint: " + path)
     for name, owner in original.items():
         if not DIGEST.fullmatch(owner["sha256"]) or owner["physical_lines"] < 1:
             raise ValueError("Invalid preservation source fingerprint: " + name)
         rows = [
-            item
-            for item in layout["modules"]
+            (path, item)
+            for path, item in segments
             if item["original_path"] == name and item["original_first_line"] is not None
         ]
         cursor = 1
-        for item in sorted(rows, key=lambda row: row["original_first_line"]):
-            if item["original_first_line"] != cursor or item["original_last_line"] < cursor:
+        for path, item in sorted(rows, key=lambda pair: pair[1]["original_first_line"]):
+            if item["original_first_line"] != cursor:
                 raise ValueError("Overlapping or missing source coordinates: " + name)
-            if not DIGEST.fullmatch(item["source_sha256"]):
-                raise ValueError("Missing original range fingerprint: " + name)
             cursor = item["original_last_line"] + 1
         if cursor != owner["physical_lines"] + 1:
             raise ValueError("Incomplete original source range: " + name)
@@ -154,19 +183,50 @@ def check_ranges(layout, root=ROOT, baseline=False):
             if digest(text.encode()) != owner["sha256"] or len(text.splitlines()) != owner["physical_lines"]:
                 raise ValueError("Original source differs from the preservation commit: " + name)
             lines = text.splitlines(keepends=True)
-            for item in rows:
+            for path, item in rows:
                 payload = "".join(lines[item["original_first_line"] - 1 : item["original_last_line"]]).encode()
                 if digest(payload) != item["source_sha256"]:
-                    raise ValueError("Original source slice differs: " + item["path"])
-    if {item["original_path"] for item in layout["modules"]} != set(original):
-        raise ValueError("Source modules refer to undeclared preservation owners")
+                    raise ValueError("Original source slice differs: " + path)
+
+
+def check_size(row, body):
+    count = len(body.splitlines())
+    exception = row.get("size_exception")
+    if count > 900:
+        if not exception or not isinstance(exception.get("reason"), str) or len(exception["reason"].strip()) < 30:
+            raise ValueError("Oversized source lacks a justified size exception: " + row["path"])
+        if exception.get("kind") == "machine_checked_data_ledger":
+            proof = ledger(body)
+            if any(exception.get("proof", {}).get(key) != value for key, value in proof.items()):
+                raise ValueError("Data ledger exception has stale proof: " + row["path"])
+        elif exception.get("kind") == "cohesive_object_module":
+            maximum = exception.get("max_lines")
+            labels = [label for _, label, _, _, _ in statements(body) if label and not label.startswith("@")]
+            if (
+                type(maximum) is not int
+                or maximum <= 900
+                or count > maximum
+                or len(original_segments(row)) < 2
+                or not labels
+                or exception.get("root_symbol") != labels[0]
+                or row.get("label") != labels[0]
+            ):
+                raise ValueError("Cohesive object exception exceeds its reviewed bound or root: " + row["path"])
+        else:
+            raise ValueError("Unknown oversized source exception: " + row["path"])
+        return True
+    if exception and exception.get("kind") == "cohesive_object_module":
+        raise ValueError("Unnecessary cohesive object size exception: " + row["path"])
+    if count < 25 and (not exception or not exception.get("reason")):
+        raise ValueError("Tiny source module lacks a cohesive boundary reason: " + row["path"])
+    return False
 
 
 def audit(root=ROOT, baseline=False):
     destination = project_path("build/source-layout-check.json", root)
     destination.unlink(missing_ok=True)
     layout = load("config/reconstruction/source_layout.json", root)
-    if layout.get("schema") != "sonic2.source_layout" or layout.get("schema_version") != 1:
+    if layout.get("schema") != "sonic2.source_layout" or layout.get("schema_version") not in {1, 2}:
         raise ValueError("Unsupported source layout schema")
     rows = {item["path"]: item for item in layout["modules"]}
     actual = {path.relative_to(root).as_posix() for path in source_files(root)}
@@ -191,16 +251,8 @@ def audit(root=ROOT, baseline=False):
             raise ValueError("Source owner differs from its semantic home: " + name)
         if count != row["physical_lines"] or digest(path.read_bytes()) != row["file_sha256"]:
             raise ValueError("Source registry has stale size or bytes: " + name)
-        exception = row.get("size_exception")
-        if count > 900:
-            if not exception or exception.get("kind") != "machine_checked_data_ledger" or not exception.get("reason"):
-                raise ValueError("Oversized source lacks a justified data-ledger exception: " + name)
-            proof = ledger(body)
-            if any(exception["proof"].get(key) != value for key, value in proof.items()):
-                raise ValueError("Data ledger exception has stale proof: " + name)
+        if check_size(row, body):
             exceptions.append(name)
-        elif count < 25 and (not exception or not exception.get("reason")):
-            raise ValueError("Tiny source module lacks a cohesive boundary reason: " + name)
         children = []
         for raw in body.splitlines():
             for target in INCLUDE.findall(raw.split(";", 1)[0]):
@@ -254,7 +306,7 @@ def audit(root=ROOT, baseline=False):
     ):
         raise ValueError("Source engine-record registry differs from the independent macro inventory")
     sprites = {
-        item["source"]
+        (item["source"], item["root_symbol"])
         for item in registered
         if item["codec"] in {"sprite-s2", "dplc-s2"} and item.get("layout") != "shared_frame_views"
     }
@@ -271,14 +323,16 @@ def audit(root=ROOT, baseline=False):
     pending_keys = {(item["source"], item["root_symbol"]) for item in pending}
     inline_pending = formats.get("source_table_inventory", {}).get("inline_mapping_reviews", [])
     inline_keys = {(item["source"], item["root_symbol"]) for item in inline_pending}
-    actual_inline = {(source, symbol) for source, symbol in found["mapping_tables"] if source not in sprites}
+    actual_inline = found["mapping_tables"] - sprites
     if inline_keys & inline or inline_keys | inline != actual_inline:
         raise ValueError("Inline mapping review ledger differs from the independent inventory")
-    if (
-        sprites | {source for source, symbol in inline_keys | inline} != found["sprite_files"]
-        or demos != found["demo_runs"]
-    ):
+    if sprites | inline_keys | inline != found["mapping_tables"] or demos != found["demo_runs"]:
         raise ValueError("Source sprite/demo registry differs from the independent inventory")
+    from scripts.authoring.source_regions import region_lines
+
+    for artifact in registered:
+        if "source_region" in artifact:
+            region_lines(artifact, project_path(artifact["source"], root).read_text().splitlines())
     if data & pending_keys or data | pending_keys != found["data_tables"]:
         raise ValueError("Source byte-table registry differs from the independent inventory")
     report = {
@@ -290,7 +344,11 @@ def audit(root=ROOT, baseline=False):
         "original_source_files": len(layout["original_sources"]),
         "checked_size_exceptions": exceptions,
         "baseline_checked": baseline,
-        "sprite_ledger_files": len(sprites),
+        "sprite_ledger_files": len({name for name, symbol in sprites}),
+        "sprite_ledger_roots": len(sprites),
+        "cohesive_object_size_exceptions": [
+            name for name in exceptions if rows[name]["size_exception"]["kind"] == "cohesive_object_module"
+        ],
         "inline_mapping_tables": len(inline),
         "demo_runs": len(demos),
         "indexed_content_tables": len(data),

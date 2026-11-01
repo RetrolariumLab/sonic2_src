@@ -5,8 +5,9 @@ import hashlib
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from scripts.build.project import ROOT
-from scripts.validation.structure import audit, inventory, ledger
+from scripts.validation.structure import audit, inventory, ledger, check_size
 
 
 class StructureTests(unittest.TestCase):
@@ -118,6 +119,94 @@ class StructureTests(unittest.TestCase):
         text = "Root: mappingsTable\n mappingsTableEntry.w Piece\nFrame: spriteHeader\nPiece: spritePiece 0,0,1,1,0,0,0,0,0\n"
         with self.assertRaisesRegex(ValueError, "complete header"):
             ledger(text)
+
+    def composite(self):
+        layout = self.fixture()
+        row = layout["modules"][0]
+        keys = ("original_path", "original_first_line", "original_last_line", "source_sha256")
+        segment = {key: row.pop(key) for key in keys}
+        data = "Data: dc.b 0\n"
+        data_sha = hashlib.sha256(data.encode()).hexdigest()
+        row["original_segments"] = [
+            segment,
+            {"original_path": "data.asm", "original_first_line": 1, "original_last_line": 1, "source_sha256": data_sha},
+        ]
+        body = "Entry: rts\n" + data
+        self.write("src/main.s", body)
+        row.update(physical_lines=2, file_sha256=hashlib.sha256(body.encode()).hexdigest())
+        layout["schema_version"] = 2
+        layout["original_sources"].append({"path": "data.asm", "physical_lines": 1, "sha256": data_sha})
+        self.config("config/reconstruction/source_layout.json", layout)
+        return layout
+
+    def test_composite_keeps_both_original_sources_checked(self):
+        layout = self.composite()
+        layout["baseline"]["commit"] = "a" * 40
+        self.config("config/reconstruction/source_layout.json", layout)
+        originals = {"old.asm": b"Entry: rts\n", "data.asm": b"Data: dc.b 0\n"}
+        with patch(
+            "scripts.validation.structure.subprocess.check_output",
+            side_effect=lambda args, cwd: originals[args[-1].split(":", 1)[1]],
+        ):
+            self.assertTrue(audit(self.root, baseline=True)["baseline_checked"])
+
+    def test_composite_cannot_hide_duplicate_or_missing_original_ranges(self):
+        for mode in ("duplicate", "missing", "ambiguous", "fingerprint"):
+            with self.subTest(mode=mode):
+                layout = self.composite()
+                row = layout["modules"][0]
+                if mode == "duplicate":
+                    row["original_segments"].append(dict(row["original_segments"][0]))
+                elif mode == "missing":
+                    row["original_segments"].pop()
+                elif mode == "ambiguous":
+                    row["original_path"] = "old.asm"
+                else:
+                    row["original_segments"][0]["source_sha256"] = "bad"
+                self.config("config/reconstruction/source_layout.json", layout)
+                with self.assertRaises(ValueError):
+                    audit(self.root)
+
+    def test_composite_checks_each_segment_against_the_accepted_baseline(self):
+        layout = self.composite()
+        layout["baseline"]["commit"] = "a" * 40
+        layout["modules"][0]["original_segments"][1]["source_sha256"] = "0" * 64
+        self.config("config/reconstruction/source_layout.json", layout)
+        originals = {"old.asm": b"Entry: rts\n", "data.asm": b"Data: dc.b 0\n"}
+        with patch(
+            "scripts.validation.structure.subprocess.check_output",
+            side_effect=lambda args, cwd: originals[args[-1].split(":", 1)[1]],
+        ):
+            with self.assertRaisesRegex(ValueError, "Original source slice differs"):
+                audit(self.root, baseline=True)
+
+    def test_object_size_exception_is_bound_to_its_root_and_maximum(self):
+        layout = self.composite()
+        row = layout["modules"][0]
+        body = "Entry: rts\n" + "; preserved object lines\n" * 900
+        row.update(
+            label="Entry",
+            size_exception={
+                "kind": "cohesive_object_module",
+                "reason": "One reviewed complete object with its in-place data ledgers.",
+                "root_symbol": "Entry",
+                "max_lines": 901,
+            },
+        )
+        self.assertTrue(check_size(row, body))
+        with self.assertRaisesRegex(ValueError, "reviewed bound or root"):
+            check_size(row, body + "; new line\n")
+        row["size_exception"]["root_symbol"] = "Other"
+        with self.assertRaisesRegex(ValueError, "reviewed bound or root"):
+            check_size(row, body)
+        row.pop("size_exception")
+        with self.assertRaisesRegex(ValueError, "justified size exception"):
+            check_size(row, body)
+
+    def test_local_mapping_table_keeps_its_qualified_root(self):
+        self.write("src/main.s", 'Root: include "src/data.s"\n')
+        self.write("src/data.s", ".offsets: mappingsTable\n mappingsTableEntry.w .frame\n.frame: spriteHeader\n")
+        self.assertIn(("src/data.s", "Root.offsets"), inventory(self.root)["mapping_tables"])
 
 
 if __name__ == "__main__":

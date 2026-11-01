@@ -7,6 +7,7 @@ import tempfile
 import unittest
 from scripts.build.project import ROOT
 from scripts.authoring.source_data import mapping_document
+from scripts.validation.semantics import fingerprint
 
 
 class MappingDocumentTests(unittest.TestCase):
@@ -77,6 +78,35 @@ class MappingDocumentTests(unittest.TestCase):
             document.encode(model, replace(document.target, abi="test-rev01"))
         with self.assertRaisesRegex(ValueError, "widens"):
             document.encode(model, replace(document.target, encoded_capacity=128))
+
+    def test_inline_mapping_excludes_code_and_the_following_ledger(self):
+        path = self.root / "src/table.asm"
+        table = path.read_text()
+        path.write_text(
+            "Entry: rts\n"
+            + table
+            + "Other: mappingsTable\n mappingsTableEntry.w OtherFrame\nOtherFrame: spriteHeader\nOtherFrame_End\n",
+            newline="\n",
+        )
+        self.artifact["source_region"] = {
+            "first_line": 2,
+            "last_line": 6,
+            "initial_scope": None,
+            "code_sha256": fingerprint(table, {}),
+        }
+        document, model, report = self.document()
+        self.assertEqual(document.encode(model, document.target), bytes.fromhex("0002 0001 1000"))
+        self.assertEqual(report["end_exclusive"], 38)
+        path.write_text(path.read_text().replace("dplcEntry 2,0", "dplcEntry 3,0"), newline="\n")
+        with self.assertRaisesRegex(ValueError, "changed after review"):
+            self.document()
+
+    def test_inline_mapping_rejects_out_of_file_or_boolean_bounds(self):
+        for first, last in [(0, 5), (1, 99), (True, 5), (4, 2)]:
+            with self.subTest(first=first, last=last):
+                self.artifact["source_region"] = {"first_line": first, "last_line": last, "code_sha256": "0" * 64}
+                with self.assertRaisesRegex(ValueError, "invalid bounds"):
+                    self.document()
 
 
 if __name__ == "__main__":

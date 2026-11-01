@@ -1,16 +1,18 @@
 # Content formats
 
 The machine-readable ownership registry is `config/authoring/data_formats.json`.
-It covers 682 direct private inputs, 13 derived PSG envelopes, 210 standalone
-sprite/DPLC files, 15 inline/shared mapping tables, 104 animation roots, three
-spin-tube path containers, eight indexed source tables, one palette-cycle timing
-table, six demo runs and typed source-owned engine records. The two accepted
-revisions share the record grammars; active input selection and physical
-placement are resolved separately for each revision. The registry includes the
-nested FM voice format and the `engine-records-s2` family with explicit record
-discriminators. It contains no game payloads. Inline/shared mappings and indexed
-source records have explicit typed owners. Release acceptance still requires the
-complete predecessor and 2.0 gate.
+It covers 682 direct private inputs, 13 derived PSG envelopes, 210 ordinary
+sprite/DPLC ledger roots, 15 inline/shared mapping tables, 104 animation roots,
+three spin-tube path containers, eight indexed source tables, one palette-cycle
+timing table, six demo runs and typed source-owned engine records. The two
+accepted revisions share the record grammars; active input selection and
+physical placement are resolved separately for each revision. The registry
+includes the nested FM voice format and the `engine-records-s2` family with
+explicit record discriminators. It contains no game payloads. Inline/shared
+mappings and indexed source records have explicit typed owners. Inlined ordinary
+ledgers retain reviewed source-region bounds, lexical scope and normalized code
+fingerprints; physical filenames are not ledger boundaries. Release acceptance
+still requires the complete predecessor and 2.0 gate.
 
 Use the [content workflow](content_workflow.md) for commands and the export API.
 The byte layout below is the retail S2 layout. Word-sized 68000 data is big
