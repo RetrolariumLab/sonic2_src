@@ -1,8 +1,9 @@
 # Memory and hardware interfaces
 
-s2.constants.asm is the owner of addresses and object-field offsets. The table
-below summarizes the current original layout; runtime watches resolve those
-symbols from each canonical AS listing instead of trusting this prose.
+`src/memory/` owns RAM and hardware declarations; `src/game/objects/abi.asm`
+owns object-field offsets. The table below summarizes the current original
+layout; runtime watches resolve those symbols from each canonical AS listing
+instead of trusting this prose.
 
 | Symbol/area                      | 68000 address               | Role                                            |
 | -------------------------------- | --------------------------- | ----------------------------------------------- |

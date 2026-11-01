@@ -1,0 +1,97 @@
+MusicPoint1:    startBank
+                music_ptr Mus_Continue
+
+Mus_Continue:   include "build/music/9C - Continue.inc"
+
+                finishBank
+
+                align   $20
+
+; --------------------------------------------------------------------------------------
+; EHZ/HTZ Assets
+; --------------------------------------------------------------------------------------
+ArtNem_HtzFireball1:    BINCLUDE "data/art/nemesis/Fireball 1.nem"
+                even
+ArtNem_Waterfall:   BINCLUDE "data/art/nemesis/Waterfall tiles.nem"
+                even
+ArtNem_HtzFireball2:    BINCLUDE "data/art/nemesis/Fireball 2.nem"
+                even
+ArtNem_EHZ_Bridge:  BINCLUDE "data/art/nemesis/EHZ bridge.nem"
+                even
+ArtNem_HtzZipline:  BINCLUDE "data/art/nemesis/HTZ zip-line platform.nem"
+                even
+ArtNem_HtzValveBarrier: BINCLUDE "data/art/nemesis/One way barrier from HTZ.nem"
+                even
+ArtNem_HtzSeeSaw:   BINCLUDE "data/art/nemesis/See-saw in HTZ.nem"
+                even
+                BINCLUDE "data/art/nemesis/Fireball 3.nem"  ; Unused
+                even
+ArtNem_HtzRock: BINCLUDE "data/art/nemesis/Rock from HTZ.nem"
+                even
+ArtNem_Sol:     BINCLUDE "data/art/nemesis/Sol badnik from HTZ.nem"  ; Not grouped with the other badniks for some reason
+                even
+
+; --------------------------------------------------------------------------------------
+; MTZ Assets
+; --------------------------------------------------------------------------------------
+ArtNem_MtzWheel:    BINCLUDE "data/art/nemesis/Large spinning wheel from MTZ.nem"
+                even
+ArtNem_MtzWheelIndent:  BINCLUDE "data/art/nemesis/Large spinning wheel from MTZ - indent.nem"
+                even
+ArtNem_MtzSpikeBlock:   BINCLUDE "data/art/nemesis/MTZ spike block.nem"
+                even
+ArtNem_MtzSteam:    BINCLUDE "data/art/nemesis/Steam from MTZ.nem"
+                even
+ArtNem_MtzSpike:    BINCLUDE "data/art/nemesis/Spike from MTZ.nem"
+                even
+ArtNem_MtzAsstBlocks:   BINCLUDE "data/art/nemesis/Similarly shaded blocks from MTZ.nem"
+                even
+ArtNem_MtzLavaBubble:   BINCLUDE "data/art/nemesis/Lava bubble from MTZ.nem"
+                even
+ArtNem_LavaCup: BINCLUDE "data/art/nemesis/Lava cup from MTZ.nem"
+                even
+ArtNem_BoltEnd_Rope:    BINCLUDE "data/art/nemesis/Bolt end and rope from MTZ.nem"
+                even
+ArtNem_MtzCog:  BINCLUDE "data/art/nemesis/Small cog from MTZ.nem"
+                even
+ArtNem_MtzSpinTubeFlash:    BINCLUDE "data/art/nemesis/Spin tube flash from MTZ.nem"
+                even
+
+; --------------------------------------------------------------------------------------
+; MCZ Assets
+; --------------------------------------------------------------------------------------
+ArtNem_Crate:   BINCLUDE "data/art/nemesis/Large wooden box from MCZ.nem"
+                even
+ArtNem_MCZCollapsePlat: BINCLUDE "data/art/nemesis/Collapsing platform from MCZ.nem"
+                even
+ArtNem_VineSwitch:  BINCLUDE "data/art/nemesis/Pull switch from MCZ.nem"
+                even
+ArtNem_VinePulley:  BINCLUDE "data/art/nemesis/Vine that lowers from MCZ.nem"
+                even
+ArtNem_MCZGateLog:  BINCLUDE "data/art/nemesis/Drawbridge logs from MCZ.nem"
+                even
+
+; ----------------------------------------------------------------------------------
+; Filler (free space)
+; ----------------------------------------------------------------------------------
+; the PCM data has to line up with the end of the bank
+                cnop    -Size_of_SEGA_sound, $8000
+
+; -------------------------------------------------------------------------------
+; Sega Intro Sound
+; 8-bit unsigned raw audio at 16Khz
+; -------------------------------------------------------------------------------
+; loc_F1E8C:
+Snd_Sega:       include "build/samples/PCM/SEGA.inc"
+
+                if      Snd_Sega.size > $8000
+                fatal   "Sega sound must fit within $8000 bytes, but you have a $\{Snd_Sega.size} byte Sega sound."
+                endif
+                if      Snd_Sega.size > Size_of_SEGA_sound
+                fatal   "Size_of_SEGA_sound = $\{Size_of_SEGA_sound}, but you have a $\{Snd_Sega.size} byte Sega sound."
+                endif
+
+; ------------------------------------------------------------------------------
+; Music pointers
+; ------------------------------------------------------------------------------
+; loc_F8000:

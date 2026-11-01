@@ -1,10 +1,10 @@
 # Architecture and fact ownership
 
-The canonical entry point is s2.asm. config/revision_profiles.json supplies only
-the accepted retail revision define, entry point and output. The current 1.0
-boundary preserves the imported monolithic include order; semantic module
-extraction is a separate 2.0 change. This is an explicit temporary layout
-deviation, not a claim that the original address-oriented layout is finished.
+The canonical entry point is `src/main.asm`. `config/revision_profiles.json`
+supplies the shared retail defines and output paths. Semantic modules preserve
+the original include order and group code by its subsystem responsibilities.
+Data stays beside its owner. The source registry records every module, original
+range and justified size exception; labels and canonical behavior are unchanged.
 
 ## Engine subsystems
 
@@ -21,11 +21,11 @@ deviation, not a claim that the original address-oriented layout is finished.
   helpers implement player motion. Badniks, bosses, stage mechanisms, rings,
   monitors and scoring share the engine services.
 - The 68000 sound interface loads the compressed Z80 driver and sends commands.
-  s2.sounddriver.asm is executable driver source and its engine tables. Stored
-  songs/effects, FM voices, PSG envelopes and DAC/PCM are private content
-  inputs.
-- mappings/ and misc/ contain source-defined mappings, DPLC and engine/content
-  tables. Their inline form is preserved; original binary graphics, level and
+  `src/audio/z80/driver.asm` includes executable driver modules and engine
+  tables. Stored songs/effects, FM voices, PSG envelopes and DAC/PCM are private
+  content inputs.
+- Source-defined mappings, DPLC and engine tables live beside their subsystem
+  owners. Their inline form is preserved; original binary graphics, level and
   collision assets are extracted under data/.
 
 ## Authoritative facts
@@ -38,7 +38,7 @@ deviation, not a claim that the original address-oriented layout is finished.
 | Executable dependency pins and host support limits                        | config/toolchain.json                    |
 | External executable identities                                            | config/toolchain.json                    |
 | Source style roots and dialect                                            | config/lint.json                         |
-| RAM/hardware symbols                                                      | s2.constants.asm                         |
+| RAM/hardware symbols                                                      | src/memory/ and object ABI modules       |
 | Relocation transforms and legacy lookup owners                            | config/reconstruction/relocation.json    |
 | Fixed header/hardware controls and scalar table classification            | config/reconstruction/fixed_regions.json |
 | Movie requirements, watches and emulator identity                         | config/runtime.json                      |

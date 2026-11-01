@@ -62,7 +62,7 @@
     }
   ],
   "bank_window": {
-    "owner": "s2.sounddriver.asm",
+    "owner": "src/audio/z80/interface.asm",
     "base_symbol": "z80_bank_size",
     "size": 32768,
     "reason": "Uncompressed SMPS pointers address a fixed Z80 ROM window; generated audio wrappers enforce within-bank placement."
@@ -73,7 +73,7 @@
   },
   "scalar_longword_tables": [
     {
-      "owner": "TwoPlayer_SixDigitDivisors",
+      "owner": "dword_8732",
       "kind": "descending_radix_powers",
       "radix": 10,
       "digits": 6,

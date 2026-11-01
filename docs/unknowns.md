@@ -11,7 +11,7 @@ a substitute for its recorded passing evidence.
 | S2-PROBE            | controlled          | The 2 MiB experimental probe preserves the original logical checksum extent, original sound layout and two CNZ code-as-data dependencies. It is not a general ROM-expansion feature or a hardware test. |
 | S2-UPSTREAM-LICENSE | license_not_granted | The upstream disclaimer grants no annotation/source license. Original game code and content remain the rightsholder's property.                                                                         |
 | S2-TOOLS-LICENSE    | unassigned          | Licensing of newly written project tools/documentation has not been assigned. External AS and Saxman notices are separate; no project-wide license is inferred.                                         |
-| S2-LAYOUT           | planned             | The imported 68000 source remains monolithic for the intermediate preservation point. Semantic module extraction, naming evidence and complete content contracts belong to 2.0.                         |
+| S2-LAYOUT           | development         | The mechanical split is present with semantic owners and source fingerprints. Final 2.0 tooling, documentation and clean-clone acceptance remain separate requirements.                                 |
 | S2-CONTENT          | planned             | Authentic Saxman song round trips are tested. Complete per-asset codecs, capacities and editing round trips for every content format are not yet accepted.                                              |
 
 REV02 is excluded because no supplied real original image matched its
