@@ -1,5 +1,7 @@
 """The Kit bridge must preserve AS tokens and the assembled program."""
 
+import contextlib
+import io
 import hashlib
 import json
 import re
@@ -71,12 +73,16 @@ class AssemblyStyleTests(unittest.TestCase):
                 )
                 return source.with_suffix(".p").read_bytes()
 
+            def normalized(fix=False):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    return normalize(root, fix=fix)
+
             before = assemble()
             original = source.read_bytes()
-            self.assertEqual(normalize(root, fix=False), ["probe.asm"])
+            self.assertEqual(normalized(fix=False), ["probe.asm"])
             self.assertEqual(source.read_bytes(), original)
-            self.assertEqual(normalize(root, fix=True), ["probe.asm"])
-            self.assertEqual(normalize(root, fix=False), [])
+            self.assertEqual(normalized(fix=True), ["probe.asm"])
+            self.assertEqual(normalized(fix=False), [])
             self.assertEqual(assemble(), before)
 
     def test_signature_distinguishes_z80_registers_and_quoted_spaces(self):

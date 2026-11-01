@@ -74,8 +74,10 @@ help command, and a deleted-private-payload history regression still run.
 
 make check-private-data checks the current source tree and every unique blob
 reachable from every Git ref. It rejects any complete private asset or ROM
-payload and every tracked binary, including compiler executables. Deleting a
-private file in a later commit does not make that history valid.
+payload and every tracked binary, including compiler executables. Music/SFX
+source files, SMPS2ASM content macros and inline PSG envelopes are also
+rejected. Deleting private content in a later commit does not make that history
+valid.
 
 This is the phase-2 build boundary. Lint, relocation, MAME runtime, the final
 release gates and semantic source layout are not yet claimed complete.

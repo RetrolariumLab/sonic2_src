@@ -28,4 +28,5 @@ formatting change must also pass both full ROM identity checks. The
 compatibility bridge can be removed when the pinned Kit natively supports these
 AS forms and extensions.
 
-The formatting-only commit is recorded in .git-blame-ignore-revs once made.
+The formatting-only commit is recorded in .git-blame-ignore-revs for the checked
+preservation change.

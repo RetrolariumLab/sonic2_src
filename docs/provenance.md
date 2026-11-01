@@ -17,12 +17,11 @@ private_user_supplied and must never enter Git.
 
 All original binary game assets, WAV files, editor projects, fixed-file
 modifications, Lua build tools and unused platform executables were excluded.
-The complete unmodified community build and its optional fixes can be recovered
-from the upstream commit above; it is a reference, never this project's Git
-base.
-
 Music, effects, FM voices and PSG envelopes are private inputs rather than
-redistributed assembler content. Driver code and engine tables remain source.
+redistributed assembler content. The driver code and engine lookup tables remain
+source. SMPS2ASM content macros are excluded from the preservation build. The
+complete unmodified community build and its optional fixes can be recovered from
+the upstream commit above; it is a reference, never this project's Git base.
 
 ## Build tools and compression
 
