@@ -15,7 +15,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "24677ea7339c4b18d7c0b0fc454a3cd02383ee6fb55370257486dc8e18686a36"
         }
@@ -19765,7 +19765,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "0565663cb03fc98c2045fea0641fec6224f25618af2b978184465a34bf268782"
         }
@@ -19789,7 +19789,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "5bb6a5f11aa64899e54c116964513b8ba93036bd1cae285152c12ab331fbb00f"
         }
@@ -19813,7 +19813,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "52a37aea693e929d83d5f775c5d13b514210658785d8dd9a562b822d63eb5ed8"
         }
@@ -19837,7 +19837,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "fa4ff0f55ab2ad03bbb11d95da04c62991c3295876217899e5d07a51d045bc25"
         }
@@ -19861,7 +19861,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "1d3cc5d05236ee2ce450fd564fd7aee9f9424d4c9dbcaf88b814d4c96574b412"
         }
@@ -23794,7 +23794,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "617051be5ac066612dc0e8abb5c9591fd7cfbd0c158607ece7f5e9acb5bfad72"
         }
@@ -23815,7 +23815,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "8def52defd86f4b57d8bdc000145e648ee86926c8fb5a1f2120e62edd0e3ef88"
         }
@@ -23836,7 +23836,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "1268d11f40c6a0d4bc4799bae1d43d887f5efbb4b285013a9ad355c20fb85d74"
         }
@@ -23857,7 +23857,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "900d8ecbd4e4555eb2777df94a0a4eed70f2a8b794b19388b0a8a999028f63bd"
         }
@@ -23878,7 +23878,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/ending_sequence_data.s",
+          "source": "src/ui/ending_support.s",
           "occurrence": 0,
           "code_sha256": "87f292ab33a74cecd16313a2789c1bad1dd825845a984b11ec6f4c71b739306c"
         }
@@ -26944,7 +26944,7 @@
       },
       "definitions": [
         {
-          "source": "src/ui/sega_screen_vint.s",
+          "source": "src/ui/sega_vint.s",
           "occurrence": 0,
           "code_sha256": "33ea79d7ad2892576d3e65afbea2c9e13ff510e7493c267acf41c2efdcaae129"
         }

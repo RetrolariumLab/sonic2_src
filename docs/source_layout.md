@@ -78,6 +78,10 @@ object IDs or enumerate every child object. Original assembly labels and object
 dispatch IDs remain unchanged by file moves. Confirmed label changes are
 recorded separately in the canonical rename registry.
 
+Shared enemy shots use `enemies/projectile.s`. Per-shot movement routines select
+gravity or straight motion; the filename names their shared responsibility. The
+object dispatch already identifies this implementation as `ObjPtr_Projectile`.
+
 The `.s` suffix identifies 68000 code and emitted tables. Shared constants,
 hardware/RAM declarations, macros and assembler setup use `.inc`. Z80 driver
 modules retain `.asm`. All three suffixes participate in source ownership,
@@ -164,3 +168,32 @@ names describe checked consumers instead of letter suffixes: CPZ
 `boss_mappings.s`, and CNZ `bomb_mappings.s` and `cage_mappings.s`. The CPZ art
 references, HTZ smoke setup and CNZ bomb/cage consumers establish these roles;
 no sprite label or gameplay behavior is renamed.
+
+## Context-aware source basenames
+
+Directories supply the subsystem and object context. The single math module is
+`system/math.s`; it groups random-number and trigonometric routines without an
+extra one-file directory. The following short names retain their exact original
+include positions and complete module bodies:
+
+| Current source                                      | Responsibility                                       |
+| --------------------------------------------------- | ---------------------------------------------------- |
+| `system/math.s`                                     | Random-number and trigonometric services             |
+| `game/level/events/stubs.s`                         | Three no-op level-event entry points                 |
+| `game/level/zone/graphics.s`                        | Zone block, chunk and tile-art inputs                |
+| `game/level/zone/cnz_bumpers.s`                     | Original bumper streams for both CNZ acts            |
+| `game/level/load_tiles.s`                           | Zone tile loading                                    |
+| `game/level/load_collision.s`                       | Primary and secondary collision-index loading        |
+| `game/objects/environment/common/invisible_block.s` | Invisible solid block and its mappings               |
+| `game/objects/environment/wfz/hang_trigger.s`       | Hanging region, character capture and jump release   |
+| `rendering/art/animated_level.s`                    | Animated level-art declarations                      |
+| `ui/title_helpers.s`                                | Title-screen state and sprite initialization         |
+| `ui/sega_vint.s`                                    | Sega-screen vertical-interrupt work                  |
+| `ui/ending_support.s`                               | Ending helper procedures, palettes and child records |
+| `ui/menu_support.s`                                 | Shared cheat handling, menu text and mappings        |
+
+The ending and menu support modules contain executable procedures together with
+source-owned data. Their names cover that mixed responsibility. Assembly labels,
+reviewed symbol meanings, original source coordinates and file-size exceptions
+remain independent of these filename changes. All source, symbol, unknown and
+content ledgers follow the current physical paths.

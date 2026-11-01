@@ -8985,7 +8985,7 @@
       }
     },
     {
-      "source": "src/game/objects/environment/common/invisible_solid_block.s",
+      "source": "src/game/objects/environment/common/invisible_block.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj74",
@@ -13500,7 +13500,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "Obj94_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13511,7 +13511,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "Obj99_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13522,7 +13522,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "Obj9A_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13533,7 +13533,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "Obj9D_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13544,7 +13544,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "ObjA4_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13555,7 +13555,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "ObjA6_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13566,7 +13566,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "ObjA7_SubObjData3",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13577,7 +13577,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "ObjAD_SubObjData3",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13588,7 +13588,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "ObjAF_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -13599,7 +13599,7 @@
       "record_kinds": ["subobjdata"]
     },
     {
-      "source": "src/game/objects/enemies/projectile_with_gravity.s",
+      "source": "src/game/objects/enemies/projectile.s",
       "root_symbol": "ObjB8_SubObjData2",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14820,7 +14820,7 @@
       "record_kinds": ["palptr"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_PlayerSelect",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14831,7 +14831,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_SonicAndMiles",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14842,7 +14842,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_SonicAndTails",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14853,7 +14853,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_SonicAlone",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14864,7 +14864,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_MilesAlone",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14875,7 +14875,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_TailsAlone",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14886,7 +14886,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_VsModeItems",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14897,7 +14897,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_AllKindsItems",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14908,7 +14908,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_TeleportOnly",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14919,7 +14919,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_SoundTest",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -14930,7 +14930,7 @@
       "record_kinds": ["menutxt"]
     },
     {
-      "source": "src/ui/cheats_menu_data.s",
+      "source": "src/ui/menu_support.s",
       "root_symbol": "TextOptScr_0",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -16118,7 +16118,7 @@
       "record_kinds": ["credittext"]
     },
     {
-      "source": "src/ui/ending_sequence_data.s",
+      "source": "src/ui/ending_support.s",
       "root_symbol": "UiEndingSequenceData_EndingSeqCloudsChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -16129,7 +16129,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/ui/ending_sequence_data.s",
+      "source": "src/ui/ending_support.s",
       "root_symbol": "UiEndingSequenceData_EndingSeqTriggerChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -16140,7 +16140,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/ui/ending_sequence_data.s",
+      "source": "src/ui/ending_support.s",
       "root_symbol": "UiEndingSequenceData_EndingSeqBirdChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -16151,7 +16151,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/ui/ending_sequence_data.s",
+      "source": "src/ui/ending_support.s",
       "root_symbol": "UiEndingSequenceData_EndingSeqSonicChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -16162,7 +16162,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/ui/ending_sequence_data.s",
+      "source": "src/ui/ending_support.s",
       "root_symbol": "UiEndingSequenceData_TornadoHelixesChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
@@ -16173,7 +16173,7 @@
       "record_kinds": ["childobjectdata"]
     },
     {
-      "source": "src/ui/ending_sequence_data.s",
+      "source": "src/ui/ending_support.s",
       "root_symbol": "ObjCD_SubObjData",
       "codec": "engine-records-s2",
       "storage": "assembly",

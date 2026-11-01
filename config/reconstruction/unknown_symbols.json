@@ -27893,10 +27893,10 @@
       "known_role": "Internal control-flow entry in ObjD9_CheckCharacter; first operation tst.b 2(a2).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_2C9A0 in src/game/objects/environment/wfz/invisible_hang_flag.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_2C9A0 in src/game/objects/environment/wfz/hang_trigger.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/objects/environment/wfz/invisible_hang_flag.s",
+          "source": "src/game/objects/environment/wfz/hang_trigger.s",
           "occurrence": 0,
           "code_sha256": "b9113b143ae7b2c0c954edf78c304df96a58ee0b4df6f0c775d7147bbd3255eb"
         }
@@ -44705,10 +44705,10 @@
       "known_role": "Internal control-flow entry in SegaScr_VInt; first operation dma68ktovdp SegaScreenScaledSpriteDataStart,tiles_to_bytes(ArtTile_ArtUnc_Giant_Sonic),\\.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_3A6A2 in src/ui/sega_screen_vint.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_3A6A2 in src/ui/sega_vint.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/ui/sega_screen_vint.s",
+          "source": "src/ui/sega_vint.s",
           "occurrence": 0,
           "code_sha256": "250ba0e38345d6c3c31f2df5d0b287b0ed6e212b4c64b03d514f4ab0ba33209e"
         }
@@ -44741,10 +44741,10 @@
       "known_role": "Internal control-flow entry in SegaScr_VInt; first operation dmafillvram 0,VRAM_SegaScr_Plane_A_Name_Table,VRAM_SegaScr_Plane_Table_Size.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_3A6D4 in src/ui/sega_screen_vint.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_3A6D4 in src/ui/sega_vint.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/ui/sega_screen_vint.s",
+          "source": "src/ui/sega_vint.s",
           "occurrence": 0,
           "code_sha256": "ea08d2518416b61ae86824119f0733795a6e38cca6bddf2ac68632d13a2c4747"
         }
@@ -44777,10 +44777,10 @@
       "known_role": "Internal control-flow entry in SegaScr_VInt; first operation lea (VDP_data_port).l,a6.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_3A710 in src/ui/sega_screen_vint.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_3A710 in src/ui/sega_vint.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/ui/sega_screen_vint.s",
+          "source": "src/ui/sega_vint.s",
           "occurrence": 0,
           "code_sha256": "60363849461f219b66b9169f23aa9198bbcaa07fad6a2ede9ff3f316d4e02ec0"
         }
@@ -56713,10 +56713,10 @@
       "known_role": "Relative-word target table in SegaScr_VInt; serialized targets: loc_3A6A2, loc_3A6D4.",
       "unresolved": "The purpose of the selector states and their transition conditions has not been established as a complete state contract.",
       "reason": "Pointer encoding and target identities are observable; they do not establish the gameplay meaning of each state.",
-      "next_check": "Trace the selector loads at references to off_3A69E, then record each transition and entry condition in src/ui/sega_screen_vint.s.",
+      "next_check": "Trace the selector loads at references to off_3A69E, then record each transition and entry condition in src/ui/sega_vint.s.",
       "definitions": [
         {
-          "source": "src/ui/sega_screen_vint.s",
+          "source": "src/ui/sega_vint.s",
           "occurrence": 0,
           "code_sha256": "3571cdedbd07ec62226f8f6209af09208dc74332636de2f9be13e7f4c4193000"
         }
