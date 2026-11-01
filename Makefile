@@ -46,11 +46,18 @@ release-audit:
 check-stop-words:
 	$(PYTHON) -m retrolarium_core.stop_words history "$(CURDIR)" --all
 
-LINE ?= 1.0
-.PHONY: clean semantic-symbols-check release-tag-audit
+include mk/authoring.mk
+
+.PHONY: clean
 clean:
 	$(RUN) validation.clean
+
+.PHONY: semantic-symbols-check
 semantic-symbols-check:
 	$(RUN) validation.semantics --compiled
+
+.PHONY: release-tag-audit
 release-tag-audit:
 	$(RUN) validation.release_audit --clean --ready --post-tag --line $(LINE)
+
+LINE ?= 1.0

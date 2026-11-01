@@ -61,3 +61,12 @@ Confirmed names and explicit uncertainty are documented in
 [symbol meanings](docs/symbols.md). The preservation aggregate checks the single
 rename registry, every remaining address-derived global and both compiled symbol
 tables. Source layout and content authoring remain the separate 2.0 scope.
+
+## Private content
+
+The bounded byte APIs and format contracts are described in
+[content workflow](docs/content_workflow.md) and
+[formats](docs/data_formats.md). Prepare the pinned public Core CLI with
+`make prepare-core CORE_SOURCE="path/to/core"`, then run
+`make roundtrip-formats` or `make check-content-zero-edit`. The complete 2.0
+structure, corpus and aggregate acceptance follows separately.

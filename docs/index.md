@@ -22,4 +22,7 @@ from a clean clone with only the verified ROMs supplied. Semantic layout and
 complete content contracts belong to the later 2.0 milestone.
 
 [Symbol meanings and uncertainty](symbols.md) describes confirmed renames,
-per-profile evidence and the explicit unknown work queue.
+per-profile evidence and the explicit unknown work queue. For legal private
+content work, read [content workflow](content_workflow.md) and the consolidated
+[format reference](data_formats.md). Their byte APIs and zero-edit rebuild are
+separate from final 2.0 aggregate acceptance.
