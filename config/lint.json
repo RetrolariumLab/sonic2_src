@@ -1,0 +1,20 @@
+{
+  "schema": "retrolarium.lint",
+  "schema_version": 1,
+  "assembly": {
+    "dialect": "asl",
+    "paths": [
+      "s2.asm",
+      "s2.constants.asm",
+      "s2.macros.asm",
+      "s2.macrosetup.asm",
+      "s2.sounddriver.asm",
+      "mappings",
+      "misc"
+    ]
+  },
+  "text": {
+    "json": "valid"
+  },
+  "code": true
+}
