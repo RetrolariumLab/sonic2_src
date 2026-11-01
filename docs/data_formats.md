@@ -48,9 +48,9 @@ change the stored structural format.
 
 | Registry codec         | Layout                                                                            | Limits before export                                                            |
 | ---------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `object-placement-s2`  | Six bytes: X word, packed Y/flags word, object ID byte, subtype byte              | Y 12 bits; mode flag 12, X/Y flips 13/14, respawn 15; terminator retained       |
-| `cnz-bumper-placement` | Six-byte kind/X/Y words, ending in a complete six-byte record whose X is `0xFFFF` | No live X collides with terminator; kind and final Y preserved                  |
-| `ring-groups-s2`       | X word plus Y/count/orientation word; two-byte `0xFFFF` terminator                | Y 12 bits; count-minus-one 12..14, vertical 15; expanded ring count at most 255 |
+| `object-placement-s2`  | Six bytes: X word, packed Y/flags word, object ID byte, subtype byte              | Y 12 bits; packed flags preserved; nondecreasing X; canonical respawn RAM limit |
+| `cnz-bumper-placement` | Six-byte kind/X/Y words, ending in a complete six-byte record whose X is `0xFFFF` | Nondecreasing X; no live X collides with terminator; kind and final Y preserved |
+| `ring-groups-s2`       | X word plus Y/count/orientation word; two-byte `0xFFFF` terminator                | Live group X 0..0x7FFF; Y 12 bits; count 1..8; at most 255 expanded rings       |
 | `start-position-s2`    | X/Y words                                                                         | Exactly four bytes; unsigned word coordinates                                   |
 | `collision-heights-s2` | 256 shapes of 16 signed bytes                                                     | Exactly 4096 bytes; samples -128..127                                           |
 | `collision-angles-s2`  | One byte per collision shape                                                      | Exactly 256 entries                                                             |
@@ -60,6 +60,30 @@ The source defines shared buffers and capacities in `src/memory/`. Export
 contracts derive their current values from symbols rather than duplicating RAM
 addresses in the format registry. Placement streams are bounded by their
 original encoded destination even when their record grammar allows more rows.
+
+Object respawn indices start at one. The engine accesses
+`Object_Respawn_Table+2+index`; index zero is reserved. The bound handler
+derives its limit from `Obj_respawn_data_End-Obj_respawn_data-1` and the
+byte-sized index. The accepted canonical RAM has 190 data bytes, so at most 189
+records may carry the respawn flag. Both the RAM layout and capacity come from
+fresh canonical symbols. Export without a bound capacity is rejected, including
+the default object `Document` handler; callers must supply the context-bound
+codec.
+
+Edited objects and CNZ bumpers require nondecreasing X. Equal coordinates retain
+their original order; export never sorts records or reassigns respawn indices.
+Ring groups instead use any negative word X as the engine's end condition.
+Decoding rejects negative X before the canonical final `0xFFFF`; encoding
+rejects live group X at or above `0x8000`. Stored ring groups need no X sorting:
+the engine sorts the expanded positions. These checks precede returned export
+bytes and do not modify the retail engine or its RAM layout.
+
+The original CNZ 2 bumper stream contains one inversion: zero-based records 19
+and 20 have X 6336 and 6288. The registry records its exact SHA-256 and this
+pair under `retail_bumper_order_exceptions`. The canonical context permits only
+the exact original stream to retain this inversion; changing any field requires
+a fully ordered list. The generic codec has no order exception. This preserves
+retail bytes without silently normalizing the data or exempting later edits.
 
 ## Special-stage tables
 

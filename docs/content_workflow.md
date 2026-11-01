@@ -46,6 +46,8 @@ Context-dependent formats need the canonical engine context:
 - Special-stage objects need the dynamic object slot count.
 - Special-stage track mappings need the original literal/run LUTs and flags.
 - Chunk maps need the live block RAM capacity.
+- Object placements need the canonical respawn RAM capacity, including the
+  reserved initial index. Missing capacity rejects export.
 
 `scripts.authoring.contexts` derives those facts from fresh canonical assembly
 symbols and the verified ROM. `scripts.authoring.source_data` attributes listing
@@ -59,6 +61,16 @@ decoded capacities, bank policy and any protected ranges. `Document.encode`
 rejects incompatible targets and widened allocations before returning bytes. It
 never writes files. A caller must publish the returned bytes only after all
 checks succeed. Low-level record codecs intentionally do not choose ROM slots.
+For object placement, pass the handler returned by
+`catalog.codec(path, shared_context(canonical_context))` to `Document.open`. Its
+respawn capacity is captured when the handler is created; later changes to the
+caller's context do not widen it. The unbound object encoder requires an
+explicit `max_respawn` argument and is not a substitute for the canonical export
+context. Object and CNZ bumper edits must retain nondecreasing X; ring groups
+must retain a live initial X below `0x8000`. The registered retail CNZ 2 bumper
+inversion needs `bumper_order_context(path, original_plain)` alongside the
+shared context; this validates the original hash and permits its exact bytes
+only. See [placement limits](data_formats.md#placement-and-collision).
 
 Source-owned engine text, palette, object and motion records use
 `engine_records` and `source_records.open_record`; their record discriminators

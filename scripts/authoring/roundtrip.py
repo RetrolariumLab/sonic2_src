@@ -17,7 +17,7 @@ from scripts.build.core_tool import prepare
 from scripts.authoring import compression
 from scripts.authoring.asset_document import Document
 from scripts.authoring.catalog import codec, format_id
-from scripts.authoring.contexts import audio_contexts, shared_context, target_for
+from scripts.authoring.contexts import audio_contexts, bumper_order_context, shared_context, target_for
 from scripts.authoring.source_data import canonical_context, private_placements, source_roundtrips
 
 VIEW_ROOTS = ("src", "scripts", "config", "assets", "tests", "tools", "mk", "docs")
@@ -76,6 +76,20 @@ def registry(root=ROOT):
             raise ValueError("Content format differs from its structural owner: " + item["path"])
         if item["storage"] != ("private_asset" if item["path"] in direct else "derived_driver_data"):
             raise ValueError("Content storage owner differs from its input declaration")
+    exceptions = config.get("retail_bumper_order_exceptions", [])
+    names = [item["asset"] for item in exceptions]
+    if len(names) != len(set(names)):
+        raise ValueError("Duplicate retail bumper order exception")
+    for item in exceptions:
+        if (
+            item["asset"] not in direct
+            or format_id(item["asset"]) != "cnz-bumper-placement"
+            or item["policy"] != "unchanged_stream_only"
+            or len(item.get("reason", "")) < 40
+            or len(item["sha256"]) != 64
+            or any(c not in "0123456789abcdef" for c in item["sha256"])
+        ):
+            raise ValueError("Invalid retail bumper order exception contract")
     source_keys = [
         (item["source"], item["root_symbol"]) for item in config["artifacts"] if item["storage"] == "assembly"
     ]
@@ -147,7 +161,9 @@ def run(action="formats", root=ROOT):
             placements = consumed["placements"].get(name, [])
             for placement in placements:
                 target = target_for(item, placement, plain[name], sources[name], context, root)
-                handler = codec(name, {**common, **sound.get(name, {})})
+                handler = codec(
+                    name, {**common, **sound.get(name, {}), **bumper_order_context(name, plain[name], root)}
+                )
                 document, model = Document.open(
                     sources[name],
                     target,

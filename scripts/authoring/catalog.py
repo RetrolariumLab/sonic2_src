@@ -1,5 +1,6 @@
 """Content format selection and context-bound serialization for retail inputs."""
 
+import hashlib
 from scripts.authoring.struct_formats import Codec, FORMATS, uint
 from scripts.authoring.audio_formats import AUDIO_FORMATS
 from scripts.authoring import ss_tables, ss_track, smps_s2
@@ -69,6 +70,23 @@ def codec(path, context=None):
             return selected.encode(model)
 
         return Codec(selected.decode, encode_chunks)
+    if kind == "object-placement-s2":
+        capacity = context.get("respawn_capacity")
+        if type(capacity) is not int or not 0 <= capacity <= 255:
+            raise ValueError("Object export requires a canonical respawn RAM capacity")
+        selected = FORMATS[kind]
+        return Codec(selected.decode, lambda model: selected.encode(model, max_respawn=capacity))
+    if kind == "cnz-bumper-placement" and "bumper_order_exception" in context:
+        record = context["bumper_order_exception"]
+        original = record["stream"]
+        if (
+            record["asset"] != path
+            or type(original) is not bytes
+            or hashlib.sha256(original).hexdigest() != record["sha256"]
+        ):
+            raise ValueError("Preserved bumper stream differs from its reviewed identity")
+        selected = FORMATS[kind]
+        return Codec(selected.decode, lambda model: selected.encode(model, preserved_stream=original))
     if kind in FORMATS:
         return FORMATS[kind]
     if kind in AUDIO_FORMATS:

@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 9
+    "commit_count": 10
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -117,6 +117,13 @@
       "id": "stage_c18",
       "kind": "source",
       "summary": "Group mapping ledgers by confirmed roles; retain the original accepted profiles and their complete evidence.",
+      "commits": ["500d0511a38eb403ccbf36118aeeafabc784793e"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "stage_c19",
+      "kind": "tooling",
+      "summary": "Enforce placement RAM limits and numeric pointer ownership; retain the original accepted profiles and their complete evidence.",
       "commits": ["release-commit"],
       "evidence": ["config/reconstruction/source_layout.json"]
     }

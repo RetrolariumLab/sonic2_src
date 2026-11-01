@@ -50,7 +50,7 @@ class RecordTests(unittest.TestCase):
             codec.decode(b"\0" * 5)
         row["y"] = 4096
         with self.assertRaises(ValueError):
-            codec.encode([row])
+            codec.encode([row], max_respawn=189)
 
     def test_ring_terminator_and_expanded_capacity(self):
         codec = FORMATS["ring-groups-s2"]

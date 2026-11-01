@@ -155,21 +155,29 @@ def decode_objects(data):
     return result
 
 
-def encode_objects(rows):
+def encode_objects(rows, *, max_respawn=None):
+    if type(max_respawn) is not int or not 0 <= max_respawn <= 255:
+        raise ValueError("Object export requires a canonical respawn RAM capacity")
     output = bytearray()
+    previous = -1
+    respawn_count = 0
     for row in rows:
         keys(row, "x y respawn y_flip x_flip mode_flag object_id subtype")
         x = uint(row["x"], 16, "x")
         if x == 0xFFFF:
             raise ValueError("Object X collides with the generated boundary marker")
+        if x < previous:
+            raise ValueError("Object placements require nondecreasing X; records are not sorted automatically")
+        previous = x
         value = uint(row["y"], 12, "y")
         for shift, name in [(15, "respawn"), (14, "y_flip"), (13, "x_flip"), (12, "mode_flag")]:
             value |= flag(row[name], name) << shift
+        respawn_count += row["respawn"]
+        if respawn_count > max_respawn:
+            raise ValueError("Object respawn flags exceed the canonical RAM capacity")
         output.extend(
             struct.pack(">HHBB", x, value, uint(row["object_id"], 8, "object_id"), uint(row["subtype"], 8, "subtype"))
         )
-    if sum(row["respawn"] for row in rows) > 255:
-        raise ValueError("Object respawn index exceeds its byte ABI")
     return bytes(output)
 
 
@@ -178,8 +186,8 @@ def decode_rings(data):
         raise ValueError("Ring groups need complete four-byte records and an FFFF X terminator")
     rows = []
     for x, value in struct.iter_unpack(">HH", data[:-2]):
-        if x == 0xFFFF:
-            raise ValueError("Premature ring terminator")
+        if x & 0x8000:
+            raise ValueError("Premature negative-X ring terminator")
         rows.append(dict(x=x, y=value & 0xFFF, count=((value >> 12) & 7) + 1, vertical=bool(value & 0x8000)))
     return rows
 
@@ -195,8 +203,8 @@ def encode_rings(rows):
         vertical = flag(row["vertical"], "vertical")
         if not 1 <= count <= 8:
             raise ValueError("Ring groups need one to eight rings")
-        if x == 0xFFFF:
-            raise ValueError("Ring X collides with the terminator")
+        if x & 0x8000:
+            raise ValueError("Live ring-group X must be below the negative-X terminator range")
         if (y if vertical else x) + (count - 1) * 24 > 0xFFFF:
             raise ValueError("Ring group wraps its 16-bit coordinates")
         output.extend(struct.pack(">HH", x, y | ((count - 1) << 12) | (vertical << 15)))
@@ -276,21 +284,30 @@ def decode_bumpers(data):
     return {"bumpers": rows, "terminator": {"kind": kind, "y": y}}
 
 
-def encode_bumpers(model):
+def encode_bumpers(model, *, preserved_stream=None):
     keys(model, "bumpers terminator")
+    if preserved_stream is not None and type(preserved_stream) is not bytes:
+        raise ValueError("Preserved bumper stream must be immutable bytes")
     result = bytearray()
+    previous = -1
+    unordered = False
     for row in model["bumpers"]:
         keys(row, "kind x y")
         x = uint(row["x"], 16, "x")
         if x == 0xFFFF:
             raise ValueError("Bumper X collides with terminator")
+        unordered |= x < previous
+        previous = x
         result.extend(struct.pack(">HHH", uint(row["kind"], 16, "bumper kind"), x, uint(row["y"], 16, "y")))
     end = model["terminator"]
     keys(end, "kind y")
     result.extend(
         struct.pack(">HHH", uint(end["kind"], 16, "terminator kind"), 0xFFFF, uint(end["y"], 16, "terminator y"))
     )
-    return bytes(result)
+    output = bytes(result)
+    if unordered and output != preserved_stream:
+        raise ValueError("CNZ bumpers require nondecreasing X; records are not sorted automatically")
+    return output
 
 
 def decode_collision_heights(data):

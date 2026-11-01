@@ -79,5 +79,167 @@
       "digits": 6,
       "reason": "The 2P menu renders decimal numbers by repeated subtraction; these are place values, not ROM pointers."
     }
+  ],
+  "scalar_address_register_loads": [
+    {
+      "source": "src/game/objects/collision/boss_response.s",
+      "owner": "BossCollision_MCZ2",
+      "operation": "movea.w",
+      "expression": "$14",
+      "register": "a5",
+      "value": 20,
+      "count": 1,
+      "reason": "BossCollision_MCZ2 adds the 20-pixel horizontal collision offset from a5; the next pass uses its negative counterpart."
+    },
+    {
+      "source": "src/game/objects/collision/boss_response.s",
+      "owner": "BossCollision_MCZ2",
+      "operation": "movea.w",
+      "expression": "0",
+      "register": "a4",
+      "value": 0,
+      "count": 1,
+      "reason": "BossCollision_MCZ2 initializes its two-pass collision counter in a4 to zero; adda and cmpa control the second pass."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "Sonic_CheckFloor",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 2,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "CheckFloorDist_Part2",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 1,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "loc_1ECFE",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 1,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "ChkFloorEdge_Part2",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 1,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "ChkFloorEdge2",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 1,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "ObjCheckFloorDist",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 1,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "FireCheckFloorDist",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 1,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "RingCheckFloorDist",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 1,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "CheckRightCeilingDist",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 2,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "CheckRightWallDist_Part2",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 1,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/floor_checks.s",
+      "owner": "ObjCheckRightWallDist",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 1,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/surface_alignment.s",
+      "owner": "loc_1E292",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 2,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/game/player/collision/surface_alignment.s",
+      "owner": "Sonic_WalkVertR",
+      "operation": "movea.w",
+      "expression": "$10",
+      "register": "a3",
+      "value": 16,
+      "count": 2,
+      "reason": "The collision query carries a 16-pixel tile dimension in a3 and uses it as a distance, not as a memory pointer."
+    },
+    {
+      "source": "src/system/plc_processing.s",
+      "owner": "ProcessDPLC_Main",
+      "operation": "movea.w",
+      "expression": "8",
+      "register": "a5",
+      "value": 8,
+      "count": 1,
+      "reason": "ProcessDPLC_Main supplies eight pixel rows in a5 to NemDecRun.writePixelLoopEntry; this is a scalar loop counter."
+    }
   ]
 }

@@ -118,3 +118,32 @@ its object type, target commit and tagged manifest. A lightweight tag, wrong
 target or stale manifest fails. Before tagging, `make release-audit` and the
 full aggregate remain the acceptance interface. Tests inspect synthetic tag
 responses without creating project tags.
+
+## Numeric pointer coverage
+
+`make pointer-audit` checks absolute numeric memory operands, address operands
+of `lea`, `pea`, `jmp` and `jsr`, numeric ROM-range `dc.l` entries and immediate
+word/long loads into `a0` through `a7` or `sp` with `move` or `movea`. Numeric
+`equ`, `=`, `:=` and `set` chains are collected across the configured sources;
+forward references, local scope, integer arithmetic and bit operations are
+resolved without executing assembler expressions. Cyclic, oversized or
+unsupported numeric expressions cannot silently supply a pointer owner. Word
+address-register loads use sign extension and addresses use the 24-bit bus.
+Named RAM and hardware addresses remain separate from the accepted ROM range.
+
+Some address registers hold collision dimensions or decompression counters.
+`config/reconstruction/fixed_regions.json` records 16 reviewed scalar patterns
+covering 20 loads. Every exception binds its source, lexical owner, instruction,
+expression, destination register, resolved value and occurrence count, with a
+reason tied to its consumer. Changing or removing a load fails the contract; the
+same literal in another location is not exempt. The original deliberate crash
+symbol is a separate exact-value exception. Decimal place values retain their
+existing bounded table contract.
+
+This is a bounded static audit of the listed positions. Named assembler
+functions and expressions derived from relocatable labels remain compiler
+expressions; the audit does not implement the full AS language, track register
+arithmetic or prove every runtime dereference. Fresh compiled fixed-region,
+relocation, identity and runtime checks remain independent requirements. A
+failed pointer audit removes its prior success report before checking sources.
+The ROM-free scaffold includes the pointer regressions.

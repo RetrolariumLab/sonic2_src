@@ -65,6 +65,10 @@
       "resolution": "Remove eleven singleton mapping directories, consolidate four contiguous ledger groups and replace five arbitrary letter names with names established by their consumers."
     },
     {
+      "id": "DOC-016",
+      "resolution": "Document canonical respawn RAM bounds, placement ordering and ring sign markers; state numeric pointer positions, reviewed scalar contracts and the bounded static audit limits. Record the verified retail CNZ 2 bumper inversion as an exact-stream-only exception; edited lists remain ordered."
+    },
+    {
       "id": "DOC-019",
       "resolution": "Move exact AS build-313 dependencies and GPL text to a verified ignored cache, retain the full Saxman permission notice in its implementation, and bind linear history references to the new preservation boundary."
     }
@@ -103,14 +107,14 @@
     {
       "path": "docs/content_workflow.md",
       "action": "updated",
-      "reason": "Align the flattened object layout, checked original source segments, seven bounded size exceptions and isolated inline-ledger regions; preserve all existing runtime, authoring and rights limits.",
-      "sha256": "41a6d1ebc609733dc9621f098ea0027cc3e738098b792dfa88aac92192b960c5"
+      "reason": "Correct authoring placement safety limits and context binding; document numeric alias and immediate-address auditing with narrow scalar exceptions and explicit static coverage limits.",
+      "sha256": "3000d74c091b4215bef677e0cfc88ba733a172eb72c2488c26845a98255a247b"
     },
     {
       "path": "docs/data_formats.md",
       "action": "updated",
-      "reason": "Align the flattened object layout, checked original source segments, seven bounded size exceptions and isolated inline-ledger regions; preserve all existing runtime, authoring and rights limits.",
-      "sha256": "6c1a837ba01bbf13388ec469b1bc8055545142091376159db75e788fcac8b093"
+      "reason": "Correct authoring placement safety limits and context binding; document numeric alias and immediate-address auditing with narrow scalar exceptions and explicit static coverage limits.",
+      "sha256": "45d3a542c36a7f3c925055d06cda2c4e3f27501490f3ae798019858495f0f120"
     },
     {
       "path": "docs/index.md",
@@ -175,8 +179,8 @@
     {
       "path": "docs/validation.md",
       "action": "updated",
-      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
-      "sha256": "d608e6c3b23683b99f0221825ba5e55554ede8dca29675d802dfddaa17c1f7b3"
+      "reason": "Correct authoring placement safety limits and context binding; document numeric alias and immediate-address auditing with narrow scalar exceptions and explicit static coverage limits.",
+      "sha256": "677a491165ae543c9586c6549ee7e3177de7b1030ad0d5e96dec23210e6a1980"
     },
     {
       "path": "README.md",

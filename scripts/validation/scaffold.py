@@ -12,6 +12,7 @@ from scripts.validation.source2 import manifest_check
 
 SYNTHETIC_MODULES = (
     "tests.validation.test_structure",
+    "tests.validation.test_pointers",
     "tests.validation.test_documentation",
     "tests.validation.test_release_command",
     "tests.validation.test_source2",

@@ -53,7 +53,7 @@
   "policies": {
     "source_retention": "Reuse the original compressed stream only when the structurally encoded decoded content is unchanged.",
     "placement": "Resolve active consumers from fresh canonical AS listings; extraction offsets are not relocation addresses.",
-    "capacity": "Original encoded slots are fixed; bank, RAM and protected-tail checks apply before serialization.",
+    "capacity": "Original encoded slots are fixed; bank, canonical RAM and protected-tail checks apply before export. Object respawn capacity excludes reserved index zero; object and bumper X must be nondecreasing; live ring-group X must be below 0x8000.",
     "core_enigma": "Use the local S2 decoder and pinned Core encoder; validate emitted streams with the local decoder.",
     "driver_program": "The private compressed driver is a reference for code assembled from source, not an editable content ledger."
   },
@@ -16585,5 +16585,14 @@
     "rule": "Independently inventory indexed byte/specialText/path tables and every mapping table; fixed timing tables have explicit source owners.",
     "pending_review": [],
     "inline_mapping_reviews": []
-  }
+  },
+  "retail_bumper_order_exceptions": [
+    {
+      "asset": "level/objects/CNZ 2 bumpers.bin",
+      "sha256": "8937c0977ff7d5f1279082a803c268f483e7af021740a52ba78eaf05f5ee60a5",
+      "descending_pairs": [[19, 20]],
+      "policy": "unchanged_stream_only",
+      "reason": "The verified retail CNZ 2 list places X 6336 before X 6288 at records 19 and 20. Preserve only the exact original stream; any edited list must have nondecreasing X."
+    }
+  ]
 }

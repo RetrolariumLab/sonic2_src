@@ -1,5 +1,6 @@
 """Build revision-specific authoring contracts from fresh canonical symbols."""
 
+import hashlib
 import struct
 from scripts.build.project import ROOT, load, profile
 from scripts.authoring import smps_s2
@@ -86,6 +87,48 @@ def audio_contexts(plain, context, root=ROOT):
     return result, dependencies
 
 
+def object_respawn_capacity(symbols):
+    """The engine begins at index one and stores at table + 2 + index."""
+    names = (
+        "Object_Respawn_Table",
+        "Obj_respawn_index",
+        "Obj_respawn_index_End",
+        "Obj_respawn_data",
+        "Obj_respawn_data_End",
+    )
+    try:
+        values = [symbols[name] for name in names]
+    except KeyError as error:
+        raise ValueError("Canonical respawn RAM symbols are required") from error
+    if any(type(value) is not int for value in values):
+        raise ValueError("Canonical respawn RAM symbols must be integers")
+    table, index, index_end, first, last = (value & 0xFFFFFF for value in values)
+    if not (table == index and table + 2 == index_end == first and 0xFF0000 <= first < last <= 0x1000000):
+        raise ValueError("Canonical respawn RAM layout differs from the engine ABI")
+    return min(255, last - first - 1)
+
+
+def bumper_order_context(name, plain, root=ROOT):
+    """Preserve an explicitly reviewed retail inversion only as exact bytes."""
+    if not name.startswith("level/objects/") or "bumpers" not in name:
+        return {}
+    config = load("config/authoring/data_formats.json", root)
+    matches = [item for item in config["retail_bumper_order_exceptions"] if item["asset"] == name]
+    if not matches:
+        return {}
+    if len(matches) != 1:
+        raise ValueError("Ambiguous retail bumper order exception")
+    record = matches[0]
+    original = bytes(plain)
+    if record["policy"] != "unchanged_stream_only" or hashlib.sha256(original).hexdigest() != record["sha256"]:
+        raise ValueError("Retail bumper order exception differs from its reviewed bytes")
+    rows = list(struct.iter_unpack(">HHH", original[:-6]))
+    pairs = [[index - 1, index] for index in range(1, len(rows)) if rows[index][1] < rows[index - 1][1]]
+    if not pairs or pairs != record["descending_pairs"] or len(record.get("reason", "")) < 40:
+        raise ValueError("Retail bumper order exception has invalid evidence")
+    return {"bumper_order_exception": {"asset": name, "sha256": record["sha256"], "stream": original}}
+
+
 def shared_context(context):
     symbols = context["symbols"]
     rom = context["rom"]
@@ -105,6 +148,7 @@ def shared_context(context):
         raise ValueError("Invalid special-stage dynamic object region")
     return {
         "object_slots": object_bytes // symbols["object_size"],
+        "respawn_capacity": object_respawn_capacity(symbols),
         "block_capacity": (symbols["Block_Table_End"] - symbols["Block_Table"]) // 8,
         "track_lut": {
             "literal_lut": literal,
