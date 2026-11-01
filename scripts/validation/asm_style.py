@@ -5,6 +5,7 @@ original AS forms. A disposable .s mirror presents every source label as a
 plain named colon label. Kit owns all formatting. We restore only the original
 label token after formatting; no instruction, operand or string is substituted.
 """
+
 from pathlib import Path
 import re
 import subprocess
@@ -58,7 +59,7 @@ def restore_source(text, records):
             if not line.startswith(encoded) or (len(line) > len(encoded) and not line[len(encoded)].isspace()):
                 raise ValueError("Kit changed a protected source label")
             padding = " " * max(0, len(encoded) - len(original))
-            line = (original + padding + line[len(encoded):]).rstrip()
+            line = (original + padding + line[len(encoded) :]).rstrip()
         output.append(line)
     if cursor != len(records):
         raise ValueError("Kit removed a nonblank source line")
@@ -75,7 +76,9 @@ def code_signature(text):
                 code.append(char)
                 if char == quote and (index == 0 or line[index - 1] != "\\"):
                     quote = None
-            elif char == "\"" or (char == "'" and (index == 0 or not (line[index - 1].isalnum() or line[index - 1] == "_"))):
+            elif char == '"' or (
+                char == "'" and (index == 0 or not (line[index - 1].isalnum() or line[index - 1] == "_"))
+            ):
                 quote = char
                 code.append(char)
             elif char == ";":
@@ -104,8 +107,14 @@ def source_files(root=ROOT):
 
 def normalize(root=ROOT, fix=False):
     config = load("config/lint.json", root)
-    config = {"schema": config["schema"], "schema_version": config["schema_version"], "assembly": {**config["assembly"], "paths": ["sources"]}, "code": False}
+    config = {
+        "schema": config["schema"],
+        "schema_version": config["schema_version"],
+        "assembly": {**config["assembly"], "paths": ["sources"]},
+        "code": False,
+    }
     import json
+
     parent = root / "build/lint-sessions"
     parent.mkdir(parents=True, exist_ok=True)
     if not parent.resolve().is_relative_to((root / "build").resolve()):
@@ -133,19 +142,29 @@ def normalize(root=ROOT, fix=False):
         if result.returncode:
             message = result.stdout + result.stderr
             for source, copy, _, _ in copies:
-                message = message.replace(str(copy), str(source)).replace(copy.as_posix(), source.as_posix()).replace(copy.relative_to(scratch).as_posix(), source.relative_to(root).as_posix())
+                message = (
+                    message.replace(str(copy), str(source))
+                    .replace(copy.as_posix(), source.as_posix())
+                    .replace(copy.relative_to(scratch).as_posix(), source.relative_to(root).as_posix())
+                )
             raise ValueError("Shared ASL formatter failed:\n" + message)
         for source, copy, original, records in copies:
             formatted = restore_source(copy.read_text(), records)
             if code_signature(formatted) != code_signature(original):
                 before, after = code_signature(original), code_signature(formatted)
-                mismatch = next((i for i, pair in enumerate(zip(before, after)) if pair[0] != pair[1]), min(len(before), len(after)))
-                detail = f"\nCode line {mismatch}: {before[mismatch:mismatch + 1]!r} -> {after[mismatch:mismatch + 1]!r}"
+                mismatch = next(
+                    (i for i, pair in enumerate(zip(before, after)) if pair[0] != pair[1]), min(len(before), len(after))
+                )
+                detail = (
+                    f"\nCode line {mismatch}: {before[mismatch : mismatch + 1]!r} -> {after[mismatch : mismatch + 1]!r}"
+                )
                 raise ValueError("Kit changed code or quoted data: " + source.relative_to(root).as_posix() + detail)
             if formatted != original:
                 changed.append(source.relative_to(root).as_posix())
                 if fix:
                     atomic_write(source, formatted.encode())
     label = "formatted" if fix else "would format"
-    print(f"[{'OK' if fix or not changed else 'FAIL'}] Kit ASL adapter: {label} {len(changed)} of {len(copies)} source(s)")
+    print(
+        f"[{'OK' if fix or not changed else 'FAIL'}] Kit ASL adapter: {label} {len(changed)} of {len(copies)} source(s)"
+    )
     return changed

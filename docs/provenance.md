@@ -4,10 +4,10 @@
 
 The reconstructed source text was imported from
 https://github.com/sonicretro/s2disasm at commit
-4ef457c18fc4902396c43ab06fabc119ac6ecb64 on its master branch.
-That HEAD is dated 2026-10-16. Its 1142 commits and 44 public contributor
-names were collapsed into a new repository; none of the upstream Git objects
-were imported. The imported baseline is identified by the upstream commit above.
+4ef457c18fc4902396c43ab06fabc119ac6ecb64 on its master branch. That HEAD is
+dated 2026-10-16. Its 1142 commits and 44 public contributor names were
+collapsed into a new repository; none of the upstream Git objects were imported.
+The imported baseline is identified by the upstream commit above.
 
 The upstream disclaimer is preserved in readme.md. Upstream provides that
 disclaimer rather than a source license: the annotation license status is
@@ -18,7 +18,8 @@ private_user_supplied and must never enter Git.
 All original binary game assets, WAV files, editor projects, fixed-file
 modifications, Lua build tools and unused platform executables were excluded.
 The complete unmodified community build and its optional fixes can be recovered
-from the upstream commit above; it is a reference, never this project's Git base.
+from the upstream commit above; it is a reference, never this project's Git
+base.
 
 Music, effects, FM voices and PSG envelopes are private inputs rather than
 redistributed assembler content. Driver code and engine tables remain source.
@@ -29,32 +30,32 @@ AS 1.42 Beta build 313 comes from the two x86-64 tool paths in that same
 upstream commit. Their sizes and SHA-256 are pinned in config/toolchain.json.
 The resolver obtains and verifies the executables and GPL text together in the
 ignored build/tools/as-313 cache; no executable is shipped in this repository.
-The upstream update commit is 15e9fd52a65318bec3d5e746ce48dba6db6910db.
-Its source repository is https://github.com/flamewing/asl-releases.
-The donor does not record a separate exact AS source commit.
+The upstream update commit is 15e9fd52a65318bec3d5e746ce48dba6db6910db. Its
+source repository is https://github.com/flamewing/asl-releases. The donor does
+not record a separate exact AS source commit.
 
 The external build-313 dependency is necessary because Kit's AS build 212
 truncates the imported long jump-trampoline macro lists. Both accepted main
 images failed that probe with undefined/truncated trampoline symbols. The
-build-313 AS plus Kit p2bin produced both original images byte for byte.
-The public dependency pins are in config/toolchain.json; Kit and Core were
-not modified. p2bin is obtained and hash-checked through Kit rather than bundled.
+build-313 AS plus Kit p2bin produced both original images byte for byte. The
+public dependency pins are in config/toolchain.json; Kit and Core were not
+modified. p2bin is obtained and hash-checked through Kit rather than bundled.
 
 The Python authentic Saxman encoder follows upstream
-build_tools/source_code/lz_comp2/LZSS.c, not clownlzss. The original encoder
-is by Haruhiko Okumura (1989), with Clownacy's Saxman adaptation (2020).
-The implementation header preserves the complete permission notice and provenance.
+build_tools/source_code/lz_comp2/LZSS.c, not clownlzss. The original encoder is
+by Haruhiko Okumura (1989), with Clownacy's Saxman adaptation (2020). The
+implementation header preserves the complete permission notice and provenance.
 Synthetic regression vectors are generated from synthetic strings, never music.
 
 Licensing of the newly written project tools and documentation is not yet
-assigned; this is separate from the explicitly licensed external components
-and from the unlicensed reconstructed game content. Nothing here grants game
-content redistribution rights.
+assigned; this is separate from the explicitly licensed external components and
+from the unlicensed reconstructed game content. Nothing here grants game content
+redistribution rights.
 
 ## Public contributor names at the imported HEAD
 
-Counts reflect git shortlog -sn HEAD and retain upstream aliases. They are
-not a claim that aliases are distinct people. No contributor email is copied.
+Counts reflect git shortlog -sn HEAD and retain upstream aliases. They are not a
+claim that aliases are distinct people. No contributor email is copied.
 
 ```text
    792	Clownacy
@@ -107,20 +108,20 @@ not a claim that aliases are distinct people. No contributor email is copied.
 
 REV00 and REV01 were supplied by the user and the stock upstream build matched
 each byte. Their input contracts are in assets/manifest.json and their shared
-source build profiles are in config/revision_profiles.json.
-No real image matching the theoretical REV02 hash was found in the supplied
-Sonic 2 folder. REV02, prototypes, compilations, modifications and lock-on builds
-are outside this reconstruction's preservation scope.
+source build profiles are in config/revision_profiles.json. No real image
+matching the theoretical REV02 hash was found in the supplied Sonic 2 folder.
+REV02, prototypes, compilations, modifications and lock-on builds are outside
+this reconstruction's preservation scope.
 
 ## Preservation option folding
 
 Community bug fixes, optional optimizations, checksum bypass, expanded water
-tables, driver fixes, and theoretical REV02 branches have been removed from
-the buildable source. Their conditions were folded to the shared original
+tables, driver fixes, and theoretical REV02 branches have been removed from the
+buildable source. Their conditions were folded to the shared original
 REV00/REV01 values in a separate source-only preservation change, checked
 against both complete original images. Only official revision selection remains.
-Power-of-two padding is an original container property, not a user option.
-The removed switches can be recovered from the imported upstream commit above.
+Power-of-two padding is an original container property, not a user option. The
+removed switches can be recovered from the imported upstream commit above.
 
 ## Upstream disclaimer
 

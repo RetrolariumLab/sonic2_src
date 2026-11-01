@@ -1,4 +1,5 @@
 """Authentic bytes, bounded decoding, and ring-buffer regressions."""
+
 import random
 import unittest
 from scripts.authoring.saxman import decode, encode
@@ -22,7 +23,11 @@ class SaxmanTests(unittest.TestCase):
     def test_window_wrap_and_overlapping_matches(self):
         rng = random.Random(212313)
         for size in [1, 2, 3, 17, 18, 19, 255, 4095, 4096, 4097, 9000]:
-            for source in [bytes(size), bytes(rng.randrange(16) for _ in range(size)), (b"SYNTHETIC" * (size // 9 + 1))[:size]]:
+            for source in [
+                bytes(size),
+                bytes(rng.randrange(16) for _ in range(size)),
+                (b"SYNTHETIC" * (size // 9 + 1))[:size],
+            ]:
                 with self.subTest(size=size, prefix=source[:6]):
                     self.assertEqual(decode(encode(source)), source)
 

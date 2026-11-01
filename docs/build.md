@@ -9,11 +9,16 @@ Use Python 3.10 or newer, GNU Make, Git, and Retrolarium Kit with build-tool
 release 2026.10.11. The exact executable hashes and public dependency commits
 are in config/toolchain.json. The binary allowlist is empty.
 
-The original source needs AS 1.42 Beta build 313 because build 212 truncates
-its long trampoline macro argument lists. Only the Windows x86-64 and Linux
-x86-64 upstream executables are obtained with their GPL text into ignored build/tools/as-313/. Windows is the current
-validation host. Linux remains unverified. p2bin comes from the pinned Kit.
-No command downloads an assembler or accepts an arbitrary PATH executable.
+The original source needs AS 1.42 Beta build 313 because build 212 truncates its
+long trampoline macro argument lists. Only the Windows x86-64 and Linux x86-64
+upstream executables are obtained with their GPL text into ignored
+build/tools/as-313/. Windows is the current validation host. Linux remains
+unverified. p2bin comes from the pinned Kit. The first build downloads these
+exact files from the pinned upstream snapshot, checks their size and SHA-256
+before writing the cache, and rechecks every cached file on every use. Changed
+cache entries fail without being silently replaced. An offline checkout can
+provision the same files at the manifest-owned paths; it receives the same
+checks. An arbitrary PATH assembler is never used.
 
 ## Private inputs and extraction
 
@@ -24,23 +29,23 @@ make split ROM_DIR="/path/to/your/rom/folder"
 make verify-all
 ```
 
-The import scans that folder for images matching the sizes, SHA-1 and SHA-256
-in assets/manifest.json. It copies only the two verified images into data/roms/.
+The import scans that folder for images matching the sizes, SHA-1 and SHA-256 in
+assets/manifest.json. It copies only the two verified images into data/roms/.
 Alternatively, put the images at the exact relative paths listed in that
 manifest and run make split without ROM_DIR.
 
-Retrolarium Kit extracts every manifest range into the single ignored data/
-root and checks its hash. Four empty original object lists contain no bytes;
-their labels and following source-defined boundaries remain in the assembly.
-Use make check-assets to reject missing or changed preservation inputs.
+Retrolarium Kit extracts every manifest range into the single ignored data/ root
+and checks its hash. Four empty original object lists contain no bytes; their
+labels and following source-defined boundaries remain in the assembly. Use make
+check-assets to reject missing or changed preservation inputs.
 
 ## Build commands
 
 Bare make prints help. make build builds the default profile from
-config/revision_profiles.json. Select the other profile with REV=rev00.
-make verify builds one profile, compares its size and every byte with the
-verified user input, then checks both output hashes. make verify-all does
-that for all accepted profiles in order.
+config/revision_profiles.json. Select the other profile with REV=rev00. make
+verify builds one profile, compares its size and every byte with the verified
+user input, then checks both output hashes. make verify-all does that for all
+accepted profiles in order.
 
 Music and sound effects are private ROM assets, including the 27 stored Saxman
 streams, four uncompressed songs, and 81 effects. Preservation builds include
@@ -61,17 +66,16 @@ stale objects are deleted before each assembly.
 
 ## Checks without private inputs
 
-make test runs the full test suite. Without extracted original songs, only
-the test that decodes and authentically recompresses every song is skipped with an
-explanation.
-Synthetic authentic-codec vectors, malformed stream and capacity checks,
-patch bounds, stale-output rejection, manifest contracts, the real Make help
-command, and a deleted-private-payload history regression still run.
+make test runs the full test suite. Without extracted original songs, only the
+test that decodes and authentically recompresses every song is skipped with an
+explanation. Synthetic authentic-codec vectors, malformed stream and capacity
+checks, patch bounds, stale-output rejection, manifest contracts, the real Make
+help command, and a deleted-private-payload history regression still run.
 
 make check-private-data checks the current source tree and every unique blob
 reachable from every Git ref. It rejects any complete private asset or ROM
-payload and every tracked binary, including compiler executables.
-Deleting a private file in a later commit does not make that history valid.
+payload and every tracked binary, including compiler executables. Deleting a
+private file in a later commit does not make that history valid.
 
 This is the phase-2 build boundary. Lint, relocation, MAME runtime, the final
 release gates and semantic source layout are not yet claimed complete.

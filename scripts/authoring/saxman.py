@@ -108,7 +108,7 @@ class _Encoder:
         buf = self.buffer
         start, current = 0, N - F
         remaining = min(F, len(data))
-        buf[current:current + remaining] = data[:remaining]
+        buf[current : current + remaining] = data[:remaining]
         cursor = remaining
         for index in range(1, F + 1):
             self.insert(current - index)
@@ -191,7 +191,7 @@ def decode(data, with_size=True, max_output=65536):
             else:
                 if cursor + 2 > len(data):
                     raise ValueError("Truncated Saxman back-reference")
-                low, high = data[cursor:cursor + 2]
+                low, high = data[cursor : cursor + 2]
                 cursor += 2
                 position = low | ((high & 240) << 4)
                 length = (high & 15) + 3

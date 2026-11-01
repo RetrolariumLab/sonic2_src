@@ -1,4 +1,5 @@
 """Run the project style contract through Retrolarium Kit."""
+
 import argparse
 import subprocess
 from scripts.build.project import ROOT
