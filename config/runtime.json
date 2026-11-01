@@ -1,0 +1,110 @@
+{
+  "schema": "sonic2.runtime",
+  "schema_version": 1,
+  "host": "windows-x86_64",
+  "machine": "genesis",
+  "emulator": {
+    "source": "https://github.com/mamedev/mame",
+    "commit": "c662f9ca1900ed7462dc4fe8d338a98e8e4ce3c3",
+    "sha256": "ff35833b41905185cd16dd591a8b1c8652e98c45c2dc5518e566a78ce63400ab",
+    "version": "0.289 (unknown)",
+    "machine": "genesis",
+    "copied_dlls": []
+  },
+  "frame_range": {
+    "first": 600,
+    "last": 60000,
+    "step": 300
+  },
+  "watches": {
+    "game_mode": {
+      "symbol": "Game_Mode",
+      "length": 1
+    },
+    "zone": {
+      "symbol": "Current_Zone",
+      "length": 1
+    },
+    "act": {
+      "symbol": "Current_Act",
+      "length": 1
+    },
+    "camera_x": {
+      "symbol": "Camera_X_pos",
+      "length": 2
+    },
+    "camera_y": {
+      "symbol": "Camera_Y_pos",
+      "length": 2
+    },
+    "player_x": {
+      "symbol": "MainCharacter+x_pos",
+      "length": 2
+    },
+    "player_y": {
+      "symbol": "MainCharacter+y_pos",
+      "length": 2
+    },
+    "tails_x": {
+      "symbol": "Sidekick+x_pos",
+      "length": 2
+    },
+    "tails_y": {
+      "symbol": "Sidekick+y_pos",
+      "length": 2
+    },
+    "rings": {
+      "symbol": "Ring_count",
+      "length": 2
+    },
+    "score": {
+      "symbol": "Score",
+      "length": 4
+    },
+    "lives": {
+      "symbol": "Life_count",
+      "length": 1
+    },
+    "vint_count": {
+      "symbol": "Vint_runcount",
+      "length": 4
+    },
+    "two_player": {
+      "symbol": "Two_player_mode",
+      "length": 2
+    },
+    "camera_x_p2": {
+      "symbol": "Camera_X_pos_P2",
+      "length": 2
+    },
+    "rings_p2": {
+      "symbol": "Ring_count_2P",
+      "length": 2
+    },
+    "score_p2": {
+      "symbol": "Score_2P",
+      "length": 4
+    },
+    "lives_p2": {
+      "symbol": "Life_count_2P",
+      "length": 1
+    }
+  },
+  "required_zone_symbols": ["emerald_hill_zone", "casino_night_zone", "chemical_plant_zone", "aquatic_ruin_zone"],
+  "require_two_player": true,
+  "scenarios": [
+    {
+      "profile": "rev00",
+      "check": "tests/runtime/rev00-attract.json"
+    },
+    {
+      "profile": "rev01",
+      "check": "tests/runtime/rev01-attract.json"
+    }
+  ],
+  "limits": {
+    "timeout_seconds": 600,
+    "queue_seconds": 3600,
+    "poll_seconds": 3
+  }
+}

@@ -1,0 +1,9 @@
+# retrolarium movie 1
+platform megadrive
+source mame
+title Sonic 2 power-on attract cycle
+kind attract
+frames 60000
+offset 0
+---
+60000 00 00

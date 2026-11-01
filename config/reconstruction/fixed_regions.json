@@ -1,0 +1,83 @@
+{
+  "schema": "sonic2.fixed-regions",
+  "schema_version": 1,
+  "locations": [
+    {
+      "symbol": "Vectors",
+      "address": "0x0"
+    },
+    {
+      "symbol": "Header",
+      "address": "0x100"
+    },
+    {
+      "symbol": "EndOfHeader",
+      "address": "0x200"
+    },
+    {
+      "symbol": "Checksum",
+      "address": "0x18e"
+    },
+    {
+      "symbol": "ROMEndLoc",
+      "address": "0x1a4"
+    },
+    {
+      "symbol": "RAM_Start",
+      "address": "0xff0000",
+      "mask": "0xffffff"
+    },
+    {
+      "symbol": "RAM_Mirror_Start",
+      "address": "0xfe0000",
+      "mask": "0xffffff"
+    },
+    {
+      "symbol": "Z80_RAM",
+      "address": "0xa00000"
+    },
+    {
+      "symbol": "Z80_RAM_End",
+      "address": "0xa02000"
+    },
+    {
+      "symbol": "Z80_Bus_Request",
+      "address": "0xa11100"
+    },
+    {
+      "symbol": "Z80_Reset",
+      "address": "0xa11200"
+    },
+    {
+      "symbol": "VDP_data_port",
+      "address": "0xc00000"
+    },
+    {
+      "symbol": "VDP_control_port",
+      "address": "0xc00004"
+    },
+    {
+      "symbol": "PSG_input",
+      "address": "0xc00011"
+    }
+  ],
+  "bank_window": {
+    "owner": "s2.sounddriver.asm",
+    "base_symbol": "z80_bank_size",
+    "size": 32768,
+    "reason": "Uncompressed SMPS pointers address a fixed Z80 ROM window; generated audio wrappers enforce within-bank placement."
+  },
+  "deliberate_exception": {
+    "symbol": "Intentional_Crash_OddAddress",
+    "reason": "The original REV00 crash path reads an odd word address; it is intentionally preserved and is not a relocatable ROM pointer."
+  },
+  "scalar_longword_tables": [
+    {
+      "owner": "dword_8732",
+      "kind": "descending_radix_powers",
+      "radix": 10,
+      "digits": 6,
+      "reason": "The 2P menu renders decimal numbers by repeated subtraction; these are place values, not ROM pointers."
+    }
+  ]
+}

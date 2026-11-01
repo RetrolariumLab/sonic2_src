@@ -62,6 +62,14 @@ def payload_problem(data, name, private_hashes, allowed):
         return "uses a forbidden private/generated path or extension"
     if PurePosixPath(name).suffix.lower() == ".asm" and re.search(rb"(?m)^zPSG_Env[0-9]+:\s*\n[ \t]+db\b", data):
         return "contains inline PSG envelope content"
+    if PurePosixPath(name).suffix.lower() == ".asm":
+        code = b"\n".join(line.split(b";", 1)[0] for line in data.splitlines())
+        if re.search(
+            rb"\b(?:smpsHeaderStartSong|smpsHeaderVoice|smpsHeaderTempo|smpsHeaderSFXChannel|smpsVcAlgorithm)\b",
+            code,
+            re.I,
+        ):
+            return "contains SMPS content source outside private inputs"
     if b"\x00" in data:
         return "contains binary NUL bytes outside the allowlist"
     try:

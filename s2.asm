@@ -5370,7 +5370,7 @@ MoveSonicInDemo:
 MoveDemo_Record_P2:
                 cmpi.b  #emerald_hill_zone,(Current_Zone).w
                 bne.s   ++                              ; rts
-                lea     ($FEC000).l,a1                  ; output location of recorded player 2 demo? (unknown)
+                lea     (RAM_Mirror_Start+$C000).l,a1   ; output location of recorded player 2 demo? (unknown)
                 move.w  (Demo_button_index_2P).w,d0
                 adda.w  d0,a1
                 move.b  (Ctrl_2_Held).w,d0              ; load input of player 2
@@ -19110,8 +19110,8 @@ loadLevelLayout:
 ; chunks
 
 ; Destination of 128x128 chunks
-                lea     ($FE0000).l,a1
-                lea     ($FE0000+8*8*2).l,a2
+                lea     (RAM_Mirror_Start).l,a1
+                lea     (RAM_Mirror_Start+8*8*2).l,a2
 ; Source of 256x256 chunks
                 lea     (Chunk_Table).l,a3
 
@@ -19120,8 +19120,8 @@ loadLevelLayout:
                 bsr.w   ConvertHalfOf256x256ChunkToTwo128x128Chunks
                 dbf     d1,-
 
-                lea     ($FE0000).l,a1
-                lea     ($FF0000).l,a2
+                lea     (RAM_Mirror_Start).l,a1
+                lea     (RAM_Start&$FFFFFF).l,a2
 
 ; Insert a blank chunk at the start of chunk table
                 move.w  #bytesToWcnt(8*8*2),d1
@@ -19140,7 +19140,7 @@ loadLevelLayout:
 ; This is a chunk de-duplicator
 
 ; Copy first chunk into 'Chunk_Table'
-                lea     ($FE0000).l,a1
+                lea     (RAM_Mirror_Start).l,a1
                 lea     (Chunk_Table).l,a3
 
                 moveq   #bytesToLcnt(8*8*2),d0
@@ -19148,7 +19148,7 @@ loadLevelLayout:
                 dbf     d0,-
 
                 moveq   #0,d7                           ; This holds how many chunks have been copied minus 1
-                lea     ($FE0000).l,a1
+                lea     (RAM_Mirror_Start).l,a1
                 move.w  #$100-1,d5                      ; $100 chunks
 ; loc_E55A:
 .nextChunk:
@@ -29358,7 +29358,7 @@ BuildSprites_Crash:
 ; devs detect when an object tried to display with a blank ID or
 ; mappings pointer. The latter was actually an issue that plagued
 ; Sonic 1, but is (almost) completely absent in this game
-                move.w  (1).w,d0                        ; causes a crash because of the word operation at an odd address
+                move.w  (Intentional_Crash_OddAddress).w,d0  ; causes a crash because of the word operation at an odd address
                 bra.s   BuildSprites_NextObj
                 endif
 ; loc_1671C:

@@ -5,9 +5,10 @@ no ROM or extracted game data. Obtain the original images yourself.
 
 ## Prerequisites
 
-Use Python 3.10 or newer, GNU Make, Git, and Retrolarium Kit with build-tool
-release 2026.10.11. The exact executable hashes and public dependency commits
-are in config/toolchain.json. The binary allowlist is empty.
+Use Python 3.10 or newer, GNU Make, Git, an importable Retrolarium Core Python
+package for history audit, and Retrolarium Kit with build-tool release
+2026.10.11. The exact executable hashes and public dependency commits are in
+config/toolchain.json. The binary allowlist is empty.
 
 The original source needs AS 1.42 Beta build 313 because build 212 truncates its
 long trampoline macro argument lists. Only the Windows x86-64 and Linux x86-64
@@ -79,5 +80,7 @@ source files, SMPS2ASM content macros and inline PSG envelopes are also
 rejected. Deleting private content in a later commit does not make that history
 valid.
 
-This is the phase-2 build boundary. Lint, relocation, MAME runtime, the final
-release gates and semantic source layout are not yet claimed complete.
+The preservation build is one part of the reconstruction workflow. Lint,
+relocation and direct MAME comparisons have separate commands and evidence. Full
+acceptance requires their complete clean-clone gate; semantic source layout and
+complete content contracts follow in 2.0. See [validation](validation.md).

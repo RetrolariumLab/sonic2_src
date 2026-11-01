@@ -21,6 +21,9 @@ class PrivateDataTests(unittest.TestCase):
                 self.assertIsNotNone(payload_problem(b"synthetic text", name, set(), {}))
         source = b"zPSG_Env1:\n    db 0,1,80h\n"
         self.assertIn("inline PSG", payload_problem(source, "src/audio/driver.asm", set(), {}))
+        self.assertIn(
+            "SMPS content", payload_problem(b"Song:\n    smpsHeaderTempo 1,2\n", "src/renamed.asm", set(), {})
+        )
 
     def test_binary_allowlist_pins_bytes_and_size(self):
         data = b"\x00test compiler\xff"

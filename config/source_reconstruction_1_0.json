@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "release_line": "1.0",
+  "release": {
+    "name": "Source Reconstruction 1.0",
+    "version": "1.0"
+  },
+  "release_kind": "preservation",
+  "tag": "source-reconstruction-1.0",
+  "tag_owner": "repository_owner",
+  "status": "development",
+  "predecessor": null,
+  "predecessor_note": "First preservation milestone; no predecessor or release tag has been published. The corrected import excludes private audio data from every ancestor.",
+  "reference": {
+    "manifest": "assets/manifest.json",
+    "image_ids": ["rev00", "rev01"]
+  },
+  "included_scope": [
+    "retail_rev00_rev01_byte_identity",
+    "source_only_engine_and_driver",
+    "private_rom_asset_extraction",
+    "symbolic_pointer_and_relocation_checks",
+    "original_attract_ram_runtime"
+  ],
+  "excluded_scope": [
+    {
+      "id": "rev02",
+      "status": "unsupported",
+      "reason": "No matching real user image was supplied."
+    },
+    {
+      "id": "prototypes_modifications_compilations_lock_on",
+      "status": "unsupported",
+      "reason": "Outside the original accepted retail profiles."
+    },
+    {
+      "id": "gui_and_external_editor_projects",
+      "status": "unsupported",
+      "reason": "Editing interfaces belong outside this repository."
+    },
+    {
+      "id": "linux_aggregate_gate",
+      "status": "unsupported",
+      "reason": "Full host/runtime validation is not available."
+    },
+    {
+      "id": "general_rom_expansion",
+      "status": "unsupported",
+      "reason": "The relocation proof image is not an authoring expansion profile."
+    }
+  ],
+  "delta": [
+    {
+      "id": "private_audio_inputs",
+      "kind": "tooling",
+      "summary": "All music, effects and PSG envelopes are private ROM-derived inputs; driver code and engine tables remain source.",
+      "evidence": ["config/audio.json", "assets/manifest.json"]
+    },
+    {
+      "id": "relocation_runtime",
+      "kind": "evidence",
+      "summary": "Unreachable terminal returns and original RAM goldens verify both accepted revisions, including two-player attract checkpoints.",
+      "evidence": ["config/reconstruction/relocation.json", "config/runtime.json"]
+    }
+  ],
+  "requirements": {
+    "canonical_identity": {
+      "status": "implemented",
+      "evidence": {
+        "targets": ["verify-all"],
+        "files": ["assets/manifest.json", "config/revision_profiles.json"]
+      }
+    },
+    "source_boundary": {
+      "status": "implemented",
+      "evidence": {
+        "targets": ["check-private-data"],
+        "files": ["docs/architecture.md", "config/audio.json"]
+      }
+    },
+    "baseline_documentation": {
+      "status": "implemented",
+      "evidence": {
+        "targets": ["release-audit"],
+        "files": ["docs/index.md", "docs/memory.md", "docs/unknowns.md"]
+      }
+    },
+    "baseline_validation": {
+      "status": "implemented",
+      "evidence": {
+        "targets": ["source-1-check"],
+        "files": ["scripts/validation/source1.py"]
+      }
+    },
+    "toolchain_reproducibility": {
+      "status": "implemented",
+      "evidence": {
+        "targets": ["verify-all"],
+        "files": ["config/toolchain.json", "config/binary_allowlist.json"]
+      }
+    },
+    "symbolic_pointers": {
+      "status": "implemented",
+      "evidence": {
+        "targets": ["pointer-audit", "build-relocated"],
+        "files": ["config/reconstruction/relocation.json", "config/reconstruction/fixed_regions.json"]
+      }
+    },
+    "runtime_coverage": {
+      "status": "implemented",
+      "evidence": {
+        "targets": ["runtime-check"],
+        "files": ["config/runtime.json", "docs/runtime.md"]
+      }
+    },
+    "licensing_and_provenance": {
+      "status": "documented",
+      "evidence": {
+        "targets": ["release-audit"],
+        "files": ["docs/provenance.md"]
+      }
+    },
+    "commit_history": {
+      "status": "implemented",
+      "evidence": {
+        "targets": ["release-audit", "check-private-data"],
+        "files": ["docs/unknowns.md"]
+      }
+    }
+  },
+  "profiles": [
+    {
+      "id": "rev00",
+      "status": "development",
+      "artifact": "rev00_rom",
+      "identity": "byte-identical",
+      "manifest": "config/revision_profiles.json"
+    },
+    {
+      "id": "rev01",
+      "status": "development",
+      "artifact": "rev01_rom",
+      "identity": "byte-identical",
+      "manifest": "config/revision_profiles.json"
+    }
+  ],
+  "runtime_coverage": [
+    {
+      "profile_id": "rev00",
+      "mode": "direct",
+      "scenarios": ["rev00-power-on-attract"],
+      "manifest": "config/runtime.json"
+    },
+    {
+      "profile_id": "rev01",
+      "mode": "direct",
+      "scenarios": ["rev01-power-on-attract"],
+      "manifest": "config/runtime.json"
+    }
+  ],
+  "toolchain": {
+    "manifest": "config/toolchain.json",
+    "verification": "make verify-all"
+  },
+  "artifacts": [
+    {
+      "id": "rev00_rom",
+      "profile": "rev00",
+      "build_target": "verify",
+      "profile_manifest": "config/revision_profiles.json",
+      "identity_manifest": "assets/manifest.json",
+      "identity_image": "rev00",
+      "tracked": false
+    },
+    {
+      "id": "rev01_rom",
+      "profile": "rev01",
+      "build_target": "verify",
+      "profile_manifest": "config/revision_profiles.json",
+      "identity_manifest": "assets/manifest.json",
+      "identity_image": "rev01",
+      "tracked": false
+    }
+  ],
+  "aggregate_gates": {
+    "pre_tag": ["make release-check"]
+  },
+  "layout_deviations": [
+    {
+      "rule_id": "semantic_module_layout",
+      "actual_path": "s2.asm",
+      "reason": "Intermediate preservation retains the original monolithic include order; semantic subsystem extraction is the explicit 2.0 phase.",
+      "equivalent_control": "Every canonical profile is byte-compared; relocation records all terminal-return insertions and rejects missing symbols."
+    }
+  ],
+  "licensing": [
+    {
+      "component": "reconstructed_game_and_annotations",
+      "category": "reconstructed_game_source",
+      "origin": "sonicretro/s2disasm and original Sega game",
+      "license_id_or_status": "license_not_granted",
+      "redistribution": "not_permitted",
+      "notes": "The upstream disclaimer is preserved; it does not grant a source or game-content license."
+    },
+    {
+      "component": "project_tooling_and_documentation",
+      "category": "own_project_tools",
+      "origin": "Written for this repository",
+      "license_id_or_status": "unknown",
+      "redistribution": "unassigned",
+      "notes": "No project-wide license has been assigned."
+    },
+    {
+      "component": "as_macro_assembler",
+      "category": "external_build_dependency",
+      "origin": "The upstream AS build-313 release binaries",
+      "license_id_or_status": "GPL-2.0",
+      "redistribution": "allowed",
+      "notes": "Exact external identities and origins are in config/toolchain.json; the ignored verified tool cache includes the GPL text."
+    },
+    {
+      "component": "authentic_saxman",
+      "category": "adapted_external_source",
+      "origin": "Haruhiko Okumura LZSS and the upstream Saxman adaptation",
+      "license_id_or_status": "permission_notice",
+      "redistribution": "allowed",
+      "notes": "See scripts/authoring/saxman.py."
+    },
+    {
+      "component": "reference_inputs",
+      "category": "private_user_supplied",
+      "origin": "User-supplied verified retail images",
+      "license_id_or_status": "private_user_supplied",
+      "redistribution": "not_permitted",
+      "notes": "Only extraction recipes, sizes and hashes are tracked."
+    }
+  ],
+  "provenance": {
+    "references": ["docs/provenance.md", "assets/manifest.json", "config/audio.json"],
+    "private_inputs_tracked": false,
+    "audio_history": "All reachable ancestors of the candidate exclude assembler song, effect and PSG envelope payloads."
+  },
+  "evidence": {
+    "manifest": "config/runtime.json",
+    "runtime_report": "build/runtime/check-report.json",
+    "pointer_report": "build/pointer-audit.json",
+    "identity_reports": "build/<profile>/identity.json",
+    "aggregate_report": "build/source-1-check.json",
+    "note": "Generated reports are ignored and regenerated by the gate; no passing aggregate is currently claimed."
+  },
+  "required_documents": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "docs/index.md",
+    "docs/build.md",
+    "docs/architecture.md",
+    "docs/memory.md",
+    "docs/style.md",
+    "docs/runtime.md",
+    "docs/validation.md",
+    "docs/unknowns.md",
+    "docs/provenance.md"
+  ],
+  "release_commands": [
+    "lint",
+    "test",
+    "verify-all",
+    "pointer-audit",
+    "build-relocated",
+    "runtime-check",
+    "release-audit",
+    "check-private-data",
+    "check-stop-words"
+  ],
+  "complete_milestones": ["private_audio_history"],
+  "open_milestones": {
+    "S2-SOURCE1": "Fresh-clone aggregate acceptance has not passed."
+  }
+}

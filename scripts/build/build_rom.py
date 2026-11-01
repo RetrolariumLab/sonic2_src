@@ -51,7 +51,7 @@ def prepare_audio(assembler=None, p2bin=None, root=ROOT):
     prepare(root)
 
 
-def patch_image(data, header):
+def patch_image(data, header, logical_size=None):
     values = {name: int(value, 16) for name, value in re.findall(r"\b(\w+)\s+(0x[0-9a-fA-F]+)", header)}
     if not {"comp_z80_size", "movewZ80CompSize"} <= values.keys():
         raise ValueError("Missing p2bin sound-driver patch symbols")
@@ -62,24 +62,19 @@ def patch_image(data, header):
     if len(data) % 2:
         raise ValueError("The Mega Drive image must have an even size")
     data[at : at + 2] = values["comp_z80_size"].to_bytes(2, "big")
-    data[0x1A4:0x1A8] = (len(data) - 1).to_bytes(4, "big")
-    checksum = sum(int.from_bytes(data[i : i + 2], "big") for i in range(0x200, len(data), 2)) & 65535
+    extent = len(data) if logical_size is None else logical_size
+    if extent < 0x200 or extent > len(data) or extent % 2:
+        raise ValueError("Invalid logical checksum extent")
+    data[0x1A4:0x1A8] = (extent - 1).to_bytes(4, "big")
+    checksum = sum(int.from_bytes(data[i : i + 2], "big") for i in range(0x200, extent, 2)) & 65535
     data[0x18E:0x190] = checksum.to_bytes(2, "big")
     return bytes(data)
 
 
-def build(revision=None, root=ROOT):
-    selected = profile(revision, root)
-    check(root)
-    assembler, p2bin = toolchain(root)
-    prepare_audio(assembler, p2bin, root)
-    directory = project_path(selected["output"], root).parent
-    entry = directory / "main.asm"
-    wrapper = "".join(f"{name} = {value}\n" for name, value in selected["defines"].items())
-    wrapper += '\tinclude "' + profiles(root)["entry"] + '"\n'
-    atomic_write(entry, wrapper.encode())
+def assemble_image(entry, output, assembler, p2bin, root=ROOT, logical_size=None):
+    """Own the shared AS, p2bin and post-patch pipeline for every image kind."""
+    directory = output.parent
     obj = assemble(entry, assembler, root, header=True)
-    output = project_path(selected["output"], root)
     output.unlink(missing_ok=True)
     header = entry.with_suffix(".h")
     result = run(
@@ -96,7 +91,22 @@ def build(revision=None, root=ROOT):
     )
     if result.returncode or not output.exists():
         raise ValueError("Main p2bin failed\n" + result.stdout.decode(errors="replace"))
-    atomic_write(output, patch_image(output.read_bytes(), header.read_text()))
+    atomic_write(output, patch_image(output.read_bytes(), header.read_text(), logical_size))
+    return output
+
+
+def build(revision=None, root=ROOT):
+    selected = profile(revision, root)
+    check(root)
+    assembler, p2bin = toolchain(root)
+    prepare_audio(assembler, p2bin, root)
+    directory = project_path(selected["output"], root).parent
+    entry = directory / "main.asm"
+    wrapper = "".join(f"{name} = {value}\n" for name, value in selected["defines"].items())
+    wrapper += '\tinclude "' + profiles(root)["entry"] + '"\n'
+    atomic_write(entry, wrapper.encode())
+    output = project_path(selected["output"], root)
+    assemble_image(entry, output, assembler, p2bin, root)
     print("[OK] Built " + selected["id"] + ": " + selected["output"])
     return output
 

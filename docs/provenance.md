@@ -9,8 +9,9 @@ dated 2026-10-16. Its 1142 commits and 44 public contributor names were
 collapsed into a new repository; none of the upstream Git objects were imported.
 The imported baseline is identified by the upstream commit above.
 
-The upstream disclaimer is preserved in readme.md. Upstream provides that
-disclaimer rather than a source license: the annotation license status is
+The upstream disclaimer is preserved in
+[the notice below](#upstream-disclaimer). Upstream provides that disclaimer
+rather than a source license: the annotation license status is
 license_not_granted. Reconstructing the game grants no license to Sega's game
 code, music, graphics, or other data. User ROMs and extracted payloads are
 private_user_supplied and must never enter Git.

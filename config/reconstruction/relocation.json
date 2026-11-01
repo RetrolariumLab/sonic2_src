@@ -1,0 +1,124 @@
+{
+  "schema": "sonic2.relocation",
+  "schema_version": 1,
+  "method": "unreachable_terminal_return_words",
+  "trampolines": [
+    {
+      "symbol": "JmpTo39_MarkObjGone",
+      "target": "MarkObjGone",
+      "alias": "Relocation_JmpTo39_MarkObjGone",
+      "call_count": 130,
+      "anchor_owner": "loc_39D7C"
+    },
+    {
+      "symbol": "JmpTo25_AnimateSprite",
+      "target": "AnimateSprite",
+      "alias": "Relocation_JmpTo25_AnimateSprite",
+      "call_count": 60,
+      "anchor_owner": "loc_3A49A"
+    },
+    {
+      "symbol": "JmpTo26_ObjectMove",
+      "target": "ObjectMove",
+      "alias": "Relocation_JmpTo26_ObjectMove",
+      "call_count": 64,
+      "anchor_owner": "loc_3A496"
+    },
+    {
+      "symbol": "JmpTo65_DeleteObject",
+      "target": "DeleteObject",
+      "alias": "Relocation_JmpTo65_DeleteObject",
+      "call_count": 41,
+      "anchor_owner": "loc_3A710"
+    },
+    {
+      "symbol": "JmpTo8_ObjectMoveAndFall",
+      "target": "ObjectMoveAndFall",
+      "alias": "Relocation_JmpTo8_ObjectMoveAndFall",
+      "call_count": 8,
+      "anchor_owner": "loc_3A710"
+    },
+    {
+      "symbol": "JmpTo19_AllocateObject",
+      "target": "AllocateObject",
+      "alias": "Relocation_JmpTo19_AllocateObject",
+      "call_count": 7,
+      "anchor_owner": "loc_375CE"
+    },
+    {
+      "symbol": "JmpTo25_AllocateObjectAfterCurrent",
+      "target": "AllocateObjectAfterCurrent",
+      "alias": "Relocation_JmpTo25_AllocateObjectAfterCurrent",
+      "call_count": 16,
+      "anchor_owner": "loc_3992E"
+    },
+    {
+      "symbol": "JmpTo64_Adjust2PArtPointer",
+      "target": "Adjust2PArtPointer",
+      "alias": "Relocation_JmpTo64_Adjust2PArtPointer",
+      "call_count": 1,
+      "anchor_owner": "return_371DA"
+    },
+    {
+      "symbol": "JmpTo45_DisplaySprite",
+      "target": "DisplaySprite",
+      "alias": "Relocation_JmpTo45_DisplaySprite",
+      "call_count": 131,
+      "anchor_owner": "ObjB2_Main_WFZ_Start_main"
+    },
+    {
+      "symbol": "JmpTo27_SolidObject",
+      "target": "SolidObject",
+      "alias": "Relocation_JmpTo27_SolidObject",
+      "call_count": 11,
+      "anchor_owner": "ObjB0_Init"
+    }
+  ],
+  "procedure_moves": [
+    {
+      "start": "SlotMachine_ChangeTarget",
+      "end": "SlotMachine_Routine5_1",
+      "before": "SlotMachine_GetTargetForSlot"
+    }
+  ],
+  "table_moves": [
+    {
+      "start": "LevelSelect_Order",
+      "end": "LevelSelect_StartZone",
+      "before": "LevelSelect_PressStart"
+    }
+  ],
+  "audio_layout": {
+    "host": "SoundDriverLoad",
+    "driver": "Snd_Driver",
+    "bank_labels": ["MusicPoint1", "MusicPoint2"],
+    "alignment": "$1000",
+    "moved_asset": "ArtUnc_Sonic",
+    "asset_capacity": 131072
+  },
+  "legacy_reads": {
+    "slopes": [
+      {
+        "label": "byte_2B3C6",
+        "index": 32767,
+        "size": 36
+      },
+      {
+        "label": "byte_2B3EA",
+        "index": 32767,
+        "size": 36
+      },
+      {
+        "label": "byte_2B40E",
+        "index": 32767,
+        "size": 36
+      }
+    ],
+    "slot_window": {
+      "label": "SlotSequence1",
+      "size": 256,
+      "reason": "The original slot selector uses unmasked d0 instead of d1 and reads adjacent instructions as lookup bytes."
+    }
+  },
+  "header_policy": "original_logical_extent_for_unchanged_checksum_loop_duration"
+}

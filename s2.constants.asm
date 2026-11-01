@@ -1073,6 +1073,8 @@ ramaddr         function x,-(-x)&$FFFFFFFF
 ; RAM variables - General
                     phase   ramaddr($FFFF0000)          ; Pretend we're in the RAM
 RAM_Start:
+RAM_Mirror_Start                =       (RAM_Start&$FFFFFF)-$10000  ; lower mirror used by original layout and demo code
+Intentional_Crash_OddAddress    =       1               ; original deliberate odd-address word access
 
 Chunk_Table:    ds.b    $8000                           ; was "Metablock_Table"
 Chunk_Table_End:
