@@ -3,6 +3,10 @@
 from pathlib import Path
 import importlib
 import sys
+import os
+
+sys.dont_write_bytecode = True
+os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))

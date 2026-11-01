@@ -17,6 +17,6 @@ contributors, excluded community modes and tool origins. The original
 separately.
 
 The preservation boundary is machine-readable in
-config/source_reconstruction_1_0.json. It is a development manifest until the
-complete fresh-clone preservation gate has passed. Semantic layout and complete
-content contracts belong to the later 2.0 milestone.
+config/source_reconstruction_1_0.json. The complete preservation gate has passed
+from a clean clone with only the verified ROMs supplied. Semantic layout and
+complete content contracts belong to the later 2.0 milestone.

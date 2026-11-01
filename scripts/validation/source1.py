@@ -1,10 +1,12 @@
 """Run the preservation guarantee set shared by later reconstruction gates."""
 
 import json
+import hashlib
 from pathlib import Path
 import shutil
 import subprocess
 import sys
+from scripts.build.assets import split
 from scripts.build.build_rom import verify
 from scripts.build.project import ROOT, atomic_write, load, profiles, reference, toolchain, project_path
 from scripts.build.relocate import build as build_relocated
@@ -31,6 +33,30 @@ def clean_profile_outputs(root=ROOT):
                 shutil.rmtree(target)
 
 
+def prepare_inputs(root=ROOT):
+    """Reproduce preservation assets without overwriting changed private inputs."""
+    selected = profiles(root)["profiles"]
+    for item in selected:
+        reference(item["id"], root)
+    manifest = load("assets/manifest.json", root)
+    output = manifest["output"].rstrip("/")
+    owned = list(manifest["assets"]) + list(load("config/audio.json", root)["psg_envelopes"])
+    for item in owned:
+        path = project_path(output + "/" + item["path"], root)
+        if path.exists():
+            data = path.read_bytes()
+            if len(data) != item["size"] or hashlib.sha1(data).hexdigest() != item["sha1"]:
+                raise ValueError("Refusing to replace changed preservation input: " + item["path"])
+    split(root=root)
+    return {
+        "profiles": [item["id"] for item in selected],
+        "direct_assets": len(manifest["assets"]),
+        "derived_assets": len(owned) - len(manifest["assets"]),
+        "extraction": "fresh from verified ROMs",
+        "changed_existing_assets_rejected": True,
+    }
+
+
 def run(root=ROOT):
     project_path("build/source-1-check.json", root).unlink(missing_ok=True)
     command(["make", "lint"], root)
@@ -38,6 +64,7 @@ def run(root=ROOT):
     for selected in profiles(root)["profiles"]:
         reference(selected["id"], root)
     toolchain(root)
+    inputs = prepare_inputs(root)
     clean_profile_outputs(root)
     identities = [verify(item["id"], root) for item in profiles(root)["profiles"]]
     pointer_audit(root)
@@ -55,7 +82,7 @@ def run(root=ROOT):
     print(result.stdout, end="", flush=True)
     if result.returncode or "0 stop words in the history" not in result.stdout:
         raise ValueError("The all-ref stop-word history audit did not run successfully")
-    report = {"gate": "source-1-check", "passed": True, "identities": identities, "runtime": runtime}
+    report = {"gate": "source-1-check", "passed": True, "inputs": inputs, "identities": identities, "runtime": runtime}
     atomic_write(root / "build/source-1-check.json", (json.dumps(report, indent=2) + "\n").encode())
     print("[OK] Source Reconstruction 1.0 preservation guarantee set")
     return report

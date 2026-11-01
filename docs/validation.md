@@ -6,7 +6,9 @@ It runs fail-fast in this order:
 
 1. Shared repository/configuration lint.
 2. ROM-free tool tests, including the full reachable-history privacy detector.
-3. Accepted legal input identities and executable tool pins.
+3. Accepted legal input identities and executable tool pins, followed by fresh
+   extraction of the declared preservation assets. Changed existing assets are
+   rejected before any extraction write.
 4. Removal of canonical/probe output directories and clean builds of both
    profiles, followed by size, every-byte and full-hash identity checks.
 5. Numeric pointer/fixed-region audit and fresh relocation builds.

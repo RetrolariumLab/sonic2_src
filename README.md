@@ -10,8 +10,9 @@ This is a preservation candidate on the way to Source Reconstruction 2.0. Both
 canonical profiles reproduce their original images byte for byte. Controlled
 relocation and direct original-RAM comparisons cover both revisions, including
 two-player attract gameplay. The corrected import excludes private audio data
-from every ancestor of this series. Full clean-clone preservation acceptance is
-being checked; no release tag is claimed or created.
+from every ancestor of this series. The complete preservation gate has passed
+from a fresh clone supplied only with the verified ROMs. No release tag is
+claimed or created.
 
 ## Quick start
 
