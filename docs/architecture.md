@@ -1,10 +1,11 @@
 # Architecture and fact ownership
 
 The canonical entry point is `src/main.asm`. `config/revision_profiles.json`
-supplies the shared retail defines and output paths. Semantic modules preserve
-the original include order and group code by its subsystem responsibilities.
-Data stays beside its owner. The source registry records every module, original
-range and justified size exception; labels and canonical behavior are unchanged.
+supplies the accepted retail defines, content ABI and output paths. Semantic
+modules preserve the original include order while separating subsystem owners.
+The same source builds both revisions; the intermediate preservation gate is
+still required. See [source layout](source_layout.md) for directories, ownership
+ranges and size exceptions.
 
 ## Engine subsystems
 
@@ -24,9 +25,9 @@ range and justified size exception; labels and canonical behavior are unchanged.
   `src/audio/z80/driver.asm` includes executable driver modules and engine
   tables. Stored songs/effects, FM voices, PSG envelopes and DAC/PCM are private
   content inputs.
-- Source-defined mappings, DPLC and engine tables live beside their subsystem
-  owners. Their inline form is preserved; original binary graphics, level and
-  collision assets are extracted under data/.
+- Source-defined mappings, DPLC and engine/content tables live beside their
+  subsystem owners. Their inline form is preserved; original binary graphics,
+  level and collision assets are extracted under data/.
 
 ## Authoritative facts
 
@@ -38,7 +39,7 @@ range and justified size exception; labels and canonical behavior are unchanged.
 | Executable dependency pins and host support limits                        | config/toolchain.json                    |
 | External executable identities                                            | config/toolchain.json                    |
 | Source style roots and dialect                                            | config/lint.json                         |
-| RAM/hardware symbols                                                      | src/memory/ and object ABI modules       |
+| RAM/hardware symbols                                                      | src/memory/ and source-owned ABI modules |
 | Relocation transforms and legacy lookup owners                            | config/reconstruction/relocation.json    |
 | Fixed header/hardware controls and scalar table classification            | config/reconstruction/fixed_regions.json |
 | Movie requirements, watches and emulator identity                         | config/runtime.json                      |
@@ -54,3 +55,10 @@ scripts/validation/ owns repository, pointer, style and aggregate checks.
 scripts/runtime/ owns serialized emulator execution through Kit. The authentic
 Saxman implementation under scripts/authoring/ is a codec; preservation builds
 include stored song bytes rather than recreating music from source.
+
+Content ownership and codec policy are recorded in
+`config/authoring/data_formats.json`; semantic source ownership and original
+coordinates are in `config/reconstruction/source_layout.json`. Neither replaces
+the input manifest. Source-derived capacities and active consumer addresses are
+checked separately for each profile before an authoring document can export. See
+[formats](data_formats.md) and [content workflow](content_workflow.md).

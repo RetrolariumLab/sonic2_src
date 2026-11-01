@@ -81,6 +81,17 @@ rejected. Deleting private content in a later commit does not make that history
 valid.
 
 The preservation build is one part of the reconstruction workflow. Lint,
-relocation and direct MAME comparisons have separate commands and evidence. Full
-acceptance requires their complete clean-clone gate; semantic source layout and
-complete content contracts follow in 2.0. See [validation](validation.md).
+relocation, MAME and semantic-layout commands are implemented and have separate
+evidence. Complete release acceptance is checked by the appropriate full
+clean-clone aggregate; preservation has passed and the integrated 2.0 gate
+follows. See [validation](validation.md) for the complete sequence.
+
+## Direct aggregate from original ROMs
+
+After placing the two verified ROMs at the paths owned by the asset manifest,
+`make release-check` extracts its required inputs itself. The complete 2.0
+command is `make source-2-check CORE_SOURCE="path/to/retrolarium-core"`; it also
+prepares the pinned public Core CLI if needed. A prior split command or saved
+build directory is not required. Existing direct assets and derived envelopes
+are checked first; changed preservation content is rejected before any write.
+Undeclared private files remain outside extraction ownership.

@@ -18,11 +18,14 @@ private_user_supplied and must never enter Git.
 
 All original binary game assets, WAV files, editor projects, fixed-file
 modifications, Lua build tools and unused platform executables were excluded.
-Music, effects, FM voices and PSG envelopes are private inputs rather than
-redistributed assembler content. The driver code and engine lookup tables remain
-source. SMPS2ASM content macros are excluded from the preservation build. The
-complete unmodified community build and its optional fixes can be recovered from
-the upstream commit above; it is a reference, never this project's Git base.
+Music, effects, FM voices and PSG envelopes in the current source are private
+inputs rather than redistributed assembler content. Early unpublished drafts
+retained textual audio data. The corrected import excludes it from every
+ancestor of this candidate; privacy is audited over all reachable refs. The
+driver code and engine lookup tables remain source. SMPS2ASM content macros are
+excluded from the preservation build. The complete unmodified community build
+and its optional fixes can be recovered from the upstream commit above; it is a
+reference, never this project's Git base.
 
 ## Build tools and compression
 
@@ -123,11 +126,14 @@ against both complete original images. Only official revision selection remains.
 Power-of-two padding is an original container property, not a user option. The
 removed switches can be recovered from the imported upstream commit above.
 
-Confirmed original-label changes are in the single
-[rename registry](../config/reconstruction/label_renames.json).
-[Symbol meanings](symbols.md) explains source fingerprints, preserved profile
-values and the explicit unknown ledger. This is naming review, not a claim about
-original source authorship.
+## Source names and the semantic move
+
+Original labels are retained unless recorded in the single canonical
+[rename registry](../config/reconstruction/label_renames.json). The registry is
+present even when its rename list is empty. New hardware or tool-facing symbols
+are project additions, not claims about upstream authorship. The source layout
+registry records coordinates and fingerprints relative to the preservation
+source baseline; it does not import another branch's source or Git history.
 
 ## Upstream disclaimer
 

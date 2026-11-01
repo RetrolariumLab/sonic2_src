@@ -1,7 +1,7 @@
 # Content workflow
 
-This is a development proposal. Successful content checks do not imply that the
-repository history or the complete reconstruction release has been accepted. See
+The content APIs and commands are integrated into this candidate. Content checks
+remain separate from history, runtime and complete release acceptance. See
 [validation](validation.md) for the preservation requirements.
 
 The repository supplies formats, pure codecs and bounded export contracts.
@@ -104,3 +104,9 @@ DPLC source-art bounds and each original frame's transfer window. A legal-width
 pointer or tile count is insufficient when it leaves those allocations.
 Special-stage shared frame views bind corresponding per-selector source RAM
 partitions and VRAM transfer budgets. See [formats](data_formats.md).
+
+The complete aggregate also supports a ROM-only checkout through
+`make source-2-check CORE_SOURCE="path/to/retrolarium-core"`. Its preservation
+implementation owns extraction and refuses to overwrite changed existing
+preservation assets. Standalone content commands retain the preparation workflow
+above; the aggregate does not rely on it being run beforehand.

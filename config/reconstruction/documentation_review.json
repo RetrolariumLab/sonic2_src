@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "status": "reviewed",
+  "scope": "Complete corpus after merging the independently verified ROM-only preservation boundary.",
+  "reviewer": "Codex",
+  "findings": [
+    {
+      "id": "DOC-001",
+      "resolution": "Update obsolete monolithic source and memory paths to semantic owners."
+    },
+    {
+      "id": "DOC-002",
+      "resolution": "Preserve the exact original disclaimer inside provenance, with its incoming links updated."
+    },
+    {
+      "id": "DOC-003",
+      "resolution": "Distinguish successful focused checks from pending history, source-table reviews and aggregate release acceptance."
+    },
+    {
+      "id": "DOC-004",
+      "resolution": "Replace obsolete phase-2-only status and state the historical audio violation explicitly in provenance and decisions."
+    },
+    {
+      "id": "DOC-005",
+      "resolution": "Document actual DPLC source bounds, original per-frame transfer windows and special-stage selector-specific RAM/VRAM budgets."
+    },
+    {
+      "id": "DOC-006",
+      "resolution": "Replace obsolete proposal/history-blocker statements with the accepted preservation baseline, integrated source/content and pending complete 2.0 gate."
+    },
+    {
+      "id": "DOC-007",
+      "resolution": "Record actual complete clean-clone acceptance and retain its exact limits without treating development proposals as results."
+    },
+    {
+      "id": "DOC-008",
+      "resolution": "Make extraction part of the actual aggregate, protect existing edits and document the direct ROM-only acceptance command."
+    },
+    {
+      "id": "DOC-019",
+      "resolution": "Move exact AS build-313 dependencies and GPL text to a verified ignored cache, retain the full Saxman permission notice in its implementation, and bind linear history references to the new preservation boundary."
+    }
+  ],
+  "documents": [
+    {
+      "path": "CONTRIBUTING.md",
+      "action": "retained",
+      "reason": "Keep contributor identity, content privacy, meaningful commits and per-change verification rules in one entry point.",
+      "sha256": "3e08c3d2def52605577be0b94283a8dfb7840b12bead577d028a676a0edec689"
+    },
+    {
+      "path": "docs/architecture.md",
+      "action": "updated",
+      "reason": "Explain subsystem responsibilities and canonical fact owners without duplicating detailed format or runtime contracts.",
+      "sha256": "e8cfa2fb7a0e7689e693bb06f9623847c05af20d70ee8cc95f9e88ec0c62e27a"
+    },
+    {
+      "path": "docs/architecture_decisions.md",
+      "action": "new",
+      "reason": "Record cross-cutting implementation tradeoffs and retained limitations without scattering separate decision files.",
+      "sha256": "67dea190758695835f9bc376018faa64a76a4b04c53052abd08c5e41b403eb5e"
+    },
+    {
+      "path": "docs/build.md",
+      "action": "updated",
+      "reason": "Explain dependencies, verified private inputs and the exact AS/p2bin/audio pipeline; replace obsolete phase-only status.",
+      "sha256": "47764b0835efe0821cd622c98da77e4bb4b2b248460c0c895e49afffa506f2ae"
+    },
+    {
+      "path": "docs/content_workflow.md",
+      "action": "new",
+      "reason": "Explain dependency preparation, pure APIs, frozen export targets and reproducible content commands as one user workflow.",
+      "sha256": "831a43b92eb288349b845c175af833aa58c0e08daacc483162067a67c35cb755"
+    },
+    {
+      "path": "docs/data_formats.md",
+      "action": "new",
+      "reason": "Keep all registered grammars, ABI distinctions, original hazards and capacity policies in one navigable format reference.",
+      "sha256": "0d1d5f642c5c036fc6b7c18bc414c6248f4f03d9d2b43a2c33444323c8d8dabd"
+    },
+    {
+      "path": "docs/index.md",
+      "action": "updated",
+      "reason": "Organize build, source navigation, content work and evidence assessment without orphan pages.",
+      "sha256": "eedc9748ca0d28fa184fc89f3ac3b64ea505557d3b70ba0498423d187b21cadf"
+    },
+    {
+      "path": "docs/memory.md",
+      "action": "updated",
+      "reason": "Keep hardware, RAM and Z80 address spaces together; values remain summaries checked against source symbols.",
+      "sha256": "7998ae572d99090caf2e4806342120dc165d2d950de564de7e27097f8966d76c"
+    },
+    {
+      "path": "docs/provenance.md",
+      "action": "updated",
+      "reason": "Retain upstream credits and the verbatim disclaimer in this single provenance owner; document the externally cached exact compiler and the inline Saxman permission notice.",
+      "sha256": "28edbc9f7f1c7048b26f9c429bce7c54ec0eeb5d0753232d2cfc352859ce55ee"
+    },
+    {
+      "path": "docs/revisions.md",
+      "action": "new",
+      "reason": "Explain shared-engine profile selection, direct runtime evidence and excluded variants without copying legal input hashes.",
+      "sha256": "7d86e2c90f53ce580622e3803e09b62944fad13b3642808f0b7b283810850135"
+    },
+    {
+      "path": "docs/runtime.md",
+      "action": "retained",
+      "reason": "Keep relocation design, preserved original hazards, RAM coverage and emulator execution limits together.",
+      "sha256": "5d99d4a5d652fad9d85fbf69bda41990e88e5b22e508579bea7cb6ffb0dea262"
+    },
+    {
+      "path": "docs/source_layout.md",
+      "action": "new",
+      "reason": "Describe semantic module cohesion, adjacent data owners, original range coverage and justified size exceptions.",
+      "sha256": "1500572a16e250d6a4abe00e3a60dbb3c499f1546ab690ee14104098a37cfd31"
+    },
+    {
+      "path": "docs/source_reconstruction_2_0.md",
+      "action": "new",
+      "reason": "Describe the accepted predecessor, integrated delta, complete gate evidence and retained limits for release reviewers.",
+      "sha256": "35700f01e81f5bc20141ffbe1e6e158dbfcfbe3e911d6fc83024828d50326cbd"
+    },
+    {
+      "path": "docs/style.md",
+      "action": "retained",
+      "reason": "Explain the AS syntax compatibility bridge and shared formatter lifecycle separately from build prerequisites.",
+      "sha256": "5180d810e2ee42817ac1b76a06284f216187c865b54f7a2ff1508ed31aa260ec"
+    },
+    {
+      "path": "docs/unknowns.md",
+      "action": "updated",
+      "reason": "Keep unresolved acceptance blockers, controlled format differences and resolved investigations in one ledger.",
+      "sha256": "c5aaa25bf2663462459b76a2c7fbe44ebcf5f799ec32c20607a464d691cc37db"
+    },
+    {
+      "path": "docs/validation.md",
+      "action": "updated",
+      "reason": "Explain focused versus aggregate commands, required predecessor execution and stale-report rejection.",
+      "sha256": "adcd855f4473ef06bbed69c04d967ad7f7cce9b0f218cb10585bbb0131a208ce"
+    },
+    {
+      "path": "README.md",
+      "action": "updated",
+      "reason": "Give the legal-input quick start, checked current status and links into build, source, content and evidence journeys.",
+      "sha256": "9b5980fcdc8fd47a5ffa7dfb5e234742d2433bf372bd2be41fc6cc17d8a2c235"
+    }
+  ],
+  "merges": [],
+  "removals": [],
+  "boundary_reason": "Reviewed the aggregate-owned extraction and pre-write edit protection, direct ROM-only command and accepted preservation merge. All prior format/source/runtime limits remain intact; hashes cover the actual current corpus."
+}

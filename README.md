@@ -6,13 +6,11 @@ ROM, music, sound effects, graphics or extracted binary game assets. It is based
 on sonicretro/s2disasm; upstream attribution and its
 [disclaimer](docs/provenance.md#upstream-disclaimer) are preserved.
 
-This is a preservation candidate on the way to Source Reconstruction 2.0. Both
-canonical profiles reproduce their original images byte for byte. Controlled
-relocation and direct original-RAM comparisons cover both revisions, including
-two-player attract gameplay. The corrected import excludes private audio data
-from every ancestor of this series. The complete preservation gate has passed
-from a fresh clone supplied only with the verified ROMs. No release tag is
-claimed or created.
+The complete Source Reconstruction 2.0 gate has passed from a fresh clone.
+Scaffold ran before any ROMs were supplied; only the two verified ROMs were then
+added as private inputs. Both retail images, relocation/runtime evidence,
+content, source structure, documentation and reachable history passed their
+checks. No release tag is claimed or created.
 
 ## Quick start
 
@@ -36,9 +34,19 @@ outputs live under ignored build/. Bare make displays the available commands.
 
 The aggregate preservation command is `make release-check`. It includes lint,
 ROM-free tests, verified inputs, clean canonical builds, byte identity,
-relocation, MAME comparisons, repository audits and a clean-tree check. It is
-expected to remain red until all declared release requirements are satisfied.
-The 2.0 aggregate builds on that same preservation gate.
+relocation, MAME comparisons, repository audits and a clean-tree check. Every
+declared preservation requirement must pass in that same run. The complete 2.0
+command is `make source-2-check`; it runs that preservation gate first.
+`make scaffold-check` checks static contracts and synthetic fixtures without
+ROMs. Semantic source, content and release tooling are integrated; the complete
+clean-clone 2.0 gate remains the final acceptance command.
+
+From a clean clone, place the verified ROMs at the manifest paths and run
+`make source-2-check CORE_SOURCE="path/to/retrolarium-core"`. The aggregate
+extracts the declared private inputs itself and prepares the pinned Core tool
+when needed. Existing changed preservation assets are rejected before any
+extraction write. The split command above remains the optional ROM-folder import
+convenience.
 
 ## Working with the source
 
@@ -48,6 +56,14 @@ Read [the documentation index](docs/index.md),
 outside this repository; there is no bundled GUI or external editor project.
 Music and effects are stored inputs, not assembler content. Codecs and format
 contracts describe how legal private assets can be inspected and edited.
+[provenance](docs/provenance.md#upstream-disclaimer). Editing tools belong
+outside this repository; there is no bundled GUI or external editor project.
+Music and effects are stored inputs, not assembler content. The
+[semantic layout](docs/source_layout.md) and
+[content workflow](docs/content_workflow.md) describe source ownership and the
+commands `make roundtrip-formats` and `make check-content-zero-edit`. Prepare
+the pinned Core CLI first with `make prepare-core CORE_SOURCE="path/to/core"`.
+Formats and bounded byte APIs describe how legal private content can be edited.
 
 The original game code and data remain the rightsholder's property. Upstream
 annotations have no granted source license; the disclaimer is not a license.

@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "release_line": "2.0",
+  "release": {
+    "name": "Source Reconstruction 2.0",
+    "version": "2.0"
+  },
+  "release_kind": "baseline",
+  "tag": "source-reconstruction-2.0",
+  "tag_owner": "repository_owner",
+  "status": "tag-ready",
+  "predecessor": {
+    "manifest": "config/source_reconstruction_1_0.json",
+    "tag": "source-reconstruction-1.0",
+    "commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
+    "gate": "release-check",
+    "status": "accepted"
+  },
+  "delta_history": {
+    "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
+    "tip": "HEAD",
+    "commit_count": 3
+  },
+  "included_scope": [
+    "retail_rev00_rev01_preservation",
+    "semantic_68000_and_z80_source",
+    "rom_derived_private_audio_and_graphics",
+    "headless_structural_codecs_and_bounded_export",
+    "source_owned_content_round_trips",
+    "direct_per_profile_runtime_matrix"
+  ],
+  "excluded_scope": [
+    {
+      "id": "rev02",
+      "status": "unsupported",
+      "reason": "No matching real user image was supplied."
+    },
+    {
+      "id": "prototypes_modifications_compilations_lock_on",
+      "status": "unsupported",
+      "reason": "Outside the original accepted retail profiles."
+    },
+    {
+      "id": "gui_and_external_editor_projects",
+      "status": "unsupported",
+      "reason": "Editing interfaces belong outside this repository."
+    },
+    {
+      "id": "linux_aggregate_gate",
+      "status": "unsupported",
+      "reason": "Full host/runtime validation is not available."
+    },
+    {
+      "id": "general_rom_expansion",
+      "status": "unsupported",
+      "reason": "The relocation proof image is not an authoring expansion profile."
+    }
+  ],
+  "delta": [
+    {
+      "id": "stage_c10",
+      "kind": "source",
+      "summary": "Organize the engine into semantic source owners; retain the original accepted profiles and their complete evidence.",
+      "commits": ["1a6beb9ce5c8375a19718dc9bb968f17cabdaaa2"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "stage_c11",
+      "kind": "tooling",
+      "summary": "Define bounded content codecs and zero-edit reconstruction; retain the original accepted profiles and their complete evidence.",
+      "commits": ["59dec6238f50964f967858764b9cf49c82a25903"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "stage_c12",
+      "kind": "tooling",
+      "summary": "Integrate the complete reconstruction gate and corpus; retain the original accepted profiles and their complete evidence.",
+      "commits": ["release-commit"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    }
+  ],
+  "reference": {
+    "manifest": "assets/manifest.json",
+    "image_ids": ["rev00", "rev01"]
+  },
+  "profiles": [
+    {
+      "id": "rev00",
+      "status": "accepted",
+      "artifact": "rev00_rom",
+      "identity": "byte-identical",
+      "manifest": "config/revision_profiles.json"
+    },
+    {
+      "id": "rev01",
+      "status": "accepted",
+      "artifact": "rev01_rom",
+      "identity": "byte-identical",
+      "manifest": "config/revision_profiles.json"
+    }
+  ],
+  "licensing": [
+    {
+      "component": "reconstructed_game_and_annotations",
+      "category": "reconstructed_game_source",
+      "origin": "sonicretro/s2disasm and original Sega game",
+      "license_id_or_status": "license_not_granted",
+      "redistribution": "not_permitted",
+      "notes": "The upstream disclaimer is preserved; it does not grant a source or game-content license."
+    },
+    {
+      "component": "project_tooling_and_documentation",
+      "category": "own_project_tools",
+      "origin": "Written for this repository",
+      "license_id_or_status": "unknown",
+      "redistribution": "unassigned",
+      "notes": "No project-wide license has been assigned."
+    },
+    {
+      "component": "as_macro_assembler",
+      "category": "external_build_dependency",
+      "origin": "The upstream AS build-313 release binaries",
+      "license_id_or_status": "GPL-2.0",
+      "redistribution": "allowed",
+      "notes": "Exact external identities and origins are in config/toolchain.json; the ignored verified tool cache includes the GPL text."
+    },
+    {
+      "component": "authentic_saxman",
+      "category": "adapted_external_source",
+      "origin": "Haruhiko Okumura LZSS and the upstream Saxman adaptation",
+      "license_id_or_status": "permission_notice",
+      "redistribution": "allowed",
+      "notes": "See scripts/authoring/saxman.py."
+    },
+    {
+      "component": "reference_inputs",
+      "category": "private_user_supplied",
+      "origin": "User-supplied verified retail images",
+      "license_id_or_status": "private_user_supplied",
+      "redistribution": "not_permitted",
+      "notes": "Only extraction recipes, sizes and hashes are tracked."
+    }
+  ],
+  "provenance": {
+    "references": ["docs/provenance.md", "assets/manifest.json", "config/audio.json"],
+    "private_inputs_tracked": false
+  },
+  "semantic_source": {
+    "status": "accepted",
+    "source_structure_manifest": "config/reconstruction/source_layout.json",
+    "source_structure_gate": "source-layout-check",
+    "label_rename_registry": "config/reconstruction/label_renames.json",
+    "format_manifest": "config/authoring/data_formats.json"
+  },
+  "content": {
+    "status": "accepted",
+    "format_gate": "roundtrip-formats",
+    "zero_edit_gate": "check-content-zero-edit",
+    "source_table_review_status": "complete",
+    "ui": "outside_repository"
+  },
+  "runtime": {
+    "manifest": "config/runtime.json",
+    "gate": "runtime-check",
+    "strategy": "Direct original-ROM goldens for every accepted revision; execution belongs to the mandatory predecessor gate."
+  },
+  "evidence": {
+    "aggregate_report": "build/source-2-check.json",
+    "structure_report": "build/source-layout-check.json",
+    "corpus_report": "build/documentation-check.json",
+    "content_report": "build/authoring/content-zero-edit.json",
+    "documentation_review": "config/reconstruction/documentation_review.json",
+    "note": "Complete acceptance is checked from a fresh clone with only original ROMs: the aggregate owns extraction and prepares pinned Core when CORE_SOURCE is supplied. Existing changed preservation assets are rejected before writes."
+  },
+  "required_documents": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "docs/index.md",
+    "docs/build.md",
+    "docs/architecture.md",
+    "docs/memory.md",
+    "docs/style.md",
+    "docs/runtime.md",
+    "docs/validation.md",
+    "docs/unknowns.md",
+    "docs/provenance.md",
+    "docs/source_layout.md",
+    "docs/data_formats.md",
+    "docs/content_workflow.md",
+    "docs/revisions.md",
+    "docs/architecture_decisions.md",
+    "docs/source_reconstruction_2_0.md"
+  ],
+  "release_commands": [
+    "help",
+    "split",
+    "check-assets",
+    "build",
+    "verify",
+    "verify-all",
+    "test",
+    "lint",
+    "format",
+    "format-check",
+    "pointer-audit",
+    "build-relocated",
+    "runtime-check",
+    "runtime-golden",
+    "check-private-data",
+    "check-stop-words",
+    "release-audit",
+    "source-1-check",
+    "release-check",
+    "prepare-core",
+    "roundtrip-formats",
+    "check-content-zero-edit",
+    "source-layout-check",
+    "documentation-check",
+    "scaffold-check",
+    "source-2-audit",
+    "source-2-check"
+  ],
+  "complete_milestones": [
+    "semantic_source_layout",
+    "bounded_content_contracts",
+    "documentation_corpus",
+    "integrated_acceptance_tooling",
+    "clean_clone_source2"
+  ],
+  "open_milestones": {}
+}

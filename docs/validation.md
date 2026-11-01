@@ -36,10 +36,10 @@ directory through PYTHONPATH. Kit is invoked through rltool; project Python does
 not import Kit's isolated environment. config/toolchain.json records the public
 source pins and checks the compiler/p2bin executable identities.
 
-The corrected import excludes private audio content from the complete candidate
-history. Every reachable ref must still pass the normal privacy detector. A
-passing byte build, focused test or runtime run is recorded as its own evidence
-and never substituted for the complete clean-clone aggregate.
+The corrected series passed both the preservation and complete 2.0 gates from
+fresh clones, including the all-ref privacy detector. Focused byte, test,
+content and runtime results remain separate evidence; future candidates must
+repeat the complete aggregate rather than infer acceptance from those parts.
 
 The project creates no tags or pushes. An owner may review a clean passing
 candidate and create their release tags separately. Rewritten draft candidates
@@ -63,3 +63,48 @@ workspaces and backups remain.
 No tags are created by the project. After the owner creates an annotated tag at
 this candidate, `make release-tag-audit LINE=1.0` inspects its type, target and
 manifest. Tests inspect synthetic responses without creating refs.
+
+## Content and source-layout checks
+
+`make roundtrip-formats` validates every registered private input, each active
+revision placement, context-bound serialization, compression semantics and
+assembly-owned sprite/DPLC, animation, path, indexed record, palette timing and
+demo ledgers. `make check-content-zero-edit` also writes a separate build view
+and reconstructs both complete original images. Neither command claims release
+acceptance. See [content workflow](content_workflow.md) for the exact APIs,
+preparation and report paths.
+
+The semantic source registry owns every assembly module and include edge.
+Canonical byte identity, relocation byte equality, original source-coordinate
+coverage and preserved symbol values are separate evidence. A source move must
+also keep imports, manifests, runtime paths, Make commands and documentation in
+sync. The larger data ledgers have explicit machine-checkable size exceptions.
+
+The complete 2.0 aggregate must call the full preservation gate first, then
+validate source structure, content, profiles, documentation and release state.
+It cannot report success when the predecessor gate is unavailable or red.
+Scaffold checks and ROM-free tests are useful early checks; they do not replace
+that final clean-clone run.
+
+## Public static and aggregate entry points
+
+`make source-layout-check` validates actual module bytes, continuous original
+source ranges, include reachability, large-ledger grammar, the single rename
+registry and an independent inventory of data tables. Pending table reviews are
+reported explicitly. `make documentation-check` checks the complete corpus,
+local links/anchors, reader reachability and the separate substance-review
+ledger. Neither static command claims that pending implementation is accepted.
+
+`make scaffold-check` runs those static contracts, checks the real Make/help
+interface, and executes pure authoring tests plus synthetic structure, corpus,
+release-command and predecessor tests. The full `make test` suite additionally
+checks actual reachable project history. A passing scaffold does not waive that
+audit or require a private ROM.
+
+`make source-2-check` and its `source-2-audit` alias execute the full
+preservation implementation first. Fresh identity, runtime and relocation
+evidence must cover every accepted profile. The delta then checks the exact
+predecessor source fingerprints, content, corpus and complete nonempty Git
+delta. Pending source tables, unreviewed docs, old private history, stale
+reports or a dirty tree keep this command red. Its success report is removed
+before each invocation and published only after the complete run passes.
