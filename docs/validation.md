@@ -46,3 +46,20 @@ candidate and create their release tags separately. Rewritten draft candidates
 are checked in an isolated fresh clone so retained review refs do not masquerade
 as part of the publishable series; the source repository remains unaccepted
 until its old forbidden refs are removed with the required approval.
+
+## Symbol and release contracts
+
+After canonical verification, the aggregate checks reviewed names and explicit
+unknown ranges against current source fingerprints and both compiled symbol
+tables, before relocation and runtime execution. `make semantic-symbols-check`
+runs this focused compiled check.
+
+Release readiness validates requirement states, actual evidence files and Make
+targets, profile artifact identities, direct runtime scenario IDs, supported
+host fields, tool pins and deviation paths. `make clean` removes only canonical
+and relocated profile directories and rejects redirected paths; private inputs,
+workspaces and backups remain.
+
+No tags are created by the project. After the owner creates an annotated tag at
+this candidate, `make release-tag-audit LINE=1.0` inspects its type, target and
+manifest. Tests inspect synthetic responses without creating refs.

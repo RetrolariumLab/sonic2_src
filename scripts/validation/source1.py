@@ -2,6 +2,7 @@
 
 import json
 import hashlib
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -25,9 +26,18 @@ def clean_profile_outputs(root=ROOT):
     if not build_root.is_relative_to(root.resolve()):
         raise ValueError("Build root leaves the project")
     for selected in profiles(root)["profiles"]:
+        if (
+            not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", selected["id"])
+            or selected["output"] != "build/" + selected["id"] + "/sonic2.bin"
+        ):
+            raise ValueError("Canonical clean output is not an owned profile directory")
         for target in [(root / selected["output"]).parent, root / "build/relocated" / selected["id"]]:
             resolved = target.resolve()
-            if resolved == build_root or not resolved.is_relative_to(build_root):
+            if (
+                resolved == build_root
+                or not resolved.is_relative_to(build_root)
+                or resolved != root.resolve() / target.relative_to(root)
+            ):
                 raise ValueError("Refusing to clean output outside its build directory")
             if target.exists():
                 shutil.rmtree(target)
@@ -67,11 +77,14 @@ def run(root=ROOT):
     inputs = prepare_inputs(root)
     clean_profile_outputs(root)
     identities = [verify(item["id"], root) for item in profiles(root)["profiles"]]
+    from scripts.validation.semantics import audit as semantic_audit
+
+    semantic = semantic_audit(root, compiled=True)
     pointer_audit(root)
     for selected in profiles(root)["profiles"]:
         build_relocated(selected["id"], root)
     runtime = execute("check", root=root)
-    release_audit(root, clean=True)
+    release_audit(root, clean=True, ready=True)
     result = subprocess.run(
         [sys.executable, "-m", "retrolarium_core.stop_words", "history", str(root), "--all"],
         cwd=root,
@@ -82,7 +95,14 @@ def run(root=ROOT):
     print(result.stdout, end="", flush=True)
     if result.returncode or "0 stop words in the history" not in result.stdout:
         raise ValueError("The all-ref stop-word history audit did not run successfully")
-    report = {"gate": "source-1-check", "passed": True, "inputs": inputs, "identities": identities, "runtime": runtime}
+    report = {
+        "gate": "source-1-check",
+        "passed": True,
+        "inputs": inputs,
+        "identities": identities,
+        "runtime": runtime,
+        "semantic_symbols": semantic,
+    }
     atomic_write(root / "build/source-1-check.json", (json.dumps(report, indent=2) + "\n").encode())
     print("[OK] Source Reconstruction 1.0 preservation guarantee set")
     return report

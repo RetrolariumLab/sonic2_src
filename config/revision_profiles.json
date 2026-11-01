@@ -10,7 +10,7 @@
         "gameRevision": 0
       },
       "output": "build/rev00/sonic2.bin",
-      "status": "development"
+      "status": "accepted"
     },
     {
       "id": "rev01",
@@ -19,7 +19,7 @@
         "gameRevision": 1
       },
       "output": "build/rev01/sonic2.bin",
-      "status": "development"
+      "status": "accepted"
     }
   ],
   "excluded_scope": [

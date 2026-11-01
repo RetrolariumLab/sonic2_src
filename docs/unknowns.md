@@ -18,3 +18,10 @@ REV02 is excluded because no supplied real original image matched its
 theoretical identity. Prototypes, modifications, compilations, lock-on and
 alternate editor projects are excluded scope rather than silently accepted
 profiles.
+
+## Symbol uncertainty
+
+The [symbol review](symbols.md) records confirmed meanings separately from
+unresolved internal continuations and data interpretations. Every
+address-derived global that remains has physical per-profile bounds, a reason
+and a next investigation. Complete reverse engineering is not claimed.

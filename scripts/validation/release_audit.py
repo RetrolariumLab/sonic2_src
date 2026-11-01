@@ -61,10 +61,13 @@ def audit_history(root=ROOT):
     return problems
 
 
-def audit(root=ROOT, clean=False):
+def audit(root=ROOT, clean=False, ready=False, post_tag=False, line="1.0"):
     destination = project_path("build/release-audit.json", root)
     destination.unlink(missing_ok=True)
     manifest = load("config/source_reconstruction_1_0.json", root)
+    from scripts.validation.release_contract import validate, inspect_tag
+
+    selected_manifest = validate(root, line, ready=ready)
     problems = current_problems(root) + history_problems(root) + audit_history(root)
     if manifest.get("release_line") != "1.0" or manifest.get("release_kind") != "preservation":
         problems.append("Incorrect preservation release boundary")
@@ -91,11 +94,16 @@ def audit(root=ROOT, clean=False):
             problems.append("Non-English tracked text: " + name)
     if clean and git("status", "--porcelain", root=root).strip():
         problems.append("Working tree is not clean")
-    if git("tag", "--list", manifest["tag"], root=root).strip():
-        problems.append("The owner-only proposed release tag already exists")
+    if post_tag:
+        inspect_tag(root, line)
+    elif git("tag", "--list", selected_manifest["tag"], root=root).strip():
+        expected_commit = None
+        if line == "1.0" and (root / "config/source_reconstruction_2_0.json").exists():
+            expected_commit = load("config/source_reconstruction_2_0.json", root)["predecessor"]["commit"]
+        inspect_tag(root, line, expected_commit=expected_commit)
     report = {
-        "release_line": "1.0",
-        "status": manifest["status"],
+        "release_line": line,
+        "status": selected_manifest["status"],
         "problems": problems,
         "reachable_commits": len(git("rev-list", "--all", root=root).splitlines()),
     }
@@ -113,8 +121,11 @@ def audit(root=ROOT, clean=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--clean", action="store_true")
+    parser.add_argument("--ready", action="store_true")
+    parser.add_argument("--post-tag", action="store_true")
+    parser.add_argument("--line", choices=("1.0", "2.0"), default="1.0")
     args = parser.parse_args()
     try:
-        audit(clean=args.clean)
+        audit(clean=args.clean, ready=args.ready, post_tag=args.post_tag, line=args.line)
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         raise SystemExit(str(exc)) from exc

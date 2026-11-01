@@ -43,7 +43,7 @@
       "target": "AllocateObject",
       "alias": "Relocation_JmpTo19_AllocateObject",
       "call_count": 7,
-      "anchor_owner": "loc_375CE"
+      "anchor_owner": "EnemiesRexon_CountedLoopD6"
     },
     {
       "symbol": "JmpTo25_AllocateObjectAfterCurrent",
@@ -57,7 +57,7 @@
       "target": "Adjust2PArtPointer",
       "alias": "Relocation_JmpTo64_Adjust2PArtPointer",
       "call_count": 1,
-      "anchor_owner": "return_371DA"
+      "anchor_owner": "EnemiesSol_Return"
     },
     {
       "symbol": "JmpTo45_DisplaySprite",

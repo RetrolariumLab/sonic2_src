@@ -123,6 +123,12 @@ against both complete original images. Only official revision selection remains.
 Power-of-two padding is an original container property, not a user option. The
 removed switches can be recovered from the imported upstream commit above.
 
+Confirmed original-label changes are in the single
+[rename registry](../config/reconstruction/label_renames.json).
+[Symbol meanings](symbols.md) explains source fingerprints, preserved profile
+values and the explicit unknown ledger. This is naming review, not a claim about
+original source authorship.
+
 ## Upstream disclaimer
 
 Preserved verbatim from the imported upstream snapshot, including its spelling.

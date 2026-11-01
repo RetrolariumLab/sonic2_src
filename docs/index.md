@@ -20,3 +20,6 @@ The preservation boundary is machine-readable in
 config/source_reconstruction_1_0.json. The complete preservation gate has passed
 from a clean clone with only the verified ROMs supplied. Semantic layout and
 complete content contracts belong to the later 2.0 milestone.
+
+[Symbol meanings and uncertainty](symbols.md) describes confirmed renames,
+per-profile evidence and the explicit unknown work queue.

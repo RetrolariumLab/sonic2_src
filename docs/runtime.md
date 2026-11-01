@@ -34,7 +34,8 @@ branches. Canonical sources and retail bytes are unchanged.
 The original compressed Z80 driver stream, its placement, and the two music bank
 origins are checked exactly. The probe moves Sonic's raw artwork to the appended
 region to leave room for the inserted words before the original sound area.
-Original labels remain present; the build rejects missing named symbols.
+Named dependencies remain resolvable; reviewed renames retain their original
+values through the canonical registry.
 
 The probe is physically 2 MiB. Its header ROM end and checksum range retain the
 original logical 1 MiB extent. This is explicit experimental metadata: the game

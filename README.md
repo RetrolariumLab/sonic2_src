@@ -54,3 +54,10 @@ annotations have no granted source license; the disclaimer is not a license.
 Licensing of newly written project tooling is explicitly unassigned. AS and the
 adapted authentic Saxman implementation carry their own notices. See provenance
 for the separate statuses; no game-content redistribution rights are granted.
+
+## Reviewed symbol evidence
+
+Confirmed names and explicit uncertainty are documented in
+[symbol meanings](docs/symbols.md). The preservation aggregate checks the single
+rename registry, every remaining address-derived global and both compiled symbol
+tables. Source layout and content authoring remain the separate 2.0 scope.

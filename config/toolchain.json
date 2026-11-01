@@ -47,9 +47,11 @@
   "supported_hosts": [
     {
       "id": "windows-x86_64",
-      "status": "development",
-      "python": ">=3.10",
-      "shell": "GNU Make with Python subprocesses"
+      "status": "supported",
+      "python": ">=3.10; acceptance checked with CPython 3.14",
+      "shell": "PowerShell 7 driving GNU Make; build commands use Python subprocesses",
+      "os": "Windows 11",
+      "architecture": "x86_64"
     },
     {
       "id": "linux-x86_64",

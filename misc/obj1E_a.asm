@@ -1,18 +1,18 @@
-off_22980:      offsetTable
-                offsetTableEntry.w word_22998
-                offsetTableEntry.w word_22A0E
-                offsetTableEntry.w word_22A6C
-                offsetTableEntry.w word_22AE2
-                offsetTableEntry.w word_22B40
-                offsetTableEntry.w word_22BB2
-                offsetTableEntry.w word_22C10
-                offsetTableEntry.w word_22C82
-                offsetTableEntry.w word_22CE0
-                offsetTableEntry.w word_22D56
-                offsetTableEntry.w word_22DB4
-                offsetTableEntry.w word_22E2A
+CpzSpinTube_TubePaths:  offsetTable
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path0
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path1
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path2
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path3
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path4
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path5
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path6
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path7
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path8
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path9
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path10
+                offsetTableEntry.w CpzSpinTube_TubePaths_Path11
 
-word_22998:     obj1E67Size
+CpzSpinTube_TubePaths_Path0:    obj1E67Size
                 dc.w    $90, $10
                 dc.w    $90, $70
                 dc.w    $40, $70
@@ -42,9 +42,9 @@ word_22998:     obj1E67Size
                 dc.w    $17, $5A
                 dc.w    $11, $63
                 dc.w    $10, $70
-word_22998_End
+CpzSpinTube_TubePaths_Path0_End
 
-word_22A0E:     obj1E67Size
+CpzSpinTube_TubePaths_Path1:    obj1E67Size
                 dc.w    $90, $10
                 dc.w    $90, $70
                 dc.w    $40, $70
@@ -68,9 +68,9 @@ word_22A0E:     obj1E67Size
                 dc.w    $36, $32
                 dc.w    $28, $30
                 dc.w    $10, $30
-word_22A0E_End
+CpzSpinTube_TubePaths_Path1_End
 
-word_22A6C:     obj1E67Size
+CpzSpinTube_TubePaths_Path2:    obj1E67Size
                 dc.w    $10, $70
                 dc.w    $11, $63
                 dc.w    $17, $5A
@@ -100,9 +100,9 @@ word_22A6C:     obj1E67Size
                 dc.w    $40, $70
                 dc.w    $90, $70
                 dc.w    $90, $10
-word_22A6C_End
+CpzSpinTube_TubePaths_Path2_End
 
-word_22AE2:     obj1E67Size
+CpzSpinTube_TubePaths_Path3:    obj1E67Size
                 dc.w    $10, $30
                 dc.w    $28, $30
                 dc.w    $36, $32
@@ -126,9 +126,9 @@ word_22AE2:     obj1E67Size
                 dc.w    $40, $70
                 dc.w    $90, $70
                 dc.w    $90, $10
-word_22AE2_End
+CpzSpinTube_TubePaths_Path3_End
 
-word_22B40:     obj1E67Size
+CpzSpinTube_TubePaths_Path4:    obj1E67Size
                 dc.w    $10, $10
                 dc.w    $10, $70
                 dc.w    $C0, $70
@@ -157,9 +157,9 @@ word_22B40:     obj1E67Size
                 dc.w    $91, $36
                 dc.w    $90, $40
                 dc.w    $90, $70
-word_22B40_End
+CpzSpinTube_TubePaths_Path4_End
 
-word_22BB2:     obj1E67Size
+CpzSpinTube_TubePaths_Path5:    obj1E67Size
                 dc.w    $10, $10
                 dc.w    $10, $70
                 dc.w    $C0, $70
@@ -183,9 +183,9 @@ word_22BB2:     obj1E67Size
                 dc.w    $CA, $32
                 dc.w    $D8, $30
                 dc.w    $F0, $30
-word_22BB2_End
+CpzSpinTube_TubePaths_Path5_End
 
-word_22C10:     obj1E67Size
+CpzSpinTube_TubePaths_Path6:    obj1E67Size
                 dc.w    $90, $70
                 dc.w    $90, $40
                 dc.w    $91, $36
@@ -214,9 +214,9 @@ word_22C10:     obj1E67Size
                 dc.w    $C0, $70
                 dc.w    $10, $70
                 dc.w    $10, $10
-word_22C10_End
+CpzSpinTube_TubePaths_Path6_End
 
-word_22C82:     obj1E67Size
+CpzSpinTube_TubePaths_Path7:    obj1E67Size
                 dc.w    $F0, $30
                 dc.w    $D8, $30
                 dc.w    $CA, $32
@@ -240,9 +240,9 @@ word_22C82:     obj1E67Size
                 dc.w    $C0, $70
                 dc.w    $10, $70
                 dc.w    $10, $10
-word_22C82_End
+CpzSpinTube_TubePaths_Path7_End
 
-word_22CE0:     obj1E67Size
+CpzSpinTube_TubePaths_Path8:    obj1E67Size
                 dc.w    $110, $10
                 dc.w    $110, $70
                 dc.w    $40, $70
@@ -272,9 +272,9 @@ word_22CE0:     obj1E67Size
                 dc.w    $17, $5A
                 dc.w    $11, $63
                 dc.w    $10, $70
-word_22CE0_End
+CpzSpinTube_TubePaths_Path8_End
 
-word_22D56:     obj1E67Size
+CpzSpinTube_TubePaths_Path9:    obj1E67Size
                 dc.w    $110, $10
                 dc.w    $110, $70
                 dc.w    $40, $70
@@ -298,9 +298,9 @@ word_22D56:     obj1E67Size
                 dc.w    $36, $32
                 dc.w    $28, $30
                 dc.w    $10, $30
-word_22D56_End
+CpzSpinTube_TubePaths_Path9_End
 
-word_22DB4:     obj1E67Size
+CpzSpinTube_TubePaths_Path10:   obj1E67Size
                 dc.w    $10, $70
                 dc.w    $11, $63
                 dc.w    $17, $5A
@@ -330,9 +330,9 @@ word_22DB4:     obj1E67Size
                 dc.w    $40, $70
                 dc.w    $110, $70
                 dc.w    $110, $10
-word_22DB4_End
+CpzSpinTube_TubePaths_Path10_End
 
-word_22E2A:     obj1E67Size
+CpzSpinTube_TubePaths_Path11:   obj1E67Size
                 dc.w    $10, $30
                 dc.w    $28, $30
                 dc.w    $36, $32
@@ -356,4 +356,4 @@ word_22E2A:     obj1E67Size
                 dc.w    $40, $70
                 dc.w    $110, $70
                 dc.w    $110, $10
-word_22E2A_End
+CpzSpinTube_TubePaths_Path11_End

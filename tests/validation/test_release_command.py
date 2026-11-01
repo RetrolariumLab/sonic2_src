@@ -28,6 +28,7 @@ class ReleaseCommandTests(unittest.TestCase):
             "scripts/build/project.py",
             "scripts/validation/__init__.py",
             "scripts/validation/release_audit.py",
+            "scripts/validation/release_contract.py",
             "scripts/validation/private_data.py",
             "scripts/validation/asm_style.py",
         ]:
@@ -35,7 +36,7 @@ class ReleaseCommandTests(unittest.TestCase):
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(ROOT / name, target)
         self.write(".gitignore", "build/\n__pycache__/\n")
-        self.write("src/main.asm", "Synthetic: rts\n")
+        self.write("src/main.s", "Synthetic: rts\n")
         self.config("config/lint.json", {"assembly": {"paths": ["src"]}})
         self.config("config/binary_allowlist.json", {"files": []})
         self.config("config/audio.json", {"psg_envelopes": []})

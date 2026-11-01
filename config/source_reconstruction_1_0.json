@@ -65,73 +65,98 @@
   ],
   "requirements": {
     "canonical_identity": {
-      "status": "implemented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["verify-all"],
         "files": ["assets/manifest.json", "config/revision_profiles.json"]
       }
     },
     "source_boundary": {
-      "status": "implemented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["check-private-data"],
         "files": ["docs/architecture.md", "config/audio.json"]
       }
     },
     "baseline_documentation": {
-      "status": "implemented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["release-audit"],
         "files": ["docs/index.md", "docs/memory.md", "docs/unknowns.md"]
       }
     },
     "baseline_validation": {
-      "status": "implemented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["source-1-check"],
         "files": ["scripts/validation/source1.py"]
       }
     },
     "toolchain_reproducibility": {
-      "status": "implemented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["verify-all"],
         "files": ["config/toolchain.json", "config/binary_allowlist.json"]
       }
     },
     "symbolic_pointers": {
-      "status": "implemented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["pointer-audit", "build-relocated"],
         "files": ["config/reconstruction/relocation.json", "config/reconstruction/fixed_regions.json"]
       }
     },
     "runtime_coverage": {
-      "status": "implemented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["runtime-check"],
         "files": ["config/runtime.json", "docs/runtime.md"]
       }
     },
     "licensing_and_provenance": {
-      "status": "documented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["release-audit"],
         "files": ["docs/provenance.md"]
       }
     },
     "commit_history": {
-      "status": "implemented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["release-audit", "check-private-data"],
         "files": ["docs/unknowns.md"]
       }
     },
     "reproducible_extraction": {
-      "status": "implemented",
+      "status": "satisfied",
       "evidence": {
         "targets": ["source-1-check"],
         "files": ["scripts/validation/source1.py", "assets/manifest.json"]
+      }
+    },
+    "semantic_symbols": {
+      "status": "satisfied",
+      "evidence": {
+        "files": [
+          "config/reconstruction/label_renames.json",
+          "config/reconstruction/unknown_symbols.json",
+          "docs/symbols.md"
+        ],
+        "targets": ["semantic-symbols-check"]
+      }
+    },
+    "safe_output_ownership": {
+      "status": "satisfied",
+      "evidence": {
+        "files": ["scripts/validation/clean.py", "tests/validation/test_safe_clean.py"],
+        "targets": ["clean"]
+      }
+    },
+    "release_values_and_tag_inspection": {
+      "status": "satisfied",
+      "evidence": {
+        "files": ["scripts/validation/release_contract.py", "tests/validation/test_release_contract.py"],
+        "targets": ["release-audit", "release-tag-audit"]
       }
     }
   },
@@ -190,7 +215,8 @@
     }
   ],
   "aggregate_gates": {
-    "pre_tag": ["make release-check"]
+    "pre_tag": ["make release-check"],
+    "post_tag": ["make release-tag-audit LINE=1.0"]
   },
   "layout_deviations": [
     {
@@ -256,29 +282,50 @@
     "note": "The aggregate owns fresh extraction from verified ROMs and rejects changed existing preservation assets before writing. It is checked from a clean clone with only original ROMs supplied; no external split step is required."
   },
   "required_documents": [
-    "README.md",
     "CONTRIBUTING.md",
-    "docs/index.md",
-    "docs/build.md",
+    "README.md",
     "docs/architecture.md",
+    "docs/build.md",
+    "docs/index.md",
     "docs/memory.md",
-    "docs/style.md",
+    "docs/provenance.md",
     "docs/runtime.md",
-    "docs/validation.md",
+    "docs/style.md",
+    "docs/symbols.md",
     "docs/unknowns.md",
-    "docs/provenance.md"
+    "docs/validation.md"
   ],
   "release_commands": [
-    "lint",
-    "test",
-    "verify-all",
-    "pointer-audit",
+    "build",
     "build-relocated",
-    "runtime-check",
-    "release-audit",
+    "check-assets",
     "check-private-data",
-    "check-stop-words"
+    "check-stop-words",
+    "clean",
+    "format",
+    "format-check",
+    "help",
+    "lint",
+    "pointer-audit",
+    "release-audit",
+    "release-check",
+    "release-tag-audit",
+    "runtime-check",
+    "runtime-golden",
+    "semantic-symbols-check",
+    "source-1-check",
+    "split",
+    "test",
+    "verify",
+    "verify-all"
   ],
-  "complete_milestones": ["private_audio_history", "clean_clone_preservation"],
+  "complete_milestones": [
+    "private_audio_history",
+    "clean_clone_preservation",
+    "reviewed_symbol_contracts",
+    "explicit_unknown_ranges",
+    "strict_release_values",
+    "bounded_clean_and_tag_inspection"
+  ],
   "open_milestones": {}
 }

@@ -1852,12 +1852,12 @@ S1_hidden_credits_flag:     ds.b    1                   ; Leftover from Sonic 1.
 Correct_cheat_entries:      ds.w    1
 Correct_cheat_entries_2:    ds.w    1                   ; for 14 continues or 7 emeralds codes
 
-Two_player_mode:    ds.w    1                           ; flag (0 for main game)
-unk_FFDA:           ds.w    1                           ; Written to once at title screen, never read from
-unk_FFDC:           ds.b    1                           ; Written to near loc_175EA, never read from
-unk_FFDD:           ds.b    1                           ; Written to near loc_175EA, never read from
-unk_FFDE:           ds.b    1                           ; Written to near loc_175EA, never read from
-unk_FFDF:           ds.b    1                           ; Written to near loc_175EA, never read from
+Two_player_mode:                ds.w    1               ; flag (0 for main game)
+unk_FFDA:                       ds.w    1               ; Written to once at title screen, never read from
+CnzBumper_LastIncomingAngle:    ds.b    1               ; Written to near CnzBumper_CalculateReflectedLaunch, never read from
+CnzBumper_LastMirroredAngle:    ds.b    1               ; Written to near CnzBumper_CalculateReflectedLaunch, never read from
+CnzBumper_LastLaunchTrigAngle:  ds.b    1               ; Written to near CnzBumper_CalculateReflectedLaunch, never read from
+CnzBumper_LastIncidenceDelta:   ds.b    1               ; Written to near CnzBumper_CalculateReflectedLaunch, never read from
 
 ; Values in these variables are passed to the sound driver during V-INT
 ; They use a playlist index, not a sound test index
