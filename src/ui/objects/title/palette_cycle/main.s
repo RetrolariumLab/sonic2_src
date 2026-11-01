@@ -58,32 +58,32 @@ ObjC9_Main:
 ; ===========================================================================
 ; off_1337C:
 PaletteChangerDataIndex:    offsetTable
-                offsetTableEntry.w PaletteTransition_TitleEmblemFromBlack            ; 0
-                offsetTableEntry.w PaletteTransition_TitleBackgroundDown            ; 2
-                offsetTableEntry.w PaletteTransition_EndingPhotosDown            ; 4
-                offsetTableEntry.w PaletteTransition_EndingPhotosToWhite            ; 6
-                offsetTableEntry.w PaletteTransition_EndingSonicDown            ; 8
-                offsetTableEntry.w PaletteTransition_EndingBackgroundDown            ; $A
-                offsetTableEntry.w PaletteTransition_EndingSuperSonicDown            ; $C
-                offsetTableEntry.w PaletteTransition_EndingTailsDown            ; $E
+                offsetTableEntry.w PaletteTransition_TitleEmblemFromBlack  ; 0
+                offsetTableEntry.w PaletteTransition_TitleBackgroundDown  ; 2
+                offsetTableEntry.w PaletteTransition_EndingPhotosDown  ; 4
+                offsetTableEntry.w PaletteTransition_EndingPhotosToWhite  ; 6
+                offsetTableEntry.w PaletteTransition_EndingSonicDown  ; 8
+                offsetTableEntry.w PaletteTransition_EndingBackgroundDown  ; $A
+                offsetTableEntry.w PaletteTransition_EndingSuperSonicDown  ; $C
+                offsetTableEntry.w PaletteTransition_EndingTailsDown  ; $E
 
 C9PalInfo       macro   codeptr,dataptr,loadtoOffset,length,fadeinTime,fadeinAmount
                     dc.l    codeptr, dataptr
                     dc.b    loadtoOffset, length, fadeinTime, fadeinAmount
                 endm
 
-PaletteTransition_TitleEmblemFromBlack:      C9PalInfo Pal_FadeFromBlack.UpdateColour, Palette_TitleEmblem, $60, $F,2,$15
-PaletteTransition_TitleBackgroundDown:      C9PalInfo Palette_DecreaseTowardTarget, Palette_TitleBackground, $40, $F,4,7
-PaletteTransition_EndingPhotosDown:      C9PalInfo Palette_DecreaseTowardTarget,  Palette_EndingPhotos,   0, $F,8,7
-PaletteTransition_EndingPhotosToWhite:      C9PalInfo Palette_IncreaseTowardWhite,  Palette_EndingPhotos,   0, $F,8,7
+PaletteTransition_TitleEmblemFromBlack: C9PalInfo Pal_FadeFromBlack.UpdateColour, Palette_TitleEmblem, $60, $F,2,$15
+PaletteTransition_TitleBackgroundDown:  C9PalInfo Palette_DecreaseTowardTarget, Palette_TitleBackground, $40, $F,4,7
+PaletteTransition_EndingPhotosDown:     C9PalInfo Palette_DecreaseTowardTarget,  Palette_EndingPhotos,   0, $F,8,7
+PaletteTransition_EndingPhotosToWhite:  C9PalInfo Palette_IncreaseTowardWhite,  Palette_EndingPhotos,   0, $F,8,7
 PaletteTransition_EndingSonicDown:      C9PalInfo Palette_DecreaseTowardTarget,  Palette_EndingSonic,   0,$1F,4,7
-PaletteTransition_EndingBackgroundDown:      C9PalInfo Palette_DecreaseTowardTarget,  Palette_EndingBackground, $40,$1F,4,7
-PaletteTransition_EndingSuperSonicDown:      C9PalInfo Palette_DecreaseTowardTarget,  Palette_EndingSuperSonic,   0, $F,4,7
+PaletteTransition_EndingBackgroundDown: C9PalInfo Palette_DecreaseTowardTarget,  Palette_EndingBackground, $40,$1F,4,7
+PaletteTransition_EndingSuperSonicDown: C9PalInfo Palette_DecreaseTowardTarget,  Palette_EndingSuperSonic,   0, $F,4,7
 PaletteTransition_EndingTailsDown:      C9PalInfo Palette_DecreaseTowardTarget,  Palette_EndingTails,   0,$1F,4,7
 
-Palette_TitleSonic:      BINCLUDE "data/art/palettes/Title Sonic.bin"
-Palette_TitleBackground:      BINCLUDE "data/art/palettes/Title Background.bin"
-Palette_TitleEmblem:      BINCLUDE "data/art/palettes/Title Emblem.bin"
+Palette_TitleSonic:         BINCLUDE "data/art/palettes/Title Sonic.bin"
+Palette_TitleBackground:    BINCLUDE "data/art/palettes/Title Background.bin"
+Palette_TitleEmblem:        BINCLUDE "data/art/palettes/Title Emblem.bin"
 
 ; ===========================================================================
 

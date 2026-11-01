@@ -1,10 +1,10 @@
 Boss_HandleHits:
                 cmpi.b  #8,boss_routine(a0)             ; is boss exploding or retreating?
-                bhs.s   CommonBossCommon_Return                    ; if yes, branch
+                bhs.s   CommonBossCommon_Return         ; if yes, branch
                 tst.b   boss_hitcount2(a0)              ; has boss run out of hits?
                 beq.s   Boss_Defeat                     ; if yes, branch
                 tst.b   collision_flags(a0)             ; are boss' collisions enabled?
-                bne.s   CommonBossCommon_Return                    ; if yes, branch
+                bne.s   CommonBossCommon_Return         ; if yes, branch
                 tst.b   boss_invulnerable_time(a0)      ; is boss invulnerable?
                 bne.s   +                               ; if yes, branch
                 move.b  #$20,boss_invulnerable_time(a0)  ; make boss invulnerable
@@ -20,7 +20,7 @@ Boss_HandleHits:
 +
                 move.w  d0,(a1)                         ; set color to white or black
                 subq.b  #1,boss_invulnerable_time(a0)   ; decrease boss' invulnerable time
-                bne.s   CommonBossCommon_Return                    ; branch, if it hasn't run out
+                bne.s   CommonBossCommon_Return         ; branch, if it hasn't run out
                 move.b  #$F,collision_flags(a0)         ; else, restore collisions
 
 CommonBossCommon_Return:
@@ -79,7 +79,7 @@ AnimateBoss:
                 moveq   #0,d6
                 move.b  mainspr_childsprites(a0),d6     ; number of child sprites
                 subq.w  #1,d6                           ; = amount of iterations to run the code from AnimateBoss_Loop
-                bmi.s   CommonBossCommon_Return_Variant2                    ; if was 0, don't run
+                bmi.s   CommonBossCommon_Return_Variant2  ; if was 0, don't run
                 lea     sub2_mapframe(a0),a3            ; mapframe 2
 ; ----------------------------------------------------------------------------
 ; loc_2D62A:

@@ -467,9 +467,9 @@ loc_39182:
 ; End of subroutine loc_39182
 
 ; ===========================================================================
-EnemiesGrabber_GrabberBoxChildSlot3E:  childObjectData objoff_3E, ObjID_GrabberBox, $3A
-EnemiesGrabber_GrabberLegsChildSlot3C:  childObjectData objoff_3C, ObjID_GrabberLegs, $38
-EnemiesGrabber_GrabberStringChildSlot3A:  childObjectData objoff_3A, ObjID_GrabberString, $3C
+EnemiesGrabber_GrabberBoxChildSlot3E:       childObjectData objoff_3E, ObjID_GrabberBox, $3A
+EnemiesGrabber_GrabberLegsChildSlot3C:      childObjectData objoff_3C, ObjID_GrabberLegs, $38
+EnemiesGrabber_GrabberStringChildSlot3A:    childObjectData objoff_3A, ObjID_GrabberString, $3C
 ; off_391EC:
 ObjA7_SubObjData:
                 subObjData ObjA7_ObjA8_ObjA9_Obj98_MapUnc_3921A,make_art_tile(ArtTile_ArtNem_Grabber,1,1),1<<render_flags.level_fg,4,$10,$B
@@ -485,7 +485,7 @@ ObjA8_SubObjData2:
 ; animation script
 ; off_39214:
 Ani_objA7:      offsetTable
-                offsetTableEntry.w EnemiesGrabber_Animation_Sequence0           ; 0
+                offsetTableEntry.w EnemiesGrabber_Animation_Sequence0  ; 0
 EnemiesGrabber_Animation_Sequence0:
                 dc.b    7,  0,  1,$FF
                 even
@@ -504,87 +504,87 @@ ObjA7_ObjA8_ObjA9_Obj98_MapUnc_3921A:   mappingsTable
 ; sprite mappings - objAA (string of various lengths)
 ; -------------------------------------------------------------------------------
 ObjAA_MapUnc_39228: mappingsTable
-                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame0_Variant2         ; 0
-                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame1_Variant2         ; 1
-                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame2_Variant2         ; 2
-                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame3_Variant2         ; 3
-                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame4_Variant2         ; 4
+                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame0_Variant2  ; 0
+                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame1_Variant2  ; 1
+                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame2_Variant2  ; 2
+                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame3_Variant2  ; 3
+                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame4_Variant2  ; 4
 ; Unused - The spider badnik never goes down enough for these to appear
-                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame5_Variant2         ; 5 ; This is in the wrong place - this should be frame 6
-                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame6_Variant2         ; 6 ; This is in the wrong place - this should be frame 5
-                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame7         ; 7
-                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame7         ; 8 ; This should point to Grabber_UnindexedSpriteFrame
+                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame5_Variant2  ; 5 ; This is in the wrong place - this should be frame 6
+                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame6_Variant2  ; 6 ; This is in the wrong place - this should be frame 5
+                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame7  ; 7
+                mappingsTableEntry.w EnemiesGrabber_SpriteMappings_Frame7  ; 8 ; This should point to Grabber_UnindexedSpriteFrame
 
-EnemiesGrabber_SpriteMappings_Frame0:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame0:   spriteHeader
                 spritePiece -$1B, -8, 1, 2, 0, 0, 0, 0, 0
                 spritePiece -$13, -8, 4, 2, 2, 0, 0, 0, 0
                 spritePiece -$F, 8, 3, 2, $1D, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame0_End
 
-EnemiesGrabber_SpriteMappings_Frame1:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame1:   spriteHeader
                 spritePiece -$1B, -8, 1, 2, 0, 0, 0, 0, 0
                 spritePiece -$13, -8, 4, 2, 2, 0, 0, 0, 0
                 spritePiece -$F, 8, 4, 2, $23, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame1_End
 
-EnemiesGrabber_SpriteMappings_Frame2:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame2:   spriteHeader
                 spritePiece -4, -4, 1, 1, $A, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame2_End
 
-EnemiesGrabber_SpriteMappings_Frame3:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame3:   spriteHeader
                 spritePiece -7, -8, 3, 2, $F, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame3_End
 
-EnemiesGrabber_SpriteMappings_Frame4:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame4:   spriteHeader
                 spritePiece -7, -8, 4, 2, $15, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame4_End
 
-EnemiesGrabber_SpriteMappings_Frame5:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame5:   spriteHeader
                 spritePiece -4, -4, 1, 1, $2B, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame5_End
 
-EnemiesGrabber_SpriteMappings_Frame6:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame6:   spriteHeader
                 spritePiece -4, -4, 1, 1, $2C, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame6_End
 
-EnemiesGrabber_SpriteMappings_Frame0_Variant2:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame0_Variant2:  spriteHeader
                 spritePiece -4, 0, 1, 2, $B, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame0_Variant2_End
 
-EnemiesGrabber_SpriteMappings_Frame1_Variant2:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame1_Variant2:  spriteHeader
                 spritePiece -4, 0, 1, 4, $B, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame1_Variant2_End
 
-EnemiesGrabber_SpriteMappings_Frame2_Variant2:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame2_Variant2:  spriteHeader
                 spritePiece -4, 0, 1, 2, $B, 0, 0, 0, 0
                 spritePiece -4, $10, 1, 4, $B, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame2_Variant2_End
 
-EnemiesGrabber_SpriteMappings_Frame3_Variant2:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame3_Variant2:  spriteHeader
                 spritePiece -4, 0, 1, 4, $B, 0, 0, 0, 0
                 spritePiece -4, $20, 1, 4, $B, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame3_Variant2_End
 
-EnemiesGrabber_SpriteMappings_Frame4_Variant2:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame4_Variant2:  spriteHeader
                 spritePiece -4, 0, 1, 2, $B, 0, 0, 0, 0
                 spritePiece -4, $10, 1, 4, $B, 0, 0, 0, 0
                 spritePiece -4, $30, 1, 4, $B, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame4_Variant2_End
 
-EnemiesGrabber_SpriteMappings_Frame6_Variant2:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame6_Variant2:  spriteHeader
                 spritePiece -4, 0, 1, 4, $B, 0, 0, 0, 0
                 spritePiece -4, $20, 1, 4, $B, 0, 0, 0, 0
                 spritePiece -4, $40, 1, 4, $B, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame6_Variant2_End
 
-EnemiesGrabber_SpriteMappings_Frame5_Variant2:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame5_Variant2:  spriteHeader
                 spritePiece -4, 0, 1, 2, $B, 0, 0, 0, 0
                 spritePiece -4, $10, 1, 4, $B, 0, 0, 0, 0
                 spritePiece -4, $30, 1, 4, $B, 0, 0, 0, 0
                 spritePiece -4, $50, 1, 4, $B, 0, 0, 0, 0
 EnemiesGrabber_SpriteMappings_Frame5_Variant2_End
 
-EnemiesGrabber_SpriteMappings_Frame7:     spriteHeader
+EnemiesGrabber_SpriteMappings_Frame7:   spriteHeader
                 spritePiece -4, 0, 1, 4, $B, 0, 0, 0, 0
                 spritePiece -4, $20, 1, 4, $B, 0, 0, 0, 0
                 spritePiece -4, $40, 1, 4, $B, 0, 0, 0, 0
@@ -592,7 +592,7 @@ EnemiesGrabber_SpriteMappings_Frame7:     spriteHeader
 EnemiesGrabber_SpriteMappings_Frame7_End
 
 ; Unused frame
-Grabber_UnindexedSpriteFrame:     spriteHeader
+Grabber_UnindexedSpriteFrame:   spriteHeader
                 spritePiece -4, 0, 1, 2, $B, 0, 0, 0, 0
                 spritePiece -4, $10, 1, 4, $B, 0, 0, 0, 0
                 spritePiece -4, $30, 1, 4, $B, 0, 0, 0, 0

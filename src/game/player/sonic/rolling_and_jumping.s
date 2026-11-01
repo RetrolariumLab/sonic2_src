@@ -182,11 +182,11 @@ Obj01_Jump_ResetScr:
 ; loc_1A944:
 Sonic_JumpPeakDecelerate:
                 cmpi.w  #-$400,y_vel(a0)                ; is Sonic moving faster than -$400 upwards?
-                blo.s   GamePlayerSonicRollingAndJumping_Return                    ; if yes, return
+                blo.s   GamePlayerSonicRollingAndJumping_Return  ; if yes, return
                 move.w  x_vel(a0),d0
                 move.w  d0,d1
                 asr.w   #5,d1                           ; d1 = x_velocity / 32
-                beq.s   GamePlayerSonicRollingAndJumping_Return                    ; return if d1 is 0
+                beq.s   GamePlayerSonicRollingAndJumping_Return  ; return if d1 is 0
                 bmi.s   Sonic_JumpPeakDecelerateLeft    ; branch if moving left
 
 ; Sonic_JumpPeakDecelerateRight:
@@ -315,13 +315,13 @@ GamePlayerSonicRollingAndJumping_Return_Variant2:
 Sonic_Jump:
                 move.b  (Ctrl_1_Press_Logical).w,d0
                 andi.b  #button_B_mask|button_C_mask|button_A_mask,d0  ; is A, B or C pressed?
-                beq.w   GamePlayerSonicRollingAndJumping_Return_Variant3                    ; if not, return
+                beq.w   GamePlayerSonicRollingAndJumping_Return_Variant3  ; if not, return
                 moveq   #0,d0
                 move.b  angle(a0),d0
                 addi.b  #$80,d0
                 bsr.w   CalcRoomOverHead
                 cmpi.w  #6,d1                           ; does Sonic have enough room to jump?
-                blt.w   GamePlayerSonicRollingAndJumping_Return_Variant3                    ; if not, branch
+                blt.w   GamePlayerSonicRollingAndJumping_Return_Variant3  ; if not, branch
                 move.w  #$680,d2
                 tst.b   (Super_Sonic_flag).w
                 beq.s   +
@@ -403,9 +403,9 @@ Sonic_JumpHeight:
 ; loc_1AB22:
 Sonic_UpVelCap:
                 tst.b   pinball_mode(a0)                ; is Sonic charging a spindash or in a rolling-only area?
-                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant4                    ; if yes, return
+                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant4  ; if yes, return
                 cmpi.w  #-$FC0,y_vel(a0)                ; is Sonic moving up really fast?
-                bge.s   GamePlayerSonicRollingAndJumping_Return_Variant4                    ; if not, return
+                bge.s   GamePlayerSonicRollingAndJumping_Return_Variant4  ; if not, return
                 move.w  #-$FC0,y_vel(a0)                ; cap upward speed
 
 GamePlayerSonicRollingAndJumping_Return_Variant4:
@@ -422,11 +422,11 @@ GamePlayerSonicRollingAndJumping_Return_Variant4:
 ; loc_1AB38: test_set_SS:
 Sonic_CheckGoSuper:
                 tst.b   (Super_Sonic_flag).w            ; is Sonic already Super?
-                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant5                    ; if yes, branch
+                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant5  ; if yes, branch
                 cmpi.b  #7,(Emerald_count).w            ; does Sonic have exactly 7 emeralds?
-                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant5                    ; if not, branch
+                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant5  ; if not, branch
                 cmpi.w  #50,(Ring_count).w              ; does Sonic have at least 50 rings?
-                blo.s   GamePlayerSonicRollingAndJumping_Return_Variant5                    ; if not, branch
+                blo.s   GamePlayerSonicRollingAndJumping_Return_Variant5  ; if not, branch
 
                 move.b  #1,(Super_Sonic_palette).w
                 move.b  #$F,(Palette_timer).w

@@ -59,7 +59,7 @@ ArzFallingPillar_DispatchSecondaryState:
 ; ===========================================================================
 ; off_25956:
 Obj23_Modes:    offsetTable
-                offsetTableEntry.w ArzFallingPillar_Return         ; 0
+                offsetTableEntry.w ArzFallingPillar_Return  ; 0
                 offsetTableEntry.w loc_2595E            ; 2
                 offsetTableEntry.w loc_2598E            ; 4
                 offsetTableEntry.w loc_259B8            ; 6

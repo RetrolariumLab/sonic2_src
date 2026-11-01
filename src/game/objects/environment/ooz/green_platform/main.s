@@ -61,7 +61,7 @@ Obj33_Modes:    offsetTable
                 offsetTableEntry.w loc_23BEA            ; 2
                 offsetTableEntry.w loc_23C26            ; 4
                 offsetTableEntry.w loc_23D20            ; 6
-                offsetTableEntry.w OozGreenPlatform_Return         ; 8
+                offsetTableEntry.w OozGreenPlatform_Return  ; 8
 ; ===========================================================================
 
 loc_23BC6:

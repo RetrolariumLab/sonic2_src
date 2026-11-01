@@ -90,26 +90,26 @@ ObjB5_SubObjData:
 ; animation script
 ; off_3B4E8:
 Ani_objB5:      offsetTable
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence0           ; 0
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence1           ; 1
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence2           ; 2
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence3           ; 3
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence4           ; 4
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence5           ; 5
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence6           ; 6
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence7           ; 7
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence8           ; 8
-                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence9           ; 9
-SharedHorizontalPropeller_Animation_Sequence0:     dc.b    7,  0,  1,  2,  3,  4,  5,$FD,  1,  0
-SharedHorizontalPropeller_Animation_Sequence1:     dc.b    4,  0,  1,  2,  3,  4,$FD,  2
-SharedHorizontalPropeller_Animation_Sequence2:     dc.b    3,  5,  0,  1,  2,$FD,  3,  0
-SharedHorizontalPropeller_Animation_Sequence3:     dc.b    2,  3,  4,  5,$FD,  4
-SharedHorizontalPropeller_Animation_Sequence4:     dc.b    1,  0,  1,  2,  3,  4,  5,$FF
-SharedHorizontalPropeller_Animation_Sequence5:     dc.b    2,  5,  4,  3,$FD,  6
-SharedHorizontalPropeller_Animation_Sequence6:     dc.b    3,  2,  1,  0,  5,$FD,  7,  0
-SharedHorizontalPropeller_Animation_Sequence7:     dc.b    4,  4,  3,  2,  1,  0,$FD,  8
-SharedHorizontalPropeller_Animation_Sequence8:     dc.b    7,  5,  4,  3,  2,  1,  0,$FD,  9,  0
-SharedHorizontalPropeller_Animation_Sequence9:     dc.b    $7E,  0,$FF
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence0  ; 0
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence1  ; 1
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence2  ; 2
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence3  ; 3
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence4  ; 4
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence5  ; 5
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence6  ; 6
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence7  ; 7
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence8  ; 8
+                offsetTableEntry.w SharedHorizontalPropeller_Animation_Sequence9  ; 9
+SharedHorizontalPropeller_Animation_Sequence0:  dc.b    7,  0,  1,  2,  3,  4,  5,$FD,  1,  0
+SharedHorizontalPropeller_Animation_Sequence1:  dc.b    4,  0,  1,  2,  3,  4,$FD,  2
+SharedHorizontalPropeller_Animation_Sequence2:  dc.b    3,  5,  0,  1,  2,$FD,  3,  0
+SharedHorizontalPropeller_Animation_Sequence3:  dc.b    2,  3,  4,  5,$FD,  4
+SharedHorizontalPropeller_Animation_Sequence4:  dc.b    1,  0,  1,  2,  3,  4,  5,$FF
+SharedHorizontalPropeller_Animation_Sequence5:  dc.b    2,  5,  4,  3,$FD,  6
+SharedHorizontalPropeller_Animation_Sequence6:  dc.b    3,  2,  1,  0,  5,$FD,  7,  0
+SharedHorizontalPropeller_Animation_Sequence7:  dc.b    4,  4,  3,  2,  1,  0,$FD,  8
+SharedHorizontalPropeller_Animation_Sequence8:  dc.b    7,  5,  4,  3,  2,  1,  0,$FD,  9,  0
+SharedHorizontalPropeller_Animation_Sequence9:  dc.b    $7E,  0,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

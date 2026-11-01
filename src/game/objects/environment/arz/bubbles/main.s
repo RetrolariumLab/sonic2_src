@@ -281,19 +281,19 @@ ArzBubbles_Return:
 ; animation script
 ; off_1FBCC:
 Ani_obj24:      offsetTable
-                offsetTableEntry.w ArzBubbles_Animation_Sequence0           ; 0
-                offsetTableEntry.w ArzBubbles_Animation_Sequence1           ; 1
-                offsetTableEntry.w ArzBubbles_Animation_Sequence2           ; 2
-                offsetTableEntry.w ArzBubbles_Animation_Sequence3           ; 3
-                offsetTableEntry.w ArzBubbles_Animation_Sequence3           ; 4
-                offsetTableEntry.w ArzBubbles_Animation_Sequence5           ; 5
-                offsetTableEntry.w ArzBubbles_Animation_Sequence6           ; 6
-ArzBubbles_Animation_Sequence0:     dc.b    $E,  0,  1,  2,$FC
-ArzBubbles_Animation_Sequence1:     dc.b    $E,  1,  2,  3,  4,$FC
-ArzBubbles_Animation_Sequence2:     dc.b    $E,  2,  3,  4,  5,  6,$FC
-ArzBubbles_Animation_Sequence3:     dc.b    4,$FC
-ArzBubbles_Animation_Sequence5:     dc.b    4,  6,  7,$FC
-ArzBubbles_Animation_Sequence6:     dc.b    $F, $E, $F,$FF
+                offsetTableEntry.w ArzBubbles_Animation_Sequence0  ; 0
+                offsetTableEntry.w ArzBubbles_Animation_Sequence1  ; 1
+                offsetTableEntry.w ArzBubbles_Animation_Sequence2  ; 2
+                offsetTableEntry.w ArzBubbles_Animation_Sequence3  ; 3
+                offsetTableEntry.w ArzBubbles_Animation_Sequence3  ; 4
+                offsetTableEntry.w ArzBubbles_Animation_Sequence5  ; 5
+                offsetTableEntry.w ArzBubbles_Animation_Sequence6  ; 6
+ArzBubbles_Animation_Sequence0: dc.b    $E,  0,  1,  2,$FC
+ArzBubbles_Animation_Sequence1: dc.b    $E,  1,  2,  3,  4,$FC
+ArzBubbles_Animation_Sequence2: dc.b    $E,  2,  3,  4,  5,  6,$FC
+ArzBubbles_Animation_Sequence3: dc.b    4,$FC
+ArzBubbles_Animation_Sequence5: dc.b    4,  6,  7,$FC
+ArzBubbles_Animation_Sequence6: dc.b    $F, $E, $F,$FF
                 even
 ; -------------------------------------------------------------------------------
 ; sprite mappings
@@ -339,53 +339,53 @@ Obj24_MapUnc_1FC18: mappingsTable
                 mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame15
                 mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame16
 
-ArzBubbles_SpriteMappings_Frame0:     spriteHeader
+ArzBubbles_SpriteMappings_Frame0:   spriteHeader
                 spritePiece -4, -4, 1, 1, $8D, 0, 0, 0, 0
 ArzBubbles_SpriteMappings_Frame0_End
 
-ArzBubbles_SpriteMappings_Frame1:     spriteHeader
+ArzBubbles_SpriteMappings_Frame1:   spriteHeader
                 spritePiece -4, -4, 1, 1, $8E, 0, 0, 0, 0
 ArzBubbles_SpriteMappings_Frame1_End
 
-ArzBubbles_SpriteMappings_Frame3:     spriteHeader
+ArzBubbles_SpriteMappings_Frame3:   spriteHeader
                 spritePiece -8, -8, 2, 2, $8F, 0, 0, 0, 0
 ArzBubbles_SpriteMappings_Frame3_End
 
-ArzBubbles_SpriteMappings_Frame4:     spriteHeader
+ArzBubbles_SpriteMappings_Frame4:   spriteHeader
                 spritePiece -8, -8, 2, 2, $93, 0, 0, 0, 0
 ArzBubbles_SpriteMappings_Frame4_End
 
-ArzBubbles_SpriteMappings_Frame5:     spriteHeader
+ArzBubbles_SpriteMappings_Frame5:   spriteHeader
                 spritePiece -$C, -$C, 3, 3, $1C, 0, 0, 0, 0
 ArzBubbles_SpriteMappings_Frame5_End
 
-ArzBubbles_SpriteMappings_Frame6:     spriteHeader
+ArzBubbles_SpriteMappings_Frame6:   spriteHeader
                 spritePiece -$10, -$10, 4, 4, 8, 0, 0, 0, 0
 ArzBubbles_SpriteMappings_Frame6_End
 
-ArzBubbles_SpriteMappings_Frame7:     spriteHeader
+ArzBubbles_SpriteMappings_Frame7:   spriteHeader
                 spritePiece -$10, -$10, 2, 2, $18, 0, 0, 0, 0
                 spritePiece 0, -$10, 2, 2, $18, 1, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $18, 0, 1, 0, 0
                 spritePiece 0, 0, 2, 2, $18, 1, 1, 0, 0
 ArzBubbles_SpriteMappings_Frame7_End
 
-ArzBubbles_SpriteMappings_Frame8:     spriteHeader
+ArzBubbles_SpriteMappings_Frame8:   spriteHeader
                 spritePiece -8, -$C, 2, 3, $741, 1, 1, 0, 0
 ArzBubbles_SpriteMappings_Frame8_End
 
-ArzBubbles_SpriteMappings_Frame14:     spriteHeader
+ArzBubbles_SpriteMappings_Frame14:  spriteHeader
                 spritePiece -8, -8, 2, 2, 0, 0, 0, 0, 0
 ArzBubbles_SpriteMappings_Frame14_End
 
-ArzBubbles_SpriteMappings_Frame15:     spriteHeader
+ArzBubbles_SpriteMappings_Frame15:  spriteHeader
                 spritePiece -8, -8, 2, 2, 4, 0, 0, 0, 0
 ArzBubbles_SpriteMappings_Frame15_End
 
-ArzBubbles_SpriteMappings_Frame16:     spriteHeader
+ArzBubbles_SpriteMappings_Frame16:  spriteHeader
 ArzBubbles_SpriteMappings_Frame16_End
 
-ArzBubbles_SpriteMappings_Frame8_Variant2:     spriteHeader
+ArzBubbles_SpriteMappings_Frame8_Variant2:  spriteHeader
                 spritePiece -8, -$C, 2, 3, $731, 1, 1, 0, 0
 ArzBubbles_SpriteMappings_Frame8_Variant2_End
 

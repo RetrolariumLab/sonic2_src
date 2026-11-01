@@ -340,7 +340,7 @@ Obj97_Oscillate:
                 rts
 ; ===========================================================================
 off_37652:      offsetTable
-                offsetTableEntry.w EnemiesRexon_Return         ; 0
+                offsetTableEntry.w EnemiesRexon_Return  ; 0
                 offsetTableEntry.w loc_3765C            ; $20
                 offsetTableEntry.w loc_37662            ; $40
                 offsetTableEntry.w loc_37668            ; $60

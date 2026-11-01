@@ -133,7 +133,7 @@ loc_26C66:
                 jmp     (DeleteObject).l
 ; ===========================================================================
 off_26C7E:      offsetTable
-                offsetTableEntry.w MtzLongPlatform_Return         ; 0
+                offsetTableEntry.w MtzLongPlatform_Return  ; 0
                 offsetTableEntry.w loc_26CA4            ; 1
                 offsetTableEntry.w loc_26D34            ; 2
                 offsetTableEntry.w loc_26D94            ; 3

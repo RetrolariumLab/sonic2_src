@@ -267,11 +267,11 @@ Obj5D_Main_Pos_and_Collision:
                 addq.b  #2,Obj5D_hover_counter(a0)
 
                 cmpi.b  #8,routine_secondary(a0)        ; exploding or retreating?
-                bhs.s   CpzBossController_Return_Variant2                    ; if yes, branch
+                bhs.s   CpzBossController_Return_Variant2  ; if yes, branch
                 _btst   #status.npc.no_balancing,status(a0)
                 _bne.s  Obj5D_Defeated                  ; branch, if boss is defeated
                 tst.b   collision_flags(a0)
-                bne.s   CpzBossController_Return_Variant2                    ; branch, if collisions are not turned off
+                bne.s   CpzBossController_Return_Variant2  ; branch, if collisions are not turned off
 
 ; if collisions are turned off, it means the boss was hit
                 tst.b   Obj5D_invulnerable_time(a0)

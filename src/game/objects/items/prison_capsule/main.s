@@ -74,7 +74,7 @@ loc_3F278:
 off_3F2AE:      offsetTable
                 offsetTableEntry.w loc_3F2B4            ; 0
                 offsetTableEntry.w loc_3F2FC            ; 2
-                offsetTableEntry.w ItemsPrisonCapsule_Return         ; 4
+                offsetTableEntry.w ItemsPrisonCapsule_Return  ; 4
 ; ===========================================================================
 
 loc_3F2B4:
@@ -205,10 +205,10 @@ loc_3F406:
 ; animation script
 ; off_3F428:
 Ani_obj3E:      offsetTable
-                offsetTableEntry.w ItemsPrisonCapsule_Animation_Sequence0           ; 0
-                offsetTableEntry.w ItemsPrisonCapsule_Animation_Sequence1           ; 1
-ItemsPrisonCapsule_Animation_Sequence0:     dc.b    $F,  0,$FF
-ItemsPrisonCapsule_Animation_Sequence1:     dc.b    3,  0,  1,  2,  3,$FE,  1
+                offsetTableEntry.w ItemsPrisonCapsule_Animation_Sequence0  ; 0
+                offsetTableEntry.w ItemsPrisonCapsule_Animation_Sequence1  ; 1
+ItemsPrisonCapsule_Animation_Sequence0: dc.b    $F,  0,$FF
+ItemsPrisonCapsule_Animation_Sequence1: dc.b    3,  0,  1,  2,  3,$FE,  1
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

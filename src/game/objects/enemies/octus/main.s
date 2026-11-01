@@ -165,18 +165,18 @@ Obj4A_FireBullet:
 ; animation script
 ; off_2CBDC:
 Ani_obj4A:      offsetTable
-                offsetTableEntry.w EnemiesOctus_Animation_Sequence0           ; 0
-                offsetTableEntry.w EnemiesOctus_Animation_Sequence1           ; 1
-                offsetTableEntry.w EnemiesOctus_Animation_Sequence2           ; 2
-                offsetTableEntry.w EnemiesOctus_Animation_Sequence3           ; 3
-                offsetTableEntry.w EnemiesOctus_Animation_Sequence4           ; 4
-EnemiesOctus_Animation_Sequence0:     dc.b    $F,  1,  0,$FF
-EnemiesOctus_Animation_Sequence1:     dc.b    3,  1,  2,  3,$FF
-EnemiesOctus_Animation_Sequence2:     dc.b    2,  5,  6,$FF
+                offsetTableEntry.w EnemiesOctus_Animation_Sequence0  ; 0
+                offsetTableEntry.w EnemiesOctus_Animation_Sequence1  ; 1
+                offsetTableEntry.w EnemiesOctus_Animation_Sequence2  ; 2
+                offsetTableEntry.w EnemiesOctus_Animation_Sequence3  ; 3
+                offsetTableEntry.w EnemiesOctus_Animation_Sequence4  ; 4
+EnemiesOctus_Animation_Sequence0:   dc.b    $F,  1,  0,$FF
+EnemiesOctus_Animation_Sequence1:   dc.b    3,  1,  2,  3,$FF
+EnemiesOctus_Animation_Sequence2:   dc.b    2,  5,  6,$FF
                 even
-EnemiesOctus_Animation_Sequence3:     dc.b    $F,  4,$FF
+EnemiesOctus_Animation_Sequence3:   dc.b    $F,  4,$FF
                 even
-EnemiesOctus_Animation_Sequence4:     dc.b    7,  0,  1,$FD,  1
+EnemiesOctus_Animation_Sequence4:   dc.b    7,  0,  1,$FD,  1
                 even
 ; ---------------------------------------------------------------------------
 ; sprite mappings

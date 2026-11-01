@@ -191,10 +191,10 @@ Obj40_SlopeData_Straight:
 ; animation script
 ; off_265E8:
 Ani_obj40:      offsetTable
-                offsetTableEntry.w SharedSpringboard_Animation_Sequence0           ; 0
-                offsetTableEntry.w SharedSpringboard_Animation_Sequence1           ; 1
-SharedSpringboard_Animation_Sequence0:     dc.b    $F,  0,$FF
-SharedSpringboard_Animation_Sequence1:     dc.b    3,  1,  0,$FD,  0
+                offsetTableEntry.w SharedSpringboard_Animation_Sequence0  ; 0
+                offsetTableEntry.w SharedSpringboard_Animation_Sequence1  ; 1
+SharedSpringboard_Animation_Sequence0:  dc.b    $F,  0,$FF
+SharedSpringboard_Animation_Sequence1:  dc.b    3,  1,  0,$FD,  0
                 even
 ; ---------------------------------------------------------------------------
 ; sprite mappings

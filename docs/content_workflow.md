@@ -60,6 +60,10 @@ rejects incompatible targets and widened allocations before returning bytes. It
 never writes files. A caller must publish the returned bytes only after all
 checks succeed. Low-level record codecs intentionally do not choose ROM slots.
 
+Source-owned engine text, palette, object and motion records use
+`engine_records` and `source_records.open_record`; their record discriminators
+and protected topology are documented in [formats](data_formats.md).
+
 Unchanged decoded content retains the original compressed stream. Changed
 content requires an encoder and must still fit the original encoded slot and
 bank. Nemesis and Enigma recompression is checked for semantic equivalence;

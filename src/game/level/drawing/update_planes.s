@@ -57,7 +57,7 @@ Draw_All:
 ; loc_DAF6:
 Draw_FG:
                 tst.b   (a2)                            ; is any scroll flag set?
-                beq.s   GameLevelDrawingUpdatePlanes_Return                     ; if not, branch
+                beq.s   GameLevelDrawingUpdatePlanes_Return  ; if not, branch
 
                 bclr    #scroll_flag_fg_up,(a2)         ; has the level scrolled up?
                 beq.s   +                               ; if not, branch
@@ -87,7 +87,7 @@ Draw_FG:
                 bsr.w   DrawBlockColumn                 ; redraw left-most column
 +
                 bclr    #scroll_flag_fg_right,(a2)      ; has the level scrolled to the right?
-                beq.s   GameLevelDrawingUpdatePlanes_Return                     ; if not, return
+                beq.s   GameLevelDrawingUpdatePlanes_Return  ; if not, return
                 moveq   #-block_height,d4
                 move.w  #screen_width,d5
                 bsr.w   CalculateVRAMAddressOfBlockForPlayer1

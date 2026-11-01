@@ -591,7 +591,7 @@ Obj55_Laser_Main:
 ; loc_335FE:
 Obj55_Laser_ChkGround:
                 cmpi.w  #$250,y_pos(a0)                 ; is laser on ground level?
-                blo.s   OozBoss_Return_Variant3                    ; if not, branch
+                blo.s   OozBoss_Return_Variant3         ; if not, branch
                 tst.w   x_vel(a0)                       ; is laser moving left?
                 bmi.w   Obj55_Laser_ChkGroundLeft       ; if yes, branch
                 move.w  x_pos(a0),d0

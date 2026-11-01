@@ -10,7 +10,7 @@ Obj14:
 Obj14_Index:    offsetTable
                 offsetTableEntry.w Obj14_Init           ; 0
                 offsetTableEntry.w Obj14_Main           ; 2
-                offsetTableEntry.w HtzSeesaw_Return         ; 4
+                offsetTableEntry.w HtzSeesaw_Return     ; 4
                 offsetTableEntry.w Obj14_Ball_Init      ; 6
                 offsetTableEntry.w Obj14_Ball_Main      ; 8
                 offsetTableEntry.w Obj14_Ball_Fly       ; $A

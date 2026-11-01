@@ -238,7 +238,21 @@ def audit(root=ROOT, baseline=False):
         raise ValueError("There must be exactly one canonical label rename registry")
     formats = load("config/authoring/data_formats.json", root)
     found = inventory(root)
+    from scripts.validation.macro_roles import audit as macro_audit
+
+    macro_review = macro_audit(root)
+    from scripts.authoring.source_records import inventory as record_inventory
+
+    actual_records = record_inventory(root)
     registered = [item for item in formats["artifacts"] if item["storage"] == "assembly"]
+    record_owners = {
+        (item["source"], item["root_symbol"]): item for item in registered if item["codec"] == "engine-records-s2"
+    }
+    if set(record_owners) != set(actual_records) or any(
+        record_owners[key]["record_kinds"] != sorted({row["kind"] for row in value})
+        for key, value in actual_records.items()
+    ):
+        raise ValueError("Source engine-record registry differs from the independent macro inventory")
     sprites = {
         item["source"]
         for item in registered
@@ -269,6 +283,7 @@ def audit(root=ROOT, baseline=False):
         raise ValueError("Source byte-table registry differs from the independent inventory")
     report = {
         "gate": "source-layout-check",
+        "macro_review": macro_review,
         "passed": True,
         "source_files": len(rows),
         "every_source_reachable": True,

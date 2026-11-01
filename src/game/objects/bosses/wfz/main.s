@@ -862,14 +862,14 @@ ObjC5_SubObjData4:                                      ; Robotnik platform
 ; animation script
 ; off_3CCB2:
 Ani_objC5:      offsetTable
-                offsetTableEntry.w WfzBoss_Animation_Sequence0           ; 0
-                offsetTableEntry.w WfzBoss_Animation_Sequence1           ; 1
-                offsetTableEntry.w WfzBoss_Animation_Sequence2           ; 2
-                offsetTableEntry.w WfzBoss_Animation_Sequence3           ; 3
-WfzBoss_Animation_Sequence0:     dc.b    5,  0,  1,  2,  3,  3,  3,  3,$FA,  0
-WfzBoss_Animation_Sequence1:     dc.b    3,  3,  2,  1,  0,  0,$FA,  0
-WfzBoss_Animation_Sequence2:     dc.b    3,  5,  6,$FF
-WfzBoss_Animation_Sequence3:     dc.b    3,  7,  8,  9, $A, $B,$FF
+                offsetTableEntry.w WfzBoss_Animation_Sequence0  ; 0
+                offsetTableEntry.w WfzBoss_Animation_Sequence1  ; 1
+                offsetTableEntry.w WfzBoss_Animation_Sequence2  ; 2
+                offsetTableEntry.w WfzBoss_Animation_Sequence3  ; 3
+WfzBoss_Animation_Sequence0:    dc.b    5,  0,  1,  2,  3,  3,  3,  3,$FA,  0
+WfzBoss_Animation_Sequence1:    dc.b    3,  3,  2,  1,  0,  0,$FA,  0
+WfzBoss_Animation_Sequence2:    dc.b    3,  5,  6,$FF
+WfzBoss_Animation_Sequence3:    dc.b    3,  7,  8,  9, $A, $B,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

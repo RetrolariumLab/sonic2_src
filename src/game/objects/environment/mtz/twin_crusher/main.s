@@ -78,7 +78,7 @@ JmpTo31_DeleteObject                                    ; JmpTo
 ; ===========================================================================
 ; off_269F4:
 Obj64_Modes:    offsetTable
-                offsetTableEntry.w MtzTwinCrusher_Return         ; 0
+                offsetTableEntry.w MtzTwinCrusher_Return  ; 0
                 offsetTableEntry.w loc_269FA            ; 2
 ; ===========================================================================
 

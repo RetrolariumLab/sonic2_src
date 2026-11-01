@@ -325,16 +325,16 @@ ItemsSignpost_Return_Variant4:
 ; animation script
 ; off_1958E:
 Ani_obj0D:      offsetTable
-                offsetTableEntry.w ItemsSignpost_Animation_Sequence0           ; 0
-                offsetTableEntry.w ItemsSignpost_Animation_Sequence1           ; 1
-                offsetTableEntry.w ItemsSignpost_Animation_Sequence2           ; 2
-                offsetTableEntry.w ItemsSignpost_Animation_Sequence3           ; 3
-                offsetTableEntry.w ItemsSignpost_Animation_Sequence4           ; 4
-ItemsSignpost_Animation_Sequence0:     dc.b    $0F, $02, $FF
-ItemsSignpost_Animation_Sequence1:     dc.b    $01, $02, $03, $04, $05, $01, $03, $04, $05, $00, $03, $04, $05, $FF
-ItemsSignpost_Animation_Sequence2:     dc.b    $01, $02, $03, $04, $05, $01, $03, $04, $05, $00, $03, $04, $05, $FF
-ItemsSignpost_Animation_Sequence3:     dc.b    $0F, $00, $FF
-ItemsSignpost_Animation_Sequence4:     dc.b    $0F, $01, $FF
+                offsetTableEntry.w ItemsSignpost_Animation_Sequence0  ; 0
+                offsetTableEntry.w ItemsSignpost_Animation_Sequence1  ; 1
+                offsetTableEntry.w ItemsSignpost_Animation_Sequence2  ; 2
+                offsetTableEntry.w ItemsSignpost_Animation_Sequence3  ; 3
+                offsetTableEntry.w ItemsSignpost_Animation_Sequence4  ; 4
+ItemsSignpost_Animation_Sequence0:  dc.b    $0F, $02, $FF
+ItemsSignpost_Animation_Sequence1:  dc.b    $01, $02, $03, $04, $05, $01, $03, $04, $05, $00, $03, $04, $05, $FF
+ItemsSignpost_Animation_Sequence2:  dc.b    $01, $02, $03, $04, $05, $01, $03, $04, $05, $00, $03, $04, $05, $FF
+ItemsSignpost_Animation_Sequence3:  dc.b    $0F, $00, $FF
+ItemsSignpost_Animation_Sequence4:  dc.b    $0F, $01, $FF
                 even
 ; -------------------------------------------------------------------------------
 ; sprite mappings - Primary sprite table for object 0D (signpost)

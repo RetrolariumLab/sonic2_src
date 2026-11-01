@@ -160,12 +160,12 @@ loc_2C5F8:
 ; animation script
 ; off_2C610:
 Ani_objD7:      offsetTable
-                offsetTableEntry.w CnzHexBumper_Animation_Sequence0           ; 0
-                offsetTableEntry.w CnzHexBumper_Animation_Sequence1           ; 1
-                offsetTableEntry.w CnzHexBumper_Animation_Sequence2           ; 2
-CnzHexBumper_Animation_Sequence0:     dc.b    $F,  0,$FF
-CnzHexBumper_Animation_Sequence1:     dc.b    3,  1,  0,  1,$FD,  0
-CnzHexBumper_Animation_Sequence2:     dc.b    3,  2,  0,  2,$FD,  0
+                offsetTableEntry.w CnzHexBumper_Animation_Sequence0  ; 0
+                offsetTableEntry.w CnzHexBumper_Animation_Sequence1  ; 1
+                offsetTableEntry.w CnzHexBumper_Animation_Sequence2  ; 2
+CnzHexBumper_Animation_Sequence0:   dc.b    $F,  0,$FF
+CnzHexBumper_Animation_Sequence1:   dc.b    3,  1,  0,  1,$FD,  0
+CnzHexBumper_Animation_Sequence2:   dc.b    3,  2,  0,  2,$FD,  0
                 even
 ; ---------------------------------------------------------------------------
 ; sprite mappings

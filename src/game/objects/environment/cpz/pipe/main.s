@@ -89,8 +89,8 @@ BranchTo_JmpTo3_MarkObjGone                             ; BranchTo
 ; animation script
 ; off_2018C:
 Ani_obj0B:      offsetTable
-                offsetTableEntry.w CpzPipe_Animation_Sequence0           ; 0
-                offsetTableEntry.w CpzPipe_Animation_Sequence1           ; 1
+                offsetTableEntry.w CpzPipe_Animation_Sequence0  ; 0
+                offsetTableEntry.w CpzPipe_Animation_Sequence1  ; 1
 CpzPipe_Animation_Sequence0:
                 dc.b    7,  0,  1,  2,  3,  4,$FE,  1
 CpzPipe_Animation_Sequence1:

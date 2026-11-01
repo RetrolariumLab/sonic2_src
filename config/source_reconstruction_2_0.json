@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 5
+    "commit_count": 6
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -89,6 +89,13 @@
       "id": "stage_c14",
       "kind": "documentation",
       "summary": "Credit the fork and upstream contributors; retain the original accepted profiles and their complete evidence.",
+      "commits": ["37855c7e7dc087db64799d45037c66ebaeb695d3"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "stage_c15",
+      "kind": "tooling",
+      "summary": "Bind reviewed source and content contracts; retain the original accepted profiles and their complete evidence.",
       "commits": ["release-commit"],
       "evidence": ["config/reconstruction/source_layout.json"]
     }
@@ -187,60 +194,120 @@
     "note": "Complete acceptance is checked from a fresh clone with only original ROMs: the aggregate owns extraction and prepares pinned Core when CORE_SOURCE is supplied. Existing changed preservation assets are rejected before writes."
   },
   "required_documents": [
-    "README.md",
     "CONTRIBUTING.md",
-    "docs/index.md",
-    "docs/build.md",
+    "CONTRIBUTORS.md",
+    "README.md",
     "docs/architecture.md",
-    "docs/memory.md",
-    "docs/style.md",
-    "docs/runtime.md",
-    "docs/validation.md",
-    "docs/unknowns.md",
-    "docs/provenance.md",
-    "docs/source_layout.md",
-    "docs/data_formats.md",
-    "docs/content_workflow.md",
-    "docs/revisions.md",
     "docs/architecture_decisions.md",
+    "docs/build.md",
+    "docs/content_workflow.md",
+    "docs/data_formats.md",
+    "docs/index.md",
+    "docs/memory.md",
+    "docs/provenance.md",
+    "docs/revisions.md",
+    "docs/runtime.md",
+    "docs/source_layout.md",
     "docs/source_reconstruction_2_0.md",
-    "CONTRIBUTORS.md"
+    "docs/style.md",
+    "docs/symbols.md",
+    "docs/unknowns.md",
+    "docs/validation.md"
   ],
   "release_commands": [
-    "help",
-    "split",
-    "check-assets",
     "build",
-    "verify",
-    "verify-all",
-    "test",
-    "lint",
-    "format",
-    "format-check",
-    "pointer-audit",
     "build-relocated",
-    "runtime-check",
-    "runtime-golden",
+    "check-assets",
+    "check-content-zero-edit",
     "check-private-data",
     "check-stop-words",
-    "release-audit",
-    "source-1-check",
-    "release-check",
-    "prepare-core",
-    "roundtrip-formats",
-    "check-content-zero-edit",
-    "source-layout-check",
+    "clean",
     "documentation-check",
+    "format",
+    "format-check",
+    "help",
+    "lint",
+    "pointer-audit",
+    "prepare-core",
+    "release-audit",
+    "release-check",
+    "release-tag-audit",
+    "roundtrip-formats",
+    "runtime-check",
+    "runtime-golden",
     "scaffold-check",
+    "semantic-symbols-check",
+    "source-1-check",
     "source-2-audit",
-    "source-2-check"
+    "source-2-check",
+    "source-layout-check",
+    "split",
+    "test",
+    "verify",
+    "verify-all"
   ],
   "complete_milestones": [
     "semantic_source_layout",
     "bounded_content_contracts",
     "documentation_corpus",
     "integrated_acceptance_tooling",
-    "clean_clone_source2"
+    "clean_clone_source2",
+    "reviewed_symbol_contracts",
+    "explicit_unknown_ranges",
+    "strict_release_values",
+    "bounded_clean_and_tag_inspection"
   ],
-  "open_milestones": {}
+  "open_milestones": {},
+  "preservation_contract": {
+    "manifest": "config/source_reconstruction_1_0.json",
+    "fields": ["requirements", "runtime_coverage", "toolchain", "artifacts", "layout_deviations"]
+  },
+  "requirements": {
+    "semantic_modules": {
+      "status": "satisfied",
+      "evidence": {
+        "files": ["config/reconstruction/source_layout.json"],
+        "targets": ["source-layout-check"]
+      }
+    },
+    "confirmed_names_and_unknowns": {
+      "status": "satisfied",
+      "evidence": {
+        "files": ["config/reconstruction/label_renames.json", "config/reconstruction/unknown_symbols.json"],
+        "targets": ["semantic-symbols-check"]
+      }
+    },
+    "headless_content_formats": {
+      "status": "satisfied",
+      "evidence": {
+        "files": ["config/authoring/data_formats.json", "docs/data_formats.md"],
+        "targets": ["roundtrip-formats"]
+      }
+    },
+    "content_zero_edit": {
+      "status": "satisfied",
+      "evidence": {
+        "files": ["docs/content_workflow.md"],
+        "targets": ["check-content-zero-edit"]
+      }
+    },
+    "documentation_corpus": {
+      "status": "satisfied",
+      "evidence": {
+        "files": ["config/reconstruction/documentation_review.json"],
+        "targets": ["documentation-check"]
+      }
+    },
+    "predecessor_first_acceptance": {
+      "status": "satisfied",
+      "evidence": {
+        "files": ["scripts/validation/source2.py"],
+        "targets": ["source-2-check"]
+      }
+    }
+  },
+  "aggregate_gates": {
+    "pre_tag": ["make source-2-check"],
+    "post_tag": ["make release-tag-audit LINE=2.0"]
+  }
 }

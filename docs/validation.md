@@ -11,7 +11,8 @@ It runs fail-fast in this order:
    rejected before any extraction write.
 4. Removal of canonical/probe output directories and clean builds of both
    profiles, followed by size, every-byte and full-hash identity checks.
-5. Numeric pointer/fixed-region audit and fresh relocation builds.
+5. Reviewed symbol names, explicit unknowns and compiled-value/range checks;
+   numeric pointer/fixed-region audit and fresh relocation builds.
 6. Serialized MAME checks against complete original goldens for both profiles.
 7. Required documents, licensing/provenance references, history ownership,
    nonempty commits, monotonic dates, privacy and clean working-tree audit.
@@ -43,36 +44,18 @@ repeat the complete aggregate rather than infer acceptance from those parts.
 
 The project creates no tags or pushes. An owner may review a clean passing
 candidate and create their release tags separately. Rewritten draft candidates
-are checked in an isolated fresh clone so retained review refs do not masquerade
-as part of the publishable series; the source repository remains unaccepted
-until its old forbidden refs are removed with the required approval.
-
-## Symbol and release contracts
-
-After canonical verification, the aggregate checks reviewed names and explicit
-unknown ranges against current source fingerprints and both compiled symbol
-tables, before relocation and runtime execution. `make semantic-symbols-check`
-runs this focused compiled check.
-
-Release readiness validates requirement states, actual evidence files and Make
-targets, profile artifact identities, direct runtime scenario IDs, supported
-host fields, tool pins and deviation paths. `make clean` removes only canonical
-and relocated profile directories and rejects redirected paths; private inputs,
-workspaces and backups remain.
-
-No tags are created by the project. After the owner creates an annotated tag at
-this candidate, `make release-tag-audit LINE=1.0` inspects its type, target and
-manifest. Tests inspect synthetic responses without creating refs.
+are checked in an isolated fresh clone. The final source checkout must also pass
+the all-ref privacy audit; retained review refs are not an exemption.
 
 ## Content and source-layout checks
 
 `make roundtrip-formats` validates every registered private input, each active
 revision placement, context-bound serialization, compression semantics and
-assembly-owned sprite/DPLC, animation, path, indexed record, palette timing and
-demo ledgers. `make check-content-zero-edit` also writes a separate build view
-and reconstructs both complete original images. Neither command claims release
-acceptance. See [content workflow](content_workflow.md) for the exact APIs,
-preparation and report paths.
+assembly-owned sprite/DPLC, animation, path, indexed record, palette timing,
+demo and typed engine-record ledgers. `make check-content-zero-edit` also writes
+a separate build view and reconstructs both complete original images. Neither
+command claims release acceptance. See [content workflow](content_workflow.md)
+for the exact APIs, preparation and report paths.
 
 The semantic source registry owns every assembly module and include edge.
 Canonical byte identity, relocation byte equality, original source-coordinate
@@ -108,3 +91,30 @@ predecessor source fingerprints, content, corpus and complete nonempty Git
 delta. Pending source tables, unreviewed docs, old private history, stale
 reports or a dirty tree keep this command red. Its success report is removed
 before each invocation and published only after the complete run passes.
+
+## Names, release values and output ownership
+
+`make semantic-symbols-check` requires current canonical listings and validates
+the [symbol evidence](symbols.md). The ROM-free scaffold validates declaration
+coverage and source fingerprints; it cannot replace compiled symbol checks.
+`source-layout-check` additionally audits every data-emitting macro against its
+content or program role, so a missing content category cannot hide behind the
+existing artifact names.
+
+Release requirements use stable IDs and the states `satisfied`,
+`not_applicable`, `partial`, `unsupported` or `planned`. Non-satisfied entries
+need a reason; a ready aggregate rejects open requirements. Evidence files, real
+public targets, profile artifacts, direct runtime scenario IDs, host/tool pins
+and deviation paths are checked as values. Source 2.0 explicitly inherits the
+canonical preservation contract instead of duplicating those facts.
+
+`make clean` removes only `build/<profile>` and `build/relocated/<profile>`. It
+rejects redirected output paths and links to other workspaces. ROM inputs,
+`data/`, dependency builds, worktrees, research and backups remain available.
+
+The project does not create tags. After the owner creates an annotated tag on
+the checked candidate, `make release-tag-audit LINE=1.0` or `LINE=2.0` checks
+its object type, target commit and tagged manifest. A lightweight tag, wrong
+target or stale manifest fails. Before tagging, `make release-audit` and the
+full aggregate remain the acceptance interface. Tests inspect synthetic tag
+responses without creating project tags.

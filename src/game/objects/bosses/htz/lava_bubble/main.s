@@ -187,12 +187,12 @@ BranchTo_JmpTo21_DeleteObject                           ; BranchTo
 ; animation script
 ; off_23236:
 Ani_obj20:      offsetTable
-                offsetTableEntry.w HtzLavaBubbleBoss_Animation_Sequence0           ; 0
-                offsetTableEntry.w HtzLavaBubbleBoss_Animation_Sequence1           ; 1
-                offsetTableEntry.w HtzLavaBubbleBoss_Animation_Sequence2           ; 2
-HtzLavaBubbleBoss_Animation_Sequence0:     dc.b    $B,  2,  3,$FC,  4,$FD,  1
-HtzLavaBubbleBoss_Animation_Sequence1:     dc.b    $7F,  5,$FF
-HtzLavaBubbleBoss_Animation_Sequence2:     dc.b    5,  4,  5,  2,  3,  0,  1,  0,  1,  2,  3,  4,  5,$FC
+                offsetTableEntry.w HtzLavaBubbleBoss_Animation_Sequence0  ; 0
+                offsetTableEntry.w HtzLavaBubbleBoss_Animation_Sequence1  ; 1
+                offsetTableEntry.w HtzLavaBubbleBoss_Animation_Sequence2  ; 2
+HtzLavaBubbleBoss_Animation_Sequence0:  dc.b    $B,  2,  3,$FC,  4,$FD,  1
+HtzLavaBubbleBoss_Animation_Sequence1:  dc.b    $7F,  5,$FF
+HtzLavaBubbleBoss_Animation_Sequence2:  dc.b    5,  4,  5,  2,  3,  0,  1,  0,  1,  2,  3,  4,  5,$FC
                 even
 
 ; ---------------------------------------------------------------------------

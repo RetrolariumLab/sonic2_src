@@ -191,15 +191,15 @@ ObjC6_SubObjData4:
 ; off_3D0C6:
 ObjC6_SubObjData:
                 subObjData ObjC6_MapUnc_3D0EE,make_art_tile(ArtTile_ArtKos_LevelArt,0,0),1<<render_flags.level_fg,5,4,0
-EggmanBoss_EggmanChildSlot3E:  childObjectData objoff_3E, ObjID_Eggman, $A8
-EggmanBoss_EggmanChildSlot3C:  childObjectData objoff_3C, ObjID_Eggman, $AA
+EggmanBoss_EggmanChildSlot3E:   childObjectData objoff_3E, ObjID_Eggman, $A8
+EggmanBoss_EggmanChildSlot3C:   childObjectData objoff_3C, ObjID_Eggman, $AA
 ; animation script
 ; off_3D0D8:
 Ani_objC5_objC6:offsetTable
-                offsetTableEntry.w EggmanBoss_Animation_Sequence0           ; 0
-                offsetTableEntry.w EggmanBoss_Animation_Sequence1           ; 1
-EggmanBoss_Animation_Sequence0:     dc.b    5,  2,  3,  4,$FF,  0
-EggmanBoss_Animation_Sequence1:     dc.b    5,  6,  7,$FF
+                offsetTableEntry.w EggmanBoss_Animation_Sequence0  ; 0
+                offsetTableEntry.w EggmanBoss_Animation_Sequence1  ; 1
+EggmanBoss_Animation_Sequence0: dc.b    5,  2,  3,  4,$FF,  0
+EggmanBoss_Animation_Sequence1: dc.b    5,  6,  7,$FF
                 even
 ; animation script
 ; off_3D0E6:

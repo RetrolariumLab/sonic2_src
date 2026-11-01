@@ -42,7 +42,7 @@ loc_3A710:
                 move.w  (a2)+,d4                        ; Read one pattern name table entry
                 bclr    #$A,d4                          ; Test bit $A and clear (flag for end of line)
                 beq.s   +                               ; Branch if bit was clear
-                bsr.w   SegaLogo_FillNameTableRun                       ; Fill rest of line with this set of pixels
+                bsr.w   SegaLogo_FillNameTableRun       ; Fill rest of line with this set of pixels
 +
                 move.w  d4,(a6)                         ; Write PNT entry
                 dbf     d3,-

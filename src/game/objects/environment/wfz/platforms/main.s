@@ -119,10 +119,10 @@ ObjBD_SubObjData:
 ; animation script
 ; off_3BD2E:
 Ani_objBD:      offsetTable
-                offsetTableEntry.w WfzPlatforms_Animation_Sequence0           ; 0
-                offsetTableEntry.w WfzPlatforms_Animation_Sequence1           ; 1
-WfzPlatforms_Animation_Sequence0:     dc.b    3,  2,  1,  0,$FA,  0
-WfzPlatforms_Animation_Sequence1:     dc.b    1,  0,  1,  2,$FA
+                offsetTableEntry.w WfzPlatforms_Animation_Sequence0  ; 0
+                offsetTableEntry.w WfzPlatforms_Animation_Sequence1  ; 1
+WfzPlatforms_Animation_Sequence0:   dc.b    3,  2,  1,  0,$FA,  0
+WfzPlatforms_Animation_Sequence1:   dc.b    1,  0,  1,  2,$FA
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

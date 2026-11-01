@@ -48,12 +48,12 @@ Obj5C_Main:
 ; animation script
 ; off_2D430:
 Ani_obj5C:      offsetTable
-                offsetTableEntry.w EnemiesMasher_Animation_Sequence0           ; 0
-                offsetTableEntry.w EnemiesMasher_Animation_Sequence1           ; 1
-                offsetTableEntry.w EnemiesMasher_Animation_Sequence2           ; 2
-EnemiesMasher_Animation_Sequence0:     dc.b    7,  0,  1,$FF
-EnemiesMasher_Animation_Sequence1:     dc.b    3,  0,  1,$FF
-EnemiesMasher_Animation_Sequence2:     dc.b    7,  0,$FF
+                offsetTableEntry.w EnemiesMasher_Animation_Sequence0  ; 0
+                offsetTableEntry.w EnemiesMasher_Animation_Sequence1  ; 1
+                offsetTableEntry.w EnemiesMasher_Animation_Sequence2  ; 2
+EnemiesMasher_Animation_Sequence0:  dc.b    7,  0,  1,$FF
+EnemiesMasher_Animation_Sequence1:  dc.b    3,  0,  1,$FF
+EnemiesMasher_Animation_Sequence2:  dc.b    7,  0,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

@@ -267,20 +267,20 @@ ObjB6_SubObjData:
 ; animation script
 ; off_3B822:
 Ani_objB6:      offsetTable
-                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence0           ; 0
-                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence1           ; 1
-                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence2           ; 2
-                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence3           ; 3
-                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence4           ; 4
-                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence5           ; 5
-                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence6           ; 6
-WfzTiltingPlatform_Animation_Sequence0:     dc.b    3,  1,  2,$FD,  1,  0
-WfzTiltingPlatform_Animation_Sequence1:     dc.b    $3F,  2,$FD,  2
-WfzTiltingPlatform_Animation_Sequence2:     dc.b    3,  2,  1,  0,$FA,  0
-WfzTiltingPlatform_Animation_Sequence3:     dc.b    1,  0,  1,  2,  3,$FF
-WfzTiltingPlatform_Animation_Sequence4:     dc.b    3,  1,  0,$FD,  5,  0
-WfzTiltingPlatform_Animation_Sequence5:     dc.b    $3F,  0,$FD,  6
-WfzTiltingPlatform_Animation_Sequence6:     dc.b    3,  0,  1,  2,$FA,  0
+                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence0  ; 0
+                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence1  ; 1
+                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence2  ; 2
+                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence3  ; 3
+                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence4  ; 4
+                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence5  ; 5
+                offsetTableEntry.w WfzTiltingPlatform_Animation_Sequence6  ; 6
+WfzTiltingPlatform_Animation_Sequence0: dc.b    3,  1,  2,$FD,  1,  0
+WfzTiltingPlatform_Animation_Sequence1: dc.b    $3F,  2,$FD,  2
+WfzTiltingPlatform_Animation_Sequence2: dc.b    3,  2,  1,  0,$FA,  0
+WfzTiltingPlatform_Animation_Sequence3: dc.b    1,  0,  1,  2,  3,$FF
+WfzTiltingPlatform_Animation_Sequence4: dc.b    3,  1,  0,$FD,  5,  0
+WfzTiltingPlatform_Animation_Sequence5: dc.b    $3F,  0,$FD,  6
+WfzTiltingPlatform_Animation_Sequence6: dc.b    3,  0,  1,  2,$FA,  0
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

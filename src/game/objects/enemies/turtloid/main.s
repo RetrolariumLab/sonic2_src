@@ -31,7 +31,7 @@ off_3797A:      offsetTable
                 offsetTableEntry.w loc_379A0            ; 0
                 offsetTableEntry.w loc_379CA            ; 2
                 offsetTableEntry.w loc_379EA            ; 4
-                offsetTableEntry.w EnemiesTurtloid_Return_Variant2         ; 6
+                offsetTableEntry.w EnemiesTurtloid_Return_Variant2  ; 6
 ; ===========================================================================
 
 Turtloid_MoveAsPlatform:

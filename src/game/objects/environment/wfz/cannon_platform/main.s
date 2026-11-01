@@ -80,10 +80,10 @@ ObjBE_SubObjData:
 ; animation script
 ; off_3BE36:
 Ani_objBE:      offsetTable
-                offsetTableEntry.w WfzCannonPlatform_Animation_Sequence0           ; 0
-                offsetTableEntry.w WfzCannonPlatform_Animation_Sequence1           ; 1
-WfzCannonPlatform_Animation_Sequence0:     dc.b    5,  0,  1,  2,  3,$FC
-WfzCannonPlatform_Animation_Sequence1:     dc.b    5,  3,  2,  1,  0,$FC
+                offsetTableEntry.w WfzCannonPlatform_Animation_Sequence0  ; 0
+                offsetTableEntry.w WfzCannonPlatform_Animation_Sequence1  ; 1
+WfzCannonPlatform_Animation_Sequence0:  dc.b    5,  0,  1,  2,  3,$FC
+WfzCannonPlatform_Animation_Sequence1:  dc.b    5,  3,  2,  1,  0,$FC
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

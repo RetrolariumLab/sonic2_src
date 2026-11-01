@@ -127,7 +127,7 @@ Obj4B_TurnAround:
 ; sub_2D1D6:
 Obj4B_ChkPlayers:
                 tst.b   Obj4B_shooting_flag(a0)
-                bne.w   EnemiesBuzzer_Return_Variant2                    ; branch, if shooting is disabled
+                bne.w   EnemiesBuzzer_Return_Variant2   ; branch, if shooting is disabled
                 move.w  x_pos(a0),d0
                 lea     (MainCharacter).w,a1            ; a1=character
                 btst    #0,(Vint_runcount+3).w
@@ -148,13 +148,13 @@ Obj4B_ChkPlayers:
                 tst.w   d1                              ; test sign of distance
                 bpl.s   Obj4B_PlayerIsLeft              ; branch, if player is left from object
                 btst    #render_flags.x_flip,render_flags(a0)
-                beq.s   EnemiesBuzzer_Return_Variant2                    ; branch, if object is facing right
+                beq.s   EnemiesBuzzer_Return_Variant2   ; branch, if object is facing right
                 bra.s   Obj4B_ReadyToShoot
 ; ---------------------------------------------------------------------------
 ; loc_2D216:
 Obj4B_PlayerIsLeft:
                 btst    #render_flags.x_flip,render_flags(a0)
-                bne.s   EnemiesBuzzer_Return_Variant2                    ; branch, if object is facing left
+                bne.s   EnemiesBuzzer_Return_Variant2   ; branch, if object is facing left
 
 ; loc_2D21E:
 Obj4B_ReadyToShoot:
@@ -215,14 +215,14 @@ Obj4B_ShootProjectile:
 ; animation script
 ; off_2D2CE:
 Ani_obj4B:      offsetTable
-                offsetTableEntry.w EnemiesBuzzer_Animation_Sequence0           ; 0
-                offsetTableEntry.w EnemiesBuzzer_Animation_Sequence1           ; 1
-                offsetTableEntry.w EnemiesBuzzer_Animation_Sequence2           ; 2
-                offsetTableEntry.w EnemiesBuzzer_Animation_Sequence3           ; 3
-EnemiesBuzzer_Animation_Sequence0:     dc.b    $0F, $00, $FF
-EnemiesBuzzer_Animation_Sequence1:     dc.b    $02, $03, $04, $FF
-EnemiesBuzzer_Animation_Sequence2:     dc.b    $03, $05, $06, $FF
-EnemiesBuzzer_Animation_Sequence3:     dc.b    $09, $01, $01, $01, $01, $01, $FD, $00
+                offsetTableEntry.w EnemiesBuzzer_Animation_Sequence0  ; 0
+                offsetTableEntry.w EnemiesBuzzer_Animation_Sequence1  ; 1
+                offsetTableEntry.w EnemiesBuzzer_Animation_Sequence2  ; 2
+                offsetTableEntry.w EnemiesBuzzer_Animation_Sequence3  ; 3
+EnemiesBuzzer_Animation_Sequence0:  dc.b    $0F, $00, $FF
+EnemiesBuzzer_Animation_Sequence1:  dc.b    $02, $03, $04, $FF
+EnemiesBuzzer_Animation_Sequence2:  dc.b    $03, $05, $06, $FF
+EnemiesBuzzer_Animation_Sequence3:  dc.b    $09, $01, $01, $01, $01, $01, $FD, $00
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings -- Buzz Bomber Sprite Table

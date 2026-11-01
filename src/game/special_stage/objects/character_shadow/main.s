@@ -107,13 +107,13 @@ CharacterShadow_Return_Variant2:
                 rts
 ; ===========================================================================
 ; animation script
-byte_341E2:     dc.b    4, -4
-CharacterShadow_Animation:      offsetTable
-                offsetTableEntry.w CharacterShadow_Animation_Sequence0           ; 0
-                offsetTableEntry.w CharacterShadow_Animation_Sequence1           ; 1
-                offsetTableEntry.w CharacterShadow_Animation_Sequence2           ; 2
-                offsetTableEntry.w CharacterShadow_Animation_Sequence3           ; 3
-                offsetTableEntry.w CharacterShadow_Animation_Sequence4           ; 4
+byte_341E2:                 dc.b    4, -4
+CharacterShadow_Animation:  offsetTable
+                offsetTableEntry.w CharacterShadow_Animation_Sequence0  ; 0
+                offsetTableEntry.w CharacterShadow_Animation_Sequence1  ; 1
+                offsetTableEntry.w CharacterShadow_Animation_Sequence2  ; 2
+                offsetTableEntry.w CharacterShadow_Animation_Sequence3  ; 3
+                offsetTableEntry.w CharacterShadow_Animation_Sequence4  ; 4
 CharacterShadow_Animation_Sequence0:
                 dc.b    3,  0,  1,  2,  3,$FF
 CharacterShadow_Animation_Sequence1:

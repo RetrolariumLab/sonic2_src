@@ -206,10 +206,10 @@ loc_2823E:
                 clr.w   x_sub(a0)
                 rts
 ; ===========================================================================
-MtzPulleyPlatform_PulleyPath:      offsetTable
-                offsetTableEntry.w MtzPulleyPlatform_PulleyPath_Path0           ; 0
-                offsetTableEntry.w MtzPulleyPlatform_PulleyPath_Path1           ; 1
-                offsetTableEntry.w MtzPulleyPlatform_PulleyPath_Path2           ; 2
+MtzPulleyPlatform_PulleyPath:   offsetTable
+                offsetTableEntry.w MtzPulleyPlatform_PulleyPath_Path0  ; 0
+                offsetTableEntry.w MtzPulleyPlatform_PulleyPath_Path1  ; 1
+                offsetTableEntry.w MtzPulleyPlatform_PulleyPath_Path2  ; 2
 MtzPulleyPlatform_PulleyPath_Path0:
                 dc.b    0,$28,  0,  0,  0,  0,$FF,$EA,  0, $A,$FF,$E0,  0,$20,$FF,$E0
                 dc.b    0,$E0,$FF,$EA,  0,$F6,  0,  0,  1,  0,  0,$16,  0,$F6,  0,$20  ; 16
@@ -224,10 +224,10 @@ MtzPulleyPlatform_PulleyPath_Path2:
                 dc.b    1,$E0,  0,$20,  0,$20,  0,$16,  0, $A  ; 32
                 even
 ; ---------------------------------------------------------------------------
-MtzPulleyPlatform_PulleyChildren:      offsetTable
-                offsetTableEntry.w MtzPulleyPlatform_PulleyChildren_ChildList0           ; 0
-                offsetTableEntry.w MtzPulleyPlatform_PulleyChildren_ChildList1           ; 1
-                offsetTableEntry.w MtzPulleyPlatform_PulleyChildren_ChildList2           ; 2
+MtzPulleyPlatform_PulleyChildren:   offsetTable
+                offsetTableEntry.w MtzPulleyPlatform_PulleyChildren_ChildList0  ; 0
+                offsetTableEntry.w MtzPulleyPlatform_PulleyChildren_ChildList1  ; 1
+                offsetTableEntry.w MtzPulleyPlatform_PulleyChildren_ChildList2  ; 2
 MtzPulleyPlatform_PulleyChildren_ChildList0:
                 dc.b    0,  7,  0,  0,  0,  0,  0,  1,$FF,$E0,  0,$3A,  0,  3,$FF,$E0
                 dc.b    0,$80,  0,  3,$FF,$E0,  0,$C6,  0,  3,  0,  0,  1,  0,  0,  6  ; 16

@@ -189,18 +189,18 @@ loc_2C884:
 ; animation script
 ; off_2C89C:
 Ani_objD8:      offsetTable
-                offsetTableEntry.w CnzPointBlock_Animation_Sequence0           ; 0
-                offsetTableEntry.w CnzPointBlock_Animation_Sequence1           ; 1
-                offsetTableEntry.w CnzPointBlock_Animation_Sequence2           ; 2
-                offsetTableEntry.w CnzPointBlock_Animation_Sequence3           ; 3
-                offsetTableEntry.w CnzPointBlock_Animation_Sequence4           ; 4
-                offsetTableEntry.w CnzPointBlock_Animation_Sequence5           ; 5
-CnzPointBlock_Animation_Sequence0:     dc.b    $F,  0,$FF
-CnzPointBlock_Animation_Sequence1:     dc.b    $F,  1,$FF
-CnzPointBlock_Animation_Sequence2:     dc.b    $F,  2,$FF
-CnzPointBlock_Animation_Sequence3:     dc.b    3,  3,  0,  3,$FD,  0
-CnzPointBlock_Animation_Sequence4:     dc.b    3,  4,  1,  4,$FD,  1
-CnzPointBlock_Animation_Sequence5:     dc.b    3,  5,  2,  5,$FD,  2
+                offsetTableEntry.w CnzPointBlock_Animation_Sequence0  ; 0
+                offsetTableEntry.w CnzPointBlock_Animation_Sequence1  ; 1
+                offsetTableEntry.w CnzPointBlock_Animation_Sequence2  ; 2
+                offsetTableEntry.w CnzPointBlock_Animation_Sequence3  ; 3
+                offsetTableEntry.w CnzPointBlock_Animation_Sequence4  ; 4
+                offsetTableEntry.w CnzPointBlock_Animation_Sequence5  ; 5
+CnzPointBlock_Animation_Sequence0:  dc.b    $F,  0,$FF
+CnzPointBlock_Animation_Sequence1:  dc.b    $F,  1,$FF
+CnzPointBlock_Animation_Sequence2:  dc.b    $F,  2,$FF
+CnzPointBlock_Animation_Sequence3:  dc.b    3,  3,  0,  3,$FD,  0
+CnzPointBlock_Animation_Sequence4:  dc.b    3,  4,  1,  4,$FD,  1
+CnzPointBlock_Animation_Sequence5:  dc.b    3,  5,  2,  5,$FD,  2
                 even
 ; ---------------------------------------------------------------------------
 ; sprite mappings

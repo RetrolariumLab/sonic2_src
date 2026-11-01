@@ -1,6 +1,6 @@
 """Show every public command, grouped by workflow, without touching build inputs."""
 
-from scripts.build.project import load, profiles
+from scripts.build.project import ROOT, load, profiles
 
 GROUPS = [
     ("Project", [("help", "Show all public commands and selectors")]),
@@ -12,6 +12,7 @@ GROUPS = [
             ("build", "Build one accepted revision; REV=profile"),
             ("verify", "Build and compare one revision; REV=profile"),
             ("verify-all", "Compare every byte of all accepted revisions"),
+            ("clean", "Remove canonical and relocated outputs; preserve private inputs and workspaces"),
         ],
     ),
     (
@@ -49,6 +50,8 @@ GROUPS = [
             ("check-private-data", "Reject private data in the current tree and every reachable ref"),
             ("check-stop-words", "Check every reachable history ref with Core"),
             ("release-audit", "Audit ownership, privacy, documents and a clean working tree"),
+            ("release-tag-audit", "Inspect the owner's annotated tag and its release manifest; LINE=1.0 or 2.0"),
+            ("semantic-symbols-check", "Check reviewed names and explicit unknown ranges against both listings"),
             ("release-check", "Run the complete Source 1.0 preservation guarantee set"),
             ("source-1-check", "Alias for release-check"),
             ("source-2-check", "Run preservation first, then the complete Source 2.0 delta"),
@@ -59,14 +62,21 @@ GROUPS = [
 
 
 def main():
-    names = [name for title, rows in GROUPS for name, summary in rows]
-    if len(names) != len(set(names)) or set(names) != set(
-        load("config/source_reconstruction_2_0.json")["release_commands"]
-    ):
+    manifest_path = (
+        "config/source_reconstruction_2_0.json"
+        if (ROOT / "config/source_reconstruction_2_0.json").exists()
+        else "config/source_reconstruction_1_0.json"
+    )
+    declared = load(manifest_path)["release_commands"]
+    groups = [(title, [(name, summary) for name, summary in rows if name in declared]) for title, rows in GROUPS]
+    names = [name for title, rows in groups for name, summary in rows]
+    if len(names) != len(set(names)) or set(names) != set(declared):
         raise SystemExit("Help and release command declarations disagree")
     print("Sonic the Hedgehog 2 source reconstruction")
     print("Default REV=" + profiles()["default"] + "; bare make shows this help.")
-    for title, rows in GROUPS:
+    for title, rows in groups:
+        if not rows:
+            continue
         print("\n" + title)
         for name, summary in rows:
             selector = " ROM_DIR=folder" if name == "split" else ""

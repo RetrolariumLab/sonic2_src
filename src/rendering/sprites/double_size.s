@@ -11,7 +11,7 @@ Scale_2x:
                 swap    d3                              ; Save it to high word
                 bsr.w   .upscale_part1                  ; Scale the first line???; sets a3 = ???, a5 = ???
                 btst    #1,d0                           ; Is this a 1xH or a 2xH piece?
-                beq.w   EnemiesTurtloid_Return_Variant3                    ; Return if yes
+                beq.w   EnemiesTurtloid_Return_Variant3  ; Return if yes
                 btst    #1,d1                           ; Is this a Wx3 or a Wx4 piece?
                 bne.s   .set_dest                       ; Branch if yes
                 movea.l a3,a5                           ; Advance to next column instead

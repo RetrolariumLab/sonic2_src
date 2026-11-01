@@ -14,6 +14,7 @@ from scripts.authoring import (
     palette_cycles,
     dplc_contexts,
     dplc_capacity,
+    source_records,
 )
 from scripts.authoring.asset_document import Document, Target
 from scripts.authoring.struct_formats import Codec
@@ -428,6 +429,8 @@ def source_roundtrips(contexts, root=ROOT):
                 record = tube_path_roundtrip(artifact, context)
             elif kind == "demo-input-s2":
                 record = demo_roundtrip(artifact, context)
+            elif kind == "engine-records-s2":
+                record = source_records.roundtrip(artifact, context, root)
             else:
                 raise ValueError("Unknown source ledger codec: " + kind)
             records.append(record)

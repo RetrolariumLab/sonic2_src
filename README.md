@@ -9,22 +9,17 @@ history. Credit for the original disassembly and community work belongs to the
 [upstream contributors](CONTRIBUTORS.md).
 
 This project reconstructs the original Mega Drive retail REV00 and REV01 images
-from source code and the user's own verified ROMs. It contains no distributable
-ROM, music, sound effects, graphics or extracted binary game assets. It is based
-on sonicretro/s2disasm; upstream attribution and its
-[disclaimer](docs/provenance.md#upstream-disclaimer) are preserved. ROM, music,
-sound effects, graphics or extracted binary game assets. The upstream
-[disclaimer](docs/provenance.md#upstream-disclaimer) is preserved. from source
-code and the user's own verified ROMs. REV01 is the default profile. It contains
-no distributable ROM, music, sound effects, graphics or extracted binary game
-assets. The upstream [disclaimer](docs/provenance.md#upstream-disclaimer) is
-preserved.
+from source code and the user's own verified ROMs. REV01 is the default profile.
+It contains no distributable ROM, music, sound effects, graphics or extracted
+binary game assets. The upstream
+[disclaimer](docs/provenance.md#upstream-disclaimer) is preserved.
 
-The complete Source Reconstruction 2.0 gate has passed from a fresh clone.
-Scaffold ran before any ROMs were supplied; only the two verified ROMs were then
-added as private inputs. Both retail images, relocation/runtime evidence,
-content, source structure, documentation and reachable history passed their
-checks. No release tag is claimed or created.
+Complete acceptance requires the Source Reconstruction 2.0 gate from a fresh
+clone: run scaffold before supplying ROMs, then supply only the two verified
+ROMs. The aggregate checks both retail images, relocation/runtime evidence,
+content, source structure, reviewed names and explicit unknowns, documentation
+and reachable history. Reports apply to the exact checked tree. No release tag
+is claimed or created.
 
 ## Quick start
 
@@ -68,10 +63,6 @@ Read [the documentation index](docs/index.md),
 [contribution rules](CONTRIBUTING.md), [runtime evidence](docs/runtime.md), and
 [provenance](docs/provenance.md#upstream-disclaimer). Editing tools belong
 outside this repository; there is no bundled GUI or external editor project.
-Music and effects are stored inputs, not assembler content. Codecs and format
-contracts describe how legal private assets can be inspected and edited.
-[provenance](docs/provenance.md#upstream-disclaimer). Editing tools belong
-outside this repository; there is no bundled GUI or external editor project.
 Music and effects are stored inputs, not assembler content. The
 [semantic layout](docs/source_layout.md) and
 [content workflow](docs/content_workflow.md) describe source ownership and the
@@ -84,19 +75,3 @@ annotations have no granted source license; the disclaimer is not a license.
 Licensing of newly written project tooling is explicitly unassigned. AS and the
 adapted authentic Saxman implementation carry their own notices. See provenance
 for the separate statuses; no game-content redistribution rights are granted.
-
-## Reviewed symbol evidence
-
-Confirmed names and explicit uncertainty are documented in
-[symbol meanings](docs/symbols.md). The preservation aggregate checks the single
-rename registry, every remaining address-derived global and both compiled symbol
-tables. Source layout and content authoring remain the separate 2.0 scope.
-
-## Private content
-
-The bounded byte APIs and format contracts are described in
-[content workflow](docs/content_workflow.md) and
-[formats](docs/data_formats.md). Prepare the pinned public Core CLI with
-`make prepare-core CORE_SOURCE="path/to/core"`, then run
-`make roundtrip-formats` or `make check-content-zero-edit`. The complete 2.0
-structure, corpus and aggregate acceptance follows separately.

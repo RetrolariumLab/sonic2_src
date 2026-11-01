@@ -255,8 +255,8 @@ loc_273DE:
 ; animation script
 ; byte_2752E:
 Ani_obj67:      offsetTable
-                offsetTableEntry.w MtzSpinTube_Animation_Sequence0           ; 0
-                offsetTableEntry.w MtzSpinTube_Animation_Sequence1           ; 1
+                offsetTableEntry.w MtzSpinTube_Animation_Sequence0  ; 0
+                offsetTableEntry.w MtzSpinTube_Animation_Sequence1  ; 1
 MtzSpinTube_Animation_Sequence0:
                 dc.b    $1F,  0,$FF
 MtzSpinTube_Animation_Sequence1:

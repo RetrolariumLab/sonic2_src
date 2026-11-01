@@ -10,7 +10,7 @@ Obj5F_Index:    offsetTable
                 offsetTableEntry.w Obj5F_Main           ; 2
                 offsetTableEntry.w loc_71B4             ; 4
                 offsetTableEntry.w loc_710A             ; 6
-                offsetTableEntry.w StartBanner_Return          ; 8
+                offsetTableEntry.w StartBanner_Return   ; 8
                 offsetTableEntry.w loc_7218             ; $A
 ; ===========================================================================
 

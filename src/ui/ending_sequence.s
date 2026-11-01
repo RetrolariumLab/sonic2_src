@@ -305,7 +305,7 @@ byte_A0EC:
                 even
 
 ; palette cycle for the end-of-game logo
-Palette_EndingCycle:       BINCLUDE "data/art/palettes/Ending Cycle.bin"
+Palette_EndingCycle:    BINCLUDE "data/art/palettes/Ending Cycle.bin"
 
 ; ===========================================================================
 ; ----------------------------------------------------------------------------

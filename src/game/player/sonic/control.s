@@ -222,7 +222,7 @@ Obj01_InWater:
                 bge.s   Obj01_OutWater                  ; if yes, branch
 
                 bset    #status.player.underwater,status(a0)  ; set underwater flag
-                bne.s   GamePlayerSonicControl_Return                    ; if already underwater, branch
+                bne.s   GamePlayerSonicControl_Return   ; if already underwater, branch
 
                 movea.l a0,a1
                 bsr.w   ResumeMusic                     ; replenish air (music won't resume here, we've only just entered water...)
@@ -241,7 +241,7 @@ Obj01_InWater:
                 asr.w   x_vel(a0)                       ; half X-speed when entering water
                 asr.w   y_vel(a0)                       ; divide Y-speed by 4 when entering water
                 asr.w   y_vel(a0)                       ; (memory operands can only be shifted one bit at a time)
-                beq.s   GamePlayerSonicControl_Return                    ; if Sonic's new Y-speed is 0, don't load splash object
+                beq.s   GamePlayerSonicControl_Return   ; if Sonic's new Y-speed is 0, don't load splash object
                 move.w  #(1<<8)|(0<<0),(Sonic_Dust+anim).w  ; load splash animation from Obj08
                 move.w  #SndID_Splash,d0                ; load splash sound
                 jmp     (PlaySound).l                   ; play splash sound
@@ -249,7 +249,7 @@ Obj01_InWater:
 ; loc_1A1FE:
 Obj01_OutWater:
                 bclr    #status.player.underwater,status(a0)  ; unset underwater flag
-                beq.s   GamePlayerSonicControl_Return                    ; if already above water, branch
+                beq.s   GamePlayerSonicControl_Return   ; if already above water, branch
 
                 movea.l a0,a1
                 bsr.w   ResumeMusic                     ; replenish air and resume music if necessary
@@ -267,7 +267,7 @@ Obj01_OutWater:
                 asl     y_vel(a0)                       ; double Y-speed while exiting water
 +
                 tst.w   y_vel(a0)                       ; test Sonic's Y-speed
-                beq.w   GamePlayerSonicControl_Return                    ; branch if 0
+                beq.w   GamePlayerSonicControl_Return   ; branch if 0
                 move.w  #(1<<8)|(0<<0),(Sonic_Dust+anim).w  ; load splash animation from Obj08
                 movea.l a0,a1
                 bsr.w   ResumeMusic                     ; (why is this repeated?)

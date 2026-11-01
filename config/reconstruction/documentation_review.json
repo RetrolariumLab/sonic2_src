@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "reviewed",
-  "scope": "Complete corpus after semantic source polish and explicit upstream contributor attribution.",
+  "scope": "Complete corpus after reviewed symbol contracts, explicit unknown ranges, source-emitter coverage and strict release-value validation.",
   "reviewer": "Codex",
   "findings": [
     {
@@ -45,6 +45,10 @@
       "resolution": "Identify the independent Sonic Retro fork at the reader entry point and centralize the verified upstream contributor roster while retaining the original rights boundary."
     },
     {
+      "id": "DOC-011",
+      "resolution": "Separate byte identity from semantic proof, bind confirmed names and unknowns, cover omitted source-record grammars and document ready values, safe clean and post-tag inspection."
+    },
+    {
       "id": "DOC-019",
       "resolution": "Move exact AS build-313 dependencies and GPL text to a verified ignored cache, retain the full Saxman permission notice in its implementation, and bind linear history references to the new preservation boundary."
     }
@@ -55,6 +59,12 @@
       "action": "retained",
       "reason": "Keep contributor identity, content privacy, meaningful commits and per-change verification rules in one entry point.",
       "sha256": "3e08c3d2def52605577be0b94283a8dfb7840b12bead577d028a676a0edec689"
+    },
+    {
+      "path": "CONTRIBUTORS.md",
+      "action": "new",
+      "reason": "Centralize all 44 public upstream author spellings verified against the pinned 1142-commit history, retaining aliases and source-comment credits without email addresses.",
+      "sha256": "075413dbfa433a5db7b0397c5e26470d569aafa7d61d692be4eded9b7c9bb495"
     },
     {
       "path": "docs/architecture.md",
@@ -76,21 +86,21 @@
     },
     {
       "path": "docs/content_workflow.md",
-      "action": "new",
-      "reason": "Explain dependency preparation, pure APIs, frozen export targets and reproducible content commands as one user workflow.",
-      "sha256": "831a43b92eb288349b845c175af833aa58c0e08daacc483162067a67c35cb755"
+      "action": "updated",
+      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
+      "sha256": "ebb1ba8c607d5c98e537d87dd73377412509dd43620a4ea94bc17bad62d5d323"
     },
     {
       "path": "docs/data_formats.md",
-      "action": "new",
-      "reason": "Keep all registered grammars, ABI distinctions, original hazards and capacity policies in one navigable format reference.",
-      "sha256": "0d1d5f642c5c036fc6b7c18bc414c6248f4f03d9d2b43a2c33444323c8d8dabd"
+      "action": "updated",
+      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
+      "sha256": "d6db4103a76ccf8be9035e3f159371fff305e96d304a0755f101ff68b55a3a6e"
     },
     {
       "path": "docs/index.md",
       "action": "updated",
-      "reason": "Organize build, source navigation, content work and evidence assessment without orphan pages.",
-      "sha256": "f272ef492b176256fabe421f990bb99942e13b4f428b0d6e580879224af0623b"
+      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
+      "sha256": "651009b7e57a9bd00132220303378f4d613bfc77e8dead8e90d700dbc8106ef3"
     },
     {
       "path": "docs/memory.md",
@@ -102,7 +112,7 @@
       "path": "docs/provenance.md",
       "action": "updated",
       "reason": "Retain upstream credits and the verbatim disclaimer in this single provenance owner; document the externally cached exact compiler and the inline Saxman permission notice.",
-      "sha256": "218960280dd1225a0a06733f95b3f4e1519095c95a3cf6749c5855b392d4d885"
+      "sha256": "6170371fd0a84c186d50172d52bbd3c0e876267f3b7005ead319d46ade86c176"
     },
     {
       "path": "docs/revisions.md",
@@ -112,15 +122,15 @@
     },
     {
       "path": "docs/runtime.md",
-      "action": "retained",
-      "reason": "Keep relocation design, preserved original hazards, RAM coverage and emulator execution limits together.",
-      "sha256": "5d99d4a5d652fad9d85fbf69bda41990e88e5b22e508579bea7cb6ffb0dea262"
+      "action": "updated",
+      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
+      "sha256": "fe7312bd6dc713e951620e3cd5215447f0edeba2b298b0d0a120ee5dbb1fa5f6"
     },
     {
       "path": "docs/source_layout.md",
       "action": "updated",
-      "reason": "Describe semantic module cohesion, adjacent data owners, original range coverage and justified size exceptions.",
-      "sha256": "12b912899d16c76f704b2b2baaceadc65d4ca525191df84182575c80e71b322a"
+      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
+      "sha256": "c8ab699b97a700723dd6794cbc163ea36746382f84ae7d1d94a8a001465c3e36"
     },
     {
       "path": "docs/source_reconstruction_2_0.md",
@@ -135,28 +145,28 @@
       "sha256": "58edcfcf49e2663be3923cda5b8b796463a84bbd70997d22b4201e03456ed071"
     },
     {
+      "path": "docs/symbols.md",
+      "action": "updated",
+      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
+      "sha256": "aba14e3e47fa937b7302317743c26fba62cf953d99805f76c13a026ca3923f9c"
+    },
+    {
       "path": "docs/unknowns.md",
       "action": "updated",
-      "reason": "Keep unresolved acceptance blockers, controlled format differences and resolved investigations in one ledger.",
-      "sha256": "c5aaa25bf2663462459b76a2c7fbe44ebcf5f799ec32c20607a464d691cc37db"
+      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
+      "sha256": "d5548bbddb6e4bb85697358fde221d6bc9e5eee137f5c8e9635946914d8f0580"
     },
     {
       "path": "docs/validation.md",
       "action": "updated",
-      "reason": "Explain focused versus aggregate commands, required predecessor execution and stale-report rejection.",
-      "sha256": "adcd855f4473ef06bbed69c04d967ad7f7cce9b0f218cb10585bbb0131a208ce"
+      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
+      "sha256": "d608e6c3b23683b99f0221825ba5e55554ede8dca29675d802dfddaa17c1f7b3"
     },
     {
       "path": "README.md",
       "action": "updated",
-      "reason": "Give the legal-input quick start, checked current status and links into build, source, content and evidence journeys.",
-      "sha256": "0cde1291d8c6c70354bd68be7ad3838b5f3bc82b0375967c97d0d38580ad2945"
-    },
-    {
-      "path": "CONTRIBUTORS.md",
-      "action": "new",
-      "reason": "Centralize all 44 public upstream author spellings verified against the pinned 1142-commit history, retaining aliases and source-comment credits without email addresses.",
-      "sha256": "075413dbfa433a5db7b0397c5e26470d569aafa7d61d692be4eded9b7c9bb495"
+      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
+      "sha256": "393fc70a86d49ae6c947a5065aabe079ab1561fd8ded46bdd34524f63adeb012"
     }
   ],
   "merges": [],

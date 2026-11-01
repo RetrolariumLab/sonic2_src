@@ -70,7 +70,7 @@ ObjC7_GroupAni_3E318:   offsetTable                     ; include "mappings/spri
                     offsetTableEntry.w DeathEggRobot_LimbMotion1_Frame7
                     offsetTableEntry.w DeathEggRobot_LimbMotion1_Frame8
 
-DeathEggRobot_LimbMotion1_Frame0:     c7anilistheader 8
+DeathEggRobot_LimbMotion1_Frame0:   c7anilistheader 8
                     c7ani   $00, $E0, $0C
                     c7ani   objoff_30, $E0, $0C
                     c7ani   objoff_32, $E0, $0C
@@ -79,7 +79,7 @@ DeathEggRobot_LimbMotion1_Frame0:     c7anilistheader 8
                     c7ani   objoff_3E, $F8, $04
 DeathEggRobot_LimbMotion1_Frame0_End
 
-DeathEggRobot_LimbMotion1_Frame1:     c7anilistheader 8
+DeathEggRobot_LimbMotion1_Frame1:   c7anilistheader 8
                     c7ani   $00, $EC, $14
                     c7ani   objoff_30, $EC, $14
                     c7ani   objoff_32, $EC, $14
@@ -88,7 +88,7 @@ DeathEggRobot_LimbMotion1_Frame1:     c7anilistheader 8
                     c7ani   objoff_3E, $FA, $06
 DeathEggRobot_LimbMotion1_Frame1_End
 
-DeathEggRobot_LimbMotion1_Frame2:     c7anilistheader 8
+DeathEggRobot_LimbMotion1_Frame2:   c7anilistheader 8
                     c7ani   $00, $F8, $14
                     c7ani   objoff_30, $F8, $14
                     c7ani   objoff_32, $F8, $14
@@ -97,7 +97,7 @@ DeathEggRobot_LimbMotion1_Frame2:     c7anilistheader 8
                     c7ani   objoff_3E, $FE, $04
 DeathEggRobot_LimbMotion1_Frame2_End
 
-DeathEggRobot_LimbMotion1_Frame3:     c7anilistheader 8
+DeathEggRobot_LimbMotion1_Frame3:   c7anilistheader 8
                     c7ani   $00, $FC, $0C
                     c7ani   objoff_30, $FC, $0C
                     c7ani   objoff_32, $FC, $0C
@@ -106,11 +106,11 @@ DeathEggRobot_LimbMotion1_Frame3:     c7anilistheader 8
                     c7ani   objoff_3E, $00, $02
 DeathEggRobot_LimbMotion1_Frame3_End
 
-DeathEggRobot_LimbMotion1_Frame4:     c7anilistheader 8
+DeathEggRobot_LimbMotion1_Frame4:   c7anilistheader 8
                     c7ani   $00, $00, $00
 DeathEggRobot_LimbMotion1_Frame4_End
                     even
-DeathEggRobot_LimbMotion1_Frame5:     c7anilistheader 8
+DeathEggRobot_LimbMotion1_Frame5:   c7anilistheader 8
                     c7ani   $00, $04, $E8
                     c7ani   objoff_30, $04, $E8
                     c7ani   objoff_32, $04, $E8
@@ -119,7 +119,7 @@ DeathEggRobot_LimbMotion1_Frame5:     c7anilistheader 8
                     c7ani   objoff_3E, $02, $FA
 DeathEggRobot_LimbMotion1_Frame5_End
 
-DeathEggRobot_LimbMotion1_Frame6:     c7anilistheader 8
+DeathEggRobot_LimbMotion1_Frame6:   c7anilistheader 8
                     c7ani   $00, $0C, $E8
                     c7ani   objoff_30, $0C, $E8
                     c7ani   objoff_32, $0C, $E8
@@ -128,7 +128,7 @@ DeathEggRobot_LimbMotion1_Frame6:     c7anilistheader 8
                     c7ani   objoff_3E, $04, $FC
 DeathEggRobot_LimbMotion1_Frame6_End
 
-DeathEggRobot_LimbMotion1_Frame7:     c7anilistheader 8
+DeathEggRobot_LimbMotion1_Frame7:   c7anilistheader 8
                     c7ani   $00, $18, $F4
                     c7ani   objoff_30, $18, $F4
                     c7ani   objoff_32, $18, $F4
@@ -137,7 +137,7 @@ DeathEggRobot_LimbMotion1_Frame7:     c7anilistheader 8
                     c7ani   objoff_3E, $04, $FC
 DeathEggRobot_LimbMotion1_Frame7_End
 
-DeathEggRobot_LimbMotion1_Frame8:     c7anilistheader 8
+DeathEggRobot_LimbMotion1_Frame8:   c7anilistheader 8
                     c7ani   $00, $18, $FC
                     c7ani   objoff_30, $18, $FC
                     c7ani   objoff_32, $18, $FC
@@ -158,7 +158,7 @@ ObjC7_GroupAni_3E3D8:   offsetTable                     ; include "mappings/spri
                     offsetTableEntry.w DeathEggRobot_LimbMotion2_Frame1
                     offsetTableEntry.w DeathEggRobot_LimbMotion2_Frame2
 
-DeathEggRobot_LimbMotion2_Frame0:     c7anilistheader $10
+DeathEggRobot_LimbMotion2_Frame0:   c7anilistheader $10
                     c7ani   $00, $00, $04
                     c7ani   objoff_30, $00, $04
                     c7ani   objoff_32, $00, $04
@@ -167,11 +167,11 @@ DeathEggRobot_LimbMotion2_Frame0:     c7anilistheader $10
                     c7ani   objoff_3E, $00, $04
 DeathEggRobot_LimbMotion2_Frame0_End
 
-DeathEggRobot_LimbMotion2_Frame1:     c7anilistheader $10
+DeathEggRobot_LimbMotion2_Frame1:   c7anilistheader $10
                     c7ani   $00, $00, $00
 DeathEggRobot_LimbMotion2_Frame1_End
                     even
-DeathEggRobot_LimbMotion2_Frame2:     c7anilistheader 8
+DeathEggRobot_LimbMotion2_Frame2:   c7anilistheader 8
                     c7ani   $00, $00, $F8
                     c7ani   objoff_30, $00, $F8
                     c7ani   objoff_32, $00, $F8
@@ -208,7 +208,7 @@ ObjC7_GroupAni_3E438:   offsetTable                     ; include "mappings/spri
                     offsetTableEntry.w DeathEggRobot_LimbMotion3_Frame10
                     offsetTableEntry.w DeathEggRobot_LimbMotion3_Frame11
 
-DeathEggRobot_LimbMotion3_Frame0:     c7anilistheader $20
+DeathEggRobot_LimbMotion3_Frame0:   c7anilistheader $20
                     c7ani   objoff_34, $F8, $F8
                     c7ani   objoff_2E, $F8, $F8
                     c7ani   $00, $00, $FC
@@ -218,7 +218,7 @@ DeathEggRobot_LimbMotion3_Frame0:     c7anilistheader $20
                     c7ani   objoff_3E, $00, $FE
 DeathEggRobot_LimbMotion3_Frame0_End
                     even
-DeathEggRobot_LimbMotion3_Frame1:     c7anilistheader $10
+DeathEggRobot_LimbMotion3_Frame1:   c7anilistheader $10
                     c7ani   objoff_34, $F0, $FC
                     c7ani   objoff_2E, $F0, $FC
                     c7ani   $00, $F0, $FC
@@ -228,7 +228,7 @@ DeathEggRobot_LimbMotion3_Frame1:     c7anilistheader $10
                     c7ani   objoff_3E, $F8, $00
 DeathEggRobot_LimbMotion3_Frame1_End
                     even
-DeathEggRobot_LimbMotion3_Frame2:     c7anilistheader $10
+DeathEggRobot_LimbMotion3_Frame2:   c7anilistheader $10
                     c7ani   objoff_34, $F8, $04
                     c7ani   objoff_2E, $F8, $04
                     c7ani   $00, $F8, $04
@@ -237,7 +237,7 @@ DeathEggRobot_LimbMotion3_Frame2:     c7anilistheader $10
                     c7ani   objoff_3C, $F4, $03
 DeathEggRobot_LimbMotion3_Frame2_End
 
-DeathEggRobot_LimbMotion3_Frame3:     c7anilistheader $10
+DeathEggRobot_LimbMotion3_Frame3:   c7anilistheader $10
                     c7ani   objoff_34, $FC, $10
                     c7ani   objoff_2E, $F8, $10
                     c7ani   $00, $00, $08
@@ -247,7 +247,7 @@ DeathEggRobot_LimbMotion3_Frame3:     c7anilistheader $10
                     c7ani   objoff_3E, $00, $08
 DeathEggRobot_LimbMotion3_Frame3_End
                     even
-DeathEggRobot_LimbMotion3_Frame4:     c7anilistheader $20
+DeathEggRobot_LimbMotion3_Frame4:   c7anilistheader $20
                     c7ani   objoff_34, $FE, $FE
                     c7ani   $00, $F4, $FC
                     c7ani   objoff_30, $F0, $FD
@@ -257,7 +257,7 @@ DeathEggRobot_LimbMotion3_Frame4:     c7anilistheader $20
                     c7ani   objoff_3A, $E8, $FC
 DeathEggRobot_LimbMotion3_Frame4_End
                     even
-DeathEggRobot_LimbMotion3_Frame5:     c7anilistheader $20
+DeathEggRobot_LimbMotion3_Frame5:   c7anilistheader $20
                     c7ani   objoff_3E, $F8, $FC
                     c7ani   objoff_3A, $F8, $FC
                     c7ani   objoff_30, $FC, $FF
@@ -265,7 +265,7 @@ DeathEggRobot_LimbMotion3_Frame5:     c7anilistheader $20
                     c7ani   objoff_3C, $04, $FF
 DeathEggRobot_LimbMotion3_Frame5_End
                     even
-DeathEggRobot_LimbMotion3_Frame6:     c7anilistheader $10
+DeathEggRobot_LimbMotion3_Frame6:   c7anilistheader $10
                     c7ani   objoff_3E, $F0, $FC
                     c7ani   objoff_3A, $F0, $FC
                     c7ani   $00, $F0, $FC
@@ -275,7 +275,7 @@ DeathEggRobot_LimbMotion3_Frame6:     c7anilistheader $10
                     c7ani   objoff_34, $F8, $00
 DeathEggRobot_LimbMotion3_Frame6_End
                     even
-DeathEggRobot_LimbMotion3_Frame7:     c7anilistheader $10
+DeathEggRobot_LimbMotion3_Frame7:   c7anilistheader $10
                     c7ani   objoff_3E, $F8, $04
                     c7ani   objoff_3A, $F8, $04
                     c7ani   $00, $F8, $04
@@ -284,7 +284,7 @@ DeathEggRobot_LimbMotion3_Frame7:     c7anilistheader $10
                     c7ani   objoff_3C, $FC, $03
 DeathEggRobot_LimbMotion3_Frame7_End
 
-DeathEggRobot_LimbMotion3_Frame8:     c7anilistheader $10
+DeathEggRobot_LimbMotion3_Frame8:   c7anilistheader $10
                     c7ani   objoff_3E, $FC, $10
                     c7ani   objoff_3A, $F8, $10
                     c7ani   $00, $00, $08
@@ -294,7 +294,7 @@ DeathEggRobot_LimbMotion3_Frame8:     c7anilistheader $10
                     c7ani   objoff_34, $00, $08
 DeathEggRobot_LimbMotion3_Frame8_End
                     even
-DeathEggRobot_LimbMotion3_Frame9:     c7anilistheader $20
+DeathEggRobot_LimbMotion3_Frame9:   c7anilistheader $20
                     c7ani   objoff_3E, $FE, $FE
                     c7ani   $00, $F4, $FC
                     c7ani   objoff_30, $F8, $FD
@@ -304,7 +304,7 @@ DeathEggRobot_LimbMotion3_Frame9:     c7anilistheader $20
                     c7ani   objoff_2E, $E8, $FC
 DeathEggRobot_LimbMotion3_Frame9_End
                     even
-DeathEggRobot_LimbMotion3_Frame10:     c7anilistheader $20
+DeathEggRobot_LimbMotion3_Frame10:  c7anilistheader $20
                     c7ani   objoff_34, $F8, $FC
                     c7ani   objoff_2E, $F8, $FC
                     c7ani   objoff_30, $04, $FF
@@ -312,7 +312,7 @@ DeathEggRobot_LimbMotion3_Frame10:     c7anilistheader $20
                     c7ani   objoff_3C, $FC, $FF
 DeathEggRobot_LimbMotion3_Frame10_End
                     even
-DeathEggRobot_LimbMotion3_Frame11:     c7anilistheader $10
+DeathEggRobot_LimbMotion3_Frame11:  c7anilistheader $10
                     c7ani   objoff_3E, $00, $08
                     c7ani   objoff_3A, $00, $08
                     c7ani   $00, $00, $08
@@ -406,19 +406,19 @@ Ani_objC7_b:    offsetTable
                     offsetTableEntry.w DeathEggRobotBoss_Animation_Sequence1
                     offsetTableEntry.w DeathEggRobotBoss_Animation_Sequence2
                     offsetTableEntry.w DeathEggRobotBoss_Animation_Sequence3
-DeathEggRobotBoss_Animation_Sequence0:     dc.b    1, $C, $D,$FF
-DeathEggRobotBoss_Animation_Sequence1:     dc.b    1, $C, $D, $C, $C, $D, $D, $C, $C, $C, $D, $D, $D, $C, $C, $C
+DeathEggRobotBoss_Animation_Sequence0:  dc.b    1, $C, $D,$FF
+DeathEggRobotBoss_Animation_Sequence1:  dc.b    1, $C, $D, $C, $C, $D, $D, $C, $C, $C, $D, $D, $D, $C, $C, $C
                     dc.b    $C, $C, $D, $D, $D, $D, $D, $D,$FA,  0  ; 16
-DeathEggRobotBoss_Animation_Sequence2:     dc.b    1, $D, $D, $D, $D, $D, $D, $C, $C, $C, $C, $C, $D, $D, $D, $C
+DeathEggRobotBoss_Animation_Sequence2:  dc.b    1, $D, $D, $D, $D, $D, $D, $C, $C, $C, $C, $C, $D, $D, $D, $C
                     dc.b    $C, $C, $D, $D, $C, $C, $D, $C,$FD,  0  ; 16
-DeathEggRobotBoss_Animation_Sequence3:     dc.b    0, $D,$15,$FF
+DeathEggRobotBoss_Animation_Sequence3:  dc.b    0, $D,$15,$FF
                     even
 
 ; animation script
 ; off_3E5EE:
 Ani_objC7_c:    offsetTable
                     offsetTableEntry.w DeathEggRobotBoss_Animation_Sequence0_Variant2
-DeathEggRobotBoss_Animation_Sequence0_Variant2:     dc.b    3,$13,$12,$11,$10,$16,$FF
+DeathEggRobotBoss_Animation_Sequence0_Variant2: dc.b    3,$13,$12,$11,$10,$16,$FF
                     even
 ; ------------------------------------------------------------------------------
 ; sprite mappings

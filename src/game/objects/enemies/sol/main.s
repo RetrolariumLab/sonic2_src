@@ -168,10 +168,10 @@ loc_372B8:
 ; animation script
 ; off_372D2:
 Ani_obj95_a:    offsetTable
-                offsetTableEntry.w EnemiesSol_Animation_Sequence0           ; 0
-                offsetTableEntry.w EnemiesSol_Animation_Sequence1           ; 1
-EnemiesSol_Animation_Sequence0:     dc.b    $F,  0,$FF,  0
-EnemiesSol_Animation_Sequence1:     dc.b    $F,  1,  2,$FE,  1
+                offsetTableEntry.w EnemiesSol_Animation_Sequence0  ; 0
+                offsetTableEntry.w EnemiesSol_Animation_Sequence1  ; 1
+EnemiesSol_Animation_Sequence0: dc.b    $F,  0,$FF,  0
+EnemiesSol_Animation_Sequence1: dc.b    $F,  1,  2,$FE,  1
                 even
 ; animation script
 ; off_372E0:

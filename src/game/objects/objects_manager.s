@@ -288,7 +288,7 @@ ObjectsManager_2P_Main:
                 andi.w  #$FF,d6
                 move.w  (Camera_X_pos_last_P2).w,d0
                 cmp.w   (Camera_X_pos_last_P2).w,d6     ; is the X range the same as last time?
-                beq.s   ObjectsManager_Return                    ; if yes, branch (rts)
+                beq.s   ObjectsManager_Return           ; if yes, branch (rts)
                 move.w  d6,(Camera_X_pos_last_P2).w
                 lea     (Obj_respawn_index_P2).w,a5
                 lea     (Object_Manager_Addresses_P2).w,a4
@@ -674,7 +674,7 @@ ChkLoadObj:
 
 +
                 bsr.w   AllocateObject                  ; find empty slot
-                bne.s   ObjectsManager_Return_Variant2                    ; branch, if there is no room left in the SST
+                bne.s   ObjectsManager_Return_Variant2  ; branch, if there is no room left in the SST
                 move.w  (a0)+,x_pos(a1)
                 move.w  (a0)+,d0                        ; there are three things stored in this word
                 bpl.s   +                               ; branch, if the object doesn't get a respawn table entry
@@ -709,13 +709,13 @@ ChkLoadObj_2P:
                 btst    #4,2(a0)
                 beq.s   +                               ; if this branch isn't taken, then this object would
                 bsr.w   AllocateObject                  ; not be loaded into one of the 12 byte blocks after
-                bne.s   ObjectsManager_Return_Variant3                    ; Dynamic_Object_RAM_2P_End and would most likely end
+                bne.s   ObjectsManager_Return_Variant3  ; Dynamic_Object_RAM_2P_End and would most likely end
                 bra.s   ChkLoadObj_2P_LoadData          ; up somewhere before this in Dynamic_Object_RAM
 ; ---------------------------------------------------------------------------
 
 +
                 bsr.w   AllocateObject_2P               ; find empty slot in current 12 object block
-                bne.s   ObjectsManager_Return_Variant3                    ; branch, if there is no room left in this block
+                bne.s   ObjectsManager_Return_Variant3  ; branch, if there is no room left in this block
 ; loc_17FAA:
 ChkLoadObj_2P_LoadData:
                 move.w  (a0)+,x_pos(a1)
@@ -754,7 +754,7 @@ AllocateObject:
 
 /
                 tst.b   id(a1)                          ; is object RAM slot empty?
-                beq.s   ObjectsManager_Return_Variant4                    ; if yes, branch
+                beq.s   ObjectsManager_Return_Variant4  ; if yes, branch
                 lea     next_object(a1),a1              ; load obj address ; goto next object RAM slot
                 dbf     d0,-                            ; repeat until end
 
@@ -780,12 +780,12 @@ AllocateObjectAfterCurrent:
                 else
                 lsr.w   #6,d0                           ; divide by $40
                 move.b  +(pc,d0.w),d0                   ; load the right number of objects from table
-                bmi.s   ObjectsManager_Return_Variant5                    ; if negative, we have failed!
+                bmi.s   ObjectsManager_Return_Variant5  ; if negative, we have failed!
                 endif
 
 -
                 tst.b   id(a1)                          ; is object RAM slot empty?
-                beq.s   ObjectsManager_Return_Variant5                    ; if yes, branch
+                beq.s   ObjectsManager_Return_Variant5  ; if yes, branch
                 lea     next_object(a1),a1              ; load obj address ; goto next object RAM slot
                 dbf     d0,-                            ; repeat until end
 
@@ -818,7 +818,7 @@ AllocateObject_2P:
 
 -
                 tst.b   id(a1)                          ; is object RAM slot empty?
-                beq.s   ObjectsManager_Return_Variant6                    ; if yes, branch
+                beq.s   ObjectsManager_Return_Variant6  ; if yes, branch
                 lea     next_object(a1),a1              ; load obj address ; goto next object RAM slot
                 dbf     d0,-                            ; repeat until end
 

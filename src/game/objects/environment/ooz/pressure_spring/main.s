@@ -380,8 +380,8 @@ OozPressureSpring_Return_Variant4:
 ; off_244D2:
 ; Unused animation script
 Ani_obj45:      offsetTable
-                offsetTableEntry.w OozPressureSpring_Animation_Sequence0           ; 0
-                offsetTableEntry.w OozPressureSpring_Animation_Sequence1           ; 1
+                offsetTableEntry.w OozPressureSpring_Animation_Sequence0  ; 0
+                offsetTableEntry.w OozPressureSpring_Animation_Sequence1  ; 1
 OozPressureSpring_Animation_Sequence0:
                 dc.b    0,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  9,  9,  9,  9,  9
                 dc.b    9,  9,  8,  7,  6,  5,  4,  3,  2,  1,  0,  0,  0,  0,  0,  0  ; 16

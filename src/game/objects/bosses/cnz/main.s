@@ -630,26 +630,26 @@ loc_32080:
 ; animation script
 ; off_3209C:
 Ani_obj51:      offsetTable
-                offsetTableEntry.w CnzBoss_Animation_Sequence0           ; 0
-                offsetTableEntry.w CnzBoss_Animation_Sequence1           ; 1
-                offsetTableEntry.w CnzBoss_Animation_Sequence2           ; 2
-                offsetTableEntry.w CnzBoss_Animation_Sequence3           ; 3
-                offsetTableEntry.w CnzBoss_Animation_Sequence4           ; 4
-                offsetTableEntry.w CnzBoss_Animation_Sequence5           ; 5
-                offsetTableEntry.w CnzBoss_Animation_Sequence6           ; 6
-                offsetTableEntry.w CnzBoss_Animation_Sequence7           ; 7
-                offsetTableEntry.w CnzBoss_Animation_Sequence8           ; 8
-                offsetTableEntry.w CnzBoss_Animation_Sequence9           ; 9
-CnzBoss_Animation_Sequence0:     dc.b    $F,  1,$FF
-CnzBoss_Animation_Sequence1:     dc.b    $F,  4,$FF,  5,$FC,  2
-CnzBoss_Animation_Sequence2:     dc.b    $F,  2,$FF,  3,$FC,  2
-CnzBoss_Animation_Sequence3:     dc.b    7,  6,  7,$FF
-CnzBoss_Animation_Sequence4:     dc.b    1, $C, $D, $E,$FF
-CnzBoss_Animation_Sequence5:     dc.b    7,  8,  9,  8,  9,  8,  9,  8,  9,$FD,  3
-CnzBoss_Animation_Sequence6:     dc.b    7, $A, $A, $A, $A, $A, $A, $A,$FD,  3
-CnzBoss_Animation_Sequence7:     dc.b    3,$13,$14,$FF
-CnzBoss_Animation_Sequence8:     dc.b    1,  0,$FF
-CnzBoss_Animation_Sequence9:     dc.b    1, $F,$10,$11,$FF
+                offsetTableEntry.w CnzBoss_Animation_Sequence0  ; 0
+                offsetTableEntry.w CnzBoss_Animation_Sequence1  ; 1
+                offsetTableEntry.w CnzBoss_Animation_Sequence2  ; 2
+                offsetTableEntry.w CnzBoss_Animation_Sequence3  ; 3
+                offsetTableEntry.w CnzBoss_Animation_Sequence4  ; 4
+                offsetTableEntry.w CnzBoss_Animation_Sequence5  ; 5
+                offsetTableEntry.w CnzBoss_Animation_Sequence6  ; 6
+                offsetTableEntry.w CnzBoss_Animation_Sequence7  ; 7
+                offsetTableEntry.w CnzBoss_Animation_Sequence8  ; 8
+                offsetTableEntry.w CnzBoss_Animation_Sequence9  ; 9
+CnzBoss_Animation_Sequence0:    dc.b    $F,  1,$FF
+CnzBoss_Animation_Sequence1:    dc.b    $F,  4,$FF,  5,$FC,  2
+CnzBoss_Animation_Sequence2:    dc.b    $F,  2,$FF,  3,$FC,  2
+CnzBoss_Animation_Sequence3:    dc.b    7,  6,  7,$FF
+CnzBoss_Animation_Sequence4:    dc.b    1, $C, $D, $E,$FF
+CnzBoss_Animation_Sequence5:    dc.b    7,  8,  9,  8,  9,  8,  9,  8,  9,$FD,  3
+CnzBoss_Animation_Sequence6:    dc.b    7, $A, $A, $A, $A, $A, $A, $A,$FD,  3
+CnzBoss_Animation_Sequence7:    dc.b    3,$13,$14,$FF
+CnzBoss_Animation_Sequence8:    dc.b    1,  0,$FF
+CnzBoss_Animation_Sequence9:    dc.b    1, $F,$10,$11,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

@@ -79,7 +79,7 @@ loc_2BC0C:
                 tst.b   subtype(a0)
                 beq.s   CnzPointsCage_Return
                 cmpi.b  #$18,(SlotMachine_Routine).w    ; Is it the null routine?
-                bne.s   CnzPointsCage_Return                    ; Branch if not
+                bne.s   CnzPointsCage_Return            ; Branch if not
                 move.b  #8,(SlotMachine_Routine).w      ; => SlotMachine_Routine3
                 clr.w   objoff_2E(a0)
                 move.w  #-1,(SlotMachineInUse).w
@@ -249,10 +249,10 @@ loc_2BE9C:
 ; animation script
 ; off_2BEB0:
 Ani_objD6:      offsetTable
-                offsetTableEntry.w CnzPointsCage_Animation_Sequence0           ; 0
-                offsetTableEntry.w CnzPointsCage_Animation_Sequence1           ; 1
-CnzPointsCage_Animation_Sequence0:     dc.b    $F,  0,$FF
-CnzPointsCage_Animation_Sequence1:     dc.b    1,  1,  0,$FF
+                offsetTableEntry.w CnzPointsCage_Animation_Sequence0  ; 0
+                offsetTableEntry.w CnzPointsCage_Animation_Sequence1  ; 1
+CnzPointsCage_Animation_Sequence0:  dc.b    $F,  0,$FF
+CnzPointsCage_Animation_Sequence1:  dc.b    1,  1,  0,$FF
                 even
 ; ---------------------------------------------------------------------------
 ; sprite mappings

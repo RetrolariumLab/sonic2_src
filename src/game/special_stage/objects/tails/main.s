@@ -273,11 +273,11 @@ loc_34AE4:
 Tails_Return_Variant2:
                 rts
 ; ===========================================================================
-Tails_Animation:      offsetTable
-                offsetTableEntry.w Tails_Animation_Sequence0           ; 0
-                offsetTableEntry.w Tails_Animation_Sequence1           ; 1
-                offsetTableEntry.w Tails_Animation_Sequence2           ; 2
-                offsetTableEntry.w Tails_Animation_Sequence3           ; 3
+Tails_Animation:    offsetTable
+                offsetTableEntry.w Tails_Animation_Sequence0  ; 0
+                offsetTableEntry.w Tails_Animation_Sequence1  ; 1
+                offsetTableEntry.w Tails_Animation_Sequence2  ; 2
+                offsetTableEntry.w Tails_Animation_Sequence3  ; 3
 Tails_Animation_Sequence0:
                 dc.b    3,  0,  1,  2,  3,$FF
 Tails_Animation_Sequence1:
@@ -295,12 +295,12 @@ Obj10_MapUnc_34B3E: include "src/game/special_stage/objects/tails/data/mappings.
 ; animation script
 ; off_34D86:
 Ani_obj88:      offsetTable
-                offsetTableEntry.w Tails_Animation_Sequence0_Variant2           ; 0
-                offsetTableEntry.w Tails_Animation_Sequence1_Variant2           ; 1
-                offsetTableEntry.w Tails_Animation_Sequence2_Variant2           ; 2
-Tails_Animation_Sequence0_Variant2:     dc.b    3,  0,  1,  2,  3,  4,  5,  6,$FF
-Tails_Animation_Sequence1_Variant2:     dc.b    3,  7,  8,  9, $A, $B, $C, $D,$FF
-Tails_Animation_Sequence2_Variant2:     dc.b    3, $E, $F,$10,$11,$12,$13,$14,$FF
+                offsetTableEntry.w Tails_Animation_Sequence0_Variant2  ; 0
+                offsetTableEntry.w Tails_Animation_Sequence1_Variant2  ; 1
+                offsetTableEntry.w Tails_Animation_Sequence2_Variant2  ; 2
+Tails_Animation_Sequence0_Variant2: dc.b    3,  0,  1,  2,  3,  4,  5,  6,$FF
+Tails_Animation_Sequence1_Variant2: dc.b    3,  7,  8,  9, $A, $B, $C, $D,$FF
+Tails_Animation_Sequence2_Variant2: dc.b    3, $E, $F,$10,$11,$12,$13,$14,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings for Tails' tails in special stage

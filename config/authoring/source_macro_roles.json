@@ -1,0 +1,448 @@
+{
+  "schema": "sonic2.source_macro_roles",
+  "schema_version": 1,
+  "review_status": "reviewed",
+  "definitions": [
+    {
+      "source": "src/audio/z80/fm_channel_update.asm",
+      "macro": "zMakePSGFrequencies",
+      "code_sha256": "d6cc3934ba143822aa37e3c9e1ddbe178b7194fc36433895778e8dcf6e670dfa",
+      "role": "program_constant",
+      "reason": "Computes the PSG frequency constants used by driver instructions. These are program coefficients, preserved by source assembly and byte identity rather than exposed as song content."
+    },
+    {
+      "source": "src/audio/z80/interface.asm",
+      "macro": "bankswitch",
+      "code_sha256": "81b44c5b049eea28c429cd15527e02dd58bfa1ed78ff81d85a12fb011b4083ff",
+      "role": "program_constant",
+      "reason": "Emits Z80 bank-switch instructions and immediate bits for the hardware latch. This macro is executable program generation, not a serialized game-content format."
+    },
+    {
+      "source": "src/audio/z80/note_psg_update.asm",
+      "macro": "zMakeFMFrequenciesOctave",
+      "code_sha256": "55ddc0c4a900e6189876f32c5702e3afffa5e0b853afc429ef5f7f7c3843c890",
+      "role": "program_constant",
+      "reason": "Computes the FM octave frequency constants used by the driver. These are program coefficients, preserved by source assembly and byte identity rather than exposed as song content."
+    },
+    {
+      "source": "src/audio/z80/tables_inputs.asm",
+      "macro": "music_metadata",
+      "code_sha256": "1cedac1074e6ad78667d660402d5d9d2431f15d92e9e29ae9ed89d7eb5343a40",
+      "role": "program_constant",
+      "reason": "Compiles song-bank, compression and PAL flags into the source-owned driver playlist ABI. Private song streams have their own SMPS codecs; this program table is rebuilt and protected by canonical identity."
+    },
+    {
+      "source": "src/audio/z80/tables_inputs.asm",
+      "macro": "dac_sample_pointer",
+      "code_sha256": "1c0e0a7ce3b8583a6f751974e0796b98c287d6bd62117560571390ea54fabdbf",
+      "role": "program_constant",
+      "reason": "Compiles the current private DAC sample address and declared length into the driver ABI. Sample codecs and audio input recipes own the content; this source-owned reference table is not a separate editable sample."
+    },
+    {
+      "source": "src/audio/z80/tables_inputs.asm",
+      "macro": "dac_sample_metadata",
+      "code_sha256": "b94e01b9f43729f999f119f89de2c1d4d2e8c9910c81991187e1e80d18f6c0fe",
+      "role": "program_constant",
+      "reason": "Compiles source-owned driver sample selectors and rate-loop constants from the verified audio ABI. It does not contain the sample payload; canonical assembly protects its lookup layout."
+    },
+    {
+      "source": "src/game/level/debug_lists.s",
+      "macro": "dbglistheader",
+      "code_sha256": "6bb43216df1c32d3ca667ed1d2de1cc3288ebad1e3d8b6c1f0a9f8248b09b30f",
+      "role": "content_record",
+      "reason": "Emits source-owned dbglistheader records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/level/debug_lists.s",
+      "macro": "dbglistobj",
+      "code_sha256": "90f21005976b8326b2dae9562d36a4c509fb38167e30a00ab40d5058b1d6e727",
+      "role": "content_record",
+      "reason": "Emits source-owned dbglistobj records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/level/debug_lists.s",
+      "macro": "levartptrs",
+      "code_sha256": "bdcb2527e3fbc167428ba3fc052dce01fe4d8742312dc3197ea6dd4765cf3923",
+      "role": "pointer_structure",
+      "reason": "Unused legacy generator for zone art, block and chunk reference descriptors. No active invocation exists in either accepted profile; symbolic assembly and canonical identity preserve the actual tables."
+    },
+    {
+      "source": "src/game/level/zone/level_order.s",
+      "macro": "results_screen_object",
+      "code_sha256": "625fc6904a72ad9b94a27bc6f8b2e535711199fbf219613b046d4d57a6b503a1",
+      "role": "content_record",
+      "reason": "Emits source-owned results_screen_object records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/level/zone/pattern_load_cues.s",
+      "macro": "plrlistheader",
+      "code_sha256": "aa04802c42ea710e7dc2d88b2e791464bcc0c8a935ba182857169f008464fcff",
+      "role": "content_record",
+      "reason": "Emits source-owned plrlistheader records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/level/zone/pattern_load_cues.s",
+      "macro": "plreq",
+      "code_sha256": "3d73eb9e3fbcc0f71dc52da71e84aa65c5b7f6021d197a884e23899de159fbbc",
+      "role": "content_record",
+      "reason": "Emits source-owned plreq records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/bosses/death_egg_robot/animation_data.s",
+      "macro": "c7anilistheader",
+      "code_sha256": "b21bb1f43d97488a50ba16496056a94a5ba05221982eb859f21e6c9d048d99f3",
+      "role": "content_record",
+      "reason": "Emits source-owned c7anilistheader records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/bosses/death_egg_robot/animation_data.s",
+      "macro": "c7ani",
+      "code_sha256": "12b611a353cb23dbd111ded9cd304e637730de931c2ed857a31ff70c06da2d3a",
+      "role": "content_record",
+      "reason": "Emits source-owned c7ani records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/environment/common/bridge_stake/main.s",
+      "macro": "objsubdecl",
+      "code_sha256": "cb00e92313884731c24a6864636e5b958e46e3ed59a4102aee00fd6cc520234f",
+      "role": "content_record",
+      "reason": "Emits source-owned objsubdecl records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/environment/common/sliding_platform/main.s",
+      "macro": "obj7A_properties",
+      "code_sha256": "352505d1ba49fefa57c4eee00650c3643ffab6274cda922fc2ef8109d8c16d54",
+      "role": "content_record",
+      "reason": "Emits source-owned obj7A_properties records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/environment/common/static_platform/main.s",
+      "macro": "obj6B_properties",
+      "code_sha256": "a4215572089b7c0bef060f01ff5834115709b8fb0a5ecbca1726f7d7eae2ef34",
+      "role": "content_record",
+      "reason": "Emits source-owned obj6B_properties records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/environment/cpz/spin_tube/main.s",
+      "macro": "obj1E67Size",
+      "code_sha256": "240af46fc9e60376cff8a76c526700e030f3971b449eb4355fdedada6e84475e",
+      "role": "content_record",
+      "reason": "Emits the counted child-position source grammar used by pulley platforms. The existing source-indexed codec binds its actual table and dynamic object capacity.",
+      "format_owner": "pulley-children-s2"
+    },
+    {
+      "source": "src/game/objects/environment/ooz/sliding_spikes/main.s",
+      "macro": "obj43_properties",
+      "code_sha256": "8dade5cb08ff7bc602a2dc2d00bac933a638877d0b7dbf6d628f8acee5fbe948",
+      "role": "content_record",
+      "reason": "Emits source-owned obj43_properties records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/items/animals/main.s",
+      "macro": "obj28decl",
+      "code_sha256": "37f1f3c35101bb6aadc8c152df31f8ca9c6ebe0d61ce50c29d74a797d658e77f",
+      "role": "content_record",
+      "reason": "Emits source-owned obj28decl records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/items/monitor_contents/main.s",
+      "macro": "TeleportTableEntry",
+      "code_sha256": "8dd1fd8899bd9ea13cfbd6fdc370c1a281972494d063a5e35dd860d4273ae31e",
+      "role": "content_record",
+      "reason": "Emits source-owned TeleportTableEntry records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/items/monitor_contents/main.s",
+      "macro": "obj0e_make_sprite_position",
+      "code_sha256": "13d28e6464e2cfded96bf36774f1ccbef7081e41eb6c1bf0f34422d100acf7d7",
+      "role": "content_record",
+      "reason": "Emits source-owned obj0e_make_sprite_position records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/objects/objects_manager.s",
+      "macro": "ObjectLayoutBoundary",
+      "code_sha256": "0dbb4de0d2bd3c567ccf23385b18c7ea9f21d251133f1b8da792e32f2eb9ada4",
+      "role": "private_input_bridge",
+      "reason": "Emits the source wrapper boundary around private object-layout inputs. This is an engine sentinel, not an additional editable placement stream.",
+      "format_owner": "object-placement-s2"
+    },
+    {
+      "source": "src/game/special_stage/act_setup.s",
+      "macro": "titleLetters",
+      "code_sha256": "287d3237e642aa4367c479455feb786235d164f921b1fc0b460a82a608e9761f",
+      "role": "content_record",
+      "reason": "Emits source-owned titleLetters records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/special_stage/objects/character_shadow/main.s",
+      "macro": "obj63_data",
+      "code_sha256": "8787146632338076dd4955114949ded2861cd1b5ee02091a14e1e320b6d02e24",
+      "role": "content_record",
+      "reason": "Emits source-owned obj63_data records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/game/special_stage/objects/messages/main.s",
+      "macro": "specialText",
+      "code_sha256": "0266b6333dd240323eb4867041591515d333c7f7e1b21592710e386747b38f23",
+      "role": "content_record",
+      "reason": "Emits source-owned special-stage glyph sequences. The independent indexed-table inventory and message glyph codec check frame selectors, signed termination and record bounds.",
+      "format_owner": "message-glyphs-s2"
+    },
+    {
+      "source": "src/rendering/animation/block_sequences.s",
+      "macro": "begin_animpat",
+      "code_sha256": "767d7a6b3c6e3fc6b04b65fcd32c1e7a783cc8428be525c235ac498734ab8e5f",
+      "role": "content_record",
+      "reason": "Emits source-owned begin_animpat records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/rendering/palettes/fade_load.s",
+      "macro": "palptr",
+      "code_sha256": "fc02605018889d7af5b8c4d4796dea4a92df74dc7a2134f11a35fd8db3cd3bb3",
+      "role": "content_record",
+      "reason": "Emits source-owned palptr records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/rendering/palettes/palette_pointers.s",
+      "macro": "palette",
+      "code_sha256": "7f577e354e2e4a0b613a39f2a7efb889d4c53907871297bd4f7a4d9a7462664b",
+      "role": "private_input_bridge",
+      "reason": "Includes one or two manifest-owned private palette inputs; active listing consumers and palette-word codecs own their bounds.",
+      "format_owner": "palette-md"
+    },
+    {
+      "source": "src/rendering/sprites/mapping_macros.inc",
+      "macro": "spriteHeader",
+      "code_sha256": "0ad2e343aa908da0dae4a05810866398d07553eadc95cd68aa6eaa158271b84f",
+      "role": "content_record",
+      "reason": "Emits typed sprite frame counts or pieces. Mapping-table and shared-frame-view discovery bind the active frame slots, rendering fields and destination capacities.",
+      "format_owner": "sprite-s2"
+    },
+    {
+      "source": "src/rendering/sprites/mapping_macros.inc",
+      "macro": "spritePiece",
+      "code_sha256": "09bcdd3b3b5db2228673d5f358b8bcd759d6b6e81464a93f7914f53e7d9c0dca",
+      "role": "content_record",
+      "reason": "Emits typed sprite frame counts or pieces. Mapping-table and shared-frame-view discovery bind the active frame slots, rendering fields and destination capacities.",
+      "format_owner": "sprite-s2"
+    },
+    {
+      "source": "src/rendering/sprites/mapping_macros.inc",
+      "macro": "spritePiece2P",
+      "code_sha256": "cd9337f1fbc87b7e19adb81ea7ac63371f74f3ea674eb5f6350b85822b0203eb",
+      "role": "content_record",
+      "reason": "Emits typed sprite frame counts or pieces. Mapping-table and shared-frame-view discovery bind the active frame slots, rendering fields and destination capacities.",
+      "format_owner": "sprite-s2"
+    },
+    {
+      "source": "src/rendering/sprites/mapping_macros.inc",
+      "macro": "dplcHeader",
+      "code_sha256": "af2b13ab8bfcff1aa25f3d213115323db6d7ee12e3a5194f780c6e0f72605672",
+      "role": "content_record",
+      "reason": "Emits typed dynamic-pattern frame counts or tile runs. The registered DPLC ledgers validate source art partitions and destination transfer windows.",
+      "format_owner": "dplc-s2"
+    },
+    {
+      "source": "src/rendering/sprites/mapping_macros.inc",
+      "macro": "dplcEntry",
+      "code_sha256": "7b69c2980469fe2bba616007d4932e06d644623d4fe6ffb17c9735a2176df7a3",
+      "role": "content_record",
+      "reason": "Emits typed dynamic-pattern frame counts or tile runs. The registered DPLC ledgers validate source art partitions and destination transfer windows.",
+      "format_owner": "dplc-s2"
+    },
+    {
+      "source": "src/system/assembler.inc",
+      "macro": "org",
+      "code_sha256": "a3f66d02bc60bb12e5927bd7f1745893268bd50abe952e9f696f2054f9f61157",
+      "role": "program_constant",
+      "reason": "Controls assembler location and gap bytes while preserving the original executable layout. Canonical and relocation builds own these emitted padding bytes."
+    },
+    {
+      "source": "src/system/assembler.inc",
+      "macro": "even",
+      "code_sha256": "bc93c26e4a3993f2c2d5fd77c7fc7d85f67cd4ab5e3dc062aef8fe19fbf0b7b1",
+      "role": "program_constant",
+      "reason": "Emits alignment padding for code and source-owned records. Each owning format and canonical byte comparison preserves its placement; padding has no independent gameplay interpretation."
+    },
+    {
+      "source": "src/system/assembler.inc",
+      "macro": "ds",
+      "code_sha256": "76ca387a10708daeae12d6b5aced9e696269b4282b86a08abe4a2b804df34aad",
+      "role": "program_constant",
+      "reason": "Controls reserved memory and assembler layout. This is allocation machinery, checked by symbol and fixed-region audits rather than a separate editable game-content record."
+    },
+    {
+      "source": "src/system/assembler.inc",
+      "macro": "insn1op",
+      "code_sha256": "68d6a109c34cbfb98e09afab87eb3118bcace10962bfae40063f7dcfc3e15ae9",
+      "role": "program_constant",
+      "reason": "Emits and patches executable instruction bytes to retain the original zero-displacement encoding. Canonical assembly proves these code bytes; they are not content."
+    },
+    {
+      "source": "src/system/assembler.inc",
+      "macro": "insn2op",
+      "code_sha256": "3415891a1a77d82fea77135adbe75c3359c992e1dfacfb8561a3a90c922a73ef",
+      "role": "program_constant",
+      "reason": "Emits and patches executable instruction bytes to retain the original operand encoding. Canonical assembly proves these code bytes; they are not content."
+    },
+    {
+      "source": "src/system/macros.inc",
+      "macro": "rom_ptr_z80",
+      "code_sha256": "b7d784bcdc6c1401ae136d090bb6f2d7d340f5962e0be68594709fe206eefae6",
+      "role": "pointer_structure",
+      "reason": "Emits bank-relative Z80 address words for source-owned driver reference tables. Audio ABI generation, bank validation and canonical identity own these program references."
+    },
+    {
+      "source": "src/system/macros.inc",
+      "macro": "zoneTableBinEntry",
+      "code_sha256": "880c1fe345d783bd0a12f86aeb1a110d78c4ba707a8863875343207727f23f04",
+      "role": "private_input_bridge",
+      "reason": "Includes manifest-owned private zone inputs; extraction, active consumer placements and their registered structural codecs own the content."
+    },
+    {
+      "source": "src/system/macros.inc",
+      "macro": "subObjData",
+      "code_sha256": "c65882a1b4d328f60674de8ee2a974b2b42a89fa159e338bc1fef3f039dd4a5a",
+      "role": "content_record",
+      "reason": "Emits source-owned subObjData records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/system/macros.inc",
+      "macro": "zoneanimstart",
+      "code_sha256": "925a23103de0d3718ce48dde199b0c427d2926927e9f92718e41255f2fb25383",
+      "role": "content_record",
+      "reason": "Emits source-owned zoneanimstart records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/system/macros.inc",
+      "macro": "zoneanimdecl",
+      "code_sha256": "e84584058633609ae308510e94a23f1101cb8b3f7b41ebf62d6b0036fb48b137",
+      "role": "content_record",
+      "reason": "Emits source-owned zoneanimdecl records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/system/macros.inc",
+      "macro": "menutxt",
+      "code_sha256": "e0dca450e05edfd733b9acc7d8e5ffe77b65304749bacf5494d5a285c8ffc926",
+      "role": "content_record",
+      "reason": "Emits source-owned menutxt records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/system/macros.inc",
+      "macro": "childObjectData",
+      "code_sha256": "ed113084a696ec33bcc420f9cd2ffab54ce5b2c4b8316053149b19b6693a9f51",
+      "role": "content_record",
+      "reason": "Emits source-owned childObjectData records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/system/macros.inc",
+      "macro": "demoinput",
+      "code_sha256": "7b47eebe27b5ed421e38a58741680079090b7b503974d8b6b57ce1a3a08c9bec",
+      "role": "content_record",
+      "reason": "Emits controller masks and hold-duration pairs. Independent demo-run discovery and the bounded demo codec own every active invocation.",
+      "format_owner": "demo-input-s2"
+    },
+    {
+      "source": "src/ui/credits/main.s",
+      "macro": "creditsPtrs",
+      "code_sha256": "ee9431305963252ee9d6fcd79887e96a36cf9a9944b10b9a8ded338e5a1376ff",
+      "role": "content_record",
+      "reason": "Emits source-owned creditsPtrs records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/ui/credits/text.s",
+      "macro": "creditText",
+      "code_sha256": "e1485f059afeca89519f0511ea308f899a2b0a75488c7ca7443e540ab8b12364",
+      "role": "content_record",
+      "reason": "Emits source-owned creditText records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/ui/hud/load_digits.s",
+      "macro": "hud_counter",
+      "code_sha256": "f646f7fff6e04f3325d2b1a5fdd30590fe3c3af9e3faa0ecf4a076597e69a804",
+      "role": "program_constant",
+      "reason": "Emits decimal radix constants and derives the HUD loop count. The pointer audit verifies this exact mathematical scalar sequence; these values are program coefficients rather than an editable layout."
+    },
+    {
+      "source": "src/ui/menu_screen.s",
+      "macro": "iconData",
+      "code_sha256": "3fdb7620d3bb31c31a6ba7d319fad82873dd96fba8efe62c078e8d3bfcfcc33c",
+      "role": "content_record",
+      "reason": "Emits source-owned iconData records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/ui/objects/continue/text/main.s",
+      "macro": "objda_make_x_positions",
+      "code_sha256": "458f8b12cf5d9410d6bd46fab391e3fe9ac0878184c0e6d6a1a90aa49e49d213",
+      "role": "content_record",
+      "reason": "Emits source-owned objda_make_x_positions records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/ui/objects/level/title_cards/main.s",
+      "macro": "titlecardobjdata",
+      "code_sha256": "2a9999e93e5e980b256fd48004d6435d22b2e9701422a7b101169214b0d1ddb5",
+      "role": "content_record",
+      "reason": "Emits source-owned titlecardobjdata records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/ui/objects/sega/sonic/main.s",
+      "macro": "map_piece",
+      "code_sha256": "a391789bee2bbd1c742e80b4e361d9f8e91e15c5adfcdf56839e453a0a2a570c",
+      "role": "content_record",
+      "reason": "Emits source-owned map_piece records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/ui/objects/title/palette_cycle/main.s",
+      "macro": "C9PalInfo",
+      "code_sha256": "58c9139cdb1512eff3fd9f2c77995eea6be128cdee5bc0a7ec537329b991a09f",
+      "role": "content_record",
+      "reason": "Emits source-owned C9PalInfo records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/ui/objects/two_player/results/main.s",
+      "macro": "obj21_make_position",
+      "code_sha256": "6282645b2a8d754a37a974d8f6af7329469b2df3e84c9d044cc031b631c589c2",
+      "role": "content_record",
+      "reason": "Emits source-owned obj21_make_position records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    },
+    {
+      "source": "src/ui/options.s",
+      "macro": "boxData",
+      "code_sha256": "6751e58216e5e46420301b08913a5574f5bf2b2c39a5a85e0c8664bc24dd1f33",
+      "role": "content_record",
+      "reason": "Emits source-owned boxData records or fields. The independent macro-call inventory and typed engine-record source binding check the physical slot, revision ABI, scalar widths and protected references.",
+      "format_owner": "engine-records-s2"
+    }
+  ]
+}

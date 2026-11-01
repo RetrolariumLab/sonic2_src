@@ -259,7 +259,7 @@ Tails_TurnLeft:
                 move.w  #SndID_Skidding,d0
                 jsr     (PlaySound).l
                 cmpi.b  #12,air_left(a0)
-                blo.s   GamePlayerTailsGroundMovement_Return_Variant2                    ; if he's drowning, branch to not make dust
+                blo.s   GamePlayerTailsGroundMovement_Return_Variant2  ; if he's drowning, branch to not make dust
                 move.b  #6,(Tails_Dust+routine).w
                 move.b  #$15,(Tails_Dust+mapping_frame).w
 
@@ -313,7 +313,7 @@ Tails_TurnRight:
                 move.w  #SndID_Skidding,d0              ; use "stopping" sound
                 jsr     (PlaySound).l
                 cmpi.b  #12,air_left(a0)
-                blo.s   GamePlayerTailsGroundMovement_Return_Variant3                    ; if he's drowning, branch to not make dust
+                blo.s   GamePlayerTailsGroundMovement_Return_Variant3  ; if he's drowning, branch to not make dust
                 move.b  #6,(Tails_Dust+routine).w
                 move.b  #$15,(Tails_Dust+mapping_frame).w
 

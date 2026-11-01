@@ -1,10 +1,11 @@
 # Source layout
 
-The integrated source layout preserves canonical assembly order and original
-labels. `config/reconstruction/source_layout.json` owns module responsibilities,
+The integrated source layout preserves canonical assembly order and symbol
+values. `config/reconstruction/source_layout.json` owns module responsibilities,
 coordinates and fingerprints against the accepted preservation commit.
 `config/reconstruction/label_renames.json` records original-label changes; the
-mechanical move does not rename those symbols.
+mechanical move and subsequent semantic review have separate evidence. See
+[symbol meanings](symbols.md) for confirmed renames and unresolved entries.
 
 `src/main.s` sets up the assembler and includes the modules in their original
 order. Include order controls physical ROM layout; folder order does not. Both
@@ -65,7 +66,8 @@ properties. See [architecture](architecture.md), [formats](data_formats.md) and
 Source basenames use lowercase snake_case and at most three words. Directories
 provide the zone, subsystem and primary entity context; filenames do not repeat
 object IDs or enumerate every child object. Original assembly labels and object
-dispatch IDs remain unchanged.
+dispatch IDs remain unchanged by file moves. Confirmed label changes are
+recorded separately in the canonical rename registry.
 
 The `.s` suffix identifies 68000 code and emitted tables. Shared constants,
 hardware/RAM declarations, macros and assembler setup use `.inc`. Z80 driver

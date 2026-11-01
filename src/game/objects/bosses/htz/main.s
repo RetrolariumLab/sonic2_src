@@ -548,22 +548,22 @@ Obj52_MapUnc_30258: include "src/game/objects/bosses/htz/data/mappings_a.s"
 ; animation script
 ; off_30288:
 Ani_obj52:      offsetTable
-                offsetTableEntry.w HtzBoss_Animation_Sequence0           ; 0
-                offsetTableEntry.w HtzBoss_Animation_Sequence1           ; 1
-                offsetTableEntry.w HtzBoss_Animation_Sequence2           ; 2
-                offsetTableEntry.w HtzBoss_Animation_Sequence3           ; 3
-                offsetTableEntry.w HtzBoss_Animation_Sequence4           ; 4
-                offsetTableEntry.w HtzBoss_Animation_Sequence5           ; 5
-                offsetTableEntry.w HtzBoss_Animation_Sequence6           ; 6
-                offsetTableEntry.w HtzBoss_Animation_Sequence7           ; 7
-HtzBoss_Animation_Sequence0:     dc.b    1,  2,  3,$FD,  1
-HtzBoss_Animation_Sequence1:     dc.b    2,  4,  5,$FD,  2
-HtzBoss_Animation_Sequence2:     dc.b    3,  6,  7,$FD,  3
-HtzBoss_Animation_Sequence3:     dc.b    4,  8,  9,$FD,  4
-HtzBoss_Animation_Sequence4:     dc.b    5, $A, $B,$FE
-HtzBoss_Animation_Sequence5:     dc.b    3, $C, $D,$FF
-HtzBoss_Animation_Sequence6:     dc.b    $F,  1,$FF
-HtzBoss_Animation_Sequence7:     dc.b    3, $E, $F,$FF
+                offsetTableEntry.w HtzBoss_Animation_Sequence0  ; 0
+                offsetTableEntry.w HtzBoss_Animation_Sequence1  ; 1
+                offsetTableEntry.w HtzBoss_Animation_Sequence2  ; 2
+                offsetTableEntry.w HtzBoss_Animation_Sequence3  ; 3
+                offsetTableEntry.w HtzBoss_Animation_Sequence4  ; 4
+                offsetTableEntry.w HtzBoss_Animation_Sequence5  ; 5
+                offsetTableEntry.w HtzBoss_Animation_Sequence6  ; 6
+                offsetTableEntry.w HtzBoss_Animation_Sequence7  ; 7
+HtzBoss_Animation_Sequence0:    dc.b    1,  2,  3,$FD,  1
+HtzBoss_Animation_Sequence1:    dc.b    2,  4,  5,$FD,  2
+HtzBoss_Animation_Sequence2:    dc.b    3,  6,  7,$FD,  3
+HtzBoss_Animation_Sequence3:    dc.b    4,  8,  9,$FD,  4
+HtzBoss_Animation_Sequence4:    dc.b    5, $A, $B,$FE
+HtzBoss_Animation_Sequence5:    dc.b    3, $C, $D,$FF
+HtzBoss_Animation_Sequence6:    dc.b    $F,  1,$FF
+HtzBoss_Animation_Sequence7:    dc.b    3, $E, $F,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings - uses ArtNem_Eggpod + ?

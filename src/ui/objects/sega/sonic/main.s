@@ -11,7 +11,7 @@ ObjB0_Index:    offsetTable
                 offsetTableEntry.w ObjB0_MidWipe        ; 4
                 offsetTableEntry.w ObjB0_RunRight       ; 6
                 offsetTableEntry.w ObjB0_EndWipe        ; 8
-                offsetTableEntry.w SegaSonic_Return         ; $A
+                offsetTableEntry.w SegaSonic_Return     ; $A
 ; ===========================================================================
 
 ObjB0_Init:

@@ -30,7 +30,7 @@ Obj02_InWater:
                 bge.s   Obj02_OutWater                  ; if yes, branch
 
                 bset    #status.player.underwater,status(a0)  ; set underwater flag
-                bne.s   GamePlayerTailsEnvironment_Return                    ; if already underwater, branch
+                bne.s   GamePlayerTailsEnvironment_Return  ; if already underwater, branch
 
                 movea.l a0,a1
                 bsr.w   ResumeMusic
@@ -51,7 +51,7 @@ Obj02_InWater:
 ; loc_1BFB2:
 Obj02_OutWater:
                 bclr    #status.player.underwater,status(a0)  ; unset underwater flag
-                beq.s   GamePlayerTailsEnvironment_Return                    ; if already above water, branch
+                beq.s   GamePlayerTailsEnvironment_Return  ; if already above water, branch
 
                 movea.l a0,a1
                 bsr.w   ResumeMusic

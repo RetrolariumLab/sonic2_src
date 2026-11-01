@@ -42,14 +42,14 @@ Obj71_Main:
 ; ===========================================================================
 ; off_1136A:
 Ani_obj71:      offsetTable
-                offsetTableEntry.w SharedStakeOrb_Animation_Sequence0           ; 0
-                offsetTableEntry.w SharedStakeOrb_Animation_Sequence1           ; 1
-                offsetTableEntry.w SharedStakeOrb_Animation_Sequence2           ; 2
-                offsetTableEntry.w SharedStakeOrb_Animation_Sequence3           ; 3
-SharedStakeOrb_Animation_Sequence0:     dc.b    8,  3,  3,  4,  5,  5,  4,$FF
-SharedStakeOrb_Animation_Sequence1:     dc.b    5,  0,  0,  0,  1,  2,  3,  3,  2,  1,  2,  3,  3,  1,$FF
-SharedStakeOrb_Animation_Sequence2:     dc.b    $B,  0,  1,  2,  3,  4,  5,$FD,  3
-SharedStakeOrb_Animation_Sequence3:     dc.b    $7F,  6,$FD,  2
+                offsetTableEntry.w SharedStakeOrb_Animation_Sequence0  ; 0
+                offsetTableEntry.w SharedStakeOrb_Animation_Sequence1  ; 1
+                offsetTableEntry.w SharedStakeOrb_Animation_Sequence2  ; 2
+                offsetTableEntry.w SharedStakeOrb_Animation_Sequence3  ; 3
+SharedStakeOrb_Animation_Sequence0: dc.b    8,  3,  3,  4,  5,  5,  4,$FF
+SharedStakeOrb_Animation_Sequence1: dc.b    5,  0,  0,  0,  1,  2,  3,  3,  2,  1,  2,  3,  3,  1,$FF
+SharedStakeOrb_Animation_Sequence2: dc.b    $B,  0,  1,  2,  3,  4,  5,$FD,  3
+SharedStakeOrb_Animation_Sequence3: dc.b    $7F,  6,$FD,  2
                 even
 
 ; --------------------------------------------------------------------------------

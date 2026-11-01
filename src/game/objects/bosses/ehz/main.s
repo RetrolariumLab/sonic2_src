@@ -259,8 +259,8 @@ loc_2F2E0:                                              ; Obj56_VehicleMain_Sub2
 ; ===========================================================================
 
 loc_2F304:                                              ; Obj56_VehicleMain_Sub4:
-                bsr.w   EhzBoss_UpdateDamageResponse                       ; routine to handle hits
-                bsr.w   EhzBoss_CheckHorizontalBounds                       ; position check, sets direction
+                bsr.w   EhzBoss_UpdateDamageResponse    ; routine to handle hits
+                bsr.w   EhzBoss_CheckHorizontalBounds   ; position check, sets direction
                 move.w  objoff_2E(a0),d0                ; y_position of wheels
                 lsr.w   #1,d0
                 subi.w  #$14,d0
@@ -389,12 +389,12 @@ EhzBoss_Return:
                 rts
 ; ===========================================================================
 
-EhzBoss_CheckHorizontalBounds:                                              ; shared routine, checks positions and sets direction
+EhzBoss_CheckHorizontalBounds:                          ; shared routine, checks positions and sets direction
                 move.w  x_pos(a0),d0
                 cmpi.w  #$28A0,d0                       ; beyond left boundary?
                 ble.s   loc_2F494
                 cmpi.w  #$2B08,d0
-                blt.s   EhzBoss_Return_Variant2                    ; beyond right boundary?
+                blt.s   EhzBoss_Return_Variant2         ; beyond right boundary?
 
 loc_2F494:                                              ; beyond boundary
                 bchg    #status.npc.x_flip,status(a0)   ; change direction
@@ -405,13 +405,13 @@ EhzBoss_Return_Variant2:
                 rts
 ; ===========================================================================
 
-EhzBoss_UpdateDamageResponse:                                              ; routine to handle hits
+EhzBoss_UpdateDamageResponse:                           ; routine to handle hits
                 cmpi.b  #6,routine_secondary(a0)        ; is only called when value is 4?
-                bhs.s   EhzBoss_Return_Variant3                    ; thus unnecessary? (return if greater or equal than 6)
+                bhs.s   EhzBoss_Return_Variant3         ; thus unnecessary? (return if greater or equal than 6)
                 _btst   #status.npc.no_balancing,status(a0)
                 _bne.s  loc_2F4EE                       ; Sonic has just defeated the boss (i.e. bit 7 set)
                 tst.b   collision_flags(a0)             ; set to 0 when boss was hit by Touch_Enemy_Part2
-                bne.s   EhzBoss_Return_Variant3                    ; not 0, i.e. boss not hit
+                bne.s   EhzBoss_Return_Variant3         ; not 0, i.e. boss not hit
                 tst.b   objoff_3E(a0)
                 bne.s   loc_2F4D0                       ; boss already invincibile
                 move.b  #$20,objoff_3E(a0)              ; boss invincibility timer
@@ -654,7 +654,7 @@ loc_2F746:                                              ; Obj56_Wheel_Sub4:
                 addq.b  #2,routine_secondary(a0)        ; if yes, Sub6
 
 loc_2F768:
-                bsr.w   EhzBoss_CheckHorizontalBounds                       ; position check, sets direction
+                bsr.w   EhzBoss_CheckHorizontalBounds   ; position check, sets direction
                 jsrto   JmpTo4_ObjectMoveAndFall
                 jsr     (ObjCheckFloorDist).l
                 tst.w   d1
@@ -816,9 +816,9 @@ loc_2F924:
 ; animation script
 ; off_2F936:
 Ani_obj56_a:    offsetTable
-                offsetTableEntry.w EhzBoss_Animation_Sequence0           ; 0
-                offsetTableEntry.w EhzBoss_Animation_Sequence1           ; 1
-                offsetTableEntry.w EhzBoss_Animation_Sequence2           ; 2
+                offsetTableEntry.w EhzBoss_Animation_Sequence0  ; 0
+                offsetTableEntry.w EhzBoss_Animation_Sequence1  ; 1
+                offsetTableEntry.w EhzBoss_Animation_Sequence2  ; 2
 EhzBoss_Animation_Sequence0:
                 dc.b    1,  5,  6,$FF
 EhzBoss_Animation_Sequence1:
@@ -838,9 +838,9 @@ Obj56_MapUnc_2F970: include "src/game/objects/bosses/ehz/data/mappings_a.s"
 ; animation script
 ; off_2FA44:
 Ani_obj56_b:    offsetTable
-                offsetTableEntry.w EhzBoss_Animation_Sequence0_Variant2           ; 0
-                offsetTableEntry.w EhzBoss_Animation_Sequence1_Variant2           ; 1
-                offsetTableEntry.w EhzBoss_Animation_Sequence2_Variant2           ; 2
+                offsetTableEntry.w EhzBoss_Animation_Sequence0_Variant2  ; 0
+                offsetTableEntry.w EhzBoss_Animation_Sequence1_Variant2  ; 1
+                offsetTableEntry.w EhzBoss_Animation_Sequence2_Variant2  ; 2
 EhzBoss_Animation_Sequence0_Variant2:
                 dc.b    5,  1,  2,  3,$FF               ; spike
 EhzBoss_Animation_Sequence1_Variant2:
@@ -862,16 +862,16 @@ Obj56_MapUnc_2FA58: include "src/game/objects/bosses/ehz/data/mappings_b.s"
 ; animation script
 ; off_2FAC8:
 Ani_obj56_c:    offsetTable
-                offsetTableEntry.w EhzBoss_Animation_Sequence0_Variant3           ; 0
-                offsetTableEntry.w EhzBoss_Animation_Sequence1_Variant3           ; 1
-                offsetTableEntry.w EhzBoss_Animation_Sequence2_Variant3           ; 2
-                offsetTableEntry.w EhzBoss_Animation_Sequence3           ; 3
-                offsetTableEntry.w EhzBoss_Animation_Sequence4           ; 4
-EhzBoss_Animation_Sequence0_Variant3:     dc.b    $F,  0,$FF                      ; bottom
-EhzBoss_Animation_Sequence1_Variant3:     dc.b    7,  1,  2,$FF                   ; top, normal
-EhzBoss_Animation_Sequence2_Variant3:     dc.b    7,  5,  5,  5,  5,  5,  5,$FD,  1  ; top, when hit
-EhzBoss_Animation_Sequence3:     dc.b    7,  3,  4,  3,  4,  3,  4,$FD,  1  ; top, laughter (when hurting Sonic)
-EhzBoss_Animation_Sequence4:     dc.b    $F,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,$FD,  1  ; top, when flying off
+                offsetTableEntry.w EhzBoss_Animation_Sequence0_Variant3  ; 0
+                offsetTableEntry.w EhzBoss_Animation_Sequence1_Variant3  ; 1
+                offsetTableEntry.w EhzBoss_Animation_Sequence2_Variant3  ; 2
+                offsetTableEntry.w EhzBoss_Animation_Sequence3  ; 3
+                offsetTableEntry.w EhzBoss_Animation_Sequence4  ; 4
+EhzBoss_Animation_Sequence0_Variant3:   dc.b    $F,  0,$FF  ; bottom
+EhzBoss_Animation_Sequence1_Variant3:   dc.b    7,  1,  2,$FF  ; top, normal
+EhzBoss_Animation_Sequence2_Variant3:   dc.b    7,  5,  5,  5,  5,  5,  5,$FD,  1  ; top, when hit
+EhzBoss_Animation_Sequence3:            dc.b    7,  3,  4,  3,  4,  3,  4,$FD,  1  ; top, laughter (when hurting Sonic)
+EhzBoss_Animation_Sequence4:            dc.b    $F,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,$FD,  1  ; top, when flying off
                 even                                    ; for top part, after end of special animations always return to normal one ($FD->1)
 
 ; ----------------------------------------------------------------------------

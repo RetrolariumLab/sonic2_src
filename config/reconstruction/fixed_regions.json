@@ -73,7 +73,7 @@
   },
   "scalar_longword_tables": [
     {
-      "owner": "dword_8732",
+      "owner": "TwoPlayer_SixDigitDivisors",
       "kind": "descending_radix_powers",
       "radix": 10,
       "digits": 6,

@@ -19,12 +19,15 @@ theoretical identity. Prototypes, modifications, compilations, lock-on and
 alternate editor projects are excluded scope rather than silently accepted
 profiles.
 
-## Symbol uncertainty
+## Unresolved symbol meanings
 
-The [symbol review](symbols.md) records confirmed meanings separately from
-unresolved internal continuations and data interpretations. Every
-address-derived global that remains has physical per-profile bounds, a reason
-and a next investigation. Complete reverse engineering is not claimed.
+[Symbol meanings](symbols.md) describes the canonical rename evidence and the
+explicit unknown ledger. Every remaining address-derived global entry has
+revision-specific physical bounds, known role, unresolved meaning, reason and
+next investigation. Confirmed routines and typed structural identities are
+renamed; internal continuations with incomplete entry-state contracts remain
+unknown. Neither zero address-style names nor complete gameplay coverage is
+claimed by the naming gate.
 
 ## Controlled format differences
 

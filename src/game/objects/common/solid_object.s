@@ -9,7 +9,7 @@ SolidObject:
 ; Collide player 2
                 lea     (Sidekick).w,a1
                 _btst   #render_flags.on_screen,render_flags(a1)
-                _beq.w  CommonSolidObject_Return                    ; Don't bother if Tails is not on-screen
+                _beq.w  CommonSolidObject_Return        ; Don't bother if Tails is not on-screen
                 addq.b  #p2_standing_bit-p1_standing_bit,d6
 +
                 btst    d6,status(a0)

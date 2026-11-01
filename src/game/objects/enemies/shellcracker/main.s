@@ -351,10 +351,10 @@ ObjA0_SubObjData:
 ; animation script
 ; off_38304:
 Ani_obj9F:      offsetTable
-                offsetTableEntry.w EnemiesShellcracker_Animation_Sequence0           ; 0
-                offsetTableEntry.w EnemiesShellcracker_Animation_Sequence1           ; 1
-EnemiesShellcracker_Animation_Sequence0:     dc.b    $E,  0,  1,  2,$FF,  0
-EnemiesShellcracker_Animation_Sequence1:     dc.b    $E,  0,  2,  1,$FF
+                offsetTableEntry.w EnemiesShellcracker_Animation_Sequence0  ; 0
+                offsetTableEntry.w EnemiesShellcracker_Animation_Sequence1  ; 1
+EnemiesShellcracker_Animation_Sequence0:    dc.b    $E,  0,  1,  2,$FF,  0
+EnemiesShellcracker_Animation_Sequence1:    dc.b    $E,  0,  2,  1,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

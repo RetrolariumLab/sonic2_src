@@ -154,10 +154,10 @@ Obj92_SubObjData:
 ; animation script
 ; off_37086:
 Ani_obj92:      offsetTable
-                offsetTableEntry.w EnemiesSpiker_Animation_Sequence0           ; 0
-                offsetTableEntry.w EnemiesSpiker_Animation_Sequence1           ; 2
-EnemiesSpiker_Animation_Sequence0:     dc.b    9,  0,  1,$FF
-EnemiesSpiker_Animation_Sequence1:     dc.b    9,  2,  3,$FF
+                offsetTableEntry.w EnemiesSpiker_Animation_Sequence0  ; 0
+                offsetTableEntry.w EnemiesSpiker_Animation_Sequence1  ; 2
+EnemiesSpiker_Animation_Sequence0:  dc.b    9,  0,  1,$FF
+EnemiesSpiker_Animation_Sequence1:  dc.b    9,  2,  3,$FF
                 even
 ; ---------------------------------------------------------------------------
 ; sprite mappings

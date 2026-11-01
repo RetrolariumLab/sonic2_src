@@ -78,17 +78,17 @@ EndingSequence_LoadFlickyArt_Chicken:
                 lea     (ArtNem_Chicken).l,a0
                 jmpto   JmpTo_NemDec
 ; ===========================================================================
-Palette_EndingSonic:       BINCLUDE "data/art/palettes/Ending Sonic.bin"
-Palette_EndingTails:       BINCLUDE "data/art/palettes/Ending Tails.bin"
-Palette_EndingBackground:       BINCLUDE "data/art/palettes/Ending Background.bin"
+Palette_EndingSonic:        BINCLUDE "data/art/palettes/Ending Sonic.bin"
+Palette_EndingTails:        BINCLUDE "data/art/palettes/Ending Tails.bin"
+Palette_EndingBackground:   BINCLUDE "data/art/palettes/Ending Background.bin"
 Palette_EndingPhotos:       BINCLUDE "data/art/palettes/Ending Photos.bin"
-Palette_EndingSuperSonic:       BINCLUDE "data/art/palettes/Ending Super Sonic.bin"
+Palette_EndingSuperSonic:   BINCLUDE "data/art/palettes/Ending Super Sonic.bin"
 
-UiEndingSequenceData_EndingSeqCloudsChildSlot3E:   childObjectData objoff_3E, ObjID_EndingSeqClouds, $00
+UiEndingSequenceData_EndingSeqCloudsChildSlot3E:    childObjectData objoff_3E, ObjID_EndingSeqClouds, $00
 UiEndingSequenceData_EndingSeqTriggerChildSlot3E:   childObjectData objoff_3E, ObjID_EndingSeqTrigger, $00
-UiEndingSequenceData_EndingSeqBirdChildSlot3E:   childObjectData objoff_3E, ObjID_EndingSeqBird, $00
-UiEndingSequenceData_EndingSeqSonicChildSlot3E:   childObjectData objoff_3E, ObjID_EndingSeqSonic, $00
-UiEndingSequenceData_TornadoHelixesChildSlot3E:   childObjectData objoff_3E, ObjID_TornadoHelixes, $00
+UiEndingSequenceData_EndingSeqBirdChildSlot3E:      childObjectData objoff_3E, ObjID_EndingSeqBird, $00
+UiEndingSequenceData_EndingSeqSonicChildSlot3E:     childObjectData objoff_3E, ObjID_EndingSeqSonic, $00
+UiEndingSequenceData_TornadoHelixesChildSlot3E:     childObjectData objoff_3E, ObjID_TornadoHelixes, $00
 
 ; off_AD72:
 ObjCD_SubObjData:

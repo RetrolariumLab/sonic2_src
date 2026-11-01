@@ -236,9 +236,9 @@ ItemsStarpost_Return_Variant3:
 ; animation script
 ; off_1F414:
 Ani_obj79:      offsetTable
-                offsetTableEntry.w ItemsStarpost_Animation_Sequence0           ; 0
-                offsetTableEntry.w ItemsStarpost_Animation_Sequence1           ; 1
-                offsetTableEntry.w ItemsStarpost_Animation_Sequence2           ; 2
+                offsetTableEntry.w ItemsStarpost_Animation_Sequence0  ; 0
+                offsetTableEntry.w ItemsStarpost_Animation_Sequence1  ; 1
+                offsetTableEntry.w ItemsStarpost_Animation_Sequence2  ; 2
 ItemsStarpost_Animation_Sequence0:
                 dc.b    $F,  0,$FF
 ItemsStarpost_Animation_Sequence1:

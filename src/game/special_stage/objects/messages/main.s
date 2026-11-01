@@ -675,42 +675,42 @@ Obj5A_PrintWord:
 ; Text words
 ; off_35C62
 SSMessage_TextFrames:   offsetTable
-                offsetTableEntry.w SpecialStageWord_GET           ; 0
-                offsetTableEntry.w SpecialStageWord_RINGS           ; 2
-                offsetTableEntry.w SpecialStageWord_COOL           ; 4
-                offsetTableEntry.w SpecialStageWord_NOT           ; 6
-                offsetTableEntry.w SpecialStageWord_ENOUGH           ; 8
-                offsetTableEntry.w SpecialStageWord_PLAYER           ; $A
-                offsetTableEntry.w SpecialStageWord_MOST           ; $C
-                offsetTableEntry.w SpecialStageWord_WINS           ; $E
-                offsetTableEntry.w SpecialStageWord_SONIC           ; $10
-                offsetTableEntry.w SpecialStageWord_MILES           ; $12
-                offsetTableEntry.w SpecialStageWord_TIE           ; $14
-                offsetTableEntry.w SpecialStageWord_WIN           ; $16
-                offsetTableEntry.w SpecialStageWord_TWICE           ; $18
-                offsetTableEntry.w SpecialStageWord_ALL           ; $1A
-                offsetTableEntry.w SpecialStageWord_Exclamation           ; $1C
-                offsetTableEntry.w SpecialStageWord_Ellipsis           ; $1E
+                offsetTableEntry.w SpecialStageWord_GET  ; 0
+                offsetTableEntry.w SpecialStageWord_RINGS  ; 2
+                offsetTableEntry.w SpecialStageWord_COOL  ; 4
+                offsetTableEntry.w SpecialStageWord_NOT  ; 6
+                offsetTableEntry.w SpecialStageWord_ENOUGH  ; 8
+                offsetTableEntry.w SpecialStageWord_PLAYER  ; $A
+                offsetTableEntry.w SpecialStageWord_MOST  ; $C
+                offsetTableEntry.w SpecialStageWord_WINS  ; $E
+                offsetTableEntry.w SpecialStageWord_SONIC  ; $10
+                offsetTableEntry.w SpecialStageWord_MILES  ; $12
+                offsetTableEntry.w SpecialStageWord_TIE  ; $14
+                offsetTableEntry.w SpecialStageWord_WIN  ; $16
+                offsetTableEntry.w SpecialStageWord_TWICE  ; $18
+                offsetTableEntry.w SpecialStageWord_ALL  ; $1A
+                offsetTableEntry.w SpecialStageWord_Exclamation  ; $1C
+                offsetTableEntry.w SpecialStageWord_Ellipsis  ; $1E
                 offsetTableEntry.w byte_35CD9           ; $20
-                offsetTableEntry.w SpecialStageWord_TAILS           ; $22
-SpecialStageWord_GET:     specialText "GET"
-SpecialStageWord_RINGS:     specialText "RINGS"
-SpecialStageWord_COOL:     specialText "COOL!"
-SpecialStageWord_NOT:     specialText "NOT"
-SpecialStageWord_ENOUGH:     specialText "ENOUGH"
-SpecialStageWord_PLAYER:     specialText "PLAYER"
-SpecialStageWord_MOST:     specialText "MOST"
-SpecialStageWord_WINS:     specialText "WINS!"
-SpecialStageWord_SONIC:     specialText "SONIC"
-SpecialStageWord_MILES:     specialText "MILES"
-SpecialStageWord_TIE:     specialText "TIE!"
-SpecialStageWord_WIN:     specialText "WIN"
-SpecialStageWord_TWICE:     specialText "TWICE"
-SpecialStageWord_ALL:     specialText "ALL!"
-SpecialStageWord_Exclamation:     specialText "!"
-SpecialStageWord_Ellipsis:     specialText "..."
-byte_35CD9:     dc.b    $13,$FF                         ; VS
-SpecialStageWord_TAILS:     specialText "TAILS"
+                offsetTableEntry.w SpecialStageWord_TAILS  ; $22
+SpecialStageWord_GET:           specialText "GET"
+SpecialStageWord_RINGS:         specialText "RINGS"
+SpecialStageWord_COOL:          specialText "COOL!"
+SpecialStageWord_NOT:           specialText "NOT"
+SpecialStageWord_ENOUGH:        specialText "ENOUGH"
+SpecialStageWord_PLAYER:        specialText "PLAYER"
+SpecialStageWord_MOST:          specialText "MOST"
+SpecialStageWord_WINS:          specialText "WINS!"
+SpecialStageWord_SONIC:         specialText "SONIC"
+SpecialStageWord_MILES:         specialText "MILES"
+SpecialStageWord_TIE:           specialText "TIE!"
+SpecialStageWord_WIN:           specialText "WIN"
+SpecialStageWord_TWICE:         specialText "TWICE"
+SpecialStageWord_ALL:           specialText "ALL!"
+SpecialStageWord_Exclamation:   specialText "!"
+SpecialStageWord_Ellipsis:      specialText "..."
+byte_35CD9:                     dc.b    $13,$FF         ; VS
+SpecialStageWord_TAILS:         specialText "TAILS"
                 even
 
                 charset                                 ; revert character set

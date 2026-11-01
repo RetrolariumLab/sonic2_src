@@ -76,7 +76,7 @@ Obj82_Main:
 ; ===========================================================================
 ; off_2A358:
 Obj82_Types:    offsetTable
-                offsetTableEntry.w ArzSwingingPlatform_Return         ; 0
+                offsetTableEntry.w ArzSwingingPlatform_Return  ; 0
                 offsetTableEntry.w loc_2A36A            ; 1
                 offsetTableEntry.w loc_2A392            ; 2
                 offsetTableEntry.w loc_2A36A            ; 3

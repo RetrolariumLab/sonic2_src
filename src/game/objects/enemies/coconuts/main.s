@@ -128,7 +128,7 @@ Obj9D_ThrowingHandLowered:
 ; loc_37D22:
 Obj9D_CreateCoconut:
                 jsrto   JmpTo19_AllocateObject
-                bne.s   EnemiesCoconuts_Return                    ; branch, if no free slots
+                bne.s   EnemiesCoconuts_Return          ; branch, if no free slots
                 _move.b #ObjID_Projectile,id(a1)        ; load obj98
                 move.b  #3,mapping_frame(a1)
                 move.b  #$20,subtype(a1)                ; <== Obj9D_SubObjData2
@@ -162,10 +162,10 @@ Obj9D_SubObjData:
 ; animation script
 ; off_37D88:
 Ani_obj09:      offsetTable
-                offsetTableEntry.w EnemiesCoconuts_Animation_Sequence0           ; 0
-                offsetTableEntry.w EnemiesCoconuts_Animation_Sequence1           ; 1
-EnemiesCoconuts_Animation_Sequence0:     dc.b    5,  0,  1,$FF
-EnemiesCoconuts_Animation_Sequence1:     dc.b    9,  1,  2,  1,$FF
+                offsetTableEntry.w EnemiesCoconuts_Animation_Sequence0  ; 0
+                offsetTableEntry.w EnemiesCoconuts_Animation_Sequence1  ; 1
+EnemiesCoconuts_Animation_Sequence0:    dc.b    5,  0,  1,$FF
+EnemiesCoconuts_Animation_Sequence1:    dc.b    9,  1,  2,  1,$FF
                 even
 ; ------------------------------------------------------------------------
 ; sprite mappings

@@ -610,12 +610,12 @@ Obj41_SlopeData_DiagDown:
 ; animation script
 ; off_18FE2:
 Ani_obj41:      offsetTable
-                offsetTableEntry.w SharedSprings_Animation_Sequence0           ; 0
-                offsetTableEntry.w SharedSprings_Animation_Sequence1           ; 1
-                offsetTableEntry.w SharedSprings_Animation_Sequence2           ; 2
-                offsetTableEntry.w SharedSprings_Animation_Sequence3           ; 3
-                offsetTableEntry.w SharedSprings_Animation_Sequence4           ; 4
-                offsetTableEntry.w SharedSprings_Animation_Sequence5           ; 5
+                offsetTableEntry.w SharedSprings_Animation_Sequence0  ; 0
+                offsetTableEntry.w SharedSprings_Animation_Sequence1  ; 1
+                offsetTableEntry.w SharedSprings_Animation_Sequence2  ; 2
+                offsetTableEntry.w SharedSprings_Animation_Sequence3  ; 3
+                offsetTableEntry.w SharedSprings_Animation_Sequence4  ; 4
+                offsetTableEntry.w SharedSprings_Animation_Sequence5  ; 5
 SharedSprings_Animation_Sequence0:
                 dc.b    $F
                 dc.b    0                               ; 1
@@ -701,87 +701,87 @@ Obj41_MapUnc_19032: mappingsTable
                 mappingsTableEntry.w SharedSprings_SpriteMappings_Frame9_Variant2
                 mappingsTableEntry.w SharedSprings_SpriteMappings_Frame10_Variant2
 
-SharedSprings_SpriteMappings_Frame0:     spriteHeader
+SharedSprings_SpriteMappings_Frame0:    spriteHeader
                 spritePiece -$10, -$10, 4, 2, 0, 0, 0, 0, 0
                 spritePiece -8, 0, 2, 2, 8, 0, 0, 0, 0
 SharedSprings_SpriteMappings_Frame0_End
 
-SharedSprings_SpriteMappings_Frame1:     spriteHeader
+SharedSprings_SpriteMappings_Frame1:    spriteHeader
                 spritePiece -$10, -8, 4, 2, 0, 0, 0, 0, 0
 SharedSprings_SpriteMappings_Frame1_End
 
-SharedSprings_SpriteMappings_Frame2:     spriteHeader
+SharedSprings_SpriteMappings_Frame2:    spriteHeader
                 spritePiece -$10, -$20, 4, 2, 0, 0, 0, 0, 0
                 spritePiece -8, -$10, 2, 4, $C, 0, 0, 0, 0
 SharedSprings_SpriteMappings_Frame2_End
 
-SharedSprings_SpriteMappings_Frame3:     spriteHeader
+SharedSprings_SpriteMappings_Frame3:    spriteHeader
                 spritePiece 0, -$10, 1, 4, 0, 0, 0, 0, 0
                 spritePiece -8, -8, 1, 2, 4, 0, 0, 0, 0
 SharedSprings_SpriteMappings_Frame3_End
 
-SharedSprings_SpriteMappings_Frame4:     spriteHeader
+SharedSprings_SpriteMappings_Frame4:    spriteHeader
                 spritePiece -8, -$10, 1, 4, 0, 0, 0, 0, 0
 SharedSprings_SpriteMappings_Frame4_End
 
-SharedSprings_SpriteMappings_Frame5:     spriteHeader
+SharedSprings_SpriteMappings_Frame5:    spriteHeader
                 spritePiece $10, -$10, 1, 4, 0, 0, 0, 0, 0
                 spritePiece -8, -8, 3, 2, 6, 0, 0, 0, 0
 SharedSprings_SpriteMappings_Frame5_End
 
-SharedSprings_SpriteMappings_Frame6:     spriteHeader
+SharedSprings_SpriteMappings_Frame6:    spriteHeader
                 spritePiece -$10, 0, 4, 2, 0, 0, 1, 0, 0
                 spritePiece -8, -$10, 2, 2, 8, 0, 1, 0, 0
 SharedSprings_SpriteMappings_Frame6_End
 
-SharedSprings_SpriteMappings_Frame7:     spriteHeader
+SharedSprings_SpriteMappings_Frame7:    spriteHeader
                 spritePiece -$10, -$10, 4, 2, 0, 0, 0, 0, 0
                 spritePiece 0, 0, 2, 2, 8, 0, 0, 0, 0
                 spritePiece -$A, -5, 2, 2, $C, 0, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $1C, 0, 0, 1, 0
 SharedSprings_SpriteMappings_Frame7_End
 
-SharedSprings_SpriteMappings_Frame8:     spriteHeader
+SharedSprings_SpriteMappings_Frame8:    spriteHeader
                 spritePiece -$16, -$A, 4, 2, 0, 0, 0, 0, 0
                 spritePiece -6, 6, 2, 2, 8, 0, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $1C, 0, 0, 1, 0
 SharedSprings_SpriteMappings_Frame8_End
 
-SharedSprings_SpriteMappings_Frame9:     spriteHeader
+SharedSprings_SpriteMappings_Frame9:    spriteHeader
                 spritePiece -5, -$1A, 4, 2, 0, 0, 0, 0, 0
                 spritePiece $B, -$A, 2, 2, 8, 0, 0, 0, 0
                 spritePiece -$A, -$D, 3, 4, $10, 0, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $1C, 0, 0, 1, 0
 SharedSprings_SpriteMappings_Frame9_End
 
-SharedSprings_SpriteMappings_Frame10:     spriteHeader
+SharedSprings_SpriteMappings_Frame10:   spriteHeader
                 spritePiece -$10, 0, 4, 2, 0, 0, 1, 0, 0
                 spritePiece 0, -$10, 2, 2, 8, 0, 1, 0, 0
                 spritePiece -$A, -$B, 2, 2, $C, 0, 1, 0, 0
                 spritePiece -$10, -$10, 2, 2, $1C, 0, 1, 1, 0
 SharedSprings_SpriteMappings_Frame10_End
 
-SharedSprings_SpriteMappings_Frame7_Variant2:     spriteHeader
+SharedSprings_SpriteMappings_Frame7_Variant2:   spriteHeader
                 spritePiece -$10, -$10, 4, 2, 0, 0, 0, 0, 0
                 spritePiece 0, 0, 2, 2, 8, 0, 0, 0, 0
                 spritePiece -$A, -5, 2, 2, $C, 0, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $1C, 0, 0, 0, 0
 SharedSprings_SpriteMappings_Frame7_Variant2_End
 
-SharedSprings_SpriteMappings_Frame8_Variant2:     spriteHeader
+SharedSprings_SpriteMappings_Frame8_Variant2:   spriteHeader
                 spritePiece -$16, -$A, 4, 2, 0, 0, 0, 0, 0
                 spritePiece -6, 6, 2, 2, 8, 0, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $1C, 0, 0, 0, 0
 SharedSprings_SpriteMappings_Frame8_Variant2_End
 
-SharedSprings_SpriteMappings_Frame9_Variant2:     spriteHeader
+SharedSprings_SpriteMappings_Frame9_Variant2:   spriteHeader
                 spritePiece -5, -$1A, 4, 2, 0, 0, 0, 0, 0
                 spritePiece $B, -$A, 2, 2, 8, 0, 0, 0, 0
                 spritePiece -$A, -$D, 3, 4, $10, 0, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $1C, 0, 0, 0, 0
 SharedSprings_SpriteMappings_Frame9_Variant2_End
 
-SharedSprings_SpriteMappings_Frame10_Variant2:     spriteHeader
+SharedSprings_SpriteMappings_Frame10_Variant2:  spriteHeader
                 spritePiece -$10, 0, 4, 2, 0, 0, 1, 0, 0
                 spritePiece 0, -$10, 2, 2, 8, 0, 1, 0, 0
                 spritePiece -$A, -$B, 2, 2, $C, 0, 1, 0, 0

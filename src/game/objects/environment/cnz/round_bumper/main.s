@@ -91,10 +91,10 @@ loc_1F83E:
 ; animation script
 ; off_1F84C:
 Ani_obj44:      offsetTable
-                offsetTableEntry.w CnzRoundBumper_Animation_Sequence0           ; 0
-                offsetTableEntry.w CnzRoundBumper_Animation_Sequence1           ; 1
-CnzRoundBumper_Animation_Sequence0:     dc.b    $F,  0,$FF
-CnzRoundBumper_Animation_Sequence1:     dc.b    3,  1,  0,  1,$FD,  0
+                offsetTableEntry.w CnzRoundBumper_Animation_Sequence0  ; 0
+                offsetTableEntry.w CnzRoundBumper_Animation_Sequence1  ; 1
+CnzRoundBumper_Animation_Sequence0: dc.b    $F,  0,$FF
+CnzRoundBumper_Animation_Sequence1: dc.b    3,  1,  0,  1,$FD,  0
                 even
 ; -------------------------------------------------------------------------------
 ; sprite mappings

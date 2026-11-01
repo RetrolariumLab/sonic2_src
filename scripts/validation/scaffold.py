@@ -16,6 +16,10 @@ SYNTHETIC_MODULES = (
     "tests.validation.test_release_command",
     "tests.validation.test_source2",
     "tests.validation.test_source1_inputs",
+    "tests.validation.test_semantics",
+    "tests.validation.test_safe_clean",
+    "tests.validation.test_release_contract",
+    "tests.validation.test_macro_roles",
 )
 
 
@@ -61,6 +65,9 @@ def run(root=ROOT):
                 if not (child / "__init__.py").is_file():
                     raise ValueError("Python responsibility package lacks __init__.py: " + child.name)
     layout = structure.audit(root)
+    from scripts.validation.semantics import audit as semantic_audit
+
+    semantic = semantic_audit(root)
     corpus = documentation.audit(root)
     interface = make_contract(root)
     subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "tests/authoring"], cwd=root, check=True)
@@ -71,6 +78,7 @@ def run(root=ROOT):
         "requires_rom": False,
         "release_acceptance": False,
         "layout": layout,
+        "semantic_symbols": semantic,
         "documentation": corpus,
         "make_interface": interface,
         "synthetic_modules": list(SYNTHETIC_MODULES),

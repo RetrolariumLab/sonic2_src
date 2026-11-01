@@ -833,10 +833,10 @@ ObjB2_SubObjData2:
 ; animation script
 ; off_3AFDC:
 Ani_objB2_a:    offsetTable
-                offsetTableEntry.w SceneryTornado_Animation_Sequence0           ; 0
-                offsetTableEntry.w SceneryTornado_Animation_Sequence1           ; 1
-SceneryTornado_Animation_Sequence0:     dc.b    0,  0,  1,  2,  3,$FF
-SceneryTornado_Animation_Sequence1:     dc.b    0,  4,  5,  6,  7,$FF
+                offsetTableEntry.w SceneryTornado_Animation_Sequence0  ; 0
+                offsetTableEntry.w SceneryTornado_Animation_Sequence1  ; 1
+SceneryTornado_Animation_Sequence0: dc.b    0,  0,  1,  2,  3,$FF
+SceneryTornado_Animation_Sequence1: dc.b    0,  4,  5,  6,  7,$FF
                 even
 ; animation script
 ; off_3AFEC:

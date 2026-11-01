@@ -18,6 +18,9 @@ def git(*arguments, root=ROOT):
 
 
 def manifest_check(root=ROOT, final=False):
+    from scripts.validation.release_contract import validate
+
+    validate(root, "2.0", ready=final)
     manifest = load("config/source_reconstruction_2_0.json", root)
     if (
         manifest.get("schema_version") != 1
@@ -146,7 +149,7 @@ def run(root=ROOT):
     manifest = manifest_check(root, final=True)
     from scripts.validation.release_audit import audit as release_audit
 
-    release_audit(root, clean=True)
+    release_audit(root, clean=True, ready=True, line="2.0")
     completed = subprocess.run(
         [sys.executable, "-m", "retrolarium_core.stop_words", "history", str(root), "--all"],
         cwd=root,

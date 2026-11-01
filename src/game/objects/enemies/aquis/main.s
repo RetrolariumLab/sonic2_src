@@ -128,11 +128,11 @@ Obj50_Shooting:
 ; loc_2CE24:
 Obj50_ChkIfShoot:
                 tst.b   Obj50_shooting_flag(a0)         ; is object allowed to shoot?
-                bne.w   EnemiesAquis_Return                    ; if not, branch
+                bne.w   EnemiesAquis_Return             ; if not, branch
                 st.b    Obj50_shooting_flag(a0)         ; else, disallow shooting after this
                 jsrto   JmpTo_Obj_GetOrientationToPlayer
                 tst.w   d1                              ; is player above object?
-                beq.s   EnemiesAquis_Return                    ; if yes, don't shoot
+                beq.s   EnemiesAquis_Return             ; if yes, don't shoot
                 cmpi.w  #$FFF0,d1                       ; ? d1 should only be 0 or 2 here
                 bhs.s   EnemiesAquis_Return
 
@@ -246,17 +246,17 @@ Obj50_ControlWing:
 ; off_2CF6C:
 Ani_obj50:      offsetTable
                 offsetTableEntry.w Ani_obj50_Normal     ; 0
-                offsetTableEntry.w EnemiesAquis_Animation_Sequence1           ; 1
+                offsetTableEntry.w EnemiesAquis_Animation_Sequence1  ; 1
                 offsetTableEntry.w Ani_obj50_Bullet     ; 2
                 offsetTableEntry.w Ani_obj50_Wing       ; 3
-                offsetTableEntry.w EnemiesAquis_Animation_Sequence4           ; 4
-                offsetTableEntry.w EnemiesAquis_Animation_Sequence5           ; 5
-Ani_obj50_Normal:   dc.b    $E,  0,$FF                  ; byte_2CF78
-EnemiesAquis_Animation_Sequence1:         dc.b    5,  3,  4,  3,  4,  3,  4,$FF
-Ani_obj50_Bullet:   dc.b    3,  5,  6,  7,  6,$FF       ; byte_2CF83
-Ani_obj50_Wing:     dc.b    3,  1,  2,$FF               ; byte_2CF89
-EnemiesAquis_Animation_Sequence4:         dc.b    1,  5,$FF
-EnemiesAquis_Animation_Sequence5:         dc.b    $E,  8,$FF
+                offsetTableEntry.w EnemiesAquis_Animation_Sequence4  ; 4
+                offsetTableEntry.w EnemiesAquis_Animation_Sequence5  ; 5
+Ani_obj50_Normal:                   dc.b    $E,  0,$FF  ; byte_2CF78
+EnemiesAquis_Animation_Sequence1:   dc.b    5,  3,  4,  3,  4,  3,  4,$FF
+Ani_obj50_Bullet:                   dc.b    3,  5,  6,  7,  6,$FF  ; byte_2CF83
+Ani_obj50_Wing:                     dc.b    3,  1,  2,$FF  ; byte_2CF89
+EnemiesAquis_Animation_Sequence4:   dc.b    1,  5,$FF
+EnemiesAquis_Animation_Sequence5:   dc.b    $E,  8,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

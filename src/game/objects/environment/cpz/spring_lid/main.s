@@ -155,13 +155,13 @@ loc_29736:
 ; animation script
 ; off_29768:
 Ani_obj7B:      offsetTable
-                offsetTableEntry.w CpzSpringLid_Animation_Sequence0           ; 0
-                offsetTableEntry.w CpzSpringLid_Animation_Sequence1           ; 1
-                offsetTableEntry.w CpzSpringLid_Animation_Sequence2           ; 2
-                offsetTableEntry.w CpzSpringLid_Animation_Sequence2           ; 3
-CpzSpringLid_Animation_Sequence0:     dc.b    $F,  0,$FF
-CpzSpringLid_Animation_Sequence1:     dc.b    0,  3,$FD,  0
-CpzSpringLid_Animation_Sequence2:     dc.b    5,  1,  2,  2,  2,  4,$FD,  0
+                offsetTableEntry.w CpzSpringLid_Animation_Sequence0  ; 0
+                offsetTableEntry.w CpzSpringLid_Animation_Sequence1  ; 1
+                offsetTableEntry.w CpzSpringLid_Animation_Sequence2  ; 2
+                offsetTableEntry.w CpzSpringLid_Animation_Sequence2  ; 3
+CpzSpringLid_Animation_Sequence0:   dc.b    $F,  0,$FF
+CpzSpringLid_Animation_Sequence1:   dc.b    0,  3,$FD,  0
+CpzSpringLid_Animation_Sequence2:   dc.b    5,  1,  2,  2,  2,  4,$FD,  0
                 even
 ; ---------------------------------------------------------------------------
 ; sprite mappings

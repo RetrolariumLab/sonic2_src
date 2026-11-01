@@ -291,60 +291,60 @@ BranchTo2_JmpTo34_DisplaySprite                         ; BranchTo
 ; animation script
 ; off_2EA3C:
 Ani_Obj5D_Dripper:  offsetTable
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence0           ; 0
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence1           ; 1
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence2           ; 2
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence3           ; 3
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence4           ; 4
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence5           ; 5
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence6           ; 6
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence7           ; 7
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence8           ; 8
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence9           ; 9
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence10           ; $A
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence11           ; $B
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence12           ; $C
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence13           ; $D
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence14           ; $E
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence15           ; $F
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence16           ; $10
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence17           ; $11
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence18           ; $12
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence19           ; $13
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence20           ; $14
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence21           ; $15
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence22           ; $16
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence23           ; $17
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence24           ; $18
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence25           ; $19
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence26           ; $1A
-CpzBossGunkAndVisuals_Animation_Sequence0:     dc.b    $F,  0,$FF
-CpzBossGunkAndVisuals_Animation_Sequence1:     dc.b    $F,  1,$FF
-CpzBossGunkAndVisuals_Animation_Sequence2:     dc.b    5,  2,  3,  2,$FF
-CpzBossGunkAndVisuals_Animation_Sequence3:     dc.b    5,  2,  3,$FF
-CpzBossGunkAndVisuals_Animation_Sequence4:     dc.b    2,  4,  5,  6,  7,  8,$FF
-CpzBossGunkAndVisuals_Animation_Sequence5:     dc.b    3,  9,$FF
-CpzBossGunkAndVisuals_Animation_Sequence6:     dc.b    $F, $A,$FF
-CpzBossGunkAndVisuals_Animation_Sequence7:     dc.b    $F,$1C,$FF
-CpzBossGunkAndVisuals_Animation_Sequence8:     dc.b    $F,$1E,$FF
-CpzBossGunkAndVisuals_Animation_Sequence9:     dc.b    $F, $B,$FF
-CpzBossGunkAndVisuals_Animation_Sequence10:     dc.b    3, $C, $C, $D, $D, $D, $D, $D, $C, $C,$FD,  9
-CpzBossGunkAndVisuals_Animation_Sequence11:     dc.b    3, $E, $E, $F, $F, $F, $F, $F, $E, $E,$FF
-CpzBossGunkAndVisuals_Animation_Sequence12:     dc.b    $F,$10,$FF
-CpzBossGunkAndVisuals_Animation_Sequence13:     dc.b    $F,$11,$FF
-CpzBossGunkAndVisuals_Animation_Sequence14:     dc.b    $F,$12,$FF
-CpzBossGunkAndVisuals_Animation_Sequence15:     dc.b    $F,$13,$FF
-CpzBossGunkAndVisuals_Animation_Sequence16:     dc.b    $F,$14,$FF
-CpzBossGunkAndVisuals_Animation_Sequence17:     dc.b    $F,$15,$FF
-CpzBossGunkAndVisuals_Animation_Sequence18:     dc.b    $F,$16,$FF
-CpzBossGunkAndVisuals_Animation_Sequence19:     dc.b    $F,$17,$FF
-CpzBossGunkAndVisuals_Animation_Sequence20:     dc.b    $F,$18,$FF
-CpzBossGunkAndVisuals_Animation_Sequence21:     dc.b    $F,$19,$FF
-CpzBossGunkAndVisuals_Animation_Sequence22:     dc.b    $F,$1A,$FF
-CpzBossGunkAndVisuals_Animation_Sequence23:     dc.b    $F,$1B,$FF
-CpzBossGunkAndVisuals_Animation_Sequence24:     dc.b    $F,$1C,$FF
-CpzBossGunkAndVisuals_Animation_Sequence25:     dc.b    1,$1D,$1F,$FF
-CpzBossGunkAndVisuals_Animation_Sequence26:     dc.b    $F,$1E,$FF
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence0  ; 0
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence1  ; 1
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence2  ; 2
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence3  ; 3
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence4  ; 4
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence5  ; 5
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence6  ; 6
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence7  ; 7
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence8  ; 8
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence9  ; 9
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence10  ; $A
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence11  ; $B
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence12  ; $C
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence13  ; $D
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence14  ; $E
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence15  ; $F
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence16  ; $10
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence17  ; $11
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence18  ; $12
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence19  ; $13
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence20  ; $14
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence21  ; $15
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence22  ; $16
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence23  ; $17
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence24  ; $18
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence25  ; $19
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence26  ; $1A
+CpzBossGunkAndVisuals_Animation_Sequence0:  dc.b    $F,  0,$FF
+CpzBossGunkAndVisuals_Animation_Sequence1:  dc.b    $F,  1,$FF
+CpzBossGunkAndVisuals_Animation_Sequence2:  dc.b    5,  2,  3,  2,$FF
+CpzBossGunkAndVisuals_Animation_Sequence3:  dc.b    5,  2,  3,$FF
+CpzBossGunkAndVisuals_Animation_Sequence4:  dc.b    2,  4,  5,  6,  7,  8,$FF
+CpzBossGunkAndVisuals_Animation_Sequence5:  dc.b    3,  9,$FF
+CpzBossGunkAndVisuals_Animation_Sequence6:  dc.b    $F, $A,$FF
+CpzBossGunkAndVisuals_Animation_Sequence7:  dc.b    $F,$1C,$FF
+CpzBossGunkAndVisuals_Animation_Sequence8:  dc.b    $F,$1E,$FF
+CpzBossGunkAndVisuals_Animation_Sequence9:  dc.b    $F, $B,$FF
+CpzBossGunkAndVisuals_Animation_Sequence10: dc.b    3, $C, $C, $D, $D, $D, $D, $D, $C, $C,$FD,  9
+CpzBossGunkAndVisuals_Animation_Sequence11: dc.b    3, $E, $E, $F, $F, $F, $F, $F, $E, $E,$FF
+CpzBossGunkAndVisuals_Animation_Sequence12: dc.b    $F,$10,$FF
+CpzBossGunkAndVisuals_Animation_Sequence13: dc.b    $F,$11,$FF
+CpzBossGunkAndVisuals_Animation_Sequence14: dc.b    $F,$12,$FF
+CpzBossGunkAndVisuals_Animation_Sequence15: dc.b    $F,$13,$FF
+CpzBossGunkAndVisuals_Animation_Sequence16: dc.b    $F,$14,$FF
+CpzBossGunkAndVisuals_Animation_Sequence17: dc.b    $F,$15,$FF
+CpzBossGunkAndVisuals_Animation_Sequence18: dc.b    $F,$16,$FF
+CpzBossGunkAndVisuals_Animation_Sequence19: dc.b    $F,$17,$FF
+CpzBossGunkAndVisuals_Animation_Sequence20: dc.b    $F,$18,$FF
+CpzBossGunkAndVisuals_Animation_Sequence21: dc.b    $F,$19,$FF
+CpzBossGunkAndVisuals_Animation_Sequence22: dc.b    $F,$1A,$FF
+CpzBossGunkAndVisuals_Animation_Sequence23: dc.b    $F,$1B,$FF
+CpzBossGunkAndVisuals_Animation_Sequence24: dc.b    $F,$1C,$FF
+CpzBossGunkAndVisuals_Animation_Sequence25: dc.b    1,$1D,$1F,$FF
+CpzBossGunkAndVisuals_Animation_Sequence26: dc.b    $F,$1E,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings - uses ArtNem_CPZBoss
@@ -354,16 +354,16 @@ Obj5D_MapUnc_2EADC: include "src/game/objects/bosses/cpz/data/mappings_a.s"
 ; animation script
 ; off_2ED5C:
 Ani_obj5D_b:    offsetTable
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence0_Variant2           ; 0
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence1_Variant2           ; 1
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence2_Variant2           ; 2
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence3_Variant2           ; 3
-                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence4_Variant2           ; 4
-CpzBossGunkAndVisuals_Animation_Sequence0_Variant2:     dc.b    $F,  0,$FF
-CpzBossGunkAndVisuals_Animation_Sequence1_Variant2:     dc.b    7,  1,  2,$FF
-CpzBossGunkAndVisuals_Animation_Sequence2_Variant2:     dc.b    7,  5,  5,  5,  5,  5,  5,$FD,  1
-CpzBossGunkAndVisuals_Animation_Sequence3_Variant2:     dc.b    7,  3,  4,  3,  4,  3,  4,$FD,  1
-CpzBossGunkAndVisuals_Animation_Sequence4_Variant2:     dc.b    $F,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,$FD,  1
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence0_Variant2  ; 0
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence1_Variant2  ; 1
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence2_Variant2  ; 2
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence3_Variant2  ; 3
+                offsetTableEntry.w CpzBossGunkAndVisuals_Animation_Sequence4_Variant2  ; 4
+CpzBossGunkAndVisuals_Animation_Sequence0_Variant2: dc.b    $F,  0,$FF
+CpzBossGunkAndVisuals_Animation_Sequence1_Variant2: dc.b    7,  1,  2,$FF
+CpzBossGunkAndVisuals_Animation_Sequence2_Variant2: dc.b    7,  5,  5,  5,  5,  5,  5,$FD,  1
+CpzBossGunkAndVisuals_Animation_Sequence3_Variant2: dc.b    7,  3,  4,  3,  4,  3,  4,$FD,  1
+CpzBossGunkAndVisuals_Animation_Sequence4_Variant2: dc.b    $F,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,$FD,  1
                 even
 
 ; ----------------------------------------------------------------------------

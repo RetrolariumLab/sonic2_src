@@ -8,9 +8,11 @@ retained limitations remain documented below.
 
 To navigate or change source, read [architecture](architecture.md),
 [source layout](source_layout.md) and [memory interfaces](memory.md).
-[Style](style.md) describes shared formatting and the original AS syntax
-adapter. [Contribution rules](../CONTRIBUTING.md) explain the verification and
-history boundaries.
+[Symbol meanings and uncertainty](symbols.md) explains confirmed renames, their
+evidence and the explicit unknown ledger. [Style](style.md) describes shared
+formatting and the original AS syntax adapter.
+[Contribution rules](../CONTRIBUTING.md) explain the verification and history
+boundaries.
 
 To inspect or edit legal private content, use
 [content workflow](content_workflow.md) and [data formats](data_formats.md).
@@ -24,22 +26,6 @@ are generated independently and do not replace history or clean-tree checks. The
 preservation manifest is `config/source_reconstruction_1_0.json`; its
 requirements remain prerequisites of the final 2.0 milestone.
 
-[Provenance and licensing](provenance.md) records the upstream baseline, public
-contributors, excluded community modes and tool origins. The original
-[upstream disclaimer](provenance.md#upstream-disclaimer) is preserved
-separately.
-
-The preservation boundary is machine-readable in
-config/source_reconstruction_1_0.json. The complete preservation gate has passed
-from a clean clone with only the verified ROMs supplied. Semantic layout and
-complete content contracts belong to the later 2.0 milestone.
-
-[Symbol meanings and uncertainty](symbols.md) describes confirmed renames,
-per-profile evidence and the explicit unknown work queue. For legal private
-content work, read [content workflow](content_workflow.md) and the consolidated
-[format reference](data_formats.md). Their byte APIs and zero-edit rebuild are
-separate from final 2.0 aggregate acceptance.
-[upstream disclaimer](provenance.md#upstream-disclaimer) is preserved
 [Provenance and licensing](provenance.md) records the upstream baseline,
 excluded community modes and tool origins. The
 [contributor roster](../CONTRIBUTORS.md) credits the original Sonic Retro work.

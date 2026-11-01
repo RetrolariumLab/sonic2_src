@@ -179,7 +179,7 @@ DeathEggRobot_DispatchMotionFlags:
                 move.w  DeathEggRobot_MotionFlagHandlers-2(pc,d1.w),d1
                 jmp     DeathEggRobot_MotionFlagHandlers(pc,d1.w)
 ; ===========================================================================
-DeathEggRobot_MotionFlagHandlers:      offsetTable
+DeathEggRobot_MotionFlagHandlers:   offsetTable
                 offsetTableEntry.w DeathEggRobot_PlayMotionSound
                 offsetTableEntry.w DeathEggRobot_EnableMirroredMotion
                 offsetTableEntry.w DeathEggRobot_RestartLimbMotion

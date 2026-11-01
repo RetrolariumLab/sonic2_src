@@ -4,10 +4,11 @@ The machine-readable ownership registry is `config/authoring/data_formats.json`.
 It covers 682 direct private inputs, 13 derived PSG envelopes, 210 standalone
 sprite/DPLC files, 15 inline/shared mapping tables, 104 animation roots, three
 spin-tube path containers, eight indexed source tables, one palette-cycle timing
-table and six demo runs. The two accepted revisions share the record grammars;
-active input selection and physical placement are resolved separately for each
-revision. The registry describes 44 format classes, including the nested FM
-voice format. It contains no game payloads. Inline/shared mappings and indexed
+table, six demo runs and typed source-owned engine records. The two accepted
+revisions share the record grammars; active input selection and physical
+placement are resolved separately for each revision. The registry includes the
+nested FM voice format and the `engine-records-s2` family with explicit record
+discriminators. It contains no game payloads. Inline/shared mappings and indexed
 source records have explicit typed owners. Release acceptance still requires the
 complete predecessor and 2.0 gate.
 
@@ -252,3 +253,57 @@ pointer tables partition the shared decoded art RAM; destination tile
 reservations bound Sonic, Tails and the separate tails. Each selector owns a
 frozen source partition and destination budget. Every shared frame must fit all
 consumers that reference it before the encoder returns any patches.
+
+## Source-owned engine records
+
+`engine_records.decode(kind, bytes)` and `encode(kind, model)` expose typed
+records for source declarations that are not ordinary sprite or animation
+tables. `source_records` independently discovers their macro calls, binds active
+physical listing ranges and opens fixed-size documents for each revision. The
+registry's `record_kinds` fields enumerate each owner's actual grammars.
+
+| Record group                        | Representation and control                                                                                                                                                                                                                                                                                     |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Credits and menus                   | Credits have a font/palette attribute, remapped glyph bytes and `FF` terminator. Menu text has a count-minus-one byte and glyph bytes. These are engine glyph IDs, not an assumed ASCII encoding.                                                                                                              |
+| Credits page layouts                | Text pointer plus VRAM destination-word records end with a two-byte `FFFF`; the page index uses long pointers and a four-byte sentinel. Reference and layout topology remain protected.                                                                                                                        |
+| Palette descriptors                 | Palette-load descriptors carry pointer, RAM destination and longword count. Transition descriptors carry callback, palette pointer, destination offset, count, timer and step fields. Pointer/count edits are protected; transition writes must fit the 128-byte palette and signed timer limits.              |
+| Robot limb motion                   | A count-minus-one and duration precede child-pointer-slot/signed-delta triples. Programs contain an owned frame-table pointer and frame, mirrored-frame, sound and restart commands. Source frame indices, slot fields, signed widths and termination are checked. Program topology stays protected.           |
+| Child and object initialization     | Typed spawn templates, object prototypes, bridge/platform/spike parameters, animal velocities/mappings and screen-object metadata preserve their exact field widths and original reference fields.                                                                                                             |
+| Debug objects and pattern-load cues | Counted object/mapping/subtype/frame/art records and counted art-pointer/VRAM requests have explicit models, exact extents and protected selector/reference topology.                                                                                                                                          |
+| UI positioning and sprite scaling   | Continue/title/result positions use signed words. Sprite scale regions contain source/destination addresses and dimensions; address fields are protected and dimensions cannot grow beyond the original transfer window.                                                                                       |
+| Animated blocks and tiles           | Block patterns bind destination/count to the original block-table end. Tile scripts contain duration/art/VRAM/count descriptors and frame offsets, optionally with individual durations. Counts, references and destination windows are protected; frame sources cannot exceed the original per-script extent. |
+
+`source_records.open_record(kind, data, target)` requires the canonical
+protected reference policy and preserves the allocation's exact size. It returns
+a `Document` and model without writing files. Numeric edits are allowed only
+within the declared widths, original transfer windows and frozen revision ABI.
+The low-level record codecs alone do not authorize changing pointers, counts,
+dispatch selectors or placement. Those changes require a newly established
+allocation and consumer contract. Several reference-only descriptors are
+intentionally read-only through this bounded interface.
+
+The credits renderer reads a long before testing its sign, although its source
+layout terminator occupies only two bytes. The codec preserves this original
+boundary and does not invent a four-byte terminator. Motion restart values `C0`
+through `FF` are control codes, not out-of-range frame indices. Zero frame
+duration advances after the first tick; signed motion deltas retain their raw
+engine scaling rather than being rounded to whole pixels.
+
+`config/authoring/source_macro_roles.json` separately reviews every macro that
+directly emits 68000 or Z80 data. The structure gate detects an omitted or
+changed emitter. Content macros point to their format owner; private input
+wrappers, instruction/padding generators, mathematical constants and
+source-owned driver ABI tables have explicit roles. Program coefficients and
+executable instruction generation remain source, rather than becoming editable
+music or level content.
+
+Bound spawn templates retain their original parent link, object ID and subtype;
+object prototypes also protect priority, render flags and collision selectors.
+Changing these fields requires a separately established consumer contract,
+rather than merely fitting another integer into the same byte.
+
+Projectile bursts use six-byte records: signed position offsets, signed high
+bytes of the fixed-point velocity words, mapping frame and flip flags. The
+source-derived DBF count must equal the physical span. The bound document keeps
+the entry count and frame/flag topology fixed while permitting signed numeric
+edits within each byte.

@@ -1396,15 +1396,13 @@
           "address_space": "m68000-rom",
           "start": 218084,
           "end_exclusive": 218094,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj5B"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 218100,
           "end_exclusive": 218110,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj5B"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -2080,15 +2078,13 @@
           "address_space": "m68000-rom",
           "start": 226968,
           "end_exclusive": 227032,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj98"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 226984,
           "end_exclusive": 227048,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj98"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -2692,15 +2688,13 @@
           "address_space": "m68000-rom",
           "start": 43384,
           "end_exclusive": 43388,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjCF"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 43396,
           "end_exclusive": 43400,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjCF"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -3988,15 +3982,13 @@
           "address_space": "m68000-rom",
           "start": 82658,
           "end_exclusive": 82680,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "LevelOrder"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 82658,
           "end_exclusive": 82680,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "LevelOrder"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -5752,15 +5744,13 @@
           "address_space": "m68000-rom",
           "start": 96262,
           "end_exclusive": 96294,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "SpecialCNZBumpers_Act1"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 96250,
           "end_exclusive": 96282,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "SpecialCNZBumpers_Act1"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -8344,15 +8334,13 @@
           "address_space": "m68000-rom",
           "start": 105528,
           "end_exclusive": 105534,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "PlatformObject"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 105516,
           "end_exclusive": 105522,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "PlatformObject"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -9028,15 +9016,13 @@
           "address_space": "m68000-rom",
           "start": 106328,
           "end_exclusive": 106332,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj01"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 106316,
           "end_exclusive": 106320,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj01"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -11404,15 +11390,13 @@
           "address_space": "m68000-rom",
           "start": 124268,
           "end_exclusive": 124294,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Find_Tile"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 124284,
           "end_exclusive": 124310,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Find_Tile"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -13744,15 +13728,13 @@
           "address_space": "m68000-rom",
           "start": 136296,
           "end_exclusive": 136384,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj06"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 136300,
           "end_exclusive": 136388,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj06"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -14932,15 +14914,13 @@
           "address_space": "m68000-rom",
           "start": 141646,
           "end_exclusive": 143348,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj20"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 141650,
           "end_exclusive": 143352,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj20"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -48988,15 +48968,13 @@
           "address_space": "m68000-rom",
           "start": 252358,
           "end_exclusive": 252420,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjC7_Shoulder"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 252374,
           "end_exclusive": 252436,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjC7_Shoulder"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -51220,15 +51198,13 @@
           "address_space": "m68000-rom",
           "start": 260626,
           "end_exclusive": 260636,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "BossSpecificCollision"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 260642,
           "end_exclusive": 260652,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "BossSpecificCollision"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -51724,15 +51700,13 @@
           "address_space": "m68000-rom",
           "start": 261268,
           "end_exclusive": 261300,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "AniArt_Load"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 261284,
           "end_exclusive": 261316,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "AniArt_Load"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -53524,15 +53498,13 @@
           "address_space": "m68000-rom",
           "start": 30162,
           "end_exclusive": 30276,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "SSSetGeometryOffsets"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 30174,
           "end_exclusive": 30288,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "SSSetGeometryOffsets"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -54460,15 +54432,13 @@
           "address_space": "m68000-rom",
           "start": 41906,
           "end_exclusive": 41916,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjCC"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 41918,
           "end_exclusive": 41928,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjCC"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -55108,15 +55078,13 @@
           "address_space": "m68000-rom",
           "start": 43646,
           "end_exclusive": 43682,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjCD"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 43658,
           "end_exclusive": 43694,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjCD"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -55252,15 +55220,13 @@
           "address_space": "m68000-rom",
           "start": 43920,
           "end_exclusive": 43950,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "EndingSequence_SpawnTimedBird"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 43932,
           "end_exclusive": 43962,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "EndingSequence_SpawnTimedBird"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -55504,15 +55470,13 @@
           "address_space": "m68000-rom",
           "start": 3826,
           "end_exclusive": 3912,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "H_Int"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 3838,
           "end_exclusive": 3924,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "H_Int"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -58168,15 +58132,13 @@
           "address_space": "m68000-rom",
           "start": 37606,
           "end_exclusive": 37610,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "MenuScreen_LevelSelect"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 37618,
           "end_exclusive": 37622,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "MenuScreen_LevelSelect"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -58292,7 +58254,7 @@
       "symbol": "unk_F61A",
       "status": "unknown",
       "owner": "src/memory",
-      "known_role": "Reserved RAM declaration in s2.constants.asm; first directive ds.l 1.",
+      "known_role": "Reserved RAM declaration in src/memory/ram_general.inc; first directive ds.l 1.",
       "unresolved": "The intended owner and lifetime of this reserved storage remain unconfirmed.",
       "reason": "A reserved address or isolated write is insufficient evidence of a stable runtime purpose.",
       "next_check": "Watch reads and writes to unk_F61A across the original runtime scenarios and compare its neighbouring RAM fields.",
@@ -58330,7 +58292,7 @@
       "symbol": "unk_FFDA",
       "status": "unknown",
       "owner": "src/memory",
-      "known_role": "Reserved RAM declaration in s2.constants.asm; first directive ds.w 1.",
+      "known_role": "Reserved RAM declaration in src/memory/ram_general.inc; first directive ds.w 1.",
       "unresolved": "The intended owner and lifetime of this reserved storage remain unconfirmed.",
       "reason": "A reserved address or isolated write is insufficient evidence of a stable runtime purpose.",
       "next_check": "Watch reads and writes to unk_FFDA across the original runtime scenarios and compare its neighbouring RAM fields.",
@@ -58748,15 +58710,13 @@
           "address_space": "m68000-rom",
           "start": 218424,
           "end_exclusive": 218436,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj5A"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 218440,
           "end_exclusive": 218452,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj5A"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -58784,15 +58744,13 @@
           "address_space": "m68000-rom",
           "start": 221058,
           "end_exclusive": 221100,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj59"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 221074,
           "end_exclusive": 221116,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "Obj59"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     },
@@ -59504,15 +59462,13 @@
           "address_space": "m68000-rom",
           "start": 43112,
           "end_exclusive": 43144,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjCE"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 43124,
           "end_exclusive": 43156,
-          "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "ObjCE"
+          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
         }
       }
     }

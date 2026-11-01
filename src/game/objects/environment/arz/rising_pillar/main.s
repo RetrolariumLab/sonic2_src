@@ -80,7 +80,7 @@ ArzRisingPillar_DispatchSecondaryState:
 off_25B36:      offsetTable
                 offsetTableEntry.w loc_25B3C            ; 0
                 offsetTableEntry.w loc_25B66            ; 2
-                offsetTableEntry.w ArzRisingPillar_Return_Variant2         ; 4
+                offsetTableEntry.w ArzRisingPillar_Return_Variant2  ; 4
 ; ===========================================================================
 
 loc_25B3C:

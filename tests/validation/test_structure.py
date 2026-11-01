@@ -57,7 +57,8 @@ class StructureTests(unittest.TestCase):
         )
         self.config("config/revision_profiles.json", {"entry": "src/main.s", "profiles": []})
         self.config("config/audio.json", {"songs": [], "effects": [], "samples": []})
-        self.config("config/authoring/data_formats.json", {"artifacts": []})
+        self.config("config/authoring/data_formats.json", {"artifacts": [], "format_ids": []})
+        self.config("config/authoring/source_macro_roles.json", {"review_status": "reviewed", "definitions": []})
         return layout
 
     def test_complete_synthetic_structure_runs_the_real_audit(self):

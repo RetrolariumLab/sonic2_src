@@ -327,7 +327,7 @@ Obj57_LoadStoneSpike:
                 move.b  #3,priority(a1)
                 move.b  #$D,mapping_frame(a1)
                 tst.b   d2
-                bne.s   MczBoss_Return_Variant2                    ; stone
+                bne.s   MczBoss_Return_Variant2         ; stone
                 move.b  #$14,mapping_frame(a1)          ; spike
                 move.b  #$B1,collision_flags(a1)
 
@@ -356,7 +356,7 @@ Obj57_AddSinusOffset:                                   ; called from routine $A
 ; loc_31470:
 Obj57_HandleHits_Main:
                 cmpi.b  #8,boss_routine(a0)
-                bhs.s   MczBoss_Return_Variant3                    ; skip if boss already defeated
+                bhs.s   MczBoss_Return_Variant3         ; skip if boss already defeated
                 tst.b   boss_hitcount2(a0)
                 beq.s   Obj57_FinalDefeat
                 tst.b   collision_flags(a0)
@@ -502,40 +502,40 @@ Obj57_FallingStuff:                                     ; Spikes & Stones
 ; ===========================================================================
 ; off_3160A: Obj57_AnimIndex:
 Ani_obj57:      offsetTable
-                offsetTableEntry.w MczBoss_Animation_Sequence0           ; 0 - main vehicle
-                offsetTableEntry.w MczBoss_Animation_Sequence1           ; 1 - digger diagonal
-                offsetTableEntry.w MczBoss_Animation_Sequence2           ; 2 - hover fire thingies to keep boss in air
-                offsetTableEntry.w MczBoss_Animation_Sequence3           ; 3 - digger vertical animated 1 -> (4)
-                offsetTableEntry.w MczBoss_Animation_Sequence4           ; 4 - digger vertical animated 2 -> (5)
-                offsetTableEntry.w MczBoss_Animation_Sequence5           ; 5 - digger vertical animated 3 (loop)
-                offsetTableEntry.w MczBoss_Animation_Sequence6           ; 6 - digger vertical animated 4 -> (7)
-                offsetTableEntry.w MczBoss_Animation_Sequence7           ; 7 - digger vertical + diagonal transition -> (8)
-                offsetTableEntry.w MczBoss_Animation_Sequence8           ; 8 - digger horizontal animated 1 -> (9)
-                offsetTableEntry.w MczBoss_Animation_Sequence9           ; 9 - digger horizontal animated 2 -> (A)
-                offsetTableEntry.w MczBoss_Animation_Sequence10           ; A - digger horizontal animated 3 (loop)
-                offsetTableEntry.w MczBoss_Animation_Sequence11           ; B - digger horizontal animated 4 -> (C)
-                offsetTableEntry.w MczBoss_Animation_Sequence12           ; C - digger horizontal + diagonal transition -> (3)
-                offsetTableEntry.w MczBoss_Animation_Sequence13           ; D - center vehicle, Robotnik's face normal
-                offsetTableEntry.w MczBoss_Animation_Sequence14           ; E - center vehicle, Robotnik's face when hit
-MczBoss_Animation_Sequence0:     dc.b    $F,  1,$FF                      ; light off
+                offsetTableEntry.w MczBoss_Animation_Sequence0  ; 0 - main vehicle
+                offsetTableEntry.w MczBoss_Animation_Sequence1  ; 1 - digger diagonal
+                offsetTableEntry.w MczBoss_Animation_Sequence2  ; 2 - hover fire thingies to keep boss in air
+                offsetTableEntry.w MczBoss_Animation_Sequence3  ; 3 - digger vertical animated 1 -> (4)
+                offsetTableEntry.w MczBoss_Animation_Sequence4  ; 4 - digger vertical animated 2 -> (5)
+                offsetTableEntry.w MczBoss_Animation_Sequence5  ; 5 - digger vertical animated 3 (loop)
+                offsetTableEntry.w MczBoss_Animation_Sequence6  ; 6 - digger vertical animated 4 -> (7)
+                offsetTableEntry.w MczBoss_Animation_Sequence7  ; 7 - digger vertical + diagonal transition -> (8)
+                offsetTableEntry.w MczBoss_Animation_Sequence8  ; 8 - digger horizontal animated 1 -> (9)
+                offsetTableEntry.w MczBoss_Animation_Sequence9  ; 9 - digger horizontal animated 2 -> (A)
+                offsetTableEntry.w MczBoss_Animation_Sequence10  ; A - digger horizontal animated 3 (loop)
+                offsetTableEntry.w MczBoss_Animation_Sequence11  ; B - digger horizontal animated 4 -> (C)
+                offsetTableEntry.w MczBoss_Animation_Sequence12  ; C - digger horizontal + diagonal transition -> (3)
+                offsetTableEntry.w MczBoss_Animation_Sequence13  ; D - center vehicle, Robotnik's face normal
+                offsetTableEntry.w MczBoss_Animation_Sequence14  ; E - center vehicle, Robotnik's face when hit
+MczBoss_Animation_Sequence0:    dc.b    $F,  1,$FF      ; light off
                 dc.b    0,$FC,  2                       ; light on; (3) subanimation
-MczBoss_Animation_Sequence1:     dc.b    5,  8,$FF
-MczBoss_Animation_Sequence2:     dc.b    1,  5,  6,$FF                   ; fire on
+MczBoss_Animation_Sequence1:    dc.b    5,  8,$FF
+MczBoss_Animation_Sequence2:    dc.b    1,  5,  6,$FF   ; fire on
                 dc.b    7,$FC,  3                       ; fire off; (4) subanimation
-MczBoss_Animation_Sequence3:     dc.b    1,  2,  2,  2,  2,  2,  3,  3,  3,  3,  3,  4,  4,  4,  4,$FD,  4
-MczBoss_Animation_Sequence4:     dc.b    1,  2,  2,  2,  2,  3,  3,  3,  4,  4,  4,  2,  2,  3,  3,$FD,  5
-MczBoss_Animation_Sequence5:     dc.b    1,  4,  2,  3,  4,$FC,  1
-MczBoss_Animation_Sequence6:     dc.b    1,  2,  3,  4,  4,  2,  2,  3,  3,  3,  4,  4,  4,  2,  2,  2,$FD,  7
-MczBoss_Animation_Sequence7:     dc.b    1,  2,  3,  3,  3,  3,  4,  4,  4,  4,  4,  2,  8,  8,  8,$FD,  8
-MczBoss_Animation_Sequence8:     dc.b    1,  9,  9,  9,  9,  9, $A, $A, $A, $A, $A, $B, $B, $B, $B,$FD,  9
-MczBoss_Animation_Sequence9:     dc.b    1,  9,  9,  9,  9, $A, $A, $A, $B, $B, $B,  9,  9, $A, $A,$FD, $A
-MczBoss_Animation_Sequence10:     dc.b    1, $B,  9, $A, $B,$FC,  1
-MczBoss_Animation_Sequence11:     dc.b    1,  9, $A, $B, $B,  9,  9, $A, $A, $A, $B, $B, $B,  9,  9,  9,$FD, $C
-MczBoss_Animation_Sequence12:     dc.b    1,  9, $A, $A, $A, $A, $B, $B, $B, $B, $B,  9,  8,  8,  8,  8,$FD,  3
-MczBoss_Animation_Sequence13:     dc.b    7, $E, $F,$FF
+MczBoss_Animation_Sequence3:    dc.b    1,  2,  2,  2,  2,  2,  3,  3,  3,  3,  3,  4,  4,  4,  4,$FD,  4
+MczBoss_Animation_Sequence4:    dc.b    1,  2,  2,  2,  2,  3,  3,  3,  4,  4,  4,  2,  2,  3,  3,$FD,  5
+MczBoss_Animation_Sequence5:    dc.b    1,  4,  2,  3,  4,$FC,  1
+MczBoss_Animation_Sequence6:    dc.b    1,  2,  3,  4,  4,  2,  2,  3,  3,  3,  4,  4,  4,  2,  2,  2,$FD,  7
+MczBoss_Animation_Sequence7:    dc.b    1,  2,  3,  3,  3,  3,  4,  4,  4,  4,  4,  2,  8,  8,  8,$FD,  8
+MczBoss_Animation_Sequence8:    dc.b    1,  9,  9,  9,  9,  9, $A, $A, $A, $A, $A, $B, $B, $B, $B,$FD,  9
+MczBoss_Animation_Sequence9:    dc.b    1,  9,  9,  9,  9, $A, $A, $A, $B, $B, $B,  9,  9, $A, $A,$FD, $A
+MczBoss_Animation_Sequence10:   dc.b    1, $B,  9, $A, $B,$FC,  1
+MczBoss_Animation_Sequence11:   dc.b    1,  9, $A, $B, $B,  9,  9, $A, $A, $A, $B, $B, $B,  9,  9,  9,$FD, $C
+MczBoss_Animation_Sequence12:   dc.b    1,  9, $A, $A, $A, $A, $B, $B, $B, $B, $B,  9,  8,  8,  8,  8,$FD,  3
+MczBoss_Animation_Sequence13:   dc.b    7, $E, $F,$FF
                 dc.b    $10,$11,$10,$11,$10,$11,$10,$11,$FF  ; (4) subanimation (grin after hurting Sonic)
                 dc.b    $12,$12,$12,$12,$12,$12,$12,$12,$12,$FF  ; (D) subanimation (grin when hit)
-MczBoss_Animation_Sequence14:     dc.b    7,$12,$FF
+MczBoss_Animation_Sequence14:   dc.b    7,$12,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

@@ -85,10 +85,12 @@ removed switches can be recovered from the imported upstream commit above.
 
 Original labels are retained unless recorded in the single canonical
 [rename registry](../config/reconstruction/label_renames.json). The registry is
-present even when its rename list is empty. New hardware or tool-facing symbols
-are project additions, not claims about upstream authorship. The source layout
-registry records coordinates and fingerprints relative to the preservation
-source baseline; it does not import another branch's source or Git history.
+bound to reviewed source contracts and both accepted profile values. Remaining
+address-derived names are covered by the [unknown ledger](symbols.md). New
+hardware or tool-facing symbols are project additions, not claims about upstream
+authorship. The source layout registry records coordinates and fingerprints
+relative to the preservation source baseline; it does not import another
+branch's source or Git history.
 
 ## Upstream disclaimer
 

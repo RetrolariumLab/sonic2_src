@@ -109,7 +109,7 @@
       "source_sha256": "83f617e15d03bc61eaaad0c46cecacaa87c4637bf0446af5c78e8181d0efbef0",
       "owner": "audio",
       "responsibility": "resume music",
-      "file_sha256": "cfb4db6ba4c08f74ba1a164c3df40a5adea44d553f886613f59f4893a454304c",
+      "file_sha256": "1a85fd0dc7739dcd4e36e19fd167202e921d45332b326a7d36faeeb59d2f9a93",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -616,7 +616,7 @@
       "source_sha256": "d6ff8b9786217c6d59c1623f84bc38bc4688791d9db9befcaad559ec6c2b6bf1",
       "owner": "game/level",
       "responsibility": "debug mode",
-      "file_sha256": "ff5d2f62e8a8eca06cd36fecaa202fd6a82095346af6c0be4851bd7b24b60762",
+      "file_sha256": "d6ff8b9786217c6d59c1623f84bc38bc4688791d9db9befcaad559ec6c2b6bf1",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -697,7 +697,7 @@
       "source_sha256": "094a3b22df030a1882aa9dda1a0c7548ff6f9c6bddce94128c00d80b5071e637",
       "owner": "game/level/drawing",
       "responsibility": "update planes",
-      "file_sha256": "770f5e538c364bf4bb767348426f8022d4108825e3c562ff6ff6eea5a7395f16",
+      "file_sha256": "094a3b22df030a1882aa9dda1a0c7548ff6f9c6bddce94128c00d80b5071e637",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -2517,7 +2517,7 @@
       "source_sha256": "3b91f596ad68628c9237a810800326166113b0ce222adf9cf0e0756dac59e170",
       "owner": "game/objects/environment/cpz/pipe",
       "responsibility": "cpz pipe",
-      "file_sha256": "9465d5b9901675949e6250aaceb81f2b399656721aa3565a02172735594398ad",
+      "file_sha256": "5832f829af161411935c8ec08f1f7044266708e8b1ae46b92e3cc57616cd65b9",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -2623,7 +2623,7 @@
       "source_sha256": "2310c587bd91ab9b60e51960745a707e13eee2fd25e003784f918efaf660c416",
       "owner": "game/objects/items/signpost",
       "responsibility": "signpost",
-      "file_sha256": "4a0b187d3d931acb6932743b4ec117ee108d6de3819c0ec39857993550ea5a1a",
+      "file_sha256": "7464914415e782f28123663fd35ebf99006fe1402d425cde09e78ec3a4cce3f9",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -2752,7 +2752,7 @@
       "source_sha256": "042057382b9fcac5a41257a273c4510faa87a29290d9829b5d41fa7fda893f20",
       "owner": "game/special_stage/objects/tails",
       "responsibility": "tails in special stage",
-      "file_sha256": "73cec9b2cfded07e117678901110969a8d47a8efef0a0b5b71a198d41eae6395",
+      "file_sha256": "2de2bc45f86180c8477130b6a503804a4695c143dde8dd96ff208ef2d1c5d1e2",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -2944,7 +2944,7 @@
       "source_sha256": "fa80b4cff5975f9db224f2313f62e8829adee443d07c39d8675a9676ce20d07e",
       "owner": "game/objects/environment/htz/seesaw",
       "responsibility": "seesaw",
-      "file_sha256": "50ea74cee0d905dc15488cd0bddf12bd5f64ee6916b00ab87c23dfc7e8e0b199",
+      "file_sha256": "84e89ead74557ef9c66a358db0cc1e3017122d67cb5ade7fbd976584f0348168",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -3486,7 +3486,7 @@
       "owner": "game/objects/environment/cpz/spin_tube",
       "responsibility": "Indexed spin-tube XY path container for game/objects/environment/cpz/spin_tube",
       "kind": "data_ledger",
-      "file_sha256": "bf4644c795d3bd3f750b38d1a9195fd2d9d5ddaf4ec9533a60a13ffdd6a81122",
+      "file_sha256": "5ca50d6e615fe3fc1fd4e34adbc7f6d03f1214505a9c3440d100a286262a4ed8",
       "source_sha256": "5ca50d6e615fe3fc1fd4e34adbc7f6d03f1214505a9c3440d100a286262a4ed8"
     },
     {
@@ -3498,7 +3498,7 @@
       "owner": "game/objects/environment/cpz/spin_tube",
       "responsibility": "Indexed spin-tube XY path container for game/objects/environment/cpz/spin_tube",
       "kind": "data_ledger",
-      "file_sha256": "2088f93e00258b3068fa10dd1ace02673fd118f5d7f69023c26648c3fa521926",
+      "file_sha256": "97e77fa9eaaa019f2f80ac962e60bbc48f5f2346af5067206e22ab8fa51936f5",
       "source_sha256": "97e77fa9eaaa019f2f80ac962e60bbc48f5f2346af5067206e22ab8fa51936f5"
     },
     {
@@ -3561,7 +3561,7 @@
       "source_sha256": "741314e65f5ba48f8845c53f1ec2831217d01e51b2b252638433044b4ddc856d",
       "owner": "game/objects/bosses/htz/lava_bubble",
       "responsibility": "htz boss lava bubble",
-      "file_sha256": "ebed25b269fc9756ef2e600518ae4953eab236ad356e9d8094eab4a7077ff4b3",
+      "file_sha256": "c949f46df98bb81455dc622077d90047934c0b76bcd49a0f2ebea9abfe22feab",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -3643,7 +3643,7 @@
       "source_sha256": "25200534e845d88230e2b53f4a6d1696cabbcf48cad7ce0981794a80e9164675",
       "owner": "game/objects/environment/arz/arrow_shooter",
       "responsibility": "arz arrow shooter",
-      "file_sha256": "d10ee25e8559c400feeee32e5e8ff08af26962a56486e561689721f25f41a7fa",
+      "file_sha256": "085973086c38285c08194e6f17cd26c51bc6867f639ba2de23f10fff7f32371f",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -3682,7 +3682,7 @@
       "source_sha256": "e0bb4f41850c1273245e6bf1019cada7b4cee620119ce2f22d6561171879167b",
       "owner": "game/objects/environment/arz/falling_pillar",
       "responsibility": "arz falling pillar",
-      "file_sha256": "0e87bab532cf40ede466ca57d9f2ed268eeb793ad38625db10c75158df7a115b",
+      "file_sha256": "62cca9d01401b228a0367071804b80ff6aa98f05ba83f5a681178cd3ead3ddb2",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -3709,7 +3709,7 @@
       "source_sha256": "1eb741301621dd2485e4a45901f22be36245495fd02224367a3102d5a37fd397",
       "owner": "game/objects/environment/arz/bubbles",
       "responsibility": "arz bubbles",
-      "file_sha256": "04b0d7097b5d55352ddc181a3a79132da66d626f3448d5321e25ee6bed0bd8a9",
+      "file_sha256": "1eb741301621dd2485e4a45901f22be36245495fd02224367a3102d5a37fd397",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -4078,7 +4078,7 @@
       "source_sha256": "9564346ac71637fc0f9c91f537ba2bdba272ce313886160cb1dd4a2ba0dc8bbd",
       "owner": "game/objects/environment/arz/rising_pillar",
       "responsibility": "arz rising pillar",
-      "file_sha256": "52b47695a277dbfb1ad85bf3dc2f9061aee3225d4d72ca2316d2a3b5353788e7",
+      "file_sha256": "4c5caaec861ddaad248b7d51a1718260b6d81b2cef9a36a4de3e18bda6c07052",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -4399,7 +4399,7 @@
       "source_sha256": "0e20e1f4f43b143389045ddf0f3dd6692b4b89fd78edbd9b55f53ecb6c10d0f0",
       "owner": "game/objects/environment/ooz/green_platform",
       "responsibility": "ooz green platform",
-      "file_sha256": "07f285a19f9640ee94b87e8f927cd63ce390f3a6a7b810c0d74b62f0c6dbb32a",
+      "file_sha256": "51da42c97b4dcb736e4314d75bbaf820425de810ef7650d78e0a2a28c69bba64",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -4769,7 +4769,7 @@
       "source_sha256": "209f98125904f1a334364f6a05f3dda2be12b8b6173c0f113392dc5342c3b579",
       "owner": "game/objects/items/prison_capsule",
       "responsibility": "prison capsule",
-      "file_sha256": "efad5b05944cc98d74ce1d21dbe80fa9d09dab2d4e70d1466473111c14c28e5a",
+      "file_sha256": "3b9db36c9d924ce94a076b73f34165ed087bd89e9f2f71eeae2393b0fa8f4a98",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -4863,7 +4863,7 @@
       "source_sha256": "4f1a51b9bda7d5668dbbf0660d7572252b18b79ef638f0d7fd94b89af43b50af",
       "owner": "game/objects/environment/common/springboard",
       "responsibility": "springboard",
-      "file_sha256": "66f2359fcca3ef5283535fec2db9c7bf22061341a019f728c9960429129fd4af",
+      "file_sha256": "1925ba7c17989f8d1725bfaafc02e32af1febf4faa3dee2ac4877c46dbdcfda5",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -4890,7 +4890,7 @@
       "source_sha256": "a6382da9b4d06572a6ebfb8dc6ae9531593ff9cfa1762da4f8281ca55e3ff73e",
       "owner": "game/objects/environment/common/springs",
       "responsibility": "springs",
-      "file_sha256": "fce6a81729ff54596cf4d7cbb377bcb56d59da1c3216afb57a868b0fdeccd80d",
+      "file_sha256": "e5022661fe379d07ca1c663bb685dd4a739a5d30da59ddf2ae82ab606df611e0",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5015,7 +5015,7 @@
       "source_sha256": "114bd713ba283c5fd21cfcaef32ca245661657c38c5779d0af1ce94a962ebb62",
       "owner": "game/objects/environment/cnz/round_bumper",
       "responsibility": "bumper",
-      "file_sha256": "ff11c89de20dbdb6caa900c07fef9f806472fa5754210bf6fd45765a5c01efd0",
+      "file_sha256": "4661079aa2f0382cc86ccc4f86e60f85fd3e8c53baf5d80ca52a56213bcd00bc",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5054,7 +5054,7 @@
       "source_sha256": "b58a12a1b12a8801bb61905768e3348bf52527b633103042745a7ee2ccc695f0",
       "owner": "game/objects/environment/ooz/pressure_spring",
       "responsibility": "ooz pressure spring",
-      "file_sha256": "74f3a44a6ad9d383216c36bf9cf4d36eaa3ce430efea598cf0b28069bb418ece",
+      "file_sha256": "121254bd9a79240ae27ce3503cf63775c0f58400a34b4ada5151d0d45ddd4e03",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5253,7 +5253,7 @@
       "source_sha256": "e061deb12b19dc4ed260c88f7587c60d2d29aa5232f94cb08613d159c54d7645",
       "owner": "game/objects/enemies/octus",
       "responsibility": "octus",
-      "file_sha256": "3304aa68ee9335e64882b8cced3fe1fca30a49af87113906d784c9fdb4c3f76e",
+      "file_sha256": "e4f0bccf08fa01898efc66101421a7b8cd7f97de961b1610793450651f6caed7",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5292,7 +5292,7 @@
       "source_sha256": "7fdfe9830bd299dfd7f8db8b607df5de4920c7d959c0c212bd0b380bd321a76a",
       "owner": "game/objects/enemies/buzzer",
       "responsibility": "buzzer",
-      "file_sha256": "ff819d9abcdc332d2d7d5b7da24a4ae778b8c29fe142aabeda9cc6ed4afec0c4",
+      "file_sha256": "97b9e62e09d5456911095fff412c2efe603a957ec2b37c4d9f2393403e69897a",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5331,7 +5331,7 @@
       "source_sha256": "fdee98008ce5fb70dca2518fd66b7abf7c5bccc9fea6cad626ca154b296d7dff",
       "owner": "game/objects/enemies/aquis",
       "responsibility": "aquis",
-      "file_sha256": "ff0e4a0e77f6fce07ca7ab91020d819502357dfca5dfb02024a5fa8675115883",
+      "file_sha256": "e072ea4f8c5f6938f7b24d24f7bb10e63a751b8cce2a38b163d911b31379f419",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5370,7 +5370,7 @@
       "source_sha256": "2fe7665cfc4312bc0a4e079fc0862b6e8e4192816b1d86e027c73a64048d71ae",
       "owner": "game/objects/bosses/cnz",
       "responsibility": "cnz boss",
-      "file_sha256": "90d5d4542f43cce3a3b721021ab11e478f3c2ccdc6a1a973a9710e7c7cc4ecd2",
+      "file_sha256": "c3d46093baa659c040310a4daadffa2ccca784601bc57077becd10dbd849d016",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5425,7 +5425,7 @@
       "source_sha256": "1240836bc3af05c7c4b8837f66c2813d36726f6424a1cd71d4eaaee0be054b8a",
       "owner": "game/objects/bosses/htz",
       "responsibility": "htz boss",
-      "file_sha256": "e35a895a6cfd289927d0d24a7bf799a30998bf541aa26ae13b28c79ff1605379",
+      "file_sha256": "cb3c0538f09066ecab5db003182fccae0eb2ecc31b923319418895b01780b6bb",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5464,7 +5464,7 @@
       "source_sha256": "947bf5c60a10c46603bf74e63d0257df7f2e8885e031a561285ff10ec9dfc39c",
       "owner": "game/objects/bosses/ooz",
       "responsibility": "ooz boss",
-      "file_sha256": "f7223ced4b2f93b1888822277b7e10a312c5483123ae56dc531b64fbe1e49a7a",
+      "file_sha256": "be6c7c7bd4208d7b9810d0efd331740321bdf39d9920115e5ac9df84c3bfb8ec",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5527,7 +5527,7 @@
       "source_sha256": "78ca55c7f10956e92002da665561f2c875c98f0ef7a4359b4b10e78ccf6050a1",
       "owner": "game/objects/bosses/ehz",
       "responsibility": "ehz boss",
-      "file_sha256": "d04100308600d3f00b9d3701d8e9f33aadb17aa46e55760ba136fe3b393d7a46",
+      "file_sha256": "81a0e4a14db8cd24b3a9a7212b0ebaed168cdf5dbfeca7c179409a547d80b9ef",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5566,7 +5566,7 @@
       "source_sha256": "4dc09037803b920fda89efe4c69910f2e4650a466c7b9deee08096074badb3fd",
       "owner": "game/objects/bosses/mcz",
       "responsibility": "mcz boss",
-      "file_sha256": "d4d37d0228822dcba3564ae7e8cc1663da1bcd9ce023c78da5b342ad93ad697f",
+      "file_sha256": "748f6a1ababacec7b7355a2a6693d0e46c3c484dfc9531c2d6e2361472c2fb6b",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5644,7 +5644,7 @@
       "source_sha256": "6aa3413bbe8b6ac4ec7b9e3c4a60d34046c1feb414137307f732acd4f2d52ae8",
       "owner": "game/special_stage/objects/chaos_emerald",
       "responsibility": "special stage chaos emerald",
-      "file_sha256": "26e7114cb572c9f5a974e1cf4ce93fb16a4252ab5be6172a3f72b3d603d0c448",
+      "file_sha256": "72d7c08cef7460cb2a590740ca114192ea341e5bc75508982b77a18a8d7c400c",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5695,7 +5695,7 @@
       "source_sha256": "f365b059cf18b2f82ad355e917d86a30a2d6ffa1b99ef9dd2b5110ea60a8aec5",
       "owner": "game/special_stage/objects/messages",
       "responsibility": "special stage messages",
-      "file_sha256": "25447cf84645685c1a6bd22327e93f703e562dad1e155003b98e7e94457f6ad1",
+      "file_sha256": "b950938934d6bec443320e21f053499d1b705fcb8795ea5913054fa56412cf7d",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5765,7 +5765,7 @@
       "source_sha256": "41cacf4fdd5096de005cbe82994aad991dd0bffa03c2c3fd18c9dfbf5f75167b",
       "owner": "game/objects/enemies/masher",
       "responsibility": "masher",
-      "file_sha256": "447c2c497faf13e392d1b84d503b4e758b283020878e4abe121cb9fefde12a32",
+      "file_sha256": "3cb28e046847277ba79c0dfda1a6ed9dff6e00ea2151c65398282b2e17099008",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5855,7 +5855,7 @@
       "source_sha256": "63c893242d478cc309ad974b96fdc9a907a3196f6b3e2872c8ab6c0311b0eef7",
       "owner": "game/special_stage/objects/start_banner",
       "responsibility": "special stage start banner",
-      "file_sha256": "b1d29a3bc7aee5536c3dea9d359f3d49939e69a838fba9408965aa3db69384af",
+      "file_sha256": "21d17a6366d0e50ec6e2edcccfcac260cae59ccc5cfe02ad2c86d4e8e8266172",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5933,7 +5933,7 @@
       "source_sha256": "98a82eeb6841ee016f50496db5d08a8d38f58a2a03e4b9512e4d1163571cd88e",
       "owner": "game/special_stage/objects/character_shadow",
       "responsibility": "special stage character shadow",
-      "file_sha256": "4eb5a88ca1da1bbb1a0ec5f28f27a4b583a6049c6568d2cc58920922b5c27373",
+      "file_sha256": "f3e8d443c4a236f5f5b9bf125c1cf2bacfb3b2160e69839febfb4897066d0230",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5972,7 +5972,7 @@
       "source_sha256": "153cd77549dffae88d3c4c6c814425692fe57374b26893da81fc2831983ac2ff",
       "owner": "game/objects/environment/mtz/twin_crusher",
       "responsibility": "mtz twin crusher",
-      "file_sha256": "bbf8374e69f7ef5ae45bb0d0df81e7121ba6c36a450c607ef8c713385cb9d0dc",
+      "file_sha256": "83805c4fdd9a0d224ebc2fbf5cae5f8561fa437ab3bc09687f07d69dd96d89da",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -6031,7 +6031,7 @@
       "source_sha256": "5bfc1894fea49a132c12e4a3fb761a66667c6096480ed3535c835e89e0966359",
       "owner": "game/objects/environment/mtz/long_platform",
       "responsibility": "mtz long moving platform",
-      "file_sha256": "59c06831ad5349eaca8374e40423ea56ba8c0427f665a8009c3f307e18b473df",
+      "file_sha256": "5809680043bf7487ba91c16ef2a90160db9bed5c9690bb67d19a967754511cbc",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -6117,7 +6117,7 @@
       "owner": "game/objects/environment/mtz/spin_tube",
       "responsibility": "Indexed spin-tube XY path container for game/objects/environment/mtz/spin_tube",
       "kind": "data_ledger",
-      "file_sha256": "5d349631d410ed5b88c2cd352aa6a8c4315378f261908494f7df52e1ce8b5081",
+      "file_sha256": "8c6111d77163057fefcb3571ec4d096fda53e01f01d6990eaa45c73627dbc7e3",
       "source_sha256": "8c6111d77163057fefcb3571ec4d096fda53e01f01d6990eaa45c73627dbc7e3"
     },
     {
@@ -6129,7 +6129,7 @@
       "source_sha256": "bb60f9d7da213b6227135b36c57d3154f8e057c6e543fc87b6e3601d6e7fcab7",
       "owner": "game/objects/environment/mtz/spin_tube",
       "responsibility": "mtz spin tube",
-      "file_sha256": "ec9419852f9c9b48d87ef46f8388c0adee3af27e6971e1a60221a4e5cac976f8",
+      "file_sha256": "03d396228b0fb5e750c99a7dc3c4ca21466ccabe032f856e0797c7a1fa6555eb",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -6336,7 +6336,7 @@
       "source_sha256": "4d3fb32ac5bace6b207d9113b846a51a55f2a627b7925cc6f1d6970cf7c925ed",
       "owner": "game/objects/environment/mtz/pulley_platform",
       "responsibility": "mtz pulley platform",
-      "file_sha256": "678613aa2e47e33db8f0cd8f6ae1fc847568118f91c9ef358c8429717134684d",
+      "file_sha256": "390547594e78a1410a85f775f44be3d31481d6273884034de90c3991150af3d3",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -6531,7 +6531,7 @@
       "source_sha256": "b202ad4c89f4d24cad0cad7ee239d5e051280e0a2e1d7f3f5db3d58bf6b1ff52",
       "owner": "game/objects/environment/common/stake_orb",
       "responsibility": "bridge stake and pulsing orb",
-      "file_sha256": "d8480645e1e23e46df5b180615dcc91beab48d7612faa3bf513b001e51f4a669",
+      "file_sha256": "224fe36d207d2efb8e6977c318370fcf4ca8deb4aef0fc746f8f3d1b878eb2a4",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -6847,7 +6847,7 @@
       "source_sha256": "c845d8c7b5d780e33bdcb6a84c67c755da2a96aa2cc81b8c93dd1e8738b84bda",
       "owner": "game/objects/items/starpost",
       "responsibility": "starpost",
-      "file_sha256": "58fa7fe745c04b589f9dfbbb84ccb065a133eb79bb7f9550078d7ffaabf60215",
+      "file_sha256": "67a0c21c28fb05b6fa68b503e4a39c7daa0f910d7c06a27ea2b2f27f89907b71",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -6956,7 +6956,7 @@
       "source_sha256": "23b4167355e2c869e1a645faa5940e72a9c3cf2d905daa72e68e6c35eba09f17",
       "owner": "game/objects/environment/cpz/spring_lid",
       "responsibility": "cpz spring lid",
-      "file_sha256": "c9998745f71c4fb1a09926017cabebecf5ea239c5815348904ab2a9819c245cb",
+      "file_sha256": "24cc3f97e532858b18b04a150927d804d5e7c7704ee9871edd4008661f6e641f",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7261,7 +7261,7 @@
       "source_sha256": "fbbeec38112ba211125b1440a418d75834529269dd1fcd299761d22860284ddd",
       "owner": "game/objects/environment/arz/swinging_platform",
       "responsibility": "arz swinging platform",
-      "file_sha256": "5a95d1c1e168ff191a1ef84af4e7c8bb00f2314417a0651903ea751704c9bb54",
+      "file_sha256": "414345d7bbca7c36bda59e425ef9e365ed8eea26a26cb5497016c9a55abc447c",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7421,7 +7421,7 @@
       "source_sha256": "30e1de93cd6d0b0f0255ef94561a50210b2295884b29dc104f700540dee14691",
       "owner": "game/objects/environment/cnz/pinball_flipper",
       "responsibility": "cnz pinball flipper",
-      "file_sha256": "2d1b15d50e787936f7b42881dacdb5be79e0f0fde9c21d28fff6fe14fbfffd05",
+      "file_sha256": "9732beff4f772029d490e11f9fd375f02c4361fd81415a06bd1b467269509792",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7499,7 +7499,7 @@
       "source_sha256": "23b0dcabeded174ed4a65f9d5ad83e77f5ecc3d05f0c2c852e4434170ec10129",
       "owner": "game/objects/bosses/arz",
       "responsibility": "arz boss",
-      "file_sha256": "3001c9a17072d8684aa7e4ad268510eb6be090aef413b7b618e1598556267590",
+      "file_sha256": "0c249d3a9acd725e12427346e31ab2c01742e6eabb59dde673b2c88b3eec4cab",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7635,7 +7635,7 @@
       "source_sha256": "50c25c63b04cbec6267af05b9f4c81f9ea00bc9357d51932f689f03ac4f1767b",
       "owner": "game/objects/enemies/grounder",
       "responsibility": "grounder in wall",
-      "file_sha256": "26416891baa2006955233aa0de1e0115e28f2c69c04af5d84a9c3d497b304b6a",
+      "file_sha256": "50c25c63b04cbec6267af05b9f4c81f9ea00bc9357d51932f689f03ac4f1767b",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7717,7 +7717,7 @@
       "source_sha256": "aa6005250190dc7fb472069f65898e7858bd88bfe043ce1de93e786ed7e97113",
       "owner": "game/objects/enemies/spiker",
       "responsibility": "spiker",
-      "file_sha256": "1a52b44ecf89b0197bc33a2446e295100f43d71e9fbb7a49570b87f3297a15a2",
+      "file_sha256": "cdc97dabb126a2e19d896efde0123c83d65b3fec78dd4f84db2fe1f128ea24a4",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7760,7 +7760,7 @@
       "source_sha256": "f395203db5a311c998bc008a383cc113d9b9b65528fe05422002ed2965dbc4ba",
       "owner": "game/objects/enemies/rexon",
       "responsibility": "rexon",
-      "file_sha256": "8c6be01a62c80dff600f229d6b92f999e829faeb04387147f89e2e476e8bd3d3",
+      "file_sha256": "7a77288e30190a4f7de701e315b63f23e04c5a544b37bb43811fa438068f0606",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7799,7 +7799,7 @@
       "source_sha256": "26106b678eaeff3aa4322a25506b1a010bede5de128c552ca2a8ffa52abad558",
       "owner": "game/objects/enemies/sol",
       "responsibility": "sol",
-      "file_sha256": "236356b7e45d441a5b8e39d7e672b9285fe041ba0ccad37582648dd580cf2dd9",
+      "file_sha256": "fcb1b9f22771837d9727e256a1327256d6dc7531d6c9604c5ba0738e654a10c8",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7892,7 +7892,7 @@
       "source_sha256": "94b8538feae6579e03588a758e9c59fba289d823ab3347c3a6534378013c594a",
       "owner": "game/objects/enemies/turtloid",
       "responsibility": "turtloid",
-      "file_sha256": "1931dd7a2574dd78afd86c7038866fc66bb38bd54f9f893a11480fc29b9139fd",
+      "file_sha256": "94b8538feae6579e03588a758e9c59fba289d823ab3347c3a6534378013c594a",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7970,7 +7970,7 @@
       "source_sha256": "fa3ca44feec8e6e1546963ebf60ff13282408adaa0122055f88179951f27b408",
       "owner": "game/objects/enemies/coconuts",
       "responsibility": "coconuts",
-      "file_sha256": "0014ec7c33906d504ed1e46522357fa54618494c32ef51c56074debce15e5e67",
+      "file_sha256": "9c65611d9ceb832972a280b0745b794909e900e266fd98f3a51020a49ed8c807",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8052,7 +8052,7 @@
       "source_sha256": "60145c97e717fb916203f9156923a1f1ac5001ac333efb082d187d6367331eb7",
       "owner": "game/objects/enemies/shellcracker",
       "responsibility": "shellcracker",
-      "file_sha256": "8680afa84ca56b37fb37beb4d4181e5a144ef403ee5c163c46e74a98153d2a3e",
+      "file_sha256": "af6ab3ada3bf2a160d2a286d54e1c6dfb4332a4a2fffeeb45baadc681c863d71",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8235,7 +8235,7 @@
       "source_sha256": "7341131869997685dc801bca25657a5083fa1374325f5073f3ede87602b59c84",
       "owner": "game/objects/enemies/grabber",
       "responsibility": "grabber",
-      "file_sha256": "7a2df9794171cd106cdded33681cb379f04fac731457ec0dccc337bbdae300cc",
+      "file_sha256": "7341131869997685dc801bca25657a5083fa1374325f5073f3ede87602b59c84",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8380,7 +8380,7 @@
       "source_sha256": "e9e30df7dfc9cf634ef7afb74d17158745e9f08ffb673e2db92a2a758a80f8c6",
       "owner": "game/objects/bosses/mecha_sonic",
       "responsibility": "mecha sonic",
-      "file_sha256": "f945fb6ef6fa02c1e8997f314bc975424e5b7aff6069e5d17a50679345e918f2",
+      "file_sha256": "85c37f5ff98e276438949eee1cd70d5924b7af5172849cdde1cd39bcb1307a25",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8419,7 +8419,7 @@
       "source_sha256": "175797ed3b13f70f1f354f93bfb76851edc001605371203ad3b2ea2758b9f7ef",
       "owner": "ui/objects/sega/sonic",
       "responsibility": "sonic on sega screen",
-      "file_sha256": "bc19768cf94c343dc783b73b5e4916d2755ddc51da2817eab9cd6b7e1860d50b",
+      "file_sha256": "c6dc5dfa90fc53537fe4c8e7bc8686c7e27a7eff6decc65a9d77d1dfb745d4e0",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8474,7 +8474,7 @@
       "source_sha256": "b0055dc8c65386b46d81b6151557b526018d95711a77c798528a23bd86499491",
       "owner": "game/objects/scenery/tornado",
       "responsibility": "tornado",
-      "file_sha256": "853f7b480921e81e8ae07e7f0c94c3f41c44e7227ab6276d106f19130eff3895",
+      "file_sha256": "cc297464e223754293acfb3e38a5ea0ace8f90cf5dd0f61e605280d10344cb22",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8599,7 +8599,7 @@
       "source_sha256": "9109130a597a54d1165d2d9ee40002da6312b6f7c2a65db51347e0dbc63a74ae",
       "owner": "game/objects/environment/common/horizontal_propeller",
       "responsibility": "wfz horizontal propeller",
-      "file_sha256": "91f1a103800f543bd1adfb9fa943216a5c809c691e895e215f75500e1f1328b2",
+      "file_sha256": "3d92da6c51618c64d4f160fc4a8a931d29c42f53f3ebbd6af89306bb6e1b633f",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8638,7 +8638,7 @@
       "source_sha256": "69551e9739e963c14faaa008158874bb060ac40eb63538d4ff13dca5e2525a7d",
       "owner": "game/objects/environment/wfz/tilting_platform",
       "responsibility": "wfz tilting platform",
-      "file_sha256": "e844fa676cd42871bfc7cf048ae9ddab62053d9c1e0f7418d64b956966d120f1",
+      "file_sha256": "c0b4fb2d00c5a3acac066c4e122dad8714bae3cbcde1c5eb1e92f141d5ded106",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8935,7 +8935,7 @@
       "source_sha256": "b0bc482c86ed313132a050e04f9a48d328ccc9b6f645e93b65175c2a8fb9aa37",
       "owner": "game/objects/environment/wfz/platforms",
       "responsibility": "wfz platforms",
-      "file_sha256": "d5c320fb6d4ae252ba18bbadf4e11bff8c1d377cabed80ea1c9bc95a66a59fd4",
+      "file_sha256": "9915bbbe045e6cd286c688c076df7a7e46f91e92cfcdf3f027d5b3a5af7e263a",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8974,7 +8974,7 @@
       "source_sha256": "50b27dd715a5e7c2ec698bd2044d47b485b023913b7d38cb309bd07499ebee81",
       "owner": "game/objects/environment/wfz/cannon_platform",
       "responsibility": "wfz lateral cannon platform",
-      "file_sha256": "42ed19ac4dce7c499d2d51749b07b36ee278086431fbf1cb8ec996156b77c5a7",
+      "file_sha256": "6a3d35639f084a92e224e489cd3699b5739408b3f14215bfdcc0510378110b6b",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9071,7 +9071,7 @@
       "source_sha256": "fcba229a0dc19fed2bf845f8174571e875a08e06d6aba1cb56d22c984e4a02d6",
       "owner": "game/objects/bosses/cpz",
       "responsibility": "controller",
-      "file_sha256": "ea41e8580147f03c1962a94e2ac157ffd48dd04ec3ff121c6ebe153e651079e3",
+      "file_sha256": "f8f7c905af862cf442cb94794791a1343c1378fb1e71e61b23388b80658dba17",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9154,7 +9154,7 @@
       "source_sha256": "3a9992b47254f50b8ed9b24bce2200f8e575aa03f278b825a87e286fad854933",
       "owner": "game/objects/bosses/cpz",
       "responsibility": "gunk and visuals",
-      "file_sha256": "df6381fe482b5ca3a44d93dc26541dd7b82269587569a23c989c173065264b15",
+      "file_sha256": "e13c93e9171143bdaa24e7850a797596fc5c44334883c87d48e061ad75b6a999",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9208,7 +9208,7 @@
       "source_sha256": "761f494a31d1652522396aeeb2b81fd1ff4bada79d5399fcdf3ea29540edc7ac",
       "owner": "game/objects/bosses/death_egg_robot",
       "responsibility": "animation data",
-      "file_sha256": "460676593e1518611e3d920c13ce84dc71c8be3e959ff3c3812bd47126e2c7b0",
+      "file_sha256": "4928d522c8b5d21631afe48457d6133d8498d03699afda1ce0ed9a215c2ceaca",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9262,7 +9262,7 @@
       "source_sha256": "57668c347c54fc44403aa3bdaf103367cfe54c0f998542a6f2e6d73748be279e",
       "owner": "game/objects/bosses/death_egg_robot",
       "responsibility": "collision and bombs",
-      "file_sha256": "a2e5ed2f1358fea136c56affd03569ca83afe7b7d08f4754e07632d9c555816b",
+      "file_sha256": "57668c347c54fc44403aa3bdaf103367cfe54c0f998542a6f2e6d73748be279e",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9301,7 +9301,7 @@
       "source_sha256": "1e8223037a5513c4c0f550ea24a714e3780a1065425cb896f7d046d1b5d003e3",
       "owner": "game/objects/bosses/death_egg_robot",
       "responsibility": "limbs",
-      "file_sha256": "fce5f0df1a25c118d1b394fae7b985e91de4fb837da8892c5cbcd5a787858133",
+      "file_sha256": "1e8223037a5513c4c0f550ea24a714e3780a1065425cb896f7d046d1b5d003e3",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9394,7 +9394,7 @@
       "source_sha256": "dfecb460f2c29c52993392e5c4526c0b6a915b5d2f31555ef207f1b925ced42b",
       "owner": "game/objects/bosses/mtz",
       "responsibility": "satellites and laser",
-      "file_sha256": "01c13fb6dfb4105c85d0398edbf754dd5fb428c062dda7ba298aaf48f3892631",
+      "file_sha256": "b5b2eb6f2e14a3f5204dd0d5c353ad404365b0b5577142fe2422d66a539366aa",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9601,7 +9601,7 @@
       "source_sha256": "cb9a3e9030c7e6b2a4d64aad7ca284e651eba0e075049ffa1796bf6491baeb02",
       "owner": "game/objects/bosses/wfz",
       "responsibility": "wfz boss",
-      "file_sha256": "8b4f410a5a127253fcabd33e67643ed106a3d7407dc9da5c2ad79e8bf566f21a",
+      "file_sha256": "f3f16d2e124e91ca2c24ba75f2c4092c8c0d57ee1e0e5710fa96cc99109f7d31",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9652,7 +9652,7 @@
       "source_sha256": "b4b40ab1494492b00fb576c821523f56ba4564d87969ca14dcaf6bc6e4ea7702",
       "owner": "game/objects/bosses/eggman",
       "responsibility": "eggman",
-      "file_sha256": "27d2c150de90f1409f24e6ca7fe19ac751ba909afb9c952bad44c444ee37e91f",
+      "file_sha256": "00d05a0edf24b6794874d889f21057f0ce70f1687cb2e9c007d224459813d6ba",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9718,7 +9718,7 @@
       "source_sha256": "071015d07fe71b728f98b5bdefe80bdb4df2a16c38f244a5ce91686ef3758df0",
       "owner": "ui/objects/title/palette_cycle",
       "responsibility": "title screen palette changing handler",
-      "file_sha256": "b62ba79ed430ef14000d69d492b7d156ffb93a0328fa1eee1f52a1f46022d793",
+      "file_sha256": "f5423ba0679c531af1e7e79c2fcffb88e454416263b1a70a543caf190c77f795",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9799,7 +9799,7 @@
       "source_sha256": "07f0550fd60be4be8e45dfe1fc3eaa9051ae68e0b087db0b1c0e20c5f0fdd48b",
       "owner": "ui/objects/ending/tornado_trigger",
       "responsibility": "ending tornado trigger",
-      "file_sha256": "0ffa3e4f7b3527088a175d5aa600da67bc6488c46fc9526fba6b99cc9ef3f097",
+      "file_sha256": "9ef05b52a5e494fd47ddcdc237e0bad1e20345cabe43810e9b0dffd9f94eded8",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9826,7 +9826,7 @@
       "source_sha256": "3d702fa181edfed34a9b641e3a3b3410084cd14891f12ba51079b3e6132e3ba4",
       "owner": "ui/objects/ending/birds",
       "responsibility": "animation data",
-      "file_sha256": "1d7f26b4d29e22255dbecb3117b00a3089126da5e82f60e18b99a0f3272520eb",
+      "file_sha256": "eb4859a9cd1ce3acbd661d4c858cf9140ac518b2d5a65f73eb33ad444df5365f",
       "original_path": "s2.asm",
       "kind": "source_module",
       "size_exception": {
@@ -9911,7 +9911,7 @@
       "source_sha256": "8162930da5d668c03baec3e692528e1b21b902553d7767afeddb3908a20813c3",
       "owner": "ui/objects/ending/propeller",
       "responsibility": "animation data",
-      "file_sha256": "504a05c441abd05470c3e6231ef50fc276b05e166198735d19c33eacb1759823",
+      "file_sha256": "7b70cb81794fd76f44f8efe186b771bd2dbaa381725e3c376e96d8e12c7bc5e3",
       "original_path": "s2.asm",
       "kind": "source_module",
       "size_exception": {
@@ -10035,7 +10035,7 @@
       "source_sha256": "47454b10b43580e7c6f24c64aa08bed90fa2a68d9bd1966004be7defa0c5bc8c",
       "owner": "game/objects/common",
       "responsibility": "bosscommon",
-      "file_sha256": "e289089e13013e68b1419bf8f5b5d93ab8875e33b8ecc96b36ceb3c95e03fd6a",
+      "file_sha256": "47454b10b43580e7c6f24c64aa08bed90fa2a68d9bd1966004be7defa0c5bc8c",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10305,7 +10305,7 @@
       "source_sha256": "c98731993ccfc006f552cc9ba7373f752d4b7ae10a8d12ce8aafcfc78bd72f6b",
       "owner": "game/objects/common",
       "responsibility": "solidobject",
-      "file_sha256": "940d50711b214b5af74ebdeb6b020bfc84b125e85f21b63d8ac286fbe9d0bba5",
+      "file_sha256": "30fbd3d4196dbe2d4fc171e539266ae0e4f7cf85fe22cabfaad74fbae12536b0",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10516,7 +10516,7 @@
       "source_sha256": "4b1fc5e0d2be72049665a462bd8268767185621bdaa657e707ba88e43b9c62fc",
       "owner": "game/objects/environment/cnz/points_cage",
       "responsibility": "cnz points cage",
-      "file_sha256": "57f127bb3813a8e7aa5f4da17d41e1a3b3130e2cf90fbae334c2feda70cc7608",
+      "file_sha256": "3b3fe183c4cb7b6d244e356c02651f11294d9d415410ad1b61582f1c23aa6109",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10555,7 +10555,7 @@
       "source_sha256": "66ce1c87bd8967e3699f899a43d2ca419d8fff0c00d5511ed540281575c4dba8",
       "owner": "game/objects/environment/cnz/hex_bumper",
       "responsibility": "cnz bumper",
-      "file_sha256": "6c1808a259cd11014a8b9f6b7f7f03bc179c951571364517cde7aee420f2aca3",
+      "file_sha256": "b5272701bac794973337bb2b6a611b8aa4dbb69800d0ab9f497806b5602b04cb",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10594,7 +10594,7 @@
       "source_sha256": "8efd120121a16612bca78d6d49795669acebe51e74eb7383107a2967410e87f1",
       "owner": "game/objects/environment/cnz/point_block",
       "responsibility": "cnz point block",
-      "file_sha256": "19037d2162155f5179d58da2ceef785b458604cff0aadbdff0c91d057b589507",
+      "file_sha256": "99a6a0369bfb7da56567344358957deca054abd55d4167fe7bf3ed3554caff09",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10768,7 +10768,7 @@
       "source_sha256": "c84c25eb7fad039d39e2c384e787dd44d32015c3389dbdddc88979dc7c630def",
       "owner": "game/objects",
       "responsibility": "objects manager",
-      "file_sha256": "32c21bb970d4e3eb85990595216482d9ac89b546362714391f14fcc0eddcc642",
+      "file_sha256": "c84c25eb7fad039d39e2c384e787dd44d32015c3389dbdddc88979dc7c630def",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10849,7 +10849,7 @@
       "source_sha256": "f934e41698707c8723ab3781ec537d0b1ea1190980f7ced8a71d99b6c4908e8c",
       "owner": "game/player/collision",
       "responsibility": "surface alignment",
-      "file_sha256": "3f4195f1067ed2cb61fbae692fae2c508ec4b4eeff189ec788756e2b2ebcba83",
+      "file_sha256": "7f598d34bf15fe7f6bf7c1d0765b1f73750a4e4480ddac2d26884866fbd10655",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10930,7 +10930,7 @@
       "source_sha256": "878c9e66e523615d169ea7c916ef4ae993cd3f290d435cfdd6a006b5251d8ee0",
       "owner": "game/player/sonic",
       "responsibility": "control",
-      "file_sha256": "57bd3a7d714decdb69fd56e4a6808c1ae9c24ae6278ae3390b1d7f1a71407844",
+      "file_sha256": "3e412a082275e75c0eb473d00a2bd44d4b26aa49e783cfb739dccda5a50154f6",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -11030,7 +11030,7 @@
       "source_sha256": "2502f69477668c98ee9dcd9cbf7bc527465aecec6fe36763db0de6e2a364622d",
       "owner": "game/player/sonic",
       "responsibility": "ground movement",
-      "file_sha256": "fe72b655761d1ef96f100ab507d5397a16fd36a16ccfd9270f81f66acca7f2a5",
+      "file_sha256": "80497b715cde9035da79ece9c43f72b7d407086c733f140ee508243c603950fb",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -11084,7 +11084,7 @@
       "source_sha256": "600f0fa32ddda794d073b4866b64000469f7e9e5aeeb02291eb2370ead59379c",
       "owner": "game/player/sonic",
       "responsibility": "rolling and jumping",
-      "file_sha256": "a12b6e9c01ebac5d8c65798e19efa5c97a650410d61ec3f0fc6491b142622412",
+      "file_sha256": "4701335a4ec093012ccad456fca27c4c1c162ccd69fa8bd3047f3469085f6430",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -11270,7 +11270,7 @@
       "source_sha256": "4c452b31398364c25c5401daf94eafb6224c60a13b358404452228d004e6c02c",
       "owner": "game/player/tails",
       "responsibility": "environment",
-      "file_sha256": "0bf3dfae9ad0e3a38f37b882b55e55ac92697eccab5bc6a1e8260ab9809c282e",
+      "file_sha256": "a9429ce61524d3c45893e419238cced04448420a5688d48a1ee0e54eb32a8030",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -11324,7 +11324,7 @@
       "source_sha256": "db4238b858f4e635c74c0586c547fa76cc0ede6b3473849e28efdbf9e018ea26",
       "owner": "game/player/tails",
       "responsibility": "ground movement",
-      "file_sha256": "0f1a903a0f62dffbe7514ecf6c342da2782190f06af0df77fc3cdc4d0313dea0",
+      "file_sha256": "00cbc5c1384408ebb1ef1b5f0f4bf90fb687dc35151c8617f00d3f0ac0963a87",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -11378,7 +11378,7 @@
       "source_sha256": "31563bdc46e74fe96e5e786b2e6a0582fd0c7a66087fbfb3feb4b4e0ca387684",
       "owner": "game/player/tails",
       "responsibility": "rolling and jumping",
-      "file_sha256": "52c4f1ae456b676f31fa8fec07a6df032bb76eb01e760023d48c70216525362e",
+      "file_sha256": "28fe579a629dbbb483d842e9ab382e94e01c0d78f09bbdc7b7db83eac13dc774",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -11513,7 +11513,7 @@
       "source_sha256": "7e79b13235923f4360ac2dc30d9ac82c50a333f0338f4d1485e8795ac1b57766",
       "owner": "game/special_stage",
       "responsibility": "orientation and scroll",
-      "file_sha256": "81ccf2f65d5c7280208349f25a0f728d348ed2f13db5253923fc40fc0eadee52",
+      "file_sha256": "7e79b13235923f4360ac2dc30d9ac82c50a333f0338f4d1485e8795ac1b57766",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -11660,7 +11660,7 @@
       "owner": "memory",
       "responsibility": "General RAM declaration and containment assertion",
       "source_sha256": "3a68085aa703a9a81e384f3cf78c566c0d15bfb42e2d195f8078780f04c7ce11",
-      "file_sha256": "d91d313efb02445372ebcc5d91ec4e44c1520b9bbbf61d1113f0023d9c0f9665",
+      "file_sha256": "a319c39ee2f083357730e1318f778885d3b809ce2cffeebd2142ca56db4ddccf",
       "kind": "source_module"
     },
     {
@@ -12267,7 +12267,7 @@
       "source_sha256": "a3f9b19ea074f6a70fc5ab96b10ab3c67c53489334111dbf783b9c575ccd9f9c",
       "owner": "rendering/sprites",
       "responsibility": "double size",
-      "file_sha256": "9396f923bbf39a426ed250581eec4c906fcbaa6465c468c6ece74d6395afb8a0",
+      "file_sha256": "9ca54b8f3953f55c9ec93257c5e305024103e104955f494db06e42368d6149a4",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -13013,7 +13013,7 @@
       "source_sha256": "de79a2b7d0d39a091cc3dd987bc2c8d8575cc94012dad10ab42aa24472b6887c",
       "owner": "ui/credits",
       "responsibility": "text",
-      "file_sha256": "6fb0c127840a8ab90105060d2cf26bebe9fc998e4de2fc0c2e5135b54ac242f3",
+      "file_sha256": "97b66669a168049a7d1ff0d22e5dc18dc0a6fc2408394914307f054161d2f9a5",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -13021,13 +13021,13 @@
           "address_space": "m68000-rom",
           "start": 45732,
           "end_exclusive": 49072,
-          "start_symbol": "off_B2B0"
+          "start_symbol": "Credits_IntroTextLayout"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 45744,
           "end_exclusive": 49084,
-          "start_symbol": "off_B2B0"
+          "start_symbol": "Credits_IntroTextLayout"
         }
       }
     },
@@ -13040,7 +13040,7 @@
       "source_sha256": "8498ba912443955be5319a60326a835f19a733e0e32b7a305f27f8059b8f2197",
       "owner": "ui",
       "responsibility": "ending sequence",
-      "file_sha256": "5c21c44b8267de62a50b3800bcf3bef7a3f5e58677b3ac1ad3249ecfefe86978",
+      "file_sha256": "bddba5651496a7a8d5608cc80b47bc00f0863b9f3a368ac7ddb5e57bef3258a8",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -13067,7 +13067,7 @@
       "source_sha256": "d4bf5779953c1a49833a82f08095ac49f6f39260994b6c721fdde323512ac5f0",
       "owner": "ui",
       "responsibility": "ending sequence data",
-      "file_sha256": "2c52c5d6b11f3d82accda20aa900e38432741946dbcf3f27767b36382991be22",
+      "file_sha256": "e47f982a7c667ce4b969adde20dc55442aa63dc2033701872fd79ac2e5f40cfd",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -13075,13 +13075,13 @@
           "address_space": "m68000-rom",
           "start": 43950,
           "end_exclusive": 44400,
-          "start_symbol": "sub_ABBA"
+          "start_symbol": "EndingSequence_SpawnTimedBird"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 43962,
           "end_exclusive": 44412,
-          "start_symbol": "sub_ABBA"
+          "start_symbol": "EndingSequence_SpawnTimedBird"
         }
       }
     },
@@ -13319,7 +13319,7 @@
       "source_sha256": "4ae8207c7c6a1e5eec4001624c1f9e6baab5181f54f7dd8acf789b6ff4bf0bce",
       "owner": "ui",
       "responsibility": "sega screen vint",
-      "file_sha256": "645918d97115b13eda4896c1624fe943fa4a082c39de9a08daf4228c5ffb91ce",
+      "file_sha256": "4ae8207c7c6a1e5eec4001624c1f9e6baab5181f54f7dd8acf789b6ff4bf0bce",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {

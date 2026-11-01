@@ -1,10 +1,10 @@
 Ani_objCF:      offsetTable
-                offsetTableEntry.w EndingPropeller_Animation_Sequence0            ; 0
-                offsetTableEntry.w EndingPropeller_Animation_Sequence1            ; 1
-                offsetTableEntry.w EndingPropeller_Animation_Sequence2            ; 2
-EndingPropeller_Animation_Sequence0:      dc.b    3,  0,  0,  1,$FA,  0
-EndingPropeller_Animation_Sequence1:      dc.b    3,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2,  3,  3,  4,$FA,  0
-EndingPropeller_Animation_Sequence2:      dc.b    1,  5,  6,$FF
+                offsetTableEntry.w EndingPropeller_Animation_Sequence0  ; 0
+                offsetTableEntry.w EndingPropeller_Animation_Sequence1  ; 1
+                offsetTableEntry.w EndingPropeller_Animation_Sequence2  ; 2
+EndingPropeller_Animation_Sequence0:    dc.b    3,  0,  0,  1,$FA,  0
+EndingPropeller_Animation_Sequence1:    dc.b    3,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2,  3,  3,  4,$FA,  0
+EndingPropeller_Animation_Sequence2:    dc.b    1,  5,  6,$FF
                 even
 ; -----------------------------------------------------------------------------
 ; sprite mappings

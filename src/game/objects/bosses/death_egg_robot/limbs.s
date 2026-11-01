@@ -11,7 +11,7 @@ ObjC7_Shoulder:
 ; ===========================================================================
 off_3DA34:      offsetTable
                 offsetTableEntry.w loc_3DA3C            ; 0
-                offsetTableEntry.w DeathEggRobotBossLimbs_Return         ; 2
+                offsetTableEntry.w DeathEggRobotBossLimbs_Return  ; 2
 ; ===========================================================================
 byte_3DA38:
                 dc.w    $C
@@ -39,7 +39,7 @@ ObjC7_FrontLowerLeg:
 ; ===========================================================================
 off_3DA62:      offsetTable
                 offsetTableEntry.w loc_3DA66            ; 0
-                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant2         ; 2
+                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant2  ; 2
 ; ===========================================================================
 
 loc_3DA66:
@@ -169,7 +169,7 @@ ObjC7_Arm:
 ; ===========================================================================
 off_3DB8C:      offsetTable
                 offsetTableEntry.w loc_3DB90            ; 0
-                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant3         ; 2
+                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant3  ; 2
 ; ===========================================================================
 
 loc_3DB90:
@@ -193,7 +193,7 @@ ObjC7_FrontThigh:
 ; ===========================================================================
 off_3DBB6:      offsetTable
                 offsetTableEntry.w loc_3DBBA            ; 0
-                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant4         ; 2
+                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant4  ; 2
 ; ===========================================================================
 
 loc_3DBBA:
@@ -321,7 +321,7 @@ ObjC7_BackLowerLeg:
 ; ===========================================================================
 off_3DCB4:      offsetTable
                 offsetTableEntry.w loc_3DCB8            ; 0
-                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant5         ; 2
+                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant5  ; 2
 ; ===========================================================================
 
 loc_3DCB8:
@@ -383,7 +383,7 @@ ObjC7_BackThigh:
 ; ===========================================================================
 off_3DD38:      offsetTable
                 offsetTableEntry.w loc_3DD3C            ; 0
-                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant6         ; 2
+                offsetTableEntry.w DeathEggRobotBossLimbs_Return_Variant6  ; 2
 ; ===========================================================================
 
 loc_3DD3C:

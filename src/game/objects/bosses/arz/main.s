@@ -248,7 +248,7 @@ Obj89_Main_Laugh:
 ; loc_3077A:
 Obj89_Main_ChkHurt:
                 cmpi.b  #64-1,boss_invulnerable_time(a0)  ; was boss hurt?
-                bne.s   ArzBoss_Return                    ; if not, branch
+                bne.s   ArzBoss_Return                  ; if not, branch
                 lea     (Boss_AnimationArray).w,a1
                 move.b  #-$40,1*2+1(a1)                 ; use hurt animation
 
@@ -265,11 +265,11 @@ Obj89_Main_HandleHoveringAndHits:
                 move.w  (Boss_X_pos).w,x_pos(a0)
                 addq.b  #2,boss_sine_count(a0)
                 cmpi.b  #8,boss_routine(a0)             ; has boss been defeated?
-                bhs.s   ArzBoss_Return_Variant2                    ; if yes, branch
+                bhs.s   ArzBoss_Return_Variant2         ; if yes, branch
                 tst.b   boss_hitcount2(a0)              ; has boss run out of hits?
                 beq.s   Obj89_Main_KillBoss             ; if yes, branch
                 tst.b   collision_flags(a0)             ; are boss's collisions enabled?
-                bne.s   ArzBoss_Return_Variant2                    ; if yes, branch
+                bne.s   ArzBoss_Return_Variant2         ; if yes, branch
                 tst.b   boss_invulnerable_time(a0)      ; is boss invulnerable?
                 bne.s   Obj89_Main_Flash                ; if yes, branch
                 move.b  #64,boss_invulnerable_time(a0)  ; make boss invulnerable
@@ -286,7 +286,7 @@ Obj89_Main_Flash:
 +
                 move.w  d0,(a1)                         ; set color
                 subq.b  #1,boss_invulnerable_time(a0)
-                bne.s   ArzBoss_Return_Variant2                    ; branch, if invulnerability hasn't run out
+                bne.s   ArzBoss_Return_Variant2         ; branch, if invulnerability hasn't run out
                 move.b  #$F,collision_flags(a0)         ; restore collisions
 
 ArzBoss_Return_Variant2:
@@ -324,7 +324,7 @@ Obj89_Main_AlignParts:
 ; loc_30850:
 Obj89_Main_DropHammer:
                 cmpi.w  #$78,(Boss_Countdown).w
-                bgt.s   ArzBoss_Return_Variant3                    ; wait until timer is below $78
+                bgt.s   ArzBoss_Return_Variant3         ; wait until timer is below $78
                 subi_.w #1,sub3_x_pos(a0)               ; make hammer move left
                 move.l  obj89_hammer_y_pos(a0),d0
                 move.w  obj89_hammer_y_vel(a0),d1
@@ -335,7 +335,7 @@ Obj89_Main_DropHammer:
                 move.l  d0,obj89_hammer_y_pos(a0)       ; update position
                 move.w  obj89_hammer_y_pos(a0),sub3_y_pos(a0)
                 cmpi.w  #$540,sub3_y_pos(a0)            ; has the hammer reached the bottom?
-                blt.s   ArzBoss_Return_Variant3                    ; if not, branch
+                blt.s   ArzBoss_Return_Variant3         ; if not, branch
                 move.w  #0,obj89_hammer_y_vel(a0)       ; else, make hammer invisible
 
 ArzBoss_Return_Variant3:
@@ -519,7 +519,7 @@ Obj89_Pillar_Sub2_Standard:
 ; loc_30A42:
 Obj89_Pillar_ChkShake:
                 tst.b   obj89_pillar_shaking(a0)        ; is pillar shaking?
-                beq.s   ArzBoss_Return_Variant4                    ; if not, branch
+                beq.s   ArzBoss_Return_Variant4         ; if not, branch
                 tst.w   obj89_pillar_shake_time(a0)     ; has timer been set?
                 bgt.s   +                               ; if yes, branch
                 move.w  #$1F,obj89_pillar_shake_time(a0)  ; else, initialize timer
@@ -761,13 +761,13 @@ Obj89_Arrow_Platform:
                 move.w  x_pos(a0),d4
                 jsrto   JmpTo8_PlatformObject
                 btst    #status.npc.p1_standing,status(a0)  ; is Sonic standing on the arrow?
-                beq.s   ArzBoss_Return_Variant6                    ; if not, branch
+                beq.s   ArzBoss_Return_Variant6         ; if not, branch
                 move.w  #$1F,obj89_arrow_timer(a0)      ; else, set timer
 
 ; loc_30CF4:
 Obj89_Arrow_Platform_Decay:
                 subi_.w #1,obj89_arrow_timer(a0)        ; decrement timer
-                bne.s   ArzBoss_Return_Variant6                    ; branch, if timer hasn't expired
+                bne.s   ArzBoss_Return_Variant6         ; branch, if timer hasn't expired
                 move.b  #6,obj89_arrow_routine(a0)      ; => Obj89_Arrow_Sub6
 
 ArzBoss_Return_Variant6:
@@ -781,7 +781,7 @@ Obj89_Arrow_ChkDropPlayers:
                 bsr.s   Obj89_Arrow_DropPlayer
 +
                 bclr    #p2_standing_bit,status(a0)
-                beq.s   ArzBoss_Return_Variant7                    ; branch, if Tails wasn't standing on the arrow
+                beq.s   ArzBoss_Return_Variant7         ; branch, if Tails wasn't standing on the arrow
                 lea     (Sidekick).w,a1                 ; a1=character
 
 ; loc_30D1E:
@@ -795,12 +795,12 @@ ArzBoss_Return_Variant7:
 ; animation script
 ; off_30D2C:
 Ani_obj89_a:    offsetTable
-                offsetTableEntry.w ArzBoss_Animation_Sequence0           ; 0
-                offsetTableEntry.w ArzBoss_Animation_Sequence1           ; 1
-ArzBoss_Animation_Sequence0:     dc.b    1,  4,  6,  5,  4,  6,  4,  5,  4,  6,  4,  4,  6,  5,  4,  6
+                offsetTableEntry.w ArzBoss_Animation_Sequence0  ; 0
+                offsetTableEntry.w ArzBoss_Animation_Sequence1  ; 1
+ArzBoss_Animation_Sequence0:    dc.b    1,  4,  6,  5,  4,  6,  4,  5,  4,  6,  4,  4,  6,  5,  4,  6
                 dc.b    4,  5,  4,  6,  4,$FD,  1       ; 16
 
-ArzBoss_Animation_Sequence1:     dc.b    $F,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4
+ArzBoss_Animation_Sequence1:    dc.b    $F,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4
                 dc.b    4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,$F9  ; 16
                 even
 ; ----------------------------------------------------------------------------
@@ -811,19 +811,19 @@ Obj89_MapUnc_30D68: include "src/game/objects/bosses/arz/data/mappings_a.s"
 ; animation script
 ; off_30DC8:
 Ani_obj89_b:    offsetTable
-                offsetTableEntry.w ArzBoss_Animation_Sequence0_Variant2           ; 0
-                offsetTableEntry.w ArzBoss_Animation_Sequence1_Variant2           ; 2
-                offsetTableEntry.w ArzBoss_Animation_Sequence2           ; 4
-                offsetTableEntry.w ArzBoss_Animation_Sequence3           ; 6
-                offsetTableEntry.w ArzBoss_Animation_Sequence4           ; 8
-                offsetTableEntry.w ArzBoss_Animation_Sequence5           ; $A
-ArzBoss_Animation_Sequence0_Variant2:     dc.b    7,  0,  1,$FF,  2,  3,  2,  3,  2,  3,  2,  3,$FF,  4,  4,  4
+                offsetTableEntry.w ArzBoss_Animation_Sequence0_Variant2  ; 0
+                offsetTableEntry.w ArzBoss_Animation_Sequence1_Variant2  ; 2
+                offsetTableEntry.w ArzBoss_Animation_Sequence2  ; 4
+                offsetTableEntry.w ArzBoss_Animation_Sequence3  ; 6
+                offsetTableEntry.w ArzBoss_Animation_Sequence4  ; 8
+                offsetTableEntry.w ArzBoss_Animation_Sequence5  ; $A
+ArzBoss_Animation_Sequence0_Variant2:   dc.b    7,  0,  1,$FF,  2,  3,  2,  3,  2,  3,  2,  3,$FF,  4,  4,  4
                 dc.b    4,  4,  4,  4,  4,$FF           ; 16
-ArzBoss_Animation_Sequence1_Variant2:     dc.b    1,  6,  7,$FF
-ArzBoss_Animation_Sequence2:     dc.b    $F,  9,$FF
-ArzBoss_Animation_Sequence3:     dc.b    2, $A, $A, $B, $B, $B, $B, $B, $A, $A,$FD,  2
-ArzBoss_Animation_Sequence4:     dc.b    $F,  8,$FF
-ArzBoss_Animation_Sequence5:     dc.b    7,  5,$FF
+ArzBoss_Animation_Sequence1_Variant2:   dc.b    1,  6,  7,$FF
+ArzBoss_Animation_Sequence2:            dc.b    $F,  9,$FF
+ArzBoss_Animation_Sequence3:            dc.b    2, $A, $A, $B, $B, $B, $B, $B, $A, $A,$FD,  2
+ArzBoss_Animation_Sequence4:            dc.b    $F,  8,$FF
+ArzBoss_Animation_Sequence5:            dc.b    7,  5,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

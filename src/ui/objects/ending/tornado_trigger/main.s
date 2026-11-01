@@ -197,10 +197,10 @@ loc_A5A6:
                 clr.w   objoff_32(a0)
                 rts
 ; ===========================================================================
-EndingTornadoTrigger_EndingFrames:       offsetTable
-                offsetTableEntry.w EndingTornadoTrigger_EndingFrames_Frame0            ; 0
-                offsetTableEntry.w EndingTornadoTrigger_EndingFrames_Frame1            ; 2
-                offsetTableEntry.w EndingTornadoTrigger_EndingFrames_Frame2            ; 4
+EndingTornadoTrigger_EndingFrames:  offsetTable
+                offsetTableEntry.w EndingTornadoTrigger_EndingFrames_Frame0  ; 0
+                offsetTableEntry.w EndingTornadoTrigger_EndingFrames_Frame1  ; 2
+                offsetTableEntry.w EndingTornadoTrigger_EndingFrames_Frame2  ; 4
 EndingTornadoTrigger_EndingFrames_Frame0:
                 dc.b    7,  7,  7,  7,  8,  8,  8,  8,  8,  8,  8,  9,  9,  9, $A, $A
                 dc.b    $A, $B, $B, $B, $B, $B, $B, $B, $B, $B, $B, $B  ; 16

@@ -214,7 +214,7 @@ Debug_ExitDebugMode:
                 move.w  (Camera_Max_Y_pos_Debug_Copy).w,(Camera_Max_Y_pos_target).w
 ; useless leftover; this is for S1's special stage
                 cmpi.b  #GameModeID_SpecialStage,(Game_Mode).w  ; special stage mode?
-                bne.s   GameLevelDebugMode_Return                    ; if not, branch
+                bne.s   GameLevelDebugMode_Return       ; if not, branch
                 move.b  #AniIDSonAni_Roll,(MainCharacter+anim).w
                 bset    #status.player.rolling,(MainCharacter+status).w
                 bset    #status.player.in_air,(MainCharacter+status).w

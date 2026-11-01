@@ -14,6 +14,14 @@ source-1-check release-check:
 	$(RUN) validation.source1
 release-audit:
 	$(RUN) validation.release_audit --clean
+LINE ?= 1.0
+.PHONY: release-tag-audit semantic-symbols-check clean
+release-tag-audit:
+	$(RUN) validation.release_audit --clean --ready --post-tag --line $(LINE)
+semantic-symbols-check:
+	$(RUN) validation.semantics --compiled
+clean:
+	$(RUN) validation.clean
 check-stop-words:
 	$(PYTHON) -m retrolarium_core.stop_words history "$(CURDIR)" --all
 source-layout-check:

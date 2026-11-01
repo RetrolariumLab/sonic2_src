@@ -307,48 +307,48 @@ Obj90_MapUnc_36CFA: mappingsTable
 Obj90_MapUnc_36D00: mappingsTable
                 mappingsTableEntry.w EnemiesGrounder_SpriteMappings_Frame0_Variant3
 
-EnemiesGrounder_SpriteMappings_Frame0:     spriteHeader
+EnemiesGrounder_SpriteMappings_Frame0:  spriteHeader
                 spritePiece -8, -$C, 1, 1, 0, 0, 0, 0, 0
                 spritePiece -$10, -4, 2, 3, 1, 0, 0, 0, 0
                 spritePiece 0, -$C, 1, 1, 0, 1, 0, 0, 0
                 spritePiece 0, -4, 2, 3, 1, 1, 0, 0, 0
 EnemiesGrounder_SpriteMappings_Frame0_End
 
-EnemiesGrounder_SpriteMappings_Frame1:     spriteHeader
+EnemiesGrounder_SpriteMappings_Frame1:  spriteHeader
                 spritePiece -8, -$14, 1, 1, 7, 0, 0, 0, 0
                 spritePiece -$10, -$C, 2, 4, 8, 0, 0, 0, 0
                 spritePiece 0, -$14, 1, 1, 7, 1, 0, 0, 0
                 spritePiece 0, -$C, 2, 4, 8, 1, 0, 0, 0
 EnemiesGrounder_SpriteMappings_Frame1_End
 
-EnemiesGrounder_SpriteMappings_Frame2:     spriteHeader
+EnemiesGrounder_SpriteMappings_Frame2:  spriteHeader
                 spritePiece -$10, -$14, 4, 4, $10, 0, 0, 0, 0
                 spritePiece -$10, $C, 4, 1, $20, 0, 0, 0, 0
 EnemiesGrounder_SpriteMappings_Frame2_End
 
-EnemiesGrounder_SpriteMappings_Frame3:     spriteHeader
+EnemiesGrounder_SpriteMappings_Frame3:  spriteHeader
                 spritePiece -$10, -$14, 4, 4, $10, 0, 0, 0, 0
                 spritePiece -$10, $C, 4, 1, $24, 0, 0, 0, 0
 EnemiesGrounder_SpriteMappings_Frame3_End
 
-EnemiesGrounder_SpriteMappings_Frame4:     spriteHeader
+EnemiesGrounder_SpriteMappings_Frame4:  spriteHeader
                 spritePiece -$10, -$14, 4, 4, $10, 0, 0, 0, 0
                 spritePiece -$10, $C, 4, 1, $28, 0, 0, 0, 0
 EnemiesGrounder_SpriteMappings_Frame4_End
 
-EnemiesGrounder_SpriteMappings_Frame0_Variant2:     spriteHeader
+EnemiesGrounder_SpriteMappings_Frame0_Variant2: spriteHeader
                 spritePiece -8, -8, 2, 2, $2C, 0, 0, 0, 0
 EnemiesGrounder_SpriteMappings_Frame0_Variant2_End
 
-EnemiesGrounder_SpriteMappings_Frame1_Variant2:     spriteHeader
+EnemiesGrounder_SpriteMappings_Frame1_Variant2: spriteHeader
                 spritePiece -4, -4, 1, 1, $30, 0, 0, 0, 0
 EnemiesGrounder_SpriteMappings_Frame1_Variant2_End
 
-EnemiesGrounder_SpriteMappings_Frame2_Variant2:     spriteHeader
+EnemiesGrounder_SpriteMappings_Frame2_Variant2: spriteHeader
                 spritePiece -4, -4, 1, 1, $31, 0, 0, 0, 0
 EnemiesGrounder_SpriteMappings_Frame2_Variant2_End
 
-EnemiesGrounder_SpriteMappings_Frame0_Variant3:     spriteHeader
+EnemiesGrounder_SpriteMappings_Frame0_Variant3: spriteHeader
                 spritePiece -$10, -8, 2, 2, $93, 0, 0, 2, 0
                 spritePiece 0, -8, 2, 2, $97, 0, 0, 2, 0
 EnemiesGrounder_SpriteMappings_Frame0_Variant3_End

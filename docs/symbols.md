@@ -52,10 +52,12 @@ target-named adapters are separate naming conventions.
 `make semantic-symbols-check` checks complete coverage, unique mappings,
 fingerprints, structural claims, both compiled symbol tables and range end
 markers. The preservation aggregate executes it after fresh canonical builds and
-before relocation or runtime checks. Negative tests reject omitted unknowns,
-stale review, invented loop roles, missing revision evidence and moved symbols.
-Human review remains necessary when establishing a new meaning: the validator
-binds a reviewed assertion to code; it cannot infer gameplay intent.
+before relocation or runtime checks. The ROM-free scaffold checks the same
+source bindings without claiming compiled-value acceptance. Negative tests
+reject omitted unknowns, stale review, invented loop roles, missing revision
+evidence and moved symbols. Human review remains necessary when establishing a
+new meaning: the validator binds a reviewed assertion to code; it cannot infer
+gameplay intent.
 
 Before recording a new confirmed meaning, inspect every caller or incoming edge,
 the relevant continuation and data consumer. Rename exact identifier tokens,

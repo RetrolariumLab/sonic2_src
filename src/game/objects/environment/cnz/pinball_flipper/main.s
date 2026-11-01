@@ -238,16 +238,16 @@ byte_2B40E:
 ; animation script
 ; off_2B432:
 Ani_obj86:      offsetTable
-                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence0           ; 0
-                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence1           ; 1
-                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence2           ; 2
-                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence3           ; 3
-                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence4           ; 4
-CnzPinballFlipper_Animation_Sequence0:     dc.b    $F,  0,$FF
-CnzPinballFlipper_Animation_Sequence1:     dc.b    3,  1,  2,  1,$FD,  0
-CnzPinballFlipper_Animation_Sequence2:     dc.b    $F,  4,$FF
-CnzPinballFlipper_Animation_Sequence3:     dc.b    0,  5,  4,  3,  3,  3,  3,$FD,  2
-CnzPinballFlipper_Animation_Sequence4:     dc.b    0,  3,  4,  5,  5,  5,  5,$FD,  2
+                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence0  ; 0
+                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence1  ; 1
+                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence2  ; 2
+                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence3  ; 3
+                offsetTableEntry.w CnzPinballFlipper_Animation_Sequence4  ; 4
+CnzPinballFlipper_Animation_Sequence0:  dc.b    $F,  0,$FF
+CnzPinballFlipper_Animation_Sequence1:  dc.b    3,  1,  2,  1,$FD,  0
+CnzPinballFlipper_Animation_Sequence2:  dc.b    $F,  4,$FF
+CnzPinballFlipper_Animation_Sequence3:  dc.b    0,  5,  4,  3,  3,  3,  3,$FD,  2
+CnzPinballFlipper_Animation_Sequence4:  dc.b    0,  3,  4,  5,  5,  5,  5,$FD,  2
                 even
 ; ---------------------------------------------------------------------------
 ; sprite mappings

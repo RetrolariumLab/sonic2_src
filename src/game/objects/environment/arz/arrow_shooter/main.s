@@ -120,12 +120,12 @@ loc_257DE:
 ; animation script
 ; off_257EE:
 Ani_obj22:      offsetTable
-                offsetTableEntry.w ArzArrowShooter_Animation_Sequence0           ; 0
-                offsetTableEntry.w ArzArrowShooter_Animation_Sequence1           ; 1
-                offsetTableEntry.w ArzArrowShooter_Animation_Sequence2           ; 2
-ArzArrowShooter_Animation_Sequence0:     dc.b    $1F,  1,$FF
-ArzArrowShooter_Animation_Sequence1:     dc.b    3,  1,  2,$FF
-ArzArrowShooter_Animation_Sequence2:     dc.b    7,  3,  4,$FC,  4,  3,  1,$FD,  0
+                offsetTableEntry.w ArzArrowShooter_Animation_Sequence0  ; 0
+                offsetTableEntry.w ArzArrowShooter_Animation_Sequence1  ; 1
+                offsetTableEntry.w ArzArrowShooter_Animation_Sequence2  ; 2
+ArzArrowShooter_Animation_Sequence0:    dc.b    $1F,  1,$FF
+ArzArrowShooter_Animation_Sequence1:    dc.b    3,  1,  2,$FF
+ArzArrowShooter_Animation_Sequence2:    dc.b    7,  3,  4,$FC,  4,  3,  1,$FD,  0
                 even
 ; ---------------------------------------------------------------------------
 ; sprite mappings
