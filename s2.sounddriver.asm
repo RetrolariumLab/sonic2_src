@@ -730,7 +730,7 @@ zWriteToDAC:
 ; 'jman2050' DAC decode lookup table
 ; zbyte_1B3
 zDACDecodeTbl:
-	binclude "sound/DAC/deltas.bin"
+	db 0,1,2,4,8,16,32,64,128,255,254,252,248,240,224,192
 
 	; The following two tables are used for when an SFX terminates
 	; its track to properly restore the music track it temporarily took

@@ -1,0 +1,861 @@
+{
+  "schema_version": 1,
+  "music_buffer_address": 4992,
+  "music_buffer_capacity": 1984,
+  "songs": [
+    {
+      "name": "81 - 2 Player Menu",
+      "compressed": true,
+      "label": "Mus_2PResult",
+      "asset": "sound/music/81 - 2 Player Menu.sax",
+      "bank_offset": 18468
+    },
+    {
+      "name": "82 - EHZ",
+      "compressed": true,
+      "label": "Mus_EHZ",
+      "asset": "sound/music/82 - EHZ.sax",
+      "bank_offset": 2244
+    },
+    {
+      "name": "83 - MCZ 2P",
+      "compressed": true,
+      "label": "Mus_MCZ_2P",
+      "asset": "sound/music/83 - MCZ 2P.sax",
+      "bank_offset": 6716
+    },
+    {
+      "name": "84 - OOZ",
+      "compressed": true,
+      "label": "Mus_OOZ",
+      "asset": "sound/music/84 - OOZ.sax",
+      "bank_offset": 15756
+    },
+    {
+      "name": "85 - MTZ",
+      "compressed": true,
+      "label": "Mus_MTZ",
+      "asset": "sound/music/85 - MTZ.sax",
+      "bank_offset": 3566
+    },
+    {
+      "name": "86 - HTZ",
+      "compressed": true,
+      "label": "Mus_HTZ",
+      "asset": "sound/music/86 - HTZ.sax",
+      "bank_offset": 20084
+    },
+    {
+      "name": "87 - ARZ",
+      "compressed": true,
+      "label": "Mus_ARZ",
+      "asset": "sound/music/87 - ARZ.sax",
+      "bank_offset": 7529
+    },
+    {
+      "name": "88 - CNZ 2P",
+      "compressed": true,
+      "label": "Mus_CNZ_2P",
+      "asset": "sound/music/88 - CNZ 2P.sax",
+      "bank_offset": 1270
+    },
+    {
+      "name": "89 - CNZ",
+      "compressed": true,
+      "label": "Mus_CNZ",
+      "asset": "sound/music/89 - CNZ.sax",
+      "bank_offset": 4475
+    },
+    {
+      "name": "8A - DEZ",
+      "compressed": true,
+      "label": "Mus_DEZ",
+      "asset": "sound/music/8A - DEZ.sax",
+      "bank_offset": 9067
+    },
+    {
+      "name": "8B - MCZ",
+      "compressed": true,
+      "label": "Mus_MCZ",
+      "asset": "sound/music/8B - MCZ.sax",
+      "bank_offset": 5732
+    },
+    {
+      "name": "8C - EHZ 2P",
+      "compressed": true,
+      "label": "Mus_EHZ_2P",
+      "asset": "sound/music/8C - EHZ 2P.sax",
+      "bank_offset": 17536
+    },
+    {
+      "name": "8D - SCZ",
+      "compressed": true,
+      "label": "Mus_SCZ",
+      "asset": "sound/music/8D - SCZ.sax",
+      "bank_offset": 14959
+    },
+    {
+      "name": "8E - CPZ",
+      "compressed": true,
+      "label": "Mus_CPZ",
+      "asset": "sound/music/8E - CPZ.sax",
+      "bank_offset": 13303
+    },
+    {
+      "name": "8F - WFZ",
+      "compressed": true,
+      "label": "Mus_WFZ",
+      "asset": "sound/music/8F - WFZ.sax",
+      "bank_offset": 16710
+    },
+    {
+      "name": "90 - HPZ",
+      "compressed": true,
+      "label": "Mus_HPZ",
+      "asset": "sound/music/90 - HPZ.sax",
+      "bank_offset": 60
+    },
+    {
+      "name": "91 - Options",
+      "compressed": true,
+      "label": "Mus_Options",
+      "asset": "sound/music/91 - Options.sax",
+      "bank_offset": 10948
+    },
+    {
+      "name": "92 - Special Stage",
+      "compressed": true,
+      "label": "Mus_SpecStage",
+      "asset": "sound/music/92 - Special Stage.sax",
+      "bank_offset": 9965
+    },
+    {
+      "name": "93 - Boss",
+      "compressed": true,
+      "label": "Mus_Boss",
+      "asset": "sound/music/93 - Boss.sax",
+      "bank_offset": 14366
+    },
+    {
+      "name": "94 - Final Boss",
+      "compressed": true,
+      "label": "Mus_EndBoss",
+      "asset": "sound/music/94 - Final Boss.sax",
+      "bank_offset": 12580
+    },
+    {
+      "name": "95 - Ending",
+      "compressed": true,
+      "label": "Mus_Ending",
+      "asset": "sound/music/95 - Ending.sax",
+      "bank_offset": 11324
+    },
+    {
+      "name": "96 - Super Sonic",
+      "compressed": true,
+      "label": "Mus_SuperSonic",
+      "asset": "sound/music/96 - Super Sonic.sax",
+      "bank_offset": 19388
+    },
+    {
+      "name": "97 - Invincible",
+      "compressed": true,
+      "label": "Mus_Invincible",
+      "asset": "sound/music/97 - Invincible.sax",
+      "bank_offset": 857
+    },
+    {
+      "name": "98 - Extra Life",
+      "compressed": false,
+      "label": "Mus_ExtraLife",
+      "asset": "sound/music/98 - Extra Life.smps",
+      "bank_offset": 21645
+    },
+    {
+      "name": "99 - Title Screen",
+      "compressed": true,
+      "label": "Mus_Title",
+      "asset": "sound/music/99 - Title Screen.sax",
+      "bank_offset": 20883
+    },
+    {
+      "name": "9A - End of Act",
+      "compressed": true,
+      "label": "Mus_EndLevel",
+      "asset": "sound/music/9A - End of Act.sax",
+      "bank_offset": 21342
+    },
+    {
+      "name": "9B - Game Over",
+      "compressed": false,
+      "label": "Mus_GameOver",
+      "asset": "sound/music/9B - Game Over.smps",
+      "bank_offset": 21882
+    },
+    {
+      "name": "9C - Continue",
+      "compressed": true,
+      "label": "Mus_Continue",
+      "asset": "sound/music/9C - Continue.sax",
+      "bank_offset": 2
+    },
+    {
+      "name": "9D - Got Emerald",
+      "compressed": false,
+      "label": "Mus_Emerald",
+      "asset": "sound/music/9D - Got Emerald.smps",
+      "bank_offset": 22217
+    },
+    {
+      "name": "9E - Credits",
+      "compressed": false,
+      "label": "Mus_Credits",
+      "asset": "sound/music/9E - Credits.smps",
+      "bank_offset": 22423
+    },
+    {
+      "name": "9F - Drowning",
+      "compressed": true,
+      "label": "Mus_Drowning",
+      "asset": "sound/music/9F - Drowning.sax",
+      "bank_offset": 571
+    }
+  ],
+  "samples": [
+    {
+      "name": "Bongo",
+      "kind": "DAC",
+      "sample_rate": 7375,
+      "asset": "sound/DAC/Bongo.dpcm"
+    },
+    {
+      "name": "Clap",
+      "kind": "DAC",
+      "sample_rate": 17000,
+      "asset": "sound/DAC/Clap.dpcm"
+    },
+    {
+      "name": "Kick",
+      "kind": "DAC",
+      "sample_rate": 8250,
+      "asset": "sound/DAC/Kick.dpcm"
+    },
+    {
+      "name": "Scratch",
+      "kind": "DAC",
+      "sample_rate": 15000,
+      "asset": "sound/DAC/Scratch.dpcm"
+    },
+    {
+      "name": "Snare",
+      "kind": "DAC",
+      "sample_rate": 24000,
+      "asset": "sound/DAC/Snare.dpcm"
+    },
+    {
+      "name": "Timpani",
+      "kind": "DAC",
+      "sample_rate": 7375,
+      "asset": "sound/DAC/Timpani.dpcm"
+    },
+    {
+      "name": "Tom",
+      "kind": "DAC",
+      "sample_rate": 13500,
+      "asset": "sound/DAC/Tom.dpcm"
+    },
+    {
+      "name": "SEGA",
+      "kind": "PCM",
+      "sample_rate": 16500,
+      "asset": "sound/PCM/SEGA.pcm"
+    }
+  ],
+  "effects": [
+    {
+      "name": "A0 - Jump",
+      "label": "Sound20",
+      "asset": "sound/sfx/A0 - Jump.smps",
+      "bank_offset": 28467
+    },
+    {
+      "name": "A1 - Checkpoint",
+      "label": "Sound21",
+      "asset": "sound/sfx/A1 - Checkpoint.smps",
+      "bank_offset": 28489
+    },
+    {
+      "name": "A2 - Spike Switch",
+      "label": "Sound22",
+      "asset": "sound/sfx/A2 - Spike Switch.smps",
+      "bank_offset": 28531
+    },
+    {
+      "name": "A3 - Hurt",
+      "label": "Sound23",
+      "asset": "sound/sfx/A3 - Hurt.smps",
+      "bank_offset": 28562
+    },
+    {
+      "name": "A4 - Skidding",
+      "label": "Sound24",
+      "asset": "sound/sfx/A4 - Skidding.smps",
+      "bank_offset": 28612
+    },
+    {
+      "name": "A5 - Block Push",
+      "label": "Sound25",
+      "asset": "sound/sfx/A5 - Block Push.smps",
+      "bank_offset": 28665
+    },
+    {
+      "name": "A6 - Hurt by Spikes",
+      "label": "Sound26",
+      "asset": "sound/sfx/A6 - Hurt by Spikes.smps",
+      "bank_offset": 28709
+    },
+    {
+      "name": "A7 - Sparkle",
+      "label": "Sound27",
+      "asset": "sound/sfx/A7 - Sparkle.smps",
+      "bank_offset": 28756
+    },
+    {
+      "name": "A8 - Beep",
+      "label": "Sound28",
+      "asset": "sound/sfx/A8 - Beep.smps",
+      "bank_offset": 28800
+    },
+    {
+      "name": "A9 - Special Stage Item (Unused)",
+      "label": "Sound29",
+      "asset": "sound/sfx/A9 - Special Stage Item (Unused).smps",
+      "bank_offset": 28815
+    },
+    {
+      "name": "AA - Splash",
+      "label": "Sound2A",
+      "asset": "sound/sfx/AA - Splash.smps",
+      "bank_offset": 28833
+    },
+    {
+      "name": "AB - Swish",
+      "label": "Sound2B",
+      "asset": "sound/sfx/AB - Swish.smps",
+      "bank_offset": 28898
+    },
+    {
+      "name": "AC - Boss Hit",
+      "label": "Sound2C",
+      "asset": "sound/sfx/AC - Boss Hit.smps",
+      "bank_offset": 28929
+    },
+    {
+      "name": "AD - Inhaling Bubble",
+      "label": "Sound2D",
+      "asset": "sound/sfx/AD - Inhaling Bubble.smps",
+      "bank_offset": 28981
+    },
+    {
+      "name": "AE - Lava Ball",
+      "label": "Sound2E",
+      "asset": "sound/sfx/AE - Lava Ball.smps",
+      "bank_offset": 29035
+    },
+    {
+      "name": "AF - Shield",
+      "label": "Sound2F",
+      "asset": "sound/sfx/AF - Shield.smps",
+      "bank_offset": 29109
+    },
+    {
+      "name": "B0 - Laser Beam",
+      "label": "Sound30",
+      "asset": "sound/sfx/B0 - Laser Beam.smps",
+      "bank_offset": 29154
+    },
+    {
+      "name": "B1 - Electricity (Unused)",
+      "label": "Sound31",
+      "asset": "sound/sfx/B1 - Electricity (Unused).smps",
+      "bank_offset": 29203
+    },
+    {
+      "name": "B2 - Drown",
+      "label": "Sound32",
+      "asset": "sound/sfx/B2 - Drown.smps",
+      "bank_offset": 29247
+    },
+    {
+      "name": "B3 - Fire Burn",
+      "label": "Sound33",
+      "asset": "sound/sfx/B3 - Fire Burn.smps",
+      "bank_offset": 29326
+    },
+    {
+      "name": "B4 - Bumper",
+      "label": "Sound34",
+      "asset": "sound/sfx/B4 - Bumper.smps",
+      "bank_offset": 29375
+    },
+    {
+      "name": "B5 - Ring",
+      "label": "Sound35",
+      "asset": "sound/sfx/B5 - Ring.smps",
+      "bank_offset": 29466
+    },
+    {
+      "name": "B6 - Spikes Move",
+      "label": "Sound36",
+      "asset": "sound/sfx/B6 - Spikes Move.smps",
+      "bank_offset": 29487
+    },
+    {
+      "name": "B7 - Rumbling",
+      "label": "Sound37",
+      "asset": "sound/sfx/B7 - Rumbling.smps",
+      "bank_offset": 29516
+    },
+    {
+      "name": "B8 - Unknown (Unused)",
+      "label": "Sound38",
+      "asset": "sound/sfx/B8 - Unknown (Unused).smps",
+      "bank_offset": 29575
+    },
+    {
+      "name": "B9 - Smash",
+      "label": "Sound39",
+      "asset": "sound/sfx/B9 - Smash.smps",
+      "bank_offset": 29604
+    },
+    {
+      "name": "BA - Special Stage Glass (Unused)",
+      "label": "Sound3A",
+      "asset": "sound/sfx/BA - Special Stage Glass (Unused).smps",
+      "bank_offset": 29678
+    },
+    {
+      "name": "BB - Door Slam",
+      "label": "Sound3B",
+      "asset": "sound/sfx/BB - Door Slam.smps",
+      "bank_offset": 29718
+    },
+    {
+      "name": "BC - Spin Dash Release",
+      "label": "Sound3C",
+      "asset": "sound/sfx/BC - Spin Dash Release.smps",
+      "bank_offset": 29761
+    },
+    {
+      "name": "BD - Hammer",
+      "label": "Sound3D",
+      "asset": "sound/sfx/BD - Hammer.smps",
+      "bank_offset": 29826
+    },
+    {
+      "name": "BE - Roll",
+      "label": "Sound3E",
+      "asset": "sound/sfx/BE - Roll.smps",
+      "bank_offset": 29909
+    },
+    {
+      "name": "BF - Continue Jingle",
+      "label": "Sound3F",
+      "asset": "sound/sfx/BF - Continue Jingle.smps",
+      "bank_offset": 29967
+    },
+    {
+      "name": "C0 - Casino Bonus",
+      "label": "Sound40",
+      "asset": "sound/sfx/C0 - Casino Bonus.smps",
+      "bank_offset": 30081
+    },
+    {
+      "name": "C1 - Explosion",
+      "label": "Sound41",
+      "asset": "sound/sfx/C1 - Explosion.smps",
+      "bank_offset": 30106
+    },
+    {
+      "name": "C2 - Water Warning",
+      "label": "Sound42",
+      "asset": "sound/sfx/C2 - Water Warning.smps",
+      "bank_offset": 30164
+    },
+    {
+      "name": "C3 - Enter Giant Ring (Unused)",
+      "label": "Sound43",
+      "asset": "sound/sfx/C3 - Enter Giant Ring (Unused).smps",
+      "bank_offset": 30181
+    },
+    {
+      "name": "C4 - Boss Explosion",
+      "label": "Sound44",
+      "asset": "sound/sfx/C4 - Boss Explosion.smps",
+      "bank_offset": 30303
+    },
+    {
+      "name": "C5 - Tally End",
+      "label": "Sound45",
+      "asset": "sound/sfx/C5 - Tally End.smps",
+      "bank_offset": 30343
+    },
+    {
+      "name": "C6 - Ring Spill",
+      "label": "Sound46",
+      "asset": "sound/sfx/C6 - Ring Spill.smps",
+      "bank_offset": 30446
+    },
+    {
+      "name": "C7 - Chain Rise (Unused)",
+      "label": "Sound47",
+      "asset": "sound/sfx/C7 - Chain Rise (Unused).smps",
+      "bank_offset": 30486
+    },
+    {
+      "name": "C8 - Flamethrower",
+      "label": "Sound48",
+      "asset": "sound/sfx/C8 - Flamethrower.smps",
+      "bank_offset": 30532
+    },
+    {
+      "name": "C9 - Hidden Bonus (Unused)",
+      "label": "Sound49",
+      "asset": "sound/sfx/C9 - Hidden Bonus (Unused).smps",
+      "bank_offset": 30549
+    },
+    {
+      "name": "CA - Special Stage Entry",
+      "label": "Sound4A",
+      "asset": "sound/sfx/CA - Special Stage Entry.smps",
+      "bank_offset": 30594
+    },
+    {
+      "name": "CB - Slow Smash",
+      "label": "Sound4B",
+      "asset": "sound/sfx/CB - Slow Smash.smps",
+      "bank_offset": 30639
+    },
+    {
+      "name": "CC - Spring",
+      "label": "Sound4C",
+      "asset": "sound/sfx/CC - Spring.smps",
+      "bank_offset": 30690
+    },
+    {
+      "name": "CD - Switch",
+      "label": "Sound4D",
+      "asset": "sound/sfx/CD - Switch.smps",
+      "bank_offset": 30748
+    },
+    {
+      "name": "CE - Ring Left Speaker",
+      "label": "Sound4E",
+      "asset": "sound/sfx/CE - Ring Left Speaker.smps",
+      "bank_offset": 30761
+    },
+    {
+      "name": "CF - Signpost",
+      "label": "Sound4F",
+      "asset": "sound/sfx/CF - Signpost.smps",
+      "bank_offset": 30782
+    },
+    {
+      "name": "D0 - CNZ Boss Zap",
+      "label": "Sound50",
+      "asset": "sound/sfx/D0 - CNZ Boss Zap.smps",
+      "bank_offset": 30837
+    },
+    {
+      "name": "D1 - Unknown (Unused)",
+      "label": "Sound51",
+      "asset": "sound/sfx/D1 - Unknown (Unused).smps",
+      "bank_offset": 30888
+    },
+    {
+      "name": "D2 - Unknown (Unused)",
+      "label": "Sound52",
+      "asset": "sound/sfx/D2 - Unknown (Unused).smps",
+      "bank_offset": 30945
+    },
+    {
+      "name": "D3 - Signpost 2P",
+      "label": "Sound53",
+      "asset": "sound/sfx/D3 - Signpost 2P.smps",
+      "bank_offset": 31006
+    },
+    {
+      "name": "D4 - OOZ Lid Pop",
+      "label": "Sound54",
+      "asset": "sound/sfx/D4 - OOZ Lid Pop.smps",
+      "bank_offset": 31069
+    },
+    {
+      "name": "D5 - Sliding Spike",
+      "label": "Sound55",
+      "asset": "sound/sfx/D5 - Sliding Spike.smps",
+      "bank_offset": 31134
+    },
+    {
+      "name": "D6 - CNZ Elevator",
+      "label": "Sound56",
+      "asset": "sound/sfx/D6 - CNZ Elevator.smps",
+      "bank_offset": 31176
+    },
+    {
+      "name": "D7 - Platform Knock",
+      "label": "Sound57",
+      "asset": "sound/sfx/D7 - Platform Knock.smps",
+      "bank_offset": 31245
+    },
+    {
+      "name": "D8 - Bonus Bumper",
+      "label": "Sound58",
+      "asset": "sound/sfx/D8 - Bonus Bumper.smps",
+      "bank_offset": 31285
+    },
+    {
+      "name": "D9 - Large Bumper",
+      "label": "Sound59",
+      "asset": "sound/sfx/D9 - Large Bumper.smps",
+      "bank_offset": 31327
+    },
+    {
+      "name": "DA - Gloop",
+      "label": "Sound5A",
+      "asset": "sound/sfx/DA - Gloop.smps",
+      "bank_offset": 31416
+    },
+    {
+      "name": "DB - Pre-Arrow Firing",
+      "label": "Sound5B",
+      "asset": "sound/sfx/DB - Pre-Arrow Firing.smps",
+      "bank_offset": 31461
+    },
+    {
+      "name": "DC - Fire",
+      "label": "Sound5C",
+      "asset": "sound/sfx/DC - Fire.smps",
+      "bank_offset": 31513
+    },
+    {
+      "name": "DD - Arrow Stick",
+      "label": "Sound5D",
+      "asset": "sound/sfx/DD - Arrow Stick.smps",
+      "bank_offset": 31584
+    },
+    {
+      "name": "DE - Helicopter",
+      "label": "Sound5E",
+      "asset": "sound/sfx/DE - Helicopter.smps",
+      "bank_offset": 31624
+    },
+    {
+      "name": "DF - Super Transform",
+      "label": "Sound5F",
+      "asset": "sound/sfx/DF - Super Transform.smps",
+      "bank_offset": 31682
+    },
+    {
+      "name": "E0 - Spin Dash Rev",
+      "label": "Sound60",
+      "asset": "sound/sfx/E0 - Spin Dash Rev.smps",
+      "bank_offset": 31838
+    },
+    {
+      "name": "E1 - Rumbling 2",
+      "label": "Sound61",
+      "asset": "sound/sfx/E1 - Rumbling 2.smps",
+      "bank_offset": 31897
+    },
+    {
+      "name": "E2 - CNZ Launch",
+      "label": "Sound62",
+      "asset": "sound/sfx/E2 - CNZ Launch.smps",
+      "bank_offset": 31990
+    },
+    {
+      "name": "E3 - Flipper",
+      "label": "Sound63",
+      "asset": "sound/sfx/E3 - Flipper.smps",
+      "bank_offset": 32045
+    },
+    {
+      "name": "E4 - HTZ Lift Click",
+      "label": "Sound64",
+      "asset": "sound/sfx/E4 - HTZ Lift Click.smps",
+      "bank_offset": 32092
+    },
+    {
+      "name": "E5 - Leaves",
+      "label": "Sound65",
+      "asset": "sound/sfx/E5 - Leaves.smps",
+      "bank_offset": 32132
+    },
+    {
+      "name": "E6 - Mega Mack Drop",
+      "label": "Sound66",
+      "asset": "sound/sfx/E6 - Mega Mack Drop.smps",
+      "bank_offset": 32165
+    },
+    {
+      "name": "E7 - Drawbridge Move",
+      "label": "Sound67",
+      "asset": "sound/sfx/E7 - Drawbridge Move.smps",
+      "bank_offset": 32223
+    },
+    {
+      "name": "E8 - Quick Door Slam",
+      "label": "Sound68",
+      "asset": "sound/sfx/E8 - Quick Door Slam.smps",
+      "bank_offset": 32256
+    },
+    {
+      "name": "E9 - Drawbridge Down",
+      "label": "Sound69",
+      "asset": "sound/sfx/E9 - Drawbridge Down.smps",
+      "bank_offset": 32298
+    },
+    {
+      "name": "EA - Laser Burst",
+      "label": "Sound6A",
+      "asset": "sound/sfx/EA - Laser Burst.smps",
+      "bank_offset": 32359
+    },
+    {
+      "name": "EB - Scatter",
+      "label": "Sound6B",
+      "asset": "sound/sfx/EB - Scatter.smps",
+      "bank_offset": 32402
+    },
+    {
+      "name": "EC - Teleport",
+      "label": "Sound6C",
+      "asset": "sound/sfx/EC - Teleport.smps",
+      "bank_offset": 32444
+    },
+    {
+      "name": "ED - Error",
+      "label": "Sound6D",
+      "asset": "sound/sfx/ED - Error.smps",
+      "bank_offset": 32551
+    },
+    {
+      "name": "EE - Mecha Sonic Buzz",
+      "label": "Sound6E",
+      "asset": "sound/sfx/EE - Mecha Sonic Buzz.smps",
+      "bank_offset": 32595
+    },
+    {
+      "name": "EF - Large Laser",
+      "label": "Sound6F",
+      "asset": "sound/sfx/EF - Large Laser.smps",
+      "bank_offset": 32657
+    },
+    {
+      "name": "F0 - Oil Slide",
+      "label": "Sound70",
+      "asset": "sound/sfx/F0 - Oil Slide.smps",
+      "bank_offset": 32724
+    }
+  ],
+  "driver_data": {
+    "asset": "sound/driver.sax",
+    "discard_trailing_bytes": 1,
+    "decoded_size": 4872,
+    "decoded_sha1": "67a0f4dd39b5a2a3b46b65156e9ec1ca41247b73"
+  },
+  "psg_envelopes": [
+    {
+      "label": "zPSG_Env1",
+      "path": "sound/psg/zPSG_Env1.bin",
+      "offset": 4163,
+      "size": 23,
+      "sha1": "21764ff9c272fe25ad54e5d26587393bb808d67a"
+    },
+    {
+      "label": "zPSG_Env2",
+      "path": "sound/psg/zPSG_Env2.bin",
+      "offset": 4186,
+      "size": 7,
+      "sha1": "239369836331d3cc7e709f04f4e82664ada1bae1"
+    },
+    {
+      "label": "zPSG_Env3",
+      "path": "sound/psg/zPSG_Env3.bin",
+      "offset": 4193,
+      "size": 17,
+      "sha1": "59afdd6114daf633cdbf0350b702c7ec569af5f2"
+    },
+    {
+      "label": "zPSG_Env4",
+      "path": "sound/psg/zPSG_Env4.bin",
+      "offset": 4210,
+      "size": 11,
+      "sha1": "63782cf13000b5decae95279804adec7ab3fab1a"
+    },
+    {
+      "label": "zPSG_Env6",
+      "path": "sound/psg/zPSG_Env6.bin",
+      "offset": 4221,
+      "size": 15,
+      "sha1": "20db97137df2cdb45c884a3772c5523642ff38ca"
+    },
+    {
+      "label": "zPSG_Env5",
+      "path": "sound/psg/zPSG_Env5.bin",
+      "offset": 4236,
+      "size": 42,
+      "sha1": "2a338e3076284754c75dbbf389e7c10b858f3a2e"
+    },
+    {
+      "label": "zPSG_Env7",
+      "path": "sound/psg/zPSG_Env7.bin",
+      "offset": 4278,
+      "size": 28,
+      "sha1": "b86cd72fe7913df7cc1f80d7803aba113cb4d73d"
+    },
+    {
+      "label": "zPSG_Env8",
+      "path": "sound/psg/zPSG_Env8.bin",
+      "offset": 4306,
+      "size": 40,
+      "sha1": "97d24b4eed14696fe6987d03803172197d4bf29d"
+    },
+    {
+      "label": "zPSG_Env9",
+      "path": "sound/psg/zPSG_Env9.bin",
+      "offset": 4346,
+      "size": 17,
+      "sha1": "2a7cfa42699e97b0956d438135d06ef833730816"
+    },
+    {
+      "label": "zPSG_Env10",
+      "path": "sound/psg/zPSG_Env10.bin",
+      "offset": 4363,
+      "size": 62,
+      "sha1": "dae7c4e3f605399e7c33f50374b24099fcbe58c6"
+    },
+    {
+      "label": "zPSG_Env11",
+      "path": "sound/psg/zPSG_Env11.bin",
+      "offset": 4425,
+      "size": 28,
+      "sha1": "053004dff3b94293e27b9318b48fdb5b5392935f"
+    },
+    {
+      "label": "zPSG_Env12",
+      "path": "sound/psg/zPSG_Env12.bin",
+      "offset": 4453,
+      "size": 128,
+      "sha1": "39938b9304e87de2d3a0580971bb6e030eb5f8ee"
+    },
+    {
+      "label": "zPSG_Env13",
+      "path": "sound/psg/zPSG_Env13.bin",
+      "offset": 4581,
+      "size": 16,
+      "sha1": "871f5a49b1f911c0747149625fcfc463d8295077"
+    }
+  ]
+}

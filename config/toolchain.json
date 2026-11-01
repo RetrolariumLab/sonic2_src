@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "kit": {
+    "release": "2026.10.11",
+    "source": "https://github.com/Retrolarium/retrolarium-kit",
+    "commit": "fab4af3440f14e2a1aa98631b12c1113b50ea13b"
+  },
+  "core": {
+    "source": "https://github.com/Retrolarium/retrolarium-core",
+    "commit": "cd5ac6974de99137214866ec72be547449235600"
+  },
+  "assembler": {
+    "version": "1.42-beta-build-313",
+    "hosts": {
+      "linux-x86_64": {
+        "path": "build/tools/as-313/linux-x86_64/asl",
+        "url": "https://raw.githubusercontent.com/sonicretro/s2disasm/4ef457c18fc4902396c43ab06fabc119ac6ecb64/build_tools/Linux-x86_64/asl",
+        "size": 3393944,
+        "sha256": "cc444bd4e1eccbe9c2d7b69e9e582a2f1310d49b1d548a2e24b1de6459a20e2a"
+      },
+      "windows-x86_64": {
+        "path": "build/tools/as-313/windows-x86_64/asw.exe",
+        "url": "https://raw.githubusercontent.com/sonicretro/s2disasm/4ef457c18fc4902396c43ab06fabc119ac6ecb64/build_tools/Windows-x86_64/asw.exe",
+        "size": 3455039,
+        "sha256": "6a3236038c15a16f70d91d12e3f10bf3cb14da6400ac4b73a2da43a3f29031fa"
+      }
+    },
+    "reason": "Kit build 212 truncates long macro argument lists in the imported source.",
+    "license": {
+      "path": "build/tools/as-313/GPL-2.0.txt",
+      "url": "https://raw.githubusercontent.com/flamewing/asl-releases/b2803d77b610522ae85c46ded89b8c15460381d5/COPYING",
+      "size": 18007,
+      "sha256": "dcc100d4161cc0b7177545ab6e47216f84857cda3843847c792a25289852dcaa"
+    }
+  },
+  "p2bin": {
+    "source": "https://github.com/Clownacy/p2bin/tree/e26d8aa8c43e285bac5e3b7df3be1adae515994f",
+    "hosts": {
+      "windows-x86_64": {
+        "sha256": "b6b7db88a3ecccb26f61410fa0f14bee7eda3ddf62ee9335ca51ef11c0d73252"
+      },
+      "linux-x86_64": {
+        "sha256": "804baf51dc84f99c227afddb211b827bbe1d99fec94a61b444ed024e0dcc88be"
+      }
+    }
+  },
+  "supported_hosts": [
+    {
+      "id": "windows-x86_64",
+      "status": "development",
+      "python": ">=3.10",
+      "shell": "GNU Make with Python subprocesses"
+    },
+    {
+      "id": "linux-x86_64",
+      "status": "partial",
+      "reason": "Compiler is pinned; the full gate has not been run on a Linux host."
+    }
+  ]
+}

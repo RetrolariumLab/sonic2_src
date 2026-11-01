@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "default": "rev01",
+  "entry": "s2.asm",
+  "profiles": [
+    {
+      "id": "rev00",
+      "image": "rev00",
+      "defines": {
+        "gameRevision": 0
+      },
+      "output": "build/rev00/sonic2.bin",
+      "status": "development"
+    },
+    {
+      "id": "rev01",
+      "image": "rev01",
+      "defines": {
+        "gameRevision": 1
+      },
+      "output": "build/rev01/sonic2.bin",
+      "status": "development"
+    }
+  ],
+  "excluded_scope": [
+    {
+      "id": "rev02",
+      "status": "unsupported",
+      "reason": "No user-supplied original image matches the theoretical revision hash."
+    },
+    {
+      "id": "prototypes-modifications-compilations-lock-on",
+      "status": "unsupported",
+      "reason": "These are outside the accepted original retail revisions."
+    }
+  ]
+}

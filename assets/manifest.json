@@ -1,0 +1,4797 @@
+{
+  "schema": "retrolarium.assets",
+  "schema_version": 1,
+  "output": "data",
+  "images": [
+    {
+      "id": "rev00",
+      "file": "data/roms/sonic2-rev00.bin",
+      "size": 1048576,
+      "sha1": "14dd06fc3aa19a59a818ea1f6de150c9061b14d4",
+      "sha256": "07329f4561044a504923eb0742894485c61fc42ebb0891eebff247ca2e086d61"
+    },
+    {
+      "id": "rev01",
+      "file": "data/roms/sonic2-rev01.bin",
+      "size": 1048576,
+      "sha1": "8bca5dcef1af3e00098666fd892dc1c2a76333f9",
+      "sha256": "193bc4064ce0daf27ea9e908ed246d87ec576cc294833badebb590b6ad8e8f6b"
+    }
+  ],
+  "assets": [
+    {
+      "path": "art/kosinski/ARZ.kos",
+      "image": "rev01",
+      "offset": 773156,
+      "size": 18448,
+      "sha1": "7c40310930e633c7a64074f5b02dc13c36a6b892"
+    },
+    {
+      "path": "art/kosinski/CNZ.kos",
+      "image": "rev01",
+      "offset": 723092,
+      "size": 9312,
+      "sha1": "57c20da1eee95388ea5bf000b09581d353e8ba6c"
+    },
+    {
+      "path": "art/kosinski/CPZ_DEZ.kos",
+      "image": "rev01",
+      "offset": 745844,
+      "size": 12160,
+      "sha1": "48094838943c1c7d281c5e0f89c287808fdbbe07"
+    },
+    {
+      "path": "art/kosinski/EHZ_HTZ.kos",
+      "image": "rev01",
+      "offset": 613412,
+      "size": 10624,
+      "sha1": "754d0fad30640dc962dc881b659aa4bb50cdb1e0"
+    },
+    {
+      "path": "art/kosinski/HTZ_Supp.kos",
+      "image": "rev01",
+      "offset": 625332,
+      "size": 4736,
+      "sha1": "410b93c66a0decc3f8e3189f279e962f9f5f78ca"
+    },
+    {
+      "path": "art/kosinski/MCZ.kos",
+      "image": "rev01",
+      "offset": 695668,
+      "size": 14048,
+      "sha1": "4fa33325fde942e48630508b119810c006d1991b"
+    },
+    {
+      "path": "art/kosinski/MTZ.kos",
+      "image": "rev01",
+      "offset": 645988,
+      "size": 11104,
+      "sha1": "4eb973decc876d0462abb34e7f90edc22f63c886"
+    },
+    {
+      "path": "art/kosinski/OOZ.kos",
+      "image": "rev01",
+      "offset": 672260,
+      "size": 9776,
+      "sha1": "cddfd1ab7d448c34def8bb45fada1bff0e1c0074"
+    },
+    {
+      "path": "art/kosinski/SpecStag.kos",
+      "image": "rev01",
+      "offset": 903736,
+      "size": 816,
+      "sha1": "095d2d1b971b14dbeacd846483c8ec7ceb21e125"
+    },
+    {
+      "path": "art/kosinski/WFZ_SCZ.kos",
+      "image": "rev01",
+      "offset": 806916,
+      "size": 11968,
+      "sha1": "7b3de1122ae07d7f48096bed86729005893a9120"
+    },
+    {
+      "path": "art/kosinski/WFZ_Supp.kos",
+      "image": "rev01",
+      "offset": 818884,
+      "size": 1824,
+      "sha1": "a1f836754dd03053f7dea3c202769e9f7fa05b89"
+    },
+    {
+      "path": "art/nemesis/1P and 2P wins text from 2P mode.nem",
+      "image": "rev01",
+      "offset": 510382,
+      "size": 466,
+      "sha1": "fc7a671a35186add774bc4a9fca683b77e101ee4"
+    },
+    {
+      "path": "art/nemesis/1Player2VS.nem",
+      "image": "rev01",
+      "offset": 15860,
+      "size": 141,
+      "sha1": "a2872c689b284f9253596413b2517c231f40959d"
+    },
+    {
+      "path": "art/nemesis/4 stripy blocks from OOZ.nem",
+      "image": "rev01",
+      "offset": 528456,
+      "size": 112,
+      "sha1": "f6dc525415ddbf85afbca1ebaec46663a76fd32d"
+    },
+    {
+      "path": "art/nemesis/A few menu blocks.nem",
+      "image": "rev01",
+      "offset": 494780,
+      "size": 240,
+      "sha1": "55775a29d40d67c418b68145b3e99a987c262b0a"
+    },
+    {
+      "path": "art/nemesis/A menu box with a shadow.nem",
+      "image": "rev01",
+      "offset": 514448,
+      "size": 127,
+      "sha1": "479da9765f475c808c664929ae0e73fdeea27f67"
+    },
+    {
+      "path": "art/nemesis/ARZ boss.nem",
+      "image": "rev01",
+      "offset": 549160,
+      "size": 2629,
+      "sha1": "166dc539fb71cdaef4fb213bb511df506323cab4"
+    },
+    {
+      "path": "art/nemesis/Arrow shooter and arrow from ARZ.nem",
+      "image": "rev01",
+      "offset": 536436,
+      "size": 349,
+      "sha1": "b58905247e6dbdc19a05d7696653edfd44319b4c"
+    },
+    {
+      "path": "art/nemesis/Background art for special stage.nem",
+      "image": "rev01",
+      "offset": 904552,
+      "size": 1141,
+      "sha1": "b0f0ad7ebaf01b6783a84fdf898b14f6c7d5c5ff"
+    },
+    {
+      "path": "art/nemesis/Balkrie (jet badnik) from SCZ.nem",
+      "image": "rev01",
+      "offset": 572438,
+      "size": 507,
+      "sha1": "5981918823ce08159f6cc109c79f1536dbc9d1c3"
+    },
+    {
+      "path": "art/nemesis/Ball on spring from OOZ (beta holdovers).nem",
+      "image": "rev01",
+      "offset": 525760,
+      "size": 287,
+      "sha1": "433cdf6953ea40e466b212e50ad565f4e63dd305"
+    },
+    {
+      "path": "art/nemesis/Bear.nem",
+      "image": "rev01",
+      "offset": 523408,
+      "size": 322,
+      "sha1": "b19f2c4b1c922b1cbd5404c4a9ac29a487f351f4"
+    },
+    {
+      "path": "art/nemesis/Blowfly from ARZ.nem",
+      "image": "rev01",
+      "offset": 562660,
+      "size": 298,
+      "sha1": "c4e14b6468391e6a5abe0ce4e0cc52d6e05e6f36"
+    },
+    {
+      "path": "art/nemesis/Bolt end and rope from MTZ.nem",
+      "image": "rev01",
+      "offset": 988908,
+      "size": 161,
+      "sha1": "8790c5a15423537819a65eeb2089d2f767b22b48"
+    },
+    {
+      "path": "art/nemesis/Bomb from special stage.nem",
+      "image": "rev01",
+      "offset": 910524,
+      "size": 1008,
+      "sha1": "c240feb2dba3a6cece86fec814eb27554976e87f"
+    },
+    {
+      "path": "art/nemesis/Bomber badnik from SCZ.nem",
+      "image": "rev01",
+      "offset": 565570,
+      "size": 543,
+      "sha1": "8e7e39ec927f71faaab5949e513562017fdfd069"
+    },
+    {
+      "path": "art/nemesis/Bouncer badnik from CNZ.nem",
+      "image": "rev01",
+      "offset": 590244,
+      "size": 891,
+      "sha1": "09a825b5d0d09a1e23da8fbda918328b34308b7a"
+    },
+    {
+      "path": "art/nemesis/Breakaway panels from WFZ.nem",
+      "image": "rev01",
+      "offset": 524184,
+      "size": 227,
+      "sha1": "25b9d694ed1a708716e4b32b36ef8d652f98eb47"
+    },
+    {
+      "path": "art/nemesis/Bubble generator.nem",
+      "image": "rev01",
+      "offset": 503062,
+      "size": 459,
+      "sha1": "c4f802e745e0801175bc74a5be1854c8f31f512b"
+    },
+    {
+      "path": "art/nemesis/Bubbles.nem",
+      "image": "rev01",
+      "offset": 503522,
+      "size": 158,
+      "sha1": "cd9aa8b83eeb2cfb09e431eb0987fef6d82ba8fd"
+    },
+    {
+      "path": "art/nemesis/Burner Platform from OOZ.nem",
+      "image": "rev01",
+      "offset": 524916,
+      "size": 149,
+      "sha1": "55c332538c4a4960f74a3c26628d888f969e72ac"
+    },
+    {
+      "path": "art/nemesis/Button.nem",
+      "image": "rev01",
+      "offset": 495020,
+      "size": 215,
+      "sha1": "e77b137abf9706c0d8610b9d2ab77742c225351c"
+    },
+    {
+      "path": "art/nemesis/Buzzer enemy.nem",
+      "image": "rev01",
+      "offset": 536938,
+      "size": 511,
+      "sha1": "16fe08e4bffca329c9d89709d25e7dbd5de5c84b"
+    },
+    {
+      "path": "art/nemesis/CNZ boss.nem",
+      "image": "rev01",
+      "offset": 555692,
+      "size": 2089,
+      "sha1": "60f846f47367e081b591305c0dd9028be5257c8e"
+    },
+    {
+      "path": "art/nemesis/CNZ elevator.nem",
+      "image": "rev01",
+      "offset": 530356,
+      "size": 114,
+      "sha1": "8371adb5378a8a09e498e1f8abdd161798b8031d"
+    },
+    {
+      "path": "art/nemesis/CNZ slot machine bars.nem",
+      "image": "rev01",
+      "offset": 530470,
+      "size": 110,
+      "sha1": "f45cef97bfe61473c5e9e780dd496173b2a8a904"
+    },
+    {
+      "path": "art/nemesis/CPZ boss.nem",
+      "image": "rev01",
+      "offset": 541490,
+      "size": 1373,
+      "sha1": "9226a06d5d2836314fb17f7dd6e7174ad7106747"
+    },
+    {
+      "path": "art/nemesis/CPZ large moving platform blocks.nem",
+      "image": "rev01",
+      "offset": 534456,
+      "size": 63,
+      "sha1": "127ca828b5e3ef658752f34d0ea96461ac56535c"
+    },
+    {
+      "path": "art/nemesis/CPZ metal things.nem",
+      "image": "rev01",
+      "offset": 533934,
+      "size": 521,
+      "sha1": "8784bbab812e98a041c5d10dd777ac37533b78f7"
+    },
+    {
+      "path": "art/nemesis/CPZ spintube exit cover.nem",
+      "image": "rev01",
+      "offset": 535558,
+      "size": 508,
+      "sha1": "082c9c8a480609c86f699e62bbd7d7fc0b83d3e2"
+    },
+    {
+      "path": "art/nemesis/CPZ worm enemy.nem",
+      "image": "rev01",
+      "offset": 533820,
+      "size": 113,
+      "sha1": "856b84b3cf43a1926362d5b459ff9f77321c005d"
+    },
+    {
+      "path": "art/nemesis/Cascading oil from OOZ.nem",
+      "image": "rev01",
+      "offset": 525554,
+      "size": 205,
+      "sha1": "b5cd6e36d441be1074098d09825907d69ef4b397"
+    },
+    {
+      "path": "art/nemesis/Cascading oil hitting oil from OOZ.nem",
+      "image": "rev01",
+      "offset": 525174,
+      "size": 380,
+      "sha1": "391b9ad8eac0e8e2d24ceb854c86fc48cbcacfa6"
+    },
+    {
+      "path": "art/nemesis/Catapult that shoots Sonic to the side from WFZ.nem",
+      "image": "rev01",
+      "offset": 580770,
+      "size": 106,
+      "sha1": "32548e6d8c51c8d09d8d5b51de0efaf493e14f55"
+    },
+    {
+      "path": "art/nemesis/Caterpiller platforms from CNZ.nem",
+      "image": "rev01",
+      "offset": 529920,
+      "size": 104,
+      "sha1": "30d932d81a4afb42694fc7f845f2fb77a45cab54"
+    },
+    {
+      "path": "art/nemesis/Chicken.nem",
+      "image": "rev01",
+      "offset": 521024,
+      "size": 354,
+      "sha1": "bd4cca34a1d8f26703f667f91cc8f547fa951238"
+    },
+    {
+      "path": "art/nemesis/Chopper blades for EHZ boss.nem",
+      "image": "rev01",
+      "offset": 546920,
+      "size": 243,
+      "sha1": "0917f033b82adf58792cdcd1daf878248cb23f64"
+    },
+    {
+      "path": "art/nemesis/Clouds.nem",
+      "image": "rev01",
+      "offset": 580348,
+      "size": 326,
+      "sha1": "170bf6dfe1215aee39fcf51f5dfc8dfba4adffca"
+    },
+    {
+      "path": "art/nemesis/Coconuts badnik from EHZ.nem",
+      "image": "rev01",
+      "offset": 567418,
+      "size": 699,
+      "sha1": "2fd577344711b3b636f8762b4c95aabd3904e614"
+    },
+    {
+      "path": "art/nemesis/Collapsing platform from MCZ.nem",
+      "image": "rev01",
+      "offset": 989882,
+      "size": 425,
+      "sha1": "10f63c8c11c3e012493e77d9330410e9b71e8818"
+    },
+    {
+      "path": "art/nemesis/Credit Text.nem",
+      "image": "rev01",
+      "offset": 48422,
+      "size": 577,
+      "sha1": "c74863a2e4c6118954924ec80a5a299efa45250f"
+    },
+    {
+      "path": "art/nemesis/Diagonal impulse spring from CNZ.nem",
+      "image": "rev01",
+      "offset": 531120,
+      "size": 486,
+      "sha1": "a1c3c04ebd942a0e0d9529e5b89a8fd3ce7dd10c"
+    },
+    {
+      "path": "art/nemesis/Diagonal shadow from special stage.nem",
+      "image": "rev01",
+      "offset": 909402,
+      "size": 198,
+      "sha1": "31e5488226fabe993897fa5d0896263811862479"
+    },
+    {
+      "path": "art/nemesis/Diagonal spring.nem",
+      "image": "rev01",
+      "offset": 495722,
+      "size": 467,
+      "sha1": "c8415560a237c17981a39f95cd74b40c5a6f58ac"
+    },
+    {
+      "path": "art/nemesis/Drawbridge logs from MCZ.nem",
+      "image": "rev01",
+      "offset": 990726,
+      "size": 111,
+      "sha1": "c34066064f1ad6246a5e64481bb435ade47615b3"
+    },
+    {
+      "path": "art/nemesis/Driller badnik from HTZ.nem",
+      "image": "rev01",
+      "offset": 565162,
+      "size": 407,
+      "sha1": "3031359af07efa52ff7d21a06a2e35ad36c95c00"
+    },
+    {
+      "path": "art/nemesis/Drop target from CNZ.nem",
+      "image": "rev01",
+      "offset": 531916,
+      "size": 293,
+      "sha1": "d70dc55fc07eacd68d0b41bc65fee3ca6f9a4609"
+    },
+    {
+      "path": "art/nemesis/Dynamically reloaded cliffs in HTZ background.nem",
+      "image": "rev01",
+      "offset": 301588,
+      "size": 2346,
+      "sha1": "f89264398b2faca02657e3e76dabaccb69d28a78"
+    },
+    {
+      "path": "art/nemesis/EHZ Pirahna badnik.nem",
+      "image": "rev01",
+      "offset": 539114,
+      "size": 523,
+      "sha1": "3dddb12c237b0869b004abfbacae0590ded2ea17"
+    },
+    {
+      "path": "art/nemesis/EHZ boss.nem",
+      "image": "rev01",
+      "offset": 544892,
+      "size": 2027,
+      "sha1": "f9c28c99353029fce1ec32a94160b6a3be1335cb"
+    },
+    {
+      "path": "art/nemesis/EHZ bridge.nem",
+      "image": "rev01",
+      "offset": 984362,
+      "size": 215,
+      "sha1": "8ef456f7794c9372e6b529d0b8a2039efbc65384"
+    },
+    {
+      "path": "art/nemesis/Eagle.nem",
+      "image": "rev01",
+      "offset": 521698,
+      "size": 302,
+      "sha1": "6ccf445d2c6b2f236248557e2f4a0eadbb876b65"
+    },
+    {
+      "path": "art/nemesis/Egg Prison.nem",
+      "image": "rev01",
+      "offset": 506418,
+      "size": 908,
+      "sha1": "4b7b23c79f099a3848ef1266b236768fbcaa4525"
+    },
+    {
+      "path": "art/nemesis/Eggpod.nem",
+      "image": "rev01",
+      "offset": 539638,
+      "size": 1852,
+      "sha1": "41fe446c0847b443df3ef98fec70c7c6797fd7a7"
+    },
+    {
+      "path": "art/nemesis/Eggrobo.nem",
+      "image": "rev01",
+      "offset": 585764,
+      "size": 4479,
+      "sha1": "b792f741841db358620783ff0ab8b3f3938c23be"
+    },
+    {
+      "path": "art/nemesis/Emerald from special stage.nem",
+      "image": "rev01",
+      "offset": 911532,
+      "size": 583,
+      "sha1": "9a38831e433336511cb97505861ba92ed525b5e8"
+    },
+    {
+      "path": "art/nemesis/End of level results text.nem",
+      "image": "rev01",
+      "offset": 518250,
+      "size": 750,
+      "sha1": "d4102c27da3f2820230401bff8cef01eb872b706"
+    },
+    {
+      "path": "art/nemesis/Exploding star badnik from MTZ.nem",
+      "image": "rev01",
+      "offset": 570112,
+      "size": 304,
+      "sha1": "71169da0e6d3f7fb47f1b4fbf5ad26f8804c2883"
+    },
+    {
+      "path": "art/nemesis/Explosion from special stage.nem",
+      "image": "rev01",
+      "offset": 909704,
+      "size": 819,
+      "sha1": "e0434e0a62d2c5e13eb23ae145837af5059fa4bb"
+    },
+    {
+      "path": "art/nemesis/Explosion.nem",
+      "image": "rev01",
+      "offset": 505234,
+      "size": 948,
+      "sha1": "ae3e61636ef3ffabbe57a08fedd7ae7293b3dacd"
+    },
+    {
+      "path": "art/nemesis/Fan from OOZ.nem",
+      "image": "rev01",
+      "offset": 528980,
+      "size": 704,
+      "sha1": "7fd248d9bc9fbc1215028a7d4fa7fe68e939db52"
+    },
+    {
+      "path": "art/nemesis/Final image of Tails.nem",
+      "image": "rev01",
+      "offset": 606012,
+      "size": 3051,
+      "sha1": "82f7c89ddaf7f466a4b73d38c6a942638953781b"
+    },
+    {
+      "path": "art/nemesis/Final image of Tornado with it and Sonic facing screen.nem",
+      "image": "rev01",
+      "offset": 597820,
+      "size": 2211,
+      "sha1": "a437bdd8ab1c8cc85518f75a44fb847b28b16059"
+    },
+    {
+      "path": "art/nemesis/Fireball 1.nem",
+      "image": "rev01",
+      "offset": 983392,
+      "size": 374,
+      "sha1": "4b36add385009e5c01301436dea3d9fad625ba6e"
+    },
+    {
+      "path": "art/nemesis/Fireball 2.nem",
+      "image": "rev01",
+      "offset": 984028,
+      "size": 333,
+      "sha1": "26c6d6a7745428446ee9d825ce3c9d1fac190a98"
+    },
+    {
+      "path": "art/nemesis/Fireball 3.nem",
+      "image": "rev01",
+      "offset": 985862,
+      "size": 270,
+      "sha1": "692a92a1151fa189c348bdcbaa4653b4ec10f268"
+    },
+    {
+      "path": "art/nemesis/Firefly from MCZ.nem",
+      "image": "rev01",
+      "offset": 568414,
+      "size": 290,
+      "sha1": "8ae1c98c63a6dcbe0ba80cd03fbcd91540babc66"
+    },
+    {
+      "path": "art/nemesis/Flicky.nem",
+      "image": "rev01",
+      "offset": 520032,
+      "size": 322,
+      "sha1": "1f320efd8324d70e94b1b4e85f16e7b9072fec36"
+    },
+    {
+      "path": "art/nemesis/Flippers.nem",
+      "image": "rev01",
+      "offset": 532210,
+      "size": 803,
+      "sha1": "239ad508e4f3c64ee6a4d4569551d0b1c17a4b0f"
+    },
+    {
+      "path": "art/nemesis/Font using large broken letters.nem",
+      "image": "rev01",
+      "offset": 513418,
+      "size": 1029,
+      "sha1": "ea1e4ec781da0ccd1d5371a03e122052758633be"
+    },
+    {
+      "path": "art/nemesis/Game and Time Over text.nem",
+      "image": "rev01",
+      "offset": 504832,
+      "size": 401,
+      "sha1": "d8465f7375821585c2ea7ac88539e629b865bbca"
+    },
+    {
+      "path": "art/nemesis/Green flame from OOZ burners.nem",
+      "image": "rev01",
+      "offset": 529684,
+      "size": 236,
+      "sha1": "70a65b0003098abfd19b4f93ec59065a3781141e"
+    },
+    {
+      "path": "art/nemesis/Grounder from ARZ.nem",
+      "image": "rev01",
+      "offset": 562958,
+      "size": 1164,
+      "sha1": "3bfd5dd5ad0a74333cb3c30eb4e66faa1a54ae90"
+    },
+    {
+      "path": "art/nemesis/HTZ boss.nem",
+      "image": "rev01",
+      "offset": 547164,
+      "size": 1995,
+      "sha1": "a2e44fd32d4fe9c53ca74b1aacc31ccab3e1ad84"
+    },
+    {
+      "path": "art/nemesis/HTZ zip-line platform.nem",
+      "image": "rev01",
+      "offset": 984578,
+      "size": 756,
+      "sha1": "6d67679e417e1c2197ad59b6e58fd3251013dd18"
+    },
+    {
+      "path": "art/nemesis/HUD.nem",
+      "image": "rev01",
+      "offset": 496190,
+      "size": 264,
+      "sha1": "fb0a8cbdeddd8194a34f1437c5dcb4bad14bcaa9"
+    },
+    {
+      "path": "art/nemesis/Hexagonal bumper from CNZ.nem",
+      "image": "rev01",
+      "offset": 530580,
+      "size": 137,
+      "sha1": "326b2ac2d5713f5d16d1ee01df2182cd35963d1f"
+    },
+    {
+      "path": "art/nemesis/Hook on chain from WFZ.nem",
+      "image": "rev01",
+      "offset": 578440,
+      "size": 440,
+      "sha1": "ea4c26b1578c4df7cc7c395a39e541d002fd970a"
+    },
+    {
+      "path": "art/nemesis/Horizontal jet.nem",
+      "image": "rev01",
+      "offset": 544536,
+      "size": 126,
+      "sha1": "b5d21d46e998f8d3cfdbfa210e732beabdf234a9"
+    },
+    {
+      "path": "art/nemesis/Horizontal shadow from special stage.nem",
+      "image": "rev01",
+      "offset": 909220,
+      "size": 181,
+      "sha1": "88b1bb4d53241b97c8bf9ade0eb07e769a8c9355"
+    },
+    {
+      "path": "art/nemesis/Horizontal spinning blades in WFZ.nem",
+      "image": "rev01",
+      "offset": 581352,
+      "size": 295,
+      "sha1": "373e2fc3ffb07027e1f4decbc3b8bb6301e04655"
+    },
+    {
+      "path": "art/nemesis/Horizontal spring.nem",
+      "image": "rev01",
+      "offset": 495520,
+      "size": 201,
+      "sha1": "a463a04a2f3319f6eeec248d97058da803b11f61"
+    },
+    {
+      "path": "art/nemesis/Invincibility stars.nem",
+      "image": "rev01",
+      "offset": 466708,
+      "size": 231,
+      "sha1": "b09dd453d00f551c80e6fbba789826b1dbbd9525"
+    },
+    {
+      "path": "art/nemesis/Large explosion.nem",
+      "image": "rev01",
+      "offset": 542864,
+      "size": 1672,
+      "sha1": "28319da5f5cf71c10f036a4c7937e9521eddcb42"
+    },
+    {
+      "path": "art/nemesis/Large moving platform from CPZ.nem",
+      "image": "rev01",
+      "offset": 533014,
+      "size": 334,
+      "sha1": "162d1c12db32c3a91927dce039a8ab78f39ed24e"
+    },
+    {
+      "path": "art/nemesis/Large spinning wheel from MTZ - indent.nem",
+      "image": "rev01",
+      "offset": 987662,
+      "size": 168,
+      "sha1": "c5f92cec0dd447bf5341655b89306a8b01a7759f"
+    },
+    {
+      "path": "art/nemesis/Large spinning wheel from MTZ.nem",
+      "image": "rev01",
+      "offset": 986550,
+      "size": 1112,
+      "sha1": "1a2df68d8f9586d259b2dc4fa1e51c437f177d45"
+    },
+    {
+      "path": "art/nemesis/Large wooden box from MCZ.nem",
+      "image": "rev01",
+      "offset": 989308,
+      "size": 573,
+      "sha1": "9e4672b2cf3e99148976008debc566a7e87069ad"
+    },
+    {
+      "path": "art/nemesis/Lava bubble from MTZ.nem",
+      "image": "rev01",
+      "offset": 988614,
+      "size": 182,
+      "sha1": "d4ee8da3c6f6e215c604599b0c143148f7e290c2"
+    },
+    {
+      "path": "art/nemesis/Lava cup from MTZ.nem",
+      "image": "rev01",
+      "offset": 988796,
+      "size": 111,
+      "sha1": "8f0dfa51bc5c98ec1aa5d1f1402cfd14c55a0ea8"
+    },
+    {
+      "path": "art/nemesis/Leaves in ARZ.nem",
+      "image": "rev01",
+      "offset": 536296,
+      "size": 139,
+      "sha1": "6fdd0a69dc7d4e3f26d5def7ab628168c305d5f9"
+    },
+    {
+      "path": "art/nemesis/Lever spring.nem",
+      "image": "rev01",
+      "offset": 502602,
+      "size": 336,
+      "sha1": "0ec1b0cc0295ab00f436f735eb9d18bc700a7be1"
+    },
+    {
+      "path": "art/nemesis/Long horizontal spike.nem",
+      "image": "rev01",
+      "offset": 502938,
+      "size": 124,
+      "sha1": "25f52a2dc3d394f0191701d3c70aa71fd10866b8"
+    },
+    {
+      "path": "art/nemesis/MCZ boss.nem",
+      "image": "rev01",
+      "offset": 551790,
+      "size": 3901,
+      "sha1": "8ac5a83058ce70d863ecfcc19ac21f193b9d4c4f"
+    },
+    {
+      "path": "art/nemesis/MTZ boss.nem",
+      "image": "rev01",
+      "offset": 560550,
+      "size": 1853,
+      "sha1": "e1c873968238d0bef2b6d5e21515e20709739f05"
+    },
+    {
+      "path": "art/nemesis/MTZ spike block.nem",
+      "image": "rev01",
+      "offset": 987830,
+      "size": 205,
+      "sha1": "9b0d86fc9524b8dd891a8ad796d59165c22a9221"
+    },
+    {
+      "path": "art/nemesis/Main patterns from title screen.nem",
+      "image": "rev01",
+      "offset": 479084,
+      "size": 5902,
+      "sha1": "3d45cf0cf62ba92fa59b425c157742de8c30ce34"
+    },
+    {
+      "path": "art/nemesis/Miles life counter.nem",
+      "image": "rev01",
+      "offset": 506182,
+      "size": 236,
+      "sha1": "08551c4adfaeac6e58ec405fa1f6d28141e7af68"
+    },
+    {
+      "path": "art/nemesis/Monitor and contents.nem",
+      "image": "rev01",
+      "offset": 496976,
+      "size": 1036,
+      "sha1": "ca55dd3962469e547812b057992caadae3f87fa8"
+    },
+    {
+      "path": "art/nemesis/Monkey.nem",
+      "image": "rev01",
+      "offset": 521378,
+      "size": 319,
+      "sha1": "69e25ec7743c926f63d2f62f761210ee87338795"
+    },
+    {
+      "path": "art/nemesis/Mouse.nem",
+      "image": "rev01",
+      "offset": 520710,
+      "size": 314,
+      "sha1": "7722723ba2634664ed92e6befa5694897d580a6a"
+    },
+    {
+      "path": "art/nemesis/Movie sequence at end of game.nem",
+      "image": "rev01",
+      "offset": 592274,
+      "size": 5545,
+      "sha1": "d8f6cce8d0ea3b29d8fcb32d32efc40b5fbb5d18"
+    },
+    {
+      "path": "art/nemesis/Moving block from CNZ and CPZ.nem",
+      "image": "rev01",
+      "offset": 530120,
+      "size": 235,
+      "sha1": "dfd61a2ea73c2faab11fc3d60abb53d8e443c2d7"
+    },
+    {
+      "path": "art/nemesis/Moving block from CPZ.nem",
+      "image": "rev01",
+      "offset": 535110,
+      "size": 447,
+      "sha1": "7a55a9b3a0a0a5f9ff3675d3fefe512fb0cab9b5"
+    },
+    {
+      "path": "art/nemesis/Moving platform from WFZ.nem",
+      "image": "rev01",
+      "offset": 579950,
+      "size": 255,
+      "sha1": "62c89d438a3c3fae807661bf6020ff8029cc010f"
+    },
+    {
+      "path": "art/nemesis/Numbers.nem",
+      "image": "rev01",
+      "offset": 498092,
+      "size": 217,
+      "sha1": "af159a0fe5ea09d72e4ec66a9571035a883386a9"
+    },
+    {
+      "path": "art/nemesis/OOZ boss.nem",
+      "image": "rev01",
+      "offset": 557782,
+      "size": 2767,
+      "sha1": "1b9fef037635a98938c117a261bc484667907bc6"
+    },
+    {
+      "path": "art/nemesis/OOZ collapsing platform.nem",
+      "image": "rev01",
+      "offset": 526800,
+      "size": 660,
+      "sha1": "a8e94499d9f1cdfcbe38f594a813d75b89f34174"
+    },
+    {
+      "path": "art/nemesis/Octopus badnik from OOZ.nem",
+      "image": "rev01",
+      "offset": 537450,
+      "size": 799,
+      "sha1": "8a3b4c73e793420f8eb00fa8fb7bd51d055fa9cf"
+    },
+    {
+      "path": "art/nemesis/One way barrier from ARZ.nem",
+      "image": "rev01",
+      "offset": 536786,
+      "size": 152,
+      "sha1": "fa05d4fbf2fa2afb334f1ee7abf71cd0607706c9"
+    },
+    {
+      "path": "art/nemesis/One way barrier from HTZ.nem",
+      "image": "rev01",
+      "offset": 985334,
+      "size": 119,
+      "sha1": "0224a6791ae5129ef45a7bbb5490eff50a43687f"
+    },
+    {
+      "path": "art/nemesis/Penguin.nem",
+      "image": "rev01",
+      "offset": 522594,
+      "size": 380,
+      "sha1": "e83ab6fd3d5aa5e5f567ed20058fba4934c7a06c"
+    },
+    {
+      "path": "art/nemesis/Perfect text.nem",
+      "image": "rev01",
+      "offset": 519870,
+      "size": 161,
+      "sha1": "b15e3ac6624e0acfad6a5310cd982de2f9de8748"
+    },
+    {
+      "path": "art/nemesis/Pictures in level preview box from level select.nem",
+      "image": "rev01",
+      "offset": 514576,
+      "size": 3673,
+      "sha1": "379366e4cbec19a6821cd2d1421ddf6c587df3ae"
+    },
+    {
+      "path": "art/nemesis/Pig.nem",
+      "image": "rev01",
+      "offset": 522000,
+      "size": 309,
+      "sha1": "3ff9744ce19e3009ae1556b0cb25a48b22bb9383"
+    },
+    {
+      "path": "art/nemesis/Platform on belt in WFZ.nem",
+      "image": "rev01",
+      "offset": 580876,
+      "size": 233,
+      "sha1": "9f7670ec553de28870bbfba941440938ce791dc7"
+    },
+    {
+      "path": "art/nemesis/Praying mantis badnik from MTZ.nem",
+      "image": "rev01",
+      "offset": 568704,
+      "size": 727,
+      "sha1": "c06dad4c9b6d867762c55ad65c65917248872753"
+    },
+    {
+      "path": "art/nemesis/Pull switch from MCZ.nem",
+      "image": "rev01",
+      "offset": 990308,
+      "size": 248,
+      "sha1": "47ce18f5b802e9ec8225140817aa4ba3bcb2aea9"
+    },
+    {
+      "path": "art/nemesis/Push spring from OOZ.nem",
+      "image": "rev01",
+      "offset": 527460,
+      "size": 449,
+      "sha1": "07925ada34986678cb06aec40d57ccea7f28a39e"
+    },
+    {
+      "path": "art/nemesis/Rabbit.nem",
+      "image": "rev01",
+      "offset": 523730,
+      "size": 343,
+      "sha1": "486d0f331d176e1ed13147a38ef8c53f55fd309c"
+    },
+    {
+      "path": "art/nemesis/Red horizontal laser from WFZ.nem",
+      "image": "rev01",
+      "offset": 580674,
+      "size": 95,
+      "sha1": "be8c5d1eb38e64feaa971453e793ebd316306481"
+    },
+    {
+      "path": "art/nemesis/Retracting platform from WFZ.nem",
+      "image": "rev01",
+      "offset": 578880,
+      "size": 663,
+      "sha1": "2f0533cb107c5005d21c3942457472b1861a0f6a"
+    },
+    {
+      "path": "art/nemesis/Rexxon (lava snake) from HTZ.nem",
+      "image": "rev01",
+      "offset": 564716,
+      "size": 445,
+      "sha1": "8fc3f21dd23bd9254178360cab2d1a246dd2c672"
+    },
+    {
+      "path": "art/nemesis/Ring.nem",
+      "image": "rev01",
+      "offset": 496732,
+      "size": 243,
+      "sha1": "151eb97e6e32f8ac289720b5dd26afbace67c7e8"
+    },
+    {
+      "path": "art/nemesis/Rising platform from OOZ.nem",
+      "image": "rev01",
+      "offset": 528568,
+      "size": 411,
+      "sha1": "f32d910ecda5d4ae640e392c7ee3e70864cb43db"
+    },
+    {
+      "path": "art/nemesis/Robotnik's head.nem",
+      "image": "rev01",
+      "offset": 583814,
+      "size": 468,
+      "sha1": "f540e29e7fa1fbb813a971f289577e757cf8a417"
+    },
+    {
+      "path": "art/nemesis/Robotnik's lower half.nem",
+      "image": "rev01",
+      "offset": 585298,
+      "size": 323,
+      "sha1": "98cb7db867e6b0300558de9b15cf630090ffcef7"
+    },
+    {
+      "path": "art/nemesis/Robotnik.nem",
+      "image": "rev01",
+      "offset": 584282,
+      "size": 1016,
+      "sha1": "814012284e8733bbeaeb2f2f2e312a1faa6a2c3d"
+    },
+    {
+      "path": "art/nemesis/Rock from HTZ.nem",
+      "image": "rev01",
+      "offset": 986132,
+      "size": 310,
+      "sha1": "1428c3c72fffc0864564eba1fe11b36554953cff"
+    },
+    {
+      "path": "art/nemesis/Rocket thruster for Tornado.nem",
+      "image": "rev01",
+      "offset": 591136,
+      "size": 447,
+      "sha1": "3bf12700abad7b614bfb287082478615b5e5c0f6"
+    },
+    {
+      "path": "art/nemesis/Round bumper from CNZ.nem",
+      "image": "rev01",
+      "offset": 530718,
+      "size": 402,
+      "sha1": "dd93a54747310883fb1b69e48afff7f7783255b2"
+    },
+    {
+      "path": "art/nemesis/SEGA.nem",
+      "image": "rev01",
+      "offset": 477302,
+      "size": 1152,
+      "sha1": "df33726f477320226da1a3bceb3e691a535efe6d"
+    },
+    {
+      "path": "art/nemesis/Scratch from WFZ.nem",
+      "image": "rev01",
+      "offset": 571868,
+      "size": 569,
+      "sha1": "2c0c2873be597d62dd25e70afcc3e2e3d090da88"
+    },
+    {
+      "path": "art/nemesis/Seahorse from OOZ.nem",
+      "image": "rev01",
+      "offset": 538250,
+      "size": 863,
+      "sha1": "f5877b12742b724b942d790bb9e651d1f2457065"
+    },
+    {
+      "path": "art/nemesis/Seal.nem",
+      "image": "rev01",
+      "offset": 522310,
+      "size": 284,
+      "sha1": "fa1a6721e219de6ddedb265e5b8e1c255a7e3ecc"
+    },
+    {
+      "path": "art/nemesis/See-saw in HTZ.nem",
+      "image": "rev01",
+      "offset": 985454,
+      "size": 408,
+      "sha1": "da3cd5678706de1064a8bf2b18fcf09627017a11"
+    },
+    {
+      "path": "art/nemesis/Shaded blocks from intro.nem",
+      "image": "rev01",
+      "offset": 478454,
+      "size": 23,
+      "sha1": "a2afda7d77262547fe0db9d21da81eba8502dd7e"
+    },
+    {
+      "path": "art/nemesis/Shark from ARZ.nem",
+      "image": "rev01",
+      "offset": 564122,
+      "size": 594,
+      "sha1": "ea52dd67abbbb3b268d1fa65ebf2009636f1cdcd"
+    },
+    {
+      "path": "art/nemesis/Shellcracker badnik from MTZ.nem",
+      "image": "rev01",
+      "offset": 569432,
+      "size": 680,
+      "sha1": "f114654dfeaeecfee38c5739cceebe36484b66e8"
+    },
+    {
+      "path": "art/nemesis/Shield.nem",
+      "image": "rev01",
+      "offset": 466318,
+      "size": 389,
+      "sha1": "f402a9c3d9001d3e405fa7af0e51c2981be543d2"
+    },
+    {
+      "path": "art/nemesis/Signpost.nem",
+      "image": "rev01",
+      "offset": 498654,
+      "size": 1452,
+      "sha1": "c29cdcb98aa54e2bbf50ab21f3bdd68bf20a628c"
+    },
+    {
+      "path": "art/nemesis/Silver Sonic.nem",
+      "image": "rev01",
+      "offset": 572946,
+      "size": 3633,
+      "sha1": "df37c955089ca10439453009e9315d04a566b51e"
+    },
+    {
+      "path": "art/nemesis/Similarly shaded blocks from MTZ.nem",
+      "image": "rev01",
+      "offset": 988496,
+      "size": 117,
+      "sha1": "6408c91d641fdc7c2728edb5e96e977f0a7b9e97"
+    },
+    {
+      "path": "art/nemesis/Small cog from MTZ.nem",
+      "image": "rev01",
+      "offset": 989070,
+      "size": 225,
+      "sha1": "45f79731bdd385151823f00f75d925834b3d836a"
+    },
+    {
+      "path": "art/nemesis/Small pictures of Sonic and final image of Sonic in Super Sonic mode.nem",
+      "image": "rev01",
+      "offset": 604232,
+      "size": 1780,
+      "sha1": "9cb7c64488fed6edf837f9dcee08b90c039e8f1f"
+    },
+    {
+      "path": "art/nemesis/Small pictures of Sonic and final image of Sonic.nem",
+      "image": "rev01",
+      "offset": 601866,
+      "size": 2365,
+      "sha1": "2354127ec6020ebf6fa90f170b4f3aa99698a0cc"
+    },
+    {
+      "path": "art/nemesis/Small pictures of Tornado in final ending sequence.nem",
+      "image": "rev01",
+      "offset": 600032,
+      "size": 1834,
+      "sha1": "205118214d848503a6f3a32c391c1a30f941b772"
+    },
+    {
+      "path": "art/nemesis/Small yellow moving platform from CPZ.nem",
+      "image": "rev01",
+      "offset": 534628,
+      "size": 482,
+      "sha1": "073064c450145509399f9e15a53ecf1af2c968e3"
+    },
+    {
+      "path": "art/nemesis/Smoke trail from CPZ and HTZ bosses.nem",
+      "image": "rev01",
+      "offset": 544662,
+      "size": 230,
+      "sha1": "6f58076a364178459eff4294e8b86cc66af12eea"
+    },
+    {
+      "path": "art/nemesis/Snake badnik from MCZ.nem",
+      "image": "rev01",
+      "offset": 568118,
+      "size": 296,
+      "sha1": "50f277cf5b35acb0c0af8d506dd87e7d8af40f43"
+    },
+    {
+      "path": "art/nemesis/Sol badnik from HTZ.nem",
+      "image": "rev01",
+      "offset": 986442,
+      "size": 108,
+      "sha1": "9b74ed6c189a434813a7e48ab0414e2897de8a82"
+    },
+    {
+      "path": "art/nemesis/Sonic and Miles number text from special stage.nem",
+      "image": "rev01",
+      "offset": 906378,
+      "size": 774,
+      "sha1": "b37773b334adea601bd9da296f7a0dd2a74937db"
+    },
+    {
+      "path": "art/nemesis/Sonic and Tails animation frames in special stage.nem",
+      "image": "rev01",
+      "offset": 913070,
+      "size": 13775,
+      "sha1": "34a46360a8c1c0191b94ae5ebbeae8f5adb85448"
+    },
+    {
+      "path": "art/nemesis/Sonic and Tails from title screen.nem",
+      "image": "rev01",
+      "offset": 484986,
+      "size": 9794,
+      "sha1": "7e979d138555690bc7ac6807a2ee58193dec0de9"
+    },
+    {
+      "path": "art/nemesis/Sonic continue.nem",
+      "image": "rev01",
+      "offset": 508074,
+      "size": 354,
+      "sha1": "b9c19ee876379dc0c9fda3bc6f2d28320983fddc"
+    },
+    {
+      "path": "art/nemesis/Sonic lives counter.nem",
+      "image": "rev01",
+      "offset": 496454,
+      "size": 277,
+      "sha1": "dab725f9f7245ffb7652297240b708af95337536"
+    },
+    {
+      "path": "art/nemesis/Sonic the Hedgehog 2 image at end of credits.nem",
+      "image": "rev01",
+      "offset": 609064,
+      "size": 844,
+      "sha1": "898033132d112a33c0988c5733c4b57ac6d4d6ad"
+    },
+    {
+      "path": "art/nemesis/Special stage Player VS Player text.nem",
+      "image": "rev01",
+      "offset": 907720,
+      "size": 182,
+      "sha1": "45d9b6085aad8ed2837ab8f13dac8224dc902ef4"
+    },
+    {
+      "path": "art/nemesis/Special stage messages and icons.nem",
+      "image": "rev01",
+      "offset": 912116,
+      "size": 953,
+      "sha1": "81032547e6cc1fb8e67c70d849cfaa701a97cb4e"
+    },
+    {
+      "path": "art/nemesis/Special stage results screen art and some emeralds.nem",
+      "image": "rev01",
+      "offset": 519000,
+      "size": 869,
+      "sha1": "f1069acdabc7729f1695dcf16952b7a0656fcd54"
+    },
+    {
+      "path": "art/nemesis/Special stage ring art.nem",
+      "image": "rev01",
+      "offset": 907902,
+      "size": 1318,
+      "sha1": "d52d985a2d682eadd6d54fed52df6fca97d2a2d0"
+    },
+    {
+      "path": "art/nemesis/Speed booster from CPZ.nem",
+      "image": "rev01",
+      "offset": 533716,
+      "size": 104,
+      "sha1": "31f2792241aefd942e8748c9310ff198b16b28e5"
+    },
+    {
+      "path": "art/nemesis/Spider badnik from CPZ.nem",
+      "image": "rev01",
+      "offset": 571060,
+      "size": 808,
+      "sha1": "84e01a5a4986423a1ff2d285e275ef8a5accecc1"
+    },
+    {
+      "path": "art/nemesis/Spike from MTZ.nem",
+      "image": "rev01",
+      "offset": 988302,
+      "size": 193,
+      "sha1": "bdb500b8faecda6d981d20a277d95fb1e1dcd787"
+    },
+    {
+      "path": "art/nemesis/Spiked ball from OOZ.nem",
+      "image": "rev01",
+      "offset": 524412,
+      "size": 504,
+      "sha1": "d7d7e39fe99dae4b533b1cd461595bdbc74c2c4f"
+    },
+    {
+      "path": "art/nemesis/Spikes.nem",
+      "image": "rev01",
+      "offset": 498012,
+      "size": 79,
+      "sha1": "961705443401cf53992b988bb69612f45b336f10"
+    },
+    {
+      "path": "art/nemesis/Spikey ball from CNZ slots.nem",
+      "image": "rev01",
+      "offset": 530024,
+      "size": 96,
+      "sha1": "9a744e1403f496b3940a31e3b25154015a0607a7"
+    },
+    {
+      "path": "art/nemesis/Spin tube flash from MTZ.nem",
+      "image": "rev01",
+      "offset": 989296,
+      "size": 11,
+      "sha1": "4571d891acc84f5a3b8222496629c3d3e888f63a"
+    },
+    {
+      "path": "art/nemesis/Squirrel.nem",
+      "image": "rev01",
+      "offset": 520354,
+      "size": 356,
+      "sha1": "682b66a95c6a657e6e5c0e0926abd8fdbd28bca6"
+    },
+    {
+      "path": "art/nemesis/Standard font.nem",
+      "image": "rev01",
+      "offset": 508986,
+      "size": 1395,
+      "sha1": "7f25ee937f00696f44a987410201616ed3042c6d"
+    },
+    {
+      "path": "art/nemesis/Star pole.nem",
+      "image": "rev01",
+      "offset": 498310,
+      "size": 343,
+      "sha1": "08bc87470bafe058b75c530030a941169adf2899"
+    },
+    {
+      "path": "art/nemesis/Stars in special stage.nem",
+      "image": "rev01",
+      "offset": 907470,
+      "size": 250,
+      "sha1": "9b9d7976459c01bff2122c1095e7c7f427bff2e8"
+    },
+    {
+      "path": "art/nemesis/Start text from special stage.nem",
+      "image": "rev01",
+      "offset": 907152,
+      "size": 317,
+      "sha1": "f21d2057d66f88d1c4471758223923ac1de6ca7b"
+    },
+    {
+      "path": "art/nemesis/Steam from MTZ.nem",
+      "image": "rev01",
+      "offset": 988036,
+      "size": 265,
+      "sha1": "61dc7ff9ae71b61f16cd5c19f3082a29256e8667"
+    },
+    {
+      "path": "art/nemesis/Striped blocks from CPZ.nem",
+      "image": "rev01",
+      "offset": 525066,
+      "size": 108,
+      "sha1": "2756e1f4869a8d186273a35457e559bd19a74934"
+    },
+    {
+      "path": "art/nemesis/Stripy blocks from CPZ.nem",
+      "image": "rev01",
+      "offset": 534520,
+      "size": 108,
+      "sha1": "96e59483f19368e186989d6becf03ed1787b2c6d"
+    },
+    {
+      "path": "art/nemesis/Super Sonic stars.nem",
+      "image": "rev01",
+      "offset": 473404,
+      "size": 165,
+      "sha1": "1942f19fc174ee2e41458d1ab74811f1e43a45cd"
+    },
+    {
+      "path": "art/nemesis/Swinging platform from OOZ.nem",
+      "image": "rev01",
+      "offset": 527910,
+      "size": 545,
+      "sha1": "9cbf6540c1bd2f22ee4e8a493ebb3a0ee99ab487"
+    },
+    {
+      "path": "art/nemesis/Tails continue.nem",
+      "image": "rev01",
+      "offset": 508658,
+      "size": 327,
+      "sha1": "f5a4a7a3afd9b2c8958e0098c06348bb04fa28e1"
+    },
+    {
+      "path": "art/nemesis/Tails life counter.nem",
+      "image": "rev01",
+      "offset": 508428,
+      "size": 229,
+      "sha1": "324a3c79f32ed56b7712c83633c518e1707a6b52"
+    },
+    {
+      "path": "art/nemesis/Tails on continue screen.nem",
+      "image": "rev01",
+      "offset": 507326,
+      "size": 748,
+      "sha1": "9dd5b96759daf41f234f9f3b7db3774ccd1a6370"
+    },
+    {
+      "path": "art/nemesis/Tails text patterns from special stage.nem",
+      "image": "rev01",
+      "offset": 926846,
+      "size": 128,
+      "sha1": "d70f300416d0be60c66011b3ff2ae8b4797c99d2"
+    },
+    {
+      "path": "art/nemesis/The Tornado.nem",
+      "image": "rev01",
+      "offset": 576580,
+      "size": 1371,
+      "sha1": "40b503d89f8ad568f171023cd4b96d45041f8734"
+    },
+    {
+      "path": "art/nemesis/Thrust from Robotnik's getaway ship in WFZ.nem",
+      "image": "rev01",
+      "offset": 581828,
+      "size": 116,
+      "sha1": "cdf3d9156b9d42087526477e6bcb1691d6570bf1"
+    },
+    {
+      "path": "art/nemesis/Tilting plaforms in WFZ.nem",
+      "image": "rev01",
+      "offset": 581648,
+      "size": 179,
+      "sha1": "c5b87757d22dcbb8a0f38c65223f519d798fc945"
+    },
+    {
+      "path": "art/nemesis/Title card.nem",
+      "image": "rev01",
+      "offset": 512556,
+      "size": 861,
+      "sha1": "83fc5e25e1a4f7472634ce74c3df22a88f2ee4eb"
+    },
+    {
+      "path": "art/nemesis/Top of water in ARZ.nem",
+      "image": "rev01",
+      "offset": 536066,
+      "size": 230,
+      "sha1": "573f8b88c136a8db97d18296cb26d67e05b4375f"
+    },
+    {
+      "path": "art/nemesis/Top of water in HPZ and CNZ.nem",
+      "image": "rev01",
+      "offset": 533348,
+      "size": 367,
+      "sha1": "969d2bdc055e2a0cbee7250299a8513be16bb322"
+    },
+    {
+      "path": "art/nemesis/Transporter ball from OOZ.nem",
+      "image": "rev01",
+      "offset": 526048,
+      "size": 752,
+      "sha1": "cf0ad52800709d8c1e9add2763f6969ead533646"
+    },
+    {
+      "path": "art/nemesis/Turtle badnik from SCZ.nem",
+      "image": "rev01",
+      "offset": 566114,
+      "size": 1303,
+      "sha1": "f3423c5db1b44c818038453fd7fa189920ae8ff0"
+    },
+    {
+      "path": "art/nemesis/Turtle.nem",
+      "image": "rev01",
+      "offset": 522974,
+      "size": 433,
+      "sha1": "1241ad490fc1e772ad1012b3758fa7ebcd9bebc2"
+    },
+    {
+      "path": "art/nemesis/Unused badnik from WFZ.nem",
+      "image": "rev01",
+      "offset": 581110,
+      "size": 193,
+      "sha1": "4eae801a345da003cd83dfe085f76c490f945edf"
+    },
+    {
+      "path": "art/nemesis/Unused vertical laser in WFZ.nem",
+      "image": "rev01",
+      "offset": 580206,
+      "size": 142,
+      "sha1": "3fa1bcf201a2b950a65fc0323bb20c6e9d5fc82a"
+    },
+    {
+      "path": "art/nemesis/Vertical impulse spring.nem",
+      "image": "rev01",
+      "offset": 531606,
+      "size": 309,
+      "sha1": "e63af66ebe93272be691442a0ec14de179054f9a"
+    },
+    {
+      "path": "art/nemesis/Vertical shadow from special stage.nem",
+      "image": "rev01",
+      "offset": 909600,
+      "size": 103,
+      "sha1": "6fa3f5f37a4ab0515a26a5a016c2fe21881a0738"
+    },
+    {
+      "path": "art/nemesis/Vertical spinning blades in WFZ.nem",
+      "image": "rev01",
+      "offset": 581304,
+      "size": 47,
+      "sha1": "34a5cf0f11148f6c3d5d12bc2188f975402a7445"
+    },
+    {
+      "path": "art/nemesis/Vertical spring.nem",
+      "image": "rev01",
+      "offset": 495236,
+      "size": 283,
+      "sha1": "f5113016fc1ee1aa4ff6cec36f9a3f649d45e6d6"
+    },
+    {
+      "path": "art/nemesis/Vine that lowers from MCZ.nem",
+      "image": "rev01",
+      "offset": 990556,
+      "size": 169,
+      "sha1": "9c5fc4e243ec603556b49d5b2b9331b11354633d"
+    },
+    {
+      "path": "art/nemesis/WFZ boss chamber switch.nem",
+      "image": "rev01",
+      "offset": 524074,
+      "size": 109,
+      "sha1": "4791e90139f6f82ae293939177b850049cb1b76c"
+    },
+    {
+      "path": "art/nemesis/WFZ boss.nem",
+      "image": "rev01",
+      "offset": 581944,
+      "size": 1870,
+      "sha1": "95576a67ba7f3bf2a2bb81804b1726cb03baa414"
+    },
+    {
+      "path": "art/nemesis/Wall turret from WFZ.nem",
+      "image": "rev01",
+      "offset": 577952,
+      "size": 488,
+      "sha1": "fc7a63f3d4857c835db19ee86cf32cf497e9129a"
+    },
+    {
+      "path": "art/nemesis/Waterfall tiles.nem",
+      "image": "rev01",
+      "offset": 983766,
+      "size": 262,
+      "sha1": "019547d2f1cb40a25d6d6d558d6a938330d93fdb"
+    },
+    {
+      "path": "art/nemesis/Weird crawling badnik from CPZ.nem",
+      "image": "rev01",
+      "offset": 570416,
+      "size": 643,
+      "sha1": "aa17141a7cf6db99395cfdb880274617b4cf59cf"
+    },
+    {
+      "path": "art/nemesis/Wheel for belt in WFZ.nem",
+      "image": "rev01",
+      "offset": 579544,
+      "size": 405,
+      "sha1": "cbcd810b1a423ba0ab76192d3a6b765c386614ac"
+    },
+    {
+      "path": "art/nemesis/Window in back that Robotnik looks through in DEZ.nem",
+      "image": "rev01",
+      "offset": 585622,
+      "size": 141,
+      "sha1": "32d02eb570ca8356237cb4b0ef165ccfd06a6520"
+    },
+    {
+      "path": "art/palettes/ARZ underwater.bin",
+      "image": "rev01",
+      "offset": 12194,
+      "size": 128,
+      "sha1": "491aba729ddca79bed819dce4ef2e175285018a0"
+    },
+    {
+      "path": "art/palettes/ARZ.bin",
+      "image": "rev01",
+      "offset": 12098,
+      "size": 96,
+      "sha1": "0ce1729d2fdfa737ad9ca3c5b69280587618efb6"
+    },
+    {
+      "path": "art/palettes/ARZWater SS transformation.bin",
+      "image": "rev01",
+      "offset": 9030,
+      "size": 128,
+      "sha1": "0a8f35a66f423b2865d5f2db542485f697406a11"
+    },
+    {
+      "path": "art/palettes/CNZ Boss Cycle 1.bin",
+      "image": "rev01",
+      "offset": 8172,
+      "size": 18,
+      "sha1": "26d287280a0896aa4091a3cdad9908116df85f72"
+    },
+    {
+      "path": "art/palettes/CNZ Boss Cycle 2.bin",
+      "image": "rev01",
+      "offset": 8190,
+      "size": 20,
+      "sha1": "ffbbcc239e3d24af1ba89fd71f662714d14204d7"
+    },
+    {
+      "path": "art/palettes/CNZ Boss Cycle 3.bin",
+      "image": "rev01",
+      "offset": 8210,
+      "size": 16,
+      "sha1": "b69e93e08594a00cd38884acfec2221973e56035"
+    },
+    {
+      "path": "art/palettes/CNZ Boss.bin",
+      "image": "rev01",
+      "offset": 12450,
+      "size": 32,
+      "sha1": "7f6abfe0f6ad05e4f919cf57b0b6b1af5dc2072a"
+    },
+    {
+      "path": "art/palettes/CNZ Cycle 1.bin",
+      "image": "rev01",
+      "offset": 8078,
+      "size": 36,
+      "sha1": "ba4e8477d94141e1881f267158461589563d2228"
+    },
+    {
+      "path": "art/palettes/CNZ Cycle 3.bin",
+      "image": "rev01",
+      "offset": 8114,
+      "size": 18,
+      "sha1": "b8c71ed8c888650fab8e02ed36b24e57f9e15ae3"
+    },
+    {
+      "path": "art/palettes/CNZ Cycle 4.bin",
+      "image": "rev01",
+      "offset": 8132,
+      "size": 40,
+      "sha1": "7254fa2ee612cebd1b2a75f4cb1463601ca3ddc0"
+    },
+    {
+      "path": "art/palettes/CNZ.bin",
+      "image": "rev01",
+      "offset": 11682,
+      "size": 96,
+      "sha1": "fa7d9522b73142f412cbc7f16f6243ce42f7a0d4"
+    },
+    {
+      "path": "art/palettes/CPZ Cycle 1.bin",
+      "image": "rev01",
+      "offset": 8226,
+      "size": 54,
+      "sha1": "4b0836f4f52b75b729dfb671d085fc3dce05b993"
+    },
+    {
+      "path": "art/palettes/CPZ Cycle 2.bin",
+      "image": "rev01",
+      "offset": 8280,
+      "size": 42,
+      "sha1": "72610756c040cdaca941dafa5704827ef388aa06"
+    },
+    {
+      "path": "art/palettes/CPZ Cycle 3.bin",
+      "image": "rev01",
+      "offset": 8322,
+      "size": 32,
+      "sha1": "1d316b3079eb54226dfaaacd639a28915ba5c52c"
+    },
+    {
+      "path": "art/palettes/CPZ underwater.bin",
+      "image": "rev01",
+      "offset": 11874,
+      "size": 128,
+      "sha1": "cacd4aa300e6f5e2ef7344edc4288ec4cfcce779"
+    },
+    {
+      "path": "art/palettes/CPZ.bin",
+      "image": "rev01",
+      "offset": 11778,
+      "size": 96,
+      "sha1": "669e2fb4bd92b4f6bd9b5c4f2a606e8d38e279a6"
+    },
+    {
+      "path": "art/palettes/CPZWater SS transformation.bin",
+      "image": "rev01",
+      "offset": 8902,
+      "size": 128,
+      "sha1": "7314dfd1b9fca82a7be97b487b009b2e3e2ab1e3"
+    },
+    {
+      "path": "art/palettes/DEZ.bin",
+      "image": "rev01",
+      "offset": 12002,
+      "size": 96,
+      "sha1": "bec49602cc25b1667d100cf06aac7c43d493279e"
+    },
+    {
+      "path": "art/palettes/EHZ ARZ Water.bin",
+      "image": "rev01",
+      "offset": 7802,
+      "size": 32,
+      "sha1": "51741c166e5ef311a7b07b22dd76dd26445780c7"
+    },
+    {
+      "path": "art/palettes/EHZ.bin",
+      "image": "rev01",
+      "offset": 10786,
+      "size": 96,
+      "sha1": "94571b962bfc4018e788d9ca4d43739d8b4ceb9b"
+    },
+    {
+      "path": "art/palettes/Ending Background.bin",
+      "image": "rev01",
+      "offset": 44254,
+      "size": 64,
+      "sha1": "73b6f1c9e20cd6d4670a62ea3c19c3a0272b5ff6"
+    },
+    {
+      "path": "art/palettes/Ending Cycle.bin",
+      "image": "rev01",
+      "offset": 41214,
+      "size": 216,
+      "sha1": "00457d7322595d6019e19fb4e317b83d026aaffe"
+    },
+    {
+      "path": "art/palettes/Ending Photos.bin",
+      "image": "rev01",
+      "offset": 44318,
+      "size": 32,
+      "sha1": "90c9f686c13a16cd92a15098d35003b9d24f75aa"
+    },
+    {
+      "path": "art/palettes/Ending Sonic.bin",
+      "image": "rev01",
+      "offset": 44158,
+      "size": 32,
+      "sha1": "00b5babdf7f4a6c12f4da4d51e41c040338b442b"
+    },
+    {
+      "path": "art/palettes/Ending Super Sonic.bin",
+      "image": "rev01",
+      "offset": 44350,
+      "size": 32,
+      "sha1": "866ffa5f56a1e7f81f5c0fcec58c85bae9309f3d"
+    },
+    {
+      "path": "art/palettes/Ending Tails.bin",
+      "image": "rev01",
+      "offset": 44190,
+      "size": 64,
+      "sha1": "7348902aa47c62aaf15f993e0b43dadd4b7fe12e"
+    },
+    {
+      "path": "art/palettes/HPZ Underwater Cycle.bin",
+      "image": "rev01",
+      "offset": 8038,
+      "size": 16,
+      "sha1": "6c0586cdfc5e81508218ed397102cb2d4f23c4a6"
+    },
+    {
+      "path": "art/palettes/HPZ Water Cycle.bin",
+      "image": "rev01",
+      "offset": 8022,
+      "size": 16,
+      "sha1": "9e60b28ec47094bd7666c72e9cce0475815e1fa6"
+    },
+    {
+      "path": "art/palettes/HPZ underwater.bin",
+      "image": "rev01",
+      "offset": 11362,
+      "size": 128,
+      "sha1": "5ced3464b93d14f5bdabff03719b5417da065d89"
+    },
+    {
+      "path": "art/palettes/HPZ.bin",
+      "image": "rev01",
+      "offset": 11266,
+      "size": 96,
+      "sha1": "c0ec746382af735106490662450eb1ec0138d087"
+    },
+    {
+      "path": "art/palettes/HTZ.bin",
+      "image": "rev01",
+      "offset": 11170,
+      "size": 96,
+      "sha1": "dd57dec69c9bdde7f8059dbcf95092dc974efed9"
+    },
+    {
+      "path": "art/palettes/Hill Top Lava.bin",
+      "image": "rev01",
+      "offset": 7834,
+      "size": 128,
+      "sha1": "2b90b4f9c395a63d7de869409e9ae088d84c4514"
+    },
+    {
+      "path": "art/palettes/Level Select Icons.bin",
+      "image": "rev01",
+      "offset": 39040,
+      "size": 480,
+      "sha1": "93b2f6eb3912b8c0a26c0d2ad8699a69086332d2"
+    },
+    {
+      "path": "art/palettes/MCZ Boss.bin",
+      "image": "rev01",
+      "offset": 12418,
+      "size": 32,
+      "sha1": "3437e5ae2ee30dc6b7701b7d0fca67c47fb2f452"
+    },
+    {
+      "path": "art/palettes/MCZ Lantern.bin",
+      "image": "rev01",
+      "offset": 8070,
+      "size": 8,
+      "sha1": "b65c9e43c83267a308b563c9a09c58d76e7e24c4"
+    },
+    {
+      "path": "art/palettes/MCZ.bin",
+      "image": "rev01",
+      "offset": 11586,
+      "size": 96,
+      "sha1": "635bb30085d43d335c27609af30f57f9e361c6f8"
+    },
+    {
+      "path": "art/palettes/MTZ Cycle 1.bin",
+      "image": "rev01",
+      "offset": 7978,
+      "size": 12,
+      "sha1": "b1238d76a3c6a5b5bc121eeb7168c74034736798"
+    },
+    {
+      "path": "art/palettes/MTZ Cycle 2.bin",
+      "image": "rev01",
+      "offset": 7990,
+      "size": 12,
+      "sha1": "19131a82fe72dcae4e218c1976bae76cdf1f399a"
+    },
+    {
+      "path": "art/palettes/MTZ Cycle 3.bin",
+      "image": "rev01",
+      "offset": 8002,
+      "size": 20,
+      "sha1": "f8595159582e481fe9954b453215c47ca57635e3"
+    },
+    {
+      "path": "art/palettes/MTZ.bin",
+      "image": "rev01",
+      "offset": 10978,
+      "size": 96,
+      "sha1": "c0ab04af15bd71863b72e5c45b3a56f97872b323"
+    },
+    {
+      "path": "art/palettes/Menu.bin",
+      "image": "rev01",
+      "offset": 12514,
+      "size": 128,
+      "sha1": "b22c8880f263f3dcb405e0b1445c50044e05269e"
+    },
+    {
+      "path": "art/palettes/OOZ Boss.bin",
+      "image": "rev01",
+      "offset": 12482,
+      "size": 32,
+      "sha1": "2d4dc4ddbea3d9c39abc0b0e8f38f5e5e5993e9e"
+    },
+    {
+      "path": "art/palettes/OOZ Oil.bin",
+      "image": "rev01",
+      "offset": 8054,
+      "size": 16,
+      "sha1": "53f02d157a28da725e098200c40e5716122c6ee2"
+    },
+    {
+      "path": "art/palettes/OOZ.bin",
+      "image": "rev01",
+      "offset": 11490,
+      "size": 96,
+      "sha1": "1867533393cda0af742f6b0385cc4903fa5036ee"
+    },
+    {
+      "path": "art/palettes/S2B Level Select.bin",
+      "image": "rev01",
+      "offset": 10594,
+      "size": 128,
+      "sha1": "f3fe66ac4a1cf381a978a76ccc03349be99f8966"
+    },
+    {
+      "path": "art/palettes/SCZ.bin",
+      "image": "rev01",
+      "offset": 12322,
+      "size": 96,
+      "sha1": "93ad086b3bd75cd00638ed25d39d988884c04171"
+    },
+    {
+      "path": "art/palettes/SS Emerald.bin",
+      "image": "rev01",
+      "offset": 221074,
+      "size": 42,
+      "sha1": "3fbe58333a8d26d24539d8e2a3d82b5a44a4929e"
+    },
+    {
+      "path": "art/palettes/Sega Screen 2.bin",
+      "image": "rev01",
+      "offset": 238756,
+      "size": 112,
+      "sha1": "ad4cd834a6b87f4367b5d020fb4726afeb4b3688"
+    },
+    {
+      "path": "art/palettes/Sega Screen 3.bin",
+      "image": "rev01",
+      "offset": 238874,
+      "size": 112,
+      "sha1": "2bdebbd0f8f5c06dfe8b6c1bdb008b39cc6bdbd2"
+    },
+    {
+      "path": "art/palettes/Sega screen.bin",
+      "image": "rev01",
+      "offset": 10434,
+      "size": 128,
+      "sha1": "749911640274de5887d855ad367019f2bdf21def"
+    },
+    {
+      "path": "art/palettes/SonicAndTails.bin",
+      "image": "rev01",
+      "offset": 10722,
+      "size": 32,
+      "sha1": "bf539c0b27d7fe6b701613b5e440a0542b53d97e"
+    },
+    {
+      "path": "art/palettes/SonicAndTails2.bin",
+      "image": "rev01",
+      "offset": 10754,
+      "size": 32,
+      "sha1": "c0ca0ca29474612a373106d47e01c5deed9f3319"
+    },
+    {
+      "path": "art/palettes/Special Stage 1 2p.bin",
+      "image": "rev01",
+      "offset": 12962,
+      "size": 32,
+      "sha1": "e589fa8cb878684f4058506a73b69f54f14c698f"
+    },
+    {
+      "path": "art/palettes/Special Stage 1.bin",
+      "image": "rev01",
+      "offset": 12738,
+      "size": 32,
+      "sha1": "49b68dbf7fe6079dd3d4cbd96a0d123eab3d8e86"
+    },
+    {
+      "path": "art/palettes/Special Stage 2 2p.bin",
+      "image": "rev01",
+      "offset": 12994,
+      "size": 32,
+      "sha1": "5314db3431954fa4199d119cfad7c6396ba8eafe"
+    },
+    {
+      "path": "art/palettes/Special Stage 2.bin",
+      "image": "rev01",
+      "offset": 12770,
+      "size": 32,
+      "sha1": "1e5b55053026b5d372bbdd93c3920e5980c28686"
+    },
+    {
+      "path": "art/palettes/Special Stage 3 2p.bin",
+      "image": "rev01",
+      "offset": 13026,
+      "size": 32,
+      "sha1": "3a5bbc59d26740bec2fb5dabbfa9b5e420bdc623"
+    },
+    {
+      "path": "art/palettes/Special Stage 3.bin",
+      "image": "rev01",
+      "offset": 12802,
+      "size": 32,
+      "sha1": "bc33e5f9388cb86b9c28662673479e0245978b55"
+    },
+    {
+      "path": "art/palettes/Special Stage 4.bin",
+      "image": "rev01",
+      "offset": 12834,
+      "size": 32,
+      "sha1": "819b0c4b8aee352a86acce07350893fb0259a4c4"
+    },
+    {
+      "path": "art/palettes/Special Stage 5.bin",
+      "image": "rev01",
+      "offset": 12866,
+      "size": 32,
+      "sha1": "3d8813a3cad1235bdcf7c7ff1e719a46a09f24f3"
+    },
+    {
+      "path": "art/palettes/Special Stage 6.bin",
+      "image": "rev01",
+      "offset": 12898,
+      "size": 32,
+      "sha1": "e96cec2ac3ade580636ca86b722820bf0a96f314"
+    },
+    {
+      "path": "art/palettes/Special Stage 7.bin",
+      "image": "rev01",
+      "offset": 12930,
+      "size": 32,
+      "sha1": "1cff9a0e1c880948419a35609c37bb3dc95607c8"
+    },
+    {
+      "path": "art/palettes/Special Stage Main.bin",
+      "image": "rev01",
+      "offset": 12642,
+      "size": 96,
+      "sha1": "66fda5b0690d56487bb373959ba7b2c575035337"
+    },
+    {
+      "path": "art/palettes/Special Stage Results Screen.bin",
+      "image": "rev01",
+      "offset": 13058,
+      "size": 128,
+      "sha1": "1030a32d4cd020e0ccc3953caa6d7a663b116ccc"
+    },
+    {
+      "path": "art/palettes/Super Sonic transformation.bin",
+      "image": "rev01",
+      "offset": 8774,
+      "size": 128,
+      "sha1": "14500523f86a6a8f5cc1f6821191e9770b3d12c3"
+    },
+    {
+      "path": "art/palettes/Title Background.bin",
+      "image": "rev01",
+      "offset": 78860,
+      "size": 32,
+      "sha1": "799ab07f6b62f1937a002a7bb635c97624e48055"
+    },
+    {
+      "path": "art/palettes/Title Emblem.bin",
+      "image": "rev01",
+      "offset": 78892,
+      "size": 32,
+      "sha1": "5069286b574f48ac5e81c318e542ddfd992f8759"
+    },
+    {
+      "path": "art/palettes/Title Sonic.bin",
+      "image": "rev01",
+      "offset": 78828,
+      "size": 32,
+      "sha1": "5664a39769cc0594cb93ced9a8053d4b56eaf320"
+    },
+    {
+      "path": "art/palettes/Title Star Cycle.bin",
+      "image": "rev01",
+      "offset": 77882,
+      "size": 12,
+      "sha1": "2b5cd56529aa83db7c250cc5986fe3cc8984c298"
+    },
+    {
+      "path": "art/palettes/Title Water.bin",
+      "image": "rev01",
+      "offset": 7770,
+      "size": 32,
+      "sha1": "e216dbb1759fc2b79a0880dc0df00b9b5c270459"
+    },
+    {
+      "path": "art/palettes/Title screen.bin",
+      "image": "rev01",
+      "offset": 10562,
+      "size": 32,
+      "sha1": "f79f0f898c01351b51843ecc94fdf01ffa6db9df"
+    },
+    {
+      "path": "art/palettes/Unused Sega logo 2.bin",
+      "image": "rev01",
+      "offset": 9954,
+      "size": 48,
+      "sha1": "1bb9fa57cc89824e5908284a05c50cc1994a5cd0"
+    },
+    {
+      "path": "art/palettes/Unused Sega logo.bin",
+      "image": "rev01",
+      "offset": 9942,
+      "size": 12,
+      "sha1": "97f3d97ce55056759a9a007ba27dabc89ebede98"
+    },
+    {
+      "path": "art/palettes/WFZ Conveyor Cycle.bin",
+      "image": "rev01",
+      "offset": 8386,
+      "size": 32,
+      "sha1": "9c275db3167b9f6d3b2b7e9a11860d4bcef446f3"
+    },
+    {
+      "path": "art/palettes/WFZ Cycle 1.bin",
+      "image": "rev01",
+      "offset": 8418,
+      "size": 68,
+      "sha1": "8e14fb192cb11cdfaa6727b10d0093b8d0dde269"
+    },
+    {
+      "path": "art/palettes/WFZ Cycle 2.bin",
+      "image": "rev01",
+      "offset": 8486,
+      "size": 24,
+      "sha1": "a020628845041579e2e55101b5e0375ec368956d"
+    },
+    {
+      "path": "art/palettes/WFZ Fire Cycle.bin",
+      "image": "rev01",
+      "offset": 8354,
+      "size": 32,
+      "sha1": "7822c9dca8f44558d8682ba4e2623fa5b2fe9596"
+    },
+    {
+      "path": "art/palettes/WFZ.bin",
+      "image": "rev01",
+      "offset": 11074,
+      "size": 96,
+      "sha1": "677f7e38470008e3c5360ffc96ae650cfd505423"
+    },
+    {
+      "path": "art/palettes/Wood Conveyor.bin",
+      "image": "rev01",
+      "offset": 7962,
+      "size": 16,
+      "sha1": "ee54a78c5a8e59d3247558efb69bc70d78dceb82"
+    },
+    {
+      "path": "art/palettes/Wood Zone.bin",
+      "image": "rev01",
+      "offset": 10882,
+      "size": 96,
+      "sha1": "a244fe924446a2826765295d70ebe015d6f07dba"
+    },
+    {
+      "path": "art/uncompressed/ARZ waterfall patterns - 1.bin",
+      "image": "rev01",
+      "offset": 326910,
+      "size": 256,
+      "sha1": "b6a4f512e41572f9c73a08eadf7e5dc013e0f566"
+    },
+    {
+      "path": "art/uncompressed/ARZ waterfall patterns - 2.bin",
+      "image": "rev01",
+      "offset": 327166,
+      "size": 256,
+      "sha1": "e5ef874026a15ae82993c952cf5fefc5b67c05da"
+    },
+    {
+      "path": "art/uncompressed/ARZ waterfall patterns - 3.bin",
+      "image": "rev01",
+      "offset": 327422,
+      "size": 256,
+      "sha1": "c035df05c865e775cdb78a9b322bbce793079037"
+    },
+    {
+      "path": "art/uncompressed/Animated background section (CPZ and DEZ).bin",
+      "image": "rev01",
+      "offset": 326398,
+      "size": 512,
+      "sha1": "10937dda80c679b8628e80b86f6b41736cdf7c26"
+    },
+    {
+      "path": "art/uncompressed/Animated section of MTZ background.bin",
+      "image": "rev01",
+      "offset": 310590,
+      "size": 576,
+      "sha1": "a04f7b860b36603fa1269b0b1b704b79b97f8dc0"
+    },
+    {
+      "path": "art/uncompressed/Background clouds (HTZ).bin",
+      "image": "rev01",
+      "offset": 303934,
+      "size": 1024,
+      "sha1": "054359ab2478b5a1e64ac3bf0a9bd9d669ca486a"
+    },
+    {
+      "path": "art/uncompressed/Big and small numbers used on counters - 1.bin",
+      "image": "rev01",
+      "offset": 267084,
+      "size": 768,
+      "sha1": "2fb78cd246f55b0dd9a47f3d5bc7a3011dd8c1b9"
+    },
+    {
+      "path": "art/uncompressed/Big and small numbers used on counters - 2.bin",
+      "image": "rev01",
+      "offset": 267852,
+      "size": 320,
+      "sha1": "7983235134b691fa3f2609087913eb95d80ba70d"
+    },
+    {
+      "path": "art/uncompressed/Big and small numbers used on counters - 3.bin",
+      "image": "rev01",
+      "offset": 268172,
+      "size": 736,
+      "sha1": "b6eab195cbe795bff47b782d333085b6aded9872"
+    },
+    {
+      "path": "art/uncompressed/EHZ and HTZ flowers - 1.bin",
+      "image": "rev01",
+      "offset": 300820,
+      "size": 128,
+      "sha1": "d07d4da01baf083a297d21382f5fb72a94f9d796"
+    },
+    {
+      "path": "art/uncompressed/EHZ and HTZ flowers - 2.bin",
+      "image": "rev01",
+      "offset": 300948,
+      "size": 128,
+      "sha1": "85f4581d69360f180cb7254e74eb541d32a48bab"
+    },
+    {
+      "path": "art/uncompressed/EHZ and HTZ flowers - 3.bin",
+      "image": "rev01",
+      "offset": 301076,
+      "size": 128,
+      "sha1": "5703d7b3187ef160e1449eda3c29ceb53baaf21a"
+    },
+    {
+      "path": "art/uncompressed/EHZ and HTZ flowers - 4.bin",
+      "image": "rev01",
+      "offset": 301204,
+      "size": 128,
+      "sha1": "0a67709586399b002a7f04aa3b65af1c0f7bfca7"
+    },
+    {
+      "path": "art/uncompressed/Falling rocks and stalactites from MCZ.bin",
+      "image": "rev01",
+      "offset": 562404,
+      "size": 256,
+      "sha1": "97bdd1776895f71fe992934366ac1e5642b6222f"
+    },
+    {
+      "path": "art/uncompressed/Flipping foreground section (CNZ).bin",
+      "image": "rev01",
+      "offset": 316670,
+      "size": 6656,
+      "sha1": "eb2544e437af46212be7e3341a517243f49794a1"
+    },
+    {
+      "path": "art/uncompressed/Lava.bin",
+      "image": "rev01",
+      "offset": 309054,
+      "size": 1536,
+      "sha1": "2823b29a55ab2243d3ef2ffbb4d4e423db81765c"
+    },
+    {
+      "path": "art/uncompressed/Numbers for drowning countdown.bin",
+      "image": "rev01",
+      "offset": 503680,
+      "size": 1152,
+      "sha1": "f681a36187acb3e586114d8ec2efd81b31c2adab"
+    },
+    {
+      "path": "art/uncompressed/Oil - 1.bin",
+      "image": "rev01",
+      "offset": 312574,
+      "size": 2048,
+      "sha1": "c151aeabc7eb8a29db6359f26edf23afd394331e"
+    },
+    {
+      "path": "art/uncompressed/Oil - 2.bin",
+      "image": "rev01",
+      "offset": 314622,
+      "size": 2048,
+      "sha1": "0b52144b335a040494d14b544caa9cfb395b59d6"
+    },
+    {
+      "path": "art/uncompressed/Pulsing ball (OOZ).bin",
+      "image": "rev01",
+      "offset": 311166,
+      "size": 384,
+      "sha1": "c1540c4272f48b2653974883c2a97670ec17cab3"
+    },
+    {
+      "path": "art/uncompressed/Pulsing ball against checkered background (EHZ).bin",
+      "image": "rev01",
+      "offset": 301332,
+      "size": 256,
+      "sha1": "2d3d1da7512e0f6c642154162f6b354a97e9155f"
+    },
+    {
+      "path": "art/uncompressed/Signpost.bin",
+      "image": "rev01",
+      "offset": 500106,
+      "size": 2496,
+      "sha1": "ed9825b97b69d016cf83bbd1df594b1184ac273e"
+    },
+    {
+      "path": "art/uncompressed/Slot pictures.bin",
+      "image": "rev01",
+      "offset": 323326,
+      "size": 3072,
+      "sha1": "78fc5e4014dd0b8fcca837c56ade5828a94fea11"
+    },
+    {
+      "path": "art/uncompressed/Sonic and Miles animated background.bin",
+      "image": "rev01",
+      "offset": 511276,
+      "size": 1280,
+      "sha1": "436db7e5c28aeb6751ebe0c5bfcf2729fd5e4135"
+    },
+    {
+      "path": "art/uncompressed/Sonic's art.bin",
+      "image": "rev01",
+      "offset": 327680,
+      "size": 82720,
+      "sha1": "81157cece3de549b8ae7e2122f61f0d49dada4da"
+    },
+    {
+      "path": "art/uncompressed/Spinning metal cylinder (MTZ).bin",
+      "image": "rev01",
+      "offset": 304958,
+      "size": 4096,
+      "sha1": "b91dbe2f485e4a435fec9e817368e742b3e9bf37"
+    },
+    {
+      "path": "art/uncompressed/Splash and skid dust.bin",
+      "image": "rev01",
+      "offset": 466940,
+      "size": 6464,
+      "sha1": "8db6de218963607a948b4015c850159ff395a1c8"
+    },
+    {
+      "path": "art/uncompressed/Square rotating around ball in OOZ - 1.bin",
+      "image": "rev01",
+      "offset": 311550,
+      "size": 512,
+      "sha1": "4bed3724dd3b1b02b72fc05b5e99cbc3de105199"
+    },
+    {
+      "path": "art/uncompressed/Square rotating around ball in OOZ - 2.bin",
+      "image": "rev01",
+      "offset": 312062,
+      "size": 512,
+      "sha1": "4bed3724dd3b1b02b72fc05b5e99cbc3de105199"
+    },
+    {
+      "path": "art/uncompressed/Tails's art.bin",
+      "image": "rev01",
+      "offset": 410400,
+      "size": 47296,
+      "sha1": "97679d29b9e8d406b41ee98bbe003723a73dc8e9"
+    },
+    {
+      "path": "collision/ARZ primary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 284176,
+      "size": 336,
+      "sha1": "fecf4c79437e49a9cc95dc95f16b7d26b27cdd8a"
+    },
+    {
+      "path": "collision/ARZ secondary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 284512,
+      "size": 352,
+      "sha1": "1a8aa5cf3a018732192ab029f1110213e5a44def"
+    },
+    {
+      "path": "collision/CNZ primary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 283296,
+      "size": 144,
+      "sha1": "543f6b498a5c078d126a26a01707d8c8125df398"
+    },
+    {
+      "path": "collision/CNZ secondary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 283440,
+      "size": 144,
+      "sha1": "e04831b87d35f746504ddb71beb5df997338cd7c"
+    },
+    {
+      "path": "collision/CPZ and DEZ primary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 283584,
+      "size": 288,
+      "sha1": "79f4b8abb81169c0992f27c2a370f73d21842532"
+    },
+    {
+      "path": "collision/CPZ and DEZ secondary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 283872,
+      "size": 304,
+      "sha1": "f6937f6ad1f2ef9e0dfda14ee99a4a1f3d5ed501"
+    },
+    {
+      "path": "collision/Collision array - Horizontal.bin",
+      "image": "rev01",
+      "offset": 278096,
+      "size": 4096,
+      "sha1": "a3d9d599dae5825a7b7d3dc9dd1529f46e9527fd"
+    },
+    {
+      "path": "collision/Collision array - Vertical.bin",
+      "image": "rev01",
+      "offset": 274000,
+      "size": 4096,
+      "sha1": "9cc4c24e980faca9c6084fa53617fa996224ecf0"
+    },
+    {
+      "path": "collision/Curve and resistance mapping.bin",
+      "image": "rev01",
+      "offset": 273744,
+      "size": 256,
+      "sha1": "35bf06c2ab64db1492ca8198bab2e28c2ab46043"
+    },
+    {
+      "path": "collision/EHZ and HTZ primary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 282192,
+      "size": 240,
+      "sha1": "d65f4da78acf951493f72f77f3ad04030f144830"
+    },
+    {
+      "path": "collision/EHZ and HTZ secondary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 282432,
+      "size": 256,
+      "sha1": "d4819a82bb73703d2440cfeeaaca8e1633e7181d"
+    },
+    {
+      "path": "collision/MCZ primary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 283136,
+      "size": 160,
+      "sha1": "8323a072c3f77fa64734d432931c50effd52bd5c"
+    },
+    {
+      "path": "collision/MTZ primary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 282688,
+      "size": 192,
+      "sha1": "73b4694e2a8a84f1edf285f455ccc48c7cdff27c"
+    },
+    {
+      "path": "collision/OOZ primary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 282880,
+      "size": 256,
+      "sha1": "15dd541d48150d4fa0e2638db46705c112ceada7"
+    },
+    {
+      "path": "collision/WFZ and SCZ primary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 284864,
+      "size": 224,
+      "sha1": "731859d652c84226d598a1f8e54c87c428d91c96"
+    },
+    {
+      "path": "collision/WFZ and SCZ secondary 16x16 collision index.kos",
+      "image": "rev01",
+      "offset": 285088,
+      "size": 224,
+      "sha1": "1ef4718de35a417342c48400f39ae025a5d60748"
+    },
+    {
+      "path": "level/layout/ARZ_1.kos",
+      "image": "rev01",
+      "offset": 298644,
+      "size": 976,
+      "sha1": "0a1e9b9566f33a4d104c8c63583810b3239bbaae"
+    },
+    {
+      "path": "level/layout/ARZ_2.kos",
+      "image": "rev01",
+      "offset": 299620,
+      "size": 976,
+      "sha1": "f3a7cd1deca84aefa3d1e81bfbd2d0ff45b5011c"
+    },
+    {
+      "path": "level/layout/CNZ_1.kos",
+      "image": "rev01",
+      "offset": 294900,
+      "size": 976,
+      "sha1": "7117daa207fa936e41a830f41bd08310a2a7b88c"
+    },
+    {
+      "path": "level/layout/CNZ_2.kos",
+      "image": "rev01",
+      "offset": 295876,
+      "size": 944,
+      "sha1": "2d80087f4fb9a67bb20a85e682dc158702b0ffb8"
+    },
+    {
+      "path": "level/layout/CPZ_1.kos",
+      "image": "rev01",
+      "offset": 296820,
+      "size": 784,
+      "sha1": "78dfc594dc01776c843645f31045ec1a602d0ae9"
+    },
+    {
+      "path": "level/layout/CPZ_2.kos",
+      "image": "rev01",
+      "offset": 297604,
+      "size": 864,
+      "sha1": "bb30b5fc95ad0220b4d69e0ff82921ba537c55ef"
+    },
+    {
+      "path": "level/layout/DEZ.kos",
+      "image": "rev01",
+      "offset": 298468,
+      "size": 176,
+      "sha1": "70848c4041076b435c6f24e1998ac97ec01ba0cc"
+    },
+    {
+      "path": "level/layout/EHZ_1.kos",
+      "image": "rev01",
+      "offset": 285380,
+      "size": 448,
+      "sha1": "0674e383a531971a801728fa4b849502aeb1b9e4"
+    },
+    {
+      "path": "level/layout/EHZ_2.kos",
+      "image": "rev01",
+      "offset": 285828,
+      "size": 496,
+      "sha1": "15736415d7d9c8ed95b82fe52032d81715d64bd9"
+    },
+    {
+      "path": "level/layout/HTZ_1.kos",
+      "image": "rev01",
+      "offset": 290260,
+      "size": 624,
+      "sha1": "3ee1243c1f1cfe68aa712212167fa9326b12086a"
+    },
+    {
+      "path": "level/layout/HTZ_2.kos",
+      "image": "rev01",
+      "offset": 290884,
+      "size": 960,
+      "sha1": "570591ccfa31bb4165d062673d117b8f6cab57fd"
+    },
+    {
+      "path": "level/layout/MCZ_1.kos",
+      "image": "rev01",
+      "offset": 293668,
+      "size": 512,
+      "sha1": "f26878c4d76142195c8e2728ed3e5a55c30bfa9d"
+    },
+    {
+      "path": "level/layout/MCZ_2.kos",
+      "image": "rev01",
+      "offset": 294180,
+      "size": 720,
+      "sha1": "04bb7ef863b9c60cee0e157c30a4958fdbb10bcb"
+    },
+    {
+      "path": "level/layout/MTZ_1.kos",
+      "image": "rev01",
+      "offset": 286324,
+      "size": 1072,
+      "sha1": "1f8fd2cf47c3f53fcf7c157654d11f66895c7c58"
+    },
+    {
+      "path": "level/layout/MTZ_2.kos",
+      "image": "rev01",
+      "offset": 287396,
+      "size": 992,
+      "sha1": "7f82b2e520682c828c0a0f0c6245d268bcc53e95"
+    },
+    {
+      "path": "level/layout/MTZ_3.kos",
+      "image": "rev01",
+      "offset": 288388,
+      "size": 1152,
+      "sha1": "b6efa0dad38faa2a5dc4594a2c9aef668ee5b79b"
+    },
+    {
+      "path": "level/layout/OOZ_1.kos",
+      "image": "rev01",
+      "offset": 291844,
+      "size": 896,
+      "sha1": "2e8c5027565376a440433ab206be81bbb6e22727"
+    },
+    {
+      "path": "level/layout/OOZ_2.kos",
+      "image": "rev01",
+      "offset": 292740,
+      "size": 928,
+      "sha1": "bf6be5625ad92675bcdb86b5f82385db6f29ff1d"
+    },
+    {
+      "path": "level/layout/SCZ.kos",
+      "image": "rev01",
+      "offset": 300596,
+      "size": 224,
+      "sha1": "78400b8890b3f93902300bc62a43b47e6e0a6894"
+    },
+    {
+      "path": "level/layout/WFZ.kos",
+      "image": "rev01",
+      "offset": 289540,
+      "size": 720,
+      "sha1": "1e4caf6f2d6d3223c650e34d949c9e81ccd088bb"
+    },
+    {
+      "path": "level/objects/ARZ_1.bin",
+      "image": "rev01",
+      "offset": 963162,
+      "size": 1092,
+      "sha1": "ce62e5f13c095736765a3e33164f1feaea4ba1a5"
+    },
+    {
+      "path": "level/objects/ARZ_2.bin",
+      "image": "rev01",
+      "offset": 964260,
+      "size": 1332,
+      "sha1": "33d8fc29dbaaa8993b213d2f401e4ef01e52bc2f"
+    },
+    {
+      "path": "level/objects/CNZ 1 bumpers.bin",
+      "image": "rev01",
+      "offset": 96282,
+      "size": 324,
+      "sha1": "e753d5afa0879b2ac428ec19fe44e9b1c31bea83"
+    },
+    {
+      "path": "level/objects/CNZ 2 bumpers.bin",
+      "image": "rev01",
+      "offset": 96606,
+      "size": 324,
+      "sha1": "842e85ea466cd1f27585dca901ec09bc6c821ea2"
+    },
+    {
+      "path": "level/objects/CNZ_1 (REV00).bin",
+      "image": "rev00",
+      "offset": 957726,
+      "size": 1716,
+      "sha1": "4d464c3dbea6d761094ca7b94ab70c853dbcbe99"
+    },
+    {
+      "path": "level/objects/CNZ_1.bin",
+      "image": "rev01",
+      "offset": 957726,
+      "size": 1716,
+      "sha1": "52693c6dd9a4c39de780f99683c2e921a91f092f"
+    },
+    {
+      "path": "level/objects/CNZ_1_2P (REV00).bin",
+      "image": "rev00",
+      "offset": 98358,
+      "size": 1122,
+      "sha1": "cfccccaac33f961b4cee0885e281e0a2f9ec307f"
+    },
+    {
+      "path": "level/objects/CNZ_1_2P.bin",
+      "image": "rev01",
+      "offset": 98346,
+      "size": 1122,
+      "sha1": "1dfe5a7dbf3ef3521d5d308e71f88c1f36fa25a4"
+    },
+    {
+      "path": "level/objects/CNZ_2 (REV00).bin",
+      "image": "rev00",
+      "offset": 959448,
+      "size": 1524,
+      "sha1": "ab5d2c3e5148bde6458de53ca8f6a2c373ae51a0"
+    },
+    {
+      "path": "level/objects/CNZ_2.bin",
+      "image": "rev01",
+      "offset": 959448,
+      "size": 1524,
+      "sha1": "3eb06ba0f2f337844113cb0410513f35a7dee016"
+    },
+    {
+      "path": "level/objects/CNZ_2_2P (REV00).bin",
+      "image": "rev00",
+      "offset": 99486,
+      "size": 1008,
+      "sha1": "360cbd15bbae518504b23fe01c3adf19873720e4"
+    },
+    {
+      "path": "level/objects/CNZ_2_2P.bin",
+      "image": "rev01",
+      "offset": 99474,
+      "size": 1008,
+      "sha1": "27c70f0d2b6f607b582c6a936541ecd646741781"
+    },
+    {
+      "path": "level/objects/CPZ_1.bin",
+      "image": "rev01",
+      "offset": 960978,
+      "size": 918,
+      "sha1": "2e39689055eee56632c5ce2cec3b0fa6862212e4"
+    },
+    {
+      "path": "level/objects/CPZ_2.bin",
+      "image": "rev01",
+      "offset": 961902,
+      "size": 1212,
+      "sha1": "ab723826227b31cf59a29addd6a881f276da7b82"
+    },
+    {
+      "path": "level/objects/DEZ_1.bin",
+      "image": "rev01",
+      "offset": 963120,
+      "size": 30,
+      "sha1": "827c458b6ad267bd0b0e3291219ad6e4ec386eaf"
+    },
+    {
+      "path": "level/objects/EHZ_1.bin",
+      "image": "rev01",
+      "offset": 944202,
+      "size": 810,
+      "sha1": "d3fc772d02e308434e209f0f589657449250cd3a"
+    },
+    {
+      "path": "level/objects/EHZ_2 (REV00).bin",
+      "image": "rev00",
+      "offset": 945018,
+      "size": 948,
+      "sha1": "105b57d2e566851d5e0e5ec1b1bc7f79fef78468"
+    },
+    {
+      "path": "level/objects/EHZ_2.bin",
+      "image": "rev01",
+      "offset": 945018,
+      "size": 948,
+      "sha1": "cea83c104648e9475d7e81330a157244ac33e8e0"
+    },
+    {
+      "path": "level/objects/HPZ_1.bin",
+      "image": "rev01",
+      "offset": 953472,
+      "size": 270,
+      "sha1": "80b87ae273b0f0866e52bf4b6f42c848da79cabf"
+    },
+    {
+      "path": "level/objects/HTZ_1.bin",
+      "image": "rev01",
+      "offset": 951042,
+      "size": 864,
+      "sha1": "7ebbc438a17ddb3f39b422bec0ec8b3b522bda4f"
+    },
+    {
+      "path": "level/objects/HTZ_2.bin",
+      "image": "rev01",
+      "offset": 951912,
+      "size": 1554,
+      "sha1": "0739da0dfcfcf7c9f33a914778f04315e1058e88"
+    },
+    {
+      "path": "level/objects/MCZ_1.bin",
+      "image": "rev01",
+      "offset": 956046,
+      "size": 780,
+      "sha1": "4b02f847c9f47470d48523713cdae7d69e739b66"
+    },
+    {
+      "path": "level/objects/MCZ_2.bin",
+      "image": "rev01",
+      "offset": 956832,
+      "size": 888,
+      "sha1": "4a2bf45a8ab878337bd226976fa0275de3b2daed"
+    },
+    {
+      "path": "level/objects/MTZ_1.bin",
+      "image": "rev01",
+      "offset": 945972,
+      "size": 1158,
+      "sha1": "ceb617f18701b9be058033e240709ced236d2b24"
+    },
+    {
+      "path": "level/objects/MTZ_2.bin",
+      "image": "rev01",
+      "offset": 947136,
+      "size": 1320,
+      "sha1": "dcd4ca5cba88ee5e7eb32f45eea5e73b171c6aab"
+    },
+    {
+      "path": "level/objects/MTZ_3.bin",
+      "image": "rev01",
+      "offset": 948462,
+      "size": 1620,
+      "sha1": "9930bc9b23e9df9a50dac6ce6982b32a8fc8e382"
+    },
+    {
+      "path": "level/objects/OOZ_1.bin",
+      "image": "rev01",
+      "offset": 953760,
+      "size": 1134,
+      "sha1": "0efa799b034411296846ee456e0b5c168ce81147"
+    },
+    {
+      "path": "level/objects/OOZ_2.bin",
+      "image": "rev01",
+      "offset": 954900,
+      "size": 1140,
+      "sha1": "8cb8d72bd4cf8729e4f271498c5438b398a2d1ab"
+    },
+    {
+      "path": "level/objects/SCZ_1.bin",
+      "image": "rev01",
+      "offset": 965598,
+      "size": 360,
+      "sha1": "56c55a9a420c15d043f08c0b5cfe8bb3e1e02038"
+    },
+    {
+      "path": "level/objects/WFZ_1 (REV00).bin",
+      "image": "rev00",
+      "offset": 950088,
+      "size": 942,
+      "sha1": "20f99399f18bcdb64f14276ae76e2be1e2b86f4f"
+    },
+    {
+      "path": "level/objects/WFZ_1.bin",
+      "image": "rev01",
+      "offset": 950088,
+      "size": 942,
+      "sha1": "02b405f7d824b87ec6547d2a8a7cf35587dce871"
+    },
+    {
+      "path": "level/rings/01_1.bin",
+      "image": "rev01",
+      "offset": 935852,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/01_2.bin",
+      "image": "rev01",
+      "offset": 935854,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/03_1.bin",
+      "image": "rev01",
+      "offset": 935860,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/03_2.bin",
+      "image": "rev01",
+      "offset": 935862,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/09_1.bin",
+      "image": "rev01",
+      "offset": 938588,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/09_2.bin",
+      "image": "rev01",
+      "offset": 938590,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/ARZ_1.bin",
+      "image": "rev01",
+      "offset": 942740,
+      "size": 410,
+      "sha1": "62970b533aa2f4fe1a4741f7348f75c9793a7892"
+    },
+    {
+      "path": "level/rings/ARZ_2.bin",
+      "image": "rev01",
+      "offset": 943150,
+      "size": 598,
+      "sha1": "729ae602635584ec1830a415e1f508ed2c56e302"
+    },
+    {
+      "path": "level/rings/CNZ_1.bin",
+      "image": "rev01",
+      "offset": 940356,
+      "size": 570,
+      "sha1": "0cce163f0115af5017f4d15c592dcba3a4654c65"
+    },
+    {
+      "path": "level/rings/CNZ_2.bin",
+      "image": "rev01",
+      "offset": 940926,
+      "size": 686,
+      "sha1": "95bc5ec819c28c88126a23f14f0c227d8b4424b4"
+    },
+    {
+      "path": "level/rings/CPZ_1.bin",
+      "image": "rev01",
+      "offset": 941612,
+      "size": 370,
+      "sha1": "a025859f5282b9f9df28666ae66e7890342a2c42"
+    },
+    {
+      "path": "level/rings/CPZ_2.bin",
+      "image": "rev01",
+      "offset": 941982,
+      "size": 434,
+      "sha1": "d05a369ba00c54b536ec2c024f59743120476996"
+    },
+    {
+      "path": "level/rings/DEZ_1.bin",
+      "image": "rev01",
+      "offset": 942416,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/DEZ_2.bin",
+      "image": "rev01",
+      "offset": 942418,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/EHZ_1.bin",
+      "image": "rev01",
+      "offset": 934724,
+      "size": 550,
+      "sha1": "f5e4d8f28c95c7b6456ea820fbdbdc65a4641f0e"
+    },
+    {
+      "path": "level/rings/EHZ_2.bin",
+      "image": "rev01",
+      "offset": 935274,
+      "size": 578,
+      "sha1": "3058c66519b9b70191dc6818166b37350ce85cce"
+    },
+    {
+      "path": "level/rings/HPZ_1.bin",
+      "image": "rev01",
+      "offset": 938216,
+      "size": 370,
+      "sha1": "14bb4c86f724341f867d7c31762bdd6dacea8fa0"
+    },
+    {
+      "path": "level/rings/HPZ_2.bin",
+      "image": "rev01",
+      "offset": 938586,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/HTZ_1.bin",
+      "image": "rev01",
+      "offset": 937332,
+      "size": 310,
+      "sha1": "f4bda1719425681b8dc50ca5fae20b178c122ebd"
+    },
+    {
+      "path": "level/rings/HTZ_2.bin",
+      "image": "rev01",
+      "offset": 937642,
+      "size": 574,
+      "sha1": "8d9dd2a67be1d010fc61da577ff08fc21b58b591"
+    },
+    {
+      "path": "level/rings/MCZ_1.bin",
+      "image": "rev01",
+      "offset": 939416,
+      "size": 374,
+      "sha1": "caba3992acba9c74e693bfe0cb3ed59038fb77d6"
+    },
+    {
+      "path": "level/rings/MCZ_2.bin",
+      "image": "rev01",
+      "offset": 939790,
+      "size": 566,
+      "sha1": "bee133a73697f4ccd8580180360b62f49c069ca0"
+    },
+    {
+      "path": "level/rings/MTZ_1.bin",
+      "image": "rev01",
+      "offset": 935864,
+      "size": 626,
+      "sha1": "422ca5ec9d47c2f676ec36a5d01545d668a246bf"
+    },
+    {
+      "path": "level/rings/MTZ_2.bin",
+      "image": "rev01",
+      "offset": 936490,
+      "size": 542,
+      "sha1": "b0bcc0d2bb5264d44cd158b406ebce35b369745b"
+    },
+    {
+      "path": "level/rings/MTZ_3.bin",
+      "image": "rev01",
+      "offset": 937032,
+      "size": 298,
+      "sha1": "9225dcbb28655e38e94cea9a97d4e4027f8139ef"
+    },
+    {
+      "path": "level/rings/MTZ_4.bin",
+      "image": "rev01",
+      "offset": 937330,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/OOZ_1.bin",
+      "image": "rev01",
+      "offset": 938592,
+      "size": 450,
+      "sha1": "0da40817502185e6a4c7002cb6fc4ec0a3cfde74"
+    },
+    {
+      "path": "level/rings/OOZ_2.bin",
+      "image": "rev01",
+      "offset": 939042,
+      "size": 374,
+      "sha1": "93dd3b252486b61b6c1501b7151f09c9f5ff73fd"
+    },
+    {
+      "path": "level/rings/SCZ_1.bin",
+      "image": "rev01",
+      "offset": 943748,
+      "size": 82,
+      "sha1": "d0d09dd1fa71c4b9258a7823f0a232b367ed288f"
+    },
+    {
+      "path": "level/rings/SCZ_2.bin",
+      "image": "rev01",
+      "offset": 943830,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/WFZ_1.bin",
+      "image": "rev01",
+      "offset": 942420,
+      "size": 318,
+      "sha1": "a59413939e3336addf2e9cc69fd8b7c40fac0be7"
+    },
+    {
+      "path": "level/rings/WFZ_2.bin",
+      "image": "rev01",
+      "offset": 942738,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/WZ_1.bin",
+      "image": "rev01",
+      "offset": 935856,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "level/rings/WZ_2.bin",
+      "image": "rev01",
+      "offset": 935858,
+      "size": 2,
+      "sha1": "a19f987b885f5a96069f4bc7f12b9e84ceba7dfa"
+    },
+    {
+      "path": "mappings/128x128/ARZ.kos",
+      "image": "rev01",
+      "offset": 791604,
+      "size": 11328,
+      "sha1": "85267a6813ba0c7f7952c779aa287120b91f5cc6"
+    },
+    {
+      "path": "mappings/128x128/CNZ.kos",
+      "image": "rev01",
+      "offset": 732404,
+      "size": 9536,
+      "sha1": "af9a40a5313ac1605de24bd9594f0008644f32d8"
+    },
+    {
+      "path": "mappings/128x128/CPZ_DEZ.kos",
+      "image": "rev01",
+      "offset": 758004,
+      "size": 10320,
+      "sha1": "3fdf7a8d2fe83e11e24098627acffefeac65233b"
+    },
+    {
+      "path": "mappings/128x128/EHZ_HTZ.kos",
+      "image": "rev01",
+      "offset": 630068,
+      "size": 12960,
+      "sha1": "9b5fc611691cc9d4f8c4f3c777ad447c8ddc7513"
+    },
+    {
+      "path": "mappings/128x128/MCZ.kos",
+      "image": "rev01",
+      "offset": 709716,
+      "size": 11120,
+      "sha1": "d7e3cbce4b3ea86b28b7b5177663d31d7dad5942"
+    },
+    {
+      "path": "mappings/128x128/MTZ.kos",
+      "image": "rev01",
+      "offset": 657092,
+      "size": 11424,
+      "sha1": "66d11ce2ef114c50031ae05f0cbb24e2e1524b9b"
+    },
+    {
+      "path": "mappings/128x128/OOZ.kos",
+      "image": "rev01",
+      "offset": 682036,
+      "size": 9424,
+      "sha1": "ebf245cee0fd7b06a9e4fb1e82c80450ea69918e"
+    },
+    {
+      "path": "mappings/128x128/WFZ_SCZ.kos",
+      "image": "rev01",
+      "offset": 820708,
+      "size": 8992,
+      "sha1": "fb6443d14fdc4ee4533907d864baad41ffa814bc"
+    },
+    {
+      "path": "mappings/16x16/ARZ.kos",
+      "image": "rev01",
+      "offset": 768324,
+      "size": 4832,
+      "sha1": "d4d65512ef99c6d40513681c0012550feda73bbb"
+    },
+    {
+      "path": "mappings/16x16/CNZ.kos",
+      "image": "rev01",
+      "offset": 720836,
+      "size": 2256,
+      "sha1": "3dd6add37cfc2efa403dbcf04977bb7175fbf4e2"
+    },
+    {
+      "path": "mappings/16x16/CPZ_DEZ.kos",
+      "image": "rev01",
+      "offset": 741940,
+      "size": 3904,
+      "sha1": "f2f44eb2799ef75402196a60b711b0ec3fdf289e"
+    },
+    {
+      "path": "mappings/16x16/EHZ.kos",
+      "image": "rev01",
+      "offset": 609908,
+      "size": 3504,
+      "sha1": "4170d2ddba35288b1da9507bad337df9c5d9bf50"
+    },
+    {
+      "path": "mappings/16x16/HTZ.kos",
+      "image": "rev01",
+      "offset": 624036,
+      "size": 1296,
+      "sha1": "cd429c9099d7416014d22072efd84bb11521e03c"
+    },
+    {
+      "path": "mappings/16x16/MCZ.kos",
+      "image": "rev01",
+      "offset": 691460,
+      "size": 4208,
+      "sha1": "67c76f55bbff7619eaed02dd865ff118163849e8"
+    },
+    {
+      "path": "mappings/16x16/MTZ.kos",
+      "image": "rev01",
+      "offset": 643028,
+      "size": 2960,
+      "sha1": "434908be952e1bbe6471195fbcedb4618894d166"
+    },
+    {
+      "path": "mappings/16x16/OOZ.kos",
+      "image": "rev01",
+      "offset": 668516,
+      "size": 3744,
+      "sha1": "e10631058e0e33ac158092ef1907258b1518aa61"
+    },
+    {
+      "path": "mappings/16x16/WFZ_SCZ.kos",
+      "image": "rev01",
+      "offset": 802932,
+      "size": 3984,
+      "sha1": "2c89af8e3a98a54ea60d9f5a985a4147ddeb6996"
+    },
+    {
+      "path": "mappings/misc/2P Act Results.eni",
+      "image": "rev01",
+      "offset": 34820,
+      "size": 202,
+      "sha1": "5e2c83673172d4fc54a56699658fe82f6fd8f9f2"
+    },
+    {
+      "path": "mappings/misc/2P Game Results.eni",
+      "image": "rev01",
+      "offset": 35168,
+      "size": 324,
+      "sha1": "dfcc083bd373e5114affbe65bb85242bedc40b82"
+    },
+    {
+      "path": "mappings/misc/2P Special Stage Act Results.eni",
+      "image": "rev01",
+      "offset": 35492,
+      "size": 140,
+      "sha1": "653e5c2841e964e82980594a23874e5545ea6ae5"
+    },
+    {
+      "path": "mappings/misc/2P Special Stage Zone Results.eni",
+      "image": "rev01",
+      "offset": 35632,
+      "size": 152,
+      "sha1": "b505ef059b5a0ce6e55b66ae76a11cfd823dfc0c"
+    },
+    {
+      "path": "mappings/misc/2P Zone Results.eni",
+      "image": "rev01",
+      "offset": 35022,
+      "size": 146,
+      "sha1": "196db2c3ace75bcb5b302ffb193ada602f86a2dc"
+    },
+    {
+      "path": "mappings/misc/Closeup of Sonic flying plane in ending sequence.eni",
+      "image": "rev01",
+      "offset": 591808,
+      "size": 106,
+      "sha1": "d934e10f7c24beae9ca1bf4bd6374e7123cc0133"
+    },
+    {
+      "path": "mappings/misc/Closeup of Tails flying plane in ending sequence.eni",
+      "image": "rev01",
+      "offset": 591726,
+      "size": 82,
+      "sha1": "9537390942a3d10f929b3de260d8c5707c26d32d"
+    },
+    {
+      "path": "mappings/misc/End of game sequence frame 1.eni",
+      "image": "rev01",
+      "offset": 591584,
+      "size": 24,
+      "sha1": "b69d4d94da58322f75e1825f5b56bb83e8210805"
+    },
+    {
+      "path": "mappings/misc/End of game sequence frame 2.eni",
+      "image": "rev01",
+      "offset": 591608,
+      "size": 42,
+      "sha1": "5ccf3a6408c21953b025224edb4882c91c53cb63"
+    },
+    {
+      "path": "mappings/misc/End of game sequence frame 3.eni",
+      "image": "rev01",
+      "offset": 591650,
+      "size": 26,
+      "sha1": "8d0b6c0759ac44b7b0d3f258a79c20ccab502303"
+    },
+    {
+      "path": "mappings/misc/End of game sequence frame 4.eni",
+      "image": "rev01",
+      "offset": 591676,
+      "size": 50,
+      "sha1": "4665d3e69f95a45d225a3ec259398a63c714d044"
+    },
+    {
+      "path": "mappings/misc/Level Select 2P.eni",
+      "image": "rev01",
+      "offset": 39520,
+      "size": 82,
+      "sha1": "b0485cde653ed4504520b3ac49a5f6f2c2e5f809"
+    },
+    {
+      "path": "mappings/misc/Level Select Icons.eni",
+      "image": "rev01",
+      "offset": 39986,
+      "size": 50,
+      "sha1": "155290bcfd7b0e2243b4e45d9a30c31d423ffe57"
+    },
+    {
+      "path": "mappings/misc/Level Select.eni",
+      "image": "rev01",
+      "offset": 39646,
+      "size": 340,
+      "sha1": "acf298e8a26aa9a5b1e008752522705cc5640772"
+    },
+    {
+      "path": "mappings/misc/Lower background mappings for special stage.eni",
+      "image": "rev01",
+      "offset": 905996,
+      "size": 382,
+      "sha1": "ec531a680afe987de4f493c4d59d5499f2846f6c"
+    },
+    {
+      "path": "mappings/misc/Main background mappings for special stage.eni",
+      "image": "rev01",
+      "offset": 905694,
+      "size": 302,
+      "sha1": "9464e7d65474e850efa6ccd326a9ac2255e2047c"
+    },
+    {
+      "path": "mappings/misc/Mappings for title screen background 2.eni",
+      "image": "rev01",
+      "offset": 478778,
+      "size": 76,
+      "sha1": "675833611c1440b2148aaa441affb8fc0d56fe69"
+    },
+    {
+      "path": "mappings/misc/Mappings for title screen background.eni",
+      "image": "rev01",
+      "offset": 478662,
+      "size": 116,
+      "sha1": "fca875b84d45cd2de2ea725f7e8e3ce52fc900d0"
+    },
+    {
+      "path": "mappings/misc/Options Screen.eni",
+      "image": "rev01",
+      "offset": 39602,
+      "size": 44,
+      "sha1": "c7ccfeda8aca5720384c7aebcc7aed23472ef05c"
+    },
+    {
+      "path": "mappings/misc/SEGA mappings.eni",
+      "image": "rev01",
+      "offset": 478478,
+      "size": 184,
+      "sha1": "e68bbfe2df10f3fb7db96515f7e1f8a063ae243a"
+    },
+    {
+      "path": "mappings/misc/Sonic 2 end of game logo.eni",
+      "image": "rev01",
+      "offset": 592234,
+      "size": 40,
+      "sha1": "fd12ad0ff6787ad818dd81b791ae24a19a7684b7"
+    },
+    {
+      "path": "mappings/misc/Sonic and Miles animated background.eni",
+      "image": "rev01",
+      "offset": 510848,
+      "size": 428,
+      "sha1": "4507847bcd8d47c10d9dd2cba80a60a04791ad0f"
+    },
+    {
+      "path": "mappings/misc/Sonic the Hedgehog 2 title screen logo mappings.eni",
+      "image": "rev01",
+      "offset": 478854,
+      "size": 230,
+      "sha1": "06218fef4489e43a12093ef1070a8ec157f8021c"
+    },
+    {
+      "path": "mappings/special stage/Begin curve right - Frame 1.bin",
+      "image": "rev01",
+      "offset": 894158,
+      "size": 1618,
+      "sha1": "d04f3380dff89bcf4e7f49a35f5899bbb52e6131"
+    },
+    {
+      "path": "mappings/special stage/Begin curve right - Frame 2.bin",
+      "image": "rev01",
+      "offset": 895776,
+      "size": 1382,
+      "sha1": "431ebe3e5eda3a8a9d0b407e022a05ecaa4f481b"
+    },
+    {
+      "path": "mappings/special stage/Begin curve right - Frame 3.bin",
+      "image": "rev01",
+      "offset": 897158,
+      "size": 1320,
+      "sha1": "ec43202df2c56f1dc87486e0195a0f012d0ce66b"
+    },
+    {
+      "path": "mappings/special stage/Begin curve right - Frame 4.bin",
+      "image": "rev01",
+      "offset": 898478,
+      "size": 1460,
+      "sha1": "b475f2b0f7a1cc626394802f517087604b9e05f5"
+    },
+    {
+      "path": "mappings/special stage/Begin curve right - Frame 5.bin",
+      "image": "rev01",
+      "offset": 899938,
+      "size": 1522,
+      "sha1": "9be2d7b8ab39c51eebfdb1997f942f90567e0461"
+    },
+    {
+      "path": "mappings/special stage/Begin curve right - Frame 6.bin",
+      "image": "rev01",
+      "offset": 901460,
+      "size": 1172,
+      "sha1": "b4fc06fd5ef7f734f1cc68933e42299960329e69"
+    },
+    {
+      "path": "mappings/special stage/Begin curve right - Frame 7.bin",
+      "image": "rev01",
+      "offset": 902632,
+      "size": 1104,
+      "sha1": "f52a6f5cafd71e249bab048b83f82ab00b772b73"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 1.bin",
+      "image": "rev01",
+      "offset": 881820,
+      "size": 1142,
+      "sha1": "02ab82e2311f83036eea9121f13b343a4b7d800c"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 10.bin",
+      "image": "rev01",
+      "offset": 891776,
+      "size": 1174,
+      "sha1": "0b77bb9c39192c841d83e737c47794df0fa25885"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 11.bin",
+      "image": "rev01",
+      "offset": 892950,
+      "size": 1208,
+      "sha1": "7919d027b5016b5dc85e097126973ee430399245"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 2.bin",
+      "image": "rev01",
+      "offset": 882962,
+      "size": 1176,
+      "sha1": "4a1b4d7100dafe9e5e7e2825ea9274feebb5366b"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 3.bin",
+      "image": "rev01",
+      "offset": 884138,
+      "size": 1190,
+      "sha1": "b6d225f740878ccf7fe7665aa3daf37eadad42a7"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 4.bin",
+      "image": "rev01",
+      "offset": 885328,
+      "size": 936,
+      "sha1": "02760be139df7d0bfe81e9aa2e773acd4d77b07e"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 5.bin",
+      "image": "rev01",
+      "offset": 886264,
+      "size": 1012,
+      "sha1": "332f01132044b0c4dba2a82d85149b1656c38142"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 6.bin",
+      "image": "rev01",
+      "offset": 887276,
+      "size": 1080,
+      "sha1": "6306c575bc1628dbec069f8684421bc4f1a143e2"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 7.bin",
+      "image": "rev01",
+      "offset": 888356,
+      "size": 1170,
+      "sha1": "77df0b0dccd05f37368864800cac9c4eefcac428"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 8.bin",
+      "image": "rev01",
+      "offset": 889526,
+      "size": 1218,
+      "sha1": "f86c62e9e5ff2777af9903bc92fbdf0027cf24b8"
+    },
+    {
+      "path": "mappings/special stage/Curve right - Frame 9.bin",
+      "image": "rev01",
+      "offset": 890744,
+      "size": 1032,
+      "sha1": "2564e567c6907033bd3a651429d482c33302ae7a"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 1.bin",
+      "image": "rev01",
+      "offset": 858620,
+      "size": 1200,
+      "sha1": "193c9cd4a8dd1d33fcfc589588f9eab6627547c8"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 10.bin",
+      "image": "rev01",
+      "offset": 869984,
+      "size": 1862,
+      "sha1": "31f42629291644d3fc1c7c9ac8e8e38d674208e7"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 11.bin",
+      "image": "rev01",
+      "offset": 871846,
+      "size": 1622,
+      "sha1": "cd6d84425aafee18d0744432099f41e346f9d3ad"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 12.bin",
+      "image": "rev01",
+      "offset": 873468,
+      "size": 1372,
+      "sha1": "9c8f931890e178e7c75d4c1c5edd3705f925fd36"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 13.bin",
+      "image": "rev01",
+      "offset": 874840,
+      "size": 1450,
+      "sha1": "7c9bb91bf8a79537990f12e25af9349a5815d88f"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 14.bin",
+      "image": "rev01",
+      "offset": 876290,
+      "size": 1684,
+      "sha1": "ff24a836a4c9267709c820d2e9d9c35c19b8cc6b"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 15.bin",
+      "image": "rev01",
+      "offset": 877974,
+      "size": 1556,
+      "sha1": "2a54c313658c7b603bff5381cc88e51575a6013d"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 16.bin",
+      "image": "rev01",
+      "offset": 879530,
+      "size": 1156,
+      "sha1": "986ab521f16a0a537463678bbede606ceb48f502"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 17.bin",
+      "image": "rev01",
+      "offset": 880686,
+      "size": 1134,
+      "sha1": "edbeb1709a3bb92867c25f4e660a54754a8be36f"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 2.bin",
+      "image": "rev01",
+      "offset": 859820,
+      "size": 1282,
+      "sha1": "0aa6f135493ffed9bd8347f7174f2e3367642831"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 3.bin",
+      "image": "rev01",
+      "offset": 861102,
+      "size": 1048,
+      "sha1": "b41d065753f04d7fee983d01f22e59c8f8d6a87d"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 4.bin",
+      "image": "rev01",
+      "offset": 862150,
+      "size": 1102,
+      "sha1": "18d6f9fff88e0e2d06c744df78eac136005139b9"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 5.bin",
+      "image": "rev01",
+      "offset": 863252,
+      "size": 1150,
+      "sha1": "daa9dcf81235116d75dafe8bb993941af7e8d6eb"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 6.bin",
+      "image": "rev01",
+      "offset": 864402,
+      "size": 1168,
+      "sha1": "28a0150588a0d8d6298f85ed3c7ca22f2922c9bb"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 7.bin",
+      "image": "rev01",
+      "offset": 865570,
+      "size": 1226,
+      "sha1": "d1bb33843c6fc2552751184d79decabba05be0c4"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 8.bin",
+      "image": "rev01",
+      "offset": 866796,
+      "size": 1420,
+      "sha1": "1aa74027a2021564f539ad4e133ddfda25bcdae4"
+    },
+    {
+      "path": "mappings/special stage/Slope down - Frame 9.bin",
+      "image": "rev01",
+      "offset": 868216,
+      "size": 1768,
+      "sha1": "9eadfbcc00d559de26e0dc56fde5d4cedb66a7a2"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 1.bin",
+      "image": "rev01",
+      "offset": 829700,
+      "size": 1188,
+      "sha1": "72fad9bfa85639e7a5490f3ed7b52ec05b1d054f"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 10.bin",
+      "image": "rev01",
+      "offset": 843076,
+      "size": 1402,
+      "sha1": "eeec3937a3cc567ca52f1441b34ea88d84009de3"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 11.bin",
+      "image": "rev01",
+      "offset": 844478,
+      "size": 1312,
+      "sha1": "8edbe8b47256b74eefb33faf4c3b37f26ce74ca2"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 12.bin",
+      "image": "rev01",
+      "offset": 845790,
+      "size": 1140,
+      "sha1": "338675bda98b42ab4715c8a0efa42dd56f8e41e3"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 13.bin",
+      "image": "rev01",
+      "offset": 846930,
+      "size": 1130,
+      "sha1": "a99d9a24693a170d7d3028546eb99050e109cce0"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 14.bin",
+      "image": "rev01",
+      "offset": 848060,
+      "size": 1220,
+      "sha1": "15e29c9b103e71acce1f7081ed4fdf71e40955b2"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 15.bin",
+      "image": "rev01",
+      "offset": 849280,
+      "size": 1152,
+      "sha1": "586cb9357796b6e7c1f1682e2a561cdf068a8eb3"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 16.bin",
+      "image": "rev01",
+      "offset": 850432,
+      "size": 1098,
+      "sha1": "f9a67477b12da6891c51921aa94c8b8adfb114c7"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 17.bin",
+      "image": "rev01",
+      "offset": 851530,
+      "size": 1090,
+      "sha1": "751ad8ffd752197d0e01a3574237902653abcf09"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 2.bin",
+      "image": "rev01",
+      "offset": 830888,
+      "size": 1486,
+      "sha1": "2c31a2bacc84d22d94ed63191633a9f70a20d1d0"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 3.bin",
+      "image": "rev01",
+      "offset": 832374,
+      "size": 1464,
+      "sha1": "b6bbff5b64fcdd7d26575e0fc4923c9880b7a629"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 4.bin",
+      "image": "rev01",
+      "offset": 833838,
+      "size": 1636,
+      "sha1": "d25bfff9092329e637db7f863d8ae31d63222839"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 5.bin",
+      "image": "rev01",
+      "offset": 835474,
+      "size": 1580,
+      "sha1": "015071b8d85692cd6fa538b8f6b1b87c53f0900e"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 6.bin",
+      "image": "rev01",
+      "offset": 837054,
+      "size": 1724,
+      "sha1": "bc73ca6e6a204d64d0b6f502a06ffc7ad5abf7fa"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 7.bin",
+      "image": "rev01",
+      "offset": 838778,
+      "size": 1544,
+      "sha1": "59c9e8de71453272df532188354afdb43795e42c"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 8.bin",
+      "image": "rev01",
+      "offset": 840322,
+      "size": 1342,
+      "sha1": "5913e121ae1b3d3f24ad7219657ddff59a1f59a6"
+    },
+    {
+      "path": "mappings/special stage/Slope up - Frame 9.bin",
+      "image": "rev01",
+      "offset": 841664,
+      "size": 1412,
+      "sha1": "fa8fdd6c192d92b1dc0dc3b084fdc8fc14ac8703"
+    },
+    {
+      "path": "mappings/special stage/Straight path - Frame 1.bin",
+      "image": "rev01",
+      "offset": 852620,
+      "size": 1662,
+      "sha1": "3f556dfa789054082e4443c849c62535b97c4c70"
+    },
+    {
+      "path": "mappings/special stage/Straight path - Frame 2.bin",
+      "image": "rev01",
+      "offset": 854282,
+      "size": 1436,
+      "sha1": "49f47524a927f0c6e07e944c2de02d66057bdba2"
+    },
+    {
+      "path": "mappings/special stage/Straight path - Frame 3.bin",
+      "image": "rev01",
+      "offset": 855718,
+      "size": 1370,
+      "sha1": "0da8e5939cb53f919b1a1ad507bc4584cdd4b569"
+    },
+    {
+      "path": "mappings/special stage/Straight path - Frame 4.bin",
+      "image": "rev01",
+      "offset": 857088,
+      "size": 1532,
+      "sha1": "a826407f0a59d5b532e41dbc5e294dec53a41cd3"
+    },
+    {
+      "path": "misc/Special stage level layouts.nem",
+      "image": "rev01",
+      "offset": 931054,
+      "size": 260,
+      "sha1": "0a027d36da58c10c1c8041f47a07b876f13b25e9"
+    },
+    {
+      "path": "misc/Special stage object location lists.kos",
+      "image": "rev01",
+      "offset": 931314,
+      "size": 3216,
+      "sha1": "828e9994481f8a76509e6913f7646e0351e69ce0"
+    },
+    {
+      "path": "misc/Special stage object perspective data.kos",
+      "image": "rev01",
+      "offset": 926974,
+      "size": 4080,
+      "sha1": "928e6ea1de1ae37ba35b7934c9de0fdc35e06592"
+    },
+    {
+      "path": "misc/angles.bin",
+      "image": "rev01",
+      "offset": 14004,
+      "size": 258,
+      "sha1": "63eb7077faaa26609893dad32c5ee4d6a1baba98"
+    },
+    {
+      "path": "misc/sinewave.bin",
+      "image": "rev01",
+      "offset": 13262,
+      "size": 640,
+      "sha1": "030744bf9f5997caf50ca3ef1c06b08b167c7b3e"
+    },
+    {
+      "path": "sound/DAC/Bongo.dpcm",
+      "image": "rev01",
+      "offset": 981564,
+      "size": 1476,
+      "sha1": "4e0dad83f1d65955f2bb45c30c90e366264fb028"
+    },
+    {
+      "path": "sound/DAC/Clap.dpcm",
+      "image": "rev01",
+      "offset": 978298,
+      "size": 1398,
+      "sha1": "4972b3c4366cab0c6fd0dc1ababf69d923682c1a"
+    },
+    {
+      "path": "sound/DAC/Kick.dpcm",
+      "image": "rev01",
+      "offset": 971008,
+      "size": 660,
+      "sha1": "a70d082cda58c95e7d575d65b7effd17e7cb1434"
+    },
+    {
+      "path": "sound/DAC/Scratch.dpcm",
+      "image": "rev01",
+      "offset": 979696,
+      "size": 1868,
+      "sha1": "3688b240bca60b40e03215202d6955017c9b7289"
+    },
+    {
+      "path": "sound/DAC/Snare.dpcm",
+      "image": "rev01",
+      "offset": 971668,
+      "size": 1827,
+      "sha1": "ad80837b4fd19a4ac4517dc2110178d263ed03a4"
+    },
+    {
+      "path": "sound/DAC/Timpani.dpcm",
+      "image": "rev01",
+      "offset": 973495,
+      "size": 2997,
+      "sha1": "32b5f355fa4308a93884c653977798fc0a921b6f"
+    },
+    {
+      "path": "sound/DAC/Tom.dpcm",
+      "image": "rev01",
+      "offset": 976492,
+      "size": 1806,
+      "sha1": "6527f1310b03cdb4c93d32dc2badfe5a783b5259"
+    },
+    {
+      "path": "sound/PCM/SEGA.pcm",
+      "image": "rev01",
+      "offset": 990860,
+      "size": 24948,
+      "sha1": "e46b1171ddcd6763de067cef56bef5c9600eb0aa"
+    },
+    {
+      "path": "sound/driver.sax",
+      "image": "rev01",
+      "offset": 966888,
+      "size": 3940,
+      "sha1": "2c65ef38c5daf087a2bbae8a1cfc407a720bc184"
+    },
+    {
+      "path": "sound/music/81 - 2 Player Menu.sax",
+      "image": "rev01",
+      "offset": 1034276,
+      "size": 920,
+      "sha1": "0859bcff9897e329d2c13ced87388d6c286542d7"
+    },
+    {
+      "path": "sound/music/82 - EHZ.sax",
+      "image": "rev01",
+      "offset": 1018052,
+      "size": 1322,
+      "sha1": "074407ea38966bf13d6e3c703443264ed1ab9ea1"
+    },
+    {
+      "path": "sound/music/83 - MCZ 2P.sax",
+      "image": "rev01",
+      "offset": 1022524,
+      "size": 813,
+      "sha1": "b89700c4df093b98c896df69c5b11ddc9e2daa35"
+    },
+    {
+      "path": "sound/music/84 - OOZ.sax",
+      "image": "rev01",
+      "offset": 1031564,
+      "size": 954,
+      "sha1": "5cddcb5ad863543c573cdad6a88a55506a85b2de"
+    },
+    {
+      "path": "sound/music/85 - MTZ.sax",
+      "image": "rev01",
+      "offset": 1019374,
+      "size": 909,
+      "sha1": "1735bbc4b26dbfae3b7cc584cfc540ec6287d840"
+    },
+    {
+      "path": "sound/music/86 - HTZ.sax",
+      "image": "rev01",
+      "offset": 1035892,
+      "size": 799,
+      "sha1": "25846fe43a4fb2da2609b298cf59ec78ef94b32d"
+    },
+    {
+      "path": "sound/music/87 - ARZ.sax",
+      "image": "rev01",
+      "offset": 1023337,
+      "size": 1538,
+      "sha1": "938a5eb55e9b8eb13c37d8923ac6a0ec25d942d5"
+    },
+    {
+      "path": "sound/music/88 - CNZ 2P.sax",
+      "image": "rev01",
+      "offset": 1017078,
+      "size": 974,
+      "sha1": "ad7cdcfc0ebc4809295b39ef4bf33f6f76efe72d"
+    },
+    {
+      "path": "sound/music/89 - CNZ.sax",
+      "image": "rev01",
+      "offset": 1020283,
+      "size": 1257,
+      "sha1": "d4073781bc1a722ac3dca880632a4dab0a5c9373"
+    },
+    {
+      "path": "sound/music/8A - DEZ.sax",
+      "image": "rev01",
+      "offset": 1024875,
+      "size": 898,
+      "sha1": "a7f245755b9a023cf21da972e9b2936d68c7fc2c"
+    },
+    {
+      "path": "sound/music/8B - MCZ.sax",
+      "image": "rev01",
+      "offset": 1021540,
+      "size": 984,
+      "sha1": "14427a58827939d6b14d369437dc7e790c768d61"
+    },
+    {
+      "path": "sound/music/8C - EHZ 2P.sax",
+      "image": "rev01",
+      "offset": 1033344,
+      "size": 932,
+      "sha1": "749f287d204673d5dcfcbb57c19b092e525960f0"
+    },
+    {
+      "path": "sound/music/8D - SCZ.sax",
+      "image": "rev01",
+      "offset": 1030767,
+      "size": 797,
+      "sha1": "fe8768ceadb772367cedd3324860957d5b9cb916"
+    },
+    {
+      "path": "sound/music/8E - CPZ.sax",
+      "image": "rev01",
+      "offset": 1029111,
+      "size": 1063,
+      "sha1": "76a44b60338eb78ecc98f139bc5454c1efda26c2"
+    },
+    {
+      "path": "sound/music/8F - WFZ.sax",
+      "image": "rev01",
+      "offset": 1032518,
+      "size": 826,
+      "sha1": "ae9da28d7d11f67ee3e674035ed5d94cf01d1546"
+    },
+    {
+      "path": "sound/music/90 - HPZ.sax",
+      "image": "rev01",
+      "offset": 1015868,
+      "size": 511,
+      "sha1": "53c462662a20866126b952cf7e4828b45bce32a2"
+    },
+    {
+      "path": "sound/music/91 - Options.sax",
+      "image": "rev01",
+      "offset": 1026756,
+      "size": 376,
+      "sha1": "2bb025c2c8cab11c7519f938e6091721aaffcedd"
+    },
+    {
+      "path": "sound/music/92 - Special Stage.sax",
+      "image": "rev01",
+      "offset": 1025773,
+      "size": 983,
+      "sha1": "9420cfeb0334f99902759448d6e2a83302071138"
+    },
+    {
+      "path": "sound/music/93 - Boss.sax",
+      "image": "rev01",
+      "offset": 1030174,
+      "size": 593,
+      "sha1": "26a4938a72ed74ed2a0d602494e48a8a9869cfc6"
+    },
+    {
+      "path": "sound/music/94 - Final Boss.sax",
+      "image": "rev01",
+      "offset": 1028388,
+      "size": 723,
+      "sha1": "4da221e75db156bf5b868931ec9cbf7e1fabf0d9"
+    },
+    {
+      "path": "sound/music/95 - Ending.sax",
+      "image": "rev01",
+      "offset": 1027132,
+      "size": 1256,
+      "sha1": "538dbf6a5fa78424696a252a27a454bda81ad779"
+    },
+    {
+      "path": "sound/music/96 - Super Sonic.sax",
+      "image": "rev01",
+      "offset": 1035196,
+      "size": 696,
+      "sha1": "7a9a0630dc087915fcfde3e39f9987a9c90518b8"
+    },
+    {
+      "path": "sound/music/97 - Invincible.sax",
+      "image": "rev01",
+      "offset": 1016665,
+      "size": 413,
+      "sha1": "2c5a1e83076f29c2e33af409ca579df6a9278011"
+    },
+    {
+      "path": "sound/music/99 - Title Screen.sax",
+      "image": "rev01",
+      "offset": 1036691,
+      "size": 459,
+      "sha1": "4a1420d7805ac32a3f009460b0998e6d183d58b7"
+    },
+    {
+      "path": "sound/music/9A - End of Act.sax",
+      "image": "rev01",
+      "offset": 1037150,
+      "size": 303,
+      "sha1": "78a53741d129e80c6faa76524e08942ade5344ef"
+    },
+    {
+      "path": "sound/music/9C - Continue.sax",
+      "image": "rev01",
+      "offset": 983042,
+      "size": 346,
+      "sha1": "88d3267c56f9511acf677477f23f68b04e5332b7"
+    },
+    {
+      "path": "sound/music/9F - Drowning.sax",
+      "image": "rev01",
+      "offset": 1016379,
+      "size": 286,
+      "sha1": "e22de6de8481c2581a65615b5bfdb6d6d376efe1"
+    },
+    {
+      "path": "startpos/01_1.bin",
+      "image": "rev01",
+      "offset": 49624,
+      "size": 4,
+      "sha1": "881836b145a1629373adc1069a6b5c41f315b44b"
+    },
+    {
+      "path": "startpos/01_2.bin",
+      "image": "rev01",
+      "offset": 49628,
+      "size": 4,
+      "sha1": "ffac731f89bd653eb5bca53a84d3aa27db33f1ae"
+    },
+    {
+      "path": "startpos/03_1.bin",
+      "image": "rev01",
+      "offset": 49640,
+      "size": 4,
+      "sha1": "881836b145a1629373adc1069a6b5c41f315b44b"
+    },
+    {
+      "path": "startpos/03_2.bin",
+      "image": "rev01",
+      "offset": 49644,
+      "size": 4,
+      "sha1": "ffac731f89bd653eb5bca53a84d3aa27db33f1ae"
+    },
+    {
+      "path": "startpos/09_1.bin",
+      "image": "rev01",
+      "offset": 49688,
+      "size": 4,
+      "sha1": "881836b145a1629373adc1069a6b5c41f315b44b"
+    },
+    {
+      "path": "startpos/09_2.bin",
+      "image": "rev01",
+      "offset": 49692,
+      "size": 4,
+      "sha1": "ffac731f89bd653eb5bca53a84d3aa27db33f1ae"
+    },
+    {
+      "path": "startpos/ARZ_1.bin",
+      "image": "rev01",
+      "offset": 49736,
+      "size": 4,
+      "sha1": "1af6f1ea27aad4c14df6623a0a65a8abdb9701b4"
+    },
+    {
+      "path": "startpos/ARZ_2.bin",
+      "image": "rev01",
+      "offset": 49740,
+      "size": 4,
+      "sha1": "1af6f1ea27aad4c14df6623a0a65a8abdb9701b4"
+    },
+    {
+      "path": "startpos/CNZ_1.bin",
+      "image": "rev01",
+      "offset": 49712,
+      "size": 4,
+      "sha1": "5af9929dce98e9fef6ed4aa222e83d69fd01ae46"
+    },
+    {
+      "path": "startpos/CNZ_2.bin",
+      "image": "rev01",
+      "offset": 49716,
+      "size": 4,
+      "sha1": "8075d3e6b10ea6a9927948c05afee2fc2168eef0"
+    },
+    {
+      "path": "startpos/CPZ_1.bin",
+      "image": "rev01",
+      "offset": 49720,
+      "size": 4,
+      "sha1": "a6efee4b48772896a113e858b1f584358c0affb9"
+    },
+    {
+      "path": "startpos/CPZ_2.bin",
+      "image": "rev01",
+      "offset": 49724,
+      "size": 4,
+      "sha1": "500c879e7a40ad7d27198ae4236a8813e094f5f7"
+    },
+    {
+      "path": "startpos/DEZ_1.bin",
+      "image": "rev01",
+      "offset": 49728,
+      "size": 4,
+      "sha1": "8b680b98e81b111c921aadf0626410d82c375bc2"
+    },
+    {
+      "path": "startpos/DEZ_2.bin",
+      "image": "rev01",
+      "offset": 49732,
+      "size": 4,
+      "sha1": "8b680b98e81b111c921aadf0626410d82c375bc2"
+    },
+    {
+      "path": "startpos/EHZ_1.bin",
+      "image": "rev01",
+      "offset": 49616,
+      "size": 4,
+      "sha1": "881836b145a1629373adc1069a6b5c41f315b44b"
+    },
+    {
+      "path": "startpos/EHZ_2.bin",
+      "image": "rev01",
+      "offset": 49620,
+      "size": 4,
+      "sha1": "ffac731f89bd653eb5bca53a84d3aa27db33f1ae"
+    },
+    {
+      "path": "startpos/HPZ_1.bin",
+      "image": "rev01",
+      "offset": 49680,
+      "size": 4,
+      "sha1": "4784353165b96654361ab81c5383e801f7d187f7"
+    },
+    {
+      "path": "startpos/HPZ_2.bin",
+      "image": "rev01",
+      "offset": 49684,
+      "size": 4,
+      "sha1": "4784353165b96654361ab81c5383e801f7d187f7"
+    },
+    {
+      "path": "startpos/HTZ_1.bin",
+      "image": "rev01",
+      "offset": 49672,
+      "size": 4,
+      "sha1": "a0c7c11c859a0ffc7b09d0a0af3faf7c9fa66db3"
+    },
+    {
+      "path": "startpos/HTZ_2.bin",
+      "image": "rev01",
+      "offset": 49676,
+      "size": 4,
+      "sha1": "04ac3dd4e1c50a75162db382fb90ebbbd1ec22f3"
+    },
+    {
+      "path": "startpos/MCZ_1.bin",
+      "image": "rev01",
+      "offset": 49704,
+      "size": 4,
+      "sha1": "11994828dc5135e77f8d65d271f2f85b1607ddb7"
+    },
+    {
+      "path": "startpos/MCZ_2.bin",
+      "image": "rev01",
+      "offset": 49708,
+      "size": 4,
+      "sha1": "603dea98895995b5d6a5eb075cc678d30054af8e"
+    },
+    {
+      "path": "startpos/MTZ_1.bin",
+      "image": "rev01",
+      "offset": 49648,
+      "size": 4,
+      "sha1": "d050a6487cf26edbb14160503cb34f3f42530a85"
+    },
+    {
+      "path": "startpos/MTZ_2.bin",
+      "image": "rev01",
+      "offset": 49652,
+      "size": 4,
+      "sha1": "c5795eda7cc48d2b67eac2a2e65c3fac7ed4408f"
+    },
+    {
+      "path": "startpos/MTZ_3.bin",
+      "image": "rev01",
+      "offset": 49656,
+      "size": 4,
+      "sha1": "8e780589bd8bc5f8150ec7853ddc4fe5906fbbca"
+    },
+    {
+      "path": "startpos/MTZ_4.bin",
+      "image": "rev01",
+      "offset": 49660,
+      "size": 4,
+      "sha1": "ffac731f89bd653eb5bca53a84d3aa27db33f1ae"
+    },
+    {
+      "path": "startpos/OOZ_1.bin",
+      "image": "rev01",
+      "offset": 49696,
+      "size": 4,
+      "sha1": "11994828dc5135e77f8d65d271f2f85b1607ddb7"
+    },
+    {
+      "path": "startpos/OOZ_2.bin",
+      "image": "rev01",
+      "offset": 49700,
+      "size": 4,
+      "sha1": "50df68efa006185715aa56ceaa7699b586fca704"
+    },
+    {
+      "path": "startpos/SCZ_1.bin",
+      "image": "rev01",
+      "offset": 49744,
+      "size": 4,
+      "sha1": "92c97f7e21de6c2ebdbf43f15725ccf7e842d904"
+    },
+    {
+      "path": "startpos/SCZ_2.bin",
+      "image": "rev01",
+      "offset": 49748,
+      "size": 4,
+      "sha1": "842d7e142832ac4f64c67ffac192449a3749c16e"
+    },
+    {
+      "path": "startpos/WFZ_1.bin",
+      "image": "rev01",
+      "offset": 49664,
+      "size": 4,
+      "sha1": "41329080d7231e4daaaad48625de622b0bd9ae3f"
+    },
+    {
+      "path": "startpos/WFZ_2.bin",
+      "image": "rev01",
+      "offset": 49668,
+      "size": 4,
+      "sha1": "987df558aafe2b14fcbbc5fb676dde6e7f683e1a"
+    },
+    {
+      "path": "startpos/WZ_1.bin",
+      "image": "rev01",
+      "offset": 49632,
+      "size": 4,
+      "sha1": "eae1fb300bf5e4c7fba67e2366e1d51eea6b7591"
+    },
+    {
+      "path": "startpos/WZ_2.bin",
+      "image": "rev01",
+      "offset": 49636,
+      "size": 4,
+      "sha1": "eae1fb300bf5e4c7fba67e2366e1d51eea6b7591"
+    },
+    {
+      "path": "sound/music/98 - Extra Life.smps",
+      "image": "rev01",
+      "offset": 1037453,
+      "size": 237,
+      "sha1": "353ea2f65e113767684e25a5ee4dcad371d18382"
+    },
+    {
+      "path": "sound/music/9B - Game Over.smps",
+      "image": "rev01",
+      "offset": 1037690,
+      "size": 335,
+      "sha1": "cbc66d0f23b600a50ba765ce0c8c993445ad28f9"
+    },
+    {
+      "path": "sound/music/9D - Got Emerald.smps",
+      "image": "rev01",
+      "offset": 1038025,
+      "size": 206,
+      "sha1": "e72841ff9c7526775d73f5c5671d33c07f9d0a97"
+    },
+    {
+      "path": "sound/music/9E - Credits.smps",
+      "image": "rev01",
+      "offset": 1038231,
+      "size": 5882,
+      "sha1": "8ab01291e4adc1a35521390b604bdf5b05fd9a7d"
+    },
+    {
+      "path": "sound/sfx/A0 - Jump.smps",
+      "image": "rev01",
+      "offset": 1044275,
+      "size": 22,
+      "sha1": "68f5df1a6771727438b95236a2d6036f7a57a4f3"
+    },
+    {
+      "path": "sound/sfx/A1 - Checkpoint.smps",
+      "image": "rev01",
+      "offset": 1044297,
+      "size": 42,
+      "sha1": "62f42611909af46934906a9c3b62cffe46e4c1d5"
+    },
+    {
+      "path": "sound/sfx/A2 - Spike Switch.smps",
+      "image": "rev01",
+      "offset": 1044339,
+      "size": 31,
+      "sha1": "8bfa7e5b37a5c5cbd75a584e71d6ab18e2752661"
+    },
+    {
+      "path": "sound/sfx/A3 - Hurt.smps",
+      "image": "rev01",
+      "offset": 1044370,
+      "size": 50,
+      "sha1": "c8425136ffc83189ae2f2924a176a91e8401735f"
+    },
+    {
+      "path": "sound/sfx/A4 - Skidding.smps",
+      "image": "rev01",
+      "offset": 1044420,
+      "size": 53,
+      "sha1": "48d84c14aa34c653753b43cbdc2f2079aca8ae06"
+    },
+    {
+      "path": "sound/sfx/A5 - Block Push.smps",
+      "image": "rev01",
+      "offset": 1044473,
+      "size": 44,
+      "sha1": "3d6ab5f739d0fa2c38566dd06a94e5ae8fb7376e"
+    },
+    {
+      "path": "sound/sfx/A6 - Hurt by Spikes.smps",
+      "image": "rev01",
+      "offset": 1044517,
+      "size": 47,
+      "sha1": "60be89a8b03e1efb467c5499fa495dd251556c00"
+    },
+    {
+      "path": "sound/sfx/A7 - Sparkle.smps",
+      "image": "rev01",
+      "offset": 1044564,
+      "size": 44,
+      "sha1": "1032d25f2f129b1fe054715c1474c522be6000d5"
+    },
+    {
+      "path": "sound/sfx/A8 - Beep.smps",
+      "image": "rev01",
+      "offset": 1044608,
+      "size": 15,
+      "sha1": "4a98cb936d56189c7e1c0a1c8a081aa7e368f49a"
+    },
+    {
+      "path": "sound/sfx/A9 - Special Stage Item (Unused).smps",
+      "image": "rev01",
+      "offset": 1044623,
+      "size": 18,
+      "sha1": "771859bd712960d630ce95a9a2641903b397ab05"
+    },
+    {
+      "path": "sound/sfx/AA - Splash.smps",
+      "image": "rev01",
+      "offset": 1044641,
+      "size": 65,
+      "sha1": "c325ef7be68cbcb278463488bb34553ecce78b19"
+    },
+    {
+      "path": "sound/sfx/AB - Swish.smps",
+      "image": "rev01",
+      "offset": 1044706,
+      "size": 31,
+      "sha1": "def87da3a46bf00a4b1f1c7c19559301ed14a440"
+    },
+    {
+      "path": "sound/sfx/AC - Boss Hit.smps",
+      "image": "rev01",
+      "offset": 1044737,
+      "size": 52,
+      "sha1": "962f8bd27ae9f5e499e809a3e26e04284f975047"
+    },
+    {
+      "path": "sound/sfx/AD - Inhaling Bubble.smps",
+      "image": "rev01",
+      "offset": 1044789,
+      "size": 54,
+      "sha1": "5df9939ed6b09031da6b194385910ecccf82abeb"
+    },
+    {
+      "path": "sound/sfx/AE - Lava Ball.smps",
+      "image": "rev01",
+      "offset": 1044843,
+      "size": 74,
+      "sha1": "820a9202ebcc1f3d82841058d56c3b05eef20941"
+    },
+    {
+      "path": "sound/sfx/AF - Shield.smps",
+      "image": "rev01",
+      "offset": 1044917,
+      "size": 45,
+      "sha1": "ff916ae24a5cc000ce4510cbc9582ad90dbe6cb7"
+    },
+    {
+      "path": "sound/sfx/B0 - Laser Beam.smps",
+      "image": "rev01",
+      "offset": 1044962,
+      "size": 49,
+      "sha1": "7a551d63f1a0db02e9865837f7f9213fc88be495"
+    },
+    {
+      "path": "sound/sfx/B1 - Electricity (Unused).smps",
+      "image": "rev01",
+      "offset": 1045011,
+      "size": 44,
+      "sha1": "c7c4e8b805bf4d0bcab1a879b2ab76277a0b4c9f"
+    },
+    {
+      "path": "sound/sfx/B2 - Drown.smps",
+      "image": "rev01",
+      "offset": 1045055,
+      "size": 79,
+      "sha1": "a5b150a503cef905860e9d159fc5769599a977eb"
+    },
+    {
+      "path": "sound/sfx/B3 - Fire Burn.smps",
+      "image": "rev01",
+      "offset": 1045134,
+      "size": 49,
+      "sha1": "8f2c397973d727a89d1597b313133f9e3d1ed25f"
+    },
+    {
+      "path": "sound/sfx/B4 - Bumper.smps",
+      "image": "rev01",
+      "offset": 1045183,
+      "size": 91,
+      "sha1": "2c0d74d7e2051f7bd010dcc524417839407ef52a"
+    },
+    {
+      "path": "sound/sfx/B5 - Ring.smps",
+      "image": "rev01",
+      "offset": 1045274,
+      "size": 21,
+      "sha1": "cecac42b6f2fa6504951ed4bde6e81bb7faeec5f"
+    },
+    {
+      "path": "sound/sfx/B6 - Spikes Move.smps",
+      "image": "rev01",
+      "offset": 1045295,
+      "size": 29,
+      "sha1": "f39ee89b07c9eef1386434b13e83ebb7b6671c42"
+    },
+    {
+      "path": "sound/sfx/B7 - Rumbling.smps",
+      "image": "rev01",
+      "offset": 1045324,
+      "size": 59,
+      "sha1": "a9397ce593dea4f05a424a9758716f6f749a70b6"
+    },
+    {
+      "path": "sound/sfx/B8 - Unknown (Unused).smps",
+      "image": "rev01",
+      "offset": 1045383,
+      "size": 29,
+      "sha1": "0f41cd75373a1f7c1d4256b70575d17409573716"
+    },
+    {
+      "path": "sound/sfx/B9 - Smash.smps",
+      "image": "rev01",
+      "offset": 1045412,
+      "size": 74,
+      "sha1": "511a410c8cd224d815bdb1b0519e160f144b2c36"
+    },
+    {
+      "path": "sound/sfx/BA - Special Stage Glass (Unused).smps",
+      "image": "rev01",
+      "offset": 1045486,
+      "size": 40,
+      "sha1": "214fbfeffed3b5dced203187402679ca0a4fd73b"
+    },
+    {
+      "path": "sound/sfx/BB - Door Slam.smps",
+      "image": "rev01",
+      "offset": 1045526,
+      "size": 43,
+      "sha1": "b5104712996c8345d5ed394f103c08404008f32f"
+    },
+    {
+      "path": "sound/sfx/BC - Spin Dash Release.smps",
+      "image": "rev01",
+      "offset": 1045569,
+      "size": 65,
+      "sha1": "266c5c6ac33ce6ef6c0f95cd84cc4e1294a30d7a"
+    },
+    {
+      "path": "sound/sfx/BD - Hammer.smps",
+      "image": "rev01",
+      "offset": 1045634,
+      "size": 83,
+      "sha1": "49f63e88a8c5c084716cd6d684ff43df18d56835"
+    },
+    {
+      "path": "sound/sfx/BE - Roll.smps",
+      "image": "rev01",
+      "offset": 1045717,
+      "size": 58,
+      "sha1": "d106590bb82502c9fe939fcad6bf4cbbd8a44caa"
+    },
+    {
+      "path": "sound/sfx/BF - Continue Jingle.smps",
+      "image": "rev01",
+      "offset": 1045775,
+      "size": 114,
+      "sha1": "d33b8c639e404abb1c025364e5f1dde4564575fc"
+    },
+    {
+      "path": "sound/sfx/C0 - Casino Bonus.smps",
+      "image": "rev01",
+      "offset": 1045889,
+      "size": 25,
+      "sha1": "82bcc80d0ca66baf6b02820bfd2cfa644cd5ac10"
+    },
+    {
+      "path": "sound/sfx/C1 - Explosion.smps",
+      "image": "rev01",
+      "offset": 1045914,
+      "size": 58,
+      "sha1": "560cfa1e8e942e86c1908937d0b6f0e113a8b699"
+    },
+    {
+      "path": "sound/sfx/C2 - Water Warning.smps",
+      "image": "rev01",
+      "offset": 1045972,
+      "size": 17,
+      "sha1": "6d0f742aedbb85814ca867754a32a23e44dd507e"
+    },
+    {
+      "path": "sound/sfx/C3 - Enter Giant Ring (Unused).smps",
+      "image": "rev01",
+      "offset": 1045989,
+      "size": 122,
+      "sha1": "1b6cdca1e7b953e28c74e8539f2d80ae0b0a6025"
+    },
+    {
+      "path": "sound/sfx/C4 - Boss Explosion.smps",
+      "image": "rev01",
+      "offset": 1046111,
+      "size": 40,
+      "sha1": "f1c371e6143e9af886af27e3041be28d9bc062c8"
+    },
+    {
+      "path": "sound/sfx/C5 - Tally End.smps",
+      "image": "rev01",
+      "offset": 1046151,
+      "size": 103,
+      "sha1": "549144f636d465a046d930f824a4bda3ea2213a7"
+    },
+    {
+      "path": "sound/sfx/C6 - Ring Spill.smps",
+      "image": "rev01",
+      "offset": 1046254,
+      "size": 40,
+      "sha1": "64308de252f71cd89a6ab489c7000cb51b424743"
+    },
+    {
+      "path": "sound/sfx/C7 - Chain Rise (Unused).smps",
+      "image": "rev01",
+      "offset": 1046294,
+      "size": 46,
+      "sha1": "d603a38cc9980b1f6b43b9912e48c07f05d6e508"
+    },
+    {
+      "path": "sound/sfx/C8 - Flamethrower.smps",
+      "image": "rev01",
+      "offset": 1046340,
+      "size": 17,
+      "sha1": "0efa297aaae7bda45f5920cb4286ec8ea82fae8b"
+    },
+    {
+      "path": "sound/sfx/C9 - Hidden Bonus (Unused).smps",
+      "image": "rev01",
+      "offset": 1046357,
+      "size": 45,
+      "sha1": "ea25c6c532eea1d6f77fc4ed58320fc005702742"
+    },
+    {
+      "path": "sound/sfx/CA - Special Stage Entry.smps",
+      "image": "rev01",
+      "offset": 1046402,
+      "size": 45,
+      "sha1": "417de44b737ff6ac5c3cb0f805a3be3e52d204e7"
+    },
+    {
+      "path": "sound/sfx/CB - Slow Smash.smps",
+      "image": "rev01",
+      "offset": 1046447,
+      "size": 51,
+      "sha1": "3a413475de92ad3b02661eda4a0221f1709b2d6b"
+    },
+    {
+      "path": "sound/sfx/CC - Spring.smps",
+      "image": "rev01",
+      "offset": 1046498,
+      "size": 58,
+      "sha1": "0d1637b88835b9d3fd24b1787565914ed05226d4"
+    },
+    {
+      "path": "sound/sfx/CD - Switch.smps",
+      "image": "rev01",
+      "offset": 1046556,
+      "size": 13,
+      "sha1": "cd0ad27d6ce883c2f3b53969aed027873b78bd55"
+    },
+    {
+      "path": "sound/sfx/CE - Ring Left Speaker.smps",
+      "image": "rev01",
+      "offset": 1046569,
+      "size": 21,
+      "sha1": "49fe33c23290b48f203571f6a9d100223dd39bc3"
+    },
+    {
+      "path": "sound/sfx/CF - Signpost.smps",
+      "image": "rev01",
+      "offset": 1046590,
+      "size": 55,
+      "sha1": "365e53ad256eeef4faa43a1c67166fff80c0d63d"
+    },
+    {
+      "path": "sound/sfx/D0 - CNZ Boss Zap.smps",
+      "image": "rev01",
+      "offset": 1046645,
+      "size": 51,
+      "sha1": "aedc78a2ce3ed3f266b524392ab5f7498eca8a94"
+    },
+    {
+      "path": "sound/sfx/D1 - Unknown (Unused).smps",
+      "image": "rev01",
+      "offset": 1046696,
+      "size": 57,
+      "sha1": "d6d85bdbd51d540b557114d1bbe49520375d1bca"
+    },
+    {
+      "path": "sound/sfx/D2 - Unknown (Unused).smps",
+      "image": "rev01",
+      "offset": 1046753,
+      "size": 61,
+      "sha1": "0be67df9dd6420ea3a6c1d391ef984c0b41da699"
+    },
+    {
+      "path": "sound/sfx/D3 - Signpost 2P.smps",
+      "image": "rev01",
+      "offset": 1046814,
+      "size": 63,
+      "sha1": "e9140039d1102c007fd800ff9e867beac81b1fd4"
+    },
+    {
+      "path": "sound/sfx/D4 - OOZ Lid Pop.smps",
+      "image": "rev01",
+      "offset": 1046877,
+      "size": 65,
+      "sha1": "8585e4ed53f3a39911b04b4fbb8d51b73a8b924c"
+    },
+    {
+      "path": "sound/sfx/D5 - Sliding Spike.smps",
+      "image": "rev01",
+      "offset": 1046942,
+      "size": 42,
+      "sha1": "d1af07ad73225f46d3b577228eb25dda4e0f10a3"
+    },
+    {
+      "path": "sound/sfx/D6 - CNZ Elevator.smps",
+      "image": "rev01",
+      "offset": 1046984,
+      "size": 69,
+      "sha1": "d5ede435ec418074798fcb335781ab8692e2f749"
+    },
+    {
+      "path": "sound/sfx/D7 - Platform Knock.smps",
+      "image": "rev01",
+      "offset": 1047053,
+      "size": 40,
+      "sha1": "054e2da1bddb444b2c99bba71c67c0e1bf52e4f4"
+    },
+    {
+      "path": "sound/sfx/D8 - Bonus Bumper.smps",
+      "image": "rev01",
+      "offset": 1047093,
+      "size": 42,
+      "sha1": "ef99074cf8ce117b540e7716dc5c78be871a37f6"
+    },
+    {
+      "path": "sound/sfx/D9 - Large Bumper.smps",
+      "image": "rev01",
+      "offset": 1047135,
+      "size": 89,
+      "sha1": "7edd8821176d3ec5b96eb38ca38125d1d68528e7"
+    },
+    {
+      "path": "sound/sfx/DA - Gloop.smps",
+      "image": "rev01",
+      "offset": 1047224,
+      "size": 45,
+      "sha1": "a13687879bdc725a6d21891008e0a920bb3b8cf7"
+    },
+    {
+      "path": "sound/sfx/DB - Pre-Arrow Firing.smps",
+      "image": "rev01",
+      "offset": 1047269,
+      "size": 52,
+      "sha1": "e43cabcb055ee8ad380cea8aa2ce76134d4f3b9a"
+    },
+    {
+      "path": "sound/sfx/DC - Fire.smps",
+      "image": "rev01",
+      "offset": 1047321,
+      "size": 71,
+      "sha1": "16bb82390726bd67a14ba6fc704848a2ac27de04"
+    },
+    {
+      "path": "sound/sfx/DD - Arrow Stick.smps",
+      "image": "rev01",
+      "offset": 1047392,
+      "size": 40,
+      "sha1": "b571cb72e66ef9e3be2a34afbf165827c8420787"
+    },
+    {
+      "path": "sound/sfx/DE - Helicopter.smps",
+      "image": "rev01",
+      "offset": 1047432,
+      "size": 58,
+      "sha1": "ab831fd94dcfa8244aae82661c9fcc1b1db4f686"
+    },
+    {
+      "path": "sound/sfx/DF - Super Transform.smps",
+      "image": "rev01",
+      "offset": 1047490,
+      "size": 156,
+      "sha1": "1d6c6c79d597c025fee392626557b7e8689e4f49"
+    },
+    {
+      "path": "sound/sfx/E0 - Spin Dash Rev.smps",
+      "image": "rev01",
+      "offset": 1047646,
+      "size": 59,
+      "sha1": "2592eea2a2d5b772201df7464ddc40dafa96b9fb"
+    },
+    {
+      "path": "sound/sfx/E1 - Rumbling 2.smps",
+      "image": "rev01",
+      "offset": 1047705,
+      "size": 93,
+      "sha1": "a33f71293adfb7e0a26ff4935b4125cf8ab2000d"
+    },
+    {
+      "path": "sound/sfx/E2 - CNZ Launch.smps",
+      "image": "rev01",
+      "offset": 1047798,
+      "size": 55,
+      "sha1": "1679a5cc3be7b0ae13140219889cec225a26f696"
+    },
+    {
+      "path": "sound/sfx/E3 - Flipper.smps",
+      "image": "rev01",
+      "offset": 1047853,
+      "size": 47,
+      "sha1": "c40d0cb2d5a123213dbc3e7454eede2eb5b0fe97"
+    },
+    {
+      "path": "sound/sfx/E4 - HTZ Lift Click.smps",
+      "image": "rev01",
+      "offset": 1047900,
+      "size": 40,
+      "sha1": "c8cb444998ffd147a66cae57fcd74dccee6f0fdc"
+    },
+    {
+      "path": "sound/sfx/E5 - Leaves.smps",
+      "image": "rev01",
+      "offset": 1047940,
+      "size": 33,
+      "sha1": "8941489ccae8f0d99293f9cf2513cc24fd632252"
+    },
+    {
+      "path": "sound/sfx/E6 - Mega Mack Drop.smps",
+      "image": "rev01",
+      "offset": 1047973,
+      "size": 58,
+      "sha1": "16815419605857290fd92a0729e78723e85f8be8"
+    },
+    {
+      "path": "sound/sfx/E7 - Drawbridge Move.smps",
+      "image": "rev01",
+      "offset": 1048031,
+      "size": 33,
+      "sha1": "5618d7b6e736232714905da5e89db89a01ad08bc"
+    },
+    {
+      "path": "sound/sfx/E8 - Quick Door Slam.smps",
+      "image": "rev01",
+      "offset": 1048064,
+      "size": 42,
+      "sha1": "3c422f991b3e39f1c0eba27f86d251d644fcbb93"
+    },
+    {
+      "path": "sound/sfx/E9 - Drawbridge Down.smps",
+      "image": "rev01",
+      "offset": 1048106,
+      "size": 61,
+      "sha1": "ed6598061dfeba280b8601ce13d202bff34879d9"
+    },
+    {
+      "path": "sound/sfx/EA - Laser Burst.smps",
+      "image": "rev01",
+      "offset": 1048167,
+      "size": 43,
+      "sha1": "750aa87da4d0d9a25d596e6a157dda7a5c0a4b8c"
+    },
+    {
+      "path": "sound/sfx/EB - Scatter.smps",
+      "image": "rev01",
+      "offset": 1048210,
+      "size": 42,
+      "sha1": "33f8c6b18fb78e8a2aa35bed2a5c26fce905c580"
+    },
+    {
+      "path": "sound/sfx/EC - Teleport.smps",
+      "image": "rev01",
+      "offset": 1048252,
+      "size": 107,
+      "sha1": "057eb3f707b172c22af9d15c080e471abbc0df45"
+    },
+    {
+      "path": "sound/sfx/ED - Error.smps",
+      "image": "rev01",
+      "offset": 1048359,
+      "size": 44,
+      "sha1": "25c931f4d77e3fde0190d85c06b1cea4f8f8ce17"
+    },
+    {
+      "path": "sound/sfx/EE - Mecha Sonic Buzz.smps",
+      "image": "rev01",
+      "offset": 1048403,
+      "size": 62,
+      "sha1": "703193e2f01585506adced1e935425d03fe750fe"
+    },
+    {
+      "path": "sound/sfx/EF - Large Laser.smps",
+      "image": "rev01",
+      "offset": 1048465,
+      "size": 67,
+      "sha1": "ed68fc33dd02e96faa4dab6a0772b71bcee2a906"
+    },
+    {
+      "path": "sound/sfx/F0 - Oil Slide.smps",
+      "image": "rev01",
+      "offset": 1048532,
+      "size": 24,
+      "sha1": "c089931a912e5dd5c130685882fbb317dd044ecb"
+    }
+  ]
+}
