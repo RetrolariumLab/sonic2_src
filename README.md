@@ -1,10 +1,24 @@
-# Sonic the Hedgehog 2 source reconstruction
+# Sonic the Hedgehog 2 Source Reconstruction 2.0
+
+This repository is an independently maintained source reconstruction fork of
+[Sonic Retro's Sonic 2 disassembly](https://github.com/sonicretro/s2disasm),
+based on its master branch at
+[`4ef457c`](https://github.com/sonicretro/s2disasm/commit/4ef457c18fc4902396c43ab06fabc119ac6ecb64).
+The upstream work is represented by a text-only snapshot import into a new Git
+history. Credit for the original disassembly and community work belongs to the
+[upstream contributors](CONTRIBUTORS.md).
 
 This project reconstructs the original Mega Drive retail REV00 and REV01 images
 from source code and the user's own verified ROMs. It contains no distributable
 ROM, music, sound effects, graphics or extracted binary game assets. It is based
 on sonicretro/s2disasm; upstream attribution and its
-[disclaimer](docs/provenance.md#upstream-disclaimer) are preserved.
+[disclaimer](docs/provenance.md#upstream-disclaimer) are preserved. ROM, music,
+sound effects, graphics or extracted binary game assets. The upstream
+[disclaimer](docs/provenance.md#upstream-disclaimer) is preserved. from source
+code and the user's own verified ROMs. REV01 is the default profile. It contains
+no distributable ROM, music, sound effects, graphics or extracted binary game
+assets. The upstream [disclaimer](docs/provenance.md#upstream-disclaimer) is
+preserved.
 
 The complete Source Reconstruction 2.0 gate has passed from a fresh clone.
 Scaffold ran before any ROMs were supplied; only the two verified ROMs were then

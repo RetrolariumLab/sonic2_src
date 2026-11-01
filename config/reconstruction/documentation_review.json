@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "reviewed",
-  "scope": "Complete corpus after semantic filename, processor-suffix and primary-owner polish.",
+  "scope": "Complete corpus after semantic source polish and explicit upstream contributor attribution.",
   "reviewer": "Codex",
   "findings": [
     {
@@ -39,6 +39,10 @@
     {
       "id": "DOC-009",
       "resolution": "Use short context-aware source names, processor suffixes and real shared-zone consumers without changing preservation origins or compiled content."
+    },
+    {
+      "id": "DOC-010",
+      "resolution": "Identify the independent Sonic Retro fork at the reader entry point and centralize the verified upstream contributor roster while retaining the original rights boundary."
     },
     {
       "id": "DOC-019",
@@ -86,7 +90,7 @@
       "path": "docs/index.md",
       "action": "updated",
       "reason": "Organize build, source navigation, content work and evidence assessment without orphan pages.",
-      "sha256": "eedc9748ca0d28fa184fc89f3ac3b64ea505557d3b70ba0498423d187b21cadf"
+      "sha256": "f272ef492b176256fabe421f990bb99942e13b4f428b0d6e580879224af0623b"
     },
     {
       "path": "docs/memory.md",
@@ -98,7 +102,7 @@
       "path": "docs/provenance.md",
       "action": "updated",
       "reason": "Retain upstream credits and the verbatim disclaimer in this single provenance owner; document the externally cached exact compiler and the inline Saxman permission notice.",
-      "sha256": "28edbc9f7f1c7048b26f9c429bce7c54ec0eeb5d0753232d2cfc352859ce55ee"
+      "sha256": "218960280dd1225a0a06733f95b3f4e1519095c95a3cf6749c5855b392d4d885"
     },
     {
       "path": "docs/revisions.md",
@@ -146,7 +150,13 @@
       "path": "README.md",
       "action": "updated",
       "reason": "Give the legal-input quick start, checked current status and links into build, source, content and evidence journeys.",
-      "sha256": "9b5980fcdc8fd47a5ffa7dfb5e234742d2433bf372bd2be41fc6cc17d8a2c235"
+      "sha256": "0cde1291d8c6c70354bd68be7ad3838b5f3bc82b0375967c97d0d38580ad2945"
+    },
+    {
+      "path": "CONTRIBUTORS.md",
+      "action": "new",
+      "reason": "Centralize all 44 public upstream author spellings verified against the pinned 1142-commit history, retaining aliases and source-comment credits without email addresses.",
+      "sha256": "075413dbfa433a5db7b0397c5e26470d569aafa7d61d692be4eded9b7c9bb495"
     }
   ],
   "merges": [],

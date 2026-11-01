@@ -55,57 +55,12 @@ assigned; this is separate from the explicitly licensed external components and
 from the unlicensed reconstructed game content. Nothing here grants game content
 redistribution rights.
 
-## Public contributor names at the imported HEAD
+## Upstream contributors
 
-Counts reflect git shortlog -sn HEAD and retain upstream aliases. They are not a
-claim that aliases are distinct people. No contributor email is copied.
-
-```text
-   792	Clownacy
-    74	flamewing
-    60	MainMemory
-    50	unknown
-    36	AlexField442
-    23	MoDule
-    16	Alex Field
-     9	Flamewing
-     7	Francis Gagné
-     6	Brainulator9
-     6	IntelOrca
-     5	Gabriel Ravier
-     4	GabrielRavier
-     4	Ralakimus
-     4	RobiWanKenobi
-     4	rocketsailor
-     3	DeltaWooloo
-     3	MineRobber9000
-     3	Natsumi
-     3	Selbi182
-     2	Christopher Trumbour
-     2	Marzo Sette Torres Junior
-     2	OrionNavattan
-     2	Sonic Hachelle-Bee
-     2	devon-artmeier
-     2	marzojr
-     1	Caverns4
-     1	Devon
-     1	DevonArtmeier
-     1	Filter
-     1	FourHawk
-     1	Geeovanni
-     1	GeminiCrafterMan
-     1	MDTravis
-     1	MoDule88
-     1	Nasina7
-     1	Nintorch
-     1	Pokepunch
-     1	Sean Brackeen
-     1	Tristan Penman
-     1	kirisamemofo
-     1	kirjavascript
-     1	ollie-ollie-tech-deck
-     1	oo1o1o12
-```
+All 44 public author names from the imported master history are listed in
+[CONTRIBUTORS.md](../CONTRIBUTORS.md), with their recorded spellings and
+aliases. That file is the single owner of the contributor list. Original credits
+in source comments remain intact.
 
 ## Accepted and excluded revisions
 

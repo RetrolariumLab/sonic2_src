@@ -40,8 +40,12 @@ content work, read [content workflow](content_workflow.md) and the consolidated
 [format reference](data_formats.md). Their byte APIs and zero-edit rebuild are
 separate from final 2.0 aggregate acceptance.
 [upstream disclaimer](provenance.md#upstream-disclaimer) is preserved
-separately. The [README](../README.md) provides project status and the shortest
-build path.
+[Provenance and licensing](provenance.md) records the upstream baseline,
+excluded community modes and tool origins. The
+[contributor roster](../CONTRIBUTORS.md) credits the original Sonic Retro work.
+The original [upstream disclaimer](provenance.md#upstream-disclaimer) is
+preserved separately. The [README](../README.md) provides project status and the
+shortest build path.
 
 [Reconstruction boundary](source_reconstruction_2_0.md) separates implemented
 commands, unresolved development claims and final clean-clone acceptance.

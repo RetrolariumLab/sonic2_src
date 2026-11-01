@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 4
+    "commit_count": 5
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -82,6 +82,13 @@
       "id": "stage_c13",
       "kind": "source",
       "summary": "Polish source filenames and semantic owners; retain the original accepted profiles and their complete evidence.",
+      "commits": ["ceb737a4335b36dbd04e46acb8397281413c2f41"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "stage_c14",
+      "kind": "documentation",
+      "summary": "Credit the fork and upstream contributors; retain the original accepted profiles and their complete evidence.",
       "commits": ["release-commit"],
       "evidence": ["config/reconstruction/source_layout.json"]
     }
@@ -196,7 +203,8 @@
     "docs/content_workflow.md",
     "docs/revisions.md",
     "docs/architecture_decisions.md",
-    "docs/source_reconstruction_2_0.md"
+    "docs/source_reconstruction_2_0.md",
+    "CONTRIBUTORS.md"
   ],
   "release_commands": [
     "help",
