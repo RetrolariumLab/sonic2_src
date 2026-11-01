@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 11
+    "commit_count": 12
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -131,8 +131,15 @@
       "id": "stage_c20",
       "kind": "source",
       "summary": "Use reviewed short source names within subsystem context; retain the original accepted profiles and their complete evidence.",
-      "commits": ["release-commit"],
+      "commits": ["24b0c194ed9407b0afe38e8e7eb626408178d751"],
       "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "reader_entry_documentation",
+      "kind": "documentation",
+      "summary": "Expand the reader entry to match Sonic 1's project guide, using the checked Sonic 2 profiles, commands, source/content/runtime scope and published release checkpoints.",
+      "commits": ["release-commit"],
+      "evidence": ["README.md", "config/reconstruction/documentation_review.json", "documentation-check"]
     }
   ],
   "reference": {

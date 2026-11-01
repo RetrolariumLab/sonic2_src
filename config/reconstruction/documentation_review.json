@@ -79,6 +79,10 @@
     {
       "id": "DOC-019",
       "resolution": "Move exact AS build-313 dependencies and GPL text to a verified ignored cache, retain the full Saxman permission notice in its implementation, and bind linear history references to the new preservation boundary."
+    },
+    {
+      "id": "DOC-020",
+      "resolution": "Expand the README to the Sonic 1 reader structure with actual Sonic 2 commands, verified format/input counts, published milestone links, fixed-tag versus maintenance checks, repository map, credits and the verbatim upstream disclaimer."
     }
   ],
   "documents": [
@@ -192,9 +196,9 @@
     },
     {
       "path": "README.md",
-      "action": "updated",
-      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
-      "sha256": "393fc70a86d49ae6c947a5065aabe079ab1561fd8ded46bdd34524f63adeb012"
+      "action": "rewritten",
+      "reason": "Use the established Sonic 1 README structure while retaining Sonic 2's REV selectors, AS build 313, two accepted retail images, bounded content/runtime coverage and original attribution; distinguish immutable published tags from later main changes.",
+      "sha256": "6e651e96c25fe4b0c9747d87739ba5516b79424fd5123e4027f63febba4ff9bd"
     }
   ],
   "merges": [],
