@@ -13112,7 +13112,7 @@
       },
       "definitions": [
         {
-          "source": "src/game/objects/common/platform_carry.s",
+          "source": "src/game/objects/common/platform_object.s",
           "occurrence": 0,
           "code_sha256": "c7a6c40f38d370e4ebbcac38d1e02b151ea1f0bfab2052c9647fbf45f1cd47a9"
         }
@@ -13134,7 +13134,7 @@
       },
       "definitions": [
         {
-          "source": "src/game/objects/common/platform_carry.s",
+          "source": "src/game/objects/common/platform_object.s",
           "occurrence": 0,
           "code_sha256": "68280fed5a91c2fb2d4de6eeb580c554fb84ed14936f2b8cc70f646e53576043"
         }
@@ -20636,12 +20636,12 @@
         "method": "counted_loop",
         "basis": "A backward DBF d5 edge in the same source proves this counted-loop head. The enclosing owner is star children; the name does not claim an unproven data purpose.",
         "register": "d5",
-        "branch_source": "src/game/objects/items/starpost/star_children.s",
+        "branch_source": "src/game/objects/items/starpost/main.s",
         "branch_operation": "dbf"
       },
       "definitions": [
         {
-          "source": "src/game/objects/items/starpost/star_children.s",
+          "source": "src/game/objects/items/starpost/main.s",
           "occurrence": 0,
           "code_sha256": "797c7aa32a200d177ba9962921a1ed5d54f7507052fdc7a8d5eeb94df40095c5"
         }

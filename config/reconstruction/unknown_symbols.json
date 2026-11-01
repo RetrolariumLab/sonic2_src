@@ -8245,10 +8245,10 @@
       "known_role": "Internal control-flow entry in MvSonicOnPtfm; first operation tst.b obj_control(a1).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_19BA2 in src/game/objects/common/platform_carry.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_19BA2 in src/game/objects/common/platform_object.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/objects/common/platform_carry.s",
+          "source": "src/game/objects/common/platform_object.s",
           "occurrence": 0,
           "code_sha256": "d1d33819a88bafab4f3046ab7755dc5f9380c28f382eeb98c9e24e85b8324346"
         }
@@ -8281,10 +8281,10 @@
       "known_role": "Internal control-flow entry in MvSonicOnSlope; first operation move.b (a2,d0.w),d1.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_19BEC in src/game/objects/common/platform_carry.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_19BEC in src/game/objects/common/platform_object.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/objects/common/platform_carry.s",
+          "source": "src/game/objects/common/platform_object.s",
           "occurrence": 0,
           "code_sha256": "50e16643b61ae7a9fa98480fac80f1c53ced82cae6b39a79a2768a590732ec67"
         }
@@ -8317,10 +8317,10 @@
       "known_role": "Internal control-flow entry in MvSonicOnDoubleSlope; first operation andi.w #$FFFE,d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_19C2C in src/game/objects/common/platform_carry.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_19C2C in src/game/objects/common/platform_object.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/objects/common/platform_carry.s",
+          "source": "src/game/objects/common/platform_object.s",
           "occurrence": 0,
           "code_sha256": "dfa807fa79f5bea2e258c7ae7effcc7739d5e7d0ef4b49e41df03403316e7610"
         }
@@ -8334,13 +8334,15 @@
           "address_space": "m68000-rom",
           "start": 105528,
           "end_exclusive": 105534,
-          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
+          "bound_reason": "The following declared symbol bounds the unchanged physical extent after joining adjacent source modules.",
+          "end_symbol": "PlatformObject"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 105516,
           "end_exclusive": 105522,
-          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
+          "bound_reason": "The following declared symbol bounds the unchanged physical extent after joining adjacent source modules.",
+          "end_symbol": "PlatformObject"
         }
       }
     },
@@ -9016,13 +9018,13 @@
           "address_space": "m68000-rom",
           "start": 106328,
           "end_exclusive": 106332,
-          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
+          "bound_reason": "The joined source module retains this original physical end; no emitted bytes or declaration order changed."
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 106316,
           "end_exclusive": 106320,
-          "bound_reason": "Active include end or explicit reserved-field size from the source declaration."
+          "bound_reason": "The joined source module retains this original physical end; no emitted bytes or declaration order changed."
         }
       }
     },
@@ -12343,10 +12345,10 @@
       "known_role": "Internal control-flow entry in Obj79_Star; first operation addi.w #$A,objoff_34(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_1F554 in src/game/objects/items/starpost/star_children.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_1F554 in src/game/objects/items/starpost/main.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/objects/items/starpost/star_children.s",
+          "source": "src/game/objects/items/starpost/main.s",
           "occurrence": 0,
           "code_sha256": "7beb01e9608eaff407c406b88549eed9ba8c12f02a788ce358eaa13dad50dc98"
         }
@@ -12379,10 +12381,10 @@
       "known_role": "Internal control-flow entry in ItemsStarpostStarChildren_CountedLoopD5; first operation muls.w d1,d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_1F5B4 in src/game/objects/items/starpost/star_children.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_1F5B4 in src/game/objects/items/starpost/main.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/objects/items/starpost/star_children.s",
+          "source": "src/game/objects/items/starpost/main.s",
           "occurrence": 0,
           "code_sha256": "cf09a4a617e5ad29e992f16c47f3da4696efd59a77ffe3d63b224336b2568b47"
         }
@@ -12415,10 +12417,10 @@
       "known_role": "Internal control-flow entry in ItemsStarpostStarChildren_CountedLoopD5; first operation move.b #$D8,collision_flags(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_1F5BE in src/game/objects/items/starpost/star_children.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_1F5BE in src/game/objects/items/starpost/main.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/objects/items/starpost/star_children.s",
+          "source": "src/game/objects/items/starpost/main.s",
           "occurrence": 0,
           "code_sha256": "18057602498913d9154a1c6a1ec7c1221fa3f7a7b6c39b754ad3c2a7ec1e513f"
         }
@@ -12451,10 +12453,10 @@
       "known_role": "Internal control-flow entry in ItemsStarpostStarChildren_CountedLoopD5; first operation cmpi.w #$180,d1.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_1F5C4 in src/game/objects/items/starpost/star_children.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_1F5C4 in src/game/objects/items/starpost/main.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/objects/items/starpost/star_children.s",
+          "source": "src/game/objects/items/starpost/main.s",
           "occurrence": 0,
           "code_sha256": "0182251292eeb0490d48f99f90a2431bddb20ad675062b512bf125972f72b858"
         }
@@ -12487,10 +12489,10 @@
       "known_role": "Internal control-flow entry in ItemsStarpostStarChildren_CountedLoopD5; first operation move.w objoff_30(a0),d2.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_1F5D6 in src/game/objects/items/starpost/star_children.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_1F5D6 in src/game/objects/items/starpost/main.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/objects/items/starpost/star_children.s",
+          "source": "src/game/objects/items/starpost/main.s",
           "occurrence": 0,
           "code_sha256": "960da96a72df4cbf3f3b7f40655ca7dc14ccff5af8d29e0c504317b0c5e2e03c"
         }
@@ -55381,10 +55383,10 @@
       "known_role": "Internal control-flow entry in DeformBgLayerAfterScrollVert; first operation bsr.w RunDynamicLevelEvents.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
-      "next_check": "Trace incoming edges and the enclosing routine around loc_C4D0 in src/game/level/scrolling/software_scrolling_manager.s, including register and object-field state on every entry.",
+      "next_check": "Trace incoming edges and the enclosing routine around loc_C4D0 in src/game/level/scrolling/manager.s, including register and object-field state on every entry.",
       "definitions": [
         {
-          "source": "src/game/level/scrolling/software_scrolling_manager.s",
+          "source": "src/game/level/scrolling/manager.s",
           "occurrence": 0,
           "code_sha256": "d6ae1420ce54634fc6afe1ead123fe746921add5e5ac0a956254826b2724e96e"
         }

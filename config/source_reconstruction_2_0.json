@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 6
+    "commit_count": 7
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -96,6 +96,13 @@
       "id": "stage_c15",
       "kind": "tooling",
       "summary": "Bind reviewed source and content contracts; retain the original accepted profiles and their complete evidence.",
+      "commits": ["8d93e9ce567a13c1bd95533b002c43513ea7feb6"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "stage_c16",
+      "kind": "source",
+      "summary": "Consolidate adjacent modules and shorten the scrolling manager; retain the original accepted profiles and their complete evidence.",
       "commits": ["release-commit"],
       "evidence": ["config/reconstruction/source_layout.json"]
     }

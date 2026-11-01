@@ -1670,7 +1670,7 @@
     },
     {
       "label": "DeformBgLayer",
-      "path": "src/game/level/scrolling/software_scrolling_manager.s",
+      "path": "src/game/level/scrolling/manager.s",
       "original_first_line": 14448,
       "original_last_line": 14571,
       "physical_lines": 124,
@@ -6842,53 +6842,26 @@
       "label": "Obj79",
       "path": "src/game/objects/items/starpost/main.s",
       "original_first_line": 42509,
-      "original_last_line": 42767,
-      "physical_lines": 259,
-      "source_sha256": "c845d8c7b5d780e33bdcb6a84c67c755da2a96aa2cc81b8c93dd1e8738b84bda",
+      "original_last_line": 42896,
+      "physical_lines": 388,
+      "source_sha256": "3854425b3d531e6edecf397a0704627269fe8210a5a43df8375af6fdc70eaec6",
       "owner": "game/objects/items/starpost",
-      "responsibility": "starpost",
-      "file_sha256": "67a0c21c28fb05b6fa68b503e4a39c7daa0f910d7c06a27ea2b2f27f89907b71",
+      "responsibility": "Starpost checkpoint and its special-stage star child states",
+      "file_sha256": "bb37075c647545d9a2c0193504b0b5ff71d03cf431775c92fb97671180be125e",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
           "address_space": "m68000-rom",
           "start": 127140,
-          "end_exclusive": 128180,
+          "end_exclusive": 128532,
           "start_symbol": "Obj79"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 127156,
-          "end_exclusive": 128196,
-          "start_symbol": "Obj79"
-        }
-      }
-    },
-    {
-      "label": "Obj79_MakeSpecialStars",
-      "path": "src/game/objects/items/starpost/star_children.s",
-      "original_first_line": 42768,
-      "original_last_line": 42896,
-      "physical_lines": 129,
-      "source_sha256": "ef2e16807c69dffb2e4177e4f61b73d0dfa794c3b02ce4a84ac91235c5e3c674",
-      "owner": "game/objects/items/starpost",
-      "responsibility": "star children",
-      "file_sha256": "ef2e16807c69dffb2e4177e4f61b73d0dfa794c3b02ce4a84ac91235c5e3c674",
-      "original_path": "s2.asm",
-      "kind": "source_module",
-      "profile_ranges": {
-        "rev00": {
-          "address_space": "m68000-rom",
-          "start": 128180,
-          "end_exclusive": 128532,
-          "start_symbol": "Obj79_MakeSpecialStars"
-        },
-        "rev01": {
-          "address_space": "m68000-rom",
-          "start": 128196,
           "end_exclusive": 128548,
-          "start_symbol": "Obj79_MakeSpecialStars"
+          "start_symbol": "Obj79"
         }
       }
     },
@@ -10109,27 +10082,27 @@
     },
     {
       "label": "MvSonicOnPtfm",
-      "path": "src/game/objects/common/platform_carry.s",
+      "path": "src/game/objects/common/platform_object.s",
       "original_first_line": 34079,
-      "original_last_line": 34165,
-      "physical_lines": 87,
-      "source_sha256": "314994e1db10e56e5f3ac33c73ff83e7c1aa52dea5faaaf20bee61d411b73d1d",
+      "original_last_line": 34529,
+      "physical_lines": 451,
+      "source_sha256": "3c10221b66ea4f6623d67273a7af13eb386d9cc8711149ad12a7e88eccd0152b",
       "owner": "game/objects/common",
-      "responsibility": "mvsoniconptfm",
-      "file_sha256": "d09b0e8a5774cf685edce39b52a83392e4d3ed4e479deb108091209468ffd2a4",
+      "responsibility": "Player carry and flat or sloped platform contact handling",
+      "file_sha256": "1338265afa96fa9830406c4ba2c6fc30b0cad3d668034a17ffa16a49df38c8bd",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
           "address_space": "m68000-rom",
           "start": 105374,
-          "end_exclusive": 105534,
+          "end_exclusive": 106332,
           "start_symbol": "MvSonicOnPtfm"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 105362,
-          "end_exclusive": 105522,
+          "end_exclusive": 106320,
           "start_symbol": "MvSonicOnPtfm"
         }
       }
@@ -10216,55 +10189,28 @@
       }
     },
     {
-      "label": "PlatformObject",
-      "path": "src/game/objects/common/platform_object.s",
-      "original_first_line": 34166,
-      "original_last_line": 34529,
-      "physical_lines": 364,
-      "source_sha256": "4efbe79bb0973baeed87bd1f62222e5ab330518bb12aafb0081a3c4d5de33982",
-      "owner": "game/objects/common",
-      "responsibility": "platformobject",
-      "file_sha256": "6ccbac625666b10d645114164c19a378b5d645282c29151d24d7ebf0762a833f",
-      "original_path": "s2.asm",
-      "kind": "source_module",
-      "profile_ranges": {
-        "rev00": {
-          "address_space": "m68000-rom",
-          "start": 105534,
-          "end_exclusive": 106332,
-          "start_symbol": "PlatformObject"
-        },
-        "rev01": {
-          "address_space": "m68000-rom",
-          "start": 105522,
-          "end_exclusive": 106320,
-          "start_symbol": "PlatformObject"
-        }
-      }
-    },
-    {
       "label": "RunObjects",
-      "path": "src/game/objects/common/run_objects.s",
+      "path": "src/game/objects/dispatch.s",
       "original_first_line": 28532,
-      "original_last_line": 28612,
-      "physical_lines": 81,
-      "source_sha256": "479807372ac34103dd41bb80e640fc2ecba1a79b7795d35a531f529090d5142a",
-      "owner": "game/objects/common",
-      "responsibility": "runobjects",
-      "file_sha256": "479807372ac34103dd41bb80e640fc2ecba1a79b7795d35a531f529090d5142a",
+      "original_last_line": 28868,
+      "physical_lines": 337,
+      "source_sha256": "10f050f51bbe0fa15ceb96129540105009abe9f86f3671dfac4338309df31651",
+      "owner": "game/objects",
+      "responsibility": "Object execution, player-death dispatch and the object-ID pointer table",
+      "file_sha256": "10f050f51bbe0fa15ceb96129540105009abe9f86f3671dfac4338309df31651",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
           "address_space": "m68000-rom",
           "start": 90012,
-          "end_exclusive": 90124,
+          "end_exclusive": 91008,
           "start_symbol": "RunObjects"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 90012,
-          "end_exclusive": 90124,
+          "end_exclusive": 91008,
           "start_symbol": "RunObjects"
         }
       }
@@ -10729,33 +10675,6 @@
           "start": 75238,
           "end_exclusive": 75376,
           "start_symbol": "ObjDC"
-        }
-      }
-    },
-    {
-      "label": "Obj_Index",
-      "path": "src/game/objects/object_pointers.s",
-      "original_first_line": 28613,
-      "original_last_line": 28868,
-      "physical_lines": 256,
-      "source_sha256": "9e712f60c807fa5b21f09e8d0f8ce9e0129d41d454998ad9fde5884f1889d2b7",
-      "owner": "game/objects",
-      "responsibility": "object pointers",
-      "file_sha256": "9e712f60c807fa5b21f09e8d0f8ce9e0129d41d454998ad9fde5884f1889d2b7",
-      "original_path": "s2.asm",
-      "kind": "source_module",
-      "profile_ranges": {
-        "rev00": {
-          "address_space": "m68000-rom",
-          "start": 90124,
-          "end_exclusive": 91008,
-          "start_symbol": "Obj_Index"
-        },
-        "rev01": {
-          "address_space": "m68000-rom",
-          "start": 90124,
-          "end_exclusive": 91008,
-          "start_symbol": "Obj_Index"
         }
       }
     },
@@ -11617,11 +11536,11 @@
       "original_path": "s2.asm",
       "original_first_line": 1,
       "original_last_line": 44,
-      "physical_lines": 420,
+      "physical_lines": 417,
       "owner": "entry",
       "responsibility": "Canonical module include order",
       "kind": "include_order",
-      "file_sha256": "5fa3a28034fb3067b7a3a6e462f986fe24e0fa20baa0e7fa6c3da664b303edca",
+      "file_sha256": "c3aefefce78259e37be40ca8a258fa2762f330e793c1ec71da5a13d6811b8182",
       "source_sha256": "55de735b4e0066bffd39851345fc5f3471b48312c5a10fbd397ec48c219a1da6"
     },
     {
@@ -13478,7 +13397,7 @@
     "src/game/level/scrolling/mtz.s": [],
     "src/game/level/scrolling/ooz.s": [],
     "src/game/level/scrolling/scz.s": [],
-    "src/game/level/scrolling/software_scrolling_manager.s": [],
+    "src/game/level/scrolling/manager.s": [],
     "src/game/level/scrolling/title.s": [],
     "src/game/level/scrolling/wfz.s": [],
     "src/game/level/scrolling/wz.s": [],
@@ -13900,7 +13819,6 @@
       "src/game/objects/items/starpost/data/mappings_a.s",
       "src/game/objects/items/starpost/data/mappings_b.s"
     ],
-    "src/game/objects/items/starpost/star_children.s": [],
     "src/game/objects/environment/common/sliding_platform/data/mappings.s": [],
     "src/game/objects/environment/common/sliding_platform/main.s": [
       "src/game/objects/environment/common/sliding_platform/data/mappings.s"
@@ -14115,12 +14033,11 @@
     "src/game/objects/common/boss_common.s": [],
     "src/game/objects/common/delete_object.s": [],
     "src/game/objects/common/load_subobject.s": [],
-    "src/game/objects/common/platform_carry.s": [],
+    "src/game/objects/common/platform_object.s": [],
     "src/game/objects/common/object_common.s": [],
     "src/game/objects/common/object_move.s": [],
     "src/game/objects/common/oscillating_number.s": [],
-    "src/game/objects/common/platform_object.s": [],
-    "src/game/objects/common/run_objects.s": [],
+    "src/game/objects/dispatch.s": [],
     "src/game/objects/common/slot_machine.s": [],
     "src/game/objects/common/solid_object.s": [],
     "src/game/objects/environment/cnz/snake_block/data/mappings.s": [],
@@ -14152,7 +14069,6 @@
     "src/ui/objects/continue/text/main.s": [],
     "src/ui/objects/continue/player/main.s": ["src/ui/objects/continue/text/data/mappings.s"],
     "src/game/objects/environment/cnz/ring_prize/main.s": [],
-    "src/game/objects/object_pointers.s": [],
     "src/game/objects/objects_manager.s": [],
     "src/game/player/collision/clearance.s": [],
     "src/game/player/collision/floor_checks.s": [],
@@ -14262,7 +14178,7 @@
       "src/game/level/load_size.s",
       "src/game/level/zone/start_locations.s",
       "src/game/level/camera_init.s",
-      "src/game/level/scrolling/software_scrolling_manager.s",
+      "src/game/level/scrolling/manager.s",
       "src/game/level/scrolling/title.s",
       "src/game/level/scrolling/ehz.s",
       "src/game/level/scrolling/wz.s",
@@ -14326,8 +14242,7 @@
       "src/game/objects/environment/common/spikes/main.s",
       "src/game/objects/environment/common/purple_rock/main.s",
       "src/game/objects/environment/common/smashable_wall/main.s",
-      "src/game/objects/common/run_objects.s",
-      "src/game/objects/object_pointers.s",
+      "src/game/objects/dispatch.s",
       "src/game/objects/common/object_move.s",
       "src/game/objects/common/delete_object.s",
       "src/rendering/sprites/enqueue.s",
@@ -14343,7 +14258,6 @@
       "src/game/objects/environment/common/springs/main.s",
       "src/game/objects/items/signpost/main.s",
       "src/game/objects/common/solid_object.s",
-      "src/game/objects/common/platform_carry.s",
       "src/game/objects/common/platform_object.s",
       "src/game/player/sonic/control.s",
       "src/game/player/sonic/ground_movement.s",
@@ -14376,7 +14290,6 @@
       "src/game/player/collision/clearance.s",
       "src/game/player/collision/floor_checks.s",
       "src/game/objects/items/starpost/main.s",
-      "src/game/objects/items/starpost/star_children.s",
       "src/game/objects/items/hidden_bonuses/main.s",
       "src/game/objects/environment/cnz/round_bumper/main.s",
       "src/game/objects/environment/arz/bubbles/main.s",

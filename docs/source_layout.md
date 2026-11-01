@@ -89,3 +89,20 @@ MCZ and OOZ; the CNZ-named conveyor also serves MTZ and WFZ. Both belong to
 `environment/common`. Round and hexagonal CNZ bumpers have distinct owners.
 Moving these files changes no include position, source-range origin, symbolic
 label or ROM byte.
+
+## Cohesive object modules
+
+The source tree has 612 modules after joining three adjacent pairs. The
+concatenated source text retains its original order, with every public label and
+both revision layouts preserved.
+
+| Module                                                            | Responsibility                                                  | Physical lines |
+| ----------------------------------------------------------------- | --------------------------------------------------------------- | -------------: |
+| [Object dispatch](../src/game/objects/dispatch.s)                 | RunObjects, player-death dispatch and the owned Obj_Index table |            337 |
+| [Platform contacts](../src/game/objects/common/platform_object.s) | Flat/sloped platform contacts and their player-carry helpers    |            451 |
+| [Starpost](../src/game/objects/items/starpost/main.s)             | Checkpoint states and their special-stage star children         |            388 |
+
+The original coordinates remain one continuous range for each joined module.
+Sprite mappings stay in their existing adjacent data ledgers. The symbol proof
+registry and explicit unknown ledger follow the new physical owners; no label is
+renamed by this consolidation.

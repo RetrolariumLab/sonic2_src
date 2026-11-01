@@ -49,6 +49,10 @@
       "resolution": "Separate byte identity from semantic proof, bind confirmed names and unknowns, cover omitted source-record grammars and document ready values, safe clean and post-tag inspection."
     },
     {
+      "id": "DOC-012",
+      "resolution": "Join three adjacent pairs into object dispatch, platform contacts and starpost states; update physical owners while preserving all labels, bodies and revision ranges."
+    },
+    {
       "id": "DOC-019",
       "resolution": "Move exact AS build-313 dependencies and GPL text to a verified ignored cache, retain the full Saxman permission notice in its implementation, and bind linear history references to the new preservation boundary."
     }
@@ -129,8 +133,8 @@
     {
       "path": "docs/source_layout.md",
       "action": "updated",
-      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
-      "sha256": "c8ab699b97a700723dd6794cbc163ea36746382f84ae7d1d94a8a001465c3e36"
+      "reason": "Document three cohesive adjacent object-module joins, their responsibilities and preserved source order and labels.",
+      "sha256": "63421a5cc57a880d88fe9314457784aa0611d380f0aee7219ecb749c64ca8902"
     },
     {
       "path": "docs/source_reconstruction_2_0.md",
@@ -153,8 +157,8 @@
     {
       "path": "docs/unknowns.md",
       "action": "updated",
-      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
-      "sha256": "d5548bbddb6e4bb85697358fde221d6bc9e5eee137f5c8e9635946914d8f0580"
+      "reason": "Update the physical module inventory to 612; retain the explicit unknown-symbol scope and unchanged semantic evidence.",
+      "sha256": "e7f0b9bdaf7835f9f81be15584af578b06b034a60260e33bdfd28179a947f590"
     },
     {
       "path": "docs/validation.md",
