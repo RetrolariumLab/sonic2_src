@@ -396,7 +396,6 @@ death_egg_zone zoneID		$0E
 aquatic_ruin_zone zoneID	$0F
 sky_chase_zone zoneID		$10
 
-; NOTE: If you want to shift IDs around, set useFullWaterTables to 1 in the assembly options
 
 ; set the number of zones
 no_of_zones = cur_zone_id
@@ -1372,12 +1371,7 @@ Underwater_palette_line2:	ds.b palette_line_size
 Underwater_palette_line3:	ds.b palette_line_size
 Underwater_palette_line4:	ds.b palette_line_size
 
-    if fixBugs
-Sprite_Table_Alternate:		ds.b	$280
-Sprite_Table_P2_Alternate:	ds.b	$280
-    else
 				ds.b	$500	; $FFFFF100-$FFFFF5FF ; unused, leftover from the Sonic 1 sound driver (and used by it when you port it to Sonic 2)
-    endif
 
 Game_Mode:			ds.b	1	; see GameModesArray (master level trigger, Mstr_Lvl_Trigger)
 				ds.b	1	; unused
@@ -1630,13 +1624,7 @@ Misc_Variables_End:
 
 Sprite_Table:			ds.b	$280	; Sprite attribute table buffer
 Sprite_Table_End:
-    if fixBugs
-Current_sprite_table_page:	ds.b	1
-Sprite_table_page_flip_pending:	ds.b	1
-				ds.b	$7E	; unused
-    else
 				ds.b	$80	; unused, but SAT buffer can spill over into this area when there are too many sprites on-screen
-    endif
 
 Normal_palette:			ds.b	palette_line_size	; main palette for non-underwater parts of the screen
 Normal_palette_line2:		ds.b	palette_line_size

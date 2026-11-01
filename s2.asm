@@ -15,42 +15,9 @@
 ; See s2.notes.txt for more comments about this disassembly and other useful info.
 
 ; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-; ASSEMBLY OPTIONS:
+; Accepted retail revision is supplied by config/revision_profiles.json.
+; Community modifications and theoretical revisions are outside this source.
 ;
-; gameRevision is supplied by the manifest-driven build entry.
-;	| If 0, a REV00 ROM is built
-;	| If 1, a REV01 ROM is built, which contains some fixes
-;	| If 2, a (theoretical) REV02 ROM is built, which contains even more fixes
-padToPowerOfTwo = 1
-;	| If 1, pads the end of the ROM to the next power of two bytes (for real hardware)
-;
-fixBugs = 0
-;	| If 1, enables all bug-fixes
-;	| See also the 'FixDriverBugs' flag in 's2.sounddriver.asm'
-;	| See also the 'FixMusicAndSFXDataBugs' flag in 'build.lua'
-allOptimizations = 0
-;	| If 1, enables all optimizations
-;
-skipChecksumCheck = 0
-;	| If 1, disables the slow bootup checksum calculation
-;
-zeroOffsetOptimization = 0|allOptimizations
-;	| If 1, makes a handful of zero-offset instructions smaller
-;
-removeJmpTos = 0|(gameRevision>=2)|allOptimizations
-;	| If 1, many unnecessary JmpTos are removed, improving performance
-;
-addsubOptimize = 0|(gameRevision=2)|allOptimizations
-;	| If 1, some add/sub instructions are optimized to addq/subq
-;
-relativeLea = 0|(gameRevision<2)|allOptimizations
-;	| If 1, makes some instructions use pc-relative addressing, instead of absolute long
-;
-useFullWaterTables = 0
-;	| If 1, zone offset tables for water levels cover all level slots instead of only slots 8-$F
-;	| Set to 1 if you've shifted level IDs around or you want water in levels with a level slot below 8
-
-; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; AS-specific macros and assembler settings
 	CPU 68000
 	include "s2.macrosetup.asm"
@@ -65,7 +32,6 @@ useFullWaterTables = 0
 
 ; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; Expressing SMPS bytecode in a portable and human-readable form
-FixMusicAndSFXDataBugs = fixBugs
 
 ; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; Expressing sprite mappings and DPLCs in a portable and human-readable form
@@ -159,8 +125,6 @@ Header:
 	dc.b "GM 00001051-00"   ; Version (REV00)
     elseif gameRevision=1
 	dc.b "GM 00001051-01"   ; Version (REV01)
-    elseif gameRevision=2
-	dc.b "GM 00001051-02"   ; Version (REV02)
     endif
 ; word_18E
 Checksum:
@@ -376,7 +340,6 @@ CheckSumCheck:
 
 ; loc_328:
 ChecksumTest:
-    if skipChecksumCheck=0	; checksum code
 	movea.l	#EndOfHeader,a0	; start checking bytes after the header ($200)
 	movea.l	#ROMEndLoc,a1	; stop at end of ROM
 	move.l	(a1),d0
@@ -389,7 +352,6 @@ ChecksumLoop:
 	movea.l	#Checksum,a1	; read the checksum
 	cmp.w	(a1),d1		; compare correct checksum to the one in ROM
 	bne.w	ChecksumError	; if they don't match, branch
-    endif
 ;checksum_good:
 	; Clear some RAM only on a coldboot.
 	lea	(CrossResetRAM).w,a6
@@ -439,7 +401,6 @@ GameMode_EndingSequence:bra.w	JmpTo_EndingSequence	; End sequence mode
 GameMode_OptionsMenu:	bra.w	OptionsMenu		; Options mode
 GameMode_LevelSelect:	bra.w	LevelSelectMenu		; Level select mode
 ; ===========================================================================
-    if skipChecksumCheck=0	; checksum error code
 ; loc_3CE:
 ChecksumError:
 	move.l	d1,-(sp)
@@ -454,7 +415,6 @@ Checksum_Red:
 ; loc_3EE:
 ChecksumFailed_Loop:
 	bra.s	ChecksumFailed_Loop
-    endif
 ; ===========================================================================
 ; loc_3F0:
 LevelSelectMenu2P: ;;
@@ -583,13 +543,11 @@ Vint_Lag:
 
 Vint0_noWater:
 	move.w	(VDP_control_port).l,d0
-    if ~~fixBugs
 	; As with the sprite table upload, this only needs to be done in two-player mode.
 
 	; Update V-Scroll.
 	move.l	#vdpComm($0000,VSRAM,WRITE),(VDP_control_port).l
 	move.l	(Vscroll_Factor).w,(VDP_data_port).l
-    endif
 
 	btst	#6,(Graphics_Flags).w	; is Megadrive PAL?
 	beq.s	+			; if not, branch
@@ -601,39 +559,12 @@ Vint0_noWater:
 	move.w	#1,(Hint_flag).w
 	move.w	(Hint_counter_reserve).w,(VDP_control_port).l
 	move.w	#$8200|(VRAM_Plane_A_Name_Table/$400),(VDP_control_port).l	; Set scroll A PNT base to $C000
-    if ~~fixBugs
 	; Does not need to be done on lag frames.
 	move.l	(Vscroll_Factor_P2).w,(Vscroll_Factor_P2_HInt).w
-    endif
 
 	stopZ80
-    if fixBugs
-	; In two-player mode, we have to update the sprite table
-	; even during a lag frame so that the top half of the screen
-	; shows the correct sprites.
-	tst.w	(Two_player_mode).w
-	beq.s	++
-
-	; Update V-Scroll.
-	move.l	#vdpComm($0000,VSRAM,WRITE),(VDP_control_port).l
-	move.l	(Vscroll_Factor).w,(VDP_data_port).l
-
-	; Like in Sonic 3, the sprite tables are page-flipped in two-player mode.
-	; This fixes a race-condition where incomplete sprite tables can be uploaded
-	; to the VDP on lag frames, causing corrupted sprites to appear.
-
-	; Upload the front buffer.
-	tst.b	(Current_sprite_table_page).w
-	beq.s	+
-	dma68kToVDP Sprite_Table,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
-	bra.s	++
-+
-	dma68kToVDP Sprite_Table_Alternate,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
-+
-    else
 	; In the original game, the sprite table is needlessly updated on lag frames.
 	dma68kToVDP Sprite_Table,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
-    endif
 	bsr.w	sndDriverInput
 	startZ80
 
@@ -721,13 +652,9 @@ Vint_Level:
 	move.l	#vdpComm($0042,CRAM,WRITE),(VDP_control_port).l
 
 	; Do the remaining two palette lines.
-    if fixBugs
-	move.w	#31-1,d1
-    else
 	; This does one more colour than necessary: it isn't accounting for
 	; the colour that was skipped earlier!
 	move.w	#32-1,d1
-    endif
 -	move.w	d0,(a6)
 	dbf	d1,-
 
@@ -753,26 +680,6 @@ Vint_Level:
 
 	dma68kToVDP Horiz_Scroll_Buf,VRAM_Horiz_Scroll_Table,VRAM_Horiz_Scroll_Table_Size,VRAM
 
-    if fixBugs
-	tst.w	(Two_player_mode).w
-	beq.s	++
-	; Like in Sonic 3, the sprite tables are page-flipped in two-player mode.
-	; This fixes a race-condition where incomplete sprite tables can be uploaded
-	; to the VDP on lag frames, causing corrupted sprites to appear.
-
-	; Perform page-flipping.
-	tst.b	(Sprite_table_page_flip_pending).w
-	beq.s	+
-	sf.b	(Sprite_table_page_flip_pending).w
-	not.b	(Current_sprite_table_page).w
-+
-	; Upload the front buffer.
-	tst.b	(Current_sprite_table_page).w
-	bne.s	+
-	dma68kToVDP Sprite_Table_Alternate,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
-	bra.s	++
-+
-    endif
 	dma68kToVDP Sprite_Table,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
 +
 
@@ -1019,26 +926,6 @@ loc_BD6:
 
 	dma68kToVDP Horiz_Scroll_Buf,VRAM_Horiz_Scroll_Table,VRAM_Horiz_Scroll_Table_Size,VRAM
 
-    if fixBugs
-	tst.w	(Two_player_mode).w
-	beq.s	++
-	; Like in Sonic 3, the sprite tables are page-flipped in two-player mode.
-	; This fixes a race-condition where incomplete sprite tables can be uploaded
-	; to the VDP on lag frames, causing corrupted sprites to appear.
-
-	; Perform page-flipping.
-	tst.b	(Sprite_table_page_flip_pending).w
-	beq.s	+
-	sf.b	(Sprite_table_page_flip_pending).w
-	not.b	(Current_sprite_table_page).w
-+
-	; Upload the front buffer.
-	tst.b	(Current_sprite_table_page).w
-	bne.s	+
-	dma68kToVDP Sprite_Table_Alternate,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
-	bra.s	++
-+
-    endif
 	dma68kToVDP Sprite_Table,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
 +
 	bsr.w	ProcessDMAQueue
@@ -1116,11 +1003,7 @@ off_D3C:	offsetTable
 	move.l	#vdpComm(VRAM_EndSeq_Plane_A_Name_Table + planeLoc(64,22,33),VRAM,WRITE),d0	;$50AC0003
 	moveq	#23-1,d1
 	moveq	#15-1,d2
-    if removeJmpTos
-	jsr	(PlaneMapToVRAM_H40).l
-    else
 	bsr.w	PlaneMapToVRAM_H40
-    endif
 	rts
 ; ===========================================================================
 ;VintSub16
@@ -1201,22 +1084,7 @@ H_Int:
 	move.l	(Vscroll_Factor_P2_HInt).w,(VDP_data_port).l
 
 	stopZ80
-    if fixBugs
-	; Like in Sonic 3, the sprite tables are page-flipped in two-player mode.
-	; This fixes a race-condition where incomplete sprite tables can be uploaded
-	; to the VDP on lag frames.
-
-	; Upload the front buffer.
-	tst.b	(Current_sprite_table_page).w
-	beq.s	+
 	dma68kToVDP Sprite_Table_P2,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
-	bra.s	++
-+
-	dma68kToVDP Sprite_Table_P2_Alternate,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
-+
-    else
-	dma68kToVDP Sprite_Table_P2,VRAM_Sprite_Attribute_Table,VRAM_Sprite_Attribute_Table_Size,VRAM
-    endif
 	startZ80
 
 -	move.w	(VDP_control_port).l,d0 ; loop start: Wait until we're in the H-blank region
@@ -1303,14 +1171,10 @@ sndDriverInput:
 ; loc_10C4:
 .doSFX:
 	; Process the SFX queue.
-    if fixBugs
-	moveq	#3-1,d1
-    else
 	; This is too high: there is only room for three bytes in the
 	; driver's queue. This causes the first byte of 'VoiceTblPtr' to be
 	; overwritten.
 	moveq	#4-1,d1
-    endif
 
 .loop:
 	; If there's no sound queued, skip this slot.
@@ -1468,14 +1332,9 @@ ClearScreen:
 	clr.l	(Vscroll_Factor).w
 	clr.l	(unk_F61A).w
 
-    if fixBugs
-	clearRAM Sprite_Table,Sprite_Table_End
-	clearRAM Horiz_Scroll_Buf,Horiz_Scroll_Buf+HorizontalScrollBuffer.len
-    else
 	; These '+4's shouldn't be here; clearRAM accidentally clears an additional 4 bytes
 	clearRAM Sprite_Table,Sprite_Table_End+4
 	clearRAM Horiz_Scroll_Buf,Horiz_Scroll_Buf+HorizontalScrollBuffer.len+4
-    endif
 
 	startZ80
 	rts
@@ -1570,16 +1429,6 @@ PauseGame:
 	nop
 	tst.b	(Life_count).w	; do you have any lives left?
 	beq.w	Unpause		; if not, branch
-    if fixBugs
-	; The game still lets you pause if player 2 got a Game Over, or if
-	; either player got a Time Over. The following code fixes this.
-	tst.b	(Life_count_2P).w
-	beq.w	Unpause
-	tst.b	(Time_Over_flag).w
-	bne.w	Unpause
-	tst.b   (Time_Over_flag_2P).w
-	bne.w   Unpause
-    endif
 	tst.w	(Game_paused).w	; is game already paused?
 	bne.s	+		; if yes, branch
 	move.b	(Ctrl_1_Press).w,d0 ; is Start button pressed?
@@ -2159,7 +2008,6 @@ RunPLC_RAM:
 	adda.w	#NemDec_WriteAndStay_XOR-NemDec_WriteAndStay,a3
 +
 	andi.w	#$7FFF,d2
-    if ~~fixBugs
 	; This is done too early: this variable is used to determine when
 	; there are PLCs to process, which means that as soon as this
 	; variable is set, PLC processing will occur during V-Int. If an
@@ -2168,7 +2016,6 @@ RunPLC_RAM:
 	; initialised yet, causing a crash. S3K fixes this bug by moving this
 	; instruction to the end of the function.
 	move.w	d2,(Plc_PatternsLeft).w
-    endif
 
 	bsr.w	NemDecPrepare
 	move.b	(a0)+,d5
@@ -2183,10 +2030,6 @@ RunPLC_RAM:
 	move.l	d0,(Plc_PreviousRow).w
 	move.l	d5,(Plc_DataWord).w
 	move.l	d6,(Plc_ShiftValue).w
-    if fixBugs
-	; See above.
-	move.w	d2,(Plc_PatternsLeft).w
-    endif
 
 .return:
 	rts
@@ -2267,20 +2110,6 @@ ProcessDPLC_Pop:
 -	move.l	6(a0),(a0)+
 	dbf	d0,-
 
-    if fixBugs
-	; The above code does not properly 'pop' the 16th PLC entry.
-	; Because of this, occupying the 16th slot will cause it to
-	; be repeatedly decompressed infinitely.
-	; Granted, this could be conisdered more of an optimisation
-	; than a bug: treating the 16th entry as a dummy that
-	; should never be occupied makes this code unnecessary.
-	; Still, the overhead of this code is minimal.
-    if (Plc_Buffer_Only_End-Plc_Buffer-6)&2
-	move.w	6(a0),(a0)
-    endif
-
-	clr.l	(Plc_Buffer_Only_End-6).w
-    endif
 
 	rts
 
@@ -3139,22 +2968,9 @@ PalCycle_SuperSonic:
 	lea	(Normal_palette+4).w,a1
 	move.l	(a0,d0.w),(a1)+
 	move.l	4(a0,d0.w),(a1)
-    if fixBugs
-	; underwater palettes
-	lea	(CyclingPal_CPZUWTransformation).l,a0
-	cmpi.b	#chemical_plant_zone,(Current_Zone).w
-	beq.s	+
-	cmpi.b	#aquatic_ruin_zone,(Current_Zone).w
-	bne.s	.return
-	lea	(CyclingPal_ARZUWTransformation).l,a0
-+	lea	(Underwater_palette+4).w,a1
-	move.l	(a0,d0.w),(a1)+
-	move.l	4(a0,d0.w),(a1)
-    else
 	; Note: The fade in for Sonic's underwater palette is missing.
 	; Because of this, Super Sonic's transformation will be uncorrect
 	; when underwater.
-    endif
 .return:
 	rts
 ; ===========================================================================
@@ -3170,13 +2986,9 @@ PalCycle_SuperSonic:
 	move.w	(Palette_frame).w,d0
 	subq.w	#8,(Palette_frame).w	; previous frame
 	bcc.s	+			; branch, if it isn't the first frame
-    if fixBugs
-	move.w	#0,(Palette_frame).w
-    else
 	; This does not clear the full variable, causing this palette cycle
 	; to behave incorrectly the next time it is activated.
 	move.b	#0,(Palette_frame).w
-    endif
 	move.b	#0,(Super_Sonic_palette).w	; stop palette cycle
 +
 	lea	(Normal_palette+4).w,a1
@@ -3206,12 +3018,8 @@ PalCycle_SuperSonic:
 	move.w	(Palette_frame).w,d0
 	addq.w	#8,(Palette_frame).w	; next frame
 	cmpi.w	#$78,(Palette_frame).w	; is it the last frame?
-    if fixBugs
-	bls.s	+			; if not, branch
-    else
 	; This condition causes the last frame to be skipped.
 	blo.s	+			; if not, branch
-    endif
 	move.w	#$30,(Palette_frame).w	; reset frame counter (Super Sonic's normal palette cycle starts at $30. Everything before that is for the palette fade)
 +
 	lea	(Normal_palette+4).w,a1
@@ -4174,7 +3982,6 @@ Sega_WaitPalette:
 	jsr	(BuildSprites).l
 	tst.b	(SegaScr_PalDone_Flag).w
 	beq.s	Sega_WaitPalette
-    if ~~fixBugs
 	; This is a leftover from Sonic 1: ObjB0 plays the Sega sound now.
 	; Normally, you'll only hear one Sega sound, but the game actually
 	; tries to play it twice. The only reason it doesn't is because the
@@ -4183,7 +3990,6 @@ Sega_WaitPalette:
 	; will indeed play twice in those.
 	move.b	#SndID_SegaSound,d0
 	bsr.w	PlaySound	; play "SEGA" sound
-    endif
 	move.b	#VintID_SEGA,(Vint_routine).w
 	bsr.w	WaitForVint
 	move.w	#3*60,(Demo_Time_left).w	; 3 seconds
@@ -4340,11 +4146,7 @@ TitleScreen:
 	move.l	#vdpComm(VRAM_TtlScr_Plane_B_Name_Table,VRAM,WRITE),d0
 	moveq	#40-1,d1 ; Width
 	moveq	#28-1,d2 ; Height
-    if removeJmpTos
-	jsr	(PlaneMapToVRAM_H40).l
-    else
 	bsr.w	PlaneMapToVRAM_H40
-    endif
 
 	; Decompress the second part of the title screen background plane map...
 	lea	(Chunk_Table).l,a1
@@ -4357,11 +4159,7 @@ TitleScreen:
 	move.l	#vdpComm(VRAM_TtlScr_Plane_B_Name_Table+planeLoc(64,40,0),VRAM,WRITE),d0
 	moveq	#24-1,d1 ; Width
 	moveq	#28-1,d2 ; Height
-    if removeJmpTos
-	jsr	(PlaneMapToVRAM_H40).l
-    else
 	bsr.w	PlaneMapToVRAM_H40
-    endif
 
 	; Decompress the title screen emblem plane map...
 	lea	(Chunk_Table).l,a1
@@ -4381,11 +4179,7 @@ TitleScreen:
 	move.l	#vdpComm(VRAM_TtlScr_Plane_A_Name_Table,VRAM,WRITE),d0
 	moveq	#40-1,d1 ; Width
 	moveq	#28-1,d2 ; Height
-    if removeJmpTos
-	jsr	(PlaneMapToVRAM_H40).l
-    else
 	bsr.w	PlaneMapToVRAM_H40
-    endif
 
 	; Clear the palette.
 	clearRAM Normal_palette,Target_palette_End
@@ -4817,12 +4611,8 @@ Level_ClrRam:
 	clearRAM MiscLevelVariables,MiscLevelVariables_End	; clear level variable RAM (camera position, etc.)
 	clearRAM Misc_Variables,Misc_Variables_End		; clear various miscellanous RAM
 	clearRAM Oscillating_Data,Oscillating_variables_End	; clear various timing and screen RAM (for animated tiles, etc.)
-    if fixBugs
-	clearRAM CNZ_saucer_data,CNZ_saucer_data_End		; clear CNZ saucer RAM
-    else
 	; The '+C0' shouldn't be here; CNZ_saucer_data is only $40 bytes large
 	clearRAM CNZ_saucer_data,CNZ_saucer_data_End+$C0	; clear CNZ saucer RAM (and way more than necessary)
-    endif
 
 	cmpi.w	#chemical_plant_zone_act_2,(Current_ZoneAndAct).w	; is this CPZ2?
 	beq.s	Level_InitWater					; if yes, branch
@@ -4874,9 +4664,7 @@ Level_ChkWater:
 	move.w	#$8014,(a6)					; 8-colour mode, horizontal interrupts enabled
 	moveq	#0,d0						; clear d0
 	move.w	(Current_ZoneAndAct).w,d0			; get current Zone and Act
-    if ~~useFullWaterTables
 	subi.w	#hidden_palace_zone_act_1,d0			; ignore all stages before HPZ1
-    endif
 	ror.b	#1,d0						; rotate bits right by 1
 	lsr.w	#6,d0						; shift bits right by 6 (2 acts per zone, word-sized)
 	andi.w	#$FFFE,d0					; quick-and-dirty alignment?
@@ -5016,11 +4804,6 @@ Level_FromCheckpoint:
 	move.w	d0,(Monitors_Broken).w				; clear monitors broken by player 1
 	move.w	d0,(Monitors_Broken_2P).w			; clear monitors broken by player 2
 	move.w	d0,(Loser_Time_Left).w				; clear 2P time limit
-    if fixBugs
-	; S3K adds this. The game leaves this flag set after a Game Over or a reset,
-	; which can have bizarre effects when playing as Tails.
-	move.b	d0,(Super_Sonic_flag).w				; clear Super Sonic flag
-    endif
 	bsr.w	OscillateNumInit				; initialize oscillation values
 	move.b	#1,(Update_HUD_score).w				; update score counter
 	move.b	#1,(Update_HUD_rings).w				; update rings counter
@@ -5273,17 +5056,6 @@ UpdateWaterSurface:
 	tst.b	(Water_flag).w
 	beq.s	++	; rts
 	move.w	(Camera_X_pos).w,d1
-    if fixBugs
-	; This function can cause the water surface's to be cut off at the
-	; left when the game is paused. This is because this function pushes
-	; the water surface sprite to the right every frame. To fix this,
-	; just avoid pushing the sprite to the right when the game is about
-	; to be paused.
-	move.b	(Ctrl_1_Press).w,d0 ; is Start button pressed?
-	or.b	(Ctrl_2_Press).w,d0 ; (either player)
-	andi.b	#button_start_mask,d0
-	bne.s	+
-    endif
 	btst	#0,(Level_frame_counter+1).w
 	beq.s	+
 	addi.w	#$20,d1
@@ -5351,27 +5123,6 @@ NonWaterEffects:
 ; End of function WaterEffects
 
 ; ===========================================================================
-    if useFullWaterTables
-WaterHeight: zoneOrderedTable 2,2
-	zoneTableEntry.w  $600, $600	; EHZ
-	zoneTableEntry.w  $600, $600	; Zone 1
-	zoneTableEntry.w  $600, $600	; WZ
-	zoneTableEntry.w  $600, $600	; Zone 3
-	zoneTableEntry.w  $600, $600	; MTZ1,2
-	zoneTableEntry.w  $600, $600	; MTZ3
-	zoneTableEntry.w  $600, $600	; WFZ
-	zoneTableEntry.w  $600, $600	; HTZ
-	zoneTableEntry.w  $600, $600	; HPZ
-	zoneTableEntry.w  $600, $600	; Zone 9
-	zoneTableEntry.w  $600, $600	; OOZ
-	zoneTableEntry.w  $600, $600	; MCZ
-	zoneTableEntry.w  $600, $600	; CNZ
-	zoneTableEntry.w  $600, $710	; CPZ
-	zoneTableEntry.w  $600, $600	; DEZ
-	zoneTableEntry.w  $410, $510	; ARZ
-	zoneTableEntry.w  $600, $600	; SCZ
-    zoneTableEnd
-    else
 ; word_4584:
 WaterHeight:
 	dc.w  $600, $600	; HPZ
@@ -5382,7 +5133,6 @@ WaterHeight:
 	dc.w  $600, $710	; CPZ
 	dc.w  $600, $600	; DEZ
 	dc.w  $410, $510	; ARZ
-    endif
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
@@ -5390,9 +5140,7 @@ WaterHeight:
 DynamicWater:
 	moveq	#0,d0
 	move.w	(Current_ZoneAndAct).w,d0
-    if ~~useFullWaterTables
 	subi.w	#hidden_palace_zone_act_1,d0
-    endif
 	ror.b	#1,d0
 	lsr.w	#6,d0
 	andi.w	#$FFFE,d0
@@ -5412,61 +5160,6 @@ DynamicWater:
 ; End of function DynamicWater
 
 ; ===========================================================================
-    if useFullWaterTables
-Dynamic_water_routine_table: zoneOrderedOffsetTable 2,2
-	; EHZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; Zone 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; WZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; Zone 3
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; MTZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; MTZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 3
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 4
-	; WFZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; HTZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; HPZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; Zone 9
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; OOZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; MCZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; CNZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; CPZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterCPZ2 ; Act 2
-	; DEZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; ARZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-	; SCZ
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 1
-	zoneOffsetTableEntry.w DynamicWaterNull ; Act 2
-    zoneTableEnd
-    else
 ; off_45D8:
 Dynamic_water_routine_table: offsetTable
 	; HPZ
@@ -5493,7 +5186,6 @@ Dynamic_water_routine_table: offsetTable
 	; ARZ
 	offsetTableEntry.w DynamicWaterNull ; Act 1
 	offsetTableEntry.w DynamicWaterNull ; Act 2
-    endif
 ; ===========================================================================
 ; return_45F8:
 DynamicWaterNull:
@@ -5785,29 +5477,7 @@ MoveDemo_On_P1:
 	move.b	(a1),d0	; load button press
 	lea	(Ctrl_1_Held).w,a0
 	move.b	d0,d1
-    if fixBugs
-	; In REV00 of Sonic 1, this instruction was 'move.b (a0),d2'. The
-	; purpose of this is to XOR the current frame's input with the
-	; previous frame's input to determine which inputs had been pressed
-	; on the current frame. The usage of '(a0)' for this is a problem
-	; because it doesn't hold the *demo* inputs from the previous frame,
-	; but rather the *player's* inputs from the *current* frame.
-	; This meant that it was possible for the player to influence the
-	; demos by pressing buttons on the joypad. In REV01 of Sonic 1, this
-	; instruction was replaced with a 'moveq #0,d2', effectively
-	; dummying-out the process of differentiating newly-pressed inputs
-	; from old held inputs, causing every input to be treated as
-	; newly-pressed on every frame. While this isn't a problem in this
-	; game, it does become a problem if Sonic or Tails is given a
-	; double-jump ability, as the ability will constantly be activated
-	; when they shouldn't be. While not exactly the intended use for this
-	; variable, 'Ctrl_1_Held_Logical' does happen to hold the inputs from
-	; the previous frame, so we can use this here instead to fix this bug
-	; properly.
-	move.b	Ctrl_1_Held_Logical-Ctrl_1_Held(a0),d2
-    else
 	moveq	#0,d2
-    endif
 	eor.b	d2,d0	; determine which buttons differ between this frame and the last
 	move.b	d1,(a0)+ ; save button press data from demo to Ctrl_1_Held
 	and.b	d1,d0	; only keep the buttons that were pressed on this frame
@@ -5828,29 +5498,7 @@ MoveDemo_On_P2:
 	move.b	(a1),d0
 	lea	(Ctrl_2_Held).w,a0
 	move.b	d0,d1
-    if fixBugs
-	; In REV00 of Sonic 1, this instruction was 'move.b (a0),d2'. The
-	; purpose of this is to XOR the current frame's input with the
-	; previous frame's input to determine which inputs had been pressed
-	; on the current frame. The usage of '(a0)' for this is a problem
-	; because it doesn't hold the *demo* inputs from the previous frame,
-	; but rather the *player's* inputs from the *current* frame.
-	; This meant that it was possible for the player to influence the
-	; demos by pressing buttons on the joypad. In REV01 of Sonic 1, this
-	; instruction was replaced with a 'moveq #0,d2', effectively
-	; dummying-out the process of differentiating newly-pressed inputs
-	; from old held inputs, causing every input to be treated as
-	; newly-pressed on every frame. While this isn't a problem in this
-	; game, it does become a problem if Sonic or Tails is given a
-	; double-jump ability, as the ability will constantly be activated
-	; when they shouldn't be. While not exactly the intended use for this
-	; variable, 'Ctrl_1_Held_Logical' does happen to hold the inputs from
-	; the previous frame, so we can use this here instead to fix this bug
-	; properly.
-	move.b	Ctrl_1_Held_Logical-Ctrl_1_Held(a0),d2
-    else
 	moveq	#0,d2
-    endif
 	eor.b	d2,d0
 	move.b	d1,(a0)+
 	and.b	d1,d0
@@ -6631,27 +6279,13 @@ SpecialStage:
 ; | Now we clear out some regions in main RAM where we want to store some  |
 ; | of our data structures.                                                |
 ; \------------------------------------------------------------------------/
-    if fixBugs
-	clearRAM Sprite_Table,Sprite_Table_End
-	clearRAM SS_Horiz_Scroll_Buf_1,SS_Horiz_Scroll_Buf_1+HorizontalScrollBuffer.len
-	clearRAM SS_Shared_RAM,SS_Shared_RAM_End
-    else
 	; These '+4's shouldn't be here; 'clearRAM' accidentally clears an additional 4 bytes.
 	clearRAM Sprite_Table,Sprite_Table_End+4
 	clearRAM SS_Horiz_Scroll_Buf_1,SS_Horiz_Scroll_Buf_1+HorizontalScrollBuffer.len+4
 	clearRAM SS_Shared_RAM,SS_Shared_RAM_End+4
-    endif
 	clearRAM Object_Display_Lists,Object_Display_Lists_End
 	clearRAM Object_RAM,Object_RAM_End
 
-    if fixBugs
-	; The DMA queue needs to be reset here, to prevent the remaining queued DMA transfers from
-	; overwriting the special stage's graphics.
-	; In a bizarre twice of luck, the above bug actually nullifies this bug: the excessive
-	; SS_Shared_RAM clear sets VDP_Command_Buffer to 0, just like the below code.
-	clr.w	(VDP_Command_Buffer).w
-	move.l	#VDP_Command_Buffer,(VDP_Command_Buffer_Slot).w
-    endif
 
 	move	#$2300,sr
 	lea	(VDP_control_port).l,a6
@@ -9218,11 +8852,7 @@ SSPlaneB_Background:
 	move.l	#vdpComm(VRAM_SS_Plane_B_Name_Table + planeLoc(128,32*.c,0),VRAM,WRITE),d0
 	moveq	#32-1,d1
 	moveq	#32-1,d2
-    if removeJmpTos
-	jsr	(PlaneMapToVRAM_H80_SpecialStage).l
-    else
 	bsr.w	PlaneMapToVRAM_H80_SpecialStage
-    endif
 .c := .c+1
     endm
 
@@ -9545,23 +9175,13 @@ SSAllocateObjectAfterCurrent:
 ; Sprite_6FC0:
 Obj5E:
 	move.b	routine(a0),d0
-    if fixBugs
-	; See below.
-	beq.s	+
-	move.w	#object_display_list_size*0,d0
-	jmp	(DisplaySprite3).l
-+
-    else
 	bne.w	JmpTo_DisplaySprite
-    endif
 	move.l	#Obj5E_MapUnc_7070,mappings(a0)
 	move.w	#make_art_tile(ArtTile_ArtNem_SpecialHUD,0,0),art_tile(a0)
 	move.b	#1<<render_flags.level_fg,render_flags(a0)
-    if ~~fixBugs
 	; Multi-sprite objects cannot use the 'priority' SST as it is
 	; overwritten by 'sub3_y_pos'.
 	move.b	#0,priority(a0)
-    endif
 	move.b	#1,routine(a0)
 	bset	#render_flags.multi_sprite,render_flags(a0)
 	moveq	#0,d1
@@ -9695,10 +9315,6 @@ loc_710A:
 	blt.w	JmpTo_DeleteObject
 	jmpto	JmpTo_DisplaySprite
 
-    if removeJmpTos
-JmpTo_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 
 ; loc_714A:
@@ -9726,19 +9342,12 @@ Obj5F_Main:
 	move.b	#4,routine(a0)
 	move.b	#$F,objoff_2A(a0)
 
-    if removeJmpTos
-JmpTo_DisplaySprite ; JmpTo
-    endif
 	jmpto	JmpTo_DisplaySprite
 ; ===========================================================================
 
 loc_71B4:
 	subi_.b	#1,objoff_2A(a0)
-    if ~~removeJmpTos
 	bne.w	JmpTo_DisplaySprite
-    else
-	bne.s	JmpTo_DisplaySprite
-    endif
 	moveq	#6,d6
 
 	lea	(Obj5F_MapUnc_7240.frame2).l,a2
@@ -9961,16 +9570,7 @@ loc_74EA:
 
 loc_7536:
 	move.b	d3,mainspr_childsprites(a0)
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*0,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo_DisplaySprite
-    endif
 ; ===========================================================================
 
 loc_753E:
@@ -10018,46 +9618,19 @@ loc_753E:
 	move.b	d1,sub3_mapframe-subspr_data(a1)	; sub3_mapframe
 	move.w	#$88,sub4_x_pos-subspr_data(a1)		; sub4_x_pos
 	move.b	d0,sub4_mapframe-subspr_data(a1)	; sub4_mapframe
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*0,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo_DisplaySprite
-    endif
 ; ===========================================================================
 +
 	move.w	#$80,sub2_x_pos-subspr_data(a1)	; sub2_x_pos
 	move.b	d0,sub2_mapframe-subspr_data(a1)	; sub2_mapframe
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*0,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo_DisplaySprite
-    endif
 ; ===========================================================================
 +
 	move.w	#$7C,sub2_x_pos-subspr_data(a1)		; sub2_x_pos
 	move.b	d1,sub2_mapframe-subspr_data(a1)	; sub2_mapframe
 	move.w	#$84,sub3_x_pos-subspr_data(a1)		; sub3_x_pos
 	move.b	d0,sub3_mapframe-subspr_data(a1)	; sub3_mapframe
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*0,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo_DisplaySprite
-    endif
 ; ===========================================================================
 
 loc_75DE:
@@ -10102,16 +9675,7 @@ loc_75DE:
 	move.w	#$D8,(a1)	; sub?_x_pos
 +
 	move.b	d2,mainspr_childsprites(a0)
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*0,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo_DisplaySprite
-    endif
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
@@ -10194,13 +9758,6 @@ SSStartNewAct:
 	cmpi.w	#100,d1
 	blt.s	+
 	addq.w	#1,d2
-    if fixBugs
-	; The following code does a more complete binary coded decimal conversion:
--	addi.w	#$100,d0
-	subi.w	#100,d1
-	cmpi.w	#100,d1
-	bge.s	-
-    else
 	; This code (the original) is limited to 299 rings:
 	subi.w	#100,d1
 	move.w	#$100,d0
@@ -10208,7 +9765,6 @@ SSStartNewAct:
 	blt.s	+
 	subi.w	#100,d1
 	addi.w	#$100,d0
-    endif
 +
 	divu.w	#10,d1
 	lsl.w	#4,d1
@@ -10372,23 +9928,6 @@ ContinueScreen:
 
 	clearRAM Object_RAM,Object_RAM_End
 
-    if fixBugs
-	; Clear the DMA queue. This fixes the bug where, if you get a
-	; Game Over in Hill Top Zone, then Tails' graphics will be corrupted
-	; on the Continue screen.
-	; This is caused by HTZ's transforming cloud art being loaded over
-	; Tails' Continue art: 'Dynamic_HTZ' is responsible for queueing the
-	; art to be transferred with 'QueueDMATransfer', which takes effect
-	; around the next frame. The problem here is, the art is queued, you
-	; die, get a Game Over, advance to the Continue screen, and then
-	; finally the art is loaded.
-	clr.w	(VDP_Command_Buffer).w
-	move.l	#VDP_Command_Buffer,(VDP_Command_Buffer_Slot).w
-
-	; The game leaves this flag set after a Game Over, which causes
-	; Sonic to animate incorrectly.
-	clr.b	(Super_Sonic_flag).w
-    endif
 
 	bsr.w	ContinueScreen_LoadLetters
 	move.l	#vdpComm(tiles_to_bytes(ArtTile_ArtNem_ContinueTails),VRAM,WRITE),(VDP_control_port).l
@@ -10781,11 +10320,7 @@ TwoPlayerResults:
 	move.l	#vdpComm(VRAM_Plane_B_Name_Table,VRAM,WRITE),d0
 	moveq	#40-1,d1
 	moveq	#28-1,d2
-    if removeJmpTos
-	jsr	(PlaneMapToVRAM_H40).l
-    else
 	bsr.w	PlaneMapToVRAM_H40
-    endif
 	move.w	(Results_Screen_2P).w,d0
 	add.w	d0,d0
 	add.w	d0,d0
@@ -10801,11 +10336,7 @@ TwoPlayerResults:
 	move.l	#vdpComm(tiles_to_bytes(ArtTile_TwoPlayerResults),VRAM,WRITE),d0
 	moveq	#40-1,d1
 	moveq	#28-1,d2
-    if removeJmpTos
-	jsr	(PlaneMapToVRAM_H40).l
-    else
 	bsr.w	PlaneMapToVRAM_H40
-    endif
 	clr.w	(VDP_Command_Buffer).w
 	move.l	#VDP_Command_Buffer,(VDP_Command_Buffer_Slot).w
 	clr.b	(Level_started_flag).w
@@ -12161,17 +11692,6 @@ OptionScreen_Select:
     else
 	move.w	#emerald_hill_zone_act_1,(Current_ZoneAndAct).w
     endif
-    if fixBugs
-	; The game forgets to reset these variables here, making it possible
-	; for the player to repeatedly soft-reset and play Emerald Hill Zone
-	; over and over again, collecting all of the emeralds within the
-	; first act. This code is borrowed from similar logic in the title
-	; screen, which doesn't make this mistake.
-	move.w	d0,(Current_Special_StageAndAct).w
-	move.w	d0,(Got_Emerald).w
-	move.l	d0,(Got_Emeralds_array).w
-	move.l	d0,(Got_Emeralds_array+4).w
-    endif
 	move.b	#GameModeID_Level,(Game_Mode).w ; => Level (Zone play mode)
 	rts
 ; ===========================================================================
@@ -12183,16 +11703,6 @@ OptionScreen_Select_Not1P:
 	moveq	#1,d0
 	move.w	d0,(Two_player_mode).w
 	move.w	d0,(Two_player_mode_copy).w
-    if fixBugs
-	; The game forgets to reset these variables here, making it possible
-	; for the player to play two player mode with all emeralds collected,
-	; allowing them to use Super Sonic. This code is borrowed from
-	; similar logic in the title screen, which doesn't make this mistake.
-	moveq	#0,d0
-	move.w	d0,(Got_Emerald).w
-	move.l	d0,(Got_Emeralds_array).w
-	move.l	d0,(Got_Emeralds_array+4).w
-    endif
 	move.b	#GameModeID_2PLevelSelect,(Game_Mode).w ; => LevelSelectMenu2P
 	move.b	#0,(Current_Zone_2P).w
 	move.w	#0,(Player_mode).w
@@ -12247,15 +11757,6 @@ OptionScreen_Controls:
 	moveq	#0,d2
 
 +
-    if fixBugs
-	; Based on code from the Level Select.
-	cmpi.b	#2,(Options_menu_box).w
-	bne.s	+
-	btst	#button_A,d0
-	beq.s	+
-	addi.b	#$10,d2
-	andi.b	#$7F,d2
-    else
 	; This code appears to have been carelessly created from a copy of the
 	; above block of code. It makes no sense to advance by $10 on options
 	; that have only 2 or 3 values. Likewise, the logic for setting the
@@ -12267,7 +11768,6 @@ OptionScreen_Controls:
 	cmp.b	d3,d2
 	bls.s	+
 	moveq	#0,d2
-    endif
 
 +
 	move.w	d2,(a1)
@@ -12851,22 +12351,9 @@ LevelSelect_DrawIcon:
 	lea	(a1,d0.w),a1
 	lea	(Normal_palette_line3).w,a2
 
-    if fixBugs
-	; When the icon changes, the colours are briefly incorrect. This is
-	; because there's a delay between the icon being updated and the
-	; colours being updated, due to the colours being uploaded to the VDP
-	; during V-Int. To avoid this we can upload the colours ourselves right
-	; here.
-	; Prepare the VDP for data transfer.
-	move.l  #vdpComm(2*16*2,CRAM,WRITE),VDP_control_port-VDP_data_port(a6)
-    endif
 
 	moveq	#bytesToLcnt(palette_line_size),d1
 -
-    if fixBugs
-	; Upload colours to the VDP.
-	move.l	(a1),(a6)
-    endif
 	move.l	(a1)+,(a2)+
 	dbf	d1,-
 
@@ -12942,15 +12429,9 @@ CheckCheats:	; This is called from 2 places: the options screen and the level se
 	tst.w	d2				; Test this to determine which cheat to enable
 	bne.s	+				; If not 0, branch
 	move.b	#$F,(Continue_count).w		; Give 15 continues
-    if fixBugs
-	; Fun fact: this was fixed in the version of Sonic 2 included in
-	; Sonic Mega Collection.
-	move.b	#SndID_ContinueJingle,d0	; Play the continue jingle
-    else
 	; The next line causes the bug where the OOZ music plays until reset.
 	; Remove "&$7F" to fix the bug.
 	move.b	#SndID_ContinueJingle&$7F,d0	; Play the continue jingle
-    endif
 	jsrto	JmpTo_PlayMusic
 	bra.s	++
 ; ===========================================================================
@@ -12967,24 +12448,20 @@ level_select_cheat:
 	; 17th September 1965, the birthdate of one of Sonic 2's developers,
 	; Yuji Naka.
 	dc.b $19, $65,   9, $17,   0
-	rev02even
 ; byte_97B7
 continues_cheat:
 	; November 24th, which was Sonic 2's release date in the EU and US.
 	dc.b   1,   1,   2,   4,   0
-	rev02even
 debug_cheat:
 	; 24th November 1992 (also known as "Sonic 2sday"), which was
 	; Sonic 2's release date in the EU and US.
 	dc.b   1,   9,   9,   2,   1,   1,   2,   4,   0
-	rev02even
 ; byte_97C5
 super_sonic_cheat:
 	; Book of Genesis, 41:26, which makes frequent reference to the
 	; number 7. 7 happens to be the number of Chaos Emeralds.
 	; The Mega Drive is known as the Genesis in the US.
 	dc.b   4,   1,   2,   6,   0
-	rev02even
 
 	; set the character set for menu text
 	charset '@',"\27\30\31\32\33\34\35\36\37\38\39\40\41\42\43\44\45\46\47\48\49\50\51\52\53\54\55"
@@ -13144,12 +12621,8 @@ EndingSequence:
 	move.w	d0,(Ending_VInt_Subrout).w
 	move.w	d0,(Credits_Trigger).w
 
-    if fixBugs
-	clearRAM Horiz_Scroll_Buf,Horiz_Scroll_Buf+HorizontalScrollBuffer.len
-    else
 	; The '+4' shouldn't be here; clearRAM accidentally clears an additional 4 bytes
 	clearRAM Horiz_Scroll_Buf,Horiz_Scroll_Buf+HorizontalScrollBuffer.len+4
-    endif
 
 	move.w	#$7FFF,(PalCycle_Timer).w
 	lea	(CutScene).w,a1
@@ -13224,12 +12697,8 @@ EndgameCredits:
 	move.w	d0,(Ending_VInt_Subrout).w
 	move.w	d0,(Credits_Trigger).w
 
-    if fixBugs
-	clearRAM Horiz_Scroll_Buf,Horiz_Scroll_Buf+HorizontalScrollBuffer.len
-    else
 	; The '+4' shouldn't be here; clearRAM accidentally clears an additional 4 bytes
 	clearRAM Horiz_Scroll_Buf,Horiz_Scroll_Buf+HorizontalScrollBuffer.len+4
-    endif
 
 	moveq	#signextendB(MusID_Credits),d0
 	jsrto	JmpTo2_PlaySound
@@ -14167,10 +13636,6 @@ loc_AA8A:
 	bmi.w	JmpTo3_DeleteObject
 	jmpto	JmpTo5_DisplaySprite
 
-    if removeJmpTos
-JmpTo3_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; ----------------------------------------------------------------------------
 ; Object CD - Birds from ending sequence
@@ -14386,13 +13851,9 @@ ChildObject_AD6E:	childObjectData objoff_3E, ObjID_TornadoHelixes, $00
 
 ; off_AD72:
 ObjCD_SubObjData:
-    if fixBugs
-	subObjData Obj28_MapUnc_11E1C,make_art_tile(ArtTile_ArtNem_Animal_2,0,0),1<<render_flags.level_fg,1,8,0
-    else
 	; This should use priority 1, not 2. As-is, it causes the birds to
 	; overlap the Tornado but appear behind Sonic.
 	subObjData Obj28_MapUnc_11E1C,make_art_tile(ArtTile_ArtNem_Animal_2,0,0),1<<render_flags.level_fg,2,8,0
-    endif
 
 ; animation script
 ; byte_AD7C
@@ -14571,7 +14032,6 @@ l := lowstring("char")
 	endcase
 	endm
 	dc.b -1
-	rev02even
     endm
 
 ; credits text data (palette index followed by a string)
@@ -14729,12 +14189,6 @@ LevelSizeLoad:
 	clr.b	(Scroll_lock_P2).w
 	moveq	#0,d0
 	move.b	d0,(Dynamic_Resize_Routine).w ; load level boundaries
-    if gameRevision>=2
-	move.w	d0,(WFZ_LevEvent_Subrout).w
-	move.w	d0,(WFZ_BG_Y_Speed).w
-	move.w	d0,(Camera_BG_X_offset).w
-	move.w	d0,(Camera_BG_Y_offset).w
-    endif
 	move.w	(Current_ZoneAndAct).w,d0
 	ror.b	#1,d0
 	lsr.w	#4,d0
@@ -15445,14 +14899,6 @@ SwScrl_EHZ:
 	; 22+58+21+11+16+16+15+18+45=222.
 	; Only 222 out of 224 lines have been processed.
 
-    if fixBugs
-	; The bottom two lines haven't had their H-scroll values set.
-	; Knuckles in Sonic 2 fixes this with the following code:
-	move.w	d4,(a1)+
-	move.w	d3,(a1)+
-	move.w	d4,(a1)+
-	move.w	d3,(a1)+
-    endif
 
 	rts
 ; ===========================================================================
@@ -15606,7 +15052,6 @@ SwScrl_EHZ_2P:
 ; unused...
 ; loc_C7BA: SwScrl_Lev2:
 SwScrl_WZ:
-    if gameRevision<2
 	; Just a duplicate of 'SwScrl_Minimal'.
 
 	; Set the flags to dynamically load the background as it moves.
@@ -15633,7 +15078,6 @@ SwScrl_WZ:
 
 -	move.l	d0,(a1)+
 	dbf	d1,-
-    endif
 
 	rts
 ; ===========================================================================
@@ -15694,25 +15138,12 @@ SwScrl_WFZ:
 	lea	(TempArray_LayerDef).w,a2
 	move.l	d0,(a2)+				; Static parts of BG (generally no clouds in them)
 	move.l	d1,(a2)+				; Eggman's getaway ship
-    if fixBugs
-	moveq	#0,d5
-	move.w	(Camera_X_pos_diff).w,d5	; get camera x-diff
-	ext.l	d5
-	asl.l	#5,d5
-	add.l	d5,(a2)				; add to high word of accumulation
-	addi.l	#$8000,(a2)+			; larger clouds
-	add.l	d5,(a2)
-	addi.l	#$4000,(a2)+			; medium clouds
-	add.l	d5,(a2)
-	addi.l	#$2000,(a2)+			; small clouds
-    else
 	; This tallies only the cloud speeds. It works fine if you are standing
 	; still, but makes the clouds move faster when going right and slower when
 	; going left. This is exactly the opposite of what should happen.
 	addi.l	#$8000,(a2)+			; larger clouds
 	addi.l	#$4000,(a2)+			; medium clouds
 	addi.l	#$2000,(a2)+			; small clouds
-    endif
 	lea	(SwScrl_WFZ_Transition_Array).l,a3
 	cmpi.w	#$2700,(Camera_X_pos).w
 	bhs.s	.got_array
@@ -15844,11 +15275,6 @@ SwScrl_WFZ_Normal_Array:
 ; This array is missing data for the last $80 lines compared to the transition array.
 ; This causes the lower clouds to read data from the start of SwScrl_HTZ.
 ; These are the missing entries:
-    if fixBugs
-	dc.b $20,  8
-	dc.b $30, $C
-	dc.b $30,$10
-    endif
 ; ===========================================================================
 ; loc_C964:
 SwScrl_HTZ:
@@ -15893,20 +15319,9 @@ SwScrl_HTZ:
 
 	; Start by reducing to 44% (100% divided by 2.28)...
 	move.w	d2,d0
-    if fixBugs
-	; See below.
-	moveq	#0,d1
-    endif
 	move.w	d0,d1
 	asr.w	#1,d0 ; Divide d0 by 2
-    if fixBugs
-	; See below.
-	swap	d1
-	asr.l	#4,d1 ; Divide d1 by 16, preserving the remainder in the lower 16 bits
-	swap	d1
-    else
 	asr.w	#4,d1 ; Divide d1 by 16, discarding the remainder
-    endif
 	sub.w	d1,d0 ; 100 / 2 - 100 / 16 = 44
 	ext.l	d0
 	; ...then increase the result to 228%, effectively undoing the reduction to 44% from earlier (0.44 x 2.28 = 1).
@@ -15921,9 +15336,6 @@ SwScrl_HTZ:
 
 	lea	(TempArray_LayerDef).w,a2	; See 'Dynamic_HTZ.doCloudArt'.
 
-    if fixBugs
-	move.l	d1,d3 ; d1 holds the original, pre-modulo delta divided by 16.
-    else
 	; d3 is used as a fixed-point accumulator here, with the upper 16 bits
 	; holding the integer part, and the lower 16 bits holding the decimal
 	; part. This accumulator is initialised to the value of the delta
@@ -15932,7 +15344,6 @@ SwScrl_HTZ:
 	; visible jerkiness.
 	moveq	#0,d3
 	move.w	d1,d3 ; d1 holds the original, pre-modulo delta divided by 16.
-    endif
 
     rept 3
 	swap	d3
@@ -16297,30 +15708,6 @@ SwScrl_HPZ:
 ; ===========================================================================
 ; loc_CC66:
 SwScrl_OOZ:
-    if fixBugs
-	; As described below, part of Oil Ocean Zone's background is rendered
-	; unused because the basic background drawer that this zone uses is
-	; unable to draw it without making the clouds and sun disappear.
-	; However, it is possible to fix this by using the advanced
-	; background drawer that Chemical Plant Zone uses.
-
-	; Update scroll flags, to dynamically load more of the background as
-	; the player moves around.
-	move.w	(Camera_X_pos_diff).w,d4
-	ext.l	d4
-	asl.l	#5,d4
-	move.w	(Camera_Y_pos_diff).w,d5
-	ext.l	d5
-	asl.l	#5,d5
-	bsr.w	SetHorizVertiScrollFlagsBG
-
-	; Move BG1's scroll flags into BG3...
-	move.b	(Scroll_flags_BG).w,(Scroll_flags_BG3).w
-
-	; ...then clear BG1's scroll flags.
-	; This zone basically uses its own dynamic background loader.
-	clr.b	(Scroll_flags_BG).w
-    else
 	; Update 'Camera_BG_X_pos', since there's no call to
 	; 'SetHorizScrollFlagsBG' or 'SetHorizVertiScrollFlagsBG' to do it
 	; for us.
@@ -16340,7 +15727,6 @@ SwScrl_OOZ:
 	add.l	d3,d0
 	moveq	#scroll_flag_bg1_up_whole_row,d6
 	bsr.w	SetVertiScrollFlagsBG2
-    endif
 
 	; Update the background's vertical scrolling.
 	move.w	(Camera_BG_Y_pos).w,(Vscroll_Factor_BG).w
@@ -16514,12 +15900,6 @@ SwScrl_MCZ:
 
 	; Handle the screen shaking during the boss fight.
 	moveq	#0,d2
-    if fixBugs
-	; The screen shaking is not applied to the background parallax
-	; scrolling, causing it to distort. This is trivial to fix: just add
-	; the Y component of the shaking to the camera's Y position.
-	moveq	#0,d3
-    endif
 	tst.b	(Screen_Shaking_Flag).w
 	beq.s	+
 
@@ -16532,10 +15912,6 @@ SwScrl_MCZ:
 	add.w	d0,(Vscroll_Factor_FG).w
 	add.w	d0,(Vscroll_Factor_BG).w
 	add.w	d0,(Camera_Y_pos_copy).w
-    if fixBugs
-	; Ditto.
-	move.w	d0,d3
-    endif
 	move.b	(a1)+,d2
 	add.w	d2,(Camera_X_pos_copy).w
 +
@@ -16621,10 +15997,6 @@ SwScrl_MCZ:
 	lea	(TempArray_LayerDef).w,a2
 	lea	(Horiz_Scroll_Buf).w,a1
 	move.w	(Camera_BG_Y_pos).w,d1
-    if fixBugs
-	; Ditto.
-	add.w	d3,d1
-    endif
 	moveq	#0,d0
 
 	; Find the first visible scrolling section
@@ -17213,15 +16585,6 @@ SwScrl_CNZ_2P:
 	move.w	#112+4-1,d2
 	lea	(SwScrl_CNZ2P_RowHeights_P2).l,a3
 
-    if fixBugs
-	; Use a similar trick to Mystic Cave Zone: override the first value
-	; in the code here.
-	lsr.w	#1,d1
-	lea	(TempArray_LayerDef).w,a2
-	; Extend the first segment of 'SwScrl_CNZ2P_RowHeights' by 4 lines.
-	move.w	#8+4,d3
-	bra.s	.useOwnSegmentSize
-    endif
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
@@ -17289,7 +16652,6 @@ SwScrl_CNZ_2P:
 ; End of function sub_D216
 
 ; ===========================================================================
-    if ~~fixBugs
 	; This doesn't have the effect that the developers intended: rather
 	; than just extend the topmost segment, it creates additional
 	; segments which cause the later segments to use the wrong scroll
@@ -17297,13 +16659,8 @@ SwScrl_CNZ_2P:
 	dc.b   4
 SwScrl_CNZ2P_RowHeights_P2:
 	dc.b   4
-    endif
 SwScrl_CNZ2P_RowHeights_P1:
 	dc.b   8
-    if fixBugs
-	; See above.
-SwScrl_CNZ2P_RowHeights_P2:
-    endif
 	dc.b   8
 	dc.b   8
 	dc.b   8
@@ -17369,9 +16726,6 @@ SwScrl_CPZ:
 
 	lea	(Horiz_Scroll_Buf).w,a1
 
-    if fixBugs
-	move.w	#screen_height/block_height-1,d1
-    else
 	; The '+1' is so that, if one block is partially-offscreen at the
 	; top, then another will fill the gap at the bottom of the screen.
 	; This causes 'Horiz_Scroll_Buf' to overflow due to a lack of
@@ -17379,7 +16733,6 @@ SwScrl_CPZ:
 	; it's possible to avoid this without any performance penalty with a
 	; little extra code. See below.
 	move.w	#screen_height/block_height+1-1,d1
-    endif
 
 	; Set up the foreground part of the horizontal scroll value.
 	move.w	(Camera_X_pos).w,d0
@@ -17389,28 +16742,6 @@ SwScrl_CPZ:
 	; Get the offset into the starting block.
 	andi.w	#$F,d2
 
-    if fixBugs
-	; See above.
-
-	; Back this up, because we'll need it later.
-	move.w	d2,d5
-	; If this is 0, then we won't need to do an extra block, so skip
-	; ahead.
-	beq.s	.doLineBlocks
-	; Process the first set of line blocks.
-	bsr.s	.doLineBlocks
-
-	; Do one last line block.
-	moveq	#1-1,d1
-
-	; Invert 'd2' to get the number of lines in the first block that we
-	; skipped, so that we can do them now.
-	move.w	#$10,d2
-	sub.w	d5,d2
-
-	; Process the final line block.
-.doLineBlocks:
-    endif
 
 	; Behaviour depends on which line block we're processing.
 	move.w	(Camera_BG_X_pos).w,d0
@@ -17491,36 +16822,6 @@ SwScrl_DEZ:
 	; Update the background's vertical scrolling.
 	move.w	(Camera_BG_Y_pos).w,(Vscroll_Factor_BG).w
 
-    if fixBugs
-	; The screen shaking is not applied to the background parallax
-	; scrolling, causing it to distort. This is trivial to fix: just add
-	; the Y component of the shaking to the camera's Y position.
-	; This block of code also has to be moved to the start of this
-	; function.
-
-	; Handle screen shaking when the final boss explodes.
-	moveq	#0,d2
-	moveq	#0,d3
-	tst.b	(Screen_Shaking_Flag).w
-	beq.s	++	; rts
-	subq.w	#1,(DEZ_Shake_Timer).w
-	bpl.s	+
-	clr.b	(Screen_Shaking_Flag).w
-+
-	move.w	(Level_frame_counter).w,d0
-	andi.w	#$3F,d0
-	lea_	SwScrl_RippleData,a1
-	lea	(a1,d0.w),a1
-	moveq	#0,d0
-	move.b	(a1)+,d0
-	add.w	d0,(Vscroll_Factor_FG).w
-	add.w	d0,(Vscroll_Factor_BG).w
-	add.w	d0,(Camera_Y_pos_copy).w
-	move.w	d0,d3
-	move.b	(a1)+,d2
-	add.w	d2,(Camera_X_pos_copy).w
-+
-    endif
 
 	; Populate a list of horizontal scroll values for each row.
 	; The background is broken up into multiple rows of arbitrary
@@ -17606,10 +16907,6 @@ SwScrl_DEZ:
 	lea	(TempArray_LayerDef).w,a2
 	lea	(Horiz_Scroll_Buf).w,a1
 	move.w	(Camera_BG_Y_pos).w,d1
-    if fixBugs
-	; Apply screen shaking effect to the background parallax scrolling.
-	add.w	d3,d1
-    endif
 
 	moveq	#0,d0
 
@@ -17640,7 +16937,6 @@ SwScrl_DEZ:
 .nextRow:
 	dbf	d2,.rowLoop
 
-    if ~~fixBugs
 	; The screen shaking is not applied to the background parallax
 	; scrolling, causing it to distort. This is trivial to fix: just add
 	; the Y component of the shaking to the camera's Y position.
@@ -17667,7 +16963,6 @@ SwScrl_DEZ:
 	move.b	(a1)+,d2
 	add.w	d2,(Camera_X_pos_copy).w
 +
-    endif
 
 	rts
 ; ===========================================================================
@@ -17743,12 +17038,6 @@ SwScrl_ARZ:
 
 	; Handle the screen shaking during the boss fight.
 	moveq	#0,d2
-    if fixBugs
-	; The screen shaking is not applied to the background parallax
-	; scrolling, causing it to distort. This is trivial to fix: just add
-	; the Y component of the shaking to the camera's Y position.
-	moveq	#0,d3
-    endif
 	tst.b	(Screen_Shaking_Flag).w
 	beq.s	.screenNotShaking
 
@@ -17762,10 +17051,6 @@ SwScrl_ARZ:
 	add.w	d0,(Vscroll_Factor_FG).w
 	add.w	d0,(Vscroll_Factor_BG).w
 	add.w	d0,(Camera_Y_pos_copy).w
-    if fixBugs
-	; Ditto
-	move.w d0,d3
-    endif
 	; Shake camera X-pos
 	move.b	(a1)+,d2
 	add.w	d2,(Camera_X_pos_copy).w
@@ -17833,10 +17118,6 @@ SwScrl_ARZ:
 	lea	(TempArray_LayerDef).w,a2
 	lea	(Horiz_Scroll_Buf).w,a1
 	move.w	(Camera_BG_Y_pos).w,d1
-    if fixBugs
-	; Ditto
-	add.w	d3,d1
-    endif
 	moveq	#0,d0
 
 	; Find which row of background is visible at the top of the screen
@@ -17984,9 +17265,6 @@ SwScrl_Minimal:
 SwScrl_HPZ_Continued:
 	lea	(Horiz_Scroll_Buf).w,a1
 
-    if fixBugs
-	move.w	#screen_height/block_height-1,d1
-    else
 	; The '+1' is so that, if one block is partially-offscreen at the
 	; top, then another will fill the gap at the bottom of the screen.
 	; This causes 'Horiz_Scroll_Buf' to overflow due to a lack of
@@ -17994,7 +17272,6 @@ SwScrl_HPZ_Continued:
 	; it's possible to avoid this without any performance penalty with a
 	; little extra code. See below.
 	move.w	#screen_height/block_height+1-1,d1
-    endif
 
 	; Set up the foreground part of the horizontal scroll value.
 	move.w	(Camera_X_pos).w,d0
@@ -18003,28 +17280,6 @@ SwScrl_HPZ_Continued:
 
 	andi.w	#$F,d2
 
-    if fixBugs
-	; See above.
-
-	; Back this up, because we'll need it later.
-	move.w	d2,d5
-	; If this is 0, then we won't need to do an extra block, so skip
-	; ahead.
-	beq.s	.doLineBlocks
-	; Process the first set of line blocks.
-	bsr.s	.doLineBlocks
-
-	; Do one last line block.
-	moveq	#1-1,d1
-
-	; Invert 'd2' to get the number of lines in the first block that we
-	; skipped, so that we can do them now.
-	move.w	#$10,d2
-	sub.w	d5,d2
-
-	; Process the final line block.
-.doLineBlocks:
-    endif
 
 	; Turn d2 into an offset into '.doPartialLineBlock' (each instruction
 	; is 2 bytes long).
@@ -18085,22 +17340,6 @@ ScrollHoriz:
 	move.w	(a1),d4		; get camera X pos
 	tst.b	(Teleport_flag).w
 	bne.s	.return		; if a teleport is in progress, return
-    if fixBugs
-	; To prevent the bug that is described below, this caps the position
-	; array index offset so that it does not access position data from
-	; before the spin dash was performed. Note that this required
-	; modifications to 'Sonic_UpdateSpindash' and 'Tails_UpdateSpindash'.
-	move.b	Horiz_scroll_delay_val-Camera_Delay(a5),d1	; should scrolling be delayed?
-	beq.s	.scrollNotDelayed				; if not, branch
-	lsl.b	#2,d1		; multiply by 4, the size of a position buffer entry
-	subq.b	#1,Horiz_scroll_delay_val-Camera_Delay(a5)	; reduce delay value
-	move.b	Sonic_Pos_Record_Index+1-Camera_Delay(a5),d0
-	sub.b	Horiz_scroll_delay_val+1-Camera_Delay(a5),d0
-	cmp.b	d0,d1
-	blo.s	.doNotCap
-	move.b	d0,d1
-.doNotCap:
-    else
 	; The intent of this code is to make the camera briefly lag behind the
 	; player right after releasing a spin dash, however it does this by
 	; simply making the camera use position data from previous frames. This
@@ -18119,7 +17358,6 @@ ScrollHoriz:
 	move.b	Horiz_scroll_delay_val-Camera_Delay(a5),d1	; get delay value
 	lsl.b	#2,d1		; multiply by 4, the size of a position buffer entry
 	addq.b	#4,d1
-    endif
 	move.w	Sonic_Pos_Record_Index-Camera_Delay(a5),d0	; get current position buffer index
 	sub.b	d1,d0
 	move.w	(a6,d0.w),d0	; get Sonic's position a certain number of frames ago
@@ -18196,16 +17434,6 @@ ScrollVerti:
 	btst	#status.player.rolling,status(a0)	; is the player rolling?
 	beq.s	.notRolling	; if not, branch
 	subq.w	#5,d0		; subtract difference between standing and rolling heights
-    if fixBugs
-	; Tails is shorter than Sonic, so the above subtraction actually
-	; causes the camera to jolt slightly when he goes from standing to
-	; rolling, and vice versa. Not even Sonic 3 & Knuckles fixed this.
-	; To fix this, just adjust the subtraction to suit Tails (who is four
-	; pixels shorter).
-	cmpi.b	#ObjID_Tails,id(a0)
-	bne.s	.notRolling
-	addq.w	#4,d0
-    endif
 ; loc_D798:
 .notRolling:
 	btst	#status.player.in_air,status(a0)			; is the player in the air?
@@ -19012,10 +18240,6 @@ Draw_BG3:
 
 	cmpi.b	#chemical_plant_zone,(Current_Zone).w
 	beq.w	Draw_BG3_CPZ
-    if fixBugs
-	cmpi.b	#oil_ocean_zone,(Current_Zone).w
-	beq.w	Draw_BG3_OOZ
-    endif
 
 	; Leftover from Sonic 1: was used by Green Hill Zone.
 	bclr	#scroll_flag_bg3_left,(a2)
@@ -19187,15 +18411,11 @@ Draw_BG3_CPZ:
 	; drawing the column.
 	lea_	CPZ_CameraSections,a0
 	move.w	(Camera_BG_Y_pos).w,d0
-    if fixBugs
-	andi.w	#$3F0,d0	; After right-shifting, the is a mask of $3F. Since CPZ_CameraSections is $40 items long, this is correct.
-    else
 	; After right-shifting, the is a mask of $7F. Since CPZ_CameraSections
 	; is $40 items long, this is incorrect, and will cause accesses to
 	; exceed the bounds of CPZ_CameraSections and read invalid data. This
 	; is most notably a problem in Marble Zone's version of this code.
 	andi.w	#$7F0,d0
-    endif
 	lsr.w	#4,d0
 	lea	(a0,d0.w),a0
 	bra.w	DrawBlockColumn_Advanced
@@ -19277,135 +18497,6 @@ DrawBlockColumn_Advanced:
 
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
-    if fixBugs
-	; See 'SwScrl_OOZ'.
-	; This uses the same drawing method as Chemical Plant Zone to enable
-	; the unused part of Oil Ocean Zone's background to be drawn without
-	; it causing the clouds and sun to disappear.
-
-; Oil Ocean Zone block positioning array
-; Each entry is an index into BGCameraLookup; used to decide the camera to use
-; for given block for reloading BG. A entry of 0 means assume X = 0 for section,
-; but otherwise loads camera Y for selected camera.
-
-OOZ_CameraSections:
-	; BG1 (draw whole row) for the sky.
-	dc.b 0	; 0
-	dc.b 0	; 1
-	dc.b 0	; 2
-	dc.b 0	; 3
-	dc.b 0	; 4
-	dc.b 0	; 5
-	dc.b 0	; 6
-	dc.b 0	; 7
-	dc.b 0	; 8
-	dc.b 0	; 9
-	dc.b 0	; 10
-	dc.b 0	; 11
-	dc.b 0	; 12
-	dc.b 0	; 13
-	dc.b 0	; 14
-	dc.b 0	; 15
-	dc.b 0	; 16
-	; BG1 for the factory.
-	dc.b 2	; 17
-	dc.b 2	; 18
-	dc.b 2	; 19
-	dc.b 2	; 20
-	dc.b 2	; 21
-	dc.b 2	; 22
-	dc.b 2	; 23
-	dc.b 2	; 24
-	dc.b 2	; 25
-	dc.b 2	; 26
-	dc.b 2	; 27
-	dc.b 2	; 28
-	dc.b 2	; 29
-	dc.b 2	; 30
-	dc.b 2	; 31
-	dc.b 2	; 32
-
-	; Total height: 4 128x128 chunks.
-	; This matches the height of the background.
-
-	even
-
-; ===========================================================================
-
-Draw_BG3_OOZ:
-	; This is a lighty-modified duplicate of Scrap Brain Zone's drawing
-	; code (which is still in this game - it's labelled 'Draw_BG2_SBZ').
-	; This is an advanced form of the usual background-drawing code that
-	; allows each row of blocks to update and scroll independently...
-	; kind of. There are only three possible 'cameras' that each row can
-	; align itself with. Still, each row is free to decide which camera
-	; it aligns with.
-
-	; Handle loading the rows as the camera moves up and down.
-	moveq	#-block_height,d4	; Y offset
-	bclr	#scroll_flag_advanced_bg_up,(a2)
-	bne.s	.doUpOrDown
-	bclr	#scroll_flag_advanced_bg_down,(a2)
-	beq.s	.checkIfShouldDoLeftOrRight
-	move.w	#screen_height,d4	; Y offset
-
-.doUpOrDown:
-	; Select the correct camera, so that the X value of the loaded row is
-	; right.
-	lea_	OOZ_CameraSections+1,a0
-	move.w	(Camera_BG_Y_pos).w,d0
-	add.w	d4,d0
-	andi.w	#$1F0,d0	; After right-shifting, the is a mask of $1F. Since OOZ_CameraSections is $20 items long, this is correct.
-	lsr.w	#4,d0
-	move.b	(a0,d0.w),d0
-	lea	BGCameraLookup(pc),a3
-	movea.w	(a3,d0.w),a3	; Camera, either BG, BG2 or BG3 depending on Y
-	beq.s	.doWholeRow
-	moveq	#-block_width,d5	; X offset
-	movem.l	d4-d5,-(sp)
-	bsr.w	CalculateVRAMAddressOfBlockForPlayer1
-	movem.l	(sp)+,d4-d5
-	bsr.w	DrawBlockRow
-	bra.s	.checkIfShouldDoLeftOrRight
-; ===========================================================================
-
-.doWholeRow:
-	moveq	#0,d5	; X (absolute)
-	movem.l	d4-d5,-(sp)
-	bsr.w	CalculateVRAMAddressOfBlockForPlayer1.AbsoluteX
-	movem.l	(sp)+,d4-d5
-	moveq	#gameplay_plane_width/block_width-1,d6	; The entire width of the plane in blocks minus 1.
-	bsr.w	DrawBlockRow.AbsoluteXCustomWidth
-
-.checkIfShouldDoLeftOrRight:
-	; If there are other scroll flags set, then go do them.
-	tst.b	(a2)
-	bne.s	.doLeftOrRight
-	rts
-; ===========================================================================
-
-.doLeftOrRight:
-	moveq	#-block_height,d4 ; Y offset
-
-	; Load left column.
-	moveq	#-block_width,d5 ; X offset
-	move.b	(a2),d0
-	andi.b	#(1<<scroll_flag_advanced_bg1_right)|(1<<scroll_flag_advanced_bg2_right)|(1<<scroll_flag_advanced_bg3_right),d0
-	beq.s	+
-	lsr.b	#1,d0	; Make the left and right flags share the same bits, to simplify a calculation later.
-	move.b	d0,(a2)
-	; Load right column.
-	move.w	#screen_width,d5 ; X offset
-+
-	; Select the correct starting background section, and then begin
-	; drawing the column.
-	lea_	OOZ_CameraSections,a0
-	move.w	(Camera_BG_Y_pos).w,d0
-	andi.w	#$1F0,d0	; After right-shifting, the is a mask of $1F. Since OOZ_CameraSections is $20 items long, this is correct.
-	lsr.w	#4,d0
-	lea	(a0,d0.w),a0
-	bra.w	DrawBlockColumn_Advanced
-    endif
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
@@ -19965,40 +19056,10 @@ DrawInitialBG:
 	lea	(Camera_BG_X_pos).w,a3
 	lea	(Level_Layout+$80).w,a4	; background
 	move.w	#vdpComm(VRAM_Plane_B_Name_Table,VRAM,WRITE)>>16,d2
-    if fixBugs
-	; The purpose of this function is to dynamically load a portion of
-	; the background, based on where the BG camera is pointing. This
-	; makes plenty of sense for levels that dynamically load their
-	; background to Plane B. However, not all levels do this: some are
-	; content with just loading their entire (small) background to
-	; Plane B and leaving it there, untouched.
-	; Unfortunately, that does not mesh well with this function: if the
-	; camera is too high or too low, then only part of the background
-	; will be properly loaded. This bug most visibly manifests itself in
-	; Casino Night Zone Act 1, where the background abruptly cuts off at
-	; the bottom.
-	; To work around this, an ugly hack was added, to cause the function
-	; to load a portion of the background 16 pixels lower than normal.
-	; However, this hack applies to both Act 1 AND Act 2, resulting in
-	; Act 2's background being cut off at the top.
-	; Sonic 3 & Knuckles fixed this problem for good by giving each zone
-	; its own background initialisation function (see 'LevelSetup' in the
-	; Sonic & Knuckles disassembly). This fix won't go quite that far,
-	; but it will give these 'static' backgrounds their own
-	; initialisation logic, much like two player Mystic Cave Zone does.
-	move.b	(Current_Zone).w,d0
-	cmpi.b	#emerald_hill_zone,d0
-	beq.w	DrawInitialBG_LoadWholeBackground_512x256
-	cmpi.b	#casino_night_zone,d0
-	beq.w	DrawInitialBG_LoadWholeBackground_512x256
-	cmpi.b	#hill_top_zone,d0
-	beq.w	DrawInitialBG_LoadWholeBackground_512x256
-    else
 	; This is a nasty hack to work around the bug described above.
 	moveq	#0,d4
 	cmpi.b	#casino_night_zone,(Current_Zone).w
 	beq.w	++
-    endif
 	tst.w	(Two_player_mode).w
 	beq.w	+
 	cmpi.b	#mystic_cave_zone,(Current_Zone).w
@@ -20068,32 +19129,6 @@ DrawInitialBG_LoadWholeBackground_512x512:
 
 	rts
 ; ===========================================================================
-    if fixBugs
-DrawInitialBG_LoadWholeBackground_512x256:
-	moveq	#0,d4	; Absolute plane Y coordinate.
-
-	moveq	#gameplay_plane_height/block_height-1,d6 ; Height of plane in blocks minus 1.
--	movem.l	d4-d6,-(sp)
-	moveq	#0,d5
-	move.w	d4,d1
-	; This is just a fancy efficient way of doing 'if true then call this, else call that'.
-	pea	+(pc)
-	tst.w	(Two_player_mode).w
-	beq.w	CalculateVRAMAddressOfBlockForPlayer1.AbsoluteXAbsoluteY
-	bra.w	CalculateVRAMAddressOfBlockForPlayer1.AbsoluteXAbsoluteY_DoubleResolution
-+
-	move.w	d1,d4
-	moveq	#0,d5
-	moveq	#gameplay_plane_width/block_width-1,d6 ; Width of plane in blocks minus 1.
-	move	#$2700,sr
-	bsr.w	DrawBlockRow.AbsoluteXAbsoluteYCustomWidth
-	move	#$2300,sr
-	movem.l	(sp)+,d4-d6
-	addi.w	#block_height,d4
-	dbf	d6,-
-
-	rts
-    endif
 ; ===========================================================================
 
 ; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -22808,11 +21843,7 @@ Obj15_State4:
 	beq.w	BranchTo_loc_1000C
 	tst.b	(Oscillating_Data+$18).w
 	bne.w	BranchTo_loc_1000C
-    if removeJmpTos
-	bsr.w	AllocateObjectAfterCurrent
-    else
 	bsr.w	JmpTo2_AllocateObjectAfterCurrent
-    endif
 	bne.s	loc_100E4
 	moveq	#0,d0
 
@@ -23718,16 +22749,12 @@ Obj1A_Init:
 ; ===========================================================================
 +
 	move.l	#Obj1A_GHZ_SlopeData,collapsing_platform_slope_pointer(a0)
-    if fixBugs
-	move.b	#$30,width_pixels(a0)
-    else
 	; This is too wide, causing the player to teleport downwards when
 	; running off the platform. Sonic 1 used a width of $30 for the
 	; collision and $64 for width_pixels, but in Sonic 2 they must be
 	; the same. $64 seems to be overkill, as $30 still results in good
 	; sprite culling.
 	move.b	#$34,width_pixels(a0)
-    endif
 	move.b	#$38,y_radius(a0)
 	bset	#render_flags.explicit_height,render_flags(a0)
 ; loc_1097C:
@@ -23958,37 +22985,30 @@ Obj1A_CreateFragments:
 Obj1A_DelayData:
 	dc.b $1C,$18,$14,$10,$1A,$16,$12, $E, $A,  6,$18,$14,$10, $C,  8,  4
 	dc.b $16,$12, $E, $A,  6,  2,$14,$10, $C; 16
-	rev02even
 ; Delay data for obj1A in HPZ:
 ;byte_10C0B:
 Obj1A_HPZ_DelayData:
 	dc.b $18,$1C,$20,$1E,$1A,$16,  6, $E,$14,$12, $A,  2
-	rev02even
 ; Delay data for obj1F even subtypes in all levels without more specific data:
 ;byte_10C17:
 Obj1F_DelayData_EvenSubtype:
 	dc.b $1E,$16, $E,  6,$1A,$12, $A,  2
-	rev02even
 ; Delay data for obj1F odd subtypes in all levels without more specific data:
 ;byte_10C1F:
 Obj1F_DelayData_OddSubtype:
 	dc.b $16,$1E,$1A,$12,  6, $E, $A,  2
-	rev02even
 ; Delay data for obj1F in OOZ:
 ;byte_10C27:
 Obj1F_OOZ_DelayData:
 	dc.b $1A,$12, $A,  2,$16, $E,  6
-	rev02even
 ; Delay data for obj1F in MCZ:
 ;byte_10C2E:
 Obj1F_MCZ_DelayData:
 	dc.b $1A,$16,$12, $E, $A,  2
-	rev02even
 ; Delay data for obj1F in ARZ:
 ;byte_10C34:
 Obj1F_ARZ_DelayData:
 	dc.b $16,$1A,$18,$12,  6, $E, $A,  2
-	rev02even
 ; S1 remnant: Height data for GHZ collapsing platform (unused):
 ;byte_10C3C:
 Obj1A_GHZ_SlopeData:
@@ -24090,17 +23110,8 @@ Obj1C_Radii:
 	dc.b   0	; 1
 	dc.b   0	; 2
 	dc.b   0	; 3
-    if fixBugs
-	; These are the stakes that the ziplines are attached to in Hill Top Zone.
-	; Using 0 here is good for objects that are at most 32 pixels tall, but these are 40
-	; pixels tall, so they need to be explicitly set here.
-	; This fixes these objects disappearing when they're partially off-screen vertically.
-	dc.b  40	; 4
-	dc.b  40	; 5
-    else
 	dc.b   0	; 4
 	dc.b   0	; 5
-    endif
 	dc.b   0	; 6
 	dc.b   0	; 7
 	dc.b   0	; 8
@@ -24196,11 +23207,8 @@ Ani_obj71:	offsetTable
 		offsetTableEntry.w byte_11389	; 2
 		offsetTableEntry.w byte_11392	; 3
 byte_11372:	dc.b   8,  3,  3,  4,  5,  5,  4,$FF
-	rev02even
 byte_1137A:	dc.b   5,  0,  0,  0,  1,  2,  3,  3,  2,  1,  2,  3,  3,  1,$FF
-	rev02even
 byte_11389:	dc.b  $B,  0,  1,  2,  3,  4,  5,$FD,  3
-	rev02even
 byte_11392:	dc.b $7F,  6,$FD,  2
 	even
 
@@ -24334,27 +23342,11 @@ Obj2D_Init:
 	bne.s	+
 	move.w	#make_art_tile(ArtTile_ArtNem_ConstructionStripes_2,1,0),art_tile(a0)
 	move.b	#8,width_pixels(a0)
-    if fixBugs
-	; This is sort of a hack. Chemical Plant and Death Egg use the wrong subtype,
-	; so a more proper fix would be to replace all instances with subtype 3.
-
-	; If you have replaced its layout with its fixed version, this line can be
-	; safely deleted.
-	move.b	#3,subtype(a0)
-    endif
 +
 	cmpi.b	#death_egg_zone,(Current_Zone).w
 	bne.s	+
 	move.w	#make_art_tile(ArtTile_ArtNem_ConstructionStripes_1,1,0),art_tile(a0)
 	move.b	#8,width_pixels(a0)
-    if fixBugs
-	; This is sort of a hack. Chemical Plant and Death Egg use the wrong subtype,
-	; so a more proper fix would be to replace all instances with subtype 3.
-
-	; If you have replaced its layout with its fixed version, this line can be
-	; safely deleted.
-	move.b	#3,subtype(a0)
-    endif
 +
 	cmpi.b	#aquatic_ruin_zone,(Current_Zone).w
 	bne.s	+
@@ -24427,11 +23419,7 @@ Obj2D_Main:
 	move.w	d2,d3
 	addq.w	#1,d3
 	move.w	x_pos(a0),d4
-    if removeJmpTos
-	bsr.w	SolidObject
-    else
 	bsr.w	JmpTo2_SolidObject
-    endif
 	bra.w	MarkObjGone                          ; delete object if off screen
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
@@ -25145,9 +24133,6 @@ JmpTo2_PlaySound2 ; JmpTo
 ; Object 37 - Scattering rings (generated when Sonic is hurt and has rings)
 ; ---------------------------------------------------------------------------
 ; OST Variables:
-  if fixBugs
-lostrings_timer		= objoff_1F	; time until ring is deleted
-  endif
 
 ; Sprite_12078:
 Obj37:
@@ -25199,13 +24184,11 @@ Obj37_Init:
 	move.b	#3,priority(a1)
 	move.b	#$47,collision_flags(a1)
 	move.b	#8,width_pixels(a1)
-  if ~~fixBugs
 	; The ring deletion timer shouldn't be stored as a global variable, since
 	; it makes it possible to reset it for all lost rings by getting hit twice
 	; in quick succession (this is more noticeable in two player mode). Instead,
 	; we'll handle it as an SST.
 	move.b	#-1,(Ring_spill_anim_counter).w		; reset deletion/animation timer
-  endif
 	tst.w	d4
 	bmi.s	+
 	move.w	d4,d0
@@ -25228,11 +24211,6 @@ Obj37_Init:
 	neg.w	d4
 	dbf	d5,-
 +
-  if fixBugs
-	moveq	#-1,d0
-	move.b	d0,lostrings_timer(a0)		; reset deletion/animation timer
-	move.b	d0,(Ring_spill_anim_counter).w	; we still need this for the animation
-  endif
 	move.w	#SndID_RingSpill,d0
 	jsr	(PlaySound2).l
 	tst.b	parent+1(a0)	; did Tails grab the ring?
@@ -25274,13 +24252,8 @@ Obj37_Main:
 	neg.w	y_vel(a0)
 ; loc_121B8:
 Obj37_CheckBoundary:
-  if fixBugs
-	subq.b	#1,lostrings_timer(a0)		; has the timer finished?
-	beq.s	Obj37_Delete			; if yes, branch
-  else
 	tst.b	(Ring_spill_anim_counter).w	; has the animation finished?
 	beq.s	Obj37_Delete			; if yes, branch
-  endif
 	; The code below is programmed to automatically delete rings if they hit
 	; the bottom of the screen, however it does not take into account vertical
 	; wrapping, leading to a situation where the player will unfairly lose all
@@ -25595,16 +24568,6 @@ Obj26_Init:
 	lea	(Object_Respawn_Table).w,a2
 	moveq	#0,d0
 	move.b	respawn_index(a0),d0
-    if fixBugs
-	; If you spawn a monitor in Debug Mode and destroy it, then every
-	; monitor that is spawned with Debug Mode afterwards will be broken.
-	; The cause of the bug is that the spawned monitor does not have a
-	; respawn entry, but this object fails to check for that before
-	; accessing the respawn table.
-	; Knuckles in Sonic 2 contains this half of the bugfix, but not the
-	; other half under 'Obj26_SpawnSmoke'.
-	beq.s	+
-    endif
 	bclr	#7,Obj_respawn_data-Object_Respawn_Table(a2,d0.w)
 	btst	#0,Obj_respawn_data-Object_Respawn_Table(a2,d0.w)	; if this bit is set it means the monitor is already broken
 	beq.s	+
@@ -25753,14 +24716,6 @@ Obj26_SpawnSmoke:
 	lea	(Object_Respawn_Table).w,a2
 	moveq	#0,d0
 	move.b	respawn_index(a0),d0
-    if fixBugs
-	; If you spawn a monitor in Debug Mode and destroy it, then every
-	; monitor that is spawned with Debug Mode afterwards will be broken.
-	; The cause of the bug is that the spawned monitor does not have a
-	; respawn entry, but this object fails to check for that before
-	; accessing the respawn table.
-	beq.s	+
-    endif
 	bset	#0,Obj_respawn_data-Object_Respawn_Table(a2,d0.w)	; mark monitor as destroyed
 +
 	move.b	#$A,anim(a0)
@@ -26643,13 +25598,6 @@ Obj0E_Tails_Index: offsetTable
 
 Obj0E_Tails_Init:
 	addq.b	#2,routine_secondary(a0)	; Obj0E_Tails_Move
-    if fixBugs
-	; Tails' priority is never set, even though it is set in
-	; 'TitleScreen_SetFinalState', suggesting that it was meant to be.
-	; This causes Tails to be layered behind Sonic instead of in front of
-	; him.
-	move.b	#3,priority(a0)
-    endif
 	move.w	#spriteScreenPositionXCentered(-72),x_pixel(a0)
 	move.w	#spriteScreenPositionYCentered(-24),y_pixel(a0)
 	move.b	#1,anim(a0)
@@ -26834,13 +25782,8 @@ Obj0E_SonicHand_Index: offsetTable
 Obj0E_SonicHand_Init:
 	addq.b	#2,routine_secondary(a0)	; Obj0E_SonicHand_Move
 	move.b	#9,mapping_frame(a0)
-    if fixBugs
-	; This matches 'TitleScreen_SetFinalState'.
-	move.b	#2,priority(a0)
-    else
 	; This is inconsistent with 'TitleScreen_SetFinalState'.
 	move.b	#3,priority(a0)
-    endif
 	move.w	#spriteScreenPositionXCentered(37),x_pixel(a0)
 	move.w	#spriteScreenPositionYCentered(-49),y_pixel(a0)
 
@@ -26878,14 +25821,9 @@ Obj0E_TailsHand_Index: offsetTable
 Obj0E_TailsHand_Init:
 	addq.b	#2,routine_secondary(a0)	; Obj0E_TailsHand_Move
 	move.b	#$13,mapping_frame(a0)
-    if fixBugs
-	; This matches 'TitleScreen_SetFinalState'.
-	move.b	#2,priority(a0)
-    else
 	; This is inconsistent with 'TitleScreen_SetFinalState', and causes
 	; the hand to be layered behind Tails if his priority is fixed.
 	move.b	#3,priority(a0)
-    endif
 	move.w	#spriteScreenPositionXCentered(-17),x_pixel(a0)
 	move.w	#spriteScreenPositionYCentered(-27),y_pixel(a0)
 
@@ -27285,13 +26223,11 @@ Ani_obj0E_Sonic:
 	dc.b   5
 	dc.b   6
 	dc.b   7
-    if ~~fixBugs
 	; This appears to be a leftover prototype frame: it's a duplicate of
 	; frame $12, except Sonic is missing his right arm. The old frame
 	; being here in this animation script causes Sonic to appear with
 	; both of his arms missing for a single frame.
 	dc.b   8
-    endif
 	dc.b $FA
 	even
 ; byte_13694:
@@ -27755,13 +26691,9 @@ Obj39_SlideIn:
 Obj39_SetTimer:
 	move.w	#$2D0,anim_frame_duration(a0)
 	addq.b	#2,routine(a0)
-    if fixBugs
-	bra.w	DisplaySprite
-    else
 	; There should be a branch to DisplaySprite here, but there isn't,
 	; causing a one-frame flicker when the two words combine.
 	rts
-    endif
 ; ===========================================================================
 ; loc_13FEE:
 Obj39_Wait:
@@ -28568,11 +27500,7 @@ Obj6F_MoveAndDisplay:
 	bne.w	Obj34_MoveTowardsTargetPosition
 	move.w	#$B4,anim_frame_duration(a0)
 	move.b	#$20,routine(a0)	; => Obj6F_TimedDisplay
-    if removeJmpTos
-	jmp	(DisplaySprite).l
-    else
 	bra.w	DisplaySprite
-    endif
 ; ===========================================================================
 ;byte_14752
 Obj6F_SubObjectMetaData:
@@ -29913,29 +28841,7 @@ RunObjectDisplayOnly:
 	; This check prevents objects that do exist, but haven't been initialised yet, from being displayed.
 	_btst	#render_flags.on_screen,render_flags(a0)	; was the object displayed on the previous frame?
 	_beq.s	+						; if not, skip it
-    if fixBugs
-	; If this is a multi-sprite object, then we cannot use its 'priority'
-	; value to display it as it's being used for coordinate data.
-	; In theory, this means that calls to 'DisplaySprite' here could
-	; overflow the 'Object_Display_Lists' buffer and write to 'Object_RAM'
-	; instead, which could be quite disasterous. However, I don't think
-	; it's possible for an object to have a Y coordinate higher than
-	; $7FF, so, in practice, the overflow never occurs. Still, it can
-	; result in objects displaying on a random layer. The best we can do
-	; is force them to display on a certain layer consistently.
-	; This quirk becomes a much bigger problem if you extend the
-	; 'priority' value to 16-bit, such as if you've ported S3K's priority
-	; manager, rather than just the upper byte of the Y coordinate being
-	; read as priority data, the whole word is. This makes it much more
-	; likely to lead to buffer overflow and memory corruption.
-	pea	+(pc)	; This is an optimisation to avoid the need for extra branches: it makes it so '+' will be executed after 'DisplaySprite' or 'DisplaySprite3' return.
-	btst	#render_flags.multi_sprite,render_flags(a0)	; Is this a multi-sprite object?
-	beq.w	DisplaySprite					; If not, display using the object's 'priority' value.
-	move.w	#object_display_list_size*4,d0			; If so, display using a hardcoded priority of 4.
-	bra.w	DisplaySprite3
-    else
 	bsr.w	DisplaySprite
-    endif
 +
 	lea	next_object(a0),a0 ; load 0bj address
 	dbf	d7,RunObjectDisplayOnly
@@ -30802,7 +29708,6 @@ BuildSprites_MultiDraw_NextObj:
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
-    if ~~fixBugs
 	; This check has been moved, so it is redundant.
 	; See the bugfix under 'DrawSprite_Loop'.
 ; sub_1680A:
@@ -30811,7 +29716,6 @@ ChkDrawSprite:
 	blo.s	DrawSprite_Cont	; if it hasn't, branch
 	rts	; otherwise, return
 ; End of function ChkDrawSprite
-    endif
 
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
@@ -30819,41 +29723,19 @@ ChkDrawSprite:
 ; sub_16812:
 DrawSprite:
 	movea.w	art_tile(a0),a3
-    if ~~fixBugs
 	; This check has been moved, so it is redundant.
 	; See the bugfix under 'DrawSprite_Loop'.
 	cmpi.b	#80,d5
 	bhs.s	DrawSprite_Done
-    endif
 
-    if fixBugs
-; sub_1680A:
-ChkDrawSprite:
-    else
 ; loc_1681C:
 DrawSprite_Cont:
-    endif
 	btst	#0,d4	; is the sprite to be X-flipped?
 	bne.s	DrawSprite_FlipX	; if it is, branch
 	btst	#1,d4	; is the sprite to be Y-flipped?
 	bne.w	DrawSprite_FlipY	; if it is, branch
 ; loc__1682A:
 DrawSprite_Loop:
-    if fixBugs
-	; In a rather overzealous optimisation, this game doesn't check if
-	; the sprite limit has been reached every time it processes a sprite
-	; piece. Naturally, this leads to the 'Sprite_Table' buffer being
-	; overflowed if too many sprites are processed. To mitigate this, the
-	; developers placed an $80 byte large spill buffer after
-	; 'Sprite_Table', to 'catch' the overflow. Unfortunately, this spill
-	; buffer is not big enough to catch all overflow: this oversight is
-	; responsible for the famous 'Ashua' bug. To fix this, we'll just
-	; undo this optimistaion. Sonic 3 & Knuckles undid this optimistaion
-	; too, but heavily optimised the rest of 'BuildSprites' to make up
-	; for it.
-	cmpi.b	#80,d5		; has the sprite limit been reached?
-	bhs.s	DrawSprite_Done	; if it has, branch
-    endif
 	move.b	(a1)+,d0
 	ext.w	d0
 	add.w	d2,d0
@@ -30883,11 +29765,6 @@ DrawSprite_FlipX:
 	bne.w	DrawSprite_FlipXY	; if it is, branch
 
 -
-    if fixBugs
-	; See the bugfix under 'DrawSprite_Loop'.
-	cmpi.b	#80,d5		; has the sprite limit been reached?
-	bhs.s	++		; if it has, branch
-    endif
 	move.b	(a1)+,d0
 	ext.w	d0
 	add.w	d2,d0
@@ -30931,11 +29808,6 @@ CellOffsets_YFlip:
 ; loc_168B4:
 DrawSprite_FlipY:
 -
-    if fixBugs
-	; See the bugfix under 'DrawSprite_Loop'.
-	cmpi.b	#80,d5		; has the sprite limit been reached?
-	bhs.s	++		; if it has, branch
-    endif
 	move.b	(a1)+,d0
 	move.b	(a1),d4
 	ext.w	d0
@@ -30973,11 +29845,6 @@ CellOffsets_YFlip2:
 ; loc_168FC:
 DrawSprite_FlipXY:
 -
-    if fixBugs
-	; See the bugfix under 'DrawSprite_Loop'.
-	cmpi.b	#80,d5		; has the sprite limit been reached?
-	bhs.s	++		; if it has, branch
-    endif
 	move.b	(a1)+,d0
 	move.b	(a1),d4
 	ext.w	d0
@@ -31028,20 +29895,7 @@ CellOffsets_XFlip2:
 
 ; loc_1694E:
 BuildSprites_2P:
-    if fixBugs
-	; Like in Sonic 3, the sprite tables are page-flipped in two-player mode.
-	; This fixes a race-condition where incomplete sprite tables can be uploaded
-	; to the VDP on lag frames, causing corrupted sprites to appear.
-
-	; Modify the back buffer.
 	lea	(Sprite_Table).w,a2
-	tst.b	(Current_sprite_table_page).w
-	beq.s	+
-	lea	(Sprite_Table_Alternate).w,a2
-+
-    else
-	lea	(Sprite_Table).w,a2
-    endif
 	moveq	#2,d5
 	moveq	#0,d4
 	move.l	#$1D80F01,(a2)+	; mask all sprites
@@ -31168,22 +30022,9 @@ BuildSprites_P1_NextLevel:
 
 ; loc_16A7A:
 BuildSprites_P2:
-    if fixBugs
-	; Like in Sonic 3, the sprite tables are page-flipped in two-player mode.
-	; This fixes a race-condition where incomplete sprite tables can be uploaded
-	; to the VDP on lag frames, causing corrupted sprites to appear.
-
-	; Modify the back buffer.
-	lea	(Sprite_Table_P2).w,a2
-	tst.b	(Current_sprite_table_page).w
-	beq.s	+
-	lea	(Sprite_Table_P2_Alternate).w,a2
-+
-    else
 	tst.w	(Hint_flag).w	; has H-int occured yet?
 	bne.s	BuildSprites_P2	; if not, wait
 	lea	(Sprite_Table_P2).w,a2
-    endif
 	moveq	#0,d5
 	moveq	#0,d4
 	tst.b	(Level_started_flag).w
@@ -31291,11 +30132,6 @@ BuildSprites_P2_NextLevel:
 	lea	object_display_list_size(a4),a4
 	dbf	d7,BuildSprites_P2_LevelLoop
 
-    if fixBugs
-	; The new sprite tables are complete: signal a page flip to
-	; allow them to be uploaded to the VDP!
-	st.b	(Sprite_table_page_flip_pending).w
-    endif
 
 	move.b	d5,(Sprite_count).w
 	; Terminate the sprite list.
@@ -31530,7 +30366,6 @@ Adjust2PArtPointer2:
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
-    if ~~fixBugs
 	; This check has been moved, so it is redundant.
 	; See the bugfix under 'DrawSprite_Loop'.
 ; sub_16DA6:
@@ -31544,7 +30379,6 @@ ChkDrawSprite_2P:
 	blo.s	DrawSprite_2P_Loop
 	rts
 ; End of function ChkDrawSprite_2P
-    endif
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
@@ -31553,27 +30387,16 @@ ChkDrawSprite_2P:
 ; sub_16DAE:
 DrawSprite_2P:
 	movea.w	art_tile(a0),a3
-    if ~~fixBugs
 	; This check has been moved, so it is redundant.
 	; See the bugfix under 'DrawSprite_Loop'.
 	cmpi.b	#80,d5
 	bhs.s	DrawSprite_2P_Done
-    endif
-    if fixBugs
-; sub_16DA6:
-ChkDrawSprite_2P:
-    endif
 	btst	#0,d4
 	bne.s	DrawSprite_2P_FlipX
 	btst	#1,d4
 	bne.w	DrawSprite_2P_FlipY
 ; loc_16DC6:
 DrawSprite_2P_Loop:
-    if fixBugs
-	; See the bugfix under 'DrawSprite_Loop'.
-	cmpi.b	#80,d5			; has the sprite limit been reached?
-	bhs.s	DrawSprite_2P_Done	; if it has, branch
-    endif
 	move.b	(a1)+,d0
 	ext.w	d0
 	add.w	d2,d0
@@ -31617,11 +30440,6 @@ DrawSprite_2P_FlipX:
 	bne.w	DrawSprite_2P_FlipXY
 
 -
-    if fixBugs
-	; See the bugfix under 'DrawSprite_Loop'.
-	cmpi.b	#80,d5		; has the sprite limit been reached?
-	bhs.s	++		; if it has, branch
-    endif
 	move.b	(a1)+,d0
 	ext.w	d0
 	add.w	d2,d0
@@ -31665,11 +30483,6 @@ byte_16E56:
 ; loc_16E66:
 DrawSprite_2P_FlipY:
 -
-    if fixBugs
-	; See the bugfix under 'DrawSprite_Loop'.
-	cmpi.b	#80,d5		; has the sprite limit been reached?
-	bhs.s	++		; if it has, branch
-    endif
 	move.b	(a1)+,d0
 	move.b	(a1),d4
 	ext.w	d0
@@ -31720,11 +30533,6 @@ byte_16EB2:
 ; loc_16EC2:
 DrawSprite_2P_FlipXY:
 -
-    if fixBugs
-	; See the bugfix under 'DrawSprite_Loop'.
-	cmpi.b	#80,d5		; has the sprite limit been reached?
-	bhs.s	++		; if it has, branch
-    endif
 	move.b	(a1)+,d0
 	move.b	(a1),d4
 	ext.w	d0
@@ -31991,14 +30799,10 @@ Touch_Rings:
 	move.b	y_radius(a0),d5
 	subq.b	#3,d5
 	sub.w	d5,d3	; subtract (Y radius - 3) from Y pos
-    if fixBugs
-	cmpi.b	#AniIDSonAni_Duck,anim(a0)	; is Sonic ducking?
-    else
 	; This logic only works for Sonic, not Tails. Also, it only applies
 	; to the last frame of his ducking animation. This is a leftover from
 	; Sonic 1, where Sonic's ducking animation only had one frame.
 	cmpi.b	#$4D,mapping_frame(a0)	; is Sonic ducking?
-    endif
 	bne.s	+				; if not, branch
 	addi.w	#$C,d3
 	moveq	#$A,d5
@@ -32081,16 +30885,11 @@ BuildRings_Loop:
 	addi.w	#spriteScreenPositionX(0),d3		; screen top-left is 128x128 not 0x0
 	move.w	4(a0),d2	; get ring Y pos
 	sub.w	4(a3),d2	; subtract camera Y pos
-    if fixBugs
-	addi_.w	#8,d2
-	andi.w	#$7FF,d2
-    else
 	; Note that this 'andi' occurs *before* an 'addi'. This can cause
 	; 'd2' to wrap incorrectly. This defect is the reason why rings
 	; disappear when they go halfway off the top of the screen.
 	andi.w	#$7FF,d2
 	addi_.w	#8,d2
-    endif
 	; This line is completely redundant: an apparent leftover from one of the
 	; prototypes, back when the above 'andi' didn't exist. S3K gets rid of this.
 	bmi.s	BuildRings_NextRing
@@ -32136,12 +30935,8 @@ BuildRings_NextRing:
 ; loc_171F8:
 BuildRings_P1:
 	lea	(Camera_X_pos).w,a3
-    if fixBugs
-	move.w	#spriteScreenPositionY2P(-8),d6
-    else
 	; See the below bugfixes.
 	move.w	#spriteScreenPositionY(-8),d6
-    endif
 	movea.w	(Ring_start_addr).w,a0
 	movea.w	(Ring_end_addr).w,a4
 	cmpa.l	a0,a4	; are there rings on-screen?
@@ -32157,12 +30952,8 @@ BuildRings_P1:
 ; loc_1720E:
 BuildRings_P2:
 	lea	(Camera_X_pos_P2).w,a3
-    if fixBugs
-	move.w	#spriteScreenPositionY2P(screen_height-8),d6
-    else
 	; See the below bugfixes.
 	move.w	#spriteScreenPositionY(screen_height-8),d6
-    endif
 	movea.w	(Ring_start_addr_P2).w,a0
 	movea.w	(Ring_end_addr_P2).w,a4
 	cmpa.l	a0,a4	; are there rings on-screen?
@@ -32178,23 +30969,15 @@ BuildRings_2P_Loop:
 	addi.w	#spriteScreenPositionX(0),d3
 	move.w	4(a0),d2	; get ring Y pos
 	sub.w	4(a3),d2	; subtract camera Y pos
-    if fixBugs
-	addq.w	#8,d2
-	andi.w	#$7FF,d2
-    else
 	; Note that this 'andi' occurs *before* an 'addi'. This can cause
 	; 'd2' to wrap incorrectly. This defect is the reason why rings disappear
 	; when they go halfway off the top of the screen. To fix this, simply
 	; swap these two instructions around.
 	andi.w	#$7FF,d2
 	addi.w	#spriteScreenPositionY(8),d2
-    endif
 	; This line is completely redundant: an apparent leftover from one of the
 	; prototypes, back when the above 'andi' didn't exist. S3K gets rid of this.
 	bmi.s	BuildRings_2P_NextRing
-    if fixBugs
-	cmpi.w	#screen_height+8*2,d2
-    else
 	; Fixing the above bug exposes another issue: this instruction and
 	; the above 'addi' should not have 128 added to their values. Instead,
 	; 128 should be added to the values assigned to 'd6' in 'BuildRings_P1'
@@ -32203,7 +30986,6 @@ BuildRings_2P_Loop:
 	; 128 line region above the top of the screen where the rings are
 	; off-screen, but not culled.
 	cmpi.w	#spriteScreenPositionY(screen_height+8*2),d2
-    endif
 
 	; The above 'andi' means that this could just be a plain 'bhs'. S3K does this.
 	bge.s	BuildRings_2P_NextRing
@@ -32263,12 +31045,8 @@ RingsManager_Setup:
 	; d0 = 0
 	lea	(Ring_consumption_table).w,a1
 
-    if fixBugs
-	move.w	#bytesToLcnt(Ring_consumption_table_End-Ring_consumption_table),d1
-    else
 	; Coding error, that '-$40' shouldn't be there: only half of 'Ring_consumption_table' is cleared.
 	move.w	#bytesToLcnt(Ring_consumption_table_End-Ring_consumption_table-$40),d1
-    endif
 -	move.l	d0,(a1)+
 	dbf	d1,-
 
@@ -32556,14 +31334,10 @@ Check_CNZ_bumpers:
 	move.b	y_radius(a0),d5
 	subq.b	#3,d5
 	sub.w	d5,d3
-    if fixBugs
-	cmpi.b	#AniIDSonAni_Duck,anim(a0)	; is Sonic ducking?
-    else
 	; This logic only works for Sonic, not Tails. Also, it only applies
 	; to the last frame of his ducking animation. This is a leftover from
 	; Sonic 1, where Sonic's ducking animation only had one frame.
 	cmpi.b	#$4D,mapping_frame(a0)	; is Sonic ducking?
-    endif
 	bne.s	+				; if not, branch
 	addi.w	#$C,d3
 	moveq	#$A,d5
@@ -32922,17 +31696,6 @@ loc_177FA:
 	jmp	(PlaySound).l
 ; ===========================================================================
 SpecialCNZBumpers_Act1:
-    if fixBugs
-	; Sonic Team forgot to start this file with a boundary marker,
-	; meaning the game could potentially read past the start of the file
-	; and load random bumpers. In a stroke of luck, the above `jmp`
-	; instruction happens to resemble a boundary marker well enough to
-	; prevent any misbehaviour. However, this is not the case in
-	; 'Knuckles in Sonic 2' due to the code being located at a
-	; wildly-different address, which necessitated that this bug be fixed
-	; properly, like this.
-	dc.w	$0000, $0000, $0000
-    endif
 	BINCLUDE	"data/level/objects/CNZ 1 bumpers.bin"	; byte_1781A
 
 SpecialCNZBumpers_Act2:
@@ -33001,23 +31764,13 @@ ObjectsManager_Init:
 	move.w	#$0101,(a2)+	; the first two bytes are not used as respawn values
 	; instead, they are used to keep track of the current respawn indexes
 
-    if fixBugs
-	move.w	#bytesToLcnt(Obj_respawn_data_End-Obj_respawn_data),d0 ; set loop counter
-    else
 	; This clears longwords, but the loop counter is measured in words!
 	; This causes $17C bytes to be cleared instead of $BE.
 	move.w	#bytesToWcnt(Obj_respawn_data_End-Obj_respawn_data),d0 ; set loop counter
-    endif
 
 -	clr.l	(a2)+		; loop clears all other respawn values
 	dbf	d0,-
 
-    if fixBugs
-	; Clear the last word, since the above loop only does longwords.
-    if (Obj_respawn_data_End-Obj_respawn_data)&2
-	clr.w	(a2)+
-    endif
-    endif
 
 	lea	(Obj_respawn_index).w,a2	; reset a2
 	moveq	#0,d2
@@ -33811,12 +32564,6 @@ ObjectLayoutBoundary macro
 	dc.w	$FFFF, $0000, $0000
     endm
 
-    if fixBugs
-	; Sonic Team forgot to put a boundary marker here, meaning the game
-	; could potentially read past the start of the file and load random
-	; objects.
-	ObjectLayoutBoundary
-    endif
 
 ; byte_1802A;
     if gameRevision=0
@@ -34469,7 +33216,6 @@ byte_18FEE:
 	dc.b  $F
 	dc.b   0	; 1
 	dc.b $FF	; 2
-	rev02even
 byte_18FF1:
 	dc.b   0
 	dc.b   1	; 1
@@ -34483,12 +33229,10 @@ byte_18FF1:
 	dc.b   2	; 9
 	dc.b $FD	; 10
 	dc.b   0	; 11
-	rev02even
 byte_18FFD:
 	dc.b  $F
 	dc.b   3	; 1
 	dc.b $FF	; 2
-	rev02even
 byte_19000:
 	dc.b   0
 	dc.b   4	; 1
@@ -34502,12 +33246,10 @@ byte_19000:
 	dc.b   5	; 9
 	dc.b $FD	; 10
 	dc.b   2	; 11
-	rev02even
 byte_1900C:
 	dc.b  $F
 	dc.b   7	; 1
 	dc.b $FF	; 2
-	rev02even
 byte_1900F:
 	dc.b   0
 	dc.b   8	; 1
@@ -34858,27 +33600,14 @@ Obj0D_RingSparklePositions:
 Obj0D_Main_State3:
 	tst.w	(Debug_placement_mode).w
 	bne.w	return_194D0
-    if fixBugs
-	; This function's checks are a mess, creating an edgecase where it's
-	; possible for the player to avoid having their controls locked by
-	; jumping at the right side of the screen just as the score tally
-	; appears.
-	tst.b	(MainCharacter+id).w
-	beq.s	loc_1944C
-	btst	#status.player.in_air,(MainCharacter+status).w
-	bne.w	return_194D0
-    else
 	btst	#status.player.in_air,(MainCharacter+status).w
 	bne.s	loc_19434
-    endif
 	move.b	#1,(Control_Locked).w
 	move.w	#(button_right_mask<<8)|0,(Ctrl_1_Logical).w
-    if ~~fixBugs
 loc_19434:
 	; This check here is for S1's Big Ring, which would set Sonic's Object ID to 0
 	tst.b	(MainCharacter+id).w
 	beq.s	loc_1944C
-    endif
 	move.w	(MainCharacter+x_pos).w,d0
 	move.w	(Camera_Max_X_pos).w,d1
 	addi.w	#$128,d1
@@ -35006,13 +33735,9 @@ Ani_obj0D:	offsetTable
 		offsetTableEntry.w byte_195B7	; 3
 		offsetTableEntry.w byte_195BA	; 4
 byte_19598:	dc.b	$0F, $02, $FF
-	rev02even
 byte_1959B:	dc.b	$01, $02, $03, $04, $05, $01, $03, $04, $05, $00, $03, $04, $05, $FF
-	rev02even
 byte_195A9:	dc.b	$01, $02, $03, $04, $05, $01, $03, $04, $05, $00, $03, $04, $05, $FF
-	rev02even
 byte_195B7:	dc.b	$0F, $00, $FF
-	rev02even
 byte_195BA:	dc.b	$0F, $01, $FF
 	even
 ; -------------------------------------------------------------------------------
@@ -35509,18 +34234,6 @@ SolidObject_TestClearPush:
 	beq.s	SolidObject_NoCollision	; if not, branch
 	cmpi.b	#AniIDSonAni_Roll,anim(a1)
 	beq.s	Solid_NotPushing
-    if fixBugs
-	; Prevent Sonic or Tails from entering their running animation when
-	; stood next to solid objects while charging a Spin Dash, dying, or
-	; drowning. One way to see this bug is by charging a Spin Dash while
-	; next to one of Mystic Cave Zone's crushing pillars.
-	cmpi.b	#AniIDSonAni_Spindash,anim(a1)
-	beq.s	Solid_NotPushing
-	cmpi.b	#AniIDSonAni_Death,anim(a1)
-	beq.s	Solid_NotPushing
-	cmpi.b	#AniIDSonAni_Drown,anim(a1)
-	beq.s	Solid_NotPushing
-    endif
 	move.w	#(AniIDSonAni_Walk<<8)|(AniIDSonAni_Run<<0),anim(a1) ; use walking animation (and force it to restart)
 ; loc_19ADC:
 Solid_NotPushing:
@@ -35549,32 +34262,15 @@ SolidObject_TopBottom:
 ; ===========================================================================
 ; loc_19B06:
 SolidObject_InsideBottom:
-    if fixBugs
-	; Squash the player while on the ground and at angles within
-	; [$18, -$18]. We need the angle check or else touching the bottom of
-	; a solid object while going up a steep slope or wall would also
-	; squash the player.
-	btst	#status.player.in_air,status(a1)
-	bne.s	.inair
-	move.b	angle(a1),d4
-	addi.b	#$18,d4
-	cmpi.b	#$30,d4
-	bls.s	SolidObject_Squash
-
-.inair:
-    endif
 	tst.w	y_vel(a1)		; is Sonic moving vertically?
-    if ~~fixBugs
 	; The player will only be squashed while standing still or on flat
 	; ground. In ARZ, the uneven terrain will make the falling pillar tips
 	; unable to squash the player, who can get pushed through the ground.
 	; We fix this by handling the player's ground state above.
 	beq.s	SolidObject_Squash	; if not, branch
-    endif
 	bpl.s	loc_19B1C		; if moving downwards, branch
 	tst.w	d3			; is Sonic above the object?
 	bpl.s	loc_19B1C		; if yes, branch (this will never be true)
-    if ~~fixBugs
 	; This is in the wrong place: Sonic will not be pushed out of objects
 	; from above if he's not moving upwards against it!
 	; This is much more noticable when playing as Knuckles, as he'll be
@@ -35582,14 +34278,9 @@ SolidObject_InsideBottom:
 	; 'Knuckles in Sonic 2' and 'Sonic 3 & Knuckles' tried to fix this,
 	; but didn't do it very well.
 	sub.w	d3,y_pos(a1)		; Push Sonic out of the object.
-    endif
 	move.w	#0,y_vel(a1)		; Stop Sonic from moving.
 
 loc_19B1C:
-    if fixBugs
-	; See above.
-	sub.w	d3,y_pos(a1)		; Push Sonic out of the object.
-    endif
 	move.w	d6,d4
 	addi.b	#($10-p1_standing_bit+p1_touch_bottom_bit),d4
 	bset	d4,d6	; This sets bits 2 (Sonic) or 3 (Tails) of high word of d6
@@ -35598,11 +34289,9 @@ loc_19B1C:
 ; ===========================================================================
 ; loc_19B28:
 SolidObject_Squash:
-    if ~~fixBugs
 	; This becomes redundant with the above squash-check fix.
 	btst	#status.player.in_air,status(a1)	; is Sonic in the air?
 	bne.s	loc_19B1C	; if yes, branch
-    endif
 	mvabs.w	d0,d4
 
 	; Hey, look: it's the two lines of code that the Taxman/Stealth
@@ -35613,11 +34302,6 @@ SolidObject_Squash:
 	blo.w	SolidObject_LeftRight
 
 	move.l	a0,-(sp)
-    if fixBugs
-	; a2 needs to be set here, otherwise KillCharacter
-	; will access a dangling pointer!
-	movea.l	a0,a2
-    endif
 	movea.l	a1,a0
 	jsr	(KillCharacter).l
 	movea.l	(sp)+,a0 ; load 0bj address
@@ -35639,27 +34323,8 @@ SolidObject_Landed:
 	bmi.s	SolidObject_Miss	; if Sonic is right of object, branch
 	cmp.w	d2,d1			; is Sonic left of object?
 	bhs.s	SolidObject_Miss	; if yes, branch
-    if fixBugs
-	; The original code checks the player's velocity to prevent them from
-	; sticking to the top of the object when moving upward. This is fine,
-	; except that it makes it possible for HTZ's rising floor to go right
-	; through the player in a few places where a shallow slope meets a
-	; wall. To fix this, we skip the velocity check if the player's angle
-	; is within [$10, -$10].
-	btst	#status.player.in_air,status(a1)
-	bne.s	.inair
-	move.b	angle(a1),d0
-	addi.b	#$10,d0
-	cmpi.b	#$20,d0
-	bls.s	.skip
-
-.inair:
-    endif
 	tst.w	y_vel(a1)		; is Sonic moving upwards?
 	bmi.s	SolidObject_Miss	; if yes, branch
-    if fixBugs
-.skip:
-    endif
 	sub.w	d3,y_pos(a1)		; correct Sonic's position
 	subq.w	#1,y_pos(a1)
 	bsr.w	RideObject_SetRide
@@ -35949,22 +34614,8 @@ loc_19D92:
 ; d2 already has the full width of the log.
 ;loc_19D9C:
 PlatformObject11_cont:
-    if fixBugs
-	; See fixes under SolidObject_Landed and PlatformObject_cont.
-	btst	#status.player.in_air,status(a1)
-	bne.s	.inair
-	move.b	angle(a1),d0
-	addi.b	#$10,d0
-	cmpi.b	#$20,d0
-	bls.s	.skip
-
-.inair:
-    endif
 	tst.w	y_vel(a1)
 	bmi.w	return_19E8E
-    if fixBugs
-.skip
-    endif
 	move.w	x_pos(a1),d0
 	sub.w	x_pos(a0),d0
 	add.w	d1,d0
@@ -35975,27 +34626,8 @@ PlatformObject11_cont:
 ; ===========================================================================
 ;loc_19DBA:
 PlatformObject_cont:
-    if fixBugs
-	; See fix under SolidObject_Landed.
-	; Strictly speaking, this fix isn't needed for any platform objects,
-	; but it's still applied for the sake of consistency. The angle check
-	; is necessary to account for platforms that might be placed at the
-	; top of a quarter pipe. Without it, platforms would "catch" players
-	; going up the slope/wall and passing through from below.
-	btst	#status.player.in_air,status(a1)
-	bne.s	.inair
-	move.b	angle(a1),d0
-	addi.b	#$10,d0
-	cmpi.b	#$20,d0
-	bls.s	.skip
-
-.inair:
-    endif
 	tst.w	y_vel(a1)
 	bmi.w	return_19E8E
-    if fixBugs
-.skip
-    endif
 	move.w	x_pos(a1),d0
 	sub.w	x_pos(a0),d0
 	add.w	d1,d0
@@ -36085,22 +34717,8 @@ return_19E8E:
 ; ===========================================================================
 ;loc_19E90:
 SlopedPlatform_cont:
-    if fixBugs
-	; See fixes under SolidObject_Landed and PlatformObject_cont.
-	btst	#status.player.in_air,status(a1)
-	bne.s	.inair
-	move.b	angle(a1),d0
-	addi.b	#$10,d0
-	cmpi.b	#$20,d0
-	bls.s	.skip
-
-.inair:
-    endif
 	tst.w	y_vel(a1)
 	bmi.w	return_19E8E
-    if fixBugs
-.skip
-    endif
 	move.w	x_pos(a1),d0
 	sub.w	x_pos(a0),d0
 	add.w	d1,d0
@@ -36124,22 +34742,8 @@ loc_19EB6:
 ; Basically identical to PlatformObject_cont
 ;loc_19EC8:
 PlatformObject2_cont:
-    if fixBugs
-	; See fixes under SolidObject_Landed and PlatformObject_cont.
-	btst	#status.player.in_air,status(a1)
-	bne.s	.inair
-	move.b	angle(a1),d0
-	addi.b	#$10,d0
-	cmpi.b	#$20,d0
-	bls.s	.skip
-
-.inair:
-    endif
 	tst.w	y_vel(a1)
 	bmi.w	return_19E8E
-    if fixBugs
-.skip
-    endif
 	move.w	x_pos(a1),d0
 	sub.w	x_pos(a0),d0
 	add.w	d1,d0
@@ -36516,18 +35120,13 @@ Obj01_MdNormal:
 	bsr.w	Sonic_Move			; handle Sonic's left/right movement
 	bsr.w	Sonic_Roll			; check for rolling
 
-    if fixBugs
-Obj01_MdNormal_Skip:
-    endif
 	bsr.w	Sonic_LevelBound	; keep Sonic within level bounds and handle bottomless pits
 	jsr	(ObjectMove).l			; update Sonic's position based on his current velocities
 	bsr.w	AnglePos			; update Sonic's current angle as he walks along the floor
 	bsr.w	Sonic_SlopeRepel	; handle Sonic detaching from walls if not fast enough
 
-    if ~~fixBugs
 ; return_1A2DE:
 Obj01_MdNormal_Skip:
-    endif
 	rts
 ; End of subroutine Obj01_MdNormal
 ; ===========================================================================
@@ -36858,20 +35457,9 @@ Obj01_Traction:
 ; stops Sonic from running through walls that meet the ground
 ; loc_1A64E:
 Obj01_CheckWallsOnGround:
-    if fixBugs
-	; These lines were added in S3K to fix an oversight where Sonic could
-	; run through walls if he is upside-down, or moving on a wall when
-	; his angle was exactly $80 (most noticeable in Carnival Night in S3A).
-	move.b	angle(a0),d0	; get Sonic's current angle in relation to the floor
-	andi.b	#$3F,d0			; is Sonic standing on a flat surface in any of the four quadrants?
-	beq.s	.noearlyexit	; if yes, branch
-    endif
 	move.b	angle(a0),d0	; get Sonic's current angle in relation to the floor
 	addi.b	#$40,d0			; rotate it by 90 degrees
 	bmi.s	return_1A6BE	; if Sonic is upside down, branch (to prevent potential collision issues with loops)
-    if fixBugs
-.noearlyexit:
-    endif
 	move.b	#$40,d1			; Rotate 90 degrees clockwise
 	tst.w	inertia(a0)		; Check inertia
 	beq.s	return_1A6BE	; If not moving, don't do anything
@@ -36951,11 +35539,6 @@ Sonic_TurnLeft:
 	move.w	#-$80,d0		; set minimum speed on sign change
 +
 	move.w	d0,inertia(a0)	; set new ground speed
-    if fixBugs
-	move.b	angle(a0),d1	; get Sonic's current angle
-	addi.b	#$20,d1			; rotate by 45 degrees clockwise
-	andi.b	#$C0,d1			; snap to nearest multiple of 90 degrees
-    else
 	; These three instructions partially overwrite the inertia value in
 	; 'd0'! This causes the character to trigger their skidding
 	; animation at different speeds depending on whether they're going
@@ -36964,7 +35547,6 @@ Sonic_TurnLeft:
 	move.b	angle(a0),d0	; get Sonic's current angle (and partially overwrite d0...)
 	addi.b	#$20,d0			; rotate by 45 degrees clockwise
 	andi.b	#$C0,d0			; snap to nearest multiple of 90 degrees
-    endif
 	bne.s	return_1A744	; if Sonic is on a wall or ceiling, prevent stopping animation
 	cmpi.w	#$400,d0		; has Sonic changed direction while being really fast?
 	blt.s	return_1A744	; if not, don't play skidding animation/sound
@@ -37012,11 +35594,6 @@ Sonic_TurnRight:
 	move.w	#$80,d0	; set minimum speed on sign change
 +
 	move.w	d0,inertia(a0)	; set new ground speed
-    if fixBugs
-	move.b	angle(a0),d1	; get Sonic's current angle
-	addi.b	#$20,d1			; rotate by 45 degrees clockwise
-	andi.b	#$C0,d1			; snap to nearest multiple of 90 degrees
-    else
 	; These three instructions partially overwrite the inertia value in
 	; 'd0'! This causes the character to trigger their skidding
 	; animation at different speeds depending on whether they're going
@@ -37025,7 +35602,6 @@ Sonic_TurnRight:
 	move.b	angle(a0),d0	; get Sonic's current angle (and partially overwrite d0...)
 	addi.b	#$20,d0			; rotate by 45 degrees clockwise
 	andi.b	#$C0,d0			; snap to nearest multiple of 90 degrees
-    endif
 	bne.s	return_1A7C4	; if Sonic is on a wall or ceiling, prevent stopping animation
 	cmpi.w	#-$400,d0		; has Sonic changed direction while being really fast?
 	bgt.s	return_1A7C4	; if not, don't play skidding animation/sound
@@ -37296,28 +35872,12 @@ Sonic_LevelBound:
 ; loc_1A9A6:
 Sonic_Boundary_CheckBottom:
 	move.w	(Camera_Max_Y_pos).w,d0
-    if fixBugs
-	; The original code does not consider that the camera boundary
-	; may be in the middle of lowering itself, which is why going
-	; down the S-tunnel in Green Hill Zone Act 1 fast enough can
-	; kill Sonic.
-	move.w	(Camera_Max_Y_pos_target).w,d1
-	cmp.w	d0,d1
-	blo.s	.skip
-	move.w	d1,d0
-.skip:
-    endif
 	addi.w	#screen_height,d0
 	cmp.w	y_pos(a0),d0		; has Sonic touched the bottom boundary?
 	blt.s	Sonic_Boundary_Bottom	; if yes, branch
 	rts
 ; ---------------------------------------------------------------------------
 Sonic_Boundary_Bottom: ;;
-    if fixBugs
-	; a2 needs to be set here, otherwise KillCharacter
-	; will access a dangling pointer!
-	movea.l	a0,a2
-    endif
 	jmpto	JmpTo_KillCharacter
 ; ===========================================================================
 
@@ -37421,14 +35981,12 @@ Sonic_Jump:
 	clr.b	stick_to_convex(a0)
 	move.w	#SndID_Jump,d0
 	jsr	(PlaySound).l	; play jumping sound
-    if ~~fixBugs
 	; These lines are a remnant of the victory animation that would play
 	; when jumping at the end of a stage in the Sonic 1 prototype. Not only
 	; are these two lines now useless, they also cause Sonic to incorrectly
 	; reset to his standing collision when roll-jumping.
 	move.b	#$13,y_radius(a0)
 	move.b	#9,x_radius(a0)
-    endif
 	btst	#status.player.rolling,status(a0)
 	bne.s	Sonic_RollJump
 	move.b	#$E,y_radius(a0)
@@ -37503,20 +36061,7 @@ Sonic_CheckGoSuper:
 	bne.s	return_1ABA4		; if not, branch
 	cmpi.w	#50,(Ring_count).w	; does Sonic have at least 50 rings?
 	blo.s	return_1ABA4		; if not, branch
-    if gameRevision>=2
-	; fixes a bug where the player can get stuck if transforming at the end of a level
-	tst.b	(Update_HUD_timer).w	; has Sonic reached the end of the act?
-	beq.s	return_1ABA4		; if yes, branch
-    endif
 
-    if fixBugs
-	; If Sonic was executing a roll-jump when he turned Super, then this
-	; will remove him from that state. The original code forgot to do
-	; this.
-	andi.b	#~(1<<status.player.rolling|1<<status.player.rolljumping),status(a0)	; Clear bits 2 and 4
-	move.b	#$13,y_radius(a0)
-	move.b	#9,x_radius(a0)
-    endif
 	move.b	#1,(Super_Sonic_palette).w
 	move.b	#$F,(Palette_timer).w
 	move.b	#1,(Super_Sonic_flag).w
@@ -37652,25 +36197,11 @@ Sonic_UpdateSpindash:
 	; This is seemingly to prevent Sonic from going off-screen.
 	move.w	inertia(a0),d0
 	subi.w	#$800,d0 ; $800 is the lowest spin dash speed
-    if fixBugs
-	; To fix a bug in 'ScrollHoriz', we need an extra variable, so this
-	; code has been modified to make the delay value only a single byte.
-	; The lower byte has been repurposed to hold a copy of the position
-	; array index at the time that the spin dash was released.
-	; This is used by the fixed 'ScrollHoriz'.
-	lsr.w	#7,d0
-	neg.w	d0
-	addi.w	#$20,d0
-	move.b	d0,(Horiz_scroll_delay_val).w
-	; Back up the position array index for later.
-	move.b	(Sonic_Pos_Record_Index+1).w,(Horiz_scroll_delay_val+1).w
-    else
 	add.w	d0,d0
 	andi.w	#$1F00,d0 ; This line is not necessary, as none of the removed bits are ever set in the first place
 	neg.w	d0
 	addi.w	#$2000,d0
 	move.w	d0,(Horiz_scroll_delay_val).w
-    endif
 
 	btst	#status.player.x_flip,status(a0)
 	beq.s	+
@@ -38036,24 +36567,6 @@ Sonic_HitFloor:
 	bsr.w	Sonic_CheckFloor
 	tst.w	d1
 	bpl.s	return_1AFE6
-    if fixBugs
-	; When Sonic is moving down and a floor collision is detected, there exists
-	; a check that makes it so that he doesn't clip on top of a surface that
-	; he's too far below from. However, said check doesn't exist for when Sonic
-	; is moving left or right. The effects of this can easily be seen if you
-	; place a solid object on a top solid surface and hit the object from the bottom,
-	; where Sonic's Y movement will be cancelled out, causing him to start checking
-	; for floor collision, which makes him clip onto the surface.
-	move.b	y_vel(a0),d2	; get Sonic's fall speed at the time of impact (upper byte only, pixel delta)
-	addq.b	#8,d2		; increase it by one tile
-	neg.b	d2		; mirror it
-	cmp.b	d2,d1		; is result bigger than distance to floor?
-	bge.s	.landed		; if yes, branch
-	cmp.b	d2,d0		; is result bigger than distance to floor? (sloped variant)
-	blt.s	return_1AFE6	; if not, branch
-
-.landed:
-    endif
 	add.w	d1,y_pos(a0)
 	move.b	d3,angle(a0)
 	bsr.w	Sonic_ResetOnFloor
@@ -38132,18 +36645,6 @@ Sonic_HitFloor2:
 	bsr.w	Sonic_CheckFloor
 	tst.w	d1
 	bpl.s	return_1B09E
-    if fixBugs
-	; See explanation in Sonic_HitFloor
-	move.b	y_vel(a0),d2	; get Sonic's fall speed at the time of impact (upper byte only, pixel delta)
-	addq.b	#8,d2		; increase it by one tile
-	neg.b	d2		; mirror it
-	cmp.b	d2,d1		; is result bigger than distance to floor?
-	bge.s	.landed		; if yes, branch
-	cmp.b	d2,d0		; is result bigger than distance to floor? (sloped variant)
-	blt.s	return_1B09E	; if not, branch
-
-.landed:
-    endif
 	add.w	d1,y_pos(a0)
 	move.b	d3,angle(a0)
 	bsr.w	Sonic_ResetOnFloor
@@ -38236,23 +36737,7 @@ Obj01_Hurt_Normal:
 ; ===========================================================================
 ; loc_1B184:
 Sonic_HurtStop:
-    if fixBugs
-	; a2 needs to be set here, otherwise KillCharacter
-	; will access a dangling pointer!
-	movea.l	a0,a2
-    endif
 	move.w	(Camera_Max_Y_pos).w,d0
-    if fixBugs
-	; The original code does not consider that the camera boundary
-	; may be in the middle of lowering itself, which is why going
-	; down the S-tunnel in Green Hill Zone Act 1 fast enough can
-	; kill Sonic.
-	move.w	(Camera_Max_Y_pos_target).w,d1
-	cmp.w	d0,d1
-	blo.s	.skip
-	move.w	d1,d0
-.skip:
-    endif
 	addi.w	#screen_height,d0
 	cmp.w	y_pos(a0),d0
 	blt.w	JmpTo_KillCharacter
@@ -38272,10 +36757,6 @@ Sonic_HurtStop:
 return_1B1C8:
 	rts
 
-    if removeJmpTos
-JmpTo_KillCharacter ; JmpTo
-	jmp	(KillCharacter).l
-    endif
 ; ===========================================================================
 ; makes Sonic recover control after being hurt before landing
 ; seems to be unused
@@ -38733,15 +37214,10 @@ SonAni_Lying_ptr:		offsetTableEntry.w SonAni_Lying		; 32 ; $20
 SonAni_LieDown_ptr:		offsetTableEntry.w SonAni_LieDown	; 33 ; $21
 
 SonAni_Walk:	dc.b $FF, $F,$10,$11,$12,$13,$14, $D, $E,$FF
-	rev02even
 SonAni_Run:	dc.b $FF,$2D,$2E,$2F,$30,$FF,$FF,$FF,$FF,$FF
-	rev02even
 SonAni_Roll:	dc.b $FE,$3D,$41,$3E,$41,$3F,$41,$40,$41,$FF
-	rev02even
 SonAni_Roll2:	dc.b $FE,$3D,$41,$3E,$41,$3F,$41,$40,$41,$FF
-	rev02even
 SonAni_Push:	dc.b $FD,$48,$49,$4A,$4B,$FF,$FF,$FF,$FF,$FF
-	rev02even
 SonAni_Wait:
 	dc.b   5,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1
 	dc.b   1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  2
@@ -38755,57 +37231,31 @@ SonAni_Wait:
 	dc.b   5,  4,  4,  4,  5,  5,  5,  4,  4,  4,  5,  5,  5,  4,  4,  4
 	dc.b   5,  5,  5,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  7,  8,  8
 	dc.b   8,  9,  9,  9,$FE,  6
-	rev02even
 SonAni_Balance:	dc.b   9,$CC,$CD,$CE,$CD,$FF
-	rev02even
 SonAni_LookUp:	dc.b   5, $B, $C,$FE,  1
-	rev02even
 SonAni_Duck:	dc.b   5,$4C,$4D,$FE,  1
-	rev02even
 SonAni_Spindash:dc.b   0,$42,$43,$42,$44,$42,$45,$42,$46,$42,$47,$FF
-	rev02even
 SonAni_Blink:	dc.b   1,  2,$FD,  0
-	rev02even
 SonAni_GetUp:	dc.b   3, $A,$FD,  0
-	rev02even
 SonAni_Balance2:dc.b   3,$C8,$C9,$CA,$CB,$FF
-	rev02even
 SonAni_Stop:	dc.b   5,$D2,$D3,$D4,$D5,$FD,  0 ; halt/skidding animation
-	rev02even
 SonAni_Float:	dc.b   7,$54,$59,$FF
-	rev02even
 SonAni_Float2:	dc.b   7,$54,$55,$56,$57,$58,$FF
-	rev02even
 SonAni_Spring:	dc.b $2F,$5B,$FD,  0
-	rev02even
 SonAni_Hang:	dc.b   1,$50,$51,$FF
-	rev02even
 SonAni_Dash2:	dc.b  $F,$43,$43,$43,$FE,  1
-	rev02even
 SonAni_Dash3:	dc.b  $F,$43,$44,$FE,  1
-	rev02even
 SonAni_Hang2:	dc.b $13,$6B,$6C,$FF
-	rev02even
 SonAni_Bubble:	dc.b  $B,$5A,$5A,$11,$12,$FD,  0 ; breathe
-	rev02even
 SonAni_DeathBW:	dc.b $20,$5E,$FF
-	rev02even
 SonAni_Drown:	dc.b $20,$5D,$FF
-	rev02even
 SonAni_Death:	dc.b $20,$5C,$FF
-	rev02even
 SonAni_Hurt:	dc.b $40,$4E,$FF
-	rev02even
 SonAni_Slide:	dc.b   9,$4E,$4F,$FF
-	rev02even
 SonAni_Blank:	dc.b $77,  0,$FD,  0
-	rev02even
 SonAni_Balance3:dc.b $13,$D0,$D1,$FF
-	rev02even
 SonAni_Balance4:dc.b   3,$CF,$C8,$C9,$CA,$CB,$FE,  4
-	rev02even
 SonAni_Lying:	dc.b   9,  8,  9,$FF
-	rev02even
 SonAni_LieDown:	dc.b   3,  7,$FD,  0
 	even
 
@@ -38848,17 +37298,11 @@ SuperSonicAniData: offsetTable
 	offsetTableEntry.w SupSonAni_Transform	; 31 ; $1F
 
 SupSonAni_Walk:		dc.b $FF,$77,$78,$79,$7A,$7B,$7C,$75,$76,$FF
-	rev02even
 SupSonAni_Run:		dc.b $FF,$B5,$B9,$FF,$FF,$FF,$FF,$FF,$FF,$FF
-	rev02even
 SupSonAni_Push:		dc.b $FD,$BD,$BE,$BF,$C0,$FF,$FF,$FF,$FF,$FF
-	rev02even
 SupSonAni_Stand:	dc.b   7,$72,$73,$74,$73,$FF
-	rev02even
 SupSonAni_Balance:	dc.b   9,$C2,$C3,$C4,$C3,$C5,$C6,$C7,$C6,$FF
-	rev02even
 SupSonAni_Duck:		dc.b   5,$C1,$FF
-	rev02even
 SupSonAni_Transform:	dc.b   2,$6D,$6D,$6E,$6E,$6F,$70,$71,$70,$71,$70,$71,$70,$71,$FD,  0
 	even
 
@@ -39876,20 +38320,9 @@ Obj02_Traction:
 ; stops Tails from running through walls that meet the ground
 ; loc_1C232:
 Obj02_CheckWallsOnGround:
-    if fixBugs
-	; These lines were added in S3K to fix an oversight where Tails could
-	; run through walls if he is upside-down, or moving on a wall when
-	; his angle was exactly $80 (most noticeable in Carnival Night in S3A).
-	move.b	angle(a0),d0
-	andi.b	#$3F,d0		; is Tails standing on a flat surface in any of the four quadrants?
-	beq.s	.noearlyexit	; if yes, branch
-    endif
 	move.b	angle(a0),d0
 	addi.b	#$40,d0
 	bmi.s	return_1C2A2
-    if fixBugs
-.noearlyexit:
-    endif
 	move.b	#$40,d1
 	tst.w	inertia(a0)
 	beq.s	return_1C2A2
@@ -39970,11 +38403,6 @@ Tails_TurnLeft:
 	move.w	#-$80,d0
 +
 	move.w	d0,inertia(a0)
-    if fixBugs
-	move.b	angle(a0),d1
-	addi.b	#$20,d1
-	andi.b	#$C0,d1
-    else
 	; These three instructions partially overwrite the inertia value in
 	; 'd0'! This causes the character to trigger their skidding
 	; animation at different speeds depending on whether they're going
@@ -39983,7 +38411,6 @@ Tails_TurnLeft:
 	move.b	angle(a0),d0
 	addi.b	#$20,d0
 	andi.b	#$C0,d0
-    endif
 	bne.s	return_1C328
 	cmpi.w	#$400,d0
 	blt.s	return_1C328
@@ -40031,11 +38458,6 @@ Tails_TurnRight:
 	move.w	#$80,d0
 +
 	move.w	d0,inertia(a0)
-    if fixBugs
-	move.b	angle(a0),d1
-	addi.b	#$20,d1
-	andi.b	#$C0,d1
-    else
 	; These three instructions partially overwrite the inertia value in
 	; 'd0'! This causes the character to trigger their skidding
 	; animation at different speeds depending on whether they're going
@@ -40044,7 +38466,6 @@ Tails_TurnRight:
 	move.b	angle(a0),d0
 	addi.b	#$20,d0
 	andi.b	#$C0,d0
-    endif
 	bne.s	return_1C3A8
 	cmpi.w	#-$400,d0
 	bgt.s	return_1C3A8
@@ -40073,16 +38494,11 @@ Tails_RollSpeed:
 	asl.w	#1,d6
 	move.w	(Tails_acceleration).w,d5
 	asr.w	#1,d5	; natural roll deceleration = 1/2 normal acceleration
-    if fixBugs
-	; Matches 'Sonic_RollSpeed'.
-	move.w	#$20,d4
-    else
 	; This code is outdated, matching the behaviour of Sonic in Sonic 1
 	; rather than in this game.
 	move.w	(Tails_deceleration).w,d4
 	asr.w	#2,d4	; controlled roll deceleration...
 			; interestingly, Tails is much worse at this than Sonic when underwater
-    endif
 	_btst	#status_secondary.sliding,status_secondary(a0)
 	_bne.w	Obj02_Roll_ResetScr
 	tst.w	move_lock(a0)
@@ -40322,28 +38738,12 @@ Tails_LevelBound:
 ; loc_1C58C:
 Tails_Boundary_CheckBottom:
 	move.w	(Tails_Max_Y_pos).w,d0
-    if fixBugs
-	; The original code does not consider that the camera boundary
-	; may be in the middle of lowering itself, which is why going
-	; down the S-tunnel in Green Hill Zone Act 1 fast enough can
-	; kill Sonic.
-	move.w	(Camera_Max_Y_pos_target).w,d1
-	cmp.w	d0,d1
-	blo.s	.skip
-	move.w	d1,d0
-.skip:
-    endif
 	addi.w	#screen_height,d0
 	cmp.w	y_pos(a0),d0		; has Tails touched the bottom boundary?
 	blt.s	Tails_Boundary_Bottom	; if yes, branch
 	rts
 ; ---------------------------------------------------------------------------
 Tails_Boundary_Bottom: ;;
-    if fixBugs
-	; a2 needs to be set here, otherwise KillCharacter
-	; will access a dangling pointer!
-	movea.l	a0,a2
-    endif
 	jmpto	JmpTo2_KillCharacter
 ; ===========================================================================
 
@@ -40443,14 +38843,12 @@ Tails_Jump:
 	clr.b	stick_to_convex(a0)
 	move.w	#SndID_Jump,d0
 	jsr	(PlaySound).l	; play jumping sound
-    if ~~fixBugs
 	; These lines are a remnant of the victory animation that would play
 	; when jumping at the end of a stage in the Sonic 1 prototype. Not only
 	; are these two lines now useless, they also cause Tails to incorrectly
 	; reset to his standing collision when roll-jumping.
 	move.b	#$F,y_radius(a0)
 	move.b	#9,x_radius(a0)
-    endif
 	btst	#status.player.rolling,status(a0)
 	bne.s	Tails_RollJump
 	move.b	#$E,y_radius(a0)
@@ -40565,25 +38963,11 @@ Tails_UpdateSpindash:
 	; This is seemingly to prevent Tails from going off-screen.
 	move.w	inertia(a0),d0
 	subi.w	#$800,d0 ; $800 is the lowest spin dash speed
-    if fixBugs
-	; To fix a bug in 'ScrollHoriz', we need an extra variable, so this
-	; code has been modified to make the delay value only a single byte.
-	; The lower byte has been repurposed to hold a copy of the position
-	; array index at the time that the spin dash was released.
-	; This is used by the fixed 'ScrollHoriz'.
-	lsr.w	#7,d0
-	neg.w	d0
-	addi.w	#$20,d0
-	move.b	d0,(Horiz_scroll_delay_val_P2).w
-	; Back up the position array index for later.
-	move.b	(Tails_Pos_Record_Index+1).w,(Horiz_scroll_delay_val_P2+1).w
-    else
 	add.w	d0,d0
 	andi.w	#$1F00,d0 ; This line is not necessary, as none of the removed bits are ever set in the first place
 	neg.w	d0
 	addi.w	#$2000,d0
 	move.w	d0,(Horiz_scroll_delay_val_P2).w
-    endif
 
 	btst	#status.player.x_flip,status(a0)
 	beq.s	+
@@ -40938,18 +39322,6 @@ Tails_HitFloor:
 	bsr.w	Sonic_CheckFloor
 	tst.w	d1
 	bpl.s	return_1CA96
-    if fixBugs
-	; See explanation in Sonic_HitFloor
-	move.b	y_vel(a0),d2	; get Tails' fall speed at the time of impact (upper byte only, pixel delta)
-	addq.b	#8,d2		; increase it by one tile
-	neg.b	d2		; mirror it
-	cmp.b	d2,d1		; is result bigger than distance to floor?
-	bge.s	.landed		; if yes, branch
-	cmp.b	d2,d0		; is result bigger than distance to floor? (sloped variant)
-	blt.s	return_1CA96	; if not, branch
-
-.landed:
-    endif
 	add.w	d1,y_pos(a0)
 	move.b	d3,angle(a0)
 	bsr.w	Tails_ResetOnFloor
@@ -41028,18 +39400,6 @@ Tails_HitFloor2:
 	bsr.w	Sonic_CheckFloor
 	tst.w	d1
 	bpl.s	return_1CB4E
-    if fixBugs
-	; See explanation in Sonic_HitFloor
-	move.b	y_vel(a0),d2	; get Tails' fall speed at the time of impact (upper byte only, pixel delta)
-	addq.b	#8,d2		; increase it by one tile
-	neg.b	d2		; mirror it
-	cmp.b	d2,d1		; is result bigger than distance to floor?
-	bge.s	.landed		; if yes, branch
-	cmp.b	d2,d0		; is result bigger than distance to floor? (sloped variant)
-	blt.s	return_1CB4E	; if not, branch
-
-.landed:
-    endif
 	add.w	d1,y_pos(a0)
 	move.b	d3,angle(a0)
 	bsr.w	Tails_ResetOnFloor
@@ -41078,12 +39438,6 @@ Tails_ResetOnFloor_Part3:
 	bclr	#status.player.pushing,status(a0)
 	bclr	#status.player.rolljumping,status(a0)
 	move.b	#0,jumping(a0)
-    if fixBugs
-	; Without this check, AI Tails will ruin the player's
-	; combo when he touches the floor.
-	cmpi.w	#2,(Player_mode).w
-	bne.s	+
-    endif
 	move.w	#0,(Chain_Bonus_counter).w
 +
 	move.b	#0,flip_angle(a0)
@@ -41123,23 +39477,7 @@ Obj02_Hurt:
 ; ===========================================================================
 ; loc_1CC08:
 Tails_HurtStop:
-    if fixBugs
-	; a2 needs to be set here, otherwise KillCharacter
-	; will access a dangling pointer!
-	movea.l	a0,a2
-    endif
 	move.w	(Tails_Max_Y_pos).w,d0
-    if fixBugs
-	; The original code does not consider that the camera boundary
-	; may be in the middle of lowering itself, which is why going
-	; down the S-tunnel in Green Hill Zone Act 1 fast enough can
-	; kill Sonic.
-	move.w	(Camera_Max_Y_pos_target).w,d1
-	cmp.w	d0,d1
-	blo.s	.skip
-	move.w	d1,d0
-.skip:
-    endif
 	addi.w	#screen_height,d0
 	cmp.w	y_pos(a0),d0
 	blt.w	JmpTo2_KillCharacter
@@ -41160,10 +39498,6 @@ return_1CC4E:
 	rts
 ; ===========================================================================
 
-    if removeJmpTos
-JmpTo2_KillCharacter ; JmpTo
-	jmp	(KillCharacter).l
-    endif
 
 ; ---------------------------------------------------------------------------
 ; Tails when he dies
@@ -41597,74 +39931,42 @@ TailsAni_HaulAss_ptr:	offsetTableEntry.w TailsAni_HaulAss	; 31 ; $1F
 TailsAni_Fly_ptr:	offsetTableEntry.w TailsAni_Fly		; 32 ; $20
 
 TailsAni_Walk:	dc.b $FF,$10,$11,$12,$13,$14,$15, $E, $F,$FF
-	rev02even
 TailsAni_Run:	dc.b $FF,$2E,$2F,$30,$31,$FF,$FF,$FF,$FF,$FF
-	rev02even
 TailsAni_Roll:	dc.b   1,$48,$47,$46,$FF
-	rev02even
 TailsAni_Roll2:	dc.b   1,$48,$47,$46,$FF
-	rev02even
 TailsAni_Push:	dc.b $FD,$63,$64,$65,$66,$FF,$FF,$FF,$FF,$FF
-	rev02even
 TailsAni_Wait:	dc.b   7,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  3,  2,  1,  1,  1
 		dc.b   1,  1,  1,  1,  1,  3,  2,  1,  1,  1,  1,  1,  1,  1,  1,  1
 		dc.b   5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5
 		dc.b   6,  7,  8,  7,  8,  7,  8,  7,  8,  7,  8,  6,$FE,$1C
-	rev02even
 TailsAni_Balance:	dc.b   9,$69,$69,$6A,$6A,$69,$69,$6A,$6A,$69,$69,$6A,$6A,$69,$69,$6A
 			dc.b $6A,$69,$69,$6A,$6A,$69,$6A,$FF
-	rev02even
 TailsAni_LookUp:	dc.b $3F,  4,$FF
-	rev02even
 TailsAni_Duck:		dc.b $3F,$5B,$FF
-	rev02even
 TailsAni_Spindash:	dc.b   0,$60,$61,$62,$FF
-	rev02even
 TailsAni_Dummy1:	dc.b $3F,$82,$FF
-	rev02even
 TailsAni_Dummy2:	dc.b   7,  8,  8,  9,$FD,  5
-	rev02even
 TailsAni_Dummy3:	dc.b   7,  9,$FD,  5
-	rev02even
 TailsAni_Stop:		dc.b   7,$67,$68,$67,$68,$FD,  0
-	rev02even
 TailsAni_Float:		dc.b   9,$6E,$73,$FF
-	rev02even
 TailsAni_Float2:	dc.b   9,$6E,$6F,$70,$71,$72,$FF
-	rev02even
 TailsAni_Spring:	dc.b   3,$59,$5A,$59,$5A,$59,$5A,$59,$5A,$59,$5A,$59,$5A,$FD,  0
-	rev02even
 TailsAni_Hang:		dc.b   5,$6C,$6D,$FF
-	rev02even
 TailsAni_Blink:		dc.b  $F,  1,  2,  3,$FE,  1
-	rev02even
 TailsAni_Blink2:	dc.b  $F,  1,  2,$FE,  1
-	rev02even
 TailsAni_Hang2:		dc.b $13,$85,$86,$FF
-	rev02even
 TailsAni_Bubble:	dc.b  $B,$74,$74,$12,$13,$FD,  0
-	rev02even
 TailsAni_DeathBW:	dc.b $20,$5D,$FF
-	rev02even
 TailsAni_Drown:		dc.b $2F,$5D,$FF
-	rev02even
 TailsAni_Death:		dc.b   3,$5D,$FF
-	rev02even
 TailsAni_Hurt:		dc.b   3,$5D,$FF
-	rev02even
 TailsAni_Hurt2:		dc.b   3,$5C,$FF
-	rev02even
 TailsAni_Slide:		dc.b   9,$6B,$5C,$FF
-	rev02even
 TailsAni_Blank:		dc.b $77,  0,$FD,  0
-	rev02even
 TailsAni_Dummy4:	dc.b   3,  1,  2,  3,  4,  5,  6,  7,  8,$FF
-	rev02even
 TailsAni_Dummy5:	dc.b   3,  1,  2,  3,  4,  5,  6,  7,  8,$FF
-	rev02even
 TailsAni_HaulAss:	dc.b $FF,$32,$33,$FF
 			dc.b $FF,$FF,$FF,$FF,$FF,$FF
-	rev02even
 TailsAni_Fly:		dc.b   1,$5E,$5F,$FF
 	even
 
@@ -41776,21 +40078,8 @@ Obj05_Main:
 +
 	moveq	#0,d0
 	move.b	anim(a2),d0
-    if fixBugs
-	; Tails doesn't actually have to be pushing against something for his
-	; tails to animate as if he is. This is because bit 5 of 'status' is
-	; set whenever Tails is stood next to something: he doesn't
-	; necessarily have to be pushing against it. To fix this, we have to
-	; check if Tails is displaying any of his pushing sprites. This is
-	; exactly how this bug is fixed in Sonic 3 & Knuckles.
-	cmpi.b	#$63,mapping_frame(a2)
-	blo.s	+
-	cmpi.b	#$66,mapping_frame(a2)
-	bhi.s	+
-    else
 	btst	#status.player.pushing,status(a2)
 	beq.s	+
-    endif
 	moveq	#4,d0
 +
 	; This is here so Obj05Ani_Flick works
@@ -41854,25 +40143,15 @@ Obj05AniData:	offsetTable
 		offsetTableEntry.w Obj05Ani_Hanging	; $A
 
 Obj05Ani_Blank:		dc.b $20,  0,$FF
-	rev02even
 Obj05Ani_Swish:		dc.b   7,  9, $A, $B, $C, $D,$FF
-	rev02even
 Obj05Ani_Flick:		dc.b   3,  9, $A, $B, $C, $D,$FD,  1
-	rev02even
 Obj05Ani_Directional:	dc.b $FC,$49,$4A,$4B,$4C,$FF ; Tails is moving right
-	rev02even
 Obj05Ani_DownLeft:	dc.b   3,$4D,$4E,$4F,$50,$FF ; Tails is moving up-right
-	rev02even
 Obj05Ani_Down:		dc.b   3,$51,$52,$53,$54,$FF ; Tails is moving up
-	rev02even
 Obj05Ani_DownRight:	dc.b   3,$55,$56,$57,$58,$FF ; Tails is moving up-left
-	rev02even
 Obj05Ani_Spindash:	dc.b   2,$81,$82,$83,$84,$FF
-	rev02even
 Obj05Ani_Skidding:	dc.b   2,$87,$88,$89,$8A,$FF
-	rev02even
 Obj05Ani_Pushing:	dc.b   9,$87,$88,$89,$8A,$FF
-	rev02even
 Obj05Ani_Hanging:	dc.b   9,$81,$82,$83,$84,$FF
 	even
 
@@ -41983,13 +40262,7 @@ Obj0A_Wobble:
 	add.w	obj0a_original_x_pos(a0),d0
 	move.w	d0,x_pos(a0)
 
-    if fixBugs
-	; This isn't actually a bugfix: it's just that a later bugfix pushes
-	; this call out of range, so it has to be extended to a word.
-	bsr.w	Obj0A_BecomeNumberMaybe
-    else
 	bsr.s	Obj0A_BecomeNumberMaybe
-    endif
 	jsr	(ObjectMove).l
 	_btst	#render_flags.on_screen,render_flags(a0)
 	_beq.s	JmpTo4_DeleteObject
@@ -42010,12 +40283,6 @@ Obj0A_Display:
 	bsr.s	Obj0A_BecomeNumberMaybe
 	lea	(Ani_obj0A).l,a1
 	jsr	(AnimateSprite).l
-    if fixBugs
-	; If you stand in very shallow water and begin drowning, the
-	; countdown graphics will appear incorrectly. The cause is a missing
-	; call to 'Obj0A_LoadCountdownArt'.
-	bsr.w	Obj0A_LoadCountdownArt
-    endif
 	jmp	(DisplaySprite).l
 ; ===========================================================================
 
@@ -42211,10 +40478,6 @@ Obj0A_ReduceAir:
 	cmpa.w	#MainCharacter,a2
 	bne.s	+	; if it isn't player 1, branch
 	move.b	#1,(Deform_lock).w
-    if fixBugs
-	move.b	#2,routine(a2)		; force Sonic into their normal state
-	clr.b	(Update_HUD_timer).w	; stop the timer
-    endif
 +
 	rts
 ; ===========================================================================
@@ -42384,33 +40647,19 @@ Ani_obj0A:	offsetTable
 		offsetTableEntry.w byte_1D8E9	; $D
 		offsetTableEntry.w byte_1D8EB	; $E
 byte_1D87E:	dc.b   5,  0,  1,  2,  3,  4,  8,  8,$FC
-	rev02even
 byte_1D887:	dc.b   5,  0,  1,  2,  3,  4,  9,  9,$FC
-	rev02even
 byte_1D890:	dc.b   5,  0,  1,  2,  3,  4, $A, $A,$FC
-	rev02even
 byte_1D899:	dc.b   5,  0,  1,  2,  3,  4, $B, $B,$FC
-	rev02even
 byte_1D8A2:	dc.b   5,  0,  1,  2,  3,  4, $C, $C,$FC
-	rev02even
 byte_1D8AB:	dc.b   5,  0,  1,  2,  3,  4, $D, $D,$FC
-	rev02even
 byte_1D8B4:	dc.b  $E,  0,  1,  2,$FC
-	rev02even
 byte_1D8B9:	dc.b   7,$10,  8,$10,  8,$10,  8,$FC
-	rev02even
 byte_1D8C1:	dc.b   7,$10,  9,$10,  9,$10,  9,$FC
-	rev02even
 byte_1D8C9:	dc.b   7,$10, $A,$10, $A,$10, $A,$FC
-	rev02even
 byte_1D8D1:	dc.b   7,$10, $B,$10, $B,$10, $B,$FC
-	rev02even
 byte_1D8D9:	dc.b   7,$10, $C,$10, $C,$10, $C,$FC
-	rev02even
 byte_1D8E1:	dc.b   7,$10, $D,$10, $D,$10, $D,$FC
-	rev02even
 byte_1D8E9:	dc.b  $E,$FC
-	rev02even
 byte_1D8EB:	dc.b  $E,  1,  2,  3,  4,$FC
 	even
 
@@ -42534,12 +40783,6 @@ Obj35_Main:
 
 ; loc_1DA0C:
 Obj35_Layer0Update:
-    if fixBugs
-	; If Sonic is invincible and he turns Super, then the invincibility
-	; stars will not go away. S3K fixes this by doing this:
-	tst.b	(Super_Sonic_flag).w
-	bne.w	DeleteObject
-    endif
 	movea.w	parent(a0),a1 ; a1=character
 	btst	#status_secondary.invincible,status_secondary(a1)
 	beq.w	DeleteObject
@@ -42586,12 +40829,6 @@ loc_1DA44:
 ; ===========================================================================
 ; loc_1DA80:
 Obj35_OtherLayersUpdate:
-    if fixBugs
-	; If Sonic is invincible and he turns Super, then the invincibility
-	; stars will not go away. S3K fixes this by doing this:
-	tst.b	(Super_Sonic_flag).w
-	bne.w	DeleteObject
-    endif
 	movea.w	parent(a0),a1 ; a1=character
 	btst	#status_secondary.invincible,status_secondary(a1)
 	beq.w	DeleteObject
@@ -42706,15 +40943,12 @@ Obj35_PositionOffsetTable:
 
 ; byte_1DB82:
 Obj35_Layer0Frames:		dc.b   8,  5,  7,  6,  6,  7,  5,  8,  6,  7,  7,  6,$FF
-	rev02even
 ; byte_1DB8F:
 Obj35_Layer1Frames1:	dc.b   8,  7,  6,  5,  4,  3,  4,  5,  6,  7,$FF
 Obj35_Layer1Frames2:	dc.b   3,  4,  5,  6,  7,  8,  7,  6,  5,  4
-	rev02even
 ; byte_1DBA4:
 Obj35_Layer2Frames1:	dc.b   8,  7,  6,  5,  4,  3,  2,  3,  4,  5,  6,  7,$FF
 Obj35_Layer2Frames2:	dc.b   2,  3,  4,  5,  6,  7,  8,  7,  6,  5,  4,  3
-	rev02even
 ; byte_1DBBD:
 Obj35_Layer3Frames1:	dc.b   7,  6,  5,  4,  3,  2,  1,  2,  3,  4,  5,  6,$FF
 Obj35_Layer3Frames2:	dc.b   1,  2,  3,  4,  5,  6,  7,  6,  5,  4,  3,  2
@@ -42935,11 +41169,8 @@ Ani_obj08:	offsetTable
 		offsetTableEntry.w Obj08Ani_Dash	; 2
 		offsetTableEntry.w Obj08Ani_Skid	; 3
 Obj08Ani_Null:	dc.b $1F,  0,$FF
-	rev02even
 Obj08Ani_Splash:dc.b   3,  1,  2,  3,  4,  5,  6,  7,  8,  9,$FD,  0
-	rev02even
 Obj08Ani_Dash:	dc.b   1, $A, $B, $C, $D, $E, $F,$10,$FF
-	rev02even
 Obj08Ani_Skid:	dc.b   3,$11,$12,$13,$14,$FC
 	even
 ; -------------------------------------------------------------------------------
@@ -44578,12 +42809,6 @@ CheckLeftWallDist_Part2:
 ObjCheckLeftWallDist:
 	add.w	x_pos(a0),d3
 	move.w	y_pos(a0),d2
-    if fixBugs
-	; Colliding with left walls is erratic with this function.
-	; The cause is this: a missing instruction to flip collision on the found
-	; 16x16 block; this one:
-	eori.w	#$F,d3
-    endif
 	lea	(Primary_Angle).w,a4
 	move.b	#0,(a4)
 	movea.w	#-$10,a3
@@ -44631,14 +42856,6 @@ Obj79_Init:
 	lea	(Object_Respawn_Table).w,a2
 	moveq	#0,d0
 	move.b	respawn_index(a0),d0
-    if fixBugs
-	; If you spawn a checkpoint in Debug Mode and activate it, then
-	; every checkpoint that is spawned with Debug Mode afterwards will be
-	; activated too. The cause of the bug is that the spawned checkpoint
-	; does not have a respawn entry, but this object fails to check for
-	; that before accessing the respawn table.
-	beq.s	Obj79_Main
-    endif
 	bclr	#7,Obj_respawn_data-Object_Respawn_Table(a2,d0.w)
 	btst	#0,Obj_respawn_data-Object_Respawn_Table(a2,d0.w)
 	bne.s	loc_1F120
@@ -44715,14 +42932,6 @@ loc_1F206:
 	lea	(Object_Respawn_Table).w,a2
 	moveq	#0,d0
 	move.b	respawn_index(a0),d0
-    if fixBugs
-	; If you spawn a checkpoint in Debug Mode and activate it, then
-	; every checkpoint that is spawned with Debug Mode afterwards will be
-	; activated too. The cause of the bug is that the spawned checkpoint
-	; does not have a respawn entry, but this object fails to check for
-	; that before accessing the respawn table.
-	beq.s	return_1F220
-    endif
 	bset	#0,Obj_respawn_data-Object_Respawn_Table(a2,d0.w)
 
 return_1F220:
@@ -44864,10 +43073,8 @@ Ani_obj79:	offsetTable
 		offsetTableEntry.w byte_1F420	; 2
 byte_1F41A:
 	dc.b  $F,  0,$FF
-	rev02even
 byte_1F41D:
 	dc.b  $F,  1,$FF
-	rev02even
 byte_1F420:
 	dc.b   3,  0,  4,$FF
 	even
@@ -45078,12 +43285,8 @@ word_1F6D2:
 	dc.w	 0
 	dc.w  1000
 	dc.w   100
-    if fixBugs
-	dc.w	10
-    else
 	; This should give 100 points, not 10.
 	dc.w	 1
-    endif
 ; ===========================================================================
 ; loc_1F6DA:
 Obj7D_Main:
@@ -45212,7 +43415,6 @@ Ani_obj44:	offsetTable
 		offsetTableEntry.w byte_1F850	; 0
 		offsetTableEntry.w byte_1F853	; 1
 byte_1F850:	dc.b  $F,  0,$FF
-		rev02even
 byte_1F853:	dc.b   3,  1,  0,  1,$FD,  0
 		even
 ; -------------------------------------------------------------------------------
@@ -45426,12 +43628,6 @@ loc_1FACE:
 	blo.w	JmpTo7_DisplaySprite
 	rts
 
-    if removeJmpTos
-JmpTo15_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-JmpTo7_DisplaySprite ; JmpTo
-	jmp	(DisplaySprite).l
-    endif
 ; ===========================================================================
 byte_1FAF0:
 	dc.b   0
@@ -45528,15 +43724,10 @@ Ani_obj24:	offsetTable
 		offsetTableEntry.w byte_1FBEE	; 5
 		offsetTableEntry.w byte_1FBF2	; 6
 byte_1FBDA:	dc.b  $E,  0,  1,  2,$FC
-		rev02even
 byte_1FBDF:	dc.b  $E,  1,  2,  3,  4,$FC
-		rev02even
 byte_1FBE5:	dc.b  $E,  2,  3,  4,  5,  6,$FC
-		rev02even
 byte_1FBEC:	dc.b   4,$FC
-		rev02even
 byte_1FBEE:	dc.b   4,  6,  7,$FC
-		rev02even
 byte_1FBF2:	dc.b  $F, $E, $F,$FF
 		even
 ; -------------------------------------------------------------------------------
@@ -46152,15 +44343,6 @@ Obj12_Main:
 	bhi.w	JmpTo16_DeleteObject
 	jmpto	JmpTo8_DisplaySprite
 
-    if removeJmpTos
-JmpTo16_DeleteObject ; JmpTo
-    if fixBugs
-	jmp	(DeleteObject).l
-    else
-	; Execute 'Obj12_MapUnc_20382' as code...
-	; This is why Hidden Palace Zone causes this game to reset in Knuckles in Sonic 2.
-    endif
-    endif
 ; ===========================================================================
 ; -------------------------------------------------------------------------------
 ; sprite mappings (unused)
@@ -46291,10 +44473,6 @@ loc_204F0:
 	bhi.w	JmpTo17_DeleteObject
 	rts
 
-    if removeJmpTos
-JmpTo17_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; loc_20510:
 Obj13_ChkDel:
@@ -46354,15 +44532,9 @@ Obj04_Action:
 	move.w	d1,y_pos(a0)
 	tst.b	objoff_32(a0)
 	bne.s	Obj04_Animate
-    if fixBugs
-	move.b	(Ctrl_1_Press).w,d0 ; is Start button pressed?
-	or.b	(Ctrl_2_Press).w,d0 ; (either player)
-	andi.b	#button_start_mask,d0
-    else
 	; This only checks player 1, causing the water to look weird if
 	; player 2 pauses the game instead.
 	btst	#button_start,(Ctrl_1_Press).w	; is Start button pressed?
-    endif
 	beq.s	loc_20962		; if not, branch
 	addq.b	#3,mapping_frame(a0)	; use different frames
 	move.b	#1,objoff_32(a0)	; stop animation
@@ -46377,9 +44549,7 @@ Obj04_Animate:
 
 loc_20962:
 
-    if ~~fixBugs
 Obj04_Display:
-    endif
 	; This code should be skipped when the game is paused, but is isn't.
 	; This causes the wrong sprite to display when the game is paused.
 	lea	(Anim_obj04).l,a1
@@ -46389,9 +44559,6 @@ Obj04_Display:
 	addq.b	#1,anim_frame(a0)
 	andi.b	#$3F,anim_frame(a0)
 
-    if fixBugs
-Obj04_Display:
-    endif
 	jmpto	JmpTo10_DisplaySprite
 ; ===========================================================================
 ; water sprite animation 'script' (custom format for this object)
@@ -46409,15 +44576,9 @@ Obj04_Action2:
 	move.w	d1,y_pos(a0)
 	tst.b	objoff_32(a0)
 	bne.s	Obj04_Animate2
-    if fixBugs
-	move.b	(Ctrl_1_Press).w,d0 ; is Start button pressed?
-	or.b	(Ctrl_2_Press).w,d0 ; (either player)
-	andi.b	#button_start_mask,d0
-    else
 	; This only checks player 1, causing the water to look weird if
 	; player 2 pauses the game instead.
 	btst	#button_start,(Ctrl_1_Press).w	; is Start button pressed?
-    endif
 	beq.s	loc_209F4		; if not, branch
 	addq.b	#2,mapping_frame(a0)    ; use different frames
 	move.b	#1,objoff_32(a0)		; stop animation
@@ -46551,25 +44712,17 @@ Obj31_Init:
 	moveq	#0,d0
 	move.b	subtype(a0),d0
 	move.b	Obj31_CollisionFlagsBySubtype(pc,d0.w),collision_flags(a0)
-    if fixBugs
-	move.l	#Obj31_MapUnc_20E74,mappings(a0)
-    else
 	; This dumb code is a workaround for the bug below.
 	move.l	#Obj31_MapUnc_20E6C,mappings(a0)
 	tst.w	(Debug_placement_mode).w
 	beq.s	+
 	move.l	#Obj31_MapUnc_20E74,mappings(a0)
 +
-    endif
 	move.w	#make_art_tile(ArtTile_ArtNem_Powerups,0,1),art_tile(a0)
-    if fixBugs
-	move.b	#1<<render_flags.level_fg,render_flags(a0)
-    else
 	; The high bit of 'render_flags' should not be set here: this causes
 	; this object to become visible when the player dies, because of how
 	; 'RunObjectsWhenPlayerIsDead' works.
 	move.b	#1<<render_flags.on_screen|1<<render_flags.level_fg,render_flags(a0)
-    endif
 	move.b	#$80,width_pixels(a0)
 	move.b	#4,priority(a0)
 	move.b	subtype(a0),mapping_frame(a0)
@@ -46590,17 +44743,11 @@ Obj31_Main:
 +
 	rts
 
-    if removeJmpTos
-JmpTo18_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
-    if ~~fixBugs
 ; -------------------------------------------------------------------------------
 ; sprite non-mappings
 ; -------------------------------------------------------------------------------
 Obj31_MapUnc_20E6C:	include "mappings/sprite/obj31_a.asm"
-    endif
 ; -------------------------------------------------------------------------------
 ; sprite mappings
 ; -------------------------------------------------------------------------------
@@ -46955,12 +45102,6 @@ Obj84_MainY:
 	lea	(MainCharacter).w,a1 ; a1=character
 	bsr.s	+
 	lea	(Sidekick).w,a1 ; a1=character
-    if fixBugs
-	; AI Tails can behave rather strangely if he happens to be flying into
-	; an autoroll object, most visible in Casino Night.
-	cmpi.w	#4,(Tails_CPU_routine).w	; TailsCPU_Flying
-	beq.s	return_21350
-    endif
 +
 	tst.b	(a2)+
 	bne.s	Obj84_MainY_Alt
@@ -47780,12 +45921,6 @@ Obj14_LaunchCharacter:
 	clr.b	jumping(a2)         ; clear character jumping flag
 	move.b	#AniIDSonAni_Spring,anim(a2) ; set character to spring animation
 	move.b	#2,routine(a2)      ; set character to airborne state
-    if fixBugs
-	; If the player charges a Spin Dash on a seesaw, and gets launched by
-	; it, they will retain their Spin Dash state in the air. This fixes
-	; that.
-	clr.b	spindash_flag(a2)
-    endif
 	move.w	#SndID_Spring,d0    ; play spring sound
 	jmp	(PlaySound).l
 ; ===========================================================================
@@ -47817,7 +45952,6 @@ byte_21C8E:
 	dc.b  13, 12, 11, 10,  9,  8,  7,  6,  5,  4,  3,  2,  1,  0, -1, -2
 	dc.b  -3, -4, -5, -6, -7, -8, -9,-10,-11,-12,-13,-14,-14,-14,-14,-14
 	dc.b -14
-	rev02even
 byte_21CBF:
 	dc.b   5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5
 	dc.b   5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5
@@ -48052,10 +46186,6 @@ Obj19_Main:
 	bhi.w	JmpTo20_DeleteObject
 	jmpto	JmpTo11_DisplaySprite
 
-    if removeJmpTos
-JmpTo20_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ---------------------------------------------------------------------------
 ; loc_220E8:
 Obj19_Move:
@@ -48516,17 +46646,9 @@ Obj1E:
 	jsr	Obj1E_Index(pc,d1.w)
 	move.b	objoff_2C(a0),d0
 	add.b	objoff_36(a0),d0
-    if removeJmpTos
-	beq.s	JmpTo_MarkObjGone3
-    else
 	beq.w	JmpTo_MarkObjGone3
-    endif
 	rts
 
-    if removeJmpTos
-JmpTo_MarkObjGone3 ; JmpTo
-	jmp	(MarkObjGone3).l
-    endif
 ; ===========================================================================
 ; JmpTbl_225B8: Obj1E_States:
 Obj1E_Index:	offsetTable
@@ -48651,12 +46773,6 @@ loc_22688:
 	move.w	(a2)+,d5
 	add.w	y_pos(a0),d5
 	addq.b	#2,(a4)
-    if fixBugs
-	; If Sonic/Tails end up getting damaged into a pipe, they will
-	; be constantly displaced due to how the hurt routine works. This
-	; fixes the bug by forcing them back into their normal state.
-	move.b	#2,routine(a1)
-    endif
 	move.b	#$81,obj_control(a1)
 	move.b	#AniIDSonAni_Roll,anim(a1)
 	move.w	#$800,inertia(a1)
@@ -49135,9 +47251,7 @@ Ani_obj20:	offsetTable
 		offsetTableEntry.w byte_23243	; 1
 		offsetTableEntry.w byte_23246	; 2
 byte_2323C:	dc.b  $B,  2,  3,$FC,  4,$FD,  1
-	rev02even
 byte_23243:	dc.b $7F,  5,$FF
-	rev02even
 byte_23246:	dc.b   5,  4,  5,  2,  3,  0,  1,  0,  1,  2,  3,  4,  5,$FC
 	even
 
@@ -49480,10 +47594,6 @@ Obj32_Fragment:
 	_beq.w	JmpTo22_DeleteObject
 	jmpto	JmpTo12_DisplaySprite
 
-    if removeJmpTos
-JmpTo22_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; velocity array for smashed bits, two words for each fragment
 ; byte_23680:
@@ -49622,17 +47732,9 @@ Obj30_Main:
 	move.w	Obj30_Modes(pc,d0.w),d1
 	jsr	Obj30_Modes(pc,d1.w)
 	tst.b	(Screen_Shaking_Flag_HTZ).w
-    if removeJmpTos
-	beq.s	JmpTo2_MarkObjGone3
-    else
 	beq.w	JmpTo2_MarkObjGone3
-    endif
 	rts
 
-    if removeJmpTos
-JmpTo2_MarkObjGone3 ; JmpTo
-	jmp	(MarkObjGone3).l
-    endif
 ; ===========================================================================
 ; off_23968:
 Obj30_Modes:	offsetTable
@@ -50298,20 +48400,10 @@ Obj45_Init:
 	move.b	#4,priority(a0)
 	move.b	subtype(a0),d0
 	lsr.w	#3,d0
-    if fixBugs
-	; This bugfix is a bit of a hack: ideally, the Oil Ocean Zone Act 2
-	; object layout should be corrected to not contain instances of this
-	; object with an invalid subtype, but this will have to do.
-
-	; If you have replaced its layout with its fixed version, this line
-	; can be safely deleted.
-	andi.w	#2,d0
-    else
 	; Some instances of this object use a subtype of $30, which results
 	; in d0 being 6 here. Due to sheer luck, this ends up branching to
 	; 'Obj45_InitHorizontal' instead of crashing the game.
 	andi.w	#$E,d0
-    endif
 	move.w	Obj45_InitRoutines(pc,d0.w),d0
 	jmp	Obj45_InitRoutines(pc,d0.w)
 ; ===========================================================================
@@ -50824,9 +48916,6 @@ loc_24BC4:
 	beq.s	BranchTo_JmpTo25_DeleteObject
 	bclr	#7,Obj_respawn_data-Object_Respawn_Table(a2,d0.w)
 
-    if removeJmpTos
-JmpTo25_DeleteObject ; JmpTo
-    endif
 
 BranchTo_JmpTo25_DeleteObject ; BranchTo
 	jmpto	JmpTo25_DeleteObject
@@ -51117,12 +49206,6 @@ Obj3D_Fragment:
 	_beq.w	JmpTo26_DeleteObject
 	jmpto	JmpTo14_DisplaySprite
 
-    if removeJmpTos
-JmpTo26_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-JmpTo3_MarkObjGone3 ; JmpTo
-	jmp	(MarkObjGone3).l
-    endif
 ; ===========================================================================
 ; loc_24F52:
 Obj3D_InvisibleLauncher:
@@ -51280,10 +49363,6 @@ Obj48:
 	beq.w	JmpTo14_MarkObjGone
 	jmpto	JmpTo15_DisplaySprite
 
-    if removeJmpTos
-JmpTo14_MarkObjGone ; JmpTo
-	jmp	(MarkObjGone).l
-    endif
 ; ===========================================================================
 ; off_25262:
 Obj48_Index:	offsetTable
@@ -51399,12 +49478,6 @@ loc_252F0:
 	addq.b	#2,(a4)
 	move.w	x_pos(a0),x_pos(a1)
 	move.w	y_pos(a0),y_pos(a1)
-    if fixBugs
-	; If Sonic/Tails fall into the launcher after being hurt, they will
-	; go through it while still activating the speed-doubling effect.
-	; Putting them into their normal state fixes the bug.
-	move.b	#2,routine(a1)
-    endif
 	move.b	#$81,obj_control(a1)
 	move.b	#2,anim(a1)
 	move.w	#$1000,inertia(a1)
@@ -51681,9 +49754,7 @@ Ani_obj22:	offsetTable
 		offsetTableEntry.w byte_257F7	; 1
 		offsetTableEntry.w byte_257FB	; 2
 byte_257F4:	dc.b $1F,  1,$FF
-	rev02even
 byte_257F7:	dc.b   3,  1,  2,$FF
-	rev02even
 byte_257FB:	dc.b   7,  3,  4,$FC,  4,  3,  1,$FD,  0
 	even
 ; ---------------------------------------------------------------------------
@@ -51861,30 +49932,20 @@ Obj2B_Init:
 	move.l	#Obj2B_MapUnc_25C6E,mappings(a0)
 	move.w	#make_art_tile(ArtTile_ArtKos_LevelArt,1,0),art_tile(a0)
 	jsrto	JmpTo25_Adjust2PArtPointer
-    if fixBugs
-	ori.b	#1<<render_flags.level_fg|1<<render_flags.explicit_height,render_flags(a0)
-	move.b	#$1C,width_pixels(a0)
-	move.b	#$20,y_radius(a0)
-    else
 	; This should use the accurate height check and larger size values, since
 	; right now it vanishes whilst partially on-screen.
 	ori.b	#1<<render_flags.level_fg,render_flags(a0)
 	move.b	#$10,width_pixels(a0)
 	move.b	#$18,y_radius(a0)
-    endif
 	move.b	#4,priority(a0)
 ; loc_25A9C:
 Obj2B_Main:
 	move.w	x_pos(a0),-(sp)
 	bsr.w	loc_25B28
-    if fixBugs
-	moveq	#$10+$B,d1
-    else
 	; Read above.
 	moveq	#0,d1
 	move.b	width_pixels(a0),d1
 	addi.w	#$B,d1
-    endif
 	moveq	#0,d2
 	move.b	y_radius(a0),d2
 	move.w	d2,d3
@@ -51993,10 +50054,6 @@ loc_25BA4:
 	_beq.w	JmpTo28_DeleteObject
 	jmpto	JmpTo16_DisplaySprite
 
-    if removeJmpTos
-JmpTo28_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 byte_25BB0:
 	dc.b   0
@@ -52106,14 +50163,10 @@ Obj2C_Init:
 	move.b	Obj2C_CollisionFlags(pc,d0.w),collision_flags(a0)
 	move.l	#Obj31_MapUnc_20E74,mappings(a0)
 	move.w	#make_art_tile(ArtTile_ArtNem_Powerups,0,1),art_tile(a0)
-    if fixBugs
-	move.b	#1<<render_flags.level_fg,render_flags(a0)
-    else
 	; The high bit of 'render_flags' should not be set here: this causes
 	; this object to become visible when the player dies, because of how
 	; 'RunObjectsWhenPlayerIsDead' works.
 	move.b	#1<<render_flags.on_screen|1<<render_flags.level_fg,render_flags(a0)
-    endif
 	move.b	#$80,width_pixels(a0)
 	move.b	#4,priority(a0)
 	move.b	subtype(a0),mapping_frame(a0)
@@ -52124,14 +50177,6 @@ Obj2C_Main:
 	sub.w	(Camera_X_pos_coarse).w,d0
 	cmpi.w	#$280,d0
 	bhi.w	JmpTo29_DeleteObject
-    if fixBugs
-	; This object never actually displays itself, even in Debug Mode.
-	; This code exists in Beta 8.
-	tst.w	(Debug_placement_mode).w
-	beq.s	+
-	jsr	(DisplaySprite).l
-+
-    endif
 	move.b	collision_property(a0),d0
 	beq.s	loc_261C2
 	move.w	objoff_2E(a0),d0
@@ -52216,14 +50261,10 @@ loc_261EC:
 	move.b	#1,priority(a1)
 	move.b	#4,objoff_38(a1)
 	; d1 is set to a random number by the above call to RandomNumber
-    if fixBugs
-	move.b	d1,angle(a1)
-    else
 	; This line makes no sense: the object being written to is the parent,
 	; not the child, and angle isn't used by the parent at all. The child,
 	; however, does use angle, so it would appear that this is a typo.
 	move.b	d1,angle(a0)		; ???
-    endif
 
 loc_26278:
 	dbf	d6,loc_261EC
@@ -52282,10 +50323,6 @@ Obj2C_Leaf:
 	_beq.w	JmpTo29_DeleteObject
 	jmpto	JmpTo17_DisplaySprite
 
-    if removeJmpTos
-JmpTo29_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; sprite mappings
@@ -52407,14 +50444,10 @@ loc_2645E:
 	btst	#status.npc.x_flip,status(a0)
 	beq.s	loc_2647A
 	not.w	d0
-    if fixBugs
-	addi.w	#2*$1C,d0
-    else
 	; This should be 2*$1C instead of $27. As is, this makes it
 	; impossible to get as high of a launch from flipped pressure springs
 	; as you can for unflipped ones.
 	addi.w	#$27,d0
-    endif
 
 loc_2647A:
 	tst.w	d0
@@ -52503,7 +50536,6 @@ Ani_obj40:	offsetTable
 		offsetTableEntry.w byte_265EC	; 0
 		offsetTableEntry.w byte_265EF	; 1
 byte_265EC:	dc.b  $F,  0,$FF
-	rev02even
 byte_265EF:	dc.b   3,  1,  0,$FD,  0
 	even
 ; ---------------------------------------------------------------------------
@@ -52703,10 +50735,6 @@ loc_2683A:
 +
 	jmpto	JmpTo18_DisplaySprite
 
-    if removeJmpTos
-JmpTo30_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; sprite mappings
@@ -53372,10 +51400,6 @@ loc_2702C:
     endif
 	rts
 
-    if removeJmpTos
-JmpTo33_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 loc_27042:
     if gameRevision>0
@@ -53436,11 +51460,6 @@ loc_270DC:
 +
 	bclr	#p1_pushing_bit,status(a0)
 	bclr	#p2_pushing_bit,status(a0)
-    if fixBugs
-	; Clear the player's 'roll-jumping' flag, to unlock their controls
-	; and prevent them from getting stuck.
-	bclr	#status.player.rolljumping,status(a1)
-    endif
 	bclr	#status.player.pushing,status(a1)
 	move.w	#SndID_Spring,d0
 	jmp	(PlaySound).l
@@ -53477,10 +51496,6 @@ Obj67:
 	jsrto	JmpTo7_AnimateSprite
 	jmpto	JmpTo19_DisplaySprite
 
-    if removeJmpTos
-JmpTo4_MarkObjGone3 ; JmpTo
-	jmp	(MarkObjGone3).l
-    endif
 ; ===========================================================================
 ; off_27184:
 Obj67_Index:	offsetTable
@@ -53730,7 +51745,6 @@ Ani_obj67:	offsetTable
 		offsetTableEntry.w byte_27535	; 1
 byte_27532:
 	dc.b $1F,  0,$FF
-	rev02even
 byte_27535:
 	dc.b   1,  1,  0,  0,  0,  0,  0,  1,  0,  0,  0,  1,  0,  0,  1,  0,$FE,  2
 	even
@@ -56514,10 +54528,6 @@ Obj7B:
 	bhi.w	JmpTo40_DeleteObject
 	jmpto	JmpTo25_DisplaySprite
 
-    if removeJmpTos
-JmpTo40_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; off_295C0:
 Obj7B_Index:	offsetTable
@@ -56663,9 +54673,7 @@ Ani_obj7B:	offsetTable
 		offsetTableEntry.w byte_29777	; 2
 		offsetTableEntry.w byte_29777	; 3
 byte_29770:	dc.b  $F,  0,$FF
-		rev02even
 byte_29773:	dc.b   0,  3,$FD,  0
-		rev02even
 byte_29777:	dc.b   5,  1,  2,  2,  2,  4,$FD,  0
 		even
 ; ---------------------------------------------------------------------------
@@ -57310,11 +55318,7 @@ Obj82_Properties:
 	;    width_pixels
 	;        y_radius
 	dc.b $20,  8	; 0
-    if fixBugs
-	dc.b $1C,$32	; 2
-    else
 	dc.b $1C,$30	; 2
-    endif
 	; Unused and broken; these don't have an associated frame, so using them crashes the game
 	dc.b $10,$10	; 4
 	dc.b $10,$10	; 6
@@ -57325,12 +55329,8 @@ Obj82_Init:
 	move.l	#Obj82_MapUnc_2A476,mappings(a0)
 	move.w	#make_art_tile(ArtTile_ArtKos_LevelArt,0,0),art_tile(a0)
 	jsrto	JmpTo46_Adjust2PArtPointer
-    if fixBugs
-	ori.b	#1<<render_flags.level_fg|1<<render_flags.explicit_height,render_flags(a0)
-    else
 	; Same as Obj2B, this should use the accurate height flag.
 	move.b	#1<<render_flags.level_fg,render_flags(a0)
-    endif
 	move.b	#3,priority(a0)
 	moveq	#0,d0
 	move.b	subtype(a0),d0
@@ -57370,13 +55370,6 @@ Obj82_Main:
 	move.b	y_radius(a0),d2
 	move.w	d2,d3
 	addq.w	#1,d3
-    if fixBugs
-	tst.b	mapping_frame(a0)	; is this a pillar?
-	beq.s	.notPillar		; if not, branch
-	subq.w	#2,d3
-
-.notPillar:
-    endif
 	jsrto	JmpTo23_SolidObject
 	swap	d6
 	move.b	d6,objoff_3F(a0)
@@ -58705,13 +56698,9 @@ Ani_obj86:	offsetTable
 		offsetTableEntry.w byte_2B448	; 3
 		offsetTableEntry.w byte_2B451	; 4
 byte_2B43C:	dc.b  $F,  0,$FF
-	rev02even
 byte_2B43F:	dc.b   3,  1,  2,  1,$FD,  0
-	rev02even
 byte_2B445:	dc.b  $F,  4,$FF
-	rev02even
 byte_2B448:	dc.b   0,  5,  4,  3,  3,  3,  3,$FD,  2
-	rev02even
 byte_2B451:	dc.b   0,  3,  4,  5,  5,  5,  5,$FD,  2
 	even
 ; ---------------------------------------------------------------------------
@@ -58917,10 +56906,6 @@ ObjD3:
 BranchTo_JmpTo44_DeleteObject ; BranchTo
 	jmpto	JmpTo44_DeleteObject
 
-    if removeJmpTos
-JmpTo28_DisplaySprite ; JmpTo
-	jmp	(DisplaySprite).l
-    endif
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; sprite mappings
@@ -59424,7 +57409,6 @@ Ani_objD6:	offsetTable
 		offsetTableEntry.w byte_2BEB4	; 0
 		offsetTableEntry.w byte_2BEB7	; 1
 byte_2BEB4:	dc.b  $F,  0,$FF
-	rev02even
 byte_2BEB7:	dc.b   1,  1,  0,$FF
 	even
 ; ---------------------------------------------------------------------------
@@ -59966,13 +57950,10 @@ SlotRingRewards:	dc.w   30,  25,  -1, 150,  10,  20
 ;byte_2C3EC
 SlotTargetValues:	dc.b   8, 3,$33,  $12, 0,$00,  $12, 1,$11  ,$24, 2,$22
 			dc.b $1E, 4,$44,  $1E, 5,$55,  $FF,$F,$FF
-	rev02even
 ;byte_2C401
 SlotSequence1:	dc.b   3,  0,  1,  4,  2,  5,  4,  1
-	rev02even
 ;byte_2C409
 SlotSequence2:	dc.b   3,  0,  1,  4,  2,  5,  0,  2
-	rev02even
 ;byte_2C411
 SlotSequence3:	dc.b   3,  0,  1,  4,  2,  5,  4,  1
 	even
@@ -60146,10 +58127,6 @@ loc_2C5F8:
 +
 	jmp	(DeleteObject).l
 
-    if removeJmpTos
-JmpTo30_MarkObjGone ; JmpTo
-	jmp	(MarkObjGone).l
-    endif
 ; ===========================================================================
 ; animation script
 ; off_2C610:
@@ -60158,9 +58135,7 @@ Ani_objD7:	offsetTable
 		offsetTableEntry.w byte_2C619	; 1
 		offsetTableEntry.w byte_2C61F	; 2
 byte_2C616:	dc.b  $F,  0,$FF
-	rev02even
 byte_2C619:	dc.b   3,  1,  0,  1,$FD,  0
-	rev02even
 byte_2C61F:	dc.b   3,  2,  0,  2,$FD,  0
 	even
 ; ---------------------------------------------------------------------------
@@ -60366,10 +58341,6 @@ loc_2C884:
 	blo.w	JmpTo46_DeleteObject
 	jmpto	JmpTo31_MarkObjGone
 
-    if removeJmpTos
-JmpTo46_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; animation script
 ; off_2C89C:
@@ -60381,15 +58352,10 @@ Ani_objD8:	offsetTable
 		offsetTableEntry.w byte_2C8B7	; 4
 		offsetTableEntry.w byte_2C8BD	; 5
 byte_2C8A8:	dc.b  $F,  0,$FF
-	rev02even
 byte_2C8AB:	dc.b  $F,  1,$FF
-	rev02even
 byte_2C8AE:	dc.b  $F,  2,$FF
-	rev02even
 byte_2C8B1:	dc.b   3,  3,  0,  3,$FD,  0
-	rev02even
 byte_2C8B7:	dc.b   3,  4,  1,  4,$FD,  1
-	rev02even
 byte_2C8BD:	dc.b   3,  5,  2,  5,$FD,  2
 	even
 ; ---------------------------------------------------------------------------
@@ -60531,10 +58497,6 @@ Obj4A_Angry:	; Used by removed sub-object
 	beq.w	JmpTo47_DeleteObject
 	jmpto	JmpTo31_DisplaySprite
 
-    if removeJmpTos
-JmpTo47_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; loc_2CA52:
 Obj4A_Init:
@@ -60677,9 +58639,7 @@ Ani_obj4A:	offsetTable
 		offsetTableEntry.w byte_2CBF4	; 3
 		offsetTableEntry.w byte_2CBF8	; 4
 byte_2CBE6:	dc.b  $F,  1,  0,$FF
-	rev02even
 byte_2CBEA:	dc.b   3,  1,  2,  3,$FF
-	rev02even
 byte_2CBEF:	dc.b   2,  5,  6,$FF
 	even
 byte_2CBF4:	dc.b  $F,  4,$FF
@@ -60811,10 +58771,6 @@ Obj50_Wing:
 	jsrto	JmpTo14_AnimateSprite
 	jmpto	JmpTo32_DisplaySprite
 
-    if removeJmpTos
-JmpTo48_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; loc_2CDF4:
 Obj50_Bullet:
@@ -60972,15 +58928,10 @@ Ani_obj50:	offsetTable
 		offsetTableEntry.w byte_2CF8D		; 4
 		offsetTableEntry.w byte_2CF90		; 5
 Ani_obj50_Normal:	dc.b  $E,  0,$FF			; byte_2CF78
-	rev02even
 byte_2CF7B:		dc.b   5,  3,  4,  3,  4,  3,  4,$FF
-	rev02even
 Ani_obj50_Bullet:	dc.b   3,  5,  6,  7,  6,$FF		; byte_2CF83
-	rev02even
 Ani_obj50_Wing:		dc.b   3,  1,  2,$FF			; byte_2CF89
-	rev02even
 byte_2CF8D:		dc.b   1,  5,$FF
-	rev02even
 byte_2CF90:		dc.b  $E,  8,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -61029,10 +58980,6 @@ Obj4B_Projectile:
 ; loc_2D090:
 Obj4B_Flame:
 	movea.l	Obj4B_parent(a0),a1 ; a1=object
-    if fixBugs
-	cmpi.b	#ObjID_Buzzer,id(a1)
-	bne.w	JmpTo49_DeleteObject
-    else
 	; This check doesn't really work: it's possible for an object to be
 	; loaded into the parent's slot before this object can check if the
 	; slot is empty. In fact, it will always be immediately occupied by
@@ -61041,7 +58988,6 @@ Obj4B_Flame:
 	; would be to check if the ID is equal to 'ObjID_Buzzer'.
 	tst.b	id(a1)
 	beq.w	JmpTo49_DeleteObject	; branch, if object slot is empty. This check is incomplete and very unreliable; check Obj50_Wing to see how it should be done
-    endif
 	tst.w	Obj4B_turn_delay(a1)
 	bmi.s	+		; branch, if parent isn't currently turning around
 	rts
@@ -61055,10 +59001,6 @@ Obj4B_Flame:
 	jsrto	JmpTo15_AnimateSprite
 	jmpto	JmpTo_MarkObjGone_P1
 
-    if removeJmpTos
-JmpTo49_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; loc_2D0C8:
 Obj4B_Init:
@@ -61139,11 +59081,6 @@ Obj4B_TurnAround:
 	move.w	#$100,Obj4B_move_timer(a0)
 	rts
 
-    if removeJmpTos
-; loc_2D38C:
-JmpTo21_ObjectMove ; JmpTo
-	jmp	(ObjectMove).l
-    endif
 ; ===========================================================================
 ; Start of subroutine Obj4B_ChkPlayers
 ; sub_2D1D6:
@@ -61242,11 +59179,8 @@ Ani_obj4B:	offsetTable
 		offsetTableEntry.w byte_2D2DD	; 2
 		offsetTableEntry.w byte_2D2E1	; 3
 byte_2D2D6:	dc.b	$0F, $00, $FF
-	rev02even
 byte_2D2D9:	dc.b	$02, $03, $04, $FF
-	rev02even
 byte_2D2DD:	dc.b	$03, $05, $06, $FF
-	rev02even
 byte_2D2E1:	dc.b	$09, $01, $01, $01, $01, $01, $FD, $00
 	even
 ; ----------------------------------------------------------------------------
@@ -61381,10 +59315,6 @@ Obj58_Main:
 +
 	jmpto	JmpTo33_DisplaySprite
 
-    if removeJmpTos
-JmpTo50_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; ----------------------------------------------------------------------------
 ; sprite mappings
@@ -61992,7 +59922,6 @@ Obj5D_Main_Explode2:
 	; as the `x_pos` and `y_pos` values do not match the actual physical
 	; locations of the pieces. In fact, most pieces' X and Y positions are
 	; in the middle of the Eggmobile, completely ruining the effect.
-	; I would use `fixBugs` to fix this, but this is a pretty deep-rooted
 	; issue that would be complicated to fix.
 	move.w	x_pos(a0),x_pos(a1)
 	move.w	y_pos(a0),y_pos(a1)
@@ -62168,14 +60097,10 @@ Obj5D_Pump:
 	move.b	d0,Obj5D_timer(a1)
 	addq.w	#1,d3	; Next sprite
 	dbf	d2,-
-    if fixBugs
-	jmp	(DisplaySprite).l
-    else
 	; This function fails to display the current object, causing the top
 	; piece of the Chemical Plant Zone boss to disappear for one frame when
 	; the boss is defeated.
 	rts
-    endif
 ; ===========================================================================
 ; Object to control the pipe's actions before pumping starts.
 
@@ -62204,12 +60129,8 @@ Obj5D_Pipe_Wait:
 	move.w	x_pos(a1),x_pos(a0)
 	move.w	y_pos(a1),y_pos(a0)
 	addi.w	#$18,y_pos(a0)
-    if fixBugs
-	move.w	#$C-1,Obj5D_pipe_segments(a0)
-    else
 	; See the below bugfix.
 	move.w	#$C,Obj5D_pipe_segments(a0)
-    endif
 	addq.b	#2,routine_secondary(a0)	; => Obj5D_Pipe_Extend
 	movea.l	a0,a1
 	bra.s	Obj5D_Pipe_Extend_Part2		; skip initial loading setup
@@ -62221,10 +60142,6 @@ Obj5D_Pipe_Wait:
 Obj5D_Pipe_Extend:
 	; This code allocates one more object than necessary, leaving a
 	; partially initialised object in memory.
-    if fixBugs
-	subq.w  #1,Obj5D_pipe_segments(a0)	; is pipe fully extended?
-	blt.s   Obj5D_Pipe_Extend_End		; if yes, branch
-    endif
 	jsr	(AllocateObjectAfterCurrent).l
 	beq.s	+
 	rts
@@ -62233,10 +60150,8 @@ Obj5D_Pipe_Extend:
 	move.l	a0,Obj5D_parent(a1)
 ;Obj5D_Pipe_2_Load_Part2:
 Obj5D_Pipe_Extend_Part2:
-    if ~~fixBugs
 	subq.w  #1,Obj5D_pipe_segments(a0)	; is pipe fully extended?
 	blt.s   Obj5D_Pipe_Extend_End		; if yes, branch
-    endif
 
 	_move.b #ObjID_CPZBoss,id(a1)	; load obj5D
 	move.l	#Obj5D_MapUnc_2EADC,mappings(a1)
@@ -62401,28 +60316,13 @@ loc_2DFD8:
 ; ===========================================================================
 
 Obj5D_Pipe_Retract_ChkID:
-    if fixBugs
-	cmpi.b	#ObjID_CPZBoss,id(a1)
-    else
 	; 'd7' should not be used here. This causes the 'RunObjects' routine
 	; to either run too few objects or too many objects, causing all
 	; sorts of errors.
 	moveq	#0,d7
 	move.b	#ObjID_CPZBoss,d7
 	cmp.b	id(a1),d7	; is object a subtype of the CPZ Boss?
-    endif
 	beq.s	loc_2DFF0	; if yes, branch
-    if fixBugs
-	; There is no code to advance to the next object here.
-	; This causes the loop to get stuck repeatedly checking the same
-	; object until 'd1' reaches 0. If the boss's hovering motion is
-	; disabled, then it's actually possible to get the boss's
-	; pipe stuck because of this bug by positioning Sonic or Tails at the
-	; same Y-coordinate as a pipe segment. Even if the boss's hovering
-	; motion isn't disabled, this bug can still cause the pipe's updating
-	; to be delayed by a frame.
-	lea	next_object(a1),a1
-    endif
 	dbf	d1,Obj5D_Pipe_Retract_Loop
 	bra.s	Obj5D_PipeSegment
 ; ===========================================================================
@@ -62471,11 +60371,6 @@ Obj5D_PipeSegment_End:
 	addi.b	#$1E,d0
 	andi.w	#$7F,d0
 	move.b	d0,Obj5D_timer(a0)
-    if fixBugs
-	lea	(Ani_Obj5D_Dripper).l,a1
-	jsr	(AnimateSprite).l
-	jmp	(DisplaySprite).l
-    else
 	; If the Chemical Plant Zone boss is defeated while its pipe is
 	; extending, then an incorrect sprite will appear at the boss's rear
 	; as it explodes.
@@ -62490,7 +60385,6 @@ Obj5D_PipeSegment_End:
 	; To fix this bug, Obj5D_PipeSegment_End should be made to call
 	; AnimateSprite.
 	jmpto	JmpTo34_DisplaySprite
-    endif
 ; ===========================================================================
 
 Obj5D_Dripper:
@@ -62956,15 +60850,11 @@ Obj5D_Gunk_States:	offsetTable
 
 Obj5D_Gunk_Init:
 	addq.b	#2,routine_secondary(a0)	; => Obj5D_Gunk_Main
-    if fixBugs
-	move.b	#$16,y_radius(a0)
-    else
 	; The hitbox for this object is a mess, allowing the player to avoid
 	; damage by simply ducking. Ideally, it would be realigned with the
 	; sprite, but this will have to do for now.
 	; Funnily enough, the Official Players Guide brings this up on page 90.
 	move.b	#$20,y_radius(a0)
-    endif
 	move.b	#$19,anim(a0)
 	move.w	#0,y_vel(a0)
 	movea.l	Obj5D_parent(a0),a1 ; a1=object
@@ -63196,21 +61086,13 @@ loc_2E9A8:
 	rts
 ; ===========================================================================
 +
-    if fixBugs
-	addq.b	#2,routine(a0)
-    else
 	; Eggman is supposed to start leaving a trail of smoke here, but
 	; this code is incorrect which prevents it from appearing.
 	; This should be 'routine' instead of 'routine_secondary'...
 	addq.b	#2,routine_secondary(a0)
-    endif
 	move.l	#Obj5D_MapUnc_2EEA0,mappings(a0)
-    if fixBugs
-	move.w	#make_art_tile(ArtTile_ArtNem_BossSmoke_1,1,0),art_tile(a0)
-    else
 	; ...and this should be 'make_art_tile(ArtTile_ArtNem_BossSmoke_1,1,0)' instead.
 	move.w	#make_art_tile(ArtTile_ArtNem_EggpodJets_1,0,0),art_tile(a0)
-    endif
 	jsrto	JmpTo60_Adjust2PArtPointer
 	move.b	#0,mapping_frame(a0)
 	move.b	#5,anim_frame_duration(a0)
@@ -63241,12 +61123,6 @@ Obj5D_Smoke_Puff:
 BranchTo2_JmpTo34_DisplaySprite ; BranchTo
 	jmpto	JmpTo34_DisplaySprite
 
-    if removeJmpTos
-JmpTo34_DisplaySprite ; JmpTo
-	jmp	(DisplaySprite).l
-JmpTo51_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; animation script
 ; off_2EA3C:
@@ -63279,57 +61155,31 @@ Ani_Obj5D_Dripper:	offsetTable
 		offsetTableEntry.w byte_2EAD5	; $19
 		offsetTableEntry.w byte_2EAD9	; $1A
 byte_2EA72:	dc.b  $F,  0,$FF
-	rev02even
 byte_2EA75:	dc.b  $F,  1,$FF
-	rev02even
 byte_2EA78:	dc.b   5,  2,  3,  2,$FF
-	rev02even
 byte_2EA7D:	dc.b   5,  2,  3,$FF
-	rev02even
 byte_2EA81:	dc.b   2,  4,  5,  6,  7,  8,$FF
-	rev02even
 byte_2EA88:	dc.b   3,  9,$FF
-	rev02even
 byte_2EA8B:	dc.b  $F, $A,$FF
-	rev02even
 byte_2EA8E:	dc.b  $F,$1C,$FF
-	rev02even
 byte_2EA91:	dc.b  $F,$1E,$FF
-	rev02even
 byte_2EA94:	dc.b  $F, $B,$FF
-	rev02even
 byte_2EA97:	dc.b   3, $C, $C, $D, $D, $D, $D, $D, $C, $C,$FD,  9
-	rev02even
 byte_2EAA3:	dc.b   3, $E, $E, $F, $F, $F, $F, $F, $E, $E,$FF
-	rev02even
 byte_2EAAE:	dc.b  $F,$10,$FF
-	rev02even
 byte_2EAB1:	dc.b  $F,$11,$FF
-	rev02even
 byte_2EAB4:	dc.b  $F,$12,$FF
-	rev02even
 byte_2EAB7:	dc.b  $F,$13,$FF
-	rev02even
 byte_2EABA:	dc.b  $F,$14,$FF
-	rev02even
 byte_2EABD:	dc.b  $F,$15,$FF
-	rev02even
 byte_2EAC0:	dc.b  $F,$16,$FF
-	rev02even
 byte_2EAC3:	dc.b  $F,$17,$FF
-	rev02even
 byte_2EAC6:	dc.b  $F,$18,$FF
-	rev02even
 byte_2EAC9:	dc.b  $F,$19,$FF
-	rev02even
 byte_2EACC:	dc.b  $F,$1A,$FF
-	rev02even
 byte_2EACF:	dc.b  $F,$1B,$FF
-	rev02even
 byte_2EAD2:	dc.b  $F,$1C,$FF
-	rev02even
 byte_2EAD5:	dc.b   1,$1D,$1F,$FF
-	rev02even
 byte_2EAD9:	dc.b  $F,$1E,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -63346,13 +61196,9 @@ Ani_obj5D_b:	offsetTable
 		offsetTableEntry.w byte_2ED76	; 3
 		offsetTableEntry.w byte_2ED7F	; 4
 byte_2ED66:	dc.b  $F,  0,$FF
-	rev02even
 byte_2ED69:	dc.b   7,  1,  2,$FF
-	rev02even
 byte_2ED6D:	dc.b   7,  5,  5,  5,  5,  5,  5,$FD,  1
-	rev02even
 byte_2ED76:	dc.b   7,  3,  4,  3,  4,  3,  4,$FD,  1
-	rev02even
 byte_2ED7F:	dc.b  $F,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,$FD,  1
 	even
 
@@ -64195,12 +62041,6 @@ loc_2F924:
 	jsr	(AnimateSprite).l
 	jmp	(DisplaySprite).l
 
-    if removeJmpTos
-JmpTo35_DisplaySprite ; JmpTo
-	jmp	(DisplaySprite).l
-JmpTo52_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; animation script
 ; off_2F936:
@@ -64232,10 +62072,8 @@ Ani_obj56_b:	offsetTable
 		offsetTableEntry.w byte_2FA53	; 2
 byte_2FA4A:
 	dc.b   5,  1,  2,  3,$FF	; spike
-	rev02even
 byte_2FA4F:
 	dc.b   1,  4,  5,$FF	; foreground wheel
-	rev02even
 byte_2FA53:
 	dc.b   1,  6,  7,$FF	; background wheel
 	even
@@ -64259,13 +62097,9 @@ Ani_obj56_c:	offsetTable
 		offsetTableEntry.w byte_2FAE2	; 3
 		offsetTableEntry.w byte_2FAEB	; 4
 byte_2FAD2:	dc.b  $F,  0,$FF	; bottom
-	rev02even
 byte_2FAD5:	dc.b   7,  1,  2,$FF	; top, normal
-	rev02even
 byte_2FAD9:	dc.b   7,  5,  5,  5,  5,  5,  5,$FD,  1	; top, when hit
-	rev02even
 byte_2FAE2:	dc.b   7,  3,  4,  3,  4,  3,  4,$FD,  1	; top, laughter (when hurting Sonic)
-	rev02even
 byte_2FAEB:	dc.b  $F,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,$FD,  1	; top, when flying off
 	even	; for top part, after end of special animations always return to normal one ($FD->1)
 
@@ -64311,14 +62145,12 @@ Obj52_Init:
 	move.w	#make_art_tile(ArtTile_ArtNem_Eggpod_2,0,0),art_tile(a0)
 	ori.b	#1<<render_flags.level_fg,render_flags(a0)
 	move.b	#$90,mainspr_width(a0)
-    if ~~fixBugs
 	; This instruction is pointless, as bit 4 of 'render_flags' is never
 	; set anyway. Also, it clashes with 'boss_invulnerable_time', as they
 	; use the same SST slot. Unlike the Casino Night Zone boss, this does
 	; not result in any bugs, because 'boss_invulnerable_time' is cleared
 	; right after this.
 	move.b	#$90,mainspr_height(a0)
-    endif
 	move.b	#4,priority(a0)
 	move.w	#$3040,x_pos(a0)
 	move.w	#$580,y_pos(a0)
@@ -64409,19 +62241,13 @@ Obj52_Mobile_Flamethrower:
 	move.b	#$2F,objoff_3E(a0)
 
 loc_2FDAA:
-    if ~~fixBugs
 	; This branch is in the wrong place. Should the player defeat Eggman right as
 	; the flamethrower finishes, AnimateBoss will increment `boss_routine` by 2,
 	; making Obj52_Mobile read an invalid entry from off_2FD0E and crash the game.
 	bsr.w	loc_300A4
-    endif
 	bsr.w	loc_2FEDE
 	lea	(Ani_obj52).l,a1
 	bsr.w	AnimateBoss
-    if fixBugs
-	; See above.
-	bsr.w	loc_300A4
-    endif
 	jmpto	JmpTo36_DisplaySprite
 ; ===========================================================================
 
@@ -64840,12 +62666,6 @@ loc_3022A:
 	move.l	d3,y_pos(a0)
 	jmpto	JmpTo36_DisplaySprite
 
-    if removeJmpTos
-JmpTo36_DisplaySprite ; JmpTo
-	jmp	(DisplaySprite).l
-JmpTo53_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; ----------------------------------------------------------------------------
 ; sprite mappings - uses ArtNem_BossSmoke
@@ -64864,19 +62684,12 @@ Ani_obj52:	offsetTable
 		offsetTableEntry.w byte_302B4	; 6
 		offsetTableEntry.w byte_302B7	; 7
 byte_30298:	dc.b   1,  2,  3,$FD,  1
-	rev02even
 byte_3029D:	dc.b   2,  4,  5,$FD,  2
-	rev02even
 byte_302A2:	dc.b   3,  6,  7,$FD,  3
-	rev02even
 byte_302A7:	dc.b   4,  8,  9,$FD,  4
-	rev02even
 byte_302AC:	dc.b   5, $A, $B,$FE
-	rev02even
 byte_302B0:	dc.b   3, $C, $D,$FF
-	rev02even
 byte_302B4:	dc.b  $F,  1,$FF
-	rev02even
 byte_302B7:	dc.b   3, $E, $F,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -64909,9 +62722,6 @@ obj89_eyes_timer		= objoff_30
 obj89_arrow_routine		= objoff_2A
 obj89_arrow_timer		= objoff_30
 obj89_arrow_parent2		= objoff_34
-    if fixBugs
-obj89_checkplayerhurt		= objoff_36
-    endif
 obj89_arrow_parent		= objoff_38	; address of main vehicle
 
 ; Sprite_30480:
@@ -64926,17 +62736,6 @@ Obj89_Index:	offsetTable
 		offsetTableEntry.w Obj89_Init	; 0 - Init
 		offsetTableEntry.w Obj89_Main	; 2 - Main Vehicle
 		offsetTableEntry.w Obj89_Pillar	; 4 - Pillars & Arrows
-    if fixBugs
-		; These shouldn't be subtypes of the pillar object, as the
-		; 'obj89_pillar_parent' variable does not exist to them: they
-		; should be subtypes of the main boss object instead.
-		; This mistake causes 'obj89_pillar_parent' to be deferenced
-		; even when it is set to 0, or overwritten by
-		; 'obj89_arrow_routine', which can cause crashes or other
-		; eratic behaviour.
-		offsetTableEntry.w Obj89_Arrow			; 6 - arrow
-		offsetTableEntry.w Obj89_Pillar_BulgingEyes	; 8 - pillar normal (standing)
-    endif
 ; ===========================================================================
 ; loc_30494:
 Obj89_Init:
@@ -64967,11 +62766,9 @@ Obj89_Init_RaisePillars:
 	move.l	#Obj89_MapUnc_30E04,mappings(a0)
 	ori.b	#1<<render_flags.level_fg,render_flags(a0)
 	move.b	#$20,mainspr_width(a0)
-    if ~~fixBugs
 	; Multi-sprite objects cannot use the 'priority' SST as it is
 	; overwritten by 'sub3_y_pos'.
 	move.b	#2,priority(a0)
-    endif
 	move.b	#2,boss_subtype(a0)	; => Obj89_Main
 	move.w	#$2AE0,x_pos(a0)
 	move.w	#$388,y_pos(a0)
@@ -65082,16 +62879,7 @@ Obj89_Main_Sub0:
 Obj89_Main_Sub0_Standard:
 	lea	(Ani_obj89_b).l,a1
 	bsr.w	AnimateBoss
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*2,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo37_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_3067A:
 Obj89_Main_Sub2:
@@ -65118,16 +62906,7 @@ Obj89_Main_Sub2_AtTarget:
 Obj89_Main_Sub2_Standard:
 	lea	(Ani_obj89_b).l,a1
 	bsr.w	AnimateBoss
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*2,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo37_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_306B8:
 Obj89_Main_Sub4:
@@ -65150,16 +62929,7 @@ Obj89_Main_Sub4:
 Obj89_Main_Sub4_Standard:
 	lea	(Ani_obj89_b).l,a1
 	bsr.w	AnimateBoss
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*2,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo37_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_30706:
 Obj89_Main_Sub6:
@@ -65188,28 +62958,11 @@ Obj89_Main_Sub6_Standard:
 	bsr.w	Obj89_Main_AlignParts
 	lea	(Ani_obj89_b).l,a1
 	bsr.w	AnimateBoss
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*2,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo37_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_3075C:
 Obj89_Main_HandleFace:
 	bsr.w	Obj89_Main_HandleHoveringAndHits
-    if fixBugs
-	; Due to how this code works, Eggman does not laugh (or play any
-	; animation for that matter) until the player has hit the ground.
-	; To fix this, we'll simply force it to run when Sonic or Tails
-	; are hurt using a flag.
-	tst.b	obj89_checkplayerhurt(a0)	; should Eggman be laughing?
-	bne.s	Obj89_Main_ChkHurt		; if yes, branch
-    endif
 	cmpi.b	#4,(MainCharacter+routine).w	; is Sonic hurt?
 	beq.s	Obj89_Main_Laugh		; if yes, branch
 	cmpi.b	#4,(Sidekick+routine).w		; is Tails hurt?
@@ -65219,9 +62972,6 @@ Obj89_Main_HandleFace:
 Obj89_Main_Laugh:
 	lea	(Boss_AnimationArray).w,a1
 	move.b	#$31,1*2+1(a1)			; use laughing animation
-    if fixBugs
-	move.b	#1,obj89_checkplayerhurt(a0)	; set flag to immediately start laughing
-    endif
 ; loc_3077A:
 Obj89_Main_ChkHurt:
 	cmpi.b	#64-1,boss_invulnerable_time(a0)	; was boss hurt?
@@ -65230,13 +62980,6 @@ Obj89_Main_ChkHurt:
 	move.b	#-$40,1*2+1(a1)			; use hurt animation
 
 return_3078C:
-    if fixBugs
-	cmpi.b	#$17,(Boss_AnimationArray+3).w	; has Eggman stopped laughing?
-	bne.s	.keeplaughing			; if not, branch
-	clr.b	obj89_checkplayerhurt(a0)	; clear laughing flag if he has
-
-.keeplaughing:
-    endif
 	rts
 ; ===========================================================================
 ; loc_3078E:
@@ -65310,14 +63053,6 @@ Obj89_Main_DropHammer:
 	cmpi.w	#$78,(Boss_Countdown).w
 	bgt.s	return_3088A			; wait until timer is below $78
 	subi_.w	#1,sub3_x_pos(a0)		; make hammer move left
-    if fixBugs
-	; This properly makes the hammer fall the opposite direction.
-	btst	#render_flags.x_flip,render_flags(a0)	; is Eggman facing right?
-	beq.s	.notfacingright			; is not, branch
-	addi_.w	#2,sub3_x_pos(a0)		; make the hammer move right
-
-.notfacingright:
-    endif
 	move.l	obj89_hammer_y_pos(a0),d0
 	move.w	obj89_hammer_y_vel(a0),d1
 	addi.w	#$38,obj89_hammer_y_vel(a0)	; add gravity
@@ -65362,16 +63097,7 @@ Obj89_Main_Sub8_Standard:
 	lea	(Ani_obj89_b).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj89_Main_AlignParts
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*2,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo37_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_308F4:
 Obj89_Main_SubA:
@@ -65416,16 +63142,7 @@ Obj89_Main_SubA_Standard:
 	lea	(Ani_obj89_b).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj89_Main_AlignParts
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*2,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo37_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_3095C:
 Obj89_Main_SubC:
@@ -65450,16 +63167,7 @@ Obj89_Main_SubC_Standard:
 	lea	(Ani_obj89_b).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj89_Main_AlignParts
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*2,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo37_DisplaySprite
-    endif
 ; ===========================================================================
 
 JmpTo54_DeleteObject ; JmpTo
@@ -65484,11 +63192,9 @@ Obj89_Pillar_Index:	offsetTable				; pillar/arrow object
 		offsetTableEntry.w Obj89_Pillar_Sub0		; 0 - raise pillars
 		offsetTableEntry.w Obj89_Pillar_Sub2		; 2 - pillars shaking(?)
 		offsetTableEntry.w Obj89_Pillar_Sub4		; 4 - move pillars down
-    if ~~fixBugs
 		; See the bugfix under 'Obj89_Index'.
 		offsetTableEntry.w Obj89_Arrow			; 6 - arrow
 		offsetTableEntry.w Obj89_Pillar_BulgingEyes	; 8 - pillar normal (standing)
-    endif
 ; ===========================================================================
 ; loc_309D2:
 Obj89_Pillar_Sub0:
@@ -65591,13 +63297,8 @@ Obj89_Pillar_Shoot:
 	jsrto	JmpTo14_AllocateObject
 	bne.w	return_30B40
 	_move.b	#ObjID_ARZBoss,id(a1) ; load obj89
-    if fixBugs
-	; See the bugfix under 'Obj89_Index'.
-	move.b	#8,boss_subtype(a1)	; => Obj89_Pillar_BulgingEyes
-    else
 	move.b	#4,boss_subtype(a1)
 	move.b	#8,routine_secondary(a1)	; => Obj89_Pillar_BulgingEyes
-    endif
 	move.l	#Obj89_MapUnc_30D68,mappings(a1)
 	move.w	#make_art_tile(ArtTile_ArtNem_ARZBoss,0,0),art_tile(a1)
 	ori.b	#1<<render_flags.level_fg,render_flags(a1)
@@ -65619,13 +63320,8 @@ Obj89_Pillar_Shoot:
 	jsrto	JmpTo14_AllocateObject
 	bne.s	return_30B40
 	_move.b	#ObjID_ARZBoss,id(a1) ; load obj89
-    if fixBugs
-	; See the bugfix under 'Obj89_Index'.
-	move.b	#6,boss_subtype(a1)	; => Obj89_Arrow
-    else
 	move.b	#4,boss_subtype(a1)
 	move.b	#6,routine_secondary(a1)	; => Obj89_Arrow
-    endif
 	move.l	a2,obj89_arrow_parent2(a1)
 	move.b	d6,subtype(a1)
 	move.l	a3,obj89_arrow_parent(a1)
@@ -65642,42 +63338,10 @@ Obj89_Arrow_Offsets:
 ; ===========================================================================
 ; loc_30B4A:
 Obj89_Pillar_Sub4:
-    if fixBugs
-	; This code is flawed in that it does not reset the character's standing
-	; flags for the pillar, leading to a case where one player can walk on air
-	; if another player defeats the boss. This fixes that, and also adjusts the
-	; code to keep the pillars solid when they descend.
-	move.w	#$23,d1
-	move.w	#$44,d2
-	move.w	#$45,d3
-	move.w	x_pos(a0),d4
-	move.w	y_pos(a0),-(sp)
-	addi_.w	#4,y_pos(a0)
-	jsrto	JmpTo26_SolidObject
-	move.w	(sp)+,y_pos(a0)
-    endif
 	move.b	#1,(Screen_Shaking_Flag).w	; make screen shake
 	addi_.w	#1,y_pos(a0)			; lower pillar
 	cmpi.w	#$510,y_pos(a0)			; has pillar lowered into the ground?
 	blt.s	BranchTo2_JmpTo37_DisplaySprite	; if not, branch
-    if fixBugs
-	; Read above. This was copied from Obj26_Solid.
-	move.b	status(a0),d0
-	andi.b	#standing_mask|pushing_mask,d0	; is someone touching the pillar?
-	beq.s	Obj89_Pillar_Lower	; if not, branch
-	move.b	d0,d1
-	andi.b	#p1_standing|p1_pushing,d1	; is it the main character?
-	beq.s	+		; if not, branch
-	andi.b	#~(1<<status.player.on_object|1<<status.player.pushing),(MainCharacter+status).w
-	ori.b	#1<<status.player.in_air,(MainCharacter+status).w	; prevent Sonic from walking in the air
-+
-	andi.b	#p2_standing|p2_pushing,d0	; is it the sidekick?
-	beq.s	Obj89_Pillar_Lower	; if not, branch
-	andi.b	#~(1<<status.player.on_object|1<<status.player.pushing),(Sidekick+status).w
-	ori.b	#1<<status.player.in_air,(Sidekick+status).w	; prevent Tails from walking in the air
-
-Obj89_Pillar_Lower:
-    endif
 	move.b	#0,(Screen_Shaking_Flag).w	; else, stop shaking the screen
 	jmpto	JmpTo55_DeleteObject
 ; ===========================================================================
@@ -65811,52 +63475,12 @@ Obj89_Arrow_Sub6:
 	jmpto	JmpTo37_DisplaySprite
 ; ===========================================================================
 
-    if removeJmpTos
-JmpTo55_DeleteObject ; JmpTo
-    endif
 
 BranchTo_JmpTo55_DeleteObject ; BranchTo
 	jmpto	JmpTo55_DeleteObject
 ; ===========================================================================
 ; loc_30CCC:
 Obj89_Arrow_Platform:
-    if fixBugs
-	; PlatformObject originally only ran while the decay timer was zero, so once
-	; Sonic/Tails stepped on the arrow (and timer gets set) it stopped running
-	; for the whole countdown. They were then held only by a stale on_object
-	; state, letting them walk on air off the arrow's top until it fell or they
-	; jumped. This runs PlatformObject every frame the arrow is stuck and handles
-	; the decay timer separately below, fixing the bug.
-	move.w	#$1B,d1
-	move.w	#1,d2
-	move.w	#2,d3
-	move.w	x_pos(a0),d4
-	jsrto	JmpTo8_PlatformObject
-	; AI Tails normally does not cause the arrow they are standing on
-	; to fall, this fixes that.
-	btst	#status.npc.p2_standing,status(a0)	; is Tails standing on the arrow?
-	beq.s	.notTails				; if not, branch
-	tst.w	obj89_arrow_timer(a0)			; is the timer already counting down?
-	bne.s	.notTails				; if so, don't restart it
-	move.w	#$1F,obj89_arrow_timer(a0)		; else, set timer
-
-.notTails:
-	btst	#status.npc.p1_standing,status(a0)	; is Sonic standing on the arrow?
-	beq.s	.chkTimer				; if not, branch
-	tst.w	obj89_arrow_timer(a0)			; is the timer already counting down?
-	bne.s	.chkTimer				; if so, don't restart it
-	move.w	#$1F,obj89_arrow_timer(a0)		; else, set timer
-
-.chkTimer:
-	tst.w	obj89_arrow_timer(a0)		; is the timer set?
-	beq.s	return_30D02			; if not, branch
-	subi_.w	#1,obj89_arrow_timer(a0)	; decrement timer
-	bne.s	return_30D02			; branch, if timer hasn't expired
-	move.b	#6,obj89_arrow_routine(a0)	; => Obj89_Arrow_Sub6
-
-return_30D02:
-	rts
-    else
 	tst.w	obj89_arrow_timer(a0)		; is timer set?
 	bne.s	Obj89_Arrow_Platform_Decay	; if yes, branch
 	move.w	#$1B,d1
@@ -65876,7 +63500,6 @@ Obj89_Arrow_Platform_Decay:
 
 return_30D02:
 	rts
-    endif
 ; ===========================================================================
 ; loc_30D04:
 Obj89_Arrow_ChkDropPlayers:
@@ -65904,7 +63527,6 @@ Ani_obj89_a:	offsetTable
 		offsetTableEntry.w byte_30D47	; 1
 byte_30D30:	dc.b   1,  4,  6,  5,  4,  6,  4,  5,  4,  6,  4,  4,  6,  5,  4,  6
 		dc.b   4,  5,  4,  6,  4,$FD,  1; 16
-	rev02even
 
 byte_30D47:	dc.b  $F,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4
 		dc.b   4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,$F9; 16
@@ -65925,15 +63547,10 @@ Ani_obj89_b:	offsetTable
 		offsetTableEntry.w byte_30E00	; $A
 byte_30DD4:	dc.b   7,  0,  1,$FF,  2,  3,  2,  3,  2,  3,  2,  3,$FF,  4,  4,  4
 		dc.b   4,  4,  4,  4,  4,$FF; 16
-	rev02even
 byte_30DEA:	dc.b   1,  6,  7,$FF
-	rev02even
 byte_30DEE:	dc.b  $F,  9,$FF
-	rev02even
 byte_30DF1:	dc.b   2, $A, $A, $B, $B, $B, $B, $B, $A, $A,$FD,  2
-	rev02even
 byte_30DFD:	dc.b  $F,  8,$FF
-	rev02even
 byte_30E00:	dc.b   7,  5,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -65975,11 +63592,9 @@ Obj57_Init:
 	move.l	#Obj57_MapUnc_316EC,mappings(a0)
 	move.w	#make_art_tile(ArtTile_ArtNem_MCZBoss,0,0),art_tile(a0)
 	ori.b	#1<<render_flags.level_fg,render_flags(a0)
-    if ~~fixBugs
 	; Multi-sprite objects cannot use the 'priority' SST as it is
 	; overwritten by 'sub3_y_pos'.
 	move.b	#3,priority(a0)	; gets overwritten
-    endif
 	move.w	#$21A0,x_pos(a0)
 	move.w	#$560,y_pos(a0)
 	move.b	#5,mainspr_mapframe(a0)
@@ -66090,16 +63705,7 @@ Obj57_Main_Sub0_Standard:
 	lea	(Ani_obj57).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj57_TransferPositions
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo38_DisplaySprite
-    endif
 ; ===========================================================================
 ;loc_3116E:
 Obj57_Main_Sub2: ; boss moving down, stuff falling down
@@ -66117,16 +63723,7 @@ Obj57_Main_Sub2_Standard:
 	lea	(Ani_obj57).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj57_TransferPositions
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo38_DisplaySprite
-    endif
 ; ===========================================================================
 ;loc_311AA:
 Obj57_Main_Sub4: ; moving down, stop stuff falling down
@@ -66164,16 +63761,7 @@ Obj57_Main_Sub4_Standard:
 	lea	(Ani_obj57).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj57_TransferPositions
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo38_DisplaySprite
-    endif
 ; ===========================================================================
 ;loc_3124A:
 Obj57_Main_Sub6: ; digger transition (rotation), moving back and forth
@@ -66227,16 +63815,7 @@ Obj57_Main_Sub6_Standard:
 	lea	(Ani_obj57).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj57_TransferPositions
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo38_DisplaySprite
-    endif
 ; ===========================================================================
 ;loc_3130A:
 Obj57_TransferPositions:
@@ -66266,21 +63845,8 @@ Obj57_TransferPositions:
 ;loc_31358:
 Obj57_FallApart:	; make the digger thingies fall down
 	cmpi.w	#$78,(Boss_Countdown).w
-    if ~~fixBugs
 	bgt.s	return_313C4
-    else
-	; Not actually a bugfix, but the code below pushed this branch out of range.
-	bgt.w	return_313C4
-    endif
 	subi_.w	#1,sub5_x_pos(a0)
-    if fixBugs
-	; This properly makes the left drill fall the opposite direction.
-	btst	#render_flags.x_flip,render_flags(a0)	; is Eggman facing right?
-	beq.s	.notfacingright			; is not, branch
-	addi_.w	#2,sub5_x_pos(a0)
-
-.notfacingright:
-    endif
 	move.l	obj57_sub5_y_pos2(a0),d0
 	move.w	obj57_sub5_y_vel(a0),d1
 	addi.w	#$38,obj57_sub5_y_vel(a0)
@@ -66294,14 +63860,6 @@ Obj57_FallApart:	; make the digger thingies fall down
 	move.w	#0,obj57_sub5_y_vel(a0)
 +			; second one
 	addi_.w	#1,sub2_x_pos(a0)
-    if fixBugs
-	; This properly makes the right drill fall the opposite direction.
-	btst	#render_flags.x_flip,render_flags(a0)	; is Eggman facing right?
-	beq.s	.notfacingright2			; is not, branch
-	subi_.w	#2,sub5_x_pos(a0)
-
-.notfacingright2:
-    endif
 	move.l	obj57_sub2_y_pos2(a0),d0
 	move.w	obj57_sub2_y_vel(a0),d1
 	addi.w	#$38,obj57_sub2_y_vel(a0)
@@ -66433,16 +63991,7 @@ Obj57_Main_Sub8_Standard:
 	move.w	(Boss_Y_pos).w,y_pos(a0)
 	move.w	(Boss_X_pos).w,x_pos(a0)
 	bsr.w	Obj57_TransferPositions
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo38_DisplaySprite
-    endif
 ; ===========================================================================
 ;loc_31526:
 Obj57_Main_SubA: ; slowly hovering down, no explosions
@@ -66468,13 +64017,9 @@ Obj57_Main_SubA: ; slowly hovering down, no explosions
 	blo.s	Obj57_Main_SubA_Standard
 	lea	(Boss_AnimationArray).w,a1
 	move.b	#$D,7(a1)	; face grin when hit
-    if fixBugs
-	_move.b	#2,0(a1)
-    else
 	; This should be 'a1' instead of 'a2'. A random part of RAM gets
 	; written to instead.
 	_move.b	#2,0(a2)
-    endif
 	move.b	#0,1(a1)	; hover thingies fire off
 	addq.b	#2,boss_routine(a0)
 	bra.s	Obj57_Main_SubA_Standard
@@ -66494,16 +64039,7 @@ Obj57_Main_SubA_Standard:
 	move.w	(Boss_Y_pos).w,y_pos(a0)
 	move.w	(Boss_X_pos).w,x_pos(a0)
 	bsr.w	Obj57_TransferPositions
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo38_DisplaySprite
-    endif
 ; ===========================================================================
 ;loc_315A6:
 Obj57_Main_SubC: ; moving away fast
@@ -66526,16 +64062,7 @@ Obj57_Main_SubC_Standard:
 	lea	(Ani_obj57).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj57_TransferPositions
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo38_DisplaySprite
-    endif
 ; ===========================================================================
 
 JmpTo56_DeleteObject ; JmpTo
@@ -66549,10 +64076,6 @@ Obj57_FallingStuff:	; Spikes & Stones
 	bgt.w	JmpTo57_DeleteObject
 	jmpto	JmpTo38_DisplaySprite
 
-    if removeJmpTos
-JmpTo57_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; off_3160A: Obj57_AnimIndex:
 Ani_obj57:	offsetTable
@@ -66573,36 +64096,22 @@ Ani_obj57:	offsetTable
 		offsetTableEntry.w byte_316E8 ; E - center vehicle, Robotnik's face when hit
 byte_31628:	dc.b  $F,  1,$FF	; light off
 		dc.b	   0,$FC,  2	; light on; (3) subanimation
-	rev02even
 byte_3162E:	dc.b   5,  8,$FF
-	rev02even
 byte_31631:	dc.b   1,  5,  6,$FF	; fire on
 		dc.b	   7,$FC,  3	; fire off; (4) subanimation
-	rev02even
 byte_31638:	dc.b   1,  2,  2,  2,  2,  2,  3,  3,  3,  3,  3,  4,  4,  4,  4,$FD,  4
-	rev02even
 byte_31649:	dc.b   1,  2,  2,  2,  2,  3,  3,  3,  4,  4,  4,  2,  2,  3,  3,$FD,  5
-	rev02even
 byte_3165A:	dc.b   1,  4,  2,  3,  4,$FC,  1
-	rev02even
 byte_31661:	dc.b   1,  2,  3,  4,  4,  2,  2,  3,  3,  3,  4,  4,  4,  2,  2,  2,$FD,  7
-	rev02even
 byte_31673:	dc.b   1,  2,  3,  3,  3,  3,  4,  4,  4,  4,  4,  2,  8,  8,  8,$FD,  8
-	rev02even
 byte_31684:	dc.b   1,  9,  9,  9,  9,  9, $A, $A, $A, $A, $A, $B, $B, $B, $B,$FD,  9
-	rev02even
 byte_31695:	dc.b   1,  9,  9,  9,  9, $A, $A, $A, $B, $B, $B,  9,  9, $A, $A,$FD, $A
-	rev02even
 byte_316A6:	dc.b   1, $B,  9, $A, $B,$FC,  1
-	rev02even
 byte_316AD:	dc.b   1,  9, $A, $B, $B,  9,  9, $A, $A, $A, $B, $B, $B,  9,  9,  9,$FD, $C
-	rev02even
 byte_316BF:	dc.b   1,  9, $A, $A, $A, $A, $B, $B, $B, $B, $B,  9,  8,  8,  8,  8,$FD,  3
-	rev02even
 byte_316D1:	dc.b   7, $E, $F,$FF
 		dc.b	 $10,$11,$10,$11,$10,$11,$10,$11,$FF		; (4) subanimation (grin after hurting Sonic)
 		dc.b	 $12,$12,$12,$12,$12,$12,$12,$12,$12,$FF	; (D) subanimation (grin when hit)
-	rev02even
 byte_316E8:	dc.b   7,$12,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -66638,16 +64147,13 @@ Obj51_Init:
 	move.l	#Obj51_MapUnc_320EA,mappings(a0)
 	move.w	#make_art_tile(ArtTile_ArtNem_CNZBoss_Fudge,0,0),art_tile(a0)
 	ori.b	#1<<render_flags.level_fg,render_flags(a0)
-    if ~~fixBugs
 	; Multi-sprite objects cannot use the 'priority' SST as it is
 	; overwritten by 'sub3_y_pos'.
 	move.b	#3,priority(a0)
-    endif
 	move.w	#$2A46,x_pos(a0)
 	move.w	#$654,y_pos(a0)
 	move.b	#0,mainspr_mapframe(a0)
 	move.b	#$20,mainspr_width(a0)
-    if ~~fixBugs
 	; This instruction is pointless, as bit 4 of 'render_flags' is never
 	; set anyway. Also, it clashes with 'boss_invulnerable_time', as they
 	; use the same SST slot. This causes this boss to behave in numerous
@@ -66655,7 +64161,6 @@ Obj51_Init:
 	; invulnerable for much longer than it should be, and Eggman takes a
 	; while to react and show his hurt face.
 	move.b	#$80,mainspr_height(a0)
-    endif
 	addq.b	#2,boss_subtype(a0)
 	move.b	#0,boss_routine(a0)
 	bset	#render_flags.multi_sprite,render_flags(a0)
@@ -66865,16 +64370,7 @@ loc_31C08:
 	bsr.w	loc_31C92
 	lea	(Ani_obj51).l,a1
 	bsr.w	AnimateBoss
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo39_DisplaySprite
-    endif
 ; ===========================================================================
 
 loc_31C22:
@@ -67011,16 +64507,7 @@ loc_31DB8:
 	move.w	(Boss_Y_pos).w,y_pos(a0)
 	move.w	(Boss_X_pos).w,x_pos(a0)
 	bsr.w	loc_31E76
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo39_DisplaySprite
-    endif
 ; ===========================================================================
 
 loc_31DCC:
@@ -67062,16 +64549,7 @@ loc_31E0E:
 	move.w	(Boss_Y_pos).w,y_pos(a0)
 	move.w	(Boss_X_pos).w,x_pos(a0)
 	bsr.w	loc_31E76
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo39_DisplaySprite
-    endif
 ; ===========================================================================
 
 loc_31E2A:
@@ -67095,16 +64573,7 @@ loc_31E4A:
 	bsr.w	loc_31E76
 	lea	(Ani_obj51).l,a1
 	bsr.w	AnimateBoss
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo39_DisplaySprite
-    endif
 ; ===========================================================================
 
 JmpTo58_DeleteObject ; JmpTo
@@ -67131,21 +64600,8 @@ loc_31E76:
 
 loc_31EAE:
 	cmpi.w	#$78,(Boss_Countdown).w
-    if ~~fixBugs
 	bgt.s	return_31F22
-    else
-	; Not actually a bugfix, but the code below pushed this branch out of range.
-	bgt.w	return_31F22
-    endif
 	subi_.w	#1,sub5_x_pos(a0)
-    if fixBugs
-	; This properly makes the left electricity generator fall the opposite direction.
-	btst	#render_flags.x_flip,render_flags(a0)	; is Eggman facing right?
-	beq.s	.notfacingright			; is not, branch
-	addi_.w	#2,sub5_x_pos(a0)
-
-.notfacingright:
-    endif
 	move.l	objoff_3A(a0),d0
 	move.w	objoff_2E(a0),d1
 	addi.w	#$38,objoff_2E(a0)
@@ -67162,14 +64618,6 @@ loc_31EE8:
 	cmpi.w	#60,(Boss_Countdown).w
 	bgt.s	return_31F22
 	addi_.w	#1,sub2_x_pos(a0)
-    if fixBugs
-	; This properly makes the right electricity generator fall the opposite direction.
-	btst	#render_flags.x_flip,render_flags(a0)	; is Eggman facing right?
-	beq.s	.notfacingright2		; is not, branch
-	subi_.w	#2,sub2_x_pos(a0)
-
-.notfacingright2:
-    endif
 	move.l	objoff_34(a0),d0
 	move.w	objoff_30(a0),d1
 	addi.w	#$38,objoff_30(a0)
@@ -67310,12 +64758,6 @@ loc_32080:
 	blo.w	JmpTo39_DisplaySprite
 	jmpto	JmpTo59_DeleteObject
 
-    if removeJmpTos
-JmpTo39_DisplaySprite ; JmpTo
-	jmp	(DisplaySprite).l
-JmpTo59_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; animation script
 ; off_3209C:
@@ -67331,23 +64773,14 @@ Ani_obj51:	offsetTable
 		offsetTableEntry.w byte_320E1	; 8
 		offsetTableEntry.w byte_320E4	; 9
 byte_320B0:	dc.b  $F,  1,$FF
-	rev02even
 byte_320B3:	dc.b  $F,  4,$FF,  5,$FC,  2
-	rev02even
 byte_320B9:	dc.b  $F,  2,$FF,  3,$FC,  2
-	rev02even
 byte_320BF:	dc.b   7,  6,  7,$FF
-	rev02even
 byte_320C3:	dc.b   1, $C, $D, $E,$FF
-	rev02even
 byte_320C8:	dc.b   7,  8,  9,  8,  9,  8,  9,  8,  9,$FD,  3
-	rev02even
 byte_320D3:	dc.b   7, $A, $A, $A, $A, $A, $A, $A,$FD,  3
-	rev02even
 byte_320DD:	dc.b   3,$13,$14,$FF
-	rev02even
 byte_320E1:	dc.b   1,  0,$FF
-	rev02even
 byte_320E4:	dc.b   1, $F,$10,$11,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -67384,11 +64817,9 @@ Obj54_Init:
 	move.l	#Obj54_MapUnc_32DC6,mappings(a0)
 	move.w	#make_art_tile(ArtTile_ArtNem_MTZBoss,0,0),art_tile(a0)
 	ori.b	#1<<render_flags.level_fg,render_flags(a0)
-    if ~~fixBugs
 	; Multi-sprite objects cannot use the 'priority' SST as it is
 	; overwritten by 'sub3_y_pos'.
 	move.b	#3,priority(a0)
-    endif
 	move.w	#$2B50,x_pos(a0)
 	move.w	#$380,y_pos(a0)
 	move.b	#2,mainspr_mapframe(a0)
@@ -67482,16 +64913,7 @@ Obj54_MainSub0:
 	lea	(Ani_obj53).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj54_AlignSprites
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo40_DisplaySprite
-    endif
 ; ===========================================================================
 ;loc_3243C
 Obj54_Float:
@@ -67539,16 +64961,7 @@ Obj54_Display:
 	lea	(Ani_obj53).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj54_AlignSprites
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo40_DisplaySprite
-    endif
 ; ===========================================================================
 ;loc_324DC
 Obj54_MainSub4:
@@ -67855,16 +65268,7 @@ Obj54_MainSub10:
 	lea	(Ani_obj53).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj54_AlignSprites
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo40_DisplaySprite
-    endif
 ; ===========================================================================
 ;loc_32864
 Obj54_MainSub12:
@@ -67891,16 +65295,7 @@ Obj54_MainSub12:
 	lea	(Ani_obj53).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj54_AlignSprites
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo40_DisplaySprite
-    endif
 ; ===========================================================================
 
 JmpTo60_DeleteObject ; JmpTo
@@ -68010,7 +65405,6 @@ byte_329CC:
 	dc.b $48	; 4
 	dc.b $90	; 5
 	dc.b $D8	; 6
-	rev02even
 byte_329D3:
 	dc.b   0
 	dc.b   1	; 1
@@ -68181,21 +65575,12 @@ Obj53_BreakAway:
 ;loc_32BB0
 Obj53_Animate:
 	bsr.w	+
-    if fixBugs
-Obj53_Animate_Part2:
-    endif
 	lea	(Ani_obj53).l,a1
 	jsrto	JmpTo21_AnimateSprite
 	jmpto	JmpTo40_DisplaySprite
 ; ===========================================================================
 +
-    if fixBugs
-	; This makes the clone instantly pop when a player is hit, rather
-	; than when the player hits the floor.
-	cmpi.b	#-1,collision_property(a0)
-    else
 	cmpi.b	#-2,collision_property(a0)
-    endif
 	bgt.s	+		; rts
 	move.b	#$14,mapping_frame(a0)
 	move.b	#6,anim(a0)
@@ -68213,13 +65598,9 @@ Obj53_BounceAround:
 +
 	bsr.w	Obj53_CheckPlayerHit
 	cmpi.b	#$B,mapping_frame(a0)
-    if ~~fixBugs
 	; If Tails defeats one of the clones two frames after Sonic has been
 	; hit by one, the game will crash due to incrementing routine twice.
 	bne.s	Obj53_Animate
-    else
-	bne.s	Obj53_Animate_Part2
-    endif
 	move.b	objoff_2C(a0),d0
 	jsr	(CalcSine).l
 	neg.w	d0
@@ -68339,12 +65720,6 @@ Obj54_LaserShooter:
 	bset	#render_flags.x_flip,render_flags(a0)
 	jmpto	JmpTo40_DisplaySprite
 
-    if removeJmpTos
-JmpTo40_DisplaySprite ; JmpTo
-	jmp	(DisplaySprite).l
-JmpTo61_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; animation script
 ; off_32D7A:
@@ -68358,20 +65733,13 @@ Ani_obj53:	offsetTable
 		offsetTableEntry.w byte_32DC0	; 6
 		offsetTableEntry.w byte_32DC3	; 7
 byte_32D8A:	dc.b  $F,  2,$FF
-	rev02even
 byte_32D8D:	dc.b   1,  0,  1,$FF
-	rev02even
 byte_32D91:	dc.b   3,  5,  5,  5,  5,  5,  5,  5,  5,  6,  7,  6,  7,  6,  7,  8
 		dc.b   9, $A, $B,$FE,  1; 16
-	rev02even
 byte_32DA6:	dc.b   7, $C, $D,$FF
-	rev02even
 byte_32DAA:	dc.b   7, $E, $F, $E, $F, $E, $F, $E, $F,$FD,  3
-	rev02even
 byte_32DB5:	dc.b   7,$10,$10,$10,$10,$10,$10,$10,$10,$FD,  3
-	rev02even
 byte_32DC0:	dc.b   1,$14,$FC
-	rev02even
 byte_32DC3:	dc.b   7,$11,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -68419,11 +65787,9 @@ Obj55_Init:
 	move.l	#Obj55_MapUnc_33756,mappings(a0)
 	move.w	#make_art_tile(ArtTile_ArtNem_OOZBoss,0,0),art_tile(a0)
 	ori.b	#1<<render_flags.level_fg,render_flags(a0)
-    if ~~fixBugs
 	; Multi-sprite objects cannot use the 'priority' SST as it is
 	; overwritten by 'sub3_y_pos'.
 	move.b	#3,priority(a0)
-    endif
 	bset	#render_flags.multi_sprite,render_flags(a0)	; object consists of multiple sprites
 	move.b	#0,mainspr_childsprites(a0)
 	addq.b	#2,boss_subtype(a0)	; => Obj55_Main
@@ -68550,16 +65916,7 @@ Obj55_Main_End:
 	lea	(Ani_obj55).l,a1
 	bsr.w	AnimateBoss
 	bsr.w	Obj55_AlignSprites
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo41_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_33174:
 Obj55_HandleHits:
@@ -68572,15 +65929,6 @@ Obj55_HandleHits:
 	ori.b	#$80,Obj55_status(a0)	; set boss hit bit
 
 return_33192:
-    if fixBugs
-	; If the player defeats Eggman on the exact frame he is fully submerged,
-	; the game will crash due to the spiked chain having its routine set to
-	; 8, which is out-of-bounds for it.
-	cmpi.b	#8,boss_routine(a0)	; is boss exploding or retreating?
-	blo.s	+			; if yes, branch
-	move.b	#2,boss_subtype(a0)	; => Obj55_Main
-+
-    endif
 	rts
 ; ===========================================================================
 ; loc_33194:
@@ -68599,30 +65947,12 @@ Obj55_Main_Defeated:
 	cmpi.w	#$1E,(Boss_Countdown).w		; has boss waited for a certain ammount of time?
 	bhs.s	Obj55_Explode			; if not, branch
 	move.b	#$B,mainspr_mapframe(a0)	; use defeated animation
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo41_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_331C2:
 Obj55_Explode:
 	bsr.w	Boss_LoadExplosion
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo41_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_331CA:
 Obj55_Main_Defeated_Part2:
@@ -68649,16 +65979,7 @@ Obj55_ChkDelete:
 Obj55_Defeated_Sink:
 	addi_.w	#1,y_pos(a0)
 	bsr.s	Obj55_AlignSprites
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo41_DisplaySprite
-    endif
 ; ===========================================================================
 
 BranchTo_JmpTo62_DeleteObject ; BranchTo
@@ -68813,16 +66134,7 @@ Obj55_LaserShooter_Lower:
 Obj55_LaserShooter_End:
 	bsr.w	Obj55_LaserShooter_FacePlayer
 	bsr.w	Obj55_LaserShooter_Wind
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo41_DisplaySprite
-    endif
 ; ===========================================================================
 ; sets the laser shooter's y velocity so that it moves toward its target
 ; loc_333C6:
@@ -68943,16 +66255,7 @@ Obj55_SpikeChain_Main:
 ; loc_334E6:
 Obj55_SpikeChain_End:
 	bsr.w	Obj55_SpikeChain_SetAnimFrame
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	move.w	#object_display_list_size*3,d0
-	jmp	(DisplaySprite3).l
-    else
 	jmpto	JmpTo41_DisplaySprite
-    endif
 ; ===========================================================================
 ; loc_334EE:
 Obj55_SpikeChain_Move:
@@ -69053,10 +66356,6 @@ Obj55_Laser_Main:
 	bhs.w	JmpTo62_DeleteObject	; if yes, branch
 	jmpto	JmpTo41_DisplaySprite
 
-    if removeJmpTos
-JmpTo62_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; checks if laser hit the ground
 ; loc_335FE:
@@ -69170,20 +66469,15 @@ Ani_obj55:	offsetTable
 byte_3371E:
 	dc.b   9,  8,  8,  8,  8,  9,  9,  9,  9,  8,  8,  8,  8,  9,  9,  9
 	dc.b   9,  8,  8,  8,  8,  9,  9,  9,  9,$FF; 16
-	rev02even
 byte_33738:
 	dc.b  $F,  1,$FF
-	rev02even
 byte_3373B:
 	dc.b   1, $D,$11, $E,$12, $F,$13,$10,$14,$14,$10,$13, $F,$12, $E,$11
 	dc.b  $D,$FA	; 16
-	rev02even
 byte_3374D:
 	dc.b  $F, $A,$FF
-	rev02even
 byte_33750:
 	dc.b  $F, $B,$FF
-	rev02even
 byte_33753:
 	dc.b  $F,  8,$FF
 	even
@@ -70617,15 +67911,10 @@ SSTailsCPU_Control:
 	moveq	#bytesToXcnt(SS_Ctrl_Record_Buf_End-SS_Ctrl_Record_Buf,4*2),d1
 	lea	(SS_Ctrl_Record_Buf).w,a1
 -
-    if fixBugs
-	move.l	d0,(a1)+
-	move.l	d0,(a1)+
-    else
 	; The pointer does not increment, preventing the 'SS_Ctrl_Record_Buf'
 	; buffer from being cleared!
 	move.l	d0,(a1)
 	move.l	d0,(a1)
-    endif
 	dbf	d1,-
 	move.w	#$B4,(Tails_control_counter).w
 	rts
@@ -70800,9 +68089,7 @@ Ani_obj88:	offsetTable
 		offsetTableEntry.w byte_34D95	; 1
 		offsetTableEntry.w byte_34D9E	; 2
 byte_34D8C:	dc.b   3,  0,  1,  2,  3,  4,  5,  6,$FF
-	rev02even
 byte_34D95:	dc.b   3,  7,  8,  9, $A, $B, $C, $D,$FF
-	rev02even
 byte_34D9E:	dc.b   3, $E, $F,$10,$11,$12,$13,$14,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -71093,10 +68380,6 @@ loc_35150:
 	moveq	#$1E,d0
 
 loc_35164:
-    if fixBugs
-	; Save the last animation value to elsewhere, related to a bugfix below.
-	move.b	anim(a0),objoff_23(a0)
-    endif
 	move.b	byte_35180(pc,d0.w),anim(a0)
 
 return_3516A:
@@ -71344,21 +68627,8 @@ BranchTo_JmpTo63_DeleteObject ; BranchTo
 ; ===========================================================================
 
 loc_3539E:
-    if fixBugs
-	; anim_frame_duration causes many of the animations to look far choppier
-	; than they should, or appear inconsistent. To solve this, we will store
-	; the proper animation elsewhere and stop decrementing the frame duration
-	; until both match up.
-	move.b	objoff_23(a0),d0
-	cmp.b	anim(a0),d0
-	bne.s	.skip
-    endif
 	subq.b	#1,anim_frame_duration(a0)
 	bpl.s	return_353E8
-    if fixBugs
-.skip:
-	move.b	anim(a0),objoff_23(a0)
-    endif
 	moveq	#0,d0
 	move.b	anim(a0),d0
 	add.w	d0,d0
@@ -71646,11 +68916,9 @@ Obj5A_CreateRingsToGoText:
 	move.w	#make_art_tile(ArtTile_ArtNem_SpecialHUD,2,0),art_tile(a1)
 	move.b	#ObjID_SSMessage,id(a1) ; load obj5A
 	move.b	#1<<render_flags.level_fg,render_flags(a1)
-    if ~~fixBugs
 	; Multi-sprite objects cannot use the 'priority' SST as it is
 	; overwritten by 'sub3_y_pos'.
 	move.b	#1,priority(a1)
-    endif
 	bset	#render_flags.multi_sprite,render_flags(a1)
 	move.b	#0,mainspr_childsprites(a1)
 	move.b	#$E,routine(a1)	; => Obj5A_RingsNeeded
@@ -71714,13 +68982,11 @@ Init_Obj5A:
 	move.l	#Obj5A_MapUnc_35E1E,mappings(a1)
 	move.w	#make_art_tile(ArtTile_ArtNem_SpecialMessages,2,0),art_tile(a1)
 	move.b	#1<<render_flags.level_fg,render_flags(a1)
-    if ~~fixBugs
 	; Multi-sprite objects cannot use the 'priority' SST as it is
 	; overwritten by 'sub3_y_pos'. This object doesn't use the
 	; multi-sprite system, but it does share display code with one, so
 	; this might as well be removed since it won't be used.
 	move.b	#1,priority(a1)
-    endif
 	rts
 ; ===========================================================================
 ;loc_35706
@@ -71762,18 +69028,10 @@ Obj5A_RingsNeeded:
 	moveq	#0,d0
 	cmpi.w	#100,d1
 	blt.s	+
-    if fixBugs
-	; The following code does a more complete binary coded decimal conversion:
--	addi.w	#$100,d0
-	subi.w	#100,d1
-	cmpi.w	#100,d1
-	bge.s	-
-    else
 	; This code (the original) breaks when 101+ rings are needed:
 -	addi.w	#$100,d0
 	subi.w	#100,d1
 	bgt.s	-
-    endif
 +
 	divu.w	#10,d1
 	lsl.w	#4,d1
@@ -71814,17 +69072,7 @@ Obj5A_FlashMessage:
 	move.b	(Vint_runcount+3).w,d0
 	andi.b	#7,d0
 	cmpi.b	#6,d0
-    if fixBugs
-	; Multi-sprite objects cannot use the 'priority' SST value, so they
-	; must use 'DisplaySprite3' instead of 'DisplaySprite'.
-	; This object's 'priority' is overwritten by 'sub3_y_pos', causing it
-	; to display on the wrong layer.
-	bhs.s	+
-	move.w	#object_display_list_size*1,d0
-	jmp	(DisplaySprite3).l
-    else
 	blo.w	JmpTo44_DisplaySprite
-    endif
 +
 	rts
 ; ===========================================================================
@@ -72261,39 +69509,22 @@ SSMessage_TextFrames:	offsetTable
 		offsetTableEntry.w byte_35CD9	;$20
 		offsetTableEntry.w byte_35CDB	;$22
 byte_35C86:	specialText "GET"
-	rev02even
 byte_35C8A:	specialText "RINGS"
-	rev02even
 byte_35C90:	specialText "COOL!"
-	rev02even
 byte_35C96:	specialText "NOT"
-	rev02even
 byte_35C9A:	specialText "ENOUGH"
-	rev02even
 byte_35CA1:	specialText "PLAYER"
-	rev02even
 byte_35CA8:	specialText "MOST"
-	rev02even
 byte_35CAD:	specialText "WINS!"
-	rev02even
 byte_35CB3:	specialText "SONIC"
-	rev02even
 byte_35CB9:	specialText "MILES"
-	rev02even
 byte_35CBF:	specialText "TIE!"
-	rev02even
 byte_35CC4:	specialText "WIN"
-	rev02even
 byte_35CC8:	specialText "TWICE"
-	rev02even
 byte_35CCE:	specialText "ALL!"
-	rev02even
 byte_35CD3:	specialText "!"
-	rev02even
 byte_35CD5:	specialText "..."
-	rev02even
 byte_35CD9:	dc.b $13,$FF						; VS
-	rev02even
 byte_35CDB:	specialText "TAILS"
 	even
 
@@ -72683,12 +69914,8 @@ loc_361D8:
     endm
     endif
 
-    if fixBugs
-	clearRAM Sprite_Table,Sprite_Table_End
-    else
 	; The '+4' shouldn't be here; clearRAM accidentally clears an additional 4 bytes.
 	clearRAM Sprite_Table,Sprite_Table_End+4
-    endif
 
 	rts
 ; ===========================================================================
@@ -72711,12 +69938,6 @@ loc_36210:
 	rts
 	; end of unused code
 
-    if removeJmpTos
-JmpTo44_DisplaySprite ; JmpTo
-	jmp	(DisplaySprite).l
-JmpTo63_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 ; animation script for object 59
 off_36228:	offsetTable
@@ -72732,31 +69953,22 @@ off_36228:	offsetTable
 		offsetTableEntry.w byte_36257	; 9
 byte_3623C:
 	dc.b  $B,  0,$FF
-	rev02even
 byte_3623F:
 	dc.b  $B,  1,$FF
-	rev02even
 byte_36242:
 	dc.b  $B,  2,$FF
-	rev02even
 byte_36245:
 	dc.b  $B,  3,$FF
-	rev02even
 byte_36248:
 	dc.b  $B,  4,$FF
-	rev02even
 byte_3624B:
 	dc.b  $B,  5,$FF
-	rev02even
 byte_3624E:
 	dc.b  $B,  6,$FF
-	rev02even
 byte_36251:
 	dc.b  $B,  7,$FF
-	rev02even
 byte_36254:
 	dc.b  $B,  8,$FF
-	rev02even
 byte_36257:
 	dc.b  $B,  9,$FF
 	even
@@ -72780,25 +69992,15 @@ Ani_obj5B_obj60:offsetTable
 		offsetTableEntry.w byte_3631E	;  9
 		offsetTableEntry.w byte_36324	; $A
 byte_362E8: dc.b   5,  0, $A,$14, $A,$FF
-	rev02even
 byte_362EE: dc.b   5,  1, $B,$15, $B,$FF
-	rev02even
 byte_362F4: dc.b   5,  2, $C,$16, $C,$FF
-	rev02even
 byte_362FA: dc.b   5,  3, $D,$17, $D,$FF
-	rev02even
 byte_36300: dc.b   5,  4, $E,$18, $E,$FF
-	rev02even
 byte_36306: dc.b   5,  5, $F,$19, $F,$FF
-	rev02even
 byte_3630C: dc.b   5,  6,$10,$1A,$10,$FF
-	rev02even
 byte_36312: dc.b   5,  7,$11,$1B,$11,$FF
-	rev02even
 byte_36318: dc.b   5,  8,$12,$1C,$12,$FF
-	rev02even
 byte_3631E: dc.b   5,  9,$13,$1D,$13,$FF
-	rev02even
 byte_36324: dc.b   1,$1E,$1F,$20,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -72821,25 +70023,15 @@ Ani_obj61:	offsetTable
 		offsetTableEntry.w byte_364FF	;  9
 		offsetTableEntry.w byte_36502	; $A
 byte_364E4: dc.b  $B,  0,$FF
-	rev02even
 byte_364E7: dc.b  $B,  1,$FF
-	rev02even
 byte_364EA: dc.b  $B,  2,$FF
-	rev02even
 byte_364ED: dc.b  $B,  3,$FF
-	rev02even
 byte_364F0: dc.b  $B,  4,$FF
-	rev02even
 byte_364F3: dc.b  $B,  5,$FF
-	rev02even
 byte_364F6: dc.b  $B,  6,$FF
-	rev02even
 byte_364F9: dc.b  $B,  7,$FF
-	rev02even
 byte_364FC: dc.b  $B,  8,$FF
-	rev02even
 byte_364FF: dc.b  $B,  9,$FF
-	rev02even
 byte_36502: dc.b   2, $A, $B, $C,$FF
 	even
 ; ----------------------------------------------------------------------------
@@ -73348,9 +70540,6 @@ Obj_DeleteOffScreen:
 	jmp	(DisplaySprite).l
 ; ===========================================================================
 
-    if removeJmpTos
-JmpTo65_DeleteObject ; JmpTo
-    endif
 
 JmpTo64_DeleteObject ; JmpTo
 	jmp	(DeleteObject).l
@@ -74523,16 +71712,9 @@ byte_3744E:
 
 ; loc_37454:
 Obj97_InitialWait:
-    if gameRevision<2
 	bsr.w	Obj97_CheckHeadIsAlive
 	subq.b	#1,objoff_2A(a0)
 	bmi.s	Obj97_StartRaise
-    else
-	; fixes an occational crash when defeated
-	subq.b	#1,objoff_2A(a0)
-	bmi.s	Obj97_StartRaise
-	bsr.w	Obj97_CheckHeadIsAlive
-    endif
 	jmpto	JmpTo39_MarkObjGone
 ; ===========================================================================
 
@@ -74551,20 +71733,11 @@ Obj97_StartRaise:
 
 ; loc_37488:
 Obj97_RaiseHead:
-    if gameRevision<2
 	bsr.w	Obj97_CheckHeadIsAlive
 	moveq	#$10,d0
 	add.w	d0,x_vel(a0)
 	subq.b	#1,objoff_2A(a0)
 	bmi.s	Obj97_StartNormalState
-    else
-	; fixes an occational crash when defeated
-	moveq	#$10,d0
-	add.w	d0,x_vel(a0)
-	subq.b	#1,objoff_2A(a0)
-	bmi.s	Obj97_StartNormalState
-	bsr.w	Obj97_CheckHeadIsAlive
-    endif
 	jsrto	JmpTo26_ObjectMove
 	jmpto	JmpTo39_MarkObjGone
 ; ===========================================================================
@@ -76930,14 +74103,6 @@ ObjA7_GrabCharacter:
 	clr.w	x_vel(a1)
 	clr.w	y_vel(a1)
 	move.b	#AniIDSonAni_Float,anim(a1)
-    if fixBugs
-	; If the player gets grabbed while charging a Spin Dash, they won't
-	; exist their Spin Dash state: the dust graphic will still appear,
-	; just floating in the air, and when the player touches the ground,
-	; they'll dash off. To fix this, just clear the player's Spin Dash
-	; flag, like this:
-	clr.b	spindash_flag(a1)
-    endif
 	move.b	#1,mapping_frame(a0)
 	tst.w	y_vel(a0)
 	bmi.s	loc_38F2A
@@ -78106,15 +75271,11 @@ loc_39B92:
 loc_39BA4:
 	move.w	#$1000,(Camera_Max_X_pos).w
 	addq.b	#2,(Dynamic_Resize_Routine).w
-    if fixBugs
-	move.w	(Level_Music).w,d0
-    else
 	; 'Level_Music' is a word long, not a byte.
 	; All this does is try to play Sound 0, which doesn't do anything.
 	; This causes the Death Egg Music music to not resume after the
 	; Silver Sonic fight.
 	move.b	(Level_Music).w,d0
-    endif
 	jsrto	JmpTo5_PlayMusic
 	jmpto	JmpTo65_DeleteObject
 ; ===========================================================================
@@ -78494,15 +75655,9 @@ ObjB0_Init:
 	; Depending on the exact location (and size) of the art being used,
 	; you may encounter an overflow in the original code which garbles
 	; the enlarged Sonic. The following code fixes this:
-    if fixBugs
-	andi.l	#$FFF,d0
-	lsl.l	#5,d0
-	lea	(a3,d0.l),a4 ; source ROM address of tiles to copy
-    else
 	andi.w	#$FFF,d0
 	lsl.w	#5,d0
 	lea	(a3,d0.w),a4 ; source ROM address of tiles to copy
-    endif
 	andi.w	#$F000,d1 ; abcd000000000000
 	rol.w	#4,d1	  ; (this calculation can be done smaller and faster
 	addq.w	#1,d1	  ; by doing rol.w #7,d1 addq.w #7,d1
@@ -78599,13 +75754,9 @@ loc_3A346:
 	bchg	#render_flags.x_flip,render_flags(a0)
 	bchg	#status.npc.x_flip,status(a0)
 
-    if fixBugs
-	clearRAM Horiz_Scroll_Buf,Horiz_Scroll_Buf+HorizontalScrollBuffer.len
-    else
 	; This clears a lot more than the horizontal scroll buffer, which is $400 bytes.
 	; This is because the loop counter is erroneously set to $400, instead of ($400/4)-1.
 	clearRAM Horiz_Scroll_Buf,Horiz_Scroll_Buf+(HorizontalScrollBuffer.len*4+4)
-    endif
 
 	; Initialize streak horizontal offsets for Sonic going right.
 	; 9 full lines (8 pixels) + 7 pixels, 2-byte interleaved entries for PNT A and PNT B
@@ -80257,24 +77408,16 @@ loc_3B7BC:
 	bclr	#p1_standing_bit,status(a0)
 	beq.s	loc_3B7DE
 	lea	(MainCharacter).w,a1 ; a1=character
-    if fixBugs
-	bclr	#status.player.on_object,status(a1)
-    else
 	; This is the wrong constant; it is for NPCs, not the player!
 	bclr	#status.npc.p1_standing,status(a1)
-    endif
 	bset	#status.player.in_air,status(a1)
 
 loc_3B7DE:
 	bclr	#p2_standing_bit,status(a0)
 	beq.s	return_3B7F6
 	lea	(Sidekick).w,a1 ; a1=character
-    if fixBugs
-	bclr	#status.player.on_object,status(a1)
-    else
 	; This is the wrong constant; it is for NPCs, not the player!
 	bclr	#status.npc.p2_standing,status(a1)
-    endif
 	bset	#status.player.in_air,status(a1)
 
 return_3B7F6:
@@ -80715,13 +77858,6 @@ loc_3BCCC:
 
 loc_3BCD6:
 	bsr.w	loc_3B7BC
-    if fixBugs
-	; 'DeleteObject' is called here, but then 'loc_3BC50' calls 'MarkObjGone' afterwards.
-	; This can result in either the object being queued for display with 'DisplaySprite',
-	; or the object being deleted again with yet another call to 'DeleteObject'.
-	; To prevent this, just meddle with the stack to prevent returning to 'loc_3BC50', like this:
-	addq.w	#4,sp
-    endif
 	jmpto	JmpTo65_DeleteObject
 ; ===========================================================================
 
@@ -83257,13 +80393,9 @@ loc_3D9D6:
 	dbf	d6,-
 
 	moveq	#signextendB(MusID_FadeOut),d0
-    if fixBugs
-	jsr	(PlayMusic).l
-    else
 	; PlaySound ends up being clogged up by the explosion sounds,
 	; preventing the music from fading out as it should.
 	jsrto	JmpTo12_PlaySound
-    endif
 	move.b	#GameModeID_EndingSequence,(Game_Mode).w ; => EndingSequence
 	jmpto	JmpTo65_DeleteObject
 ; ===========================================================================
@@ -85130,10 +82262,6 @@ loc_3F38E:
 +
 	jmp	(MarkObjGone).l
 
-    if removeJmpTos
-JmpTo66_DeleteObject ; JmpTo
-	jmp	(DeleteObject).l
-    endif
 ; ===========================================================================
 
 loc_3F3A8:
@@ -85189,12 +82317,10 @@ Ani_obj3E:	offsetTable
 		offsetTableEntry.w byte_3F42C	; 0
 		offsetTableEntry.w byte_3F42F	; 1
 byte_3F42C:	dc.b  $F,  0,$FF
-		rev02even
 byte_3F42F:	dc.b   3,  0,  1,  2,  3,$FE,  1
 		even
 ; ----------------------------------------------------------------------------
 ; sprite mappings
-; [fixBugs] These mappings contain a bug: the second and third sprites have
 ; their 'total sprite pieces' value set too low by one, causing the last
 ; sprite piece to not be displayed.
 ; ----------------------------------------------------------------------------
@@ -85231,14 +82357,10 @@ TouchResponse:
 	move.b	y_radius(a0),d5
 	subq.b	#3,d5
 	sub.w	d5,d3
-    if fixBugs
-	cmpi.b	#AniIDSonAni_Duck,anim(a0)	; is Sonic ducking?
-    else
 	; This logic only works for Sonic, not Tails. Also, it only applies
 	; to the last frame of his ducking animation. This is a leftover from
 	; Sonic 1, where Sonic's ducking animation only had one frame.
 	cmpi.b	#$4D,mapping_frame(a0)	; is Sonic ducking?
-    endif
 	bne.s	Touch_NoDuck			; if not, branch
 	addi.w	#$C,d3
 	moveq	#$A,d5
@@ -85374,16 +82496,11 @@ Touch_Boss:
 	move.b	y_radius(a0),d5
 	subq.b	#3,d5
 	sub.w	d5,d3
-    if fixBugs
-	cmpi.b	#AniIDSonAni_Duck,anim(a0)	; is Sonic ducking?
-	bne.s	+				; if not, branch
-    else
 	; This logic only works for Sonic, not Tails. Also, it only applies
 	; to the last frame of his ducking animation. This is a leftover from
 	; Sonic 1, where Sonic's ducking animation only had one frame.
 	cmpi.b	#$4D,mapping_frame(a0)	; is Sonic ducking?
 	bne.s	+			; if not, branch
-    endif
 	addi.w	#$C,d3
 	moveq	#$A,d5
 +
@@ -85938,13 +83055,7 @@ BossCollision_MCZ:
 	cmpi.b	#1,(Boss_CollisionRoutine).w
 	blt.s	BossCollision_MCZ2
 ; Boss_CollisionRoutine = 1, i.e. diggers pointing to the side
-    if fixBugs
-	; The below call to 'Boss_DoCollision' clobbers 'a1', so back it up
-	; here. This fixes Eggman not laughing when he hurts Sonic.
-	movem.w	d7/a1,-(sp)
-    else
 	move.w	d7,-(sp)
-    endif
 	move.w	x_pos(a1),d0
 	move.w	y_pos(a1),d7
 	addi_.w	#4,d7
@@ -85955,12 +83066,7 @@ BossCollision_MCZ:
 +
 	move.l	#$40004,d1		; heigth 4, width 4
 	bsr.w	Boss_DoCollision
-    if fixBugs
-	; See the above bugfix.
-	movem.w	(sp)+,d7/a1
-    else
 	move.w	(sp)+,d7
-    endif
 	move.b	collision_flags(a1),d0
 	cmpi.w	#$78,invulnerable_time(a0)
 	bne.s	+	; rts
@@ -86921,20 +84027,12 @@ LoadLevelBlocks:
 ; loc_40338:
 LoadLevelBlocks_2P:
 	move.w	(a0)+,d0
-    if fixBugs
-	move.w	d0,d2
-	andi.w	#nontile_mask,d0	; d0 holds the preserved non-tile data
-	andi.w	#tile_mask,d2		; d2 holds the tile index
-	lsr.w	#1,d2			; half tile index
-	or.w	d2,d0			; put them back together
-    else
 	; 'd1', the loop counter, is overwritten with VRAM data.
 	move.w	d0,d1
 	andi.w	#nontile_mask,d0	; d0 holds the preserved non-tile data
 	andi.w	#tile_mask,d1		; d1 holds the tile index (overwrites loop counter!)
 	lsr.w	#1,d1			; half tile index
 	or.w	d1,d0			; put them back together
-    endif
 	move.w	d0,(a1)+
 	dbf	d1,LoadLevelBlocks_2P	; loop using d1, which we just overwrote
 	rts
@@ -87143,112 +84241,62 @@ APM_HPZ:	begin_animpat
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$4,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$5,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$6,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$7,0,0,2,0)
 
-    if gameRevision<2
 	; In REV02, for some reason these blank tiles' palette line was changed to lines 3 and 4.
 	; This is consistent with MTZ's blank tiles.
 	; Notably, the new palette lines' first entry always happens to match the current VDP background colour.
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$0,0,0,3,0)
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$2,0,0,3,0)
-    else
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$0,0,0,3,0)
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$2,0,0,3,0)
-    endif
 
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$1,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$4,0,0,3,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$3,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$6,0,0,3,0)
 
-    if gameRevision<2
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$5,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$7,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$0,0,0,3,0)
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$2,0,0,3,0)
-    else
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$5,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0)
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$7,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0)
-
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$0,0,0,3,0)
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$2,0,0,3,0)
-    endif
 
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$1,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$4,0,0,3,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$3,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$6,0,0,3,0)
 
-    if gameRevision<2
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$5,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$7,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$0,0,0,3,0)
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$2,0,0,3,0)
-    else
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$5,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0)
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$7,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0)
-
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$0,0,0,3,0)
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$2,0,0,3,0)
-    endif
 
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$1,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$4,0,0,3,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$3,0,0,3,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$6,0,0,3,0)
 
-    if gameRevision<2
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$5,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$7,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$0,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$2,0,0,2,0)
-    else
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$5,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0)
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$7,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,3,0)
-
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$0,0,0,2,0)
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$2,0,0,2,0)
-    endif
 
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$1,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$4,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$3,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$6,0,0,2,0)
 
-    if gameRevision<2
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$5,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$7,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$0,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$2,0,0,2,0)
-    else
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$5,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0)
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_1+$7,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0)
-
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$0,0,0,2,0)
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$2,0,0,2,0)
-    endif
 
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$1,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$4,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$3,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$6,0,0,2,0)
 
-    if gameRevision<2
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$5,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$7,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$0,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$2,0,0,2,0)
-    else
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$5,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0)
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_2+$7,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0)
-
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$0,0,0,2,0)
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$2,0,0,2,0)
-    endif
 
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$1,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$4,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$3,0,0,2,0),make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$6,0,0,2,0)
 
-    if gameRevision<2
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$5,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$7,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
-    else
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$5,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0)
-	dc.w make_block_tile(ArtTile_ArtUnc_HPZPulseOrb_3+$7,0,0,2,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0)
-    endif
 APM_HPZ_End:
 
 
@@ -87261,19 +84309,11 @@ APM_OOZ:	begin_animpat
 	dc.w make_block_tile(ArtTile_ArtUnc_OOZSquareBall1+$0,0,0,3,1),make_block_tile(ArtTile_ArtUnc_OOZSquareBall1+$1,0,0,3,1)
 	dc.w make_block_tile(ArtTile_ArtUnc_OOZSquareBall1+$2,0,0,3,1),make_block_tile(ArtTile_ArtUnc_OOZSquareBall1+$3,0,0,3,1)
 
-    if gameRevision<2
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_OOZSquareBall2+$0,0,0,3,0)
 	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0),make_block_tile(ArtTile_ArtUnc_OOZSquareBall2+$2,0,0,3,0)
 
 	dc.w make_block_tile(ArtTile_ArtUnc_OOZSquareBall2+$1,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_OOZSquareBall2+$3,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,0,0)
-    else
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_OOZSquareBall2+$0,0,0,3,0)
-	dc.w make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_OOZSquareBall2+$2,0,0,3,0)
-
-	dc.w make_block_tile(ArtTile_ArtUnc_OOZSquareBall2+$1,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0)
-	dc.w make_block_tile(ArtTile_ArtUnc_OOZSquareBall2+$3,0,0,3,0),make_block_tile(ArtTile_ArtKos_LevelArt+$0,0,0,2,0)
-    endif
 
 	dc.w make_block_tile(ArtTile_ArtUnc_Oil1+$0,0,0,2,1),make_block_tile(ArtTile_ArtUnc_Oil1+$1,0,0,2,1)
 	dc.w make_block_tile(ArtTile_ArtUnc_Oil1+$8,0,0,2,1),make_block_tile(ArtTile_ArtUnc_Oil1+$9,0,0,2,1)
@@ -87459,14 +84499,9 @@ APM_ARZ:	begin_animpat
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_1+$0,0,0,2,1),make_block_tile(ArtTile_ArtUnc_Waterfall1_1+$1,0,0,2,1)
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_1+$2,0,0,2,1),make_block_tile(ArtTile_ArtUnc_Waterfall1_1+$3,0,0,2,1)
 
-    if fixBugs
-	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$0,0,0,2,1),make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$1,0,0,2,1)
-	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$2,0,0,2,1),make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$3,0,0,2,1)
-    else
 	; These are invalid animation entries for waterfalls:
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$C,0,0,2,1),make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$D,0,0,2,1)
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$E,0,0,2,1),make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$F,0,0,2,1)
-    endif
 
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall3+$0  ,0,0,2,0),make_block_tile(ArtTile_ArtUnc_Waterfall3+$1  ,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall3+$2  ,0,0,2,0),make_block_tile(ArtTile_ArtUnc_Waterfall3+$3  ,0,0,2,0)
@@ -87477,14 +84512,9 @@ APM_ARZ:	begin_animpat
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_1+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_Waterfall1_1+$1,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_1+$2,0,0,2,0),make_block_tile(ArtTile_ArtUnc_Waterfall1_1+$3,0,0,2,0)
 
-    if fixBugs
-	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$0,0,0,2,0),make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$1,0,0,2,0)
-	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$2,0,0,2,0),make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$3,0,0,2,0)
-    else
 	; These are invalid animation entries for waterfalls:
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$C,0,0,2,0),make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$D,0,0,2,0)
 	dc.w make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$E,0,0,2,0),make_block_tile(ArtTile_ArtUnc_Waterfall1_2+$F,0,0,2,0)
-    endif
 APM_ARZ_End:
 
 
@@ -88647,13 +85677,6 @@ Debug_Init:
 	clr.b	(Scroll_lock).w
 	move.b	#0,mapping_frame(a0)
 	move.b	#AniIDSonAni_Walk,anim(a0)
-    if fixBugs
-	; The 'in air' bit is left as whatever it was when Sonic entered
-	; Debug Mode. This affects the camera's vertical deadzone.
-	; Since 'Debug_ExitDebugMode' explicitly sets the 'in air' bit, it can
-	; be assumed that having it cleared here was intended.
-	bclr	#status.player.in_air,(MainCharacter+status).w
-    endif
 	; S1 leftover
 	cmpi.b	#GameModeID_SpecialStage,(Game_Mode).w ; special stage mode? (you can't enter debug mode in S2's special stage)
 	bne.s	.islevel	; if not, branch
@@ -88813,13 +85836,6 @@ Debug_SpawnObject:
 	move.w	y_pos(a0),y_pos(a1)
 	_move.b	mappings(a0),id(a1) ; load obj
 	move.b	render_flags(a0),render_flags(a1)
-    if fixBugs
-	; The high bit of 'render_flags' is not cleared here. This causes
-	; 'RunObjectDisplayOnly' to display the object even when it isn't
-	; fully initialised. This causes the crash that occurs when you
-	; attempt to spawn an object in Debug Mode while dead.
-	andi.b	#~(1<<render_flags.on_screen)&$FF,render_flags(a1)
-    endif
 	move.b	render_flags(a0),status(a1)
 	andi.b	#~(1<<status.npc.no_balancing)&$FF,status(a1)
 	moveq	#0,d0
@@ -88872,15 +85888,10 @@ Debug_ResetPlayerStats:
 	move.w	d0,x_vel(a1)
 	move.w	d0,y_vel(a1)
 	move.w	d0,inertia(a1)
-    if fixBugs
-	andi.b	#1<<status.player.underwater,status(a1) ; Preserve the 'is underwater' flag, and clear everything else.
-	ori.b	#1<<status.player.in_air,status(a1)    ; Set the 'in air' flag.
-    else
 	; This resets the 'is underwater' flag, causing the bug where if you
 	; enter Debug Mode underwater, and exit it above-water, Sonic will
 	; still move as if he's underwater.
 	move.b	#1<<status.player.in_air,status(a1)
-    endif
 	move.b	#2,routine(a1)
 	move.b	#0,routine_secondary(a1)
 	rts
@@ -88953,12 +85964,8 @@ DbgObjList_EHZ: dbglistheader
 	dbglistobj ObjID_Monitor,	Obj26_MapUnc_12D36,   8,   0, make_art_tile(ArtTile_ArtNem_Powerups,0,0)
 	dbglistobj ObjID_Starpost,	Obj79_MapUnc_1F424,   1,   0, make_art_tile(ArtTile_ArtNem_Checkpoint,0,0)
 	dbglistobj ObjID_PlaneSwitcher,	Obj03_MapUnc_1FFB8,   9,   1, make_art_tile(ArtTile_ArtNem_Ring,1,0)
-    if fixBugs
-	dbglistobj ObjID_EHZWaterfall,	Obj49_MapUnc_20C50,   0,   1, make_art_tile(ArtTile_ArtNem_Waterfall,1,0)
-    else
 	; Uses a blank frame (0) instead of the massive waterfall (1).
 	dbglistobj ObjID_EHZWaterfall,	Obj49_MapUnc_20C50,   0,   0, make_art_tile(ArtTile_ArtNem_Waterfall,1,0)
-    endif
 	dbglistobj ObjID_EHZWaterfall,	Obj49_MapUnc_20C50,   2,   3, make_art_tile(ArtTile_ArtNem_Waterfall,1,0)
 	dbglistobj ObjID_EHZWaterfall,	Obj49_MapUnc_20C50,   4,   5, make_art_tile(ArtTile_ArtNem_Waterfall,1,0)
 	dbglistobj ObjID_EHZPlatform,	Obj18_MapUnc_107F6,   1,   0, make_art_tile(ArtTile_ArtKos_LevelArt,2,0)
@@ -89163,11 +86170,9 @@ DbgObjList_CNZ: dbglistheader
 	dbglistobj ObjID_Flipper,	Obj86_MapUnc_2B45A,   0,   0, make_art_tile(ArtTile_ArtNem_CNZFlipper,2,0)
 	dbglistobj ObjID_Flipper,	Obj86_MapUnc_2B45A,   1,   4, make_art_tile(ArtTile_ArtNem_CNZFlipper,2,0)
 	dbglistobj ObjID_CNZRectBlocks,	ObjD2_MapUnc_2B694,   1,   0, make_art_tile(ArtTile_ArtNem_CNZSnake,2,0)
-    if ~~fixBugs
 	; The player can't even place this, since ObjD3 is dependent
 	; on ObjDC, making it worthless.
 	dbglistobj ObjID_BombPrize,	ObjD3_MapUnc_2B8D4,   0,   0, make_art_tile(ArtTile_ArtNem_CNZBonusSpike,0,0)
-    endif
 	dbglistobj ObjID_CNZBigBlock,	ObjD4_MapUnc_2B9CA,   0,   0, make_art_tile(ArtTile_ArtNem_BigMovingBlock,2,0)
 	dbglistobj ObjID_CNZBigBlock,	ObjD4_MapUnc_2B9CA,   2,   0, make_art_tile(ArtTile_ArtNem_BigMovingBlock,2,0)
 	dbglistobj ObjID_Elevator,	ObjD5_MapUnc_2BB40, $18,   0, make_art_tile(ArtTile_ArtNem_CNZElevator,2,0)
@@ -90084,233 +87089,6 @@ PlrList_ResultsTails_End
 	plreq ArtTile_ArtNem_Perfect, ArtNem_Perfect
 PlrList_ResultsTails_Dup_End
 	dc.l	0
-    elseif gameRevision=2
-	; half of the EHZ boss PLR list
-	dc.w tiles_to_bytes(ArtTile_ArtNem_FieryExplosion)
-PlrList_EhzBoss_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; HTZ Boss
-;---------------------------------------------------------------------------------------
-PlrList_HtzBoss_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Eggpod_2, ArtNem_Eggpod
-	plreq ArtTile_ArtNem_HTZBoss, ArtNem_HTZBoss
-	plreq ArtTile_ArtNem_FieryExplosion, ArtNem_FieryExplosion
-	plreq ArtTile_ArtNem_BossSmoke_2, ArtNem_BossSmoke
-PlrList_HtzBoss_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; ARZ Boss
-;---------------------------------------------------------------------------------------
-PlrList_ArzBoss_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Eggpod_4, ArtNem_Eggpod
-	plreq ArtTile_ArtNem_ARZBoss, ArtNem_ARZBoss
-	plreq ArtTile_ArtNem_FieryExplosion, ArtNem_FieryExplosion
-PlrList_ArzBoss_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; MCZ Boss
-;---------------------------------------------------------------------------------------
-PlrList_MczBoss_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Eggpod_4, ArtNem_Eggpod
-	plreq ArtTile_ArtNem_MCZBoss, ArtNem_MCZBoss
-	plreq ArtTile_ArtNem_FieryExplosion, ArtNem_FieryExplosion
-PlrList_MczBoss_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; CNZ Boss
-;---------------------------------------------------------------------------------------
-PlrList_CnzBoss_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Eggpod_4, ArtNem_Eggpod
-	plreq ArtTile_ArtNem_CNZBoss, ArtNem_CNZBoss
-	plreq ArtTile_ArtNem_FieryExplosion, ArtNem_FieryExplosion
-PlrList_CnzBoss_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; MTZ Boss
-;---------------------------------------------------------------------------------------
-PlrList_MtzBoss_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Eggpod_4, ArtNem_Eggpod
-	plreq ArtTile_ArtNem_MTZBoss, ArtNem_MTZBoss
-	plreq ArtTile_ArtNem_EggpodJets_2, ArtNem_EggpodJets
-	plreq ArtTile_ArtNem_FieryExplosion, ArtNem_FieryExplosion
-PlrList_MtzBoss_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; OOZ Boss
-;---------------------------------------------------------------------------------------
-PlrList_OozBoss_Dup: plrlistheader
-	plreq ArtTile_ArtNem_OOZBoss, ArtNem_OOZBoss
-	plreq ArtTile_ArtNem_FieryExplosion, ArtNem_FieryExplosion
-PlrList_OozBoss_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; Fiery Explosion
-;---------------------------------------------------------------------------------------
-PlrList_FieryExplosion_Dup: plrlistheader
-	plreq ArtTile_ArtNem_FieryExplosion, ArtNem_FieryExplosion
-PlrList_FieryExplosion_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; Death Egg
-;---------------------------------------------------------------------------------------
-PlrList_DezBoss_Dup: plrlistheader
-	plreq ArtTile_ArtNem_DEZBoss, ArtNem_DEZBoss
-PlrList_DezBoss_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; EHZ Animals
-;---------------------------------------------------------------------------------------
-PlrList_EhzAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Squirrel
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Flicky
-PlrList_EhzAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; MCZ Animals
-;---------------------------------------------------------------------------------------
-PlrList_MczAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Mouse
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Chicken
-PlrList_MczAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; HTZ/MTZ/WFZ animals
-;---------------------------------------------------------------------------------------
-PlrList_HtzAnimals_Dup:
-PlrList_MtzAnimals_Dup:
-PlrList_WfzAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Monkey
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Eagle
-PlrList_HtzAnimals_Dup_End
-PlrList_MtzAnimals_Dup_End
-PlrList_WfzAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; DEZ Animals
-;---------------------------------------------------------------------------------------
-PlrList_DezAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Pig
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Chicken
-PlrList_DezAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; HPZ animals
-;---------------------------------------------------------------------------------------
-PlrList_HpzAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Mouse
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Seal
-PlrList_HpzAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; OOZ Animals
-;---------------------------------------------------------------------------------------
-PlrList_OozAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Penguin
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Seal
-PlrList_OozAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; SCZ Animals
-;---------------------------------------------------------------------------------------
-PlrList_SczAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Turtle
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Chicken
-PlrList_SczAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; CNZ Animals
-;---------------------------------------------------------------------------------------
-PlrList_CnzAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Bear
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Flicky
-PlrList_CnzAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; CPZ Animals
-;---------------------------------------------------------------------------------------
-PlrList_CpzAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Rabbit
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Eagle
-PlrList_CpzAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; ARZ Animals
-;---------------------------------------------------------------------------------------
-PlrList_ArzAnimals_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Animal_1, ArtNem_Penguin
-	plreq ArtTile_ArtNem_Animal_2, ArtNem_Flicky
-PlrList_ArzAnimals_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; Special Stage
-;---------------------------------------------------------------------------------------
-PlrList_SpecialStage_Dup: plrlistheader
-	plreq ArtTile_ArtNem_SpecialEmerald, ArtNem_SpecialEmerald
-	plreq ArtTile_ArtNem_SpecialMessages, ArtNem_SpecialMessages
-	plreq ArtTile_ArtNem_SpecialHUD, ArtNem_SpecialHUD
-	plreq ArtTile_ArtNem_SpecialFlatShadow, ArtNem_SpecialFlatShadow
-	plreq ArtTile_ArtNem_SpecialDiagShadow, ArtNem_SpecialDiagShadow
-	plreq ArtTile_ArtNem_SpecialSideShadow, ArtNem_SpecialSideShadow
-	plreq ArtTile_ArtNem_SpecialExplosion, ArtNem_SpecialExplosion
-	plreq ArtTile_ArtNem_SpecialRings, ArtNem_SpecialRings
-	plreq ArtTile_ArtNem_SpecialStart, ArtNem_SpecialStart
-	plreq ArtTile_ArtNem_SpecialPlayerVSPlayer, ArtNem_SpecialPlayerVSPlayer
-	plreq ArtTile_ArtNem_SpecialBack, ArtNem_SpecialBack
-	plreq ArtTile_ArtNem_SpecialStars, ArtNem_SpecialStars
-	plreq ArtTile_ArtNem_SpecialTailsText, ArtNem_SpecialTailsText
-PlrList_SpecialStage_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; Special Stage Bombs
-;---------------------------------------------------------------------------------------
-PlrList_SpecStageBombs_Dup: plrlistheader
-	plreq ArtTile_ArtNem_SpecialBomb, ArtNem_SpecialBomb
-PlrList_SpecStageBombs_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; WFZ Boss
-;---------------------------------------------------------------------------------------
-PlrList_WfzBoss_Dup: plrlistheader
-	plreq ArtTile_ArtNem_WFZBoss, ArtNem_WFZBoss
-	plreq ArtTile_ArtNem_RobotnikRunning, ArtNem_RobotnikRunning
-	plreq ArtTile_ArtNem_RobotnikUpper, ArtNem_RobotnikUpper
-	plreq ArtTile_ArtNem_RobotnikLower, ArtNem_RobotnikLower
-	plreq ArtTile_ArtNem_FieryExplosion, ArtNem_FieryExplosion
-PlrList_WfzBoss_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; Tornado
-;---------------------------------------------------------------------------------------
-PlrList_Tornado_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Tornado, ArtNem_Tornado
-	plreq ArtTile_ArtNem_TornadoThruster, ArtNem_TornadoThruster
-	plreq ArtTile_ArtNem_Clouds, ArtNem_Clouds
-PlrList_Tornado_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; Capsule/Egg Prison
-;---------------------------------------------------------------------------------------
-PlrList_Capsule_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Capsule, ArtNem_Capsule
-PlrList_Capsule_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; Normal explosion
-;---------------------------------------------------------------------------------------
-PlrList_Explosion_Dup: plrlistheader
-	plreq ArtTile_ArtNem_Explosion, ArtNem_Explosion
-PlrList_Explosion_Dup_End
-;---------------------------------------------------------------------------------------
-; PATTERN LOAD REQUEST LIST (duplicate)
-; Tails end of level results screen
-;---------------------------------------------------------------------------------------
-PlrList_ResultsTails_Dup: plrlistheader
-	plreq ArtTile_ArtNem_TitleCard, ArtNem_TitleCard
-	plreq ArtTile_ArtNem_ResultsText, ArtNem_ResultsText
-	plreq ArtTile_ArtNem_MiniCharacter, ArtNem_MiniTails
-	plreq ArtTile_ArtNem_Perfect, ArtNem_Perfect
-PlrList_ResultsTails_Dup_End
     endif
 ; In an accurate ROM, this junk data ends at $42D50.
 ; Though, REV00 has some 00 bytes, for some reason...
@@ -91061,7 +87839,6 @@ BM128_CPZ:	BINCLUDE	"data/mappings/128x128/CPZ_DEZ.kos"
 
 ; This file contains $320 blocks, overflowing the 'Block_table' buffer. This causes
 ; 'TempArray_LayerDef' to be overwritten with (empty) block data.
-; If only 'fixBugs' could fix this...
 BM16_ARZ:	BINCLUDE	"data/mappings/16x16/ARZ.kos"
 ArtKos_ARZ:	BINCLUDE	"data/art/kosinski/ARZ.kos"
 BM128_ARZ:	BINCLUDE	"data/mappings/128x128/ARZ.kos"
@@ -92008,7 +88785,7 @@ Sound70:	include "build/audio/sfx/F0 - Oil Slide.inc"
 	finishBank
 
 ; end of 'ROM'
-	if padToPowerOfTwo && (*-StartOfRom)&(*-StartOfRom-1)
+	if (*-StartOfRom)&(*-StartOfRom-1)
 		cnop	-1,2<<lastbit(*-StartOfRom-1)
 		dc.b	$00
 paddingSoFar	:= paddingSoFar+1

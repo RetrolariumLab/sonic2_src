@@ -77,3 +77,12 @@ class BuildContractTests(unittest.TestCase):
                 payload = path.read_bytes()
                 self.assertEqual(encode(decode(payload)), payload)
 
+    def test_source_accepts_only_original_build_options(self):
+        options = r"fixBugs|allOptimizations|skipChecksumCheck|zeroOffsetOptimization|removeJmpTos|addsubOptimize|relativeLea|useFullWaterTables|FixMusicAndSFXDataBugs|FixDriverBugs|OptimiseDriver|padToPowerOfTwo"
+        for path in ROOT.rglob("*.asm"):
+            if path.is_relative_to(ROOT / "build") or path.is_relative_to(ROOT / "data"):
+                continue
+            code = "\n".join(line.split(";", 1)[0] for line in path.read_text().splitlines())
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertIsNone(re.search(r"\b(?:" + options + r")\b", code, re.I))
+                self.assertIsNone(re.search(r"gameRevision\s*(?:=|>=|<)\s*2\b", code, re.I))

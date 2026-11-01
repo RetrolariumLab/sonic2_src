@@ -112,6 +112,16 @@ No real image matching the theoretical REV02 hash was found in the supplied
 Sonic 2 folder. REV02, prototypes, compilations, modifications and lock-on builds
 are outside this reconstruction's preservation scope.
 
+## Preservation option folding
+
+Community bug fixes, optional optimizations, checksum bypass, expanded water
+tables, driver fixes, and theoretical REV02 branches have been removed from
+the buildable source. Their conditions were folded to the shared original
+REV00/REV01 values in a separate source-only preservation change, checked
+against both complete original images. Only official revision selection remains.
+Power-of-two padding is an original container property, not a user option.
+The removed switches can be recovered from the imported upstream commit above.
+
 ## Upstream disclaimer
 
 Preserved verbatim from the imported upstream snapshot, including its spelling.
