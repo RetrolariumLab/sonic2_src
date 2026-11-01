@@ -1,0 +1,12 @@
+/build/
+/data/
+/content/workspace/
+__pycache__/
+*.py[cod]
+/*.bin
+/*.gen
+/*.rom
+/*.p
+/*.lst
+/*.log
+/*.h

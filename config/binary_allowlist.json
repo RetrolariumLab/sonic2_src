@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "No binaries may be tracked; external build tools belong in the ignored verified cache.",
+  "files": []
+}
