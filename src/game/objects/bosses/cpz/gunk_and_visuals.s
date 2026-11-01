@@ -349,7 +349,7 @@ CpzBossGunkAndVisuals_Animation_Sequence26: dc.b    $F,$1E,$FF
 ; ----------------------------------------------------------------------------
 ; sprite mappings - uses ArtNem_CPZBoss
 ; ----------------------------------------------------------------------------
-Obj5D_MapUnc_2EADC: include "src/game/objects/bosses/cpz/data/mappings_a.s"
+Obj5D_MapUnc_2EADC: include "src/game/objects/bosses/cpz/data/machine_mappings.s"
 
 ; animation script
 ; off_2ED5C:
@@ -369,15 +369,7 @@ CpzBossGunkAndVisuals_Animation_Sequence4_Variant2: dc.b    $F,  6,  6,  6,  6, 
 ; ----------------------------------------------------------------------------
 ; sprite mappings - uses ArtNem_Eggpod
 ; ----------------------------------------------------------------------------
-Obj5D_MapUnc_2ED8C: include "src/game/objects/bosses/cpz/data/mappings_b.s"
-; ----------------------------------------------------------------------------
-; sprite mappings - uses ArtNem_EggpodJets
-; ----------------------------------------------------------------------------
-Obj5D_MapUnc_2EE88: include "src/game/objects/bosses/cpz/data/mappings_c.s"
-; ----------------------------------------------------------------------------
-; sprite mappings - uses ArtNem_BossSmoke
-; ----------------------------------------------------------------------------
-Obj5D_MapUnc_2EEA0: include "src/game/objects/bosses/cpz/data/mappings_d.s"
+Obj5D_MapUnc_2ED8C: include "src/game/objects/bosses/cpz/data/eggpod_mappings.s"
 ; ===========================================================================
 
                 jmpTos  JmpTo34_DisplaySprite,JmpTo51_DeleteObject,JmpTo35_MarkObjGone,JmpTo5_PlaySound,JmpTo8_Adjust2PArtPointer2,JmpTo5_LoadPLC,JmpTo2_AddPoints,JmpTo60_Adjust2PArtPointer,JmpTo_PlayLevelMusic,JmpTo_LoadPLC_AnimalExplosion,JmpTo3_ObjectMoveAndFall,JmpTo23_ObjectMove

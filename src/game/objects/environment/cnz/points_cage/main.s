@@ -257,7 +257,7 @@ CnzPointsCage_Animation_Sequence1:  dc.b    1,  1,  0,$FF
 ; ---------------------------------------------------------------------------
 ; sprite mappings
 ; ---------------------------------------------------------------------------
-ObjD6_MapUnc_2BEBC: include "src/game/objects/environment/cnz/points_cage/data/mappings_b.s"
+ObjD6_MapUnc_2BEBC: include "src/game/objects/environment/cnz/points_cage/data/cage_mappings.s"
 ; ===========================================================================
 
 ; ---------------------------------------------------------------------------

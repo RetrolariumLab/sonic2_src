@@ -84,23 +84,7 @@ Map_obj71_a_002E_End
 ; ----------------------------------------------------------------------------------------
 ; Unknown sprite mappings
 ; ----------------------------------------------------------------------------------------
-Obj1C_MapUnc_113D6: include "src/game/objects/environment/common/bridge_stake/data/mappings_a.s"
-; --------------------------------------------------------------------------------
-; Unknown sprite mappings
-; --------------------------------------------------------------------------------
-Obj1C_MapUnc_113EE: include "src/game/objects/environment/common/bridge_stake/data/mappings_b.s"
-; -------------------------------------------------------------------------------
-; sprite mappings
-; -------------------------------------------------------------------------------
-Obj1C_MapUnc_11406: include "src/game/objects/environment/common/bridge_stake/data/mappings_c.s"
-; --------------------------------------------------------------------------------
-; sprite mappings
-; --------------------------------------------------------------------------------
-Obj1C_MapUnc_114AE: include "src/game/objects/environment/common/bridge_stake/data/mappings_d.s"
-; --------------------------------------------------------------------------------
-; sprite mappings
-; --------------------------------------------------------------------------------
-Obj1C_MapUnc_11552: include "src/game/objects/environment/common/bridge_stake/data/mappings_shared.s"
+Obj1C_MapUnc_113D6: include "src/game/objects/environment/common/bridge_stake/mappings.s"
 ; ----------------------------------------------------------------------------
 ; sprite mappings
 ; ----------------------------------------------------------------------------

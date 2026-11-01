@@ -553,7 +553,7 @@ Ani_obj26_Broken:
 ; Sprite mappings
 ; ---------------------------------------------------------------------------
 ; MapUnc_12D36: MapUnc_obj26:
-Obj26_MapUnc_12D36: include "src/game/objects/items/monitor/data/mappings.s"
+Obj26_MapUnc_12D36: include "src/game/objects/items/monitor/mappings.s"
 ; ===========================================================================
 
                 jmpTos                                  ; Empty

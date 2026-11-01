@@ -61,6 +61,10 @@
       "resolution": "Clarify that a source-boundary change can alter the regenerated relocation probe, without altering canonical bytes or the original-input runtime goldens."
     },
     {
+      "id": "DOC-015",
+      "resolution": "Remove eleven singleton mapping directories, consolidate four contiguous ledger groups and replace five arbitrary letter names with names established by their consumers."
+    },
+    {
       "id": "DOC-019",
       "resolution": "Move exact AS build-313 dependencies and GPL text to a verified ignored cache, retain the full Saxman permission notice in its implementation, and bind linear history references to the new preservation boundary."
     }
@@ -141,8 +145,8 @@
     {
       "path": "docs/source_layout.md",
       "action": "updated",
-      "reason": "Distinguish preserved canonical ROM identity from regenerated relocation probes: inlining exposes one additional unreachable return site, while original-input runtime goldens remain unchanged.",
-      "sha256": "1aecd0f2afdc9c56a974e2b7515a3c6b319b8f7a3449452dc93e9eec70ef63da"
+      "reason": "Document singleton mapping files beside their owners, four contiguous mapping groups and role-based names, retaining checked source regions and complete original provenance.",
+      "sha256": "2fcc16028d18de0970f84034ef2d3e7e101ff85c23b3431256e2b6bc450267df"
     },
     {
       "path": "docs/source_reconstruction_2_0.md",
@@ -165,8 +169,8 @@
     {
       "path": "docs/unknowns.md",
       "action": "updated",
-      "reason": "Align the flattened object layout, checked original source segments, seven bounded size exceptions and isolated inline-ledger regions; preserve all existing runtime, authoring and rights limits.",
-      "sha256": "ad9b28b14412e5388ce9c8ccef15a66698f1f34f105e9bc4bff5048e974c4a97"
+      "reason": "Document singleton mapping files beside their owners, four contiguous mapping groups and role-based names, retaining checked source regions and complete original provenance.",
+      "sha256": "c79b9884472fd4fa921e49d40d39a74abc23d27d6b226f417ccc3d652aa9e23d"
     },
     {
       "path": "docs/validation.md",

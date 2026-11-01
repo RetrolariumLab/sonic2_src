@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 8
+    "commit_count": 9
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -110,6 +110,13 @@
       "id": "stage_c17",
       "kind": "source",
       "summary": "Flatten cohesive object source owners; retain the original accepted profiles and their complete evidence.",
+      "commits": ["32cf8aeec2b744d520ee8d174636e27dd581c21c"],
+      "evidence": ["config/reconstruction/source_layout.json"]
+    },
+    {
+      "id": "stage_c18",
+      "kind": "source",
+      "summary": "Group mapping ledgers by confirmed roles; retain the original accepted profiles and their complete evidence.",
       "commits": ["release-commit"],
       "evidence": ["config/reconstruction/source_layout.json"]
     }

@@ -397,7 +397,7 @@ ChaosEmerald_Animation_Sequence10_Variant2: dc.b    2, $A, $B, $C,$FF
 ; ----------------------------------------------------------------------------
 ; sprite mappings
 ; ----------------------------------------------------------------------------
-Obj61_MapUnc_36508: include "src/game/special_stage/objects/rings_bombs/data/mappings.s"
+Obj61_MapUnc_36508: include "src/game/special_stage/objects/rings_bombs/mappings.s"
 ; ===========================================================================
 
                 jmpTos0 JmpTo44_DisplaySprite,JmpTo63_DeleteObject,JmpTo24_AnimateSprite,JmpTo_SSStartNewAct,JmpTo_CalcAngle,JmpTo14_CalcSine,JmpTo7_ObjectMoveAndFall,JmpTo_SSAllocateObjectAfterCurrent,JmpTo2_SSAllocateObject

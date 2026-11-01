@@ -635,7 +635,7 @@ TC_RedStripes_End
 ; -------------------------------------------------------------------------------
 ; sprite mappings
 ; -------------------------------------------------------------------------------
-Obj39_MapUnc_14C6C: include "src/ui/objects/game_over/data/mappings.s"
+Obj39_MapUnc_14C6C: include "src/ui/objects/game_over/mappings.s"
 
 ; -------------------------------------------------------------------------------
 ; sprite mappings - end-of-level results screen title cards

@@ -89,7 +89,7 @@ owners use zone directories where the implementation belongs to one zone; shared
 implementations use `common`. Special-stage objects live under
 `src/game/special_stage/objects`, and screen objects under `src/ui/objects`.
 Preserved unused implementations have an explicit `unused` owner. Retained
-separate ledgers use short names such as `mappings.s`, `mappings_a.s` and
+separate ledgers use short names such as `mappings.s`, `smoke_mappings.s` and
 `paths.s`; directly owned ledgers are inline in the named object module.
 
 Zone ownership follows actual placement consumers and source use rather than an
@@ -101,11 +101,12 @@ label or ROM byte.
 
 ## Cohesive object modules
 
-The tree has 437 assembly modules after flattening 170 single-entry object
+The tree has 425 assembly modules after flattening 170 single-entry object
 owners: 139 incorporate their 175 local source-data files, and 31 already had
 one implementation file. Data was inserted exactly where its include appeared;
-no emitted statement, declaration order or compiled symbol value moved. Shared
-or physically separated owners retain their existing boundaries.
+no emitted statement, declaration order or compiled symbol value moved. Four
+adjacent standalone mapping groups later replace twelve more source files.
+Shared or physically separated owners retain their existing boundaries.
 
 | Module                                                                     | Responsibility                                     | Physical lines |
 | -------------------------------------------------------------------------- | -------------------------------------------------- | -------------: |
@@ -135,3 +136,31 @@ physical owners. Three declaration fingerprints change only because their
 file-boundary/include context became inline; their original compiled endpoints
 and the complete expanded source text remain checked. No label is renamed by
 this consolidation.
+
+## Standalone mapping ledgers
+
+A `data` directory with one mapping file adds no useful ownership boundary.
+Eleven such files now sit directly beside their owner modules; for example,
+[Death Egg Robot mappings](../src/game/objects/bosses/death_egg_robot/mappings.s)
+are beside the robot's animation and body modules. The Sonic and Tails `data`
+directories retain both mappings and DPLC, so those two-file groups stay intact.
+
+Contiguous tables for one owner share a physical file. Include-site aliases and
+intervening comments move with their original positions; the caller includes
+that group once. Each original data ledger keeps a separate reviewed source
+region, while original segments account for both the data files and the moved
+include-site source lines. The baseline still covers every original line once.
+
+| Shared mapping file                                                                  | Physical lines | Distinct original ledgers |
+| ------------------------------------------------------------------------------------ | -------------: | ------------------------: |
+| [Animals](../src/game/objects/items/animals/mappings.s)                              |            106 |                         5 |
+| [Shared decorations](../src/game/objects/environment/common/bridge_stake/mappings.s) |            146 |                         5 |
+| [HUD](../src/ui/hud/mappings.s)                                                      |            164 |                         3 |
+| [CPZ eggpod and effects](../src/game/objects/bosses/cpz/data/eggpod_mappings.s)      |            103 |                         3 |
+
+Tables separated by animation or controller code retain distinct files. Their
+names describe checked consumers instead of letter suffixes: CPZ
+`machine_mappings.s` and `eggpod_mappings.s`, HTZ `smoke_mappings.s` and
+`boss_mappings.s`, and CNZ `bomb_mappings.s` and `cage_mappings.s`. The CPZ art
+references, HTZ smoke setup and CNZ bomb/cage consumers establish these roles;
+no sprite label or gameplay behavior is renamed.

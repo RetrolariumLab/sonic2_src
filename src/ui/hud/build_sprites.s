@@ -281,11 +281,7 @@ BuildHUD_P2_Continued:
 
 ; sprite mappings for the HUD
 ; uses the art in VRAM from $D940 - $FC00
-HUD_MapUnc_40A9A:   include "src/ui/hud/data/mappings_a.s"
-
-HUD_MapUnc_40BEA:   include "src/ui/hud/data/mappings_b.s"
-
-HUD_MapUnc_40C82:   include "src/ui/hud/data/mappings_c.s"
+HUD_MapUnc_40A9A:   include "src/ui/hud/mappings.s"
 
 ; ---------------------------------------------------------------------------
 ; Add points subroutine

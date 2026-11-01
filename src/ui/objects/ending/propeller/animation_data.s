@@ -9,7 +9,7 @@ EndingPropeller_Animation_Sequence2:    dc.b    1,  5,  6,$FF
 ; -----------------------------------------------------------------------------
 ; sprite mappings
 ; -----------------------------------------------------------------------------
-ObjCF_MapUnc_ADA2:  include "src/ui/objects/ending/propeller/data/mappings.s"
+ObjCF_MapUnc_ADA2:  include "src/ui/objects/ending/propeller/mappings.s"
 ; --------------------------------------------------------------------------------------
 ; Enigma compressed art mappings
 ; "Sonic the Hedgehog 2" mappings  ; MapEng_B23A:

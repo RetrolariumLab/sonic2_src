@@ -495,7 +495,7 @@ Map_obj15_a_0034_End
 ; ----------------------------------------------------------------------------
 ; sprite mappings
 ; ----------------------------------------------------------------------------
-Obj15_Obj83_MapUnc_1021E:   include "src/game/objects/environment/arz/triple_platform/data/mappings.s"
+Obj15_Obj83_MapUnc_1021E:   include "src/game/objects/environment/arz/triple_platform/mappings.s"
 
 ; ----------------------------------------------------------------------------
 ; sprite mappings

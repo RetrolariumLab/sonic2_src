@@ -107,7 +107,7 @@ Ani_objDB:      offsetTable
 ; Sprite mappings for text, countdown, stars, and Tails on the continue screen
 ; Art starts at $A000 in VRAM
 ; -------------------------------------------------------------------------------
-ObjDA_MapUnc_7CB6:  include "src/ui/objects/continue/text/data/mappings.s"
+ObjDA_MapUnc_7CB6:  include "src/ui/objects/continue/text/mappings.s"
 
                 jmpTos  JmpTo_Adjust2PArtPointer2,JmpTo_Adjust2PArtPointer
 

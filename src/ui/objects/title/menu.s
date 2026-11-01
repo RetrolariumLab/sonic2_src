@@ -99,7 +99,7 @@ Ani_obj0E_FallingStar:
 ; -----------------------------------------------------------------------------
 ; Sprite Mappings - Flashing stars from intro (Obj0E)
 ; -----------------------------------------------------------------------------
-Obj0E_MapUnc_136A8: include "src/ui/objects/title/animations/data/mappings.s"
+Obj0E_MapUnc_136A8: include "src/ui/objects/title/animations/mappings.s"
 ; -----------------------------------------------------------------------------
 ; sprite mappings
 ; -----------------------------------------------------------------------------

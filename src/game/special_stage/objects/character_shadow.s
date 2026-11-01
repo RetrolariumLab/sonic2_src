@@ -128,7 +128,7 @@ CharacterShadow_Animation_Sequence4:
 ; ----------------------------------------------------------------------------
 ; sprite mappings - uses ArtNem_SpecialSonicAndTails
 ; ----------------------------------------------------------------------------
-Obj09_MapUnc_34212: include "src/game/special_stage/objects/sonic/data/mappings.s"
+Obj09_MapUnc_34212: include "src/game/special_stage/objects/sonic/mappings.s"
 ; ----------------------------------------------------------------------------
 ; sprite mappings for special stage shadows
 ; ----------------------------------------------------------------------------

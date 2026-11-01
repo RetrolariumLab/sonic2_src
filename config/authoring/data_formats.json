@@ -7009,34 +7009,52 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/ui/hud/data/mappings_a.s",
+      "source": "src/ui/hud/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_hud_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 1,
+        "last_line": 59,
+        "initial_scope": "HUD_MapUnc_40A9A",
+        "code_sha256": "16be79c0d82df14875c7990b6f22ccd7c9e59901de0aeeb01b47034ea6e57460"
+      }
     },
     {
-      "source": "src/ui/hud/data/mappings_b.s",
+      "source": "src/ui/hud/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_hud_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 62,
+        "last_line": 104,
+        "initial_scope": "HUD_MapUnc_40BEA",
+        "code_sha256": "c770e3bef7cca99794211b3c07e1341aaa405cf13370df0f126beeb55b8d6af3"
+      }
     },
     {
-      "source": "src/ui/hud/data/mappings_c.s",
+      "source": "src/ui/hud/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_hud_c",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 107,
+        "last_line": 164,
+        "initial_scope": "HUD_MapUnc_40C82",
+        "code_sha256": "de51a9ec0941000f57b16534b32b03a4c7aabd4aa9757d5ee1746dd5a923d167"
+      }
     },
     {
       "source": "src/game/objects/environment/common/collision_switcher.s",
@@ -7103,7 +7121,7 @@
       }
     },
     {
-      "source": "src/game/special_stage/objects/sonic/data/mappings.s",
+      "source": "src/game/special_stage/objects/sonic/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj09",
@@ -7177,7 +7195,7 @@
       }
     },
     {
-      "source": "src/ui/objects/title/animations/data/mappings.s",
+      "source": "src/ui/objects/title/animations/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj0E",
@@ -7459,54 +7477,84 @@
       }
     },
     {
-      "source": "src/game/objects/environment/common/bridge_stake/data/mappings_a.s",
+      "source": "src/game/objects/environment/common/bridge_stake/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1C_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 1,
+        "last_line": 13,
+        "initial_scope": "Obj1C_MapUnc_113D6",
+        "code_sha256": "23d11a05d3830c9a94835c23d2384ca2c4264d9ed26595617087640bfca1fc1f"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/bridge_stake/data/mappings_b.s",
+      "source": "src/game/objects/environment/common/bridge_stake/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1C_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 18,
+        "last_line": 30,
+        "initial_scope": "Obj1C_MapUnc_113EE",
+        "code_sha256": "fce182fdb10546fe9af3ab02335f42ad54d6bb710863e6706f52cc934adc1860"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/bridge_stake/data/mappings_c.s",
+      "source": "src/game/objects/environment/common/bridge_stake/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1C_c",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 35,
+        "last_line": 79,
+        "initial_scope": "Obj1C_MapUnc_11406",
+        "code_sha256": "de398adedda6e5bf7bcf966ef553d312cd63751ac0f2952c7e5920c2b50d0c3e"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/bridge_stake/data/mappings_d.s",
+      "source": "src/game/objects/environment/common/bridge_stake/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1C_d",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 84,
+        "last_line": 124,
+        "initial_scope": "Obj1C_MapUnc_114AE",
+        "code_sha256": "dd54025e7c01d702fdadbc55c7be961854e29cebc608579f14223f8dfdee4ae9"
+      }
     },
     {
-      "source": "src/game/objects/environment/common/bridge_stake/data/mappings_shared.s",
+      "source": "src/game/objects/environment/common/bridge_stake/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj1C_e",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 129,
+        "last_line": 146,
+        "initial_scope": "Obj1C_MapUnc_11552",
+        "code_sha256": "15d3247bdde0d1b4884725e57eaac09b33527755cbaef293649fb8f3b4655fd6"
+      }
     },
     {
       "source": "src/game/objects/environment/cpz/blue_balls.s",
@@ -7669,7 +7717,7 @@
       }
     },
     {
-      "source": "src/game/objects/items/monitor/data/mappings.s",
+      "source": "src/game/objects/items/monitor/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj26",
@@ -7695,54 +7743,84 @@
       }
     },
     {
-      "source": "src/game/objects/items/animals/data/mappings_a.s",
+      "source": "src/game/objects/items/animals/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj28_a",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 1,
+        "last_line": 18,
+        "initial_scope": "Obj28_MapUnc_11E1C",
+        "code_sha256": "c20f17f370cb2682fbd8312fb1c4c1f2d95ace270ca1e38ab66e75d7984d6669"
+      }
     },
     {
-      "source": "src/game/objects/items/animals/data/mappings_b.s",
+      "source": "src/game/objects/items/animals/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj28_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 23,
+        "last_line": 40,
+        "initial_scope": "Obj28_MapUnc_11E40",
+        "code_sha256": "97acd0dbdcce76237098fe9efd5bcd56fc55fe710c185fc812efd526fc3ee2c5"
+      }
     },
     {
-      "source": "src/game/objects/items/animals/data/mappings_c.s",
+      "source": "src/game/objects/items/animals/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj28_c",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 45,
+        "last_line": 62,
+        "initial_scope": "Obj28_MapUnc_11E64",
+        "code_sha256": "6b44e8f5e39e60d8ae166fac9c58fcff75469fedc24ebed215399e2507843e67"
+      }
     },
     {
-      "source": "src/game/objects/items/animals/data/mappings_d.s",
+      "source": "src/game/objects/items/animals/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj28_d",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 67,
+        "last_line": 84,
+        "initial_scope": "Obj28_MapUnc_11E88",
+        "code_sha256": "fb1fd942d0793e67dd82524cda9370ca6a5c2a79f45de03d71fa29f2c2c02c75"
+      }
     },
     {
-      "source": "src/game/objects/items/animals/data/mappings_shared.s",
+      "source": "src/game/objects/items/animals/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj28_e",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 89,
+        "last_line": 106,
+        "initial_scope": "Obj28_MapUnc_11EAC",
+        "code_sha256": "79b6ef06357e4520c56670e9f5a1ddc3cd1398308440c5e553475a78ab4414b9"
+      }
     },
     {
       "source": "src/game/objects/items/points.s",
@@ -7754,8 +7832,8 @@
       "address_space": "m68000-rom",
       "revisions": ["rev00", "rev01"],
       "source_region": {
-        "first_line": 54,
-        "last_line": 94,
+        "first_line": 38,
+        "last_line": 78,
         "initial_scope": "Obj29_MapUnc_11ED0",
         "code_sha256": "9bd60258e00f2ad2b68347ccff92eaf5212f80175e5681d3f9405bdf75876dad"
       }
@@ -8017,7 +8095,7 @@
       }
     },
     {
-      "source": "src/game/objects/items/shield/data/mappings.s",
+      "source": "src/game/objects/items/shield/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj38",
@@ -8027,7 +8105,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/ui/objects/game_over/data/mappings.s",
+      "source": "src/ui/objects/game_over/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj39",
@@ -8341,7 +8419,7 @@
       }
     },
     {
-      "source": "src/game/objects/bosses/htz/data/mappings_a.s",
+      "source": "src/game/objects/bosses/htz/data/smoke_mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj52_a",
@@ -8351,7 +8429,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/htz/data/mappings_b.s",
+      "source": "src/game/objects/bosses/htz/data/boss_mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj52_b",
@@ -8361,7 +8439,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/mtz/data/mappings.s",
+      "source": "src/game/objects/bosses/mtz/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj54",
@@ -8519,7 +8597,7 @@
       }
     },
     {
-      "source": "src/game/objects/bosses/cpz/data/mappings_a.s",
+      "source": "src/game/objects/bosses/cpz/data/machine_mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj5D_a",
@@ -8529,34 +8607,52 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/bosses/cpz/data/mappings_b.s",
+      "source": "src/game/objects/bosses/cpz/data/eggpod_mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj5D_b",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 1,
+        "last_line": 59,
+        "initial_scope": "Obj5D_MapUnc_2ED8C",
+        "code_sha256": "4d48b3eaba25e8d2c2f9649c413fb8dcb3c48faa0c955ba0dff84ce4a0b9c11c"
+      }
     },
     {
-      "source": "src/game/objects/bosses/cpz/data/mappings_c.s",
+      "source": "src/game/objects/bosses/cpz/data/eggpod_mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj5D_c",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 64,
+        "last_line": 76,
+        "initial_scope": "Obj5D_MapUnc_2EE88",
+        "code_sha256": "9ea02c651593bf9573a670c3bebbc72e360f46f488e2614021c6e92bfcf98ca0"
+      }
     },
     {
-      "source": "src/game/objects/bosses/cpz/data/mappings_d.s",
+      "source": "src/game/objects/bosses/cpz/data/eggpod_mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj5D_d",
       "round_trip": "exact",
       "allocation": "source_owned_frame_ledger",
       "address_space": "m68000-rom",
-      "revisions": ["rev00", "rev01"]
+      "revisions": ["rev00", "rev01"],
+      "source_region": {
+        "first_line": 81,
+        "last_line": 103,
+        "initial_scope": "Obj5D_MapUnc_2EEA0",
+        "code_sha256": "2ff3080239c86e6e3d96e12b50549d835853fe00e7e57ff5c579382505a20e8f"
+      }
     },
     {
       "source": "src/game/special_stage/objects/hud.s",
@@ -8607,7 +8703,7 @@
       }
     },
     {
-      "source": "src/game/special_stage/objects/rings_bombs/data/mappings.s",
+      "source": "src/game/special_stage/objects/rings_bombs/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj61",
@@ -8866,8 +8962,8 @@
       "address_space": "m68000-rom",
       "revisions": ["rev00", "rev01"],
       "source_region": {
-        "first_line": 108,
-        "last_line": 144,
+        "first_line": 92,
+        "last_line": 128,
         "initial_scope": "Obj71_MapUnc_11576",
         "code_sha256": "36496062f4754b70406df0050d1cf1a6091eefcbe7a9c787dd9db8c318c6859f"
       }
@@ -9145,7 +9241,7 @@
       }
     },
     {
-      "source": "src/game/objects/environment/arz/triple_platform/data/mappings.s",
+      "source": "src/game/objects/environment/arz/triple_platform/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_obj83",
@@ -9923,7 +10019,7 @@
       }
     },
     {
-      "source": "src/game/objects/bosses/death_egg_robot/data/mappings.s",
+      "source": "src/game/objects/bosses/death_egg_robot/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objC7",
@@ -9949,7 +10045,7 @@
       }
     },
     {
-      "source": "src/ui/objects/ending/propeller/data/mappings.s",
+      "source": "src/ui/objects/ending/propeller/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objCF",
@@ -10007,7 +10103,7 @@
       }
     },
     {
-      "source": "src/game/objects/environment/cnz/points_cage/data/mappings_a.s",
+      "source": "src/game/objects/environment/cnz/points_cage/data/bomb_mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objD6_a",
@@ -10017,7 +10113,7 @@
       "revisions": ["rev00", "rev01"]
     },
     {
-      "source": "src/game/objects/environment/cnz/points_cage/data/mappings_b.s",
+      "source": "src/game/objects/environment/cnz/points_cage/data/cage_mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objD6_b",
@@ -10059,7 +10155,7 @@
       }
     },
     {
-      "source": "src/ui/objects/continue/text/data/mappings.s",
+      "source": "src/ui/objects/continue/text/mappings.s",
       "storage": "assembly",
       "codec": "sprite-s2",
       "root_symbol": "Map_objDA",

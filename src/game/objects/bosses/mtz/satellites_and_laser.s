@@ -391,7 +391,7 @@ MtzBossSatellitesAndLaser_Animation_Sequence7:  dc.b    7,$11,$FF
 ; ----------------------------------------------------------------------------
 ; sprite mappings
 ; ----------------------------------------------------------------------------
-Obj54_MapUnc_32DC6: include "src/game/objects/bosses/mtz/data/mappings.s"
+Obj54_MapUnc_32DC6: include "src/game/objects/bosses/mtz/mappings.s"
 ; ===========================================================================
 
                 jmpTos0 JmpTo40_DisplaySprite,JmpTo61_DeleteObject,JmpTo17_AllocateObject,JmpTo10_PlaySound,JmpTo21_AnimateSprite,JmpTo11_LoadPLC,JmpTo8_AddPoints,JmpTo7_PlayLevelMusic,JmpTo7_LoadPLC_AnimalExplosion,JmpTo6_ObjectMoveAndFall,JmpTo24_ObjectMove

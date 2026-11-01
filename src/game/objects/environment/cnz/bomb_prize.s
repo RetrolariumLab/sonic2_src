@@ -47,7 +47,7 @@ BranchTo_JmpTo44_DeleteObject                           ; BranchTo
 ; ---------------------------------------------------------------------------
 ; sprite mappings
 ; ---------------------------------------------------------------------------
-ObjD3_MapUnc_2B8D4: include "src/game/objects/environment/cnz/points_cage/data/mappings_a.s"
+ObjD3_MapUnc_2B8D4: include "src/game/objects/environment/cnz/points_cage/data/bomb_mappings.s"
 ; ===========================================================================
 
                 jmpTos  JmpTo28_DisplaySprite,JmpTo44_DeleteObject

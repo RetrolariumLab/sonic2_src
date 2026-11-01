@@ -11,7 +11,7 @@ a substitute for its recorded passing evidence.
 | S2-PROBE            | controlled          | The 2 MiB experimental probe preserves the original logical checksum extent, original sound layout and two CNZ code-as-data dependencies. It is not a general ROM-expansion feature or a hardware test.                           |
 | S2-UPSTREAM-LICENSE | license_not_granted | The upstream disclaimer grants no annotation/source license. Original game code and content remain the rightsholder's property.                                                                                                   |
 | S2-TOOLS-LICENSE    | unassigned          | Licensing of newly written project tools/documentation has not been assigned. External AS and Saxman notices are separate; no project-wide license is inferred.                                                                   |
-| S2-LAYOUT           | accepted            | The semantic split has 437 modules with bounded inline and shared source data, complete original-source fingerprints, preserved symbol values and canonical/probe byte checks. The complete 2.0 aggregate verified this evidence. |
+| S2-LAYOUT           | accepted            | The semantic split has 425 modules with bounded inline and shared source data, complete original-source fingerprints, preserved symbol values and canonical/probe byte checks. The complete 2.0 aggregate verified this evidence. |
 | S2-CONTENT          | accepted            | Every registered private input and source ledger passes the public zero-edit workflow for both revisions. The complete 2.0 aggregate verified this evidence.                                                                      |
 
 REV02 is excluded because no supplied real original image matched its

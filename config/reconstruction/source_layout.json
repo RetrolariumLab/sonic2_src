@@ -2413,7 +2413,7 @@
       ]
     },
     {
-      "path": "src/game/special_stage/objects/sonic/data/mappings.s",
+      "path": "src/game/special_stage/objects/sonic/mappings.s",
       "original_path": "mappings/sprite/obj09.asm",
       "original_first_line": 1,
       "original_last_line": 146,
@@ -2602,7 +2602,7 @@
       ]
     },
     {
-      "path": "src/ui/objects/title/animations/data/mappings.s",
+      "path": "src/ui/objects/title/animations/mappings.s",
       "original_path": "mappings/sprite/obj0E.asm",
       "original_first_line": 1,
       "original_last_line": 226,
@@ -2646,7 +2646,7 @@
       "physical_lines": 160,
       "owner": "ui/objects/title",
       "responsibility": "title screen menu with its adjacent source-owned data",
-      "file_sha256": "dc2f99f22af1478430b8d765973882553810b35359848f7f27aa633a3fa6811b",
+      "file_sha256": "b7611d99c367f73888ce58e3307c0cde9e77aad77120225210ca5274106ff184",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -2886,7 +2886,7 @@
       "physical_lines": 562,
       "owner": "game/objects/environment/common",
       "responsibility": "arz swinging platform with its adjacent source-owned data",
-      "file_sha256": "7db76e06d37f64f09ffabcbaf61a0c6d593bd9f7cae8e2c0679dd9859211c44f",
+      "file_sha256": "1097bd099cd9d2e4fff0e525bda34c47006f3a6fc9ca571a79aca0fed2fefe1e",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -3176,76 +3176,68 @@
       ]
     },
     {
-      "path": "src/game/objects/environment/common/bridge_stake/data/mappings_a.s",
-      "original_path": "mappings/sprite/obj1C_a.asm",
-      "original_first_line": 1,
-      "original_last_line": 13,
-      "physical_lines": 13,
+      "path": "src/game/objects/environment/common/bridge_stake/mappings.s",
+      "physical_lines": 146,
       "owner": "game/objects/environment/common/bridge_stake",
-      "responsibility": "Sprite mapping frame ledger for game/objects/environment/common/bridge_stake",
+      "responsibility": "Shared decoration mappings for level art, waterfall, oilfall and rope subtypes",
       "kind": "data_ledger",
-      "file_sha256": "06af2233d1cb080796555261f9968abb34b661b9935c225d28ea40112c7633ca",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "06af2233d1cb080796555261f9968abb34b661b9935c225d28ea40112c7633ca"
-    },
-    {
-      "path": "src/game/objects/environment/common/bridge_stake/data/mappings_b.s",
-      "original_path": "mappings/sprite/obj1C_b.asm",
-      "original_first_line": 1,
-      "original_last_line": 13,
-      "physical_lines": 13,
-      "owner": "game/objects/environment/common/bridge_stake",
-      "responsibility": "Sprite mapping frame ledger for game/objects/environment/common/bridge_stake",
-      "kind": "data_ledger",
-      "file_sha256": "19bcdbfb3ac13bdebdf0b80d45690cbf60fbf60c7f9d1c77784cc02a9f614496",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "19bcdbfb3ac13bdebdf0b80d45690cbf60fbf60c7f9d1c77784cc02a9f614496"
-    },
-    {
-      "path": "src/game/objects/environment/common/bridge_stake/data/mappings_c.s",
-      "original_path": "mappings/sprite/obj1C_c.asm",
-      "original_first_line": 1,
-      "original_last_line": 45,
-      "physical_lines": 45,
-      "owner": "game/objects/environment/common/bridge_stake",
-      "responsibility": "Sprite mapping frame ledger for game/objects/environment/common/bridge_stake",
-      "kind": "data_ledger",
-      "file_sha256": "4f6ee155e37177652f10bc98a338e50f20a6ba88f7484b3a88a378e83325791f",
-      "source_sha256": "4f6ee155e37177652f10bc98a338e50f20a6ba88f7484b3a88a378e83325791f"
-    },
-    {
-      "path": "src/game/objects/environment/common/bridge_stake/data/mappings_d.s",
-      "original_path": "mappings/sprite/obj1C_d.asm",
-      "original_first_line": 1,
-      "original_last_line": 41,
-      "physical_lines": 41,
-      "owner": "game/objects/environment/common/bridge_stake",
-      "responsibility": "Sprite mapping frame ledger for game/objects/environment/common/bridge_stake",
-      "kind": "data_ledger",
-      "file_sha256": "4b6cbac612884975bb250cc8be7d457abf8c5e964cb233569b5cd6ba4884b446",
-      "source_sha256": "4b6cbac612884975bb250cc8be7d457abf8c5e964cb233569b5cd6ba4884b446"
-    },
-    {
-      "path": "src/game/objects/environment/common/bridge_stake/data/mappings_shared.s",
-      "original_path": "mappings/sprite/obj1C_e.asm",
-      "original_first_line": 1,
-      "original_last_line": 18,
-      "physical_lines": 18,
-      "owner": "game/objects/environment/common/bridge_stake",
-      "responsibility": "Sprite mapping frame ledger for game/objects/environment/common/bridge_stake",
-      "kind": "data_ledger",
-      "file_sha256": "a32c8c3d94c3446ebf27be5175636f8c1b35174fe7b62c089c4cd3b237634515",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "a32c8c3d94c3446ebf27be5175636f8c1b35174fe7b62c089c4cd3b237634515"
+      "file_sha256": "5171b12d1fa6cfcf9b69ddf966d67c18a800fb178d35ce19d6602c50d9761efb",
+      "original_segments": [
+        {
+          "original_path": "mappings/sprite/obj1C_a.asm",
+          "original_first_line": 1,
+          "original_last_line": 13,
+          "source_sha256": "06af2233d1cb080796555261f9968abb34b661b9935c225d28ea40112c7633ca"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23016,
+          "original_last_line": 23019,
+          "source_sha256": "9a3212f0824e258dfb1a5ca45a9fbb6a812b4e5f52870ba90f9a54802ddc3676"
+        },
+        {
+          "original_path": "mappings/sprite/obj1C_b.asm",
+          "original_first_line": 1,
+          "original_last_line": 13,
+          "source_sha256": "19bcdbfb3ac13bdebdf0b80d45690cbf60fbf60c7f9d1c77784cc02a9f614496"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23020,
+          "original_last_line": 23023,
+          "source_sha256": "2edad1459e189e51df7aa5eca3ed27c5f3c92decfe668523c2466b74f3ef9ba6"
+        },
+        {
+          "original_path": "mappings/sprite/obj1C_c.asm",
+          "original_first_line": 1,
+          "original_last_line": 45,
+          "source_sha256": "4f6ee155e37177652f10bc98a338e50f20a6ba88f7484b3a88a378e83325791f"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23024,
+          "original_last_line": 23027,
+          "source_sha256": "a713fd5d567f2c08d5f8ed0e76fa97268c2f9c769039c63fcd8517b19cc91ea9"
+        },
+        {
+          "original_path": "mappings/sprite/obj1C_d.asm",
+          "original_first_line": 1,
+          "original_last_line": 41,
+          "source_sha256": "4b6cbac612884975bb250cc8be7d457abf8c5e964cb233569b5cd6ba4884b446"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23028,
+          "original_last_line": 23031,
+          "source_sha256": "0edba41a724fa3d615b0c1e406eecb1e503cc16c4390288796e3bba6559b66b0"
+        },
+        {
+          "original_path": "mappings/sprite/obj1C_e.asm",
+          "original_first_line": 1,
+          "original_last_line": 18,
+          "source_sha256": "a32c8c3d94c3446ebf27be5175636f8c1b35174fe7b62c089c4cd3b237634515"
+        }
+      ]
     },
     {
       "label": "Obj1C",
@@ -3591,7 +3583,7 @@
       ]
     },
     {
-      "path": "src/game/objects/items/monitor/data/mappings.s",
+      "path": "src/game/objects/items/monitor/mappings.s",
       "original_path": "mappings/sprite/obj26.asm",
       "original_first_line": 1,
       "original_last_line": 73,
@@ -3667,84 +3659,68 @@
       ]
     },
     {
-      "path": "src/game/objects/items/animals/data/mappings_a.s",
-      "original_path": "mappings/sprite/obj28_a.asm",
-      "original_first_line": 1,
-      "original_last_line": 18,
-      "physical_lines": 18,
+      "path": "src/game/objects/items/animals/mappings.s",
+      "physical_lines": 106,
       "owner": "game/objects/items/animals",
-      "responsibility": "Sprite mapping frame ledger for game/objects/items/animals",
+      "responsibility": "Shared sprite mapping tables for all animal shapes",
       "kind": "data_ledger",
-      "file_sha256": "e1ad67832c55cc503407af15d52dfad583ad939172049b59c9056bb0cb05cb99",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "e1ad67832c55cc503407af15d52dfad583ad939172049b59c9056bb0cb05cb99"
-    },
-    {
-      "path": "src/game/objects/items/animals/data/mappings_b.s",
-      "original_path": "mappings/sprite/obj28_b.asm",
-      "original_first_line": 1,
-      "original_last_line": 18,
-      "physical_lines": 18,
-      "owner": "game/objects/items/animals",
-      "responsibility": "Sprite mapping frame ledger for game/objects/items/animals",
-      "kind": "data_ledger",
-      "file_sha256": "5bd6c30489873694642013885d3557fe4712ed9ae3c7d2b1f20031edd4295649",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "5bd6c30489873694642013885d3557fe4712ed9ae3c7d2b1f20031edd4295649"
-    },
-    {
-      "path": "src/game/objects/items/animals/data/mappings_c.s",
-      "original_path": "mappings/sprite/obj28_c.asm",
-      "original_first_line": 1,
-      "original_last_line": 18,
-      "physical_lines": 18,
-      "owner": "game/objects/items/animals",
-      "responsibility": "Sprite mapping frame ledger for game/objects/items/animals",
-      "kind": "data_ledger",
-      "file_sha256": "e097e3a755a86df8225f332e3399b97528a14fb52ab8242bcf5bf16260bf084c",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "e097e3a755a86df8225f332e3399b97528a14fb52ab8242bcf5bf16260bf084c"
-    },
-    {
-      "path": "src/game/objects/items/animals/data/mappings_d.s",
-      "original_path": "mappings/sprite/obj28_d.asm",
-      "original_first_line": 1,
-      "original_last_line": 18,
-      "physical_lines": 18,
-      "owner": "game/objects/items/animals",
-      "responsibility": "Sprite mapping frame ledger for game/objects/items/animals",
-      "kind": "data_ledger",
-      "file_sha256": "8900b03fbcc88c8ec34214dc7b60aefeeeecd00fa1dfaf38c18f9c28daeed481",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "8900b03fbcc88c8ec34214dc7b60aefeeeecd00fa1dfaf38c18f9c28daeed481"
-    },
-    {
-      "path": "src/game/objects/items/animals/data/mappings_shared.s",
-      "original_path": "mappings/sprite/obj28_e.asm",
-      "original_first_line": 1,
-      "original_last_line": 18,
-      "physical_lines": 18,
-      "owner": "game/objects/items/animals",
-      "responsibility": "Sprite mapping frame ledger for game/objects/items/animals",
-      "kind": "data_ledger",
-      "file_sha256": "f7a40d41750c7e014a13383ba79366ad0840ccb21f8e4151c41de21ea58df4e2",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "f7a40d41750c7e014a13383ba79366ad0840ccb21f8e4151c41de21ea58df4e2"
+      "file_sha256": "2a6c0794bf546826d98b600646e9e73cfd8156c4bd6c69bafd67b856da170784",
+      "original_segments": [
+        {
+          "original_path": "mappings/sprite/obj28_a.asm",
+          "original_first_line": 1,
+          "original_last_line": 18,
+          "source_sha256": "e1ad67832c55cc503407af15d52dfad583ad939172049b59c9056bb0cb05cb99"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23755,
+          "original_last_line": 23758,
+          "source_sha256": "e14cca4bd855fce4a2de124f16762dbf0f989a2494d8c21b6671e78983b96f54"
+        },
+        {
+          "original_path": "mappings/sprite/obj28_b.asm",
+          "original_first_line": 1,
+          "original_last_line": 18,
+          "source_sha256": "5bd6c30489873694642013885d3557fe4712ed9ae3c7d2b1f20031edd4295649"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23759,
+          "original_last_line": 23762,
+          "source_sha256": "369de8770b94e2f8244a5b1ca6f7dafb94a672d5a7340b06e97d5ee410d385a6"
+        },
+        {
+          "original_path": "mappings/sprite/obj28_c.asm",
+          "original_first_line": 1,
+          "original_last_line": 18,
+          "source_sha256": "e097e3a755a86df8225f332e3399b97528a14fb52ab8242bcf5bf16260bf084c"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23763,
+          "original_last_line": 23766,
+          "source_sha256": "2c06c6f405a998e033f52c7dfec3b8c94899f9efb920f81cad85658bc69165f0"
+        },
+        {
+          "original_path": "mappings/sprite/obj28_d.asm",
+          "original_first_line": 1,
+          "original_last_line": 18,
+          "source_sha256": "8900b03fbcc88c8ec34214dc7b60aefeeeecd00fa1dfaf38c18f9c28daeed481"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23767,
+          "original_last_line": 23770,
+          "source_sha256": "f8a2afab39b6e8c57c9d26145b84922dae865e51dde99eae40b0ac477614d177"
+        },
+        {
+          "original_path": "mappings/sprite/obj28_e.asm",
+          "original_first_line": 1,
+          "original_last_line": 18,
+          "source_sha256": "f7a40d41750c7e014a13383ba79366ad0840ccb21f8e4151c41de21ea58df4e2"
+        }
+      ]
     },
     {
       "label": "Obj28",
@@ -3776,10 +3752,10 @@
     {
       "label": "Obj29",
       "path": "src/game/objects/items/points.s",
-      "physical_lines": 105,
+      "physical_lines": 89,
       "owner": "game/objects/items",
       "responsibility": "points with its adjacent source-owned data",
-      "file_sha256": "1eaefa990ee83476f7b9cb09e33ee831df04338d5fe91e02b5a31fc855a14193",
+      "file_sha256": "0cea32582fdfc1292253ff78cd3e2693aaa41b28f9d5189bd3da2bd0b16cec7d",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -3799,8 +3775,14 @@
         {
           "original_path": "s2.asm",
           "original_first_line": 23722,
+          "original_last_line": 23754,
+          "source_sha256": "a64bbea5380daf7a6bb1dee3617c4b88c0bd639eb53927a4dccfe77a802be71d"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23771,
           "original_last_line": 23785,
-          "source_sha256": "6418551eaa05e44e6c07e8d6b7615aed293ed863ce1d79bd91f8fe78cd33aa91"
+          "source_sha256": "6067727f071b7a6847aded9d9dc0448ae358049b1a4071a3e5156445e0370d80"
         },
         {
           "original_path": "mappings/sprite/obj29.asm",
@@ -3967,7 +3949,7 @@
       "source_sha256": "f6eeaf89875637ba851ae2c518418972fd31abec9721d91b159dd890b4d1bf5a",
       "owner": "game/objects/items",
       "responsibility": "monitor contents",
-      "file_sha256": "5daa50656bb94c38d0853c2fe890ca76976424728f41286d4dd150344300fb02",
+      "file_sha256": "59827565299979c0fa627217ffebca09cc5aa6d824a61ce4d38eb075a1a3ce0f",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -4180,7 +4162,7 @@
       "physical_lines": 300,
       "owner": "game/objects/items",
       "responsibility": "invincibility stars with its adjacent source-owned data",
-      "file_sha256": "45f53ec1f997bce9382e79e09e7d855bd5eb00516544fdfbf4bf066629e20e07",
+      "file_sha256": "03e0e4688c5aa32ea22ec821c410e5041990ca0a5dc941284de0505210916982",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -4249,7 +4231,7 @@
       ]
     },
     {
-      "path": "src/game/objects/items/shield/data/mappings.s",
+      "path": "src/game/objects/items/shield/mappings.s",
       "original_path": "mappings/sprite/obj38.asm",
       "original_first_line": 1,
       "original_last_line": 51,
@@ -4288,7 +4270,7 @@
       }
     },
     {
-      "path": "src/ui/objects/game_over/data/mappings.s",
+      "path": "src/ui/objects/game_over/mappings.s",
       "original_path": "mappings/sprite/obj39.asm",
       "original_first_line": 1,
       "original_last_line": 27,
@@ -5053,13 +5035,13 @@
       ]
     },
     {
-      "path": "src/game/objects/bosses/htz/data/mappings_a.s",
+      "path": "src/game/objects/bosses/htz/data/smoke_mappings.s",
       "original_path": "mappings/sprite/obj52_a.asm",
       "original_first_line": 1,
       "original_last_line": 23,
       "physical_lines": 23,
       "owner": "game/objects/bosses/htz",
-      "responsibility": "Sprite mapping frame ledger for game/objects/bosses/htz",
+      "responsibility": "Obj52_CreateSmoke and ArtTile_ArtNem_BossSmoke_2 sprite mapping ledger",
       "kind": "data_ledger",
       "file_sha256": "14c71aacbea00c940b2684cadd484c760d146843befcecc13ed683e94275acc0",
       "size_exception": {
@@ -5069,13 +5051,13 @@
       "source_sha256": "14c71aacbea00c940b2684cadd484c760d146843befcecc13ed683e94275acc0"
     },
     {
-      "path": "src/game/objects/bosses/htz/data/mappings_b.s",
+      "path": "src/game/objects/bosses/htz/data/boss_mappings.s",
       "original_path": "mappings/sprite/obj52_b.asm",
       "original_first_line": 1,
       "original_last_line": 106,
       "physical_lines": 106,
       "owner": "game/objects/bosses/htz",
-      "responsibility": "Sprite mapping frame ledger for game/objects/bosses/htz",
+      "responsibility": "HTZ boss controller and its combined boss/eggpod frame set sprite mapping ledger",
       "kind": "data_ledger",
       "file_sha256": "63718c5867a1b95584988cb82cf350ff3b755e52146db3f1a3a845ac1cd7c813",
       "source_sha256": "63718c5867a1b95584988cb82cf350ff3b755e52146db3f1a3a845ac1cd7c813"
@@ -5089,7 +5071,7 @@
       "source_sha256": "1240836bc3af05c7c4b8837f66c2813d36726f6424a1cd71d4eaaee0be054b8a",
       "owner": "game/objects/bosses/htz",
       "responsibility": "htz boss",
-      "file_sha256": "cb3c0538f09066ecab5db003182fccae0eb2ecc31b923319418895b01780b6bb",
+      "file_sha256": "2de817ee4528d6f435cfc2dc0acf36fa01298d9719d0fc59fa4d0c6b1d86f4f7",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5279,7 +5261,7 @@
       "physical_lines": 414,
       "owner": "game/special_stage/objects",
       "responsibility": "special stage chaos emerald with its adjacent source-owned data",
-      "file_sha256": "ec4cb53b374144d2a19b15d3974a5a625563079b0ce3836145c726831495d405",
+      "file_sha256": "7dabdb01021fc38547ae6134923d427a36ccd29b56371a24b2815cd0abd39ea0",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -5506,7 +5488,7 @@
       ]
     },
     {
-      "path": "src/game/special_stage/objects/rings_bombs/data/mappings.s",
+      "path": "src/game/special_stage/objects/rings_bombs/mappings.s",
       "original_path": "mappings/sprite/obj61.asm",
       "original_first_line": 1,
       "original_last_line": 71,
@@ -5550,7 +5532,7 @@
       "physical_lines": 696,
       "owner": "game/special_stage/objects",
       "responsibility": "special stage character shadow with its adjacent source-owned data",
-      "file_sha256": "d322af2cfa3ad1e141be9a60569bae441e508f7146989bf6cf93a46d255e4fde",
+      "file_sha256": "4aebaefd4d3f21f283f7d2b14618df0a0500c1326291810554cf9364277c9292",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -5996,7 +5978,7 @@
       "physical_lines": 1101,
       "owner": "game/special_stage/objects",
       "responsibility": "special stage results with its adjacent source-owned data",
-      "file_sha256": "987058e9c92f136c72be7acbae9de9fbb7472ba7c149f163dc6bda56b39507c5",
+      "file_sha256": "adeac335b6149cc8652165e2fb22320c7bd2a5bfec3b6b55c8e5a3dab837bbec",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -6073,10 +6055,10 @@
     {
       "label": "Obj71",
       "path": "src/game/objects/environment/common/stake_orb.s",
-      "physical_lines": 152,
+      "physical_lines": 136,
       "owner": "game/objects/environment/common",
       "responsibility": "bridge stake and pulsing orb with its adjacent source-owned data",
-      "file_sha256": "8e7fc10ace7eae062511f83f96ea89d4729e42308e38c496f3eabbf733941cf4",
+      "file_sha256": "16136f332a1ba6d0221c65de9c29995b350ec4b32a6891cd84e4c685c30d9f9a",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -6096,8 +6078,14 @@
         {
           "original_path": "s2.asm",
           "original_first_line": 22954,
+          "original_last_line": 23015,
+          "source_sha256": "14357730f48ac010729f2f3e1cdead1209bb5e9bfece1ac889fe710362c1cd6c"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 23032,
           "original_last_line": 23043,
-          "source_sha256": "b202ad4c89f4d24cad0cad7ee239d5e051280e0a2e1d7f3f5db3d58bf6b1ff52"
+          "source_sha256": "14777e7dcfc82949d75e6f23ee4d5b9ad0769584df60c8e7e4e0a5660138b032"
         },
         {
           "original_path": "mappings/sprite/obj71_a.asm",
@@ -6735,7 +6723,7 @@
       ]
     },
     {
-      "path": "src/game/objects/environment/arz/triple_platform/data/mappings.s",
+      "path": "src/game/objects/environment/arz/triple_platform/mappings.s",
       "original_path": "mappings/sprite/obj83.asm",
       "original_first_line": 1,
       "original_last_line": 24,
@@ -8407,72 +8395,64 @@
       }
     },
     {
-      "path": "src/game/objects/bosses/cpz/data/mappings_a.s",
+      "path": "src/game/objects/bosses/cpz/data/machine_mappings.s",
       "original_path": "mappings/sprite/obj5D_a.asm",
       "original_first_line": 1,
       "original_last_line": 223,
       "physical_lines": 223,
       "owner": "game/objects/bosses/cpz",
-      "responsibility": "Sprite mapping frame ledger for game/objects/bosses/cpz",
+      "responsibility": "ArtNem_CPZBoss and its machine controller sprite mapping ledger",
       "kind": "data_ledger",
       "file_sha256": "4805e0a6cea2d8863a2696ed281d5409d739b5386e4fc21ff689e44b2846d28a",
       "source_sha256": "4805e0a6cea2d8863a2696ed281d5409d739b5386e4fc21ff689e44b2846d28a"
     },
     {
-      "path": "src/game/objects/bosses/cpz/data/mappings_b.s",
-      "original_path": "mappings/sprite/obj5D_b.asm",
-      "original_first_line": 1,
-      "original_last_line": 59,
-      "physical_lines": 59,
+      "path": "src/game/objects/bosses/cpz/data/eggpod_mappings.s",
+      "physical_lines": 103,
       "owner": "game/objects/bosses/cpz",
-      "responsibility": "Sprite mapping frame ledger for game/objects/bosses/cpz",
+      "responsibility": "CPZ eggpod, jet and smoke mapping tables",
       "kind": "data_ledger",
-      "file_sha256": "d82e0c4e369cad449eb46cc952f34b4f7ab78a475d6fe23d85b9580cee9ac507",
-      "source_sha256": "d82e0c4e369cad449eb46cc952f34b4f7ab78a475d6fe23d85b9580cee9ac507"
-    },
-    {
-      "path": "src/game/objects/bosses/cpz/data/mappings_c.s",
-      "original_path": "mappings/sprite/obj5D_c.asm",
-      "original_first_line": 1,
-      "original_last_line": 13,
-      "physical_lines": 13,
-      "owner": "game/objects/bosses/cpz",
-      "responsibility": "Sprite mapping frame ledger for game/objects/bosses/cpz",
-      "kind": "data_ledger",
-      "file_sha256": "f4a365384afd236967dbf8fad3584e58ff9e627267156ee5f7eebdf353823647",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "f4a365384afd236967dbf8fad3584e58ff9e627267156ee5f7eebdf353823647"
-    },
-    {
-      "path": "src/game/objects/bosses/cpz/data/mappings_d.s",
-      "original_path": "mappings/sprite/obj5D_d.asm",
-      "original_first_line": 1,
-      "original_last_line": 23,
-      "physical_lines": 23,
-      "owner": "game/objects/bosses/cpz",
-      "responsibility": "Sprite mapping frame ledger for game/objects/bosses/cpz",
-      "kind": "data_ledger",
-      "file_sha256": "23f2cf6087cd6d676a9c762cd7494df381fa857eedf75ae62facf69b4e67f06e",
-      "size_exception": {
-        "kind": "data_ledger",
-        "reason": "One complete data declaration"
-      },
-      "source_sha256": "23f2cf6087cd6d676a9c762cd7494df381fa857eedf75ae62facf69b4e67f06e"
+      "file_sha256": "22a14a38ce337dbf5fe5e51da9321bccb35dcd1f6c76c1814028f7744866b883",
+      "original_segments": [
+        {
+          "original_path": "mappings/sprite/obj5D_b.asm",
+          "original_first_line": 1,
+          "original_last_line": 59,
+          "source_sha256": "d82e0c4e369cad449eb46cc952f34b4f7ab78a475d6fe23d85b9580cee9ac507"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 60649,
+          "original_last_line": 60652,
+          "source_sha256": "c19c25c94847dfbf7d5dd9c9367fd5d9cee163ed248b27dd78af39d521b050d5"
+        },
+        {
+          "original_path": "mappings/sprite/obj5D_c.asm",
+          "original_first_line": 1,
+          "original_last_line": 13,
+          "source_sha256": "f4a365384afd236967dbf8fad3584e58ff9e627267156ee5f7eebdf353823647"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 60653,
+          "original_last_line": 60656,
+          "source_sha256": "31dcb439a2592e2206466a9abe26924e8ea9bad897dc28f245a8e8840527cee7"
+        },
+        {
+          "original_path": "mappings/sprite/obj5D_d.asm",
+          "original_first_line": 1,
+          "original_last_line": 23,
+          "source_sha256": "23f2cf6087cd6d676a9c762cd7494df381fa857eedf75ae62facf69b4e67f06e"
+        }
+      ]
     },
     {
       "label": "Obj5D_Gunk",
       "path": "src/game/objects/bosses/cpz/gunk_and_visuals.s",
-      "original_first_line": 60277,
-      "original_last_line": 60666,
-      "physical_lines": 390,
-      "source_sha256": "3a9992b47254f50b8ed9b24bce2200f8e575aa03f278b825a87e286fad854933",
+      "physical_lines": 382,
       "owner": "game/objects/bosses/cpz",
       "responsibility": "gunk and visuals",
-      "file_sha256": "e13c93e9171143bdaa24e7850a797596fc5c44334883c87d48e061ad75b6a999",
-      "original_path": "s2.asm",
+      "file_sha256": "a14137f7863f73594e90f0cb17da6236eee58e3c0d1889c79a92f7b214e449b9",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -8487,7 +8467,21 @@
           "end_exclusive": 192280,
           "start_symbol": "Obj5D_Gunk"
         }
-      }
+      },
+      "original_segments": [
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 60277,
+          "original_last_line": 60648,
+          "source_sha256": "c8230b2b402df0ba1c35404f05b690ed6d5e1fb216147f8a43c95479059d8d11"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 60657,
+          "original_last_line": 60666,
+          "source_sha256": "0dd819f1337f194bae7fdae630908e4a65bb07d98ce9ed2580ce8204a05b6080"
+        }
+      ]
     },
     {
       "label": "Obj5D_FallingParts",
@@ -8525,7 +8519,7 @@
       "source_sha256": "761f494a31d1652522396aeeb2b81fd1ff4bada79d5399fcdf3ea29540edc7ac",
       "owner": "game/objects/bosses/death_egg_robot",
       "responsibility": "animation data",
-      "file_sha256": "4928d522c8b5d21631afe48457d6133d8498d03699afda1ce0ed9a215c2ceaca",
+      "file_sha256": "1deed1bc29cd8375df474249fa16e9bf59e37025a57d683f9dc6070238f50735",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8598,7 +8592,7 @@
       }
     },
     {
-      "path": "src/game/objects/bosses/death_egg_robot/data/mappings.s",
+      "path": "src/game/objects/bosses/death_egg_robot/mappings.s",
       "original_path": "mappings/sprite/objC7.asm",
       "original_first_line": 1,
       "original_last_line": 160,
@@ -8691,7 +8685,7 @@
       }
     },
     {
-      "path": "src/game/objects/bosses/mtz/data/mappings.s",
+      "path": "src/game/objects/bosses/mtz/mappings.s",
       "original_path": "mappings/sprite/obj54.asm",
       "original_first_line": 1,
       "original_last_line": 125,
@@ -8711,7 +8705,7 @@
       "source_sha256": "dfecb460f2c29c52993392e5c4526c0b6a915b5d2f31555ef207f1b925ced42b",
       "owner": "game/objects/bosses/mtz",
       "responsibility": "satellites and laser",
-      "file_sha256": "b5b2eb6f2e14a3f5204dd0d5c353ad404365b0b5577142fe2422d66a539366aa",
+      "file_sha256": "b7828ac80c711174fc7b04e8d0f5a752d580f32774af99bef949cc7934e694ed",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9198,7 +9192,7 @@
       "source_sha256": "8162930da5d668c03baec3e692528e1b21b902553d7767afeddb3908a20813c3",
       "owner": "ui/objects/ending/propeller",
       "responsibility": "animation data",
-      "file_sha256": "7b70cb81794fd76f44f8efe186b771bd2dbaa381725e3c376e96d8e12c7bc5e3",
+      "file_sha256": "f0bb94e6d22cde51486246f51fe4381f19d02389f78b9dd62dfd370b138b9c4e",
       "original_path": "s2.asm",
       "kind": "source_module",
       "size_exception": {
@@ -9221,7 +9215,7 @@
       }
     },
     {
-      "path": "src/ui/objects/ending/propeller/data/mappings.s",
+      "path": "src/ui/objects/ending/propeller/mappings.s",
       "original_path": "mappings/sprite/objCF.asm",
       "original_first_line": 1,
       "original_last_line": 241,
@@ -9629,7 +9623,7 @@
       "source_sha256": "6433c99e1315b8f196028a48c5bcb12311d93c7329ee2608122c21a484b983cf",
       "owner": "game/objects/environment/cnz",
       "responsibility": "cnz bomb prize",
-      "file_sha256": "d2ae489664138fe8c8dd4acd2b442de63e5d0be471c9a57005fea935b8ffcd59",
+      "file_sha256": "955fb3bc26cc6b1101d6a31373e117ee8f2f454acfebd8b37bfcedee02080736",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9722,13 +9716,13 @@
       ]
     },
     {
-      "path": "src/game/objects/environment/cnz/points_cage/data/mappings_a.s",
+      "path": "src/game/objects/environment/cnz/points_cage/data/bomb_mappings.s",
       "original_path": "mappings/sprite/objD6_a.asm",
       "original_first_line": 1,
       "original_last_line": 8,
       "physical_lines": 8,
       "owner": "game/objects/environment/cnz/points_cage",
-      "responsibility": "Sprite mapping frame ledger for game/objects/environment/cnz/points_cage",
+      "responsibility": "ObjD3 bomb-prize consumer in bomb_prize.s sprite mapping ledger",
       "kind": "data_ledger",
       "file_sha256": "4ba1a5ce9bf85f181088fd86b988a82fc657a5e83b9b455fc7344148ef8afb68",
       "size_exception": {
@@ -9738,13 +9732,13 @@
       "source_sha256": "4ba1a5ce9bf85f181088fd86b988a82fc657a5e83b9b455fc7344148ef8afb68"
     },
     {
-      "path": "src/game/objects/environment/cnz/points_cage/data/mappings_b.s",
+      "path": "src/game/objects/environment/cnz/points_cage/data/cage_mappings.s",
       "original_path": "mappings/sprite/objD6_b.asm",
       "original_first_line": 1,
       "original_last_line": 23,
       "physical_lines": 23,
       "owner": "game/objects/environment/cnz/points_cage",
-      "responsibility": "Sprite mapping frame ledger for game/objects/environment/cnz/points_cage",
+      "responsibility": "ObjD6 points-cage consumer sprite mapping ledger",
       "kind": "data_ledger",
       "file_sha256": "fda5fe7f82495e211017179588ea5c2f49bf59302699cf17be21de5fce61b41a",
       "size_exception": {
@@ -9762,7 +9756,7 @@
       "source_sha256": "4b1fc5e0d2be72049665a462bd8268767185621bdaa657e707ba88e43b9c62fc",
       "owner": "game/objects/environment/cnz/points_cage",
       "responsibility": "cnz points cage",
-      "file_sha256": "3b3fe183c4cb7b6d244e356c02651f11294d9d415410ad1b61582f1c23aa6109",
+      "file_sha256": "47ffc0b3bba2b49c39bd84eb313203929fafe28c3fbc875ffcb3d4ea83645f64",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9882,7 +9876,7 @@
       }
     },
     {
-      "path": "src/ui/objects/continue/text/data/mappings.s",
+      "path": "src/ui/objects/continue/text/mappings.s",
       "original_path": "mappings/sprite/objDA.asm",
       "original_first_line": 1,
       "original_last_line": 39,
@@ -9929,7 +9923,7 @@
       "source_sha256": "dd9c69e44cda52699f2bf766cbf48890399662379f8f15a84a45b11261bdff51",
       "owner": "ui/objects/continue",
       "responsibility": "continue player",
-      "file_sha256": "483d0a3980e7a742ec426c82034a8929266aa6a36d3a6e870a75e06a7202400d",
+      "file_sha256": "5babe1d0669130a813827e9a0c9c3b85835ab71feb8977bf67988adc0aebc64d",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -12303,14 +12297,10 @@
     {
       "label": "BuildHUD",
       "path": "src/ui/hud/build_sprites.s",
-      "original_first_line": 83884,
-      "original_last_line": 84180,
-      "physical_lines": 297,
-      "source_sha256": "c477304f00284e4342cd33f165606b99d065f1f6c655eee901fd45553390f0b9",
+      "physical_lines": 293,
       "owner": "ui/hud",
       "responsibility": "build sprites",
-      "file_sha256": "ff4d8aa0fc1323cffe871ae07ca7a10086709c0f07003cf5e0e11e8d86692ae2",
-      "original_path": "s2.asm",
+      "file_sha256": "c84a7b3b723c8f43543784dca3cbffc70f1bf498ba7d952c33387a28b3aefbf3",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -12325,43 +12315,61 @@
           "end_exclusive": 265478,
           "start_symbol": "BuildHUD"
         }
-      }
+      },
+      "original_segments": [
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 83884,
+          "original_last_line": 84167,
+          "source_sha256": "c57db1f3184c725efa96714a733c1ec5661c3d5ee8b0221a9947ffdfdcf9cd0e"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 84172,
+          "original_last_line": 84180,
+          "source_sha256": "b44a914446de117efdc7bd93304c0a4ebfeb17eed5be689ad241815d5b8bc850"
+        }
+      ]
     },
     {
-      "path": "src/ui/hud/data/mappings_a.s",
-      "original_path": "mappings/sprite/hud_a.asm",
-      "original_first_line": 1,
-      "original_last_line": 59,
-      "physical_lines": 59,
+      "path": "src/ui/hud/mappings.s",
+      "physical_lines": 164,
       "owner": "ui/hud",
-      "responsibility": "Sprite mapping frame ledger for ui/hud",
+      "responsibility": "Single-player HUD, two-player HUD and numeric glyph mapping tables",
       "kind": "data_ledger",
-      "file_sha256": "71d8e6f5de2ed73062a372cb64d1275b0fbb87bd7454a10e04fe8b329c6a909d",
-      "source_sha256": "71d8e6f5de2ed73062a372cb64d1275b0fbb87bd7454a10e04fe8b329c6a909d"
-    },
-    {
-      "path": "src/ui/hud/data/mappings_b.s",
-      "original_path": "mappings/sprite/hud_b.asm",
-      "original_first_line": 1,
-      "original_last_line": 43,
-      "physical_lines": 43,
-      "owner": "ui/hud",
-      "responsibility": "Sprite mapping frame ledger for ui/hud",
-      "kind": "data_ledger",
-      "file_sha256": "2ef71aa0d5e1ebbeddb498c18fee16018195e63076a71a2c55b419ee20bdc187",
-      "source_sha256": "2ef71aa0d5e1ebbeddb498c18fee16018195e63076a71a2c55b419ee20bdc187"
-    },
-    {
-      "path": "src/ui/hud/data/mappings_c.s",
-      "original_path": "mappings/sprite/hud_c.asm",
-      "original_first_line": 1,
-      "original_last_line": 58,
-      "physical_lines": 58,
-      "owner": "ui/hud",
-      "responsibility": "Sprite mapping frame ledger for ui/hud",
-      "kind": "data_ledger",
-      "file_sha256": "af8ae85e4312e3e4cc62649d808a534241d4663a3875afe4bfeaff261d32ae93",
-      "source_sha256": "af8ae85e4312e3e4cc62649d808a534241d4663a3875afe4bfeaff261d32ae93"
+      "file_sha256": "d59e5e50e20b0d904b271707e1243dc7040397d423492fb00125e1cd63a78830",
+      "original_segments": [
+        {
+          "original_path": "mappings/sprite/hud_a.asm",
+          "original_first_line": 1,
+          "original_last_line": 59,
+          "source_sha256": "71d8e6f5de2ed73062a372cb64d1275b0fbb87bd7454a10e04fe8b329c6a909d"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 84168,
+          "original_last_line": 84169,
+          "source_sha256": "61f3b7a083d31e27371e5d87e6a31011b2f9dc0b1ba49ef6a65178f8771ccd3d"
+        },
+        {
+          "original_path": "mappings/sprite/hud_b.asm",
+          "original_first_line": 1,
+          "original_last_line": 43,
+          "source_sha256": "2ef71aa0d5e1ebbeddb498c18fee16018195e63076a71a2c55b419ee20bdc187"
+        },
+        {
+          "original_path": "s2.asm",
+          "original_first_line": 84170,
+          "original_last_line": 84171,
+          "source_sha256": "fc58e9dbf583075c4783ea78d83e7e68921eca94d489e483778531328134b892"
+        },
+        {
+          "original_path": "mappings/sprite/hud_c.asm",
+          "original_first_line": 1,
+          "original_last_line": 58,
+          "source_sha256": "af8ae85e4312e3e4cc62649d808a534241d4663a3875afe4bfeaff261d32ae93"
+        }
+      ]
     },
     {
       "label": "Hud_InitRings",
@@ -12716,34 +12724,28 @@
     "src/game/objects/abi.inc": [],
     "src/game/objects/bosses/cpz/container.s": [],
     "src/game/objects/bosses/cpz/controller.s": [],
-    "src/game/objects/bosses/cpz/data/mappings_a.s": [],
-    "src/game/objects/bosses/cpz/data/mappings_b.s": [],
-    "src/game/objects/bosses/cpz/data/mappings_c.s": [],
-    "src/game/objects/bosses/cpz/data/mappings_d.s": [],
+    "src/game/objects/bosses/cpz/data/machine_mappings.s": [],
+    "src/game/objects/bosses/cpz/data/eggpod_mappings.s": [],
     "src/game/objects/bosses/cpz/gunk_and_visuals.s": [
-      "src/game/objects/bosses/cpz/data/mappings_a.s",
-      "src/game/objects/bosses/cpz/data/mappings_b.s",
-      "src/game/objects/bosses/cpz/data/mappings_c.s",
-      "src/game/objects/bosses/cpz/data/mappings_d.s"
+      "src/game/objects/bosses/cpz/data/machine_mappings.s",
+      "src/game/objects/bosses/cpz/data/eggpod_mappings.s"
     ],
     "src/game/objects/bosses/cpz/pump_and_pipe.s": [],
-    "src/game/objects/bosses/death_egg_robot/animation_data.s": [
-      "src/game/objects/bosses/death_egg_robot/data/mappings.s"
-    ],
+    "src/game/objects/bosses/death_egg_robot/animation_data.s": ["src/game/objects/bosses/death_egg_robot/mappings.s"],
     "src/game/objects/bosses/death_egg_robot/body.s": [],
     "src/game/objects/bosses/death_egg_robot/collision_and_bombs.s": [],
-    "src/game/objects/bosses/death_egg_robot/data/mappings.s": [],
+    "src/game/objects/bosses/death_egg_robot/mappings.s": [],
     "src/game/objects/bosses/death_egg_robot/limbs.s": [],
     "src/game/objects/bosses/death_egg_robot/targeting_and_damage.s": [],
-    "src/game/objects/bosses/htz/data/mappings_a.s": [],
-    "src/game/objects/bosses/htz/data/mappings_b.s": [],
+    "src/game/objects/bosses/htz/data/smoke_mappings.s": [],
+    "src/game/objects/bosses/htz/data/boss_mappings.s": [],
     "src/game/objects/bosses/htz/main.s": [
-      "src/game/objects/bosses/htz/data/mappings_a.s",
-      "src/game/objects/bosses/htz/data/mappings_b.s"
+      "src/game/objects/bosses/htz/data/smoke_mappings.s",
+      "src/game/objects/bosses/htz/data/boss_mappings.s"
     ],
     "src/game/objects/bosses/mtz/controller.s": [],
-    "src/game/objects/bosses/mtz/data/mappings.s": [],
-    "src/game/objects/bosses/mtz/satellites_and_laser.s": ["src/game/objects/bosses/mtz/data/mappings.s"],
+    "src/game/objects/bosses/mtz/mappings.s": [],
+    "src/game/objects/bosses/mtz/satellites_and_laser.s": ["src/game/objects/bosses/mtz/mappings.s"],
     "src/game/objects/collision/boss_response.s": [],
     "src/game/objects/collision/touch_response.s": [],
     "src/game/objects/common/boss_common.s": [],
@@ -12756,28 +12758,20 @@
     "src/game/objects/common/slot_machine.s": [],
     "src/game/objects/common/solid_object.s": [],
     "src/game/objects/dispatch.s": [],
-    "src/game/objects/environment/arz/triple_platform/data/mappings.s": [],
+    "src/game/objects/environment/arz/triple_platform/mappings.s": [],
     "src/game/objects/environment/arz/triple_platform/main.s": [],
-    "src/game/objects/environment/cnz/points_cage/data/mappings_a.s": [],
-    "src/game/objects/environment/cnz/points_cage/data/mappings_b.s": [],
+    "src/game/objects/environment/cnz/points_cage/data/bomb_mappings.s": [],
+    "src/game/objects/environment/cnz/points_cage/data/cage_mappings.s": [],
     "src/game/objects/environment/cnz/points_cage/main.s": [
-      "src/game/objects/environment/cnz/points_cage/data/mappings_b.s"
+      "src/game/objects/environment/cnz/points_cage/data/cage_mappings.s"
     ],
-    "src/game/objects/environment/common/bridge_stake/data/mappings_a.s": [],
-    "src/game/objects/environment/common/bridge_stake/data/mappings_b.s": [],
-    "src/game/objects/environment/common/bridge_stake/data/mappings_c.s": [],
-    "src/game/objects/environment/common/bridge_stake/data/mappings_d.s": [],
-    "src/game/objects/environment/common/bridge_stake/data/mappings_shared.s": [],
+    "src/game/objects/environment/common/bridge_stake/mappings.s": [],
     "src/game/objects/environment/common/bridge_stake/main.s": [],
-    "src/game/objects/items/animals/data/mappings_a.s": [],
-    "src/game/objects/items/animals/data/mappings_b.s": [],
-    "src/game/objects/items/animals/data/mappings_c.s": [],
-    "src/game/objects/items/animals/data/mappings_d.s": [],
-    "src/game/objects/items/animals/data/mappings_shared.s": [],
+    "src/game/objects/items/animals/mappings.s": [],
     "src/game/objects/items/animals/main.s": [],
-    "src/game/objects/items/monitor/data/mappings.s": [],
+    "src/game/objects/items/monitor/mappings.s": [],
     "src/game/objects/items/monitor/main.s": [],
-    "src/game/objects/items/shield/data/mappings.s": [],
+    "src/game/objects/items/shield/mappings.s": [],
     "src/game/objects/items/shield/main.s": [],
     "src/game/objects/objects_manager.s": [],
     "src/game/player/collision/clearance.s": [],
@@ -12811,9 +12805,9 @@
     "src/game/special_stage/objects/messages/data/mappings.s": [],
     "src/game/special_stage/objects/messages/data/mappings_shared.s": [],
     "src/game/special_stage/objects/messages/main.s": ["src/game/special_stage/objects/messages/data/mappings.s"],
-    "src/game/special_stage/objects/rings_bombs/data/mappings.s": [],
+    "src/game/special_stage/objects/rings_bombs/mappings.s": [],
     "src/game/special_stage/objects/rings_bombs/main.s": [],
-    "src/game/special_stage/objects/sonic/data/mappings.s": [],
+    "src/game/special_stage/objects/sonic/mappings.s": [],
     "src/game/special_stage/objects/sonic/main.s": [],
     "src/game/special_stage/orientation_and_scroll.s": [],
     "src/game/special_stage/track_data.s": [],
@@ -13266,28 +13260,22 @@
     "src/ui/credits/text.s": [],
     "src/ui/ending_sequence.s": [],
     "src/ui/ending_sequence_data.s": [],
-    "src/ui/hud/build_sprites.s": [
-      "src/ui/hud/data/mappings_a.s",
-      "src/ui/hud/data/mappings_b.s",
-      "src/ui/hud/data/mappings_c.s"
-    ],
-    "src/ui/hud/data/mappings_a.s": [],
-    "src/ui/hud/data/mappings_b.s": [],
-    "src/ui/hud/data/mappings_c.s": [],
+    "src/ui/hud/build_sprites.s": ["src/ui/hud/mappings.s"],
+    "src/ui/hud/mappings.s": [],
     "src/ui/hud/load_digits.s": [],
     "src/ui/hud/score_and_update.s": [],
     "src/ui/level_select.s": [],
     "src/ui/menu_screen.s": [],
-    "src/ui/objects/continue/text/data/mappings.s": [],
+    "src/ui/objects/continue/text/mappings.s": [],
     "src/ui/objects/continue/text/main.s": [],
     "src/ui/objects/ending/birds/animation_data.s": [],
     "src/ui/objects/ending/birds/main.s": [],
-    "src/ui/objects/ending/propeller/animation_data.s": ["src/ui/objects/ending/propeller/data/mappings.s"],
-    "src/ui/objects/ending/propeller/data/mappings.s": [],
+    "src/ui/objects/ending/propeller/animation_data.s": ["src/ui/objects/ending/propeller/mappings.s"],
+    "src/ui/objects/ending/propeller/mappings.s": [],
     "src/ui/objects/ending/propeller/main.s": [],
-    "src/ui/objects/game_over/data/mappings.s": [],
+    "src/ui/objects/game_over/mappings.s": [],
     "src/ui/objects/game_over/main.s": [],
-    "src/ui/objects/title/animations/data/mappings.s": [],
+    "src/ui/objects/title/animations/mappings.s": [],
     "src/ui/objects/title/animations/main.s": [],
     "src/ui/options.s": [],
     "src/ui/sega_screen.s": [],
@@ -13340,7 +13328,9 @@
     "src/game/objects/environment/arz/rising_pillar.s": [],
     "src/game/objects/environment/arz/swinging_platform.s": [],
     "src/game/objects/environment/cnz/big_block.s": [],
-    "src/game/objects/environment/cnz/bomb_prize.s": ["src/game/objects/environment/cnz/points_cage/data/mappings_a.s"],
+    "src/game/objects/environment/cnz/bomb_prize.s": [
+      "src/game/objects/environment/cnz/points_cage/data/bomb_mappings.s"
+    ],
     "src/game/objects/environment/cnz/elevator.s": [],
     "src/game/objects/environment/cnz/hex_bumper.s": [],
     "src/game/objects/environment/cnz/pinball_flipper.s": [],
@@ -13374,16 +13364,10 @@
     "src/game/objects/environment/common/spikes.s": [],
     "src/game/objects/environment/common/springboard.s": [],
     "src/game/objects/environment/common/springs.s": [],
-    "src/game/objects/environment/common/stake_orb.s": [
-      "src/game/objects/environment/common/bridge_stake/data/mappings_a.s",
-      "src/game/objects/environment/common/bridge_stake/data/mappings_b.s",
-      "src/game/objects/environment/common/bridge_stake/data/mappings_c.s",
-      "src/game/objects/environment/common/bridge_stake/data/mappings_d.s",
-      "src/game/objects/environment/common/bridge_stake/data/mappings_shared.s"
-    ],
+    "src/game/objects/environment/common/stake_orb.s": ["src/game/objects/environment/common/bridge_stake/mappings.s"],
     "src/game/objects/environment/common/static_platform.s": [],
     "src/game/objects/environment/common/swinging_platform.s": [
-      "src/game/objects/environment/arz/triple_platform/data/mappings.s"
+      "src/game/objects/environment/arz/triple_platform/mappings.s"
     ],
     "src/game/objects/environment/common/vertical_propeller.s": [],
     "src/game/objects/environment/common/water_surface.s": [],
@@ -13441,15 +13425,9 @@
     "src/game/objects/environment/wfz/wall_turret.s": [],
     "src/game/objects/environment/wfz/wheel.s": [],
     "src/game/objects/items/hidden_bonuses.s": [],
-    "src/game/objects/items/invincibility_stars.s": ["src/game/objects/items/shield/data/mappings.s"],
-    "src/game/objects/items/monitor_contents.s": ["src/game/objects/items/monitor/data/mappings.s"],
-    "src/game/objects/items/points.s": [
-      "src/game/objects/items/animals/data/mappings_a.s",
-      "src/game/objects/items/animals/data/mappings_b.s",
-      "src/game/objects/items/animals/data/mappings_c.s",
-      "src/game/objects/items/animals/data/mappings_d.s",
-      "src/game/objects/items/animals/data/mappings_shared.s"
-    ],
+    "src/game/objects/items/invincibility_stars.s": ["src/game/objects/items/shield/mappings.s"],
+    "src/game/objects/items/monitor_contents.s": ["src/game/objects/items/monitor/mappings.s"],
+    "src/game/objects/items/points.s": ["src/game/objects/items/animals/mappings.s"],
     "src/game/objects/items/prison_capsule.s": [],
     "src/game/objects/items/rings.s": [],
     "src/game/objects/items/signpost.s": [],
@@ -13463,16 +13441,16 @@
     "src/game/objects/unused/mcz_platform.s": [],
     "src/game/special_stage/objects/chaos_emerald.s": [
       "src/game/special_stage/objects/messages/data/mappings_shared.s",
-      "src/game/special_stage/objects/rings_bombs/data/mappings.s"
+      "src/game/special_stage/objects/rings_bombs/mappings.s"
     ],
-    "src/game/special_stage/objects/character_shadow.s": ["src/game/special_stage/objects/sonic/data/mappings.s"],
+    "src/game/special_stage/objects/character_shadow.s": ["src/game/special_stage/objects/sonic/mappings.s"],
     "src/game/special_stage/objects/hud.s": [],
-    "src/game/special_stage/objects/results.s": ["src/ui/objects/game_over/data/mappings.s"],
+    "src/game/special_stage/objects/results.s": ["src/ui/objects/game_over/mappings.s"],
     "src/game/special_stage/objects/ring_loss.s": [],
     "src/game/special_stage/objects/rings_counter.s": [],
     "src/game/special_stage/objects/start_banner.s": [],
     "src/game/special_stage/objects/tails.s": [],
-    "src/ui/objects/continue/player.s": ["src/ui/objects/continue/text/data/mappings.s"],
+    "src/ui/objects/continue/player.s": ["src/ui/objects/continue/text/mappings.s"],
     "src/ui/objects/credits.s": [],
     "src/ui/objects/ending/clouds.s": [],
     "src/ui/objects/ending/controller.s": [],
@@ -13481,7 +13459,7 @@
     "src/ui/objects/level/title_cards.s": [],
     "src/ui/objects/results/card.s": [],
     "src/ui/objects/sega/sonic.s": [],
-    "src/ui/objects/title/menu.s": ["src/ui/objects/title/animations/data/mappings.s"],
+    "src/ui/objects/title/menu.s": ["src/ui/objects/title/animations/mappings.s"],
     "src/ui/objects/title/palette_cycle.s": [],
     "src/ui/objects/two_player/results.s": []
   },

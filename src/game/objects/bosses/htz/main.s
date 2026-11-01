@@ -543,7 +543,7 @@ loc_3022A:
 ; ----------------------------------------------------------------------------
 ; sprite mappings - uses ArtNem_BossSmoke
 ; ----------------------------------------------------------------------------
-Obj52_MapUnc_30258: include "src/game/objects/bosses/htz/data/mappings_a.s"
+Obj52_MapUnc_30258: include "src/game/objects/bosses/htz/data/smoke_mappings.s"
 
 ; animation script
 ; off_30288:
@@ -568,7 +568,7 @@ HtzBoss_Animation_Sequence7:    dc.b    3, $E, $F,$FF
 ; ----------------------------------------------------------------------------
 ; sprite mappings - uses ArtNem_Eggpod + ?
 ; ----------------------------------------------------------------------------
-Obj52_MapUnc_302BC: include "src/game/objects/bosses/htz/data/mappings_b.s"
+Obj52_MapUnc_302BC: include "src/game/objects/bosses/htz/data/boss_mappings.s"
 ; ===========================================================================
 
                 jmpTos0 JmpTo36_DisplaySprite,JmpTo53_DeleteObject,JmpTo13_AllocateObject,JmpTo37_MarkObjGone,JmpTo7_PlaySound,JmpTo18_AnimateSprite,JmpTo4_ObjCheckFloorDist,JmpTo7_LoadPLC,JmpTo_Obj20,JmpTo4_AddPoints,JmpTo62_Adjust2PArtPointer,JmpTo3_PlayLevelMusic,JmpTo3_LoadPLC_AnimalExplosion

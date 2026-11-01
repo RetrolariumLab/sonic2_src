@@ -423,7 +423,7 @@ DeathEggRobotBoss_Animation_Sequence0_Variant2: dc.b    3,$13,$12,$11,$10,$16,$F
 ; ------------------------------------------------------------------------------
 ; sprite mappings
 ; ------------------------------------------------------------------------------
-ObjC7_MapUnc_3E5F8: include "src/game/objects/bosses/death_egg_robot/data/mappings.s"
+ObjC7_MapUnc_3E5F8: include "src/game/objects/bosses/death_egg_robot/mappings.s"
 ; ===========================================================================
 
 ; ---------------------------------------------------------------------------
