@@ -370,23 +370,23 @@ Obj54_LaserShooter:
 ; animation script
 ; off_32D7A:
 Ani_obj53:      offsetTable
-                offsetTableEntry.w MtzBossSatellitesAndLaser_Animation_Sequence0  ; 0
-                offsetTableEntry.w MtzBossSatellitesAndLaser_Animation_Sequence1  ; 1
-                offsetTableEntry.w MtzBossSatellitesAndLaser_Animation_Sequence2  ; 2
-                offsetTableEntry.w MtzBossSatellitesAndLaser_Animation_Sequence3  ; 3
-                offsetTableEntry.w MtzBossSatellitesAndLaser_Animation_Sequence4  ; 4
-                offsetTableEntry.w MtzBossSatellitesAndLaser_Animation_Sequence5  ; 5
-                offsetTableEntry.w MtzBossSatellitesAndLaser_Animation_Sequence6  ; 6
-                offsetTableEntry.w MtzBossSatellitesAndLaser_Animation_Sequence7  ; 7
-MtzBossSatellitesAndLaser_Animation_Sequence0:  dc.b    $F,  2,$FF
-MtzBossSatellitesAndLaser_Animation_Sequence1:  dc.b    1,  0,  1,$FF
-MtzBossSatellitesAndLaser_Animation_Sequence2:  dc.b    3,  5,  5,  5,  5,  5,  5,  5,  5,  6,  7,  6,  7,  6,  7,  8
+                offsetTableEntry.w MtzBossSatelliteLaser_AnimSeq0  ; 0
+                offsetTableEntry.w MtzBossSatelliteLaser_AnimSeq1  ; 1
+                offsetTableEntry.w MtzBossSatelliteLaser_AnimSeq2  ; 2
+                offsetTableEntry.w MtzBossSatelliteLaser_AnimSeq3  ; 3
+                offsetTableEntry.w MtzBossSatelliteLaser_AnimSeq4  ; 4
+                offsetTableEntry.w MtzBossSatelliteLaser_AnimSeq5  ; 5
+                offsetTableEntry.w MtzBossSatelliteLaser_AnimSeq6  ; 6
+                offsetTableEntry.w MtzBossSatelliteLaser_AnimSeq7  ; 7
+MtzBossSatelliteLaser_AnimSeq0: dc.b    $F,  2,$FF
+MtzBossSatelliteLaser_AnimSeq1: dc.b    1,  0,  1,$FF
+MtzBossSatelliteLaser_AnimSeq2: dc.b    3,  5,  5,  5,  5,  5,  5,  5,  5,  6,  7,  6,  7,  6,  7,  8
                 dc.b    9, $A, $B,$FE,  1               ; 16
-MtzBossSatellitesAndLaser_Animation_Sequence3:  dc.b    7, $C, $D,$FF
-MtzBossSatellitesAndLaser_Animation_Sequence4:  dc.b    7, $E, $F, $E, $F, $E, $F, $E, $F,$FD,  3
-MtzBossSatellitesAndLaser_Animation_Sequence5:  dc.b    7,$10,$10,$10,$10,$10,$10,$10,$10,$FD,  3
-MtzBossSatellitesAndLaser_Animation_Sequence6:  dc.b    1,$14,$FC
-MtzBossSatellitesAndLaser_Animation_Sequence7:  dc.b    7,$11,$FF
+MtzBossSatelliteLaser_AnimSeq3: dc.b    7, $C, $D,$FF
+MtzBossSatelliteLaser_AnimSeq4: dc.b    7, $E, $F, $E, $F, $E, $F, $E, $F,$FD,  3
+MtzBossSatelliteLaser_AnimSeq5: dc.b    7,$10,$10,$10,$10,$10,$10,$10,$10,$FD,  3
+MtzBossSatelliteLaser_AnimSeq6: dc.b    1,$14,$FC
+MtzBossSatelliteLaser_AnimSeq7: dc.b    7,$11,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

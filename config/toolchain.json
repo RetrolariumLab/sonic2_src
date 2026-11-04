@@ -3,7 +3,7 @@
   "kit": {
     "release": "2026.10.11",
     "source": "https://github.com/Retrolarium/retrolarium-kit",
-    "commit": "fab4af3440f14e2a1aa98631b12c1113b50ea13b"
+    "commit": "6a48386c3e2335f4021699e52d9bba040b10084f"
   },
   "core": {
     "source": "https://github.com/Retrolarium/retrolarium-core",

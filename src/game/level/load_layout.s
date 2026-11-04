@@ -156,8 +156,8 @@ loadLevelLayout:
                 lea     (Chunk_Table).l,a3
 
                 move.w  #64-1,d1                        ; Process 64 256x256 chunks
--               bsr.w   ConvertHalfOf256x256ChunkToTwo128x128Chunks
-                bsr.w   ConvertHalfOf256x256ChunkToTwo128x128Chunks
+-               bsr.w   SplitHalf256ChunkIntoTwo128Chunks
+                bsr.w   SplitHalf256ChunkIntoTwo128Chunks
                 dbf     d1,-
 
                 lea     (RAM_Mirror_Start).l,a1
@@ -232,7 +232,7 @@ loadLevelLayout:
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
 ; sub_E59C:
-ConvertHalfOf256x256ChunkToTwo128x128Chunks:
+SplitHalf256ChunkIntoTwo128Chunks:
                 moveq   #8-1,d0                         ; 8 rows
 -
 ; Do a row of chunk 1 (a chunk is 8 blocks wide and tall)
@@ -251,7 +251,7 @@ ConvertHalfOf256x256ChunkToTwo128x128Chunks:
                 adda.w  #8*8*2,a2
 
                 rts
-; End of function ConvertHalfOf256x256ChunkToTwo128x128Chunks
+; End of function SplitHalf256ChunkIntoTwo128Chunks
 
 ; ===========================================================================
 

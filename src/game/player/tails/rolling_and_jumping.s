@@ -300,10 +300,10 @@ Obj02_DoRoll:
                 move.w  #SndID_Roll,d0
                 jsr     (PlaySound).l                   ; play rolling sound
                 tst.w   inertia(a0)
-                bne.s   GamePlayerTailsRollingAndJumping_Return_Variant2
+                bne.s   TailsRollJump_Return_Variant2
                 move.w  #$200,inertia(a0)
 
-GamePlayerTailsRollingAndJumping_Return_Variant2:
+TailsRollJump_Return_Variant2:
                 rts
 ; End of function Tails_Roll
 
@@ -317,13 +317,13 @@ GamePlayerTailsRollingAndJumping_Return_Variant2:
 Tails_Jump:
                 move.b  (Ctrl_2_Press_Logical).w,d0
                 andi.b  #button_B_mask|button_C_mask|button_A_mask,d0  ; is A, B or C pressed?
-                beq.w   GamePlayerTailsRollingAndJumping_Return_Variant3  ; if not, return
+                beq.w   TailsRollJump_Return_Variant3   ; if not, return
                 moveq   #0,d0
                 move.b  angle(a0),d0
                 addi.b  #$80,d0
                 bsr.w   CalcRoomOverHead
                 cmpi.w  #6,d1                           ; does Tails have enough room to jump?
-                blt.w   GamePlayerTailsRollingAndJumping_Return_Variant3  ; if not, branch
+                blt.w   TailsRollJump_Return_Variant3   ; if not, branch
                 move.w  #$680,d2
                 btst    #status.player.underwater,status(a0)  ; Test if underwater
                 beq.s   +
@@ -360,7 +360,7 @@ Tails_Jump:
                 bset    #status.player.rolling,status(a0)
                 addq.w  #1,y_pos(a0)
 
-GamePlayerTailsRollingAndJumping_Return_Variant3:
+TailsRollJump_Return_Variant3:
                 rts
 ; ---------------------------------------------------------------------------
 ; loc_1C6C4:
@@ -394,12 +394,12 @@ Tails_JumpHeight:
 ; loc_1C6F8:
 Tails_UpVelCap:
                 tst.b   pinball_mode(a0)                ; is Tails charging a spindash or in a rolling-only area?
-                bne.s   GamePlayerTailsRollingAndJumping_Return_Variant4  ; if yes, return
+                bne.s   TailsRollJump_Return_Variant4   ; if yes, return
                 cmpi.w  #-$FC0,y_vel(a0)                ; is Tails moving up really fast?
-                bge.s   GamePlayerTailsRollingAndJumping_Return_Variant4  ; if not, return
+                bge.s   TailsRollJump_Return_Variant4   ; if not, return
                 move.w  #-$FC0,y_vel(a0)                ; cap upward speed
 
-GamePlayerTailsRollingAndJumping_Return_Variant4:
+TailsRollJump_Return_Variant4:
                 rts
 ; End of subroutine Tails_JumpHeight
 

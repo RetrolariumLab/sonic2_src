@@ -294,11 +294,11 @@ Obj45_LaunchCharacterHorizontal:
                 beq.w   OozPressureSpring_Return_Variant4
                 lea     (MainCharacter).w,a1            ; a1=character
                 moveq   #p1_pushing_bit,d6
-                bsr.s   OozPressureSpring_ReleaseHorizontalContact
+                bsr.s   OozPressureSpring_ReleaseSideContact
                 lea     (Sidekick).w,a1                 ; a1=character
                 moveq   #p2_pushing_bit,d6
 
-OozPressureSpring_ReleaseHorizontalContact:
+OozPressureSpring_ReleaseSideContact:
                 bclr    d6,status(a0)
                 beq.w   OozPressureSpring_Return_Variant4
                 move.w  obj45_original_x_pos(a0),d0

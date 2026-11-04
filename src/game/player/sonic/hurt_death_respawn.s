@@ -94,7 +94,7 @@ CheckGameOver:
                 move.w  (Camera_Max_Y_pos).w,d0
                 addi.w  #$100,d0
                 cmp.w   y_pos(a0),d0
-                bge.w   GamePlayerSonicHurtDeathRespawn_Return_Variant2
+                bge.w   SonicHurtDeathRespawn_Return_Variant2
                 move.b  #8,routine(a0)                  ; => Obj01_Gone
                 move.w  #60,restart_countdown(a0)
                 addq.b  #1,(Update_HUD_lives).w         ; update lives counter
@@ -135,7 +135,7 @@ Obj01_ResetLevel:
 ; ---------------------------------------------------------------------------
 Obj01_ResetLevel_Part2:
                 tst.w   (Two_player_mode).w
-                beq.s   GamePlayerSonicHurtDeathRespawn_Return_Variant2
+                beq.s   SonicHurtDeathRespawn_Return_Variant2
                 move.b  #0,(Scroll_lock).w
                 move.b  #$A,routine(a0)                 ; => Obj01_Respawning
                 move.w  (Saved_x_pos).w,x_pos(a0)
@@ -153,7 +153,7 @@ Obj01_ResetLevel_Part2:
                 move.w  #0,move_lock(a0)
                 move.w  #0,restart_countdown(a0)
 
-GamePlayerSonicHurtDeathRespawn_Return_Variant2:
+SonicHurtDeathRespawn_Return_Variant2:
                 rts
 ; ===========================================================================
 ; ---------------------------------------------------------------------------

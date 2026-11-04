@@ -93,7 +93,7 @@ loc_354DE:
 Obj5B_Main:
                 jsrto   JmpTo7_ObjectMoveAndFall
                 addi.w  #$80,y_vel(a0)
-                bsr.w   SpecialStageLostRing_SelectFallingAnimation
+                bsr.w   SSLostRing_SelectFallingAnim
                 tst.w   x_pos(a0)
                 bmi.w   JmpTo63_DeleteObject
                 cmpi.w  #screen_width_ss,x_pos(a0)
@@ -105,7 +105,7 @@ Obj5B_Main:
                 jmpto   JmpTo44_DisplaySprite
 ; ===========================================================================
 
-SpecialStageLostRing_SelectFallingAnimation:
+SSLostRing_SelectFallingAnim:
                 tst.w   y_vel(a0)
                 bmi.w   +
                 move.b  #0,priority(a0)

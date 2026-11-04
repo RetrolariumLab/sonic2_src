@@ -7,6 +7,10 @@ from scripts.validation.asm_style import normalize
 
 
 def check(fix=False):
+    if not fix:
+        labels = subprocess.run(["rltool", "lint", "--project", ".", "--only", "labels"], cwd=ROOT)
+        if labels.returncode:
+            raise ValueError("Assembly label check failed on the original sources")
     changed = normalize(fix=fix)
     command = ["rltool", "lint", "--project", str(ROOT), "--only", "text", "--only", "code"]
     if fix:

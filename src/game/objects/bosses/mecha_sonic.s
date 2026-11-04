@@ -653,11 +653,11 @@ loc_39D7C:
 
 MechaSonic_SpawnProjectileBurst:
                 move.b  #$4A,d2
-                moveq   #MechaSonic_ProjectileSpawnRecords.count_minus_one,d6
-                lea     (MechaSonic_ProjectileSpawnRecords).l,a2
+                moveq   #MechaSonic_ProjSpawns.count_minus_one,d6
+                lea     (MechaSonic_ProjSpawns).l,a2
                 bra.w   Obj_CreateProjectiles
 ; ===========================================================================
-MechaSonic_ProjectileSpawnRecords:
+MechaSonic_ProjSpawns:
                 dc.b    0,-$18
                 dc.b    0,  -3
                 dc.b    $F
@@ -697,8 +697,8 @@ MechaSonic_ProjectileSpawnRecords:
                 dc.b    2,  -2
                 dc.b    $16
                 dc.b    FALSE<<render_flags.x_flip
-MechaSonic_ProjectileSpawnRecords.end:
-MechaSonic_ProjectileSpawnRecords.count_minus_one   =       ((MechaSonic_ProjectileSpawnRecords.end - MechaSonic_ProjectileSpawnRecords) / 6) - 1
+MechaSonic_ProjSpawns.end:
+MechaSonic_ProjSpawns.count_minus_one   =       ((MechaSonic_ProjSpawns.end - MechaSonic_ProjSpawns) / 6) - 1
 
 MechaSonicBoss_MechaSonicChildSlot3E:   childObjectData objoff_3E, ObjID_MechaSonic, $48
 MechaSonicBoss_MechaSonicChildSlot3C:   childObjectData objoff_3C, ObjID_MechaSonic, $48
@@ -736,30 +736,30 @@ MechaSonicBoss_Animation_Sequence5:
 
 ; animation script
 MechaSonicBoss_Animation_Variant2:  offsetTable
-                offsetTableEntry.w MechaSonicBoss_Animation_Sequence0_Variant3  ; 0
-                offsetTableEntry.w MechaSonicBoss_Animation_Sequence1_Variant3  ; 1
-                offsetTableEntry.w MechaSonicBoss_Animation_Sequence2_Variant3  ; 2
-MechaSonicBoss_Animation_Sequence0_Variant3:
+                offsetTableEntry.w MechaSonic_AnimSeq0_Variant3  ; 0
+                offsetTableEntry.w MechaSonic_AnimSeq1_Variant3  ; 1
+                offsetTableEntry.w MechaSonic_AnimSeq2_Variant3  ; 2
+MechaSonic_AnimSeq0_Variant3:
                 dc.b    1, $B, $C,$FF
-MechaSonicBoss_Animation_Sequence1_Variant3:
+MechaSonic_AnimSeq1_Variant3:
                 dc.b    1, $D, $E,$FF
-MechaSonicBoss_Animation_Sequence2_Variant3:
+MechaSonic_AnimSeq2_Variant3:
                 dc.b    1,  9, $A,$FF
                 even
 
 ; animation script
 ; off_39E42:
 Ani_objAF_c:    offsetTable
-                offsetTableEntry.w MechaSonicBoss_Animation_Sequence0_Variant2  ; 0
-                offsetTableEntry.w MechaSonicBoss_Animation_Sequence1_Variant2  ; 1
-                offsetTableEntry.w MechaSonicBoss_Animation_Sequence2_Variant2  ; 2
-                offsetTableEntry.w MechaSonicBoss_Animation_Sequence3_Variant2  ; 3
-                offsetTableEntry.w MechaSonicBoss_Animation_Sequence4_Variant2  ; 4
-MechaSonicBoss_Animation_Sequence0_Variant2:    dc.b    3,  4,  3,  2,  1,  0,$FC,  0
-MechaSonicBoss_Animation_Sequence1_Variant2:    dc.b    3,  0,  1,  2,  3,  4,$FA,  0
-MechaSonicBoss_Animation_Sequence2_Variant2:    dc.b    3,  5,  5,$FF
-MechaSonicBoss_Animation_Sequence3_Variant2:    dc.b    3,  5,  6,$FF
-MechaSonicBoss_Animation_Sequence4_Variant2:    dc.b    3,  7,  7,$FF
+                offsetTableEntry.w MechaSonic_AnimSeq0_Variant2  ; 0
+                offsetTableEntry.w MechaSonic_AnimSeq1_Variant2  ; 1
+                offsetTableEntry.w MechaSonic_AnimSeq2_Variant2  ; 2
+                offsetTableEntry.w MechaSonic_AnimSeq3_Variant2  ; 3
+                offsetTableEntry.w MechaSonic_AnimSeq4_Variant2  ; 4
+MechaSonic_AnimSeq0_Variant2:   dc.b    3,  4,  3,  2,  1,  0,$FC,  0
+MechaSonic_AnimSeq1_Variant2:   dc.b    3,  0,  1,  2,  3,  4,$FA,  0
+MechaSonic_AnimSeq2_Variant2:   dc.b    3,  5,  5,$FF
+MechaSonic_AnimSeq3_Variant2:   dc.b    3,  5,  6,$FF
+MechaSonic_AnimSeq4_Variant2:   dc.b    3,  7,  7,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

@@ -52,7 +52,7 @@ DrawBlockColumn_Advanced:
                 bsr.w   GetBlock
                 movem.l (sp)+,d4-d5
                 bsr.w   CalculateVRAMAddressOfBlockForPlayer1
-                bsr.w   ProcessAndWriteBlock_DoubleResolution_Vertical
+                bsr.w   WriteInterlacedBlock_Vertical
                 movem.l (sp)+,d4-d5/a0
 +
 ; Move onto the next block down
@@ -110,7 +110,7 @@ DrawBlockColumn:
                 lea     (Block_Table).w,a1
                 adda.w  d3,a1
                 move.l  d1,d0
-                bsr.w   ProcessAndWriteBlock_DoubleResolution_Vertical
+                bsr.w   WriteInterlacedBlock_Vertical
                 adda.w  #chunk_width/block_width*2,a0
                 addi.w  #gameplay_plane_width/tile_width*2,d1
                 andi.w  #((gameplay_plane_width/tile_width)*(gameplay_plane_height/tile_height)*2)-1,d1
@@ -217,7 +217,7 @@ DrawBlockRow:
                 lsl.w   #3,d3
                 lea     (Block_Table).w,a1
                 adda.w  d3,a1
-                bsr.w   ProcessAndWriteBlock_DoubleResolution_Horizontal
+                bsr.w   WriteInterlacedBlock_Horizontal
                 addq.w  #2,a0
                 addq.b  #4,d1
                 bpl.s   +
@@ -243,7 +243,7 @@ DrawBlockRow:
                 lsl.w   #3,d3
                 lea     (Block_Table).w,a1
                 adda.w  d3,a1
-                bsr.w   ProcessAndWriteBlock_DoubleResolution_Horizontal
+                bsr.w   WriteInterlacedBlock_Horizontal
                 addq.w  #2,a0
                 addq.b  #4,d1
                 bmi.s   +

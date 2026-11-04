@@ -251,19 +251,19 @@ Tails_TurnLeft:
                 move.b  angle(a0),d0
                 addi.b  #$20,d0
                 andi.b  #$C0,d0
-                bne.s   GamePlayerTailsGroundMovement_Return_Variant2
+                bne.s   TailsGroundMove_Return_Variant2
                 cmpi.w  #$400,d0
-                blt.s   GamePlayerTailsGroundMovement_Return_Variant2
+                blt.s   TailsGroundMove_Return_Variant2
                 move.b  #AniIDSonAni_Stop,anim(a0)      ; use "stopping" animation
                 bclr    #status.player.x_flip,status(a0)
                 move.w  #SndID_Skidding,d0
                 jsr     (PlaySound).l
                 cmpi.b  #12,air_left(a0)
-                blo.s   GamePlayerTailsGroundMovement_Return_Variant2  ; if he's drowning, branch to not make dust
+                blo.s   TailsGroundMove_Return_Variant2  ; if he's drowning, branch to not make dust
                 move.b  #6,(Tails_Dust+routine).w
                 move.b  #$15,(Tails_Dust+mapping_frame).w
 
-GamePlayerTailsGroundMovement_Return_Variant2:
+TailsGroundMove_Return_Variant2:
                 rts
 ; End of subroutine Tails_MoveLeft
 
@@ -305,19 +305,19 @@ Tails_TurnRight:
                 move.b  angle(a0),d0
                 addi.b  #$20,d0
                 andi.b  #$C0,d0
-                bne.s   GamePlayerTailsGroundMovement_Return_Variant3
+                bne.s   TailsGroundMove_Return_Variant3
                 cmpi.w  #-$400,d0
-                bgt.s   GamePlayerTailsGroundMovement_Return_Variant3
+                bgt.s   TailsGroundMove_Return_Variant3
                 move.b  #AniIDSonAni_Stop,anim(a0)      ; use "stopping" animation
                 bset    #status.player.x_flip,status(a0)
                 move.w  #SndID_Skidding,d0              ; use "stopping" sound
                 jsr     (PlaySound).l
                 cmpi.b  #12,air_left(a0)
-                blo.s   GamePlayerTailsGroundMovement_Return_Variant3  ; if he's drowning, branch to not make dust
+                blo.s   TailsGroundMove_Return_Variant3  ; if he's drowning, branch to not make dust
                 move.b  #6,(Tails_Dust+routine).w
                 move.b  #$15,(Tails_Dust+mapping_frame).w
 
-GamePlayerTailsGroundMovement_Return_Variant3:
+TailsGroundMove_Return_Variant3:
                 rts
 ; End of subroutine Tails_MoveRight
 

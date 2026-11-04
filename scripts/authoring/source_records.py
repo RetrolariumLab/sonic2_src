@@ -40,7 +40,7 @@ def inventory(root=ROOT):
                 result[(name, scope)].append({"line": following[0], "kind": "credits_pages", "arguments": ""})
             elif label == "SonicRunningSpriteScaleData":
                 result[(name, label)].append({"line": number, "kind": "sprite_scale", "arguments": ""})
-            elif label in {"Asteron_ProjectileSpawnRecords", "MechaSonic_ProjectileSpawnRecords"}:
+            elif label in {"Asteron_ProjSpawns", "MechaSonic_ProjSpawns"}:
                 following = next(row for row in rows[index:] if row[3])
                 result[(name, label)].append({"line": following[0], "kind": "projectile_burst", "arguments": ""})
     return dict(result)

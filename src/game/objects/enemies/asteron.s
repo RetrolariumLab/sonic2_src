@@ -85,11 +85,11 @@ loc_38A44:
 
 Asteron_SpawnProjectileBurst:
                 move.b  #$30,d2
-                moveq   #Asteron_ProjectileSpawnRecords.count_minus_one,d6
-                lea     (Asteron_ProjectileSpawnRecords).l,a2
+                moveq   #Asteron_ProjSpawns.count_minus_one,d6
+                lea     (Asteron_ProjSpawns).l,a2
                 bra.w   Obj_CreateProjectiles
 ; ===========================================================================
-Asteron_ProjectileSpawnRecords:
+Asteron_ProjSpawns:
                 dc.b    0,-8
                 dc.b    0,-4
                 dc.b    2
@@ -114,8 +114,8 @@ Asteron_ProjectileSpawnRecords:
                 dc.b    -3,-1
                 dc.b    3
                 dc.b    FALSE<<render_flags.x_flip
-Asteron_ProjectileSpawnRecords.end:
-Asteron_ProjectileSpawnRecords.count_minus_one  =       ((Asteron_ProjectileSpawnRecords.end - Asteron_ProjectileSpawnRecords) / 6) - 1
+Asteron_ProjSpawns.end:
+Asteron_ProjSpawns.count_minus_one  =       ((Asteron_ProjSpawns.end - Asteron_ProjSpawns) / 6) - 1
 
 ; off_38A86:
 ObjA4_SubObjData:

@@ -643,7 +643,7 @@
       "source_sha256": "c0d744c53fe4abbd424b449e9265a5f8e7752dc0c16c4d411e40d6a6239880b9",
       "owner": "game/level/drawing",
       "responsibility": "block writer",
-      "file_sha256": "7481df8e3b491d1de9b83d9d27e56ee560757396aaf520784efb99d78f314e4d",
+      "file_sha256": "ae6a8731fa341cd1d12d6f89097fcb545a6b4ca5c765c33f8f6d9c51b9ff728d",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -670,7 +670,7 @@
       "source_sha256": "7074d981f7c1d2a2c3639d916431558a23a14674918197835b76a1db5a3b1ffc",
       "owner": "game/level/drawing",
       "responsibility": "draw rows and columns",
-      "file_sha256": "7074d981f7c1d2a2c3639d916431558a23a14674918197835b76a1db5a3b1ffc",
+      "file_sha256": "ebee434f84d664f6fd6e7592cca9d8019a74cca0418f0d8ec92c32b1a47a65f0",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -697,7 +697,7 @@
       "source_sha256": "094a3b22df030a1882aa9dda1a0c7548ff6f9c6bddce94128c00d80b5071e637",
       "owner": "game/level/drawing",
       "responsibility": "update planes",
-      "file_sha256": "094a3b22df030a1882aa9dda1a0c7548ff6f9c6bddce94128c00d80b5071e637",
+      "file_sha256": "299f6f2ed70df83d34bfaca4c756815700f41b59ff8c8f05452f6e7bcfe75a9a",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -1245,7 +1245,7 @@
       "source_sha256": "de9aa35b98e116004f356253c5c2bfd23b66ea756a4a591b4688774e37a81f64",
       "owner": "game/level",
       "responsibility": "loadlevellayout",
-      "file_sha256": "de9aa35b98e116004f356253c5c2bfd23b66ea756a4a591b4688774e37a81f64",
+      "file_sha256": "a5047e14feffa8a248f2d64d6b8b8c540c1901b68ef0fdeaaf93b05255275d11",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -1812,7 +1812,7 @@
       "source_sha256": "532048a03de7fb7b0953ee98e16537094978ad81731524faaaa8fc4fb43debed",
       "owner": "game/level",
       "responsibility": "title cards",
-      "file_sha256": "532048a03de7fb7b0953ee98e16537094978ad81731524faaaa8fc4fb43debed",
+      "file_sha256": "34300a5ecdc4bd083e5e6afc22c5d9558cff17787d481fe18d8cb6b43871bceb",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -3309,7 +3309,7 @@
       "physical_lines": 906,
       "owner": "game/objects/environment/cpz",
       "responsibility": "cpz spin tube with its adjacent source-owned data",
-      "file_sha256": "629dec3755c18828d5c5349d40b65c8975dedd79e2c94ef9468cc71282cef900",
+      "file_sha256": "f27995e048235a55a04052f290ac8a60a0c67722228fa15ac227a2682f2dff38",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -3515,7 +3515,7 @@
       "source_sha256": "1eb741301621dd2485e4a45901f22be36245495fd02224367a3102d5a37fd397",
       "owner": "game/objects/environment/arz",
       "responsibility": "arz bubbles",
-      "file_sha256": "1eb741301621dd2485e4a45901f22be36245495fd02224367a3102d5a37fd397",
+      "file_sha256": "aa7a7efb267cffce856f74b968c3e75b21f6870994de0ffc2204bfdd67e25b3c",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -4572,7 +4572,7 @@
       "source_sha256": "a6382da9b4d06572a6ebfb8dc6ae9531593ff9cfa1762da4f8281ca55e3ff73e",
       "owner": "game/objects/environment/common",
       "responsibility": "springs",
-      "file_sha256": "e5022661fe379d07ca1c663bb685dd4a739a5d30da59ddf2ae82ab606df611e0",
+      "file_sha256": "fe00d07ac9517612271adf13f4c2cfb560130476c3598f1626f61d9bde5ad4c5",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -4707,7 +4707,7 @@
       "physical_lines": 667,
       "owner": "game/objects/environment/ooz",
       "responsibility": "ooz pressure spring with its adjacent source-owned data",
-      "file_sha256": "26119e94466494a2421408e66a063194f2ca3381004d55cb05efaecf42844999",
+      "file_sha256": "3f371aa29555ba0ac858238378f5cf4fec9a4cc16b65d36611aaff5c0798efdb",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -5261,7 +5261,7 @@
       "physical_lines": 414,
       "owner": "game/special_stage/objects",
       "responsibility": "special stage chaos emerald with its adjacent source-owned data",
-      "file_sha256": "7dabdb01021fc38547ae6134923d427a36ccd29b56371a24b2815cd0abd39ea0",
+      "file_sha256": "70b2ad19c503846562eb516080fffb389c612f017f456ea793f6a8263aa1ed2c",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -5352,7 +5352,7 @@
       "source_sha256": "42a2def3dca76692f39ef1078a605e3acf55d7f3e14b13d2e01a7c5dd3566f30",
       "owner": "game/special_stage/objects",
       "responsibility": "special stage ring loss",
-      "file_sha256": "42a2def3dca76692f39ef1078a605e3acf55d7f3e14b13d2e01a7c5dd3566f30",
+      "file_sha256": "d9feea3d70e4c003acb421f6b4ba783347cbd539dc48802df504e13bbc1f044d",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -5877,7 +5877,7 @@
       "physical_lines": 268,
       "owner": "game/objects/environment/mtz",
       "responsibility": "mtz pulley platform with its adjacent source-owned data",
-      "file_sha256": "b7d8925496d14598010ca50db84b6ac955ae4ecaa9f30b930fd41e21c9bf5293",
+      "file_sha256": "91072cc1667d993b7c4dc3c1b9fd801da370f8b3f9a3785d2ee9ffa208cd63a0",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -5978,7 +5978,7 @@
       "physical_lines": 1101,
       "owner": "game/special_stage/objects",
       "responsibility": "special stage results with its adjacent source-owned data",
-      "file_sha256": "adeac335b6149cc8652165e2fb22320c7bd2a5bfec3b6b55c8e5a3dab837bbec",
+      "file_sha256": "9c57063d9ae92a50ef14b36a544c801dae497687904402c2e208a4c06e16e40e",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -6389,7 +6389,7 @@
       "physical_lines": 195,
       "owner": "game/objects/environment/common",
       "responsibility": "cpz sliding platform with its adjacent source-owned data",
-      "file_sha256": "f169204ecc3ac005d51dda4eea183cfe01ad6dea458991d5525473fd8622e3b0",
+      "file_sha256": "83c077d57712dd31748eef416be3f34027bb7acc100c5ab18d04fcbc70bb2fda",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -6691,7 +6691,7 @@
       "physical_lines": 263,
       "owner": "game/objects/environment/arz",
       "responsibility": "arz swinging platform with its adjacent source-owned data",
-      "file_sha256": "ee0976b5807419283b38ace5aa2fc881b55417d74afe03a82c94110a75fb105a",
+      "file_sha256": "ffc76229c759ad50fba0919f22b0521791362ff72712af3c4de17c73167dc4d2",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -7058,7 +7058,7 @@
       "source_sha256": "50c25c63b04cbec6267af05b9f4c81f9ea00bc9357d51932f689f03ac4f1767b",
       "owner": "game/objects/enemies",
       "responsibility": "grounder in wall",
-      "file_sha256": "50c25c63b04cbec6267af05b9f4c81f9ea00bc9357d51932f689f03ac4f1767b",
+      "file_sha256": "f84eee95b13dc71726da3bb49fe00d49dc6074ba2005893c79f22e9330977221",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7543,7 +7543,7 @@
       "physical_lines": 169,
       "owner": "game/objects/enemies",
       "responsibility": "asteron with its adjacent source-owned data",
-      "file_sha256": "bf339e66b96f82cb719ffd5cdf830015e7004260de0564877447978f231996fc",
+      "file_sha256": "e66fe458670e21640ead5ec37fe4b5718e2f2e9a7f14d9fbb92bc34b48a31115",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -7620,7 +7620,7 @@
       "source_sha256": "7341131869997685dc801bca25657a5083fa1374325f5073f3ede87602b59c84",
       "owner": "game/objects/enemies",
       "responsibility": "grabber",
-      "file_sha256": "7341131869997685dc801bca25657a5083fa1374325f5073f3ede87602b59c84",
+      "file_sha256": "28cdfaedc33e92bb7c104611a733b903520bf2777244c181bf2125c9738850b0",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -7730,7 +7730,7 @@
       "physical_lines": 1002,
       "owner": "game/objects/bosses",
       "responsibility": "mecha sonic with its adjacent source-owned data",
-      "file_sha256": "b7cdd3191fe83b0575f54f0a42a305a346208fdea9ea8a4266e962f124f28ff2",
+      "file_sha256": "2f8690deb14fa39a3a6b26be1d445eea8c502d4435fd3d279a028d77a3b53568",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -7939,7 +7939,7 @@
       "physical_lines": 163,
       "owner": "game/objects/environment/common",
       "responsibility": "wfz horizontal propeller with its adjacent source-owned data",
-      "file_sha256": "816076be47548bd1713fc7c2a4a06073dc816ed499aa8bf370dfc92582317c84",
+      "file_sha256": "a2926165a7c13c306402373e8837f96d27472837eaaf21d5671811c8c4c4d1d4",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -8452,7 +8452,7 @@
       "physical_lines": 382,
       "owner": "game/objects/bosses/cpz",
       "responsibility": "gunk and visuals",
-      "file_sha256": "a14137f7863f73594e90f0cb17da6236eee58e3c0d1889c79a92f7b214e449b9",
+      "file_sha256": "f1d91a272940cb7824142e1ea68cf64c9f82de1006fafd2e395ed5b509575705",
       "kind": "source_module",
       "profile_ranges": {
         "rev00": {
@@ -8519,7 +8519,7 @@
       "source_sha256": "761f494a31d1652522396aeeb2b81fd1ff4bada79d5399fcdf3ea29540edc7ac",
       "owner": "game/objects/bosses/death_egg_robot",
       "responsibility": "animation data",
-      "file_sha256": "1deed1bc29cd8375df474249fa16e9bf59e37025a57d683f9dc6070238f50735",
+      "file_sha256": "a819c92eafecd270d92c15e3edb5630c6bb33c4cf01c493d9ec093ad3224e0d7",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8573,7 +8573,7 @@
       "source_sha256": "57668c347c54fc44403aa3bdaf103367cfe54c0f998542a6f2e6d73748be279e",
       "owner": "game/objects/bosses/death_egg_robot",
       "responsibility": "collision and bombs",
-      "file_sha256": "57668c347c54fc44403aa3bdaf103367cfe54c0f998542a6f2e6d73748be279e",
+      "file_sha256": "2c0e5c32ff3ceac403feb19299c8b4139a3100dccbb5a952d9e7c33e608aa2e1",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -8705,7 +8705,7 @@
       "source_sha256": "dfecb460f2c29c52993392e5c4526c0b6a915b5d2f31555ef207f1b925ced42b",
       "owner": "game/objects/bosses/mtz",
       "responsibility": "satellites and laser",
-      "file_sha256": "b7828ac80c711174fc7b04e8d0f5a752d580f32774af99bef949cc7934e694ed",
+      "file_sha256": "54651cfc0a376efeb1ae86b9eeb79153913294557511c7f2cb2f8b59afb4b213",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9026,7 +9026,7 @@
       "source_sha256": "23f22d6eacdaeb15c0c7d572660109fcb2607257e05e7e289e3571259a668aa4",
       "owner": "ui/objects/ending",
       "responsibility": "ending cutscene",
-      "file_sha256": "96265db5214fd2f6a7c7b8ec01598fe90851103c8c8191dd41ea63015b09e786",
+      "file_sha256": "3fef4c0aa347529c3210fae7c2280d2a47a2622756acdd48db94676d241d6dec",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9080,7 +9080,7 @@
       "source_sha256": "07f0550fd60be4be8e45dfe1fc3eaa9051ae68e0b087db0b1c0e20c5f0fdd48b",
       "owner": "ui/objects/ending",
       "responsibility": "ending tornado trigger",
-      "file_sha256": "9ef05b52a5e494fd47ddcdc237e0bad1e20345cabe43810e9b0dffd9f94eded8",
+      "file_sha256": "346f106d0a1928265ab5cdcf10be9ae78dfc1f639d2db18b89887f2c924fb60f",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9138,7 +9138,7 @@
       "source_sha256": "fa85f8bb4e4d22769e345d7cadf18b34c9e0988ca40e4dda453b11880be407db",
       "owner": "ui/objects/ending/birds",
       "responsibility": "ending birds",
-      "file_sha256": "13e1effce15b56d284f11d72af4c208687557a91ae972118c15d2180ae9d2717",
+      "file_sha256": "46524e4ed69ea5423c0b5bffdd96b2a49a0be92d2e52a84135163c88f9598605",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -9977,7 +9977,7 @@
       "source_sha256": "c84c25eb7fad039d39e2c384e787dd44d32015c3389dbdddc88979dc7c630def",
       "owner": "game/objects",
       "responsibility": "objects manager",
-      "file_sha256": "c84c25eb7fad039d39e2c384e787dd44d32015c3389dbdddc88979dc7c630def",
+      "file_sha256": "d900656de4d5786c7707c94ffab2b03b11b0710c1842d8a1f273f13deabe564b",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10058,7 +10058,7 @@
       "source_sha256": "f934e41698707c8723ab3781ec537d0b1ea1190980f7ced8a71d99b6c4908e8c",
       "owner": "game/player/collision",
       "responsibility": "surface alignment",
-      "file_sha256": "7f598d34bf15fe7f6bf7c1d0765b1f73750a4e4480ddac2d26884866fbd10655",
+      "file_sha256": "265de357a2e95eccb8c0f5af840ed6f2f1e03e94804e80cb37240a8b91365f68",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10085,7 +10085,7 @@
       "source_sha256": "1a263328f97b9c87d41f80fae685c226e6d086113ffe4e460ae30398c87cdafc",
       "owner": "game/player/sonic",
       "responsibility": "air collision",
-      "file_sha256": "381387e75cc92dc1f7f7f68ace9b15a2664f2e4953af74ffb6dd2f213165be55",
+      "file_sha256": "62e91c5a6e96063bfb624120e23d971c8243d43217a2faeec972dbaca7edca5e",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10239,7 +10239,7 @@
       "source_sha256": "2502f69477668c98ee9dcd9cbf7bc527465aecec6fe36763db0de6e2a364622d",
       "owner": "game/player/sonic",
       "responsibility": "ground movement",
-      "file_sha256": "80497b715cde9035da79ece9c43f72b7d407086c733f140ee508243c603950fb",
+      "file_sha256": "5529e0cb71728251c4f5a04b14d5ffbbe22fbd457b51d1cf54b4fde1c75fbf66",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10266,7 +10266,7 @@
       "source_sha256": "ae022732e70b78adc66f357bc2cde9cd3c7d8bf4fa7b16942538c42f70294e24",
       "owner": "game/player/sonic",
       "responsibility": "hurt death respawn",
-      "file_sha256": "bb1f8267bd7f4943750d27a155159defed085810d95ee35734c8e6944c8011db",
+      "file_sha256": "63a421cb4eb7a8a2e01d0ff473440b64be0565c90abdf5b9be4533231e103e39",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10293,7 +10293,7 @@
       "source_sha256": "600f0fa32ddda794d073b4866b64000469f7e9e5aeeb02291eb2370ead59379c",
       "owner": "game/player/sonic",
       "responsibility": "rolling and jumping",
-      "file_sha256": "4701335a4ec093012ccad456fca27c4c1c162ccd69fa8bd3047f3469085f6430",
+      "file_sha256": "60bdface7c433f2118757393381dc64c56ac14419f3ab571dc11c0b0b387a2bc",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10320,7 +10320,7 @@
       "source_sha256": "180bb9081801a734c776ef3284dcdd5aa456797babb6679fbb45503f7b9ef85a",
       "owner": "game/player/sonic",
       "responsibility": "spindash and slopes",
-      "file_sha256": "2ef0be1b5dbe587bba4545787226741b652d0e4b1dc0c1f581b4019f05d06b52",
+      "file_sha256": "4d4a35e811b220386beed12645c56d9ceee753d87e03fb77a8cccb95a64e72ee",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10347,7 +10347,7 @@
       "source_sha256": "3635256e473ffc595cd78fd0792baf5fe52e35479b0cbb85f104340b08c5be14",
       "owner": "game/player/tails",
       "responsibility": "air collision",
-      "file_sha256": "e596a49105114d0a8746511677ad5ce0fd817486227da8b16bb8c47ad844d651",
+      "file_sha256": "fa12d110174f5f6a28662354b27f4438f758d6a00a327b9ac0811f5d9ef8474a",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10506,7 +10506,7 @@
       "source_sha256": "03096cbacb3d16ebf073f01655d913baf9727a0c269cc496110c1dcf4360d582",
       "owner": "game/player/tails",
       "responsibility": "follower ai",
-      "file_sha256": "f6a1f3e6c5ece697e7ff898903aaa540ab9addb79bcc7f2f6f88931edc1aaa66",
+      "file_sha256": "5f5ada20b76f183a859aef1d4ef884e4fbde3beee3461bdd36221450f58a41ad",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10533,7 +10533,7 @@
       "source_sha256": "db4238b858f4e635c74c0586c547fa76cc0ede6b3473849e28efdbf9e018ea26",
       "owner": "game/player/tails",
       "responsibility": "ground movement",
-      "file_sha256": "00cbc5c1384408ebb1ef1b5f0f4bf90fb687dc35151c8617f00d3f0ac0963a87",
+      "file_sha256": "38432da73d61d7a554fed47f532e85bce01b4289f1dc003eeeea266ba5b84a2b",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10560,7 +10560,7 @@
       "source_sha256": "7c0c93d4cfbbf9fb68b21aeefbc2d90c1e9d94c9c99a5d24d9bde78c30ec1853",
       "owner": "game/player/tails",
       "responsibility": "hurt death respawn",
-      "file_sha256": "7ea9ad2763e1baaabacc84b032b175ed291e961c5732fb40c3bd98004434f82e",
+      "file_sha256": "7ea0d426032ec3b1fdceb7774564701dd51f86d32748478c1fe5d77ad451c888",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10587,7 +10587,7 @@
       "source_sha256": "31563bdc46e74fe96e5e786b2e6a0582fd0c7a66087fbfb3feb4b4e0ca387684",
       "owner": "game/player/tails",
       "responsibility": "rolling and jumping",
-      "file_sha256": "28fe579a629dbbb483d842e9ab382e94e01c0d78f09bbdc7b7db83eac13dc774",
+      "file_sha256": "4ed994c602cbdbb1a9cce3ee32a48d3d70c3459cb8725e51a7f91af8eb9915dd",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10614,7 +10614,7 @@
       "source_sha256": "9ae763645e037f6dc908055f2d4af6faf02317903ce5fe0ff831b979f3f5b4db",
       "owner": "game/player/tails",
       "responsibility": "spindash and slopes",
-      "file_sha256": "7b01dfc090eed9ac6bcc6107cd1f29aad203aae19e749cc6aaec865523d08ff5",
+      "file_sha256": "b3b34d5cc0c720c85183fb594e50c83a09f4726e399194ede46dbd0fbb472ad5",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10722,7 +10722,7 @@
       "source_sha256": "7e79b13235923f4360ac2dc30d9ac82c50a333f0338f4d1485e8795ac1b57766",
       "owner": "game/special_stage",
       "responsibility": "orientation and scroll",
-      "file_sha256": "7e79b13235923f4360ac2dc30d9ac82c50a333f0338f4d1485e8795ac1b57766",
+      "file_sha256": "213393df0b6002b7c436ca08cc53709d74e3d4f1b41fd01ed5362e70fd149031",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -10893,7 +10893,7 @@
       "source_sha256": "241f1112d761f02b7c601e723f4b438933416e1722a532ac3ebc3bfc59ce08e7",
       "owner": "rendering/animation",
       "responsibility": "block sequences",
-      "file_sha256": "241f1112d761f02b7c601e723f4b438933416e1722a532ac3ebc3bfc59ce08e7",
+      "file_sha256": "723075a80cada5b65dc50bdde67f8a7f327fe3721662867d928db92755f7bd77",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -11368,7 +11368,7 @@
       "source_sha256": "79298c4ed44986b763384ef5bcdeeee0a46aba79dca8ee83f54b71013b17c0a4",
       "owner": "rendering/palettes",
       "responsibility": "palette fade and load",
-      "file_sha256": "0cc2bf99c02fd87d4a1b14df568362049cdb155c5f194820b0fb2bc98cbd6f99",
+      "file_sha256": "8bf8da90dcc860b93b1ec8683f3aff23b7e158dd7f6c15ec3495b214c8daca8a",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {
@@ -12276,7 +12276,7 @@
       "source_sha256": "d4bf5779953c1a49833a82f08095ac49f6f39260994b6c721fdde323512ac5f0",
       "owner": "ui",
       "responsibility": "Ending sequence helper routines, palettes and child records",
-      "file_sha256": "e47f982a7c667ce4b969adde20dc55442aa63dc2033701872fd79ac2e5f40cfd",
+      "file_sha256": "02246f34df157f853fe1b99509f79a2479405dbf42b24e7021cf791920bf6730",
       "original_path": "s2.asm",
       "kind": "source_module",
       "profile_ranges": {

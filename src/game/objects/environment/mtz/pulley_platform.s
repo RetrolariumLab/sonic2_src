@@ -225,20 +225,20 @@ MtzPulleyPlatform_PulleyPath_Path2:
                 even
 ; ---------------------------------------------------------------------------
 MtzPulleyPlatform_PulleyChildren:   offsetTable
-                offsetTableEntry.w MtzPulleyPlatform_PulleyChildren_ChildList0  ; 0
-                offsetTableEntry.w MtzPulleyPlatform_PulleyChildren_ChildList1  ; 1
-                offsetTableEntry.w MtzPulleyPlatform_PulleyChildren_ChildList2  ; 2
-MtzPulleyPlatform_PulleyChildren_ChildList0:
+                offsetTableEntry.w MtzPulley_ChildList0  ; 0
+                offsetTableEntry.w MtzPulley_ChildList1  ; 1
+                offsetTableEntry.w MtzPulley_ChildList2  ; 2
+MtzPulley_ChildList0:
                 dc.b    0,  7,  0,  0,  0,  0,  0,  1,$FF,$E0,  0,$3A,  0,  3,$FF,$E0
                 dc.b    0,$80,  0,  3,$FF,$E0,  0,$C6,  0,  3,  0,  0,  1,  0,  0,  6  ; 16
                 dc.b    0,$20,  0,$C6,  0,  8,  0,$20,  0,$80,  0,  8,  0,$20,  0,$3A  ; 32
                 dc.b    0,  8                           ; 48
-MtzPulleyPlatform_PulleyChildren_ChildList1:
+MtzPulley_ChildList1:
                 dc.b    0,  7,  0,  0,  0,  0,  0,$11,$FF,$E0,  0,$5A,  0,$13,$FF,$E0
                 dc.b    0,$C0,  0,$13,$FF,$E0,  1,$26,  0,$13,  0,  0,  1,$80,  0,$16  ; 16
                 dc.b    0,$20,  1,$26,  0,$18,  0,$20,  0,$C0,  0,$18,  0,$20,  0,$5A  ; 32
                 dc.b    0,$18                           ; 48
-MtzPulleyPlatform_PulleyChildren_ChildList2:
+MtzPulley_ChildList2:
                 dc.b    0,  7,  0,  0,  0,  0,  0,$21,$FF,$E0,  0,$7A,  0,$23,$FF,$E0
                 dc.b    1,  0,  0,$23,$FF,$E0,  1,$86,  0,$23,  0,  0,  2,  0,  0,$26  ; 16
                 dc.b    0,$20,  1,$86,  0,$28,  0,$20,  1,  0,  0,$28,  0,$20,  0,$7A  ; 32

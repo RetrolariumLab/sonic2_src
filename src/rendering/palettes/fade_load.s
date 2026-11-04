@@ -468,7 +468,7 @@ loc_269E:
                 moveq   #0,d0
                 moveq   #$2C,d1
 
-RenderingPalettesFadeLoad_CountedLoopD1_Variant2:
+PalFadeLoad_LoopD1_Variant2:
                 move.w  d0,d2
                 andi.w  #$1E,d2
                 bne.s   loc_26C8
@@ -477,7 +477,7 @@ RenderingPalettesFadeLoad_CountedLoopD1_Variant2:
 loc_26C8:
                 move.w  (a0),(a1,d0.w)
                 addq.w  #2,d0
-                dbf     d1,RenderingPalettesFadeLoad_CountedLoopD1_Variant2
+                dbf     d1,PalFadeLoad_LoopD1_Variant2
 
 loc_26D2:
                 moveq   #1,d0

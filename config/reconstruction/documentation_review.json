@@ -83,6 +83,10 @@
     {
       "id": "DOC-020",
       "resolution": "Expand the README to the Sonic 1 reader structure with actual Sonic 2 commands, verified format/input counts, published milestone links, fixed-tag versus maintenance checks, repository map, credits and the verbatim upstream disclaimer."
+    },
+    {
+      "id": "DOC-021",
+      "resolution": "Separate the 40-character check on original declarations from formatting on the temporary ASL mirror."
     }
   ],
   "documents": [
@@ -113,8 +117,8 @@
     {
       "path": "docs/build.md",
       "action": "updated",
-      "reason": "Explain dependencies, verified private inputs and the exact AS/p2bin/audio pipeline; replace obsolete phase-only status.",
-      "sha256": "47764b0835efe0821cd622c98da77e4bb4b2b248460c0c895e49afffa506f2ae"
+      "reason": "Record the pinned label-aware Kit and its direct check of original AS sources.",
+      "sha256": "21c80e814283c3df3712799179bfaff284590d8627050583a298776a6af6df4c"
     },
     {
       "path": "docs/content_workflow.md",
@@ -173,8 +177,8 @@
     {
       "path": "docs/style.md",
       "action": "updated",
-      "reason": "Explain the AS syntax compatibility bridge and shared formatter lifecycle separately from build prerequisites.",
-      "sha256": "58edcfcf49e2663be3923cda5b8b796463a84bbd70997d22b4201e03456ed071"
+      "reason": "Record the pinned label-aware Kit and its direct check of original AS sources.",
+      "sha256": "3ee40071105832219de21adc066262302f7ff27c25ee35110ad7c963444de989"
     },
     {
       "path": "docs/symbols.md",

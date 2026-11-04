@@ -122,7 +122,7 @@ JmpTo39_DeleteObject                                    ; JmpTo
 ; loc_294EA:
 Obj7A_SubObject:
                 bsr.s   SharedSlidingPlatform_MoveHorizontally
-                bsr.s   SharedSlidingPlatforms_ReversePairAtContact
+                bsr.s   SlidingPlatforms_ReversePairAtContact
                 jmp     (DisplaySprite).l
 ; ===========================================================================
 
@@ -158,7 +158,7 @@ loc_2952C:
                 rts
 ; ===========================================================================
 
-SharedSlidingPlatforms_ReversePairAtContact:
+SlidingPlatforms_ReversePairAtContact:
                 movea.l objoff_3C(a0),a1                ; a1=object
                 move.w  x_pos(a0),d0
                 subi.w  #$18,d0

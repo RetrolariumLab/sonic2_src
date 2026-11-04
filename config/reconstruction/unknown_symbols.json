@@ -4017,14 +4017,14 @@
           "start": 83290,
           "end_exclusive": 83300,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "BranchTo3_Obj34_MoveTowardsTargetPosition"
+          "end_symbol": "SSResults_MoveToTarget"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 83290,
           "end_exclusive": 83300,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "BranchTo3_Obj34_MoveTowardsTargetPosition"
+          "end_symbol": "SSResults_MoveToTarget"
         }
       }
     },
@@ -4125,14 +4125,14 @@
           "start": 87530,
           "end_exclusive": 87536,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GameLevelTitleCards_CountedLoopD7_Variant2"
+          "end_symbol": "TitleCards_LoopD7_Variant2"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 87530,
           "end_exclusive": 87536,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GameLevelTitleCards_CountedLoopD7_Variant2"
+          "end_symbol": "TitleCards_LoopD7_Variant2"
         }
       }
     },
@@ -4197,14 +4197,14 @@
           "start": 87604,
           "end_exclusive": 87616,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GameLevelTitleCards_CountedLoopD7_Variant3"
+          "end_symbol": "TitleCards_LoopD7_Variant3"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 87604,
           "end_exclusive": 87616,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GameLevelTitleCards_CountedLoopD7_Variant3"
+          "end_symbol": "TitleCards_LoopD7_Variant3"
         }
       }
     },
@@ -4212,7 +4212,7 @@
       "symbol": "loc_15664",
       "status": "unknown",
       "owner": "src/game/level",
-      "known_role": "Internal control-flow entry in GameLevelTitleCards_CountedLoopD3_Variant2; first operation dbf d7,GameLevelTitleCards_CountedLoopD7_Variant3.",
+      "known_role": "Internal control-flow entry in TitleCards_LoopD3_Variant2; first operation dbf d7,GameLevelTitleCards_CountedLoopD7_Variant3.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_15664 in src/game/level/title_cards.s, including register and object-field state on every entry.",
@@ -4248,7 +4248,7 @@
       "symbol": "loc_15670",
       "status": "unknown",
       "owner": "src/game/level",
-      "known_role": "Internal control-flow entry in GameLevelTitleCards_CountedLoopD3_Variant2; first operation moveq #9,d3.",
+      "known_role": "Internal control-flow entry in TitleCards_LoopD3_Variant2; first operation moveq #9,d3.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_15670 in src/game/level/title_cards.s, including register and object-field state on every entry.",
@@ -4269,14 +4269,14 @@
           "start": 87664,
           "end_exclusive": 87714,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GameLevelTitleCards_CountedLoopD7_Variant4"
+          "end_symbol": "TitleCards_LoopD7_Variant4"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 87664,
           "end_exclusive": 87714,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GameLevelTitleCards_CountedLoopD7_Variant4"
+          "end_symbol": "TitleCards_LoopD7_Variant4"
         }
       }
     },
@@ -4305,14 +4305,14 @@
           "start": 87758,
           "end_exclusive": 87796,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GameLevelTitleCards_CountedLoopD7_Variant5"
+          "end_symbol": "TitleCards_LoopD7_Variant5"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 87758,
           "end_exclusive": 87796,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GameLevelTitleCards_CountedLoopD7_Variant5"
+          "end_symbol": "TitleCards_LoopD7_Variant5"
         }
       }
     },
@@ -4320,7 +4320,7 @@
       "symbol": "loc_15714",
       "status": "unknown",
       "owner": "src/game/level",
-      "known_role": "Internal control-flow entry in GameLevelTitleCards_CountedLoopD7_Variant5; first operation dbf d7,GameLevelTitleCards_CountedLoopD7_Variant5.",
+      "known_role": "Internal control-flow entry in TitleCards_LoopD7_Variant5; first operation dbf d7,GameLevelTitleCards_CountedLoopD7_Variant5.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_15714 in src/game/level/title_cards.s, including register and object-field state on every entry.",
@@ -4356,7 +4356,7 @@
       "symbol": "loc_15758",
       "status": "unknown",
       "owner": "src/game/level",
-      "known_role": "Internal control-flow entry in GameLevelTitleCards_CountedLoopD7_Variant5; first operation lea (Camera_X_pos).w,a3.",
+      "known_role": "Internal control-flow entry in TitleCards_LoopD7_Variant5; first operation lea (Camera_X_pos).w,a3.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_15758 in src/game/level/title_cards.s, including register and object-field state on every entry.",
@@ -4392,7 +4392,7 @@
       "symbol": "loc_1578C",
       "status": "unknown",
       "owner": "src/game/level",
-      "known_role": "Internal control-flow entry in GameLevelTitleCards_CountedLoopD7_Variant5; first operation clr.w (TitleCard_Background+titlecard_vram_dest).w.",
+      "known_role": "Internal control-flow entry in TitleCards_LoopD7_Variant5; first operation clr.w (TitleCard_Background+titlecard_vram_dest).w.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1578C in src/game/level/title_cards.s, including register and object-field state on every entry.",
@@ -9269,14 +9269,14 @@
           "start": 110034,
           "end_exclusive": 110038,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerSonicSpindashAndSlopes_Return_Variant2"
+          "end_symbol": "SonicSpindashSlopes_Return_Variant2"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 110022,
           "end_exclusive": 110026,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerSonicSpindashAndSlopes_Return_Variant2"
+          "end_symbol": "SonicSpindashSlopes_Return_Variant2"
         }
       }
     },
@@ -9377,14 +9377,14 @@
           "start": 110094,
           "end_exclusive": 110098,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerSonicSpindashAndSlopes_Return_Variant3"
+          "end_symbol": "SonicSpindashSlopes_Return_Variant3"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 110082,
           "end_exclusive": 110086,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerSonicSpindashAndSlopes_Return_Variant3"
+          "end_symbol": "SonicSpindashSlopes_Return_Variant3"
         }
       }
     },
@@ -9392,7 +9392,7 @@
       "symbol": "loc_1AE44",
       "status": "unknown",
       "owner": "src/game/player/sonic",
-      "known_role": "Internal control-flow entry in GamePlayerSonicSpindashAndSlopes_Return_Variant4; first operation subq.w #1,move_lock(a0).",
+      "known_role": "Internal control-flow entry in SonicSpindashSlopes_Return_Variant4; first operation subq.w #1,move_lock(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1AE44 in src/game/player/sonic/spindash_and_slopes.s, including register and object-field state on every entry.",
@@ -9593,14 +9593,14 @@
           "start": 110648,
           "end_exclusive": 110670,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerSonicAirCollision_Return_Variant4"
+          "end_symbol": "SonicAirCollision_Return_Variant4"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 110636,
           "end_exclusive": 110658,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerSonicAirCollision_Return_Variant4"
+          "end_symbol": "SonicAirCollision_Return_Variant4"
         }
       }
     },
@@ -9845,14 +9845,14 @@
           "start": 113780,
           "end_exclusive": 113898,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerTailsFollowerAi_Return_Variant2"
+          "end_symbol": "TailsFollowerAI_Return_Variant2"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 113768,
           "end_exclusive": 113886,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerTailsFollowerAi_Return_Variant2"
+          "end_symbol": "TailsFollowerAI_Return_Variant2"
         }
       }
     },
@@ -10133,14 +10133,14 @@
           "start": 116866,
           "end_exclusive": 116870,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerTailsSpindashAndSlopes_Return_Variant2"
+          "end_symbol": "TailsSpindashSlopes_Return_Variant2"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 116854,
           "end_exclusive": 116858,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerTailsSpindashAndSlopes_Return_Variant2"
+          "end_symbol": "TailsSpindashSlopes_Return_Variant2"
         }
       }
     },
@@ -10241,14 +10241,14 @@
           "start": 116926,
           "end_exclusive": 116930,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerTailsSpindashAndSlopes_Return_Variant3"
+          "end_symbol": "TailsSpindashSlopes_Return_Variant3"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 116914,
           "end_exclusive": 116918,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerTailsSpindashAndSlopes_Return_Variant3"
+          "end_symbol": "TailsSpindashSlopes_Return_Variant3"
         }
       }
     },
@@ -10256,7 +10256,7 @@
       "symbol": "loc_1C8F4",
       "status": "unknown",
       "owner": "src/game/player/tails",
-      "known_role": "Internal control-flow entry in GamePlayerTailsSpindashAndSlopes_Return_Variant4; first operation subq.w #1,move_lock(a0).",
+      "known_role": "Internal control-flow entry in TailsSpindashSlopes_Return_Variant4; first operation subq.w #1,move_lock(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1C8F4 in src/game/player/tails/spindash_and_slopes.s, including register and object-field state on every entry.",
@@ -10457,14 +10457,14 @@
           "start": 117480,
           "end_exclusive": 117502,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerTailsAirCollision_Return_Variant4"
+          "end_symbol": "TailsAirCollision_Return_Variant4"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 117468,
           "end_exclusive": 117490,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerTailsAirCollision_Return_Variant4"
+          "end_symbol": "TailsAirCollision_Return_Variant4"
         }
       }
     },
@@ -10925,14 +10925,14 @@
           "start": 123522,
           "end_exclusive": 123660,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerCollisionSurfaceAlignment_Return"
+          "end_symbol": "SurfaceAlignment_Return"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 123538,
           "end_exclusive": 123676,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "GamePlayerCollisionSurfaceAlignment_Return"
+          "end_symbol": "SurfaceAlignment_Return"
         }
       }
     },
@@ -10940,7 +10940,7 @@
       "symbol": "loc_1E31E",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return; first operation mvabs.b x_vel(a0),d0.",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return; first operation mvabs.b x_vel(a0),d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E31E in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -10976,7 +10976,7 @@
       "symbol": "loc_1E336",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return; first operation add.w d1,y_pos(a0).",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return; first operation add.w d1,y_pos(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E336 in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11012,7 +11012,7 @@
       "symbol": "loc_1E33C",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return; first operation tst.b stick_to_convex(a0).",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return; first operation tst.b stick_to_convex(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E33C in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11084,7 +11084,7 @@
       "symbol": "loc_1E402",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return_Variant2; first operation mvabs.b y_vel(a0),d0.",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return_Variant2; first operation mvabs.b y_vel(a0),d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E402 in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11120,7 +11120,7 @@
       "symbol": "loc_1E41A",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return_Variant2; first operation add.w d1,x_pos(a0).",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return_Variant2; first operation add.w d1,x_pos(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E41A in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11156,7 +11156,7 @@
       "symbol": "loc_1E420",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return_Variant2; first operation tst.b stick_to_convex(a0).",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return_Variant2; first operation tst.b stick_to_convex(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E420 in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11192,7 +11192,7 @@
       "symbol": "loc_1E4B0",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return_Variant3; first operation mvabs.b x_vel(a0),d0.",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return_Variant3; first operation mvabs.b x_vel(a0),d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E4B0 in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11228,7 +11228,7 @@
       "symbol": "loc_1E4C8",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return_Variant3; first operation sub.w d1,y_pos(a0).",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return_Variant3; first operation sub.w d1,y_pos(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E4C8 in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11264,7 +11264,7 @@
       "symbol": "loc_1E4CE",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return_Variant3; first operation tst.b stick_to_convex(a0).",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return_Variant3; first operation tst.b stick_to_convex(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E4CE in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11300,7 +11300,7 @@
       "symbol": "loc_1E55E",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return_Variant4; first operation mvabs.b y_vel(a0),d0.",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return_Variant4; first operation mvabs.b y_vel(a0),d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E55E in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11336,7 +11336,7 @@
       "symbol": "loc_1E576",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return_Variant4; first operation sub.w d1,x_pos(a0).",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return_Variant4; first operation sub.w d1,x_pos(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E576 in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -11372,7 +11372,7 @@
       "symbol": "loc_1E57C",
       "status": "unknown",
       "owner": "src/game/player/collision",
-      "known_role": "Internal control-flow entry in GamePlayerCollisionSurfaceAlignment_Return_Variant4; first operation tst.b stick_to_convex(a0).",
+      "known_role": "Internal control-flow entry in SurfaceAlignment_Return_Variant4; first operation tst.b stick_to_convex(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_1E57C in src/game/player/collision/surface_alignment.s, including register and object-field state on every entry.",
@@ -17090,7 +17090,7 @@
       "symbol": "loc_243FE",
       "status": "unknown",
       "owner": "src/game/objects/environment/ooz",
-      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseHorizontalContact; first operation addi.w #$A,d0.",
+      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseSideContact; first operation addi.w #$A,d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_243FE in src/game/objects/environment/ooz/pressure_spring.s, including register and object-field state on every entry.",
@@ -17126,7 +17126,7 @@
       "symbol": "loc_2442C",
       "status": "unknown",
       "owner": "src/game/objects/environment/ooz",
-      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseHorizontalContact; first operation move.w #$F,move_lock(a1).",
+      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseSideContact; first operation move.w #$F,move_lock(a1).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_2442C in src/game/objects/environment/ooz/pressure_spring.s, including register and object-field state on every entry.",
@@ -17162,7 +17162,7 @@
       "symbol": "loc_24446",
       "status": "unknown",
       "owner": "src/game/objects/environment/ooz",
-      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseHorizontalContact; first operation move.b subtype(a0),d0.",
+      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseSideContact; first operation move.b subtype(a0),d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_24446 in src/game/objects/environment/ooz/pressure_spring.s, including register and object-field state on every entry.",
@@ -17198,7 +17198,7 @@
       "symbol": "loc_24452",
       "status": "unknown",
       "owner": "src/game/objects/environment/ooz",
-      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseHorizontalContact; first operation btst #0,d0.",
+      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseSideContact; first operation btst #0,d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_24452 in src/game/objects/environment/ooz/pressure_spring.s, including register and object-field state on every entry.",
@@ -17234,7 +17234,7 @@
       "symbol": "loc_24482",
       "status": "unknown",
       "owner": "src/game/objects/environment/ooz",
-      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseHorizontalContact; first operation btst #status.player.x_flip,status(a1).",
+      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseSideContact; first operation btst #status.player.x_flip,status(a1).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_24482 in src/game/objects/environment/ooz/pressure_spring.s, including register and object-field state on every entry.",
@@ -17270,7 +17270,7 @@
       "symbol": "loc_24492",
       "status": "unknown",
       "owner": "src/game/objects/environment/ooz",
-      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseHorizontalContact; first operation andi.b #$C,d0.",
+      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseSideContact; first operation andi.b #$C,d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_24492 in src/game/objects/environment/ooz/pressure_spring.s, including register and object-field state on every entry.",
@@ -17306,7 +17306,7 @@
       "symbol": "loc_244A8",
       "status": "unknown",
       "owner": "src/game/objects/environment/ooz",
-      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseHorizontalContact; first operation cmpi.b #8,d0.",
+      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseSideContact; first operation cmpi.b #8,d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_244A8 in src/game/objects/environment/ooz/pressure_spring.s, including register and object-field state on every entry.",
@@ -17342,7 +17342,7 @@
       "symbol": "loc_244BA",
       "status": "unknown",
       "owner": "src/game/objects/environment/ooz",
-      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseHorizontalContact; first operation bclr #status.player.pushing,status(a1).",
+      "known_role": "Internal control-flow entry in OozPressureSpring_ReleaseSideContact; first operation bclr #status.player.pushing,status(a1).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_244BA in src/game/objects/environment/ooz/pressure_spring.s, including register and object-field state on every entry.",
@@ -19991,14 +19991,14 @@
           "start": 9874,
           "end_exclusive": 9906,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "RenderingPalettesFadeLoad_CountedLoopD1_Variant2"
+          "end_symbol": "PalFadeLoad_LoopD1_Variant2"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 9886,
           "end_exclusive": 9918,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "RenderingPalettesFadeLoad_CountedLoopD1_Variant2"
+          "end_symbol": "PalFadeLoad_LoopD1_Variant2"
         }
       }
     },
@@ -20402,7 +20402,7 @@
       "symbol": "loc_26C8",
       "status": "unknown",
       "owner": "src/rendering/palettes",
-      "known_role": "Internal control-flow entry in RenderingPalettesFadeLoad_CountedLoopD1_Variant2; first operation move.w (a0),(a1,d0.w).",
+      "known_role": "Internal control-flow entry in PalFadeLoad_LoopD1_Variant2; first operation move.w (a0),(a1,d0.w).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_26C8 in src/rendering/palettes/fade_load.s, including register and object-field state on every entry.",
@@ -20654,7 +20654,7 @@
       "symbol": "loc_26D2",
       "status": "unknown",
       "owner": "src/rendering/palettes",
-      "known_role": "Internal control-flow entry in RenderingPalettesFadeLoad_CountedLoopD1_Variant2; first operation moveq #1,d0.",
+      "known_role": "Internal control-flow entry in PalFadeLoad_LoopD1_Variant2; first operation moveq #1,d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_26D2 in src/rendering/palettes/fade_load.s, including register and object-field state on every entry.",
@@ -23663,14 +23663,14 @@
           "start": 169260,
           "end_exclusive": 169278,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "SharedSlidingPlatforms_ReversePairAtContact"
+          "end_symbol": "SlidingPlatforms_ReversePairAtContact"
         },
         "rev01": {
           "address_space": "m68000-rom",
           "start": 169260,
           "end_exclusive": 169278,
           "bound_reason": "Physical declaration up to the following declared symbol; aliases may have an empty extent. This is not a claim about transitive control flow.",
-          "end_symbol": "SharedSlidingPlatforms_ReversePairAtContact"
+          "end_symbol": "SlidingPlatforms_ReversePairAtContact"
         }
       }
     },
@@ -24866,7 +24866,7 @@
       "symbol": "loc_2A44E",
       "status": "unknown",
       "owner": "src/game/objects/environment/arz",
-      "known_role": "Internal control-flow entry in ArzSwingingPlatform_UpdateStandingResponse; first operation cmpi.b #$40,objoff_3E(a0).",
+      "known_role": "Internal control-flow entry in ArzSwingPlatform_UpdateStanding; first operation cmpi.b #$40,objoff_3E(a0).",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_2A44E in src/game/objects/environment/arz/swinging_platform.s, including register and object-field state on every entry.",
@@ -24902,7 +24902,7 @@
       "symbol": "loc_2A45A",
       "status": "unknown",
       "owner": "src/game/objects/environment/arz",
-      "known_role": "Internal control-flow entry in ArzSwingingPlatform_UpdateStandingResponse; first operation move.b objoff_3E(a0),d0.",
+      "known_role": "Internal control-flow entry in ArzSwingPlatform_UpdateStanding; first operation move.b objoff_3E(a0),d0.",
       "unresolved": "A distinct gameplay purpose and a complete entry-state contract for this internal branch target remain unconfirmed.",
       "reason": "This block is a continuation within a larger routine; its first instruction does not prove an independent semantic role.",
       "next_check": "Trace incoming edges and the enclosing routine around loc_2A45A in src/game/objects/environment/arz/swinging_platform.s, including register and object-field state on every entry.",

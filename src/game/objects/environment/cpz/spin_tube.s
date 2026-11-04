@@ -773,8 +773,8 @@ CpzSpinTube_TubePaths_Variant2: offsetTable
                 offsetTableEntry.w CpzSpinTube_TubePaths_Path7_Variant2
                 offsetTableEntry.w CpzSpinTube_TubePaths_Path8_Variant2
                 offsetTableEntry.w CpzSpinTube_TubePaths_Path9_Variant2
-                offsetTableEntry.w CpzSpinTube_TubePaths_Path10_Variant2
-                offsetTableEntry.w CpzSpinTube_TubePaths_Path11_Variant2
+                offsetTableEntry.w CpzSpinTube_Path10_Variant2
+                offsetTableEntry.w CpzSpinTube_Path11_Variant2
                 offsetTableEntry.w CpzSpinTube_TubePaths_Path12
                 offsetTableEntry.w CpzSpinTube_TubePaths_Path13
                 offsetTableEntry.w CpzSpinTube_TubePaths_Path14
@@ -856,21 +856,21 @@ CpzSpinTube_TubePaths_Path9_Variant2:   obj1E67Size
                 dc.w    $2570, $530
 CpzSpinTube_TubePaths_Path9_Variant2_End
 
-CpzSpinTube_TubePaths_Path10_Variant2:  obj1E67Size
+CpzSpinTube_Path10_Variant2:    obj1E67Size
                 dc.w    $310, $330
                 dc.w    $290, $330
                 dc.w    $290, $230
                 dc.w    $490, $230
-CpzSpinTube_TubePaths_Path10_Variant2_End
+CpzSpinTube_Path10_Variant2_End
 
-CpzSpinTube_TubePaths_Path11_Variant2:  obj1E67Size
+CpzSpinTube_Path11_Variant2:    obj1E67Size
                 dc.w    $310, $370
                 dc.w    $310, $3B0
                 dc.w    $410, $3B0
                 dc.w    $410, $2B0
                 dc.w    $490, $2B0
                 dc.w    $490, $270
-CpzSpinTube_TubePaths_Path11_Variant2_End
+CpzSpinTube_Path11_Variant2_End
 
 CpzSpinTube_TubePaths_Path12:   obj1E67Size
                 dc.w    $490, $6F0

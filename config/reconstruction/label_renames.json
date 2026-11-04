@@ -4230,7 +4230,7 @@
     },
     {
       "old": "byte_362E8",
-      "new": "ChaosEmerald_Animation_Sequence0_Variant2",
+      "new": "ChaosEmerald_AnimSeq0_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4256,7 +4256,7 @@
     },
     {
       "old": "byte_362EE",
-      "new": "ChaosEmerald_Animation_Sequence1_Variant2",
+      "new": "ChaosEmerald_AnimSeq1_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4282,7 +4282,7 @@
     },
     {
       "old": "byte_362F4",
-      "new": "ChaosEmerald_Animation_Sequence2_Variant2",
+      "new": "ChaosEmerald_AnimSeq2_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4308,7 +4308,7 @@
     },
     {
       "old": "byte_362FA",
-      "new": "ChaosEmerald_Animation_Sequence3_Variant2",
+      "new": "ChaosEmerald_AnimSeq3_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4334,7 +4334,7 @@
     },
     {
       "old": "byte_36300",
-      "new": "ChaosEmerald_Animation_Sequence4_Variant2",
+      "new": "ChaosEmerald_AnimSeq4_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4360,7 +4360,7 @@
     },
     {
       "old": "byte_36306",
-      "new": "ChaosEmerald_Animation_Sequence5_Variant2",
+      "new": "ChaosEmerald_AnimSeq5_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 5 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4386,7 +4386,7 @@
     },
     {
       "old": "byte_3630C",
-      "new": "ChaosEmerald_Animation_Sequence6_Variant2",
+      "new": "ChaosEmerald_AnimSeq6_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 6 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4412,7 +4412,7 @@
     },
     {
       "old": "byte_36312",
-      "new": "ChaosEmerald_Animation_Sequence7_Variant2",
+      "new": "ChaosEmerald_AnimSeq7_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 7 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4438,7 +4438,7 @@
     },
     {
       "old": "byte_36318",
-      "new": "ChaosEmerald_Animation_Sequence8_Variant2",
+      "new": "ChaosEmerald_AnimSeq8_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 8 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4464,7 +4464,7 @@
     },
     {
       "old": "byte_3631E",
-      "new": "ChaosEmerald_Animation_Sequence9_Variant2",
+      "new": "ChaosEmerald_AnimSeq9_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 9 in the checked animation-object-s2 table Ani_obj5B_obj60 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4516,7 +4516,7 @@
     },
     {
       "old": "byte_364E4",
-      "new": "ChaosEmerald_Animation_Sequence0_Variant3",
+      "new": "ChaosEmerald_AnimSeq0_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4542,7 +4542,7 @@
     },
     {
       "old": "byte_364E7",
-      "new": "ChaosEmerald_Animation_Sequence1_Variant3",
+      "new": "ChaosEmerald_AnimSeq1_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4568,7 +4568,7 @@
     },
     {
       "old": "byte_364EA",
-      "new": "ChaosEmerald_Animation_Sequence2_Variant3",
+      "new": "ChaosEmerald_AnimSeq2_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4594,7 +4594,7 @@
     },
     {
       "old": "byte_364ED",
-      "new": "ChaosEmerald_Animation_Sequence3_Variant3",
+      "new": "ChaosEmerald_AnimSeq3_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4620,7 +4620,7 @@
     },
     {
       "old": "byte_364F0",
-      "new": "ChaosEmerald_Animation_Sequence4_Variant3",
+      "new": "ChaosEmerald_AnimSeq4_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4646,7 +4646,7 @@
     },
     {
       "old": "byte_364F3",
-      "new": "ChaosEmerald_Animation_Sequence5_Variant3",
+      "new": "ChaosEmerald_AnimSeq5_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 5 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4672,7 +4672,7 @@
     },
     {
       "old": "byte_364F6",
-      "new": "ChaosEmerald_Animation_Sequence6_Variant3",
+      "new": "ChaosEmerald_AnimSeq6_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 6 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4698,7 +4698,7 @@
     },
     {
       "old": "byte_364F9",
-      "new": "ChaosEmerald_Animation_Sequence7_Variant3",
+      "new": "ChaosEmerald_AnimSeq7_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 7 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4724,7 +4724,7 @@
     },
     {
       "old": "byte_364FC",
-      "new": "ChaosEmerald_Animation_Sequence8_Variant3",
+      "new": "ChaosEmerald_AnimSeq8_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 8 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4750,7 +4750,7 @@
     },
     {
       "old": "byte_364FF",
-      "new": "ChaosEmerald_Animation_Sequence9_Variant3",
+      "new": "ChaosEmerald_AnimSeq9_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 9 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -4776,7 +4776,7 @@
     },
     {
       "old": "byte_36502",
-      "new": "ChaosEmerald_Animation_Sequence10_Variant2",
+      "new": "ChaosEmerald_AnimSeq10_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 10 in the checked animation-object-s2 table Ani_obj61 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -5943,7 +5943,7 @@
     },
     {
       "old": "byte_39E4C",
-      "new": "MechaSonicBoss_Animation_Sequence0_Variant2",
+      "new": "MechaSonic_AnimSeq0_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked animation-object-s2 table Ani_objAF_c targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -5969,7 +5969,7 @@
     },
     {
       "old": "byte_39E54",
-      "new": "MechaSonicBoss_Animation_Sequence1_Variant2",
+      "new": "MechaSonic_AnimSeq1_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked animation-object-s2 table Ani_objAF_c targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -5995,7 +5995,7 @@
     },
     {
       "old": "byte_39E5C",
-      "new": "MechaSonicBoss_Animation_Sequence2_Variant2",
+      "new": "MechaSonic_AnimSeq2_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked animation-object-s2 table Ani_objAF_c targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6021,7 +6021,7 @@
     },
     {
       "old": "byte_39E60",
-      "new": "MechaSonicBoss_Animation_Sequence3_Variant2",
+      "new": "MechaSonic_AnimSeq3_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked animation-object-s2 table Ani_objAF_c targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6047,7 +6047,7 @@
     },
     {
       "old": "byte_39E64",
-      "new": "MechaSonicBoss_Animation_Sequence4_Variant2",
+      "new": "MechaSonic_AnimSeq4_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked animation-object-s2 table Ani_objAF_c targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6125,7 +6125,7 @@
     },
     {
       "old": "byte_3B4FC",
-      "new": "SharedHorizontalPropeller_Animation_Sequence0",
+      "new": "HorizontalPropeller_AnimSeq0",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6151,7 +6151,7 @@
     },
     {
       "old": "byte_3B506",
-      "new": "SharedHorizontalPropeller_Animation_Sequence1",
+      "new": "HorizontalPropeller_AnimSeq1",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6177,7 +6177,7 @@
     },
     {
       "old": "byte_3B50E",
-      "new": "SharedHorizontalPropeller_Animation_Sequence2",
+      "new": "HorizontalPropeller_AnimSeq2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6203,7 +6203,7 @@
     },
     {
       "old": "byte_3B516",
-      "new": "SharedHorizontalPropeller_Animation_Sequence3",
+      "new": "HorizontalPropeller_AnimSeq3",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6229,7 +6229,7 @@
     },
     {
       "old": "byte_3B51C",
-      "new": "SharedHorizontalPropeller_Animation_Sequence4",
+      "new": "HorizontalPropeller_AnimSeq4",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6255,7 +6255,7 @@
     },
     {
       "old": "byte_3B524",
-      "new": "SharedHorizontalPropeller_Animation_Sequence5",
+      "new": "HorizontalPropeller_AnimSeq5",
       "kind": "data_table",
       "reason": "Pointer index 5 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6281,7 +6281,7 @@
     },
     {
       "old": "byte_3B52A",
-      "new": "SharedHorizontalPropeller_Animation_Sequence6",
+      "new": "HorizontalPropeller_AnimSeq6",
       "kind": "data_table",
       "reason": "Pointer index 6 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6307,7 +6307,7 @@
     },
     {
       "old": "byte_3B532",
-      "new": "SharedHorizontalPropeller_Animation_Sequence7",
+      "new": "HorizontalPropeller_AnimSeq7",
       "kind": "data_table",
       "reason": "Pointer index 7 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6333,7 +6333,7 @@
     },
     {
       "old": "byte_3B53A",
-      "new": "SharedHorizontalPropeller_Animation_Sequence8",
+      "new": "HorizontalPropeller_AnimSeq8",
       "kind": "data_table",
       "reason": "Pointer index 8 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6359,7 +6359,7 @@
     },
     {
       "old": "byte_3B544",
-      "new": "SharedHorizontalPropeller_Animation_Sequence9",
+      "new": "HorizontalPropeller_AnimSeq9",
       "kind": "data_table",
       "reason": "Pointer index 9 in the checked animation-object-s2 table Ani_objB5 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6671,7 +6671,7 @@
     },
     {
       "old": "byte_2EA72",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence0",
+      "new": "CpzBossGunk_AnimSeq0",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6697,7 +6697,7 @@
     },
     {
       "old": "byte_2EA75",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence1",
+      "new": "CpzBossGunk_AnimSeq1",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6723,7 +6723,7 @@
     },
     {
       "old": "byte_2EA78",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence2",
+      "new": "CpzBossGunk_AnimSeq2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6749,7 +6749,7 @@
     },
     {
       "old": "byte_2EA7D",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence3",
+      "new": "CpzBossGunk_AnimSeq3",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6775,7 +6775,7 @@
     },
     {
       "old": "byte_2EA81",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence4",
+      "new": "CpzBossGunk_AnimSeq4",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6801,7 +6801,7 @@
     },
     {
       "old": "byte_2EA88",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence5",
+      "new": "CpzBossGunk_AnimSeq5",
       "kind": "data_table",
       "reason": "Pointer index 5 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6827,7 +6827,7 @@
     },
     {
       "old": "byte_2EA8B",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence6",
+      "new": "CpzBossGunk_AnimSeq6",
       "kind": "data_table",
       "reason": "Pointer index 6 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6853,7 +6853,7 @@
     },
     {
       "old": "byte_2EA8E",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence7",
+      "new": "CpzBossGunk_AnimSeq7",
       "kind": "data_table",
       "reason": "Pointer index 7 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6879,7 +6879,7 @@
     },
     {
       "old": "byte_2EA91",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence8",
+      "new": "CpzBossGunk_AnimSeq8",
       "kind": "data_table",
       "reason": "Pointer index 8 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6905,7 +6905,7 @@
     },
     {
       "old": "byte_2EA94",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence9",
+      "new": "CpzBossGunk_AnimSeq9",
       "kind": "data_table",
       "reason": "Pointer index 9 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6931,7 +6931,7 @@
     },
     {
       "old": "byte_2EA97",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence10",
+      "new": "CpzBossGunk_AnimSeq10",
       "kind": "data_table",
       "reason": "Pointer index 10 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6957,7 +6957,7 @@
     },
     {
       "old": "byte_2EAA3",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence11",
+      "new": "CpzBossGunk_AnimSeq11",
       "kind": "data_table",
       "reason": "Pointer index 11 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -6983,7 +6983,7 @@
     },
     {
       "old": "byte_2EAAE",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence12",
+      "new": "CpzBossGunk_AnimSeq12",
       "kind": "data_table",
       "reason": "Pointer index 12 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7009,7 +7009,7 @@
     },
     {
       "old": "byte_2EAB1",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence13",
+      "new": "CpzBossGunk_AnimSeq13",
       "kind": "data_table",
       "reason": "Pointer index 13 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7035,7 +7035,7 @@
     },
     {
       "old": "byte_2EAB4",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence14",
+      "new": "CpzBossGunk_AnimSeq14",
       "kind": "data_table",
       "reason": "Pointer index 14 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7061,7 +7061,7 @@
     },
     {
       "old": "byte_2EAB7",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence15",
+      "new": "CpzBossGunk_AnimSeq15",
       "kind": "data_table",
       "reason": "Pointer index 15 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7087,7 +7087,7 @@
     },
     {
       "old": "byte_2EABA",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence16",
+      "new": "CpzBossGunk_AnimSeq16",
       "kind": "data_table",
       "reason": "Pointer index 16 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7113,7 +7113,7 @@
     },
     {
       "old": "byte_2EABD",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence17",
+      "new": "CpzBossGunk_AnimSeq17",
       "kind": "data_table",
       "reason": "Pointer index 17 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7139,7 +7139,7 @@
     },
     {
       "old": "byte_2EAC0",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence18",
+      "new": "CpzBossGunk_AnimSeq18",
       "kind": "data_table",
       "reason": "Pointer index 18 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7165,7 +7165,7 @@
     },
     {
       "old": "byte_2EAC3",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence19",
+      "new": "CpzBossGunk_AnimSeq19",
       "kind": "data_table",
       "reason": "Pointer index 19 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7191,7 +7191,7 @@
     },
     {
       "old": "byte_2EAC6",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence20",
+      "new": "CpzBossGunk_AnimSeq20",
       "kind": "data_table",
       "reason": "Pointer index 20 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7217,7 +7217,7 @@
     },
     {
       "old": "byte_2EAC9",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence21",
+      "new": "CpzBossGunk_AnimSeq21",
       "kind": "data_table",
       "reason": "Pointer index 21 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7243,7 +7243,7 @@
     },
     {
       "old": "byte_2EACC",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence22",
+      "new": "CpzBossGunk_AnimSeq22",
       "kind": "data_table",
       "reason": "Pointer index 22 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7269,7 +7269,7 @@
     },
     {
       "old": "byte_2EACF",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence23",
+      "new": "CpzBossGunk_AnimSeq23",
       "kind": "data_table",
       "reason": "Pointer index 23 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7295,7 +7295,7 @@
     },
     {
       "old": "byte_2EAD2",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence24",
+      "new": "CpzBossGunk_AnimSeq24",
       "kind": "data_table",
       "reason": "Pointer index 24 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7321,7 +7321,7 @@
     },
     {
       "old": "byte_2EAD5",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence25",
+      "new": "CpzBossGunk_AnimSeq25",
       "kind": "data_table",
       "reason": "Pointer index 25 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7347,7 +7347,7 @@
     },
     {
       "old": "byte_2EAD9",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence26",
+      "new": "CpzBossGunk_AnimSeq26",
       "kind": "data_table",
       "reason": "Pointer index 26 in the checked animation-object-s2 table Ani_Obj5D_Dripper targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7373,7 +7373,7 @@
     },
     {
       "old": "byte_2ED66",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence0_Variant2",
+      "new": "CpzBossGunk_AnimSeq0_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked animation-object-s2 table Ani_obj5D_b targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7399,7 +7399,7 @@
     },
     {
       "old": "byte_2ED69",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence1_Variant2",
+      "new": "CpzBossGunk_AnimSeq1_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked animation-object-s2 table Ani_obj5D_b targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7425,7 +7425,7 @@
     },
     {
       "old": "byte_2ED6D",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence2_Variant2",
+      "new": "CpzBossGunk_AnimSeq2_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked animation-object-s2 table Ani_obj5D_b targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7451,7 +7451,7 @@
     },
     {
       "old": "byte_2ED76",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence3_Variant2",
+      "new": "CpzBossGunk_AnimSeq3_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked animation-object-s2 table Ani_obj5D_b targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7477,7 +7477,7 @@
     },
     {
       "old": "byte_2ED7F",
-      "new": "CpzBossGunkAndVisuals_Animation_Sequence4_Variant2",
+      "new": "CpzBossGunk_AnimSeq4_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked animation-object-s2 table Ani_obj5D_b targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7607,7 +7607,7 @@
     },
     {
       "old": "byte_3E5F0",
-      "new": "DeathEggRobotBoss_Animation_Sequence0_Variant2",
+      "new": "DeathEggRobot_AnimSeq0_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked animation-object-s2 table Ani_objC7_c targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7633,7 +7633,7 @@
     },
     {
       "old": "byte_32D8A",
-      "new": "MtzBossSatellitesAndLaser_Animation_Sequence0",
+      "new": "MtzBossSatelliteLaser_AnimSeq0",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked animation-object-s2 table Ani_obj53 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7659,7 +7659,7 @@
     },
     {
       "old": "byte_32D8D",
-      "new": "MtzBossSatellitesAndLaser_Animation_Sequence1",
+      "new": "MtzBossSatelliteLaser_AnimSeq1",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked animation-object-s2 table Ani_obj53 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7685,7 +7685,7 @@
     },
     {
       "old": "byte_32D91",
-      "new": "MtzBossSatellitesAndLaser_Animation_Sequence2",
+      "new": "MtzBossSatelliteLaser_AnimSeq2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked animation-object-s2 table Ani_obj53 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7711,7 +7711,7 @@
     },
     {
       "old": "byte_32DA6",
-      "new": "MtzBossSatellitesAndLaser_Animation_Sequence3",
+      "new": "MtzBossSatelliteLaser_AnimSeq3",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked animation-object-s2 table Ani_obj53 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7737,7 +7737,7 @@
     },
     {
       "old": "byte_32DAA",
-      "new": "MtzBossSatellitesAndLaser_Animation_Sequence4",
+      "new": "MtzBossSatelliteLaser_AnimSeq4",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked animation-object-s2 table Ani_obj53 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7763,7 +7763,7 @@
     },
     {
       "old": "byte_32DB5",
-      "new": "MtzBossSatellitesAndLaser_Animation_Sequence5",
+      "new": "MtzBossSatelliteLaser_AnimSeq5",
       "kind": "data_table",
       "reason": "Pointer index 5 in the checked animation-object-s2 table Ani_obj53 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7789,7 +7789,7 @@
     },
     {
       "old": "byte_32DC0",
-      "new": "MtzBossSatellitesAndLaser_Animation_Sequence6",
+      "new": "MtzBossSatelliteLaser_AnimSeq6",
       "kind": "data_table",
       "reason": "Pointer index 6 in the checked animation-object-s2 table Ani_obj53 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -7815,7 +7815,7 @@
     },
     {
       "old": "byte_32DC3",
-      "new": "MtzBossSatellitesAndLaser_Animation_Sequence7",
+      "new": "MtzBossSatelliteLaser_AnimSeq7",
       "kind": "data_table",
       "reason": "Pointer index 7 in the checked animation-object-s2 table Ani_obj53 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -8563,7 +8563,7 @@
     },
     {
       "old": "byte_39E36",
-      "new": "MechaSonicBoss_Animation_Sequence0_Variant3",
+      "new": "MechaSonic_AnimSeq0_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked animation-object-s2 table off_39E30 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -8589,7 +8589,7 @@
     },
     {
       "old": "byte_39E3A",
-      "new": "MechaSonicBoss_Animation_Sequence1_Variant3",
+      "new": "MechaSonic_AnimSeq1_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked animation-object-s2 table off_39E30 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -8615,7 +8615,7 @@
     },
     {
       "old": "byte_39E3E",
-      "new": "MechaSonicBoss_Animation_Sequence2_Variant3",
+      "new": "MechaSonic_AnimSeq2_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked animation-object-s2 table off_39E30 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -9233,7 +9233,7 @@
     },
     {
       "old": "word_22F80",
-      "new": "CpzSpinTube_TubePaths_Path10_Variant2",
+      "new": "CpzSpinTube_Path10_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 10 in the checked tube-path-s2 table off_22E88 targets a obj1e67size declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -9259,7 +9259,7 @@
     },
     {
       "old": "word_22F92",
-      "new": "CpzSpinTube_TubePaths_Path11_Variant2",
+      "new": "CpzSpinTube_Path11_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 11 in the checked tube-path-s2 table off_22E88 targets a obj1e67size declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -9724,7 +9724,7 @@
     },
     {
       "old": "off_6DEE",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+      "new": "SSBgScroll",
       "kind": "data_table",
       "reason": "The registered background-scroll-s2 artifact identifies this source-owned BackgroundScroll root and checks it for both accepted profiles.",
       "evidence": {
@@ -9747,14 +9747,14 @@
     },
     {
       "old": "byte_6E04",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples0",
+      "new": "SSBgScroll_Samples0",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 0 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 0,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -9773,14 +9773,14 @@
     },
     {
       "old": "byte_6E09",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples1",
+      "new": "SSBgScroll_Samples1",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 1 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 1,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -9799,14 +9799,14 @@
     },
     {
       "old": "byte_6E0E",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples2",
+      "new": "SSBgScroll_Samples2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 2 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 2,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -9825,14 +9825,14 @@
     },
     {
       "old": "byte_6E13",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples3",
+      "new": "SSBgScroll_Samples3",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 3 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 3,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -9851,14 +9851,14 @@
     },
     {
       "old": "byte_6E18",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples4",
+      "new": "SSBgScroll_Samples4",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 4 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 4,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -9877,14 +9877,14 @@
     },
     {
       "old": "byte_6E1D",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples5",
+      "new": "SSBgScroll_Samples5",
       "kind": "data_table",
       "reason": "Pointer index 5 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 5 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 5,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -9903,14 +9903,14 @@
     },
     {
       "old": "byte_6E22",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples6",
+      "new": "SSBgScroll_Samples6",
       "kind": "data_table",
       "reason": "Pointer index 6 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 6 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 6,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -9929,14 +9929,14 @@
     },
     {
       "old": "byte_6E27",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples7",
+      "new": "SSBgScroll_Samples7",
       "kind": "data_table",
       "reason": "Pointer index 7 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 7 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 7,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -9955,14 +9955,14 @@
     },
     {
       "old": "byte_6E2C",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples8",
+      "new": "SSBgScroll_Samples8",
       "kind": "data_table",
       "reason": "Pointer index 8 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 8 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 8,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -9981,14 +9981,14 @@
     },
     {
       "old": "byte_6E31",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples9",
+      "new": "SSBgScroll_Samples9",
       "kind": "data_table",
       "reason": "Pointer index 9 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 9 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 9,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -10007,14 +10007,14 @@
     },
     {
       "old": "byte_6E36",
-      "new": "GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples10",
+      "new": "SSBgScroll_Samples10",
       "kind": "data_table",
       "reason": "Pointer index 10 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
         "method": "indexed_content_target",
         "basis": "Pointer index 10 in the checked background-scroll-s2 table off_6DEE targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
         "codec": "background-scroll-s2",
-        "table": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+        "table": "SSBgScroll",
         "index": 10,
         "head": "dc.b",
         "artifact_source": "src/game/special_stage/orientation_and_scroll.s"
@@ -10157,7 +10157,7 @@
     },
     {
       "old": "byte_282DC",
-      "new": "MtzPulleyPlatform_PulleyChildren_ChildList0",
+      "new": "MtzPulley_ChildList0",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked pulley-children-s2 table off_282D6 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -10183,7 +10183,7 @@
     },
     {
       "old": "byte_2830E",
-      "new": "MtzPulleyPlatform_PulleyChildren_ChildList1",
+      "new": "MtzPulley_ChildList1",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked pulley-children-s2 table off_282D6 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -10209,7 +10209,7 @@
     },
     {
       "old": "byte_28340",
-      "new": "MtzPulleyPlatform_PulleyChildren_ChildList2",
+      "new": "MtzPulley_ChildList2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked pulley-children-s2 table off_282D6 targets a dc.b declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -10622,7 +10622,7 @@
     },
     {
       "old": "word_1FCB8",
-      "new": "ArzBubbles_SpriteMappings_Frame8_Variant2",
+      "new": "ArzBubbles_MapFrame8_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 8 in the checked sprite-s2 table Obj24_MapUnc_1FC18 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -10934,7 +10934,7 @@
     },
     {
       "old": "word_19136",
-      "new": "SharedSprings_SpriteMappings_Frame7_Variant2",
+      "new": "SharedSprings_MapFrame7_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 7 in the checked sprite-s2 table Obj41_MapUnc_19032 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -10960,7 +10960,7 @@
     },
     {
       "old": "word_19158",
-      "new": "SharedSprings_SpriteMappings_Frame8_Variant2",
+      "new": "SharedSprings_MapFrame8_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 8 in the checked sprite-s2 table Obj41_MapUnc_19032 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -10986,7 +10986,7 @@
     },
     {
       "old": "word_19172",
-      "new": "SharedSprings_SpriteMappings_Frame9_Variant2",
+      "new": "SharedSprings_MapFrame9_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 9 in the checked sprite-s2 table Obj41_MapUnc_19032 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11012,7 +11012,7 @@
     },
     {
       "old": "word_19194",
-      "new": "SharedSprings_SpriteMappings_Frame10_Variant2",
+      "new": "SharedSprings_MapFrame10_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 10 in the checked sprite-s2 table Obj41_MapUnc_19032 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11038,7 +11038,7 @@
     },
     {
       "old": "word_36D02",
-      "new": "EnemiesGrounder_SpriteMappings_Frame0",
+      "new": "Grounder_MapFrame0",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked sprite-s2 table Obj8D_MapUnc_36CF0 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11064,7 +11064,7 @@
     },
     {
       "old": "word_36D24",
-      "new": "EnemiesGrounder_SpriteMappings_Frame1",
+      "new": "Grounder_MapFrame1",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked sprite-s2 table Obj8D_MapUnc_36CF0 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11090,7 +11090,7 @@
     },
     {
       "old": "word_36D46",
-      "new": "EnemiesGrounder_SpriteMappings_Frame2",
+      "new": "Grounder_MapFrame2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked sprite-s2 table Obj8D_MapUnc_36CF0 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11116,7 +11116,7 @@
     },
     {
       "old": "word_36D58",
-      "new": "EnemiesGrounder_SpriteMappings_Frame3",
+      "new": "Grounder_MapFrame3",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked sprite-s2 table Obj8D_MapUnc_36CF0 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11142,7 +11142,7 @@
     },
     {
       "old": "word_36D6A",
-      "new": "EnemiesGrounder_SpriteMappings_Frame4",
+      "new": "Grounder_MapFrame4",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked sprite-s2 table Obj8D_MapUnc_36CF0 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11168,7 +11168,7 @@
     },
     {
       "old": "word_36D7C",
-      "new": "EnemiesGrounder_SpriteMappings_Frame0_Variant2",
+      "new": "Grounder_MapFrame0_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked sprite-s2 table Obj90_MapUnc_36CFA targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11194,7 +11194,7 @@
     },
     {
       "old": "word_36D86",
-      "new": "EnemiesGrounder_SpriteMappings_Frame1_Variant2",
+      "new": "Grounder_MapFrame1_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked sprite-s2 table Obj90_MapUnc_36CFA targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11220,7 +11220,7 @@
     },
     {
       "old": "word_36D90",
-      "new": "EnemiesGrounder_SpriteMappings_Frame2_Variant2",
+      "new": "Grounder_MapFrame2_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked sprite-s2 table Obj90_MapUnc_36CFA targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11246,7 +11246,7 @@
     },
     {
       "old": "word_36D9A",
-      "new": "EnemiesGrounder_SpriteMappings_Frame0_Variant3",
+      "new": "Grounder_MapFrame0_Variant3",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked sprite-s2 table Obj90_MapUnc_36D00 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11454,7 +11454,7 @@
     },
     {
       "old": "word_392A0",
-      "new": "EnemiesGrabber_SpriteMappings_Frame0_Variant2",
+      "new": "Grabber_MapFrame0_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 0 in the checked sprite-s2 table ObjAA_MapUnc_39228 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11480,7 +11480,7 @@
     },
     {
       "old": "word_392AA",
-      "new": "EnemiesGrabber_SpriteMappings_Frame1_Variant2",
+      "new": "Grabber_MapFrame1_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 1 in the checked sprite-s2 table ObjAA_MapUnc_39228 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11506,7 +11506,7 @@
     },
     {
       "old": "word_392B4",
-      "new": "EnemiesGrabber_SpriteMappings_Frame2_Variant2",
+      "new": "Grabber_MapFrame2_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 2 in the checked sprite-s2 table ObjAA_MapUnc_39228 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11532,7 +11532,7 @@
     },
     {
       "old": "word_392C6",
-      "new": "EnemiesGrabber_SpriteMappings_Frame3_Variant2",
+      "new": "Grabber_MapFrame3_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 3 in the checked sprite-s2 table ObjAA_MapUnc_39228 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11558,7 +11558,7 @@
     },
     {
       "old": "word_392D8",
-      "new": "EnemiesGrabber_SpriteMappings_Frame4_Variant2",
+      "new": "Grabber_MapFrame4_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 4 in the checked sprite-s2 table ObjAA_MapUnc_39228 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11584,7 +11584,7 @@
     },
     {
       "old": "word_3930C",
-      "new": "EnemiesGrabber_SpriteMappings_Frame5_Variant2",
+      "new": "Grabber_MapFrame5_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 5 in the checked sprite-s2 table ObjAA_MapUnc_39228 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11610,7 +11610,7 @@
     },
     {
       "old": "word_392F2",
-      "new": "EnemiesGrabber_SpriteMappings_Frame6_Variant2",
+      "new": "Grabber_MapFrame6_Variant2",
       "kind": "data_table",
       "reason": "Pointer index 6 in the checked sprite-s2 table ObjAA_MapUnc_39228 targets a spriteheader declaration. The name states the serialized index, not an unproven gameplay animation.",
       "evidence": {
@@ -11772,7 +11772,7 @@
     },
     {
       "old": "return_DBC0",
-      "new": "GameLevelDrawingUpdatePlanes_Return_Variant2",
+      "new": "Draw_FG_P2_Return",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in update planes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -11794,7 +11794,7 @@
     },
     {
       "old": "return_DC90",
-      "new": "GameLevelDrawingUpdatePlanes_Return_Variant3",
+      "new": "Draw_BG1_Return",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in update planes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -12190,7 +12190,7 @@
     },
     {
       "old": "return_3E23C",
-      "new": "DeathEggRobotBossCollisionAndBombs_Return",
+      "new": "DeathEggRobotBombCollision_Return",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in collision and bombs; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15666,7 +15666,7 @@
     },
     {
       "old": "return_1E31C",
-      "new": "GamePlayerCollisionSurfaceAlignment_Return",
+      "new": "SurfaceAlignment_Return",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in surface alignment; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15688,7 +15688,7 @@
     },
     {
       "old": "return_1E400",
-      "new": "GamePlayerCollisionSurfaceAlignment_Return_Variant2",
+      "new": "SurfaceAlignment_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in surface alignment; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15710,7 +15710,7 @@
     },
     {
       "old": "return_1E4AE",
-      "new": "GamePlayerCollisionSurfaceAlignment_Return_Variant3",
+      "new": "SurfaceAlignment_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in surface alignment; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15732,7 +15732,7 @@
     },
     {
       "old": "return_1E55C",
-      "new": "GamePlayerCollisionSurfaceAlignment_Return_Variant4",
+      "new": "SurfaceAlignment_Return_Variant4",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in surface alignment; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15776,7 +15776,7 @@
     },
     {
       "old": "return_1AFBE",
-      "new": "GamePlayerSonicAirCollision_Return_Variant2",
+      "new": "SonicAirCollision_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15798,7 +15798,7 @@
     },
     {
       "old": "return_1AFE6",
-      "new": "GamePlayerSonicAirCollision_Return_Variant3",
+      "new": "SonicAirCollision_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15820,7 +15820,7 @@
     },
     {
       "old": "return_1B042",
-      "new": "GamePlayerSonicAirCollision_Return_Variant4",
+      "new": "SonicAirCollision_Return_Variant4",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15842,7 +15842,7 @@
     },
     {
       "old": "return_1B076",
-      "new": "GamePlayerSonicAirCollision_Return_Variant5",
+      "new": "SonicAirCollision_Return_Variant5",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15864,7 +15864,7 @@
     },
     {
       "old": "return_1B09E",
-      "new": "GamePlayerSonicAirCollision_Return_Variant6",
+      "new": "SonicAirCollision_Return_Variant6",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -15886,7 +15886,7 @@
     },
     {
       "old": "return_1B11E",
-      "new": "GamePlayerSonicAirCollision_Return_Variant7",
+      "new": "SonicAirCollision_Return_Variant7",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16018,7 +16018,7 @@
     },
     {
       "old": "return_1A744",
-      "new": "GamePlayerSonicGroundMovement_Return_Variant2",
+      "new": "SonicGroundMove_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in ground movement; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16040,7 +16040,7 @@
     },
     {
       "old": "return_1A7C4",
-      "new": "GamePlayerSonicGroundMovement_Return_Variant3",
+      "new": "SonicGroundMove_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in ground movement; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16084,7 +16084,7 @@
     },
     {
       "old": "return_1B31A",
-      "new": "GamePlayerSonicHurtDeathRespawn_Return_Variant2",
+      "new": "SonicHurtDeathRespawn_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in hurt death respawn; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16128,7 +16128,7 @@
     },
     {
       "old": "return_1AA36",
-      "new": "GamePlayerSonicRollingAndJumping_Return_Variant2",
+      "new": "SonicRollJump_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in rolling and jumping; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16150,7 +16150,7 @@
     },
     {
       "old": "return_1AAE6",
-      "new": "GamePlayerSonicRollingAndJumping_Return_Variant3",
+      "new": "SonicRollJump_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in rolling and jumping; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16172,7 +16172,7 @@
     },
     {
       "old": "return_1AB36",
-      "new": "GamePlayerSonicRollingAndJumping_Return_Variant4",
+      "new": "SonicRollJump_Return_Variant4",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in rolling and jumping; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16194,7 +16194,7 @@
     },
     {
       "old": "return_1ABA4",
-      "new": "GamePlayerSonicRollingAndJumping_Return_Variant5",
+      "new": "SonicRollJump_Return_Variant5",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in rolling and jumping; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16216,7 +16216,7 @@
     },
     {
       "old": "return_1AC3C",
-      "new": "GamePlayerSonicRollingAndJumping_Return_Variant6",
+      "new": "SonicRollJump_Return_Variant6",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in rolling and jumping; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16260,7 +16260,7 @@
     },
     {
       "old": "return_1ADCA",
-      "new": "GamePlayerSonicSpindashAndSlopes_Return_Variant2",
+      "new": "SonicSpindashSlopes_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in spindash and slopes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16282,7 +16282,7 @@
     },
     {
       "old": "return_1AE06",
-      "new": "GamePlayerSonicSpindashAndSlopes_Return_Variant3",
+      "new": "SonicSpindashSlopes_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in spindash and slopes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16304,7 +16304,7 @@
     },
     {
       "old": "return_1AE42",
-      "new": "GamePlayerSonicSpindashAndSlopes_Return_Variant4",
+      "new": "SonicSpindashSlopes_Return_Variant4",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in spindash and slopes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16326,7 +16326,7 @@
     },
     {
       "old": "return_1AEA8",
-      "new": "GamePlayerSonicSpindashAndSlopes_Return_Variant5",
+      "new": "SonicSpindashSlopes_Return_Variant5",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in spindash and slopes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16370,7 +16370,7 @@
     },
     {
       "old": "return_1CA6E",
-      "new": "GamePlayerTailsAirCollision_Return_Variant2",
+      "new": "TailsAirCollision_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16392,7 +16392,7 @@
     },
     {
       "old": "return_1CA96",
-      "new": "GamePlayerTailsAirCollision_Return_Variant3",
+      "new": "TailsAirCollision_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16414,7 +16414,7 @@
     },
     {
       "old": "return_1CAF2",
-      "new": "GamePlayerTailsAirCollision_Return_Variant4",
+      "new": "TailsAirCollision_Return_Variant4",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16436,7 +16436,7 @@
     },
     {
       "old": "return_1CB26",
-      "new": "GamePlayerTailsAirCollision_Return_Variant5",
+      "new": "TailsAirCollision_Return_Variant5",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16458,7 +16458,7 @@
     },
     {
       "old": "return_1CB4E",
-      "new": "GamePlayerTailsAirCollision_Return_Variant6",
+      "new": "TailsAirCollision_Return_Variant6",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16480,7 +16480,7 @@
     },
     {
       "old": "return_1CBC4",
-      "new": "GamePlayerTailsAirCollision_Return_Variant7",
+      "new": "TailsAirCollision_Return_Variant7",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in air collision; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16568,7 +16568,7 @@
     },
     {
       "old": "return_1BCDE",
-      "new": "GamePlayerTailsFollowerAi_Return_Variant2",
+      "new": "TailsFollowerAI_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in follower ai; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16590,7 +16590,7 @@
     },
     {
       "old": "return_1BF36",
-      "new": "GamePlayerTailsFollowerAi_Return_Variant3",
+      "new": "TailsFollowerAI_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in follower ai; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16634,7 +16634,7 @@
     },
     {
       "old": "return_1C328",
-      "new": "GamePlayerTailsGroundMovement_Return_Variant2",
+      "new": "TailsGroundMove_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in ground movement; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16656,7 +16656,7 @@
     },
     {
       "old": "return_1C3A8",
-      "new": "GamePlayerTailsGroundMovement_Return_Variant3",
+      "new": "TailsGroundMove_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in ground movement; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16700,7 +16700,7 @@
     },
     {
       "old": "return_1CD8E",
-      "new": "GamePlayerTailsHurtDeathRespawn_Return_Variant2",
+      "new": "TailsHurtDeathRespawn_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in hurt death respawn; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16744,7 +16744,7 @@
     },
     {
       "old": "return_1C61C",
-      "new": "GamePlayerTailsRollingAndJumping_Return_Variant2",
+      "new": "TailsRollJump_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in rolling and jumping; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16766,7 +16766,7 @@
     },
     {
       "old": "return_1C6C2",
-      "new": "GamePlayerTailsRollingAndJumping_Return_Variant3",
+      "new": "TailsRollJump_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in rolling and jumping; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16788,7 +16788,7 @@
     },
     {
       "old": "return_1C70C",
-      "new": "GamePlayerTailsRollingAndJumping_Return_Variant4",
+      "new": "TailsRollJump_Return_Variant4",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in rolling and jumping; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16832,7 +16832,7 @@
     },
     {
       "old": "return_1C87A",
-      "new": "GamePlayerTailsSpindashAndSlopes_Return_Variant2",
+      "new": "TailsSpindashSlopes_Return_Variant2",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in spindash and slopes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16854,7 +16854,7 @@
     },
     {
       "old": "return_1C8B6",
-      "new": "GamePlayerTailsSpindashAndSlopes_Return_Variant3",
+      "new": "TailsSpindashSlopes_Return_Variant3",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in spindash and slopes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16876,7 +16876,7 @@
     },
     {
       "old": "return_1C8F2",
-      "new": "GamePlayerTailsSpindashAndSlopes_Return_Variant4",
+      "new": "TailsSpindashSlopes_Return_Variant4",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in spindash and slopes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -16898,7 +16898,7 @@
     },
     {
       "old": "return_1C958",
-      "new": "GamePlayerTailsSpindashAndSlopes_Return_Variant5",
+      "new": "TailsSpindashSlopes_Return_Variant5",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in spindash and slopes; no unobserved caller condition is inferred.",
       "evidence": {
@@ -17817,7 +17817,7 @@
     },
     {
       "old": "return_6C9A",
-      "new": "GameSpecialStageOrientationAndScroll_Return",
+      "new": "SSTrack_OrientationReturn",
       "kind": "code",
       "reason": "The declaration begins with RTS. Its confirmed role is a shared subroutine return site in orientation and scroll; no unobserved caller condition is inferred.",
       "evidence": {
@@ -19753,7 +19753,7 @@
     },
     {
       "old": "ChildObject_AD5E",
-      "new": "UiEndingSequenceData_EndingSeqCloudsChildSlot3E",
+      "new": "EndingCloudsChildSlot3E",
       "kind": "data_table",
       "reason": "The childObjectData record explicitly selects ObjID_EndingSeqClouds, parent link objoff_3E and routine/subtype value $00. This names only the declared spawn contract.",
       "evidence": {
@@ -19777,7 +19777,7 @@
     },
     {
       "old": "ChildObject_AD62",
-      "new": "UiEndingSequenceData_EndingSeqTriggerChildSlot3E",
+      "new": "EndingTriggerChildSlot3E",
       "kind": "data_table",
       "reason": "The childObjectData record explicitly selects ObjID_EndingSeqTrigger, parent link objoff_3E and routine/subtype value $00. This names only the declared spawn contract.",
       "evidence": {
@@ -19801,7 +19801,7 @@
     },
     {
       "old": "ChildObject_AD66",
-      "new": "UiEndingSequenceData_EndingSeqBirdChildSlot3E",
+      "new": "EndingBirdChildSlot3E",
       "kind": "data_table",
       "reason": "The childObjectData record explicitly selects ObjID_EndingSeqBird, parent link objoff_3E and routine/subtype value $00. This names only the declared spawn contract.",
       "evidence": {
@@ -19825,7 +19825,7 @@
     },
     {
       "old": "ChildObject_AD6A",
-      "new": "UiEndingSequenceData_EndingSeqSonicChildSlot3E",
+      "new": "EndingSonicChildSlot3E",
       "kind": "data_table",
       "reason": "The childObjectData record explicitly selects ObjID_EndingSeqSonic, parent link objoff_3E and routine/subtype value $00. This names only the declared spawn contract.",
       "evidence": {
@@ -19849,7 +19849,7 @@
     },
     {
       "old": "ChildObject_AD6E",
-      "new": "UiEndingSequenceData_TornadoHelixesChildSlot3E",
+      "new": "EndingTornadoHelixesChildSlot3E",
       "kind": "data_table",
       "reason": "The childObjectData record explicitly selects ObjID_TornadoHelixes, parent link objoff_3E and routine/subtype value $00. This names only the declared spawn contract.",
       "evidence": {
@@ -20077,7 +20077,7 @@
     },
     {
       "old": "loc_155FE",
-      "new": "GameLevelTitleCards_CountedLoopD4_Variant2",
+      "new": "TitleCards_LoopD4_Variant2",
       "kind": "code",
       "reason": "A backward DBF d4 edge in the same source proves this counted-loop head. The enclosing owner is title cards; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20101,7 +20101,7 @@
     },
     {
       "old": "loc_155F0",
-      "new": "GameLevelTitleCards_CountedLoopD7_Variant2",
+      "new": "TitleCards_LoopD7_Variant2",
       "kind": "code",
       "reason": "A backward DBF d7 edge in the same source proves this counted-loop head. The enclosing owner is title cards; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20125,7 +20125,7 @@
     },
     {
       "old": "loc_15654",
-      "new": "GameLevelTitleCards_CountedLoopD3_Variant2",
+      "new": "TitleCards_LoopD3_Variant2",
       "kind": "code",
       "reason": "A backward DBF d3 edge in the same source proves this counted-loop head. The enclosing owner is title cards; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20149,7 +20149,7 @@
     },
     {
       "old": "loc_1564E",
-      "new": "GameLevelTitleCards_CountedLoopD4_Variant3",
+      "new": "TitleCards_LoopD4_Variant3",
       "kind": "code",
       "reason": "A backward DBF d4 edge in the same source proves this counted-loop head. The enclosing owner is title cards; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20173,7 +20173,7 @@
     },
     {
       "old": "loc_15640",
-      "new": "GameLevelTitleCards_CountedLoopD7_Variant3",
+      "new": "TitleCards_LoopD7_Variant3",
       "kind": "code",
       "reason": "A backward DBF d7 edge in the same source proves this counted-loop head. The enclosing owner is title cards; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20221,7 +20221,7 @@
     },
     {
       "old": "loc_156A2",
-      "new": "GameLevelTitleCards_CountedLoopD7_Variant4",
+      "new": "TitleCards_LoopD7_Variant4",
       "kind": "code",
       "reason": "A backward DBF d7 edge in the same source proves this counted-loop head. The enclosing owner is title cards; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20245,7 +20245,7 @@
     },
     {
       "old": "loc_156F4",
-      "new": "GameLevelTitleCards_CountedLoopD7_Variant5",
+      "new": "TitleCards_LoopD7_Variant5",
       "kind": "code",
       "reason": "A backward DBF d7 edge in the same source proves this counted-loop head. The enclosing owner is title cards; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20725,7 +20725,7 @@
     },
     {
       "old": "loc_407E4",
-      "new": "RenderingAnimationBlockSequences_CountedLoopD1",
+      "new": "BlockAnim_LoopD1",
       "kind": "code",
       "reason": "A backward DBF d1 edge in the same source proves this counted-loop head. The enclosing owner is block sequences; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20749,7 +20749,7 @@
     },
     {
       "old": "loc_407DC",
-      "new": "RenderingAnimationBlockSequences_CountedLoopD3",
+      "new": "BlockAnim_LoopD3",
       "kind": "code",
       "reason": "A backward DBF d3 edge in the same source proves this counted-loop head. The enclosing owner is block sequences; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20773,7 +20773,7 @@
     },
     {
       "old": "loc_407DA",
-      "new": "RenderingAnimationBlockSequences_CountedLoopD4",
+      "new": "BlockAnim_LoopD4",
       "kind": "code",
       "reason": "A backward DBF d4 edge in the same source proves this counted-loop head. The enclosing owner is block sequences; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -20821,7 +20821,7 @@
     },
     {
       "old": "loc_26BE",
-      "new": "RenderingPalettesFadeLoad_CountedLoopD1_Variant2",
+      "new": "PalFadeLoad_LoopD1_Variant2",
       "kind": "code",
       "reason": "A backward DBF d1 edge in the same source proves this counted-loop head. The enclosing owner is palette fade and load; the name does not claim an unproven data purpose.",
       "evidence": {
@@ -21427,13 +21427,13 @@
     },
     {
       "old": "word_22F80_End",
-      "new": "CpzSpinTube_TubePaths_Path10_Variant2_End",
+      "new": "CpzSpinTube_Path10_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked CpzSpinTube_TubePaths_Path10_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked CpzSpinTube_Path10_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "CpzSpinTube_TubePaths_Path10_Variant2"
+        "parent": "CpzSpinTube_Path10_Variant2"
       },
       "definitions": [
         {
@@ -21449,13 +21449,13 @@
     },
     {
       "old": "word_22F92_End",
-      "new": "CpzSpinTube_TubePaths_Path11_Variant2_End",
+      "new": "CpzSpinTube_Path11_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked CpzSpinTube_TubePaths_Path11_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked CpzSpinTube_Path11_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "CpzSpinTube_TubePaths_Path11_Variant2"
+        "parent": "CpzSpinTube_Path11_Variant2"
       },
       "definitions": [
         {
@@ -22065,13 +22065,13 @@
     },
     {
       "old": "word_1FCB8_End",
-      "new": "ArzBubbles_SpriteMappings_Frame8_Variant2_End",
+      "new": "ArzBubbles_MapFrame8_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked ArzBubbles_SpriteMappings_Frame8_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked ArzBubbles_MapFrame8_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "ArzBubbles_SpriteMappings_Frame8_Variant2"
+        "parent": "ArzBubbles_MapFrame8_Variant2"
       },
       "definitions": [
         {
@@ -22329,13 +22329,13 @@
     },
     {
       "old": "word_19136_End",
-      "new": "SharedSprings_SpriteMappings_Frame7_Variant2_End",
+      "new": "SharedSprings_MapFrame7_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked SharedSprings_SpriteMappings_Frame7_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked SharedSprings_MapFrame7_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "SharedSprings_SpriteMappings_Frame7_Variant2"
+        "parent": "SharedSprings_MapFrame7_Variant2"
       },
       "definitions": [
         {
@@ -22351,13 +22351,13 @@
     },
     {
       "old": "word_19158_End",
-      "new": "SharedSprings_SpriteMappings_Frame8_Variant2_End",
+      "new": "SharedSprings_MapFrame8_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked SharedSprings_SpriteMappings_Frame8_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked SharedSprings_MapFrame8_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "SharedSprings_SpriteMappings_Frame8_Variant2"
+        "parent": "SharedSprings_MapFrame8_Variant2"
       },
       "definitions": [
         {
@@ -22373,13 +22373,13 @@
     },
     {
       "old": "word_19172_End",
-      "new": "SharedSprings_SpriteMappings_Frame9_Variant2_End",
+      "new": "SharedSprings_MapFrame9_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked SharedSprings_SpriteMappings_Frame9_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked SharedSprings_MapFrame9_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "SharedSprings_SpriteMappings_Frame9_Variant2"
+        "parent": "SharedSprings_MapFrame9_Variant2"
       },
       "definitions": [
         {
@@ -22395,13 +22395,13 @@
     },
     {
       "old": "word_19194_End",
-      "new": "SharedSprings_SpriteMappings_Frame10_Variant2_End",
+      "new": "SharedSprings_MapFrame10_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked SharedSprings_SpriteMappings_Frame10_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked SharedSprings_MapFrame10_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "SharedSprings_SpriteMappings_Frame10_Variant2"
+        "parent": "SharedSprings_MapFrame10_Variant2"
       },
       "definitions": [
         {
@@ -22417,13 +22417,13 @@
     },
     {
       "old": "word_36D02_End",
-      "new": "EnemiesGrounder_SpriteMappings_Frame0_End",
+      "new": "Grounder_MapFrame0_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrounder_SpriteMappings_Frame0 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grounder_MapFrame0 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrounder_SpriteMappings_Frame0"
+        "parent": "Grounder_MapFrame0"
       },
       "definitions": [
         {
@@ -22439,13 +22439,13 @@
     },
     {
       "old": "word_36D24_End",
-      "new": "EnemiesGrounder_SpriteMappings_Frame1_End",
+      "new": "Grounder_MapFrame1_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrounder_SpriteMappings_Frame1 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grounder_MapFrame1 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrounder_SpriteMappings_Frame1"
+        "parent": "Grounder_MapFrame1"
       },
       "definitions": [
         {
@@ -22461,13 +22461,13 @@
     },
     {
       "old": "word_36D46_End",
-      "new": "EnemiesGrounder_SpriteMappings_Frame2_End",
+      "new": "Grounder_MapFrame2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrounder_SpriteMappings_Frame2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grounder_MapFrame2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrounder_SpriteMappings_Frame2"
+        "parent": "Grounder_MapFrame2"
       },
       "definitions": [
         {
@@ -22483,13 +22483,13 @@
     },
     {
       "old": "word_36D58_End",
-      "new": "EnemiesGrounder_SpriteMappings_Frame3_End",
+      "new": "Grounder_MapFrame3_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrounder_SpriteMappings_Frame3 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grounder_MapFrame3 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrounder_SpriteMappings_Frame3"
+        "parent": "Grounder_MapFrame3"
       },
       "definitions": [
         {
@@ -22505,13 +22505,13 @@
     },
     {
       "old": "word_36D6A_End",
-      "new": "EnemiesGrounder_SpriteMappings_Frame4_End",
+      "new": "Grounder_MapFrame4_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrounder_SpriteMappings_Frame4 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grounder_MapFrame4 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrounder_SpriteMappings_Frame4"
+        "parent": "Grounder_MapFrame4"
       },
       "definitions": [
         {
@@ -22527,13 +22527,13 @@
     },
     {
       "old": "word_36D7C_End",
-      "new": "EnemiesGrounder_SpriteMappings_Frame0_Variant2_End",
+      "new": "Grounder_MapFrame0_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrounder_SpriteMappings_Frame0_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grounder_MapFrame0_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrounder_SpriteMappings_Frame0_Variant2"
+        "parent": "Grounder_MapFrame0_Variant2"
       },
       "definitions": [
         {
@@ -22549,13 +22549,13 @@
     },
     {
       "old": "word_36D86_End",
-      "new": "EnemiesGrounder_SpriteMappings_Frame1_Variant2_End",
+      "new": "Grounder_MapFrame1_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrounder_SpriteMappings_Frame1_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grounder_MapFrame1_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrounder_SpriteMappings_Frame1_Variant2"
+        "parent": "Grounder_MapFrame1_Variant2"
       },
       "definitions": [
         {
@@ -22571,13 +22571,13 @@
     },
     {
       "old": "word_36D90_End",
-      "new": "EnemiesGrounder_SpriteMappings_Frame2_Variant2_End",
+      "new": "Grounder_MapFrame2_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrounder_SpriteMappings_Frame2_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grounder_MapFrame2_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrounder_SpriteMappings_Frame2_Variant2"
+        "parent": "Grounder_MapFrame2_Variant2"
       },
       "definitions": [
         {
@@ -22593,13 +22593,13 @@
     },
     {
       "old": "word_36D9A_End",
-      "new": "EnemiesGrounder_SpriteMappings_Frame0_Variant3_End",
+      "new": "Grounder_MapFrame0_Variant3_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrounder_SpriteMappings_Frame0_Variant3 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grounder_MapFrame0_Variant3 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrounder_SpriteMappings_Frame0_Variant3"
+        "parent": "Grounder_MapFrame0_Variant3"
       },
       "definitions": [
         {
@@ -22769,13 +22769,13 @@
     },
     {
       "old": "word_392A0_End",
-      "new": "EnemiesGrabber_SpriteMappings_Frame0_Variant2_End",
+      "new": "Grabber_MapFrame0_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrabber_SpriteMappings_Frame0_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grabber_MapFrame0_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrabber_SpriteMappings_Frame0_Variant2"
+        "parent": "Grabber_MapFrame0_Variant2"
       },
       "definitions": [
         {
@@ -22791,13 +22791,13 @@
     },
     {
       "old": "word_392AA_End",
-      "new": "EnemiesGrabber_SpriteMappings_Frame1_Variant2_End",
+      "new": "Grabber_MapFrame1_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrabber_SpriteMappings_Frame1_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grabber_MapFrame1_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrabber_SpriteMappings_Frame1_Variant2"
+        "parent": "Grabber_MapFrame1_Variant2"
       },
       "definitions": [
         {
@@ -22813,13 +22813,13 @@
     },
     {
       "old": "word_392B4_End",
-      "new": "EnemiesGrabber_SpriteMappings_Frame2_Variant2_End",
+      "new": "Grabber_MapFrame2_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrabber_SpriteMappings_Frame2_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grabber_MapFrame2_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrabber_SpriteMappings_Frame2_Variant2"
+        "parent": "Grabber_MapFrame2_Variant2"
       },
       "definitions": [
         {
@@ -22835,13 +22835,13 @@
     },
     {
       "old": "word_392C6_End",
-      "new": "EnemiesGrabber_SpriteMappings_Frame3_Variant2_End",
+      "new": "Grabber_MapFrame3_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrabber_SpriteMappings_Frame3_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grabber_MapFrame3_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrabber_SpriteMappings_Frame3_Variant2"
+        "parent": "Grabber_MapFrame3_Variant2"
       },
       "definitions": [
         {
@@ -22857,13 +22857,13 @@
     },
     {
       "old": "word_392D8_End",
-      "new": "EnemiesGrabber_SpriteMappings_Frame4_Variant2_End",
+      "new": "Grabber_MapFrame4_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrabber_SpriteMappings_Frame4_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grabber_MapFrame4_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrabber_SpriteMappings_Frame4_Variant2"
+        "parent": "Grabber_MapFrame4_Variant2"
       },
       "definitions": [
         {
@@ -22879,13 +22879,13 @@
     },
     {
       "old": "word_3930C_End",
-      "new": "EnemiesGrabber_SpriteMappings_Frame5_Variant2_End",
+      "new": "Grabber_MapFrame5_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrabber_SpriteMappings_Frame5_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grabber_MapFrame5_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrabber_SpriteMappings_Frame5_Variant2"
+        "parent": "Grabber_MapFrame5_Variant2"
       },
       "definitions": [
         {
@@ -22901,13 +22901,13 @@
     },
     {
       "old": "word_392F2_End",
-      "new": "EnemiesGrabber_SpriteMappings_Frame6_Variant2_End",
+      "new": "Grabber_MapFrame6_Variant2_End",
       "kind": "source_marker",
-      "reason": "This source-declared end marker closes the checked EnemiesGrabber_SpriteMappings_Frame6_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
+      "reason": "This source-declared end marker closes the checked Grabber_MapFrame6_Variant2 frame or data declaration; the frame body and original byte count remain unchanged.",
       "evidence": {
         "method": "table_end",
         "basis": "The explicit end label follows its named parent declaration in the same source.",
-        "parent": "EnemiesGrabber_SpriteMappings_Frame6_Variant2"
+        "parent": "Grabber_MapFrame6_Variant2"
       },
       "definitions": [
         {
@@ -25360,7 +25360,7 @@
     },
     {
       "old": "loc_2A432",
-      "new": "ArzSwingingPlatform_UpdateStandingResponse",
+      "new": "ArzSwingPlatform_UpdateStanding",
       "kind": "code",
       "reason": "Check the enabled flag and standing-player mask, then increase or decrease the response counter through its existing continuations.",
       "evidence": {
@@ -25549,7 +25549,7 @@
     },
     {
       "old": "loc_2953E",
-      "new": "SharedSlidingPlatforms_ReversePairAtContact",
+      "new": "SlidingPlatforms_ReversePairAtContact",
       "kind": "code",
       "reason": "When the two linked platform edges coincide, toggle the movement-direction flags of both platforms.",
       "evidence": {
@@ -26200,7 +26200,7 @@
     },
     {
       "old": "loc_243EA",
-      "new": "OozPressureSpring_ReleaseHorizontalContact",
+      "new": "OozPressureSpring_ReleaseSideContact",
       "kind": "code",
       "reason": "Require and clear the selected standing bit, then calculate the absolute horizontal compression from the saved original X position for launch handling.",
       "evidence": {
@@ -26746,7 +26746,7 @@
     },
     {
       "old": "loc_3551C",
-      "new": "SpecialStageLostRing_SelectFallingAnimation",
+      "new": "SSLostRing_SelectFallingAnim",
       "kind": "code",
       "reason": "When Y velocity is non-negative, set priority zero and animation 9; leave the upward-motion state unchanged.",
       "evidence": {
@@ -28543,7 +28543,7 @@
     },
     {
       "old": "word_38A68",
-      "new": "Asteron_ProjectileSpawnRecords",
+      "new": "Asteron_ProjSpawns",
       "kind": "data_table",
       "reason": "The named burst caller passes this six-byte record array and its DBF count to Obj_CreateProjectiles. Signed position bytes are extended into X/Y positions; the next bytes populate the high bytes of x_vel/y_vel, followed by mapping frame and render flags.",
       "evidence": {
@@ -28564,13 +28564,13 @@
     },
     {
       "old": "word_38A68.end",
-      "new": "Asteron_ProjectileSpawnRecords.end",
+      "new": "Asteron_ProjSpawns.end",
       "kind": "source_marker",
       "reason": "This explicit source marker ends the six-byte projectile record array and supplies the bound used by its DBF count expression.",
       "evidence": {
         "method": "table_end",
         "basis": "This explicit source marker ends the six-byte projectile record array and supplies the bound used by its DBF count expression.",
-        "parent": "Asteron_ProjectileSpawnRecords"
+        "parent": "Asteron_ProjSpawns"
       },
       "definitions": [
         {
@@ -28586,7 +28586,7 @@
     },
     {
       "old": "word_38A68.counter",
-      "new": "Asteron_ProjectileSpawnRecords.count_minus_one",
+      "new": "Asteron_ProjSpawns.count_minus_one",
       "kind": "assembler_constant",
       "reason": "The expression (end - start) / 6 - 1 derives the projectile DBF count from the checked array extent. The burst caller loads this constant into d6 before Obj_CreateProjectiles.",
       "evidence": {
@@ -28607,7 +28607,7 @@
     },
     {
       "old": "byte_39D92",
-      "new": "MechaSonic_ProjectileSpawnRecords",
+      "new": "MechaSonic_ProjSpawns",
       "kind": "data_table",
       "reason": "The named burst caller passes this six-byte record array and its DBF count to Obj_CreateProjectiles. Signed position bytes are extended into X/Y positions; the next bytes populate the high bytes of x_vel/y_vel, followed by mapping frame and render flags.",
       "evidence": {
@@ -28628,13 +28628,13 @@
     },
     {
       "old": "byte_39D92.end",
-      "new": "MechaSonic_ProjectileSpawnRecords.end",
+      "new": "MechaSonic_ProjSpawns.end",
       "kind": "source_marker",
       "reason": "This explicit source marker ends the six-byte projectile record array and supplies the bound used by its DBF count expression.",
       "evidence": {
         "method": "table_end",
         "basis": "This explicit source marker ends the six-byte projectile record array and supplies the bound used by its DBF count expression.",
-        "parent": "MechaSonic_ProjectileSpawnRecords"
+        "parent": "MechaSonic_ProjSpawns"
       },
       "definitions": [
         {
@@ -28650,7 +28650,7 @@
     },
     {
       "old": "byte_39D92.counter",
-      "new": "MechaSonic_ProjectileSpawnRecords.count_minus_one",
+      "new": "MechaSonic_ProjSpawns.count_minus_one",
       "kind": "assembler_constant",
       "reason": "The expression (end - start) / 6 - 1 derives the projectile DBF count from the checked array extent. The burst caller loads this constant into d6 before Obj_CreateProjectiles.",
       "evidence": {
@@ -28711,6 +28711,195 @@
         "rev00": 234346,
         "rev01": 234362
       }
+    },
+    {
+      "old": "BranchTo2_Obj34_MoveTowardsTargetPosition",
+      "new": "SSResults_MoveTimedTextToTarget",
+      "reason": "The special-stage results object checks its text X target and starts the timed display when it arrives, then branches through this shared movement entry.",
+      "kind": "code",
+      "evidence": {
+        "method": "reviewed_source_contract",
+        "basis": "The source declaration and its callers identify the role. Both accepted listings bind its value to the preservation baseline."
+      },
+      "definitions": [
+        {
+          "source": "src/game/special_stage/objects/results.s",
+          "occurrence": 0,
+          "code_sha256": "71f85a344f93d9df97a1493be38230794936228f6890843021abba715ac39d6c"
+        }
+      ],
+      "profile_values": {
+        "rev00": 83072,
+        "rev01": 83072
+      }
+    },
+    {
+      "old": "BranchTo3_Obj34_MoveTowardsTargetPosition",
+      "new": "SSResults_MoveToTarget",
+      "reason": "The special-stage results routine table and emerald check share this branch to the title-card movement routine, which moves the results object toward its X target.",
+      "kind": "code",
+      "evidence": {
+        "method": "reviewed_source_contract",
+        "basis": "The source declaration and its callers identify the role. Both accepted listings bind its value to the preservation baseline."
+      },
+      "definitions": [
+        {
+          "source": "src/game/special_stage/objects/results.s",
+          "occurrence": 0,
+          "code_sha256": "ace8b5e03e0617bb48ad5ca5950c1c99f155cd211be319b86737222da3f615b9"
+        }
+      ],
+      "profile_values": {
+        "rev00": 83300,
+        "rev01": 83300
+      }
+    },
+    {
+      "old": "ConvertHalfOf256x256ChunkToTwo128x128Chunks",
+      "new": "SplitHalf256ChunkIntoTwo128Chunks",
+      "reason": "The conversion loop reads eight rows from one half of a 256 by 256 chunk and writes each left and right row to the corresponding 128 by 128 chunk.",
+      "kind": "code",
+      "evidence": {
+        "method": "reviewed_source_contract",
+        "basis": "The source declaration and its callers identify the role. Both accepted listings bind its value to the preservation baseline."
+      },
+      "definitions": [
+        {
+          "source": "src/game/level/load_layout.s",
+          "occurrence": 0,
+          "code_sha256": "1acc944cf554a32e3c8573af9537b715dc54edccd41620ecb9f31a9b20410e5e"
+        }
+      ],
+      "profile_values": {
+        "rev00": 58822,
+        "rev01": 58780
+      }
+    },
+    {
+      "old": "DrawInitialBG_LoadWholeBackground_512x512",
+      "new": "DrawInitialBG_Full512x512",
+      "reason": "The initial background draw selects this full 512 by 512 plane for Mystic Cave in two-player interlace mode.",
+      "kind": "code",
+      "evidence": {
+        "method": "reviewed_source_contract",
+        "basis": "The source declaration and its callers identify the role. Both accepted listings bind its value to the preservation baseline."
+      },
+      "definitions": [
+        {
+          "source": "src/game/level/drawing/block_writer.s",
+          "occurrence": 0,
+          "code_sha256": "d3cd6e0c296c3a58fb6ec4de13f1fbedc34f5f5155e65a13dd06321097df4dbf"
+        }
+      ],
+      "profile_values": {
+        "rev00": 58304,
+        "rev01": 58262
+      }
+    },
+    {
+      "old": "EndingSequence_LoadCharacterArt_Characters",
+      "new": "EndingArt_CharacterDispatch",
+      "reason": "The ending character-art loader indexes this dispatch table by Ending_Routine to select Sonic, Super Sonic or Tails.",
+      "kind": "data_table",
+      "evidence": {
+        "method": "reviewed_source_contract",
+        "basis": "The source declaration and its callers identify the role. Both accepted listings bind its value to the preservation baseline."
+      },
+      "definitions": [
+        {
+          "source": "src/ui/ending_support.s",
+          "occurrence": 0,
+          "code_sha256": "cc7b5b1113b77b06b0285409ec25ba33497bfe79ce2fdc3a64b2c329ec7c2497"
+        }
+      ],
+      "profile_values": {
+        "rev00": 44002,
+        "rev01": 44014
+      }
+    },
+    {
+      "old": "EndingSequence_LoadCharacterArt_SuperSonic",
+      "new": "EndingArt_LoadSuperSonic",
+      "reason": "The character dispatch selects this entry to write the ending Super Sonic art to the character VRAM slot via NemDec.",
+      "kind": "code",
+      "evidence": {
+        "method": "reviewed_source_contract",
+        "basis": "The source declaration and its callers identify the role. Both accepted listings bind its value to the preservation baseline."
+      },
+      "definitions": [
+        {
+          "source": "src/ui/ending_support.s",
+          "occurrence": 0,
+          "code_sha256": "70fb0d8b82098416af9e869df9cd2caba11d2905dda116f1f730670160738717"
+        }
+      ],
+      "profile_values": {
+        "rev00": 44028,
+        "rev01": 44040
+      }
+    },
+    {
+      "old": "ObjectsManager_2P_IsObjectBlockAlreadyLoaded",
+      "new": "ObjectsManager_2P_IsBlockLoaded",
+      "reason": "The two-player object manager checks its loaded object blocks to avoid loading the same block for both cameras.",
+      "kind": "code",
+      "evidence": {
+        "method": "reviewed_source_contract",
+        "basis": "The source declaration and its callers identify the role. Both accepted listings bind its value to the preservation baseline."
+      },
+      "definitions": [
+        {
+          "source": "src/game/objects/objects_manager.s",
+          "occurrence": 0,
+          "code_sha256": "f5e2fc22d95f9d9a29d244fba24567558ad76d03427bf30d0c7631ff680c74c4"
+        }
+      ],
+      "profile_values": {
+        "rev00": 97906,
+        "rev01": 97894
+      }
+    },
+    {
+      "old": "ProcessAndWriteBlock_DoubleResolution_Horizontal",
+      "new": "WriteInterlacedBlock_Horizontal",
+      "reason": "The two-player renderer writes the interlaced block tiles in the horizontal draw path, including the X and Y flip cases.",
+      "kind": "code",
+      "evidence": {
+        "method": "reviewed_source_contract",
+        "basis": "The source declaration and its callers identify the role. Both accepted listings bind its value to the preservation baseline."
+      },
+      "definitions": [
+        {
+          "source": "src/game/level/drawing/block_writer.s",
+          "occurrence": 0,
+          "code_sha256": "277bd645548b2eb93d7dc56de4a8a5bf2483e8a35186e1916d538e8cf3e0de43"
+        }
+      ],
+      "profile_values": {
+        "rev00": 57696,
+        "rev01": 57654
+      }
+    },
+    {
+      "old": "ProcessAndWriteBlock_DoubleResolution_Vertical",
+      "new": "WriteInterlacedBlock_Vertical",
+      "reason": "The two-player renderer writes the interlaced block tiles in the vertical draw path, including the X and Y flip cases.",
+      "kind": "code",
+      "evidence": {
+        "method": "reviewed_source_contract",
+        "basis": "The source declaration and its callers identify the role. Both accepted listings bind its value to the preservation baseline."
+      },
+      "definitions": [
+        {
+          "source": "src/game/level/drawing/block_writer.s",
+          "occurrence": 0,
+          "code_sha256": "2cc42b6f9e6c4f78e50a1048e741adfd4a636c7b45b954643d670341c8b4e85f"
+        }
+      ],
+      "profile_values": {
+        "rev00": 57892,
+        "rev01": 57850
+      }
     }
   ],
   "project_additions": [],
@@ -28743,9 +28932,9 @@
     },
     {
       "old": "word_3930C_Begin",
-      "new": "EnemiesGrabber_SpriteMappings_Frame5_Variant2_Begin",
+      "new": "Grabber_MapFrame5_Variant2_Begin",
       "parent_old": "word_3930C",
-      "parent_new": "EnemiesGrabber_SpriteMappings_Frame5_Variant2",
+      "parent_new": "Grabber_MapFrame5_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -28756,9 +28945,9 @@
     },
     {
       "old": "word_19172_Begin",
-      "new": "SharedSprings_SpriteMappings_Frame9_Variant2_Begin",
+      "new": "SharedSprings_MapFrame9_Variant2_Begin",
       "parent_old": "word_19172",
-      "parent_new": "SharedSprings_SpriteMappings_Frame9_Variant2",
+      "parent_new": "SharedSprings_MapFrame9_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -28769,9 +28958,9 @@
     },
     {
       "old": "word_36D46_Begin",
-      "new": "EnemiesGrounder_SpriteMappings_Frame2_Begin",
+      "new": "Grounder_MapFrame2_Begin",
       "parent_old": "word_36D46",
-      "parent_new": "EnemiesGrounder_SpriteMappings_Frame2",
+      "parent_new": "Grounder_MapFrame2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -28847,9 +29036,9 @@
     },
     {
       "old": "word_392D8_Begin",
-      "new": "EnemiesGrabber_SpriteMappings_Frame4_Variant2_Begin",
+      "new": "Grabber_MapFrame4_Variant2_Begin",
       "parent_old": "word_392D8",
-      "parent_new": "EnemiesGrabber_SpriteMappings_Frame4_Variant2",
+      "parent_new": "Grabber_MapFrame4_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -28873,9 +29062,9 @@
     },
     {
       "old": "word_19194_Begin",
-      "new": "SharedSprings_SpriteMappings_Frame10_Variant2_Begin",
+      "new": "SharedSprings_MapFrame10_Variant2_Begin",
       "parent_old": "word_19194",
-      "parent_new": "SharedSprings_SpriteMappings_Frame10_Variant2",
+      "parent_new": "SharedSprings_MapFrame10_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -28899,9 +29088,9 @@
     },
     {
       "old": "word_36D7C_Begin",
-      "new": "EnemiesGrounder_SpriteMappings_Frame0_Variant2_Begin",
+      "new": "Grounder_MapFrame0_Variant2_Begin",
       "parent_old": "word_36D7C",
-      "parent_new": "EnemiesGrounder_SpriteMappings_Frame0_Variant2",
+      "parent_new": "Grounder_MapFrame0_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -28912,9 +29101,9 @@
     },
     {
       "old": "word_19136_Begin",
-      "new": "SharedSprings_SpriteMappings_Frame7_Variant2_Begin",
+      "new": "SharedSprings_MapFrame7_Variant2_Begin",
       "parent_old": "word_19136",
-      "parent_new": "SharedSprings_SpriteMappings_Frame7_Variant2",
+      "parent_new": "SharedSprings_MapFrame7_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -28990,9 +29179,9 @@
     },
     {
       "old": "word_392A0_Begin",
-      "new": "EnemiesGrabber_SpriteMappings_Frame0_Variant2_Begin",
+      "new": "Grabber_MapFrame0_Variant2_Begin",
       "parent_old": "word_392A0",
-      "parent_new": "EnemiesGrabber_SpriteMappings_Frame0_Variant2",
+      "parent_new": "Grabber_MapFrame0_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29016,9 +29205,9 @@
     },
     {
       "old": "word_392AA_Begin",
-      "new": "EnemiesGrabber_SpriteMappings_Frame1_Variant2_Begin",
+      "new": "Grabber_MapFrame1_Variant2_Begin",
       "parent_old": "word_392AA",
-      "parent_new": "EnemiesGrabber_SpriteMappings_Frame1_Variant2",
+      "parent_new": "Grabber_MapFrame1_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29068,9 +29257,9 @@
     },
     {
       "old": "word_19158_Begin",
-      "new": "SharedSprings_SpriteMappings_Frame8_Variant2_Begin",
+      "new": "SharedSprings_MapFrame8_Variant2_Begin",
       "parent_old": "word_19158",
-      "parent_new": "SharedSprings_SpriteMappings_Frame8_Variant2",
+      "parent_new": "SharedSprings_MapFrame8_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29094,9 +29283,9 @@
     },
     {
       "old": "word_36D90_Begin",
-      "new": "EnemiesGrounder_SpriteMappings_Frame2_Variant2_Begin",
+      "new": "Grounder_MapFrame2_Variant2_Begin",
       "parent_old": "word_36D90",
-      "parent_new": "EnemiesGrounder_SpriteMappings_Frame2_Variant2",
+      "parent_new": "Grounder_MapFrame2_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29120,9 +29309,9 @@
     },
     {
       "old": "word_36D02_Begin",
-      "new": "EnemiesGrounder_SpriteMappings_Frame0_Begin",
+      "new": "Grounder_MapFrame0_Begin",
       "parent_old": "word_36D02",
-      "parent_new": "EnemiesGrounder_SpriteMappings_Frame0",
+      "parent_new": "Grounder_MapFrame0",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29146,9 +29335,9 @@
     },
     {
       "old": "word_392C6_Begin",
-      "new": "EnemiesGrabber_SpriteMappings_Frame3_Variant2_Begin",
+      "new": "Grabber_MapFrame3_Variant2_Begin",
       "parent_old": "word_392C6",
-      "parent_new": "EnemiesGrabber_SpriteMappings_Frame3_Variant2",
+      "parent_new": "Grabber_MapFrame3_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29159,9 +29348,9 @@
     },
     {
       "old": "word_36D9A_Begin",
-      "new": "EnemiesGrounder_SpriteMappings_Frame0_Variant3_Begin",
+      "new": "Grounder_MapFrame0_Variant3_Begin",
       "parent_old": "word_36D9A",
-      "parent_new": "EnemiesGrounder_SpriteMappings_Frame0_Variant3",
+      "parent_new": "Grounder_MapFrame0_Variant3",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29172,9 +29361,9 @@
     },
     {
       "old": "word_392F2_Begin",
-      "new": "EnemiesGrabber_SpriteMappings_Frame6_Variant2_Begin",
+      "new": "Grabber_MapFrame6_Variant2_Begin",
       "parent_old": "word_392F2",
-      "parent_new": "EnemiesGrabber_SpriteMappings_Frame6_Variant2",
+      "parent_new": "Grabber_MapFrame6_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29185,9 +29374,9 @@
     },
     {
       "old": "word_36D6A_Begin",
-      "new": "EnemiesGrounder_SpriteMappings_Frame4_Begin",
+      "new": "Grounder_MapFrame4_Begin",
       "parent_old": "word_36D6A",
-      "parent_new": "EnemiesGrounder_SpriteMappings_Frame4",
+      "parent_new": "Grounder_MapFrame4",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29224,9 +29413,9 @@
     },
     {
       "old": "word_36D58_Begin",
-      "new": "EnemiesGrounder_SpriteMappings_Frame3_Begin",
+      "new": "Grounder_MapFrame3_Begin",
       "parent_old": "word_36D58",
-      "parent_new": "EnemiesGrounder_SpriteMappings_Frame3",
+      "parent_new": "Grounder_MapFrame3",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29263,9 +29452,9 @@
     },
     {
       "old": "word_36D86_Begin",
-      "new": "EnemiesGrounder_SpriteMappings_Frame1_Variant2_Begin",
+      "new": "Grounder_MapFrame1_Variant2_Begin",
       "parent_old": "word_36D86",
-      "parent_new": "EnemiesGrounder_SpriteMappings_Frame1_Variant2",
+      "parent_new": "Grounder_MapFrame1_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29276,9 +29465,9 @@
     },
     {
       "old": "word_1FCB8_Begin",
-      "new": "ArzBubbles_SpriteMappings_Frame8_Variant2_Begin",
+      "new": "ArzBubbles_MapFrame8_Variant2_Begin",
       "parent_old": "word_1FCB8",
-      "parent_new": "ArzBubbles_SpriteMappings_Frame8_Variant2",
+      "parent_new": "ArzBubbles_MapFrame8_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29289,9 +29478,9 @@
     },
     {
       "old": "word_36D24_Begin",
-      "new": "EnemiesGrounder_SpriteMappings_Frame1_Begin",
+      "new": "Grounder_MapFrame1_Begin",
       "parent_old": "word_36D24",
-      "parent_new": "EnemiesGrounder_SpriteMappings_Frame1",
+      "parent_new": "Grounder_MapFrame1",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29380,9 +29569,9 @@
     },
     {
       "old": "word_392B4_Begin",
-      "new": "EnemiesGrabber_SpriteMappings_Frame2_Variant2_Begin",
+      "new": "Grabber_MapFrame2_Variant2_Begin",
       "parent_old": "word_392B4",
-      "parent_new": "EnemiesGrabber_SpriteMappings_Frame2_Variant2",
+      "parent_new": "Grabber_MapFrame2_Variant2",
       "suffix": "_Begin",
       "kind": "frame_payload_begin",
       "reason": "The assembler derives this marker or local scope from its explicitly renamed parent; its original value is preserved in each accepted profile.",
@@ -29402,6 +29591,83 @@
       "profile_values": {
         "rev00": 234120,
         "rev01": 234136
+      }
+    },
+    {
+      "old": "ObjectsManager_2P_IsObjectBlockAlreadyLoaded.blockAlreadyLoaded",
+      "new": "ObjectsManager_2P_IsBlockLoaded.blockAlreadyLoaded",
+      "parent_old": "ObjectsManager_2P_IsObjectBlockAlreadyLoaded",
+      "suffix": ".blockAlreadyLoaded",
+      "reason": "The assembler derives this marker from the reviewed parent label and keeps the same value.",
+      "profile_values": {
+        "rev00": 97938,
+        "rev01": 97926
+      }
+    },
+    {
+      "old": "ProcessAndWriteBlock_DoubleResolution_Horizontal.flipX",
+      "new": "WriteInterlacedBlock_Horizontal.flipX",
+      "parent_old": "ProcessAndWriteBlock_DoubleResolution_Horizontal",
+      "suffix": ".flipX",
+      "reason": "The assembler derives this marker from the reviewed parent label and keeps the same value.",
+      "profile_values": {
+        "rev00": 57712,
+        "rev01": 57670
+      }
+    },
+    {
+      "old": "ProcessAndWriteBlock_DoubleResolution_Horizontal.flipXY",
+      "new": "WriteInterlacedBlock_Horizontal.flipXY",
+      "parent_old": "ProcessAndWriteBlock_DoubleResolution_Horizontal",
+      "suffix": ".flipXY",
+      "reason": "The assembler derives this marker from the reviewed parent label and keeps the same value.",
+      "profile_values": {
+        "rev00": 57744,
+        "rev01": 57702
+      }
+    },
+    {
+      "old": "ProcessAndWriteBlock_DoubleResolution_Horizontal.flipY",
+      "new": "WriteInterlacedBlock_Horizontal.flipY",
+      "parent_old": "ProcessAndWriteBlock_DoubleResolution_Horizontal",
+      "suffix": ".flipY",
+      "reason": "The assembler derives this marker from the reviewed parent label and keeps the same value.",
+      "profile_values": {
+        "rev00": 57726,
+        "rev01": 57684
+      }
+    },
+    {
+      "old": "ProcessAndWriteBlock_DoubleResolution_Vertical.flipX",
+      "new": "WriteInterlacedBlock_Vertical.flipX",
+      "parent_old": "ProcessAndWriteBlock_DoubleResolution_Vertical",
+      "suffix": ".flipX",
+      "reason": "The assembler derives this marker from the reviewed parent label and keeps the same value.",
+      "profile_values": {
+        "rev00": 57914,
+        "rev01": 57872
+      }
+    },
+    {
+      "old": "ProcessAndWriteBlock_DoubleResolution_Vertical.flipXY",
+      "new": "WriteInterlacedBlock_Vertical.flipXY",
+      "parent_old": "ProcessAndWriteBlock_DoubleResolution_Vertical",
+      "suffix": ".flipXY",
+      "reason": "The assembler derives this marker from the reviewed parent label and keeps the same value.",
+      "profile_values": {
+        "rev00": 57950,
+        "rev01": 57908
+      }
+    },
+    {
+      "old": "ProcessAndWriteBlock_DoubleResolution_Vertical.flipY",
+      "new": "WriteInterlacedBlock_Vertical.flipY",
+      "parent_old": "ProcessAndWriteBlock_DoubleResolution_Vertical",
+      "suffix": ".flipY",
+      "reason": "The assembler derives this marker from the reviewed parent label and keeps the same value.",
+      "profile_values": {
+        "rev00": 57930,
+        "rev01": 57888
       }
     }
   ],

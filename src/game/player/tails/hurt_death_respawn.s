@@ -64,7 +64,7 @@ Obj02_CheckGameOver:
                 move.w  (Tails_Max_Y_pos).w,d0
                 addi.w  #$100,d0
                 cmp.w   y_pos(a0),d0
-                bge.w   GamePlayerTailsHurtDeathRespawn_Return_Variant2
+                bge.w   TailsHurtDeathRespawn_Return_Variant2
                 move.b  #2,routine(a0)
                 tst.w   (Two_player_mode).w
                 bne.s   Obj02_CheckGameOver_2Pmode
@@ -142,7 +142,7 @@ Obj02_ResetLevel_Part3:
                 move.b  #1<<status.player.in_air,status(a0)
                 move.w  #0,move_lock(a0)
 
-GamePlayerTailsHurtDeathRespawn_Return_Variant2:
+TailsHurtDeathRespawn_Return_Variant2:
                 rts
 ; ===========================================================================
 ; ---------------------------------------------------------------------------

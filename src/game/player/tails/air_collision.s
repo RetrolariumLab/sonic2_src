@@ -92,26 +92,26 @@ Tails_HitCeiling:
                 bpl.s   Tails_HitFloor                  ; branch if distance is positive (not inside ceiling)
                 sub.w   d1,y_pos(a0)
                 tst.w   y_vel(a0)
-                bpl.s   GamePlayerTailsAirCollision_Return_Variant2
+                bpl.s   TailsAirCollision_Return_Variant2
                 move.w  #0,y_vel(a0)                    ; stop Tails in y since he hit a ceiling
 
-GamePlayerTailsAirCollision_Return_Variant2:
+TailsAirCollision_Return_Variant2:
                 rts
 ; ===========================================================================
 ; loc_1CA70:
 Tails_HitFloor:
                 tst.w   y_vel(a0)
-                bmi.s   GamePlayerTailsAirCollision_Return_Variant3
+                bmi.s   TailsAirCollision_Return_Variant3
                 bsr.w   Sonic_CheckFloor
                 tst.w   d1
-                bpl.s   GamePlayerTailsAirCollision_Return_Variant3
+                bpl.s   TailsAirCollision_Return_Variant3
                 add.w   d1,y_pos(a0)
                 move.b  d3,angle(a0)
                 bsr.w   Tails_ResetOnFloor
                 move.w  #0,y_vel(a0)
                 move.w  x_vel(a0),inertia(a0)
 
-GamePlayerTailsAirCollision_Return_Variant3:
+TailsAirCollision_Return_Variant3:
                 rts
 ; ===========================================================================
 ; loc_1CA98:
@@ -130,7 +130,7 @@ Tails_HitCeilingAndWalls:
 +
                 bsr.w   Sonic_CheckCeiling
                 tst.w   d1
-                bpl.s   GamePlayerTailsAirCollision_Return_Variant4
+                bpl.s   TailsAirCollision_Return_Variant4
                 sub.w   d1,y_pos(a0)
                 move.b  d3,d0
                 addi.b  #$20,d0
@@ -145,10 +145,10 @@ loc_1CADC:
                 bsr.w   Tails_ResetOnFloor
                 move.w  y_vel(a0),inertia(a0)
                 tst.b   d3
-                bpl.s   GamePlayerTailsAirCollision_Return_Variant4
+                bpl.s   TailsAirCollision_Return_Variant4
                 neg.w   inertia(a0)
 
-GamePlayerTailsAirCollision_Return_Variant4:
+TailsAirCollision_Return_Variant4:
                 rts
 ; ===========================================================================
 ; loc_1CAF4:
@@ -169,27 +169,27 @@ Tails_HitCeiling2:
                 bpl.s   Tails_HitFloor2
                 sub.w   d1,y_pos(a0)
                 tst.w   y_vel(a0)
-                bpl.s   GamePlayerTailsAirCollision_Return_Variant5
+                bpl.s   TailsAirCollision_Return_Variant5
                 move.w  #0,y_vel(a0)                    ; stop Tails in y since he hit a ceiling
 
-GamePlayerTailsAirCollision_Return_Variant5:
+TailsAirCollision_Return_Variant5:
                 rts
 ; ===========================================================================
 ; identical to Tails_HitFloor
 ; loc_1CB28:
 Tails_HitFloor2:
                 tst.w   y_vel(a0)
-                bmi.s   GamePlayerTailsAirCollision_Return_Variant6
+                bmi.s   TailsAirCollision_Return_Variant6
                 bsr.w   Sonic_CheckFloor
                 tst.w   d1
-                bpl.s   GamePlayerTailsAirCollision_Return_Variant6
+                bpl.s   TailsAirCollision_Return_Variant6
                 add.w   d1,y_pos(a0)
                 move.b  d3,angle(a0)
                 bsr.w   Tails_ResetOnFloor
                 move.w  #0,y_vel(a0)
                 move.w  x_vel(a0),inertia(a0)
 
-GamePlayerTailsAirCollision_Return_Variant6:
+TailsAirCollision_Return_Variant6:
                 rts
 ; End of function Tails_DoLevelCollision
 
@@ -226,10 +226,10 @@ Tails_ResetOnFloor_Part3:
                 move.b  #0,flips_remaining(a0)
                 move.w  #0,(Tails_Look_delay_counter).w
                 cmpi.b  #AniIDSonAni_Hang2,anim(a0)
-                bne.s   GamePlayerTailsAirCollision_Return_Variant7
+                bne.s   TailsAirCollision_Return_Variant7
                 move.b  #AniIDSonAni_Walk,anim(a0)
 
-GamePlayerTailsAirCollision_Return_Variant7:
+TailsAirCollision_Return_Variant7:
                 rts
 ; End of subroutine Tails_ResetOnFloor
 

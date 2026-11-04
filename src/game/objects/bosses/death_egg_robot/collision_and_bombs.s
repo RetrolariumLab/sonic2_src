@@ -169,7 +169,7 @@ DeathEggRobot_ResetMotionFrame:
                 clr.b   anim_frame(a0)
                 moveq   #1,d1
 
-DeathEggRobotBossCollisionAndBombs_Return:
+DeathEggRobotBombCollision_Return:
                 rts
 ; ===========================================================================
 
@@ -187,7 +187,7 @@ DeathEggRobot_MotionFlagHandlers:   offsetTable
 
 DeathEggRobot_PlayMotionSound:
                 tst.b   objoff_1F(a0)
-                bne.s   DeathEggRobotBossCollisionAndBombs_Return
+                bne.s   DeathEggRobotBombCollision_Return
                 move.b  anim_frame(a0),d1
                 addq.b  #1,d1
                 move.b  (a1,d1.w),d0

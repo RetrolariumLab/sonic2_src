@@ -69,7 +69,7 @@ Obj82_Main:
                 jsrto   JmpTo23_SolidObject
                 swap    d6
                 move.b  d6,objoff_3F(a0)
-                bsr.w   ArzSwingingPlatform_UpdateStandingResponse
+                bsr.w   ArzSwingPlatform_UpdateStanding
 +
                 move.w  objoff_34(a0),d0
                 jmpto   JmpTo7_MarkObjGone2
@@ -187,7 +187,7 @@ ArzSwingingPlatform_Return_Variant7:
                 rts
 ; ===========================================================================
 
-ArzSwingingPlatform_UpdateStandingResponse:
+ArzSwingPlatform_UpdateStanding:
                 tst.b   objoff_38(a0)
                 beq.s   ArzSwingingPlatform_Return_Variant8
                 move.b  status(a0),d0

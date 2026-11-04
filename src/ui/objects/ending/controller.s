@@ -189,7 +189,7 @@ loc_A38E:
 +
                 subq.w  #1,objoff_3C(a0)
                 bne.s   +
-                lea     (UiEndingSequenceData_EndingSeqTriggerChildSlot3E).l,a2
+                lea     (EndingTriggerChildSlot3E).l,a2
                 jsrto   JmpTo_LoadChildObject
 +
                 bra.w   loc_AB9C

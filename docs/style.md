@@ -4,6 +4,12 @@ The project uses Retrolarium Kit's ASL house style and code formatters.
 config/lint.json owns the source roots and dialect. The public lint and format
 commands call scripts/validation/lint_project.py, which invokes Kit.
 
+Lint runs `rltool lint --project . --only labels` on the original source tree.
+The 40-character limit covers declarations in `.s`, `.inc` and `.asm` files,
+including dotted equates. If a spelling must remain for an external contract,
+record the exact source path, label and reason in
+`config/asm-label-exceptions.json`. The formatter never renames symbols.
+
 ## Original AS syntax compatibility
 
 The project uses .s for 68000 code and emitted tables, .inc for shared

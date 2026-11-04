@@ -8,7 +8,9 @@ no ROM or extracted game data. Obtain the original images yourself.
 Use Python 3.10 or newer, GNU Make, Git, an importable Retrolarium Core Python
 package for history audit, and Retrolarium Kit with build-tool release
 2026.10.11. The exact executable hashes and public dependency commits are in
-config/toolchain.json. The binary allowlist is empty.
+config/toolchain.json. Use the pinned Kit source commit (or a compatible newer
+version) for `make lint`; the build-tool release alone does not identify the
+label-aware CLI. The binary allowlist is empty.
 
 The original source needs AS 1.42 Beta build 313 because build 212 truncates its
 long trampoline macro argument lists. Only the Windows x86-64 and Linux x86-64

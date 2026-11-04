@@ -417,8 +417,8 @@ DeathEggRobotBoss_Animation_Sequence3:  dc.b    0, $D,$15,$FF
 ; animation script
 ; off_3E5EE:
 Ani_objC7_c:    offsetTable
-                    offsetTableEntry.w DeathEggRobotBoss_Animation_Sequence0_Variant2
-DeathEggRobotBoss_Animation_Sequence0_Variant2: dc.b    3,$13,$12,$11,$10,$16,$FF
+                    offsetTableEntry.w DeathEggRobot_AnimSeq0_Variant2
+DeathEggRobot_AnimSeq0_Variant2:    dc.b    3,$13,$12,$11,$10,$16,$FF
                     even
 ; ------------------------------------------------------------------------------
 ; sprite mappings

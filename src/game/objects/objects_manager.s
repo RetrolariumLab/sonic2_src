@@ -332,7 +332,7 @@ ObjectsManager_2P_Run:
                 bsr.w   ObjectsManager_2P_FindEmptyObjectBlock
 ; loc_17D70:
 .haveEmptyObjectBlock:
-                bsr.w   ObjectsManager_2P_IsObjectBlockAlreadyLoaded
+                bsr.w   ObjectsManager_2P_IsBlockLoaded
                 bne.s   .blockNotAlreadyLoaded
 
 ; Block is already loaded: just update the pointer and respawn index without actually loading anything
@@ -436,7 +436,7 @@ ObjMan2P_GoingForward:
                 bsr.w   ObjectsManager_2P_FindEmptyObjectBlock
 ; loc_17E10:
 .haveEmptyObjectBlock:
-                bsr.w   ObjectsManager_2P_IsObjectBlockAlreadyLoaded
+                bsr.w   ObjectsManager_2P_IsBlockLoaded
                 bne.s   .blockNotAlreadyLoaded
 
 ; Block is already loaded: just update the pointer and respawn index without actually loading anything
@@ -502,7 +502,7 @@ ObjMan2P_GoingForward:
 
 ; ===========================================================================
 ; loc_17E66: ObjMan_2P_UnkSub1:
-ObjectsManager_2P_IsObjectBlockAlreadyLoaded:
+ObjectsManager_2P_IsBlockLoaded:
 ; Preserve 'a1'
                 move.l  a1,-(sp)
 

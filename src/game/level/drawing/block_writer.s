@@ -76,7 +76,7 @@ ProcessAndWriteBlock_Horizontal:
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
 ; sub_E136: ProcessAndWriteBlock_2P:
-ProcessAndWriteBlock_DoubleResolution_Horizontal:
+WriteInterlacedBlock_Horizontal:
 ; In two player mode, the VDP's Interlace Mode 2 is enabled, making
 ; tiles twice as tall (16x8 instead of 8x8). Because of this, blocks
 ; are now composed of only two tiles, arranged side by side
@@ -111,7 +111,7 @@ ProcessAndWriteBlock_DoubleResolution_Horizontal:
                 swap    d3
                 move.l  d3,(a6)
                 rts
-; End of function ProcessAndWriteBlock_DoubleResolution_Horizontal
+; End of function WriteInterlacedBlock_Horizontal
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
@@ -183,7 +183,7 @@ ProcessAndWriteBlock_Vertical:
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
 ; sub_E1FA: ProcessAndWriteBlock2_2P:
-ProcessAndWriteBlock_DoubleResolution_Vertical:
+WriteInterlacedBlock_Vertical:
                 or.w    d2,d0
                 swap    d0
                 btst    #3,(a0)
@@ -221,7 +221,7 @@ ProcessAndWriteBlock_DoubleResolution_Vertical:
                 swap    d3
                 move.l  d3,(a6)
                 rts
-; End of function ProcessAndWriteBlock_DoubleResolution_Vertical
+; End of function WriteInterlacedBlock_Vertical
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
 
@@ -353,7 +353,7 @@ DrawInitialBG:
                 tst.w   (Two_player_mode).w
                 beq.w   +
                 cmpi.b  #mystic_cave_zone,(Current_Zone).w
-                beq.w   DrawInitialBG_LoadWholeBackground_512x512
+                beq.w   DrawInitialBG_Full512x512
 +
                 moveq   #-block_height,d4
 +
@@ -396,7 +396,7 @@ DrawInitialBG:
                 rts
 ; ===========================================================================
 ; loc_E396:
-DrawInitialBG_LoadWholeBackground_512x512:
+DrawInitialBG_Full512x512:
 ; Mystic Cave Zone loads its entire background at once in two player
 ; mode, since the plane is big enough to fit it, unlike in one player
 ; mode (512x512 instead of 512x256)

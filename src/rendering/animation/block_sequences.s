@@ -526,25 +526,25 @@ PatchHTZTiles:
                 moveq   #0,d2
                 moveq   #8-1,d4
 
-RenderingAnimationBlockSequences_CountedLoopD4:
+BlockAnim_LoopD4:
                 moveq   #6-1,d3
 
-RenderingAnimationBlockSequences_CountedLoopD3:
+BlockAnim_LoopD3:
                 moveq   #-1,d0
                 move.w  (a4)+,d0
                 movea.l d0,a2
                 moveq   #32-1,d1
 
-RenderingAnimationBlockSequences_CountedLoopD1:
+BlockAnim_LoopD1:
 ; Copy four pixels
                 move.l  (a1),(a2)+
 ; Clear the bytes in 'Object_RAM'
                 move.l  d2,(a1)+
 
-                dbf     d1,RenderingAnimationBlockSequences_CountedLoopD1
-                dbf     d3,RenderingAnimationBlockSequences_CountedLoopD3
+                dbf     d1,BlockAnim_LoopD1
+                dbf     d3,BlockAnim_LoopD3
                 adda.w  #6*2,a4
-                dbf     d4,RenderingAnimationBlockSequences_CountedLoopD4
+                dbf     d4,BlockAnim_LoopD4
                 rts
 ; ===========================================================================
 

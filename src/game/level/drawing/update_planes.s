@@ -103,7 +103,7 @@ GameLevelDrawingUpdatePlanes_Return:
 ; sub_DB5C:
 Draw_FG_P2:
                 tst.b   (a2)
-                beq.s   GameLevelDrawingUpdatePlanes_Return_Variant2
+                beq.s   Draw_FG_P2_Return
 
                 bclr    #scroll_flag_fg_up,(a2)
                 beq.s   +
@@ -133,7 +133,7 @@ Draw_FG_P2:
                 bsr.w   DrawBlockColumn
 +
                 bclr    #scroll_flag_fg_right,(a2)
-                beq.s   GameLevelDrawingUpdatePlanes_Return_Variant2
+                beq.s   Draw_FG_P2_Return
                 moveq   #-block_height,d4               ; Y offset
                 move.w  #screen_width,d5                ; X offset
                 bsr.w   CalculateVRAMAddressOfBlockForPlayer2
@@ -141,7 +141,7 @@ Draw_FG_P2:
                 move.w  #screen_width,d5                ; X offset
                 bsr.w   DrawBlockColumn
 
-GameLevelDrawingUpdatePlanes_Return_Variant2:
+Draw_FG_P2_Return:
                 rts
 ; End of function Draw_FG_P2
 
@@ -150,7 +150,7 @@ GameLevelDrawingUpdatePlanes_Return_Variant2:
 ; sub_DBC2:
 Draw_BG1:
                 tst.b   (a2)
-                beq.w   GameLevelDrawingUpdatePlanes_Return_Variant3
+                beq.w   Draw_BG1_Return
 
                 bclr    #scroll_flag_bg1_up,(a2)
                 beq.s   +
@@ -227,7 +227,7 @@ Draw_BG1:
 ; coordinate, but that doesn't matter since the entire row is copied
 ; anyway
                 bclr    #scroll_flag_bg1_down_whole_row_2,(a2)
-                beq.s   GameLevelDrawingUpdatePlanes_Return_Variant3
+                beq.s   Draw_BG1_Return
                 move.w  #screen_height,d4               ; Y offset (relative to camera)
                 moveq   #-block_width,d5                ; X offset (relative to camera)
                 bsr.w   CalculateVRAMAddressOfBlockForPlayer1
@@ -236,7 +236,7 @@ Draw_BG1:
                 moveq   #gameplay_plane_width/block_width-1,d6  ; The entire width of the plane in blocks minus 1
                 bsr.w   DrawBlockRow_CustomWidth
 
-GameLevelDrawingUpdatePlanes_Return_Variant3:
+Draw_BG1_Return:
                 rts
 ; End of function Draw_BG1
 

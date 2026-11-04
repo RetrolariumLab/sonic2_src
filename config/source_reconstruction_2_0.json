@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 12
+    "commit_count": 13
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -138,8 +138,15 @@
       "id": "reader_entry_documentation",
       "kind": "documentation",
       "summary": "Expand the reader entry to match Sonic 1's project guide, using the checked Sonic 2 profiles, commands, source/content/runtime scope and published release checkpoints.",
-      "commits": ["release-commit"],
+      "commits": ["0d09496f22a135802de253ea7c4f4080be5b2675"],
       "evidence": ["README.md", "config/reconstruction/documentation_review.json", "documentation-check"]
+    },
+    {
+      "id": "assembly_label_length",
+      "kind": "source",
+      "summary": "Shorten long assembly names and check the original declarations with Kit while preserving all symbol values and ROM bytes.",
+      "commits": ["release-commit"],
+      "evidence": ["config/lint.json", "config/reconstruction/label_renames.json", "semantic-symbols-check"]
     }
   ],
   "reference": {

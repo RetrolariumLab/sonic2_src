@@ -298,10 +298,10 @@ Obj01_DoRoll:
                 move.w  #SndID_Roll,d0
                 jsr     (PlaySound).l                   ; play rolling sound
                 tst.w   inertia(a0)
-                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant2
+                bne.s   SonicRollJump_Return_Variant2
                 move.w  #$200,inertia(a0)
 
-GamePlayerSonicRollingAndJumping_Return_Variant2:
+SonicRollJump_Return_Variant2:
                 rts
 ; End of function Sonic_Roll
 
@@ -315,13 +315,13 @@ GamePlayerSonicRollingAndJumping_Return_Variant2:
 Sonic_Jump:
                 move.b  (Ctrl_1_Press_Logical).w,d0
                 andi.b  #button_B_mask|button_C_mask|button_A_mask,d0  ; is A, B or C pressed?
-                beq.w   GamePlayerSonicRollingAndJumping_Return_Variant3  ; if not, return
+                beq.w   SonicRollJump_Return_Variant3   ; if not, return
                 moveq   #0,d0
                 move.b  angle(a0),d0
                 addi.b  #$80,d0
                 bsr.w   CalcRoomOverHead
                 cmpi.w  #6,d1                           ; does Sonic have enough room to jump?
-                blt.w   GamePlayerSonicRollingAndJumping_Return_Variant3  ; if not, branch
+                blt.w   SonicRollJump_Return_Variant3   ; if not, branch
                 move.w  #$680,d2
                 tst.b   (Super_Sonic_flag).w
                 beq.s   +
@@ -362,7 +362,7 @@ Sonic_Jump:
                 bset    #status.player.rolling,status(a0)
                 addq.w  #5,y_pos(a0)
 
-GamePlayerSonicRollingAndJumping_Return_Variant3:
+SonicRollJump_Return_Variant3:
                 rts
 ; ---------------------------------------------------------------------------
 ; loc_1AAE8:
@@ -403,12 +403,12 @@ Sonic_JumpHeight:
 ; loc_1AB22:
 Sonic_UpVelCap:
                 tst.b   pinball_mode(a0)                ; is Sonic charging a spindash or in a rolling-only area?
-                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant4  ; if yes, return
+                bne.s   SonicRollJump_Return_Variant4   ; if yes, return
                 cmpi.w  #-$FC0,y_vel(a0)                ; is Sonic moving up really fast?
-                bge.s   GamePlayerSonicRollingAndJumping_Return_Variant4  ; if not, return
+                bge.s   SonicRollJump_Return_Variant4   ; if not, return
                 move.w  #-$FC0,y_vel(a0)                ; cap upward speed
 
-GamePlayerSonicRollingAndJumping_Return_Variant4:
+SonicRollJump_Return_Variant4:
                 rts
 ; End of subroutine Sonic_JumpHeight
 
@@ -422,11 +422,11 @@ GamePlayerSonicRollingAndJumping_Return_Variant4:
 ; loc_1AB38: test_set_SS:
 Sonic_CheckGoSuper:
                 tst.b   (Super_Sonic_flag).w            ; is Sonic already Super?
-                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant5  ; if yes, branch
+                bne.s   SonicRollJump_Return_Variant5   ; if yes, branch
                 cmpi.b  #7,(Emerald_count).w            ; does Sonic have exactly 7 emeralds?
-                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant5  ; if not, branch
+                bne.s   SonicRollJump_Return_Variant5   ; if not, branch
                 cmpi.w  #50,(Ring_count).w              ; does Sonic have at least 50 rings?
-                blo.s   GamePlayerSonicRollingAndJumping_Return_Variant5  ; if not, branch
+                blo.s   SonicRollJump_Return_Variant5   ; if not, branch
 
                 move.b  #1,(Super_Sonic_palette).w
                 move.b  #$F,(Palette_timer).w
@@ -445,7 +445,7 @@ Sonic_CheckGoSuper:
                 jmp     (PlayMusic).l                   ; load the Super Sonic song and return
 
 ; ---------------------------------------------------------------------------
-GamePlayerSonicRollingAndJumping_Return_Variant5:
+SonicRollJump_Return_Variant5:
                 rts
 ; End of subroutine Sonic_CheckGoSuper
 
@@ -458,11 +458,11 @@ GamePlayerSonicRollingAndJumping_Return_Variant5:
 ; loc_1ABA6:
 Sonic_Super:
                 tst.b   (Super_Sonic_flag).w            ; Ignore all this code if not Super Sonic
-                beq.w   GamePlayerSonicRollingAndJumping_Return_Variant6
+                beq.w   SonicRollJump_Return_Variant6
                 tst.b   (Update_HUD_timer).w
                 beq.s   Sonic_RevertToNormal            ; ?
                 subq.w  #1,(Super_Sonic_frame_count).w
-                bpl.w   GamePlayerSonicRollingAndJumping_Return_Variant6
+                bpl.w   SonicRollJump_Return_Variant6
                 move.w  #60,(Super_Sonic_frame_count).w  ; Reset frame counter to 60
                 tst.w   (Ring_count).w
                 beq.s   Sonic_RevertToNormal
@@ -477,7 +477,7 @@ Sonic_Super:
                 ori.b   #$80,(Update_HUD_rings).w
 +
                 subq.w  #1,(Ring_count).w
-                bne.s   GamePlayerSonicRollingAndJumping_Return_Variant6
+                bne.s   SonicRollJump_Return_Variant6
 ; loc_1ABF2:
 Sonic_RevertToNormal:
                 move.b  #2,(Super_Sonic_palette).w      ; Remove rotating palette
@@ -489,12 +489,12 @@ Sonic_RevertToNormal:
                 move.w  #$C,(Sonic_acceleration).w
                 move.w  #$80,(Sonic_deceleration).w
                 btst    #status.player.underwater,status(a0)  ; Check if underwater, return if not
-                beq.s   GamePlayerSonicRollingAndJumping_Return_Variant6
+                beq.s   SonicRollJump_Return_Variant6
                 move.w  #$300,(Sonic_top_speed).w
                 move.w  #6,(Sonic_acceleration).w
                 move.w  #$40,(Sonic_deceleration).w
 
-GamePlayerSonicRollingAndJumping_Return_Variant6:
+SonicRollJump_Return_Variant6:
                 rts
 ; End of subroutine Sonic_Super
 

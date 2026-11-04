@@ -354,19 +354,19 @@ Sonic_TurnLeft:
                 move.b  angle(a0),d0                    ; get Sonic's current angle (and partially overwrite d0...)
                 addi.b  #$20,d0                         ; rotate by 45 degrees clockwise
                 andi.b  #$C0,d0                         ; snap to nearest multiple of 90 degrees
-                bne.s   GamePlayerSonicGroundMovement_Return_Variant2  ; if Sonic is on a wall or ceiling, prevent stopping animation
+                bne.s   SonicGroundMove_Return_Variant2  ; if Sonic is on a wall or ceiling, prevent stopping animation
                 cmpi.w  #$400,d0                        ; has Sonic changed direction while being really fast?
-                blt.s   GamePlayerSonicGroundMovement_Return_Variant2  ; if not, don't play skidding animation/sound
+                blt.s   SonicGroundMove_Return_Variant2  ; if not, don't play skidding animation/sound
                 move.b  #AniIDSonAni_Stop,anim(a0)      ; use "stopping" animation
                 bclr    #status.player.x_flip,status(a0)  ; clear X-flip flag (Sonic is now facing right)
                 move.w  #SndID_Skidding,d0              ; load skidding sound
                 jsr     (PlaySound).l                   ; play skidding sound
                 cmpi.b  #12,air_left(a0)                ; is Sonic drowning?
-                blo.s   GamePlayerSonicGroundMovement_Return_Variant2  ; if yes, branch
+                blo.s   SonicGroundMove_Return_Variant2  ; if yes, branch
                 move.b  #6,(Sonic_Dust+routine).w       ; set Obj08's routine to skidding
                 move.b  #$15,(Sonic_Dust+mapping_frame).w  ; set skidding dust's frame
 
-GamePlayerSonicGroundMovement_Return_Variant2:
+SonicGroundMove_Return_Variant2:
                 rts
 ; End of subroutine Sonic_MoveLeft
 
@@ -408,19 +408,19 @@ Sonic_TurnRight:
                 move.b  angle(a0),d0                    ; get Sonic's current angle (and partially overwrite d0...)
                 addi.b  #$20,d0                         ; rotate by 45 degrees clockwise
                 andi.b  #$C0,d0                         ; snap to nearest multiple of 90 degrees
-                bne.s   GamePlayerSonicGroundMovement_Return_Variant3  ; if Sonic is on a wall or ceiling, prevent stopping animation
+                bne.s   SonicGroundMove_Return_Variant3  ; if Sonic is on a wall or ceiling, prevent stopping animation
                 cmpi.w  #-$400,d0                       ; has Sonic changed direction while being really fast?
-                bgt.s   GamePlayerSonicGroundMovement_Return_Variant3  ; if not, don't play skidding animation/sound
+                bgt.s   SonicGroundMove_Return_Variant3  ; if not, don't play skidding animation/sound
                 move.b  #AniIDSonAni_Stop,anim(a0)      ; use "stopping" animation
                 bset    #status.player.x_flip,status(a0)  ; set X-flip flag (Sonic is now facing left)
                 move.w  #SndID_Skidding,d0              ; load skidding sound
                 jsr     (PlaySound).l                   ; play skidding sound
                 cmpi.b  #12,air_left(a0)                ; is Sonic drowning?
-                blo.s   GamePlayerSonicGroundMovement_Return_Variant3  ; if yes, branch
+                blo.s   SonicGroundMove_Return_Variant3  ; if yes, branch
                 move.b  #6,(Sonic_Dust+routine).w       ; set Obj08's routine to skidding
                 move.b  #$15,(Sonic_Dust+mapping_frame).w  ; set skidding dust's frame
 
-GamePlayerSonicGroundMovement_Return_Variant3:
+SonicGroundMove_Return_Variant3:
                 rts
 ; End of subroutine Sonic_MoveRight
 

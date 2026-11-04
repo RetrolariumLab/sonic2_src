@@ -140,13 +140,13 @@ Sonic_SlopeResist:
                 move.b  angle(a0),d0
                 addi.b  #$60,d0
                 cmpi.b  #$C0,d0
-                bhs.s   GamePlayerSonicSpindashAndSlopes_Return_Variant2
+                bhs.s   SonicSpindashSlopes_Return_Variant2
                 move.b  angle(a0),d0
                 jsr     (CalcSine).l
                 muls.w  #$20,d0
                 asr.l   #8,d0
                 tst.w   inertia(a0)
-                beq.s   GamePlayerSonicSpindashAndSlopes_Return_Variant2
+                beq.s   SonicSpindashSlopes_Return_Variant2
                 bmi.s   loc_1ADC6
                 tst.w   d0
                 beq.s   +
@@ -158,7 +158,7 @@ Sonic_SlopeResist:
 loc_1ADC6:
                 add.w   d0,inertia(a0)
 
-GamePlayerSonicSpindashAndSlopes_Return_Variant2:
+SonicSpindashSlopes_Return_Variant2:
                 rts
 ; End of subroutine Sonic_SlopeResist
 
@@ -173,7 +173,7 @@ Sonic_RollRepel:
                 move.b  angle(a0),d0
                 addi.b  #$60,d0
                 cmpi.b  #$C0,d0
-                bhs.s   GamePlayerSonicSpindashAndSlopes_Return_Variant3
+                bhs.s   SonicSpindashSlopes_Return_Variant3
                 move.b  angle(a0),d0
                 jsr     (CalcSine).l
                 muls.w  #$50,d0
@@ -197,7 +197,7 @@ loc_1ADFC:
 loc_1AE02:
                 add.w   d0,inertia(a0)
 
-GamePlayerSonicSpindashAndSlopes_Return_Variant3:
+SonicSpindashSlopes_Return_Variant3:
                 rts
 ; End of function Sonic_RollRepel
 
@@ -211,21 +211,21 @@ GamePlayerSonicSpindashAndSlopes_Return_Variant3:
 Sonic_SlopeRepel:
                 nop
                 tst.b   stick_to_convex(a0)
-                bne.s   GamePlayerSonicSpindashAndSlopes_Return_Variant4
+                bne.s   SonicSpindashSlopes_Return_Variant4
                 tst.w   move_lock(a0)
                 bne.s   loc_1AE44
                 move.b  angle(a0),d0
                 addi.b  #$20,d0
                 andi.b  #$C0,d0
-                beq.s   GamePlayerSonicSpindashAndSlopes_Return_Variant4
+                beq.s   SonicSpindashSlopes_Return_Variant4
                 mvabs.w inertia(a0),d0
                 cmpi.w  #$280,d0
-                bhs.s   GamePlayerSonicSpindashAndSlopes_Return_Variant4
+                bhs.s   SonicSpindashSlopes_Return_Variant4
                 clr.w   inertia(a0)
                 bset    #status.player.in_air,status(a0)
                 move.w  #$1E,move_lock(a0)
 
-GamePlayerSonicSpindashAndSlopes_Return_Variant4:
+SonicSpindashSlopes_Return_Variant4:
                 rts
 ; ===========================================================================
 
@@ -274,7 +274,7 @@ Sonic_JumpAngleSet:
 ; loc_1AE64:
 Sonic_JumpFlip:
                 move.b  flip_angle(a0),d0
-                beq.s   GamePlayerSonicSpindashAndSlopes_Return_Variant5
+                beq.s   SonicSpindashSlopes_Return_Variant5
                 tst.w   inertia(a0)
                 bmi.s   Sonic_JumpLeftFlip
 ; loc_1AE70:
@@ -305,7 +305,7 @@ Sonic_JumpLeftFlip:
 Sonic_JumpFlipSet:
                 move.b  d0,flip_angle(a0)
 
-GamePlayerSonicSpindashAndSlopes_Return_Variant5:
+SonicSpindashSlopes_Return_Variant5:
                 rts
 ; End of function Sonic_JumpFlip
 

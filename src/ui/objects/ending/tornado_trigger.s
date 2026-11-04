@@ -258,11 +258,11 @@ loc_A720:
                 addq.b  #2,routine_secondary(a0)
                 clr.w   objoff_3C(a0)
                 clr.w   objoff_32(a0)
-                lea     (UiEndingSequenceData_TornadoHelixesChildSlot3E).l,a2
+                lea     (EndingTornadoHelixesChildSlot3E).l,a2
                 jsrto   JmpTo_LoadChildObject
                 tst.b   (Super_Sonic_flag).w
                 bne.w   EndingController_Return
-                lea     (UiEndingSequenceData_EndingSeqSonicChildSlot3E).l,a2
+                lea     (EndingSonicChildSlot3E).l,a2
                 jmpto   JmpTo_LoadChildObject
 ; ===========================================================================
 byte_A748:

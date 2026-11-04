@@ -155,9 +155,9 @@ loc_1BC68:
                 lea     (Sonic_Stat_Record_Buf).w,a2
                 move.b  2(a2,d3.w),d2
                 andi.b  #$D2,d2
-                bne.s   GamePlayerTailsFollowerAi_Return_Variant2
+                bne.s   TailsFollowerAI_Return_Variant2
                 or.w    d0,d1
-                bne.s   GamePlayerTailsFollowerAi_Return_Variant2
+                bne.s   TailsFollowerAI_Return_Variant2
                 move.w  #6,(Tails_CPU_routine).w        ; => TailsCPU_Normal
                 move.b  #0,obj_control(a0)
                 move.b  #AniIDSonAni_Walk,anim(a0)
@@ -174,13 +174,13 @@ loc_1BC68:
                 move.b  top_solid_bit(a1),top_solid_bit(a0)
                 move.b  lrb_solid_bit(a1),lrb_solid_bit(a0)
                 cmpi.b  #AniIDSonAni_Spindash,anim(a1)
-                beq.s   GamePlayerTailsFollowerAi_Return_Variant2
+                beq.s   TailsFollowerAI_Return_Variant2
                 move.b  spindash_flag(a0),d0
-                beq.s   GamePlayerTailsFollowerAi_Return_Variant2
+                beq.s   TailsFollowerAI_Return_Variant2
                 move.b  d0,spindash_flag(a1)
                 bsr.w   PinballTrigger_EnsurePlayerRolling
 
-GamePlayerTailsFollowerAi_Return_Variant2:
+TailsFollowerAI_Return_Variant2:
                 rts
 
 ; ===========================================================================
@@ -388,14 +388,14 @@ TailsCPU_UpdateObjInteract:
 TailsCPU_Panic:
                 bsr.w   TailsCPU_CheckDespawn
                 tst.w   (Tails_control_counter).w
-                bne.w   GamePlayerTailsFollowerAi_Return_Variant3
+                bne.w   TailsFollowerAI_Return_Variant3
                 tst.w   move_lock(a0)
-                bne.s   GamePlayerTailsFollowerAi_Return_Variant3
+                bne.s   TailsFollowerAI_Return_Variant3
                 tst.b   spindash_flag(a0)
                 bne.s   TailsCPU_Panic_ChargingDash
 
                 tst.w   inertia(a0)
-                bne.s   GamePlayerTailsFollowerAi_Return_Variant3
+                bne.s   TailsFollowerAI_Return_Variant3
                 bclr    #status.player.x_flip,status(a0)
                 move.w  x_pos(a0),d0
                 sub.w   x_pos(a1),d0
@@ -408,7 +408,7 @@ TailsCPU_Panic:
                 beq.s   TailsCPU_Panic_ReleaseDash
 
                 cmpi.b  #AniIDSonAni_Duck,anim(a0)
-                bne.s   GamePlayerTailsFollowerAi_Return_Variant3
+                bne.s   TailsFollowerAI_Return_Variant3
                 move.w  #((button_down_mask|button_B_mask|button_C_mask|button_A_mask)<<8)|(button_down_mask|button_B_mask|button_C_mask|button_A_mask),(Ctrl_2_Logical).w
                 rts
 ; ---------------------------------------------------------------------------
@@ -428,10 +428,10 @@ TailsCPU_Panic_ReleaseDash:
 ; loc_1BF2A:
 TailsCPU_Panic_RevDash:
                 andi.b  #$1F,d0
-                bne.s   GamePlayerTailsFollowerAi_Return_Variant3
+                bne.s   TailsFollowerAI_Return_Variant3
                 ori.w   #((button_B_mask|button_C_mask|button_A_mask)<<8)|(button_B_mask|button_C_mask|button_A_mask),(Ctrl_2_Logical).w
 
-GamePlayerTailsFollowerAi_Return_Variant3:
+TailsFollowerAI_Return_Variant3:
                 rts
 ; End of function TailsCPU_Control
 

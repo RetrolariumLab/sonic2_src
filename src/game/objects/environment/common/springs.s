@@ -696,10 +696,10 @@ Obj41_MapUnc_19032: mappingsTable
                 mappingsTableEntry.w SharedSprings_SpriteMappings_Frame4
                 mappingsTableEntry.w SharedSprings_SpriteMappings_Frame5
                 mappingsTableEntry.w SharedSprings_SpriteMappings_Frame6
-                mappingsTableEntry.w SharedSprings_SpriteMappings_Frame7_Variant2
-                mappingsTableEntry.w SharedSprings_SpriteMappings_Frame8_Variant2
-                mappingsTableEntry.w SharedSprings_SpriteMappings_Frame9_Variant2
-                mappingsTableEntry.w SharedSprings_SpriteMappings_Frame10_Variant2
+                mappingsTableEntry.w SharedSprings_MapFrame7_Variant2
+                mappingsTableEntry.w SharedSprings_MapFrame8_Variant2
+                mappingsTableEntry.w SharedSprings_MapFrame9_Variant2
+                mappingsTableEntry.w SharedSprings_MapFrame10_Variant2
 
 SharedSprings_SpriteMappings_Frame0:    spriteHeader
                 spritePiece -$10, -$10, 4, 2, 0, 0, 0, 0, 0
@@ -761,32 +761,32 @@ SharedSprings_SpriteMappings_Frame10:   spriteHeader
                 spritePiece -$10, -$10, 2, 2, $1C, 0, 1, 1, 0
 SharedSprings_SpriteMappings_Frame10_End
 
-SharedSprings_SpriteMappings_Frame7_Variant2:   spriteHeader
+SharedSprings_MapFrame7_Variant2:   spriteHeader
                 spritePiece -$10, -$10, 4, 2, 0, 0, 0, 0, 0
                 spritePiece 0, 0, 2, 2, 8, 0, 0, 0, 0
                 spritePiece -$A, -5, 2, 2, $C, 0, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $1C, 0, 0, 0, 0
-SharedSprings_SpriteMappings_Frame7_Variant2_End
+SharedSprings_MapFrame7_Variant2_End
 
-SharedSprings_SpriteMappings_Frame8_Variant2:   spriteHeader
+SharedSprings_MapFrame8_Variant2:   spriteHeader
                 spritePiece -$16, -$A, 4, 2, 0, 0, 0, 0, 0
                 spritePiece -6, 6, 2, 2, 8, 0, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $1C, 0, 0, 0, 0
-SharedSprings_SpriteMappings_Frame8_Variant2_End
+SharedSprings_MapFrame8_Variant2_End
 
-SharedSprings_SpriteMappings_Frame9_Variant2:   spriteHeader
+SharedSprings_MapFrame9_Variant2:   spriteHeader
                 spritePiece -5, -$1A, 4, 2, 0, 0, 0, 0, 0
                 spritePiece $B, -$A, 2, 2, 8, 0, 0, 0, 0
                 spritePiece -$A, -$D, 3, 4, $10, 0, 0, 0, 0
                 spritePiece -$10, 0, 2, 2, $1C, 0, 0, 0, 0
-SharedSprings_SpriteMappings_Frame9_Variant2_End
+SharedSprings_MapFrame9_Variant2_End
 
-SharedSprings_SpriteMappings_Frame10_Variant2:  spriteHeader
+SharedSprings_MapFrame10_Variant2:  spriteHeader
                 spritePiece -$10, 0, 4, 2, 0, 0, 1, 0, 0
                 spritePiece 0, -$10, 2, 2, 8, 0, 1, 0, 0
                 spritePiece -$A, -$B, 2, 2, $C, 0, 1, 0, 0
                 spritePiece -$10, -$10, 2, 2, $1C, 0, 1, 0, 0
-SharedSprings_SpriteMappings_Frame10_Variant2_End
+SharedSprings_MapFrame10_Variant2_End
 
                 even
 

@@ -15,7 +15,7 @@ SSTrackSetOrientation:
                 st.b    (SSTrack_Orientation).w         ; Mark as being flipped
                 move.b  (SSTrack_drawing_index).w,d0    ; Get drawing position
                 cmp.b   (SS_player_anim_frame_timer).w,d0  ; Is it lower than the player's frame?
-                blt.w   GameSpecialStageOrientationAndScroll_Return  ; Return if yes
+                blt.w   SSTrack_OrientationReturn       ; Return if yes
                 st.b    (SS_Alternate_HorizScroll_Buf).w  ; Use the alternate horizontal scroll buffer
                 rts
 ; ===========================================================================
@@ -33,9 +33,9 @@ SSTrackSetOrientation:
 ; ===========================================================================
 +
                 cmpa.l  #MapSpec_Drop6,a0               ; Is the track before drop frame 6?
-                blt.s   GameSpecialStageOrientationAndScroll_Return  ; Return is yes
+                blt.s   SSTrack_OrientationReturn       ; Return is yes
                 cmpa.l  #MapSpec_Drop7,a0               ; Is it drop frame 7 or higher?
-                bge.s   GameSpecialStageOrientationAndScroll_Return  ; Return if yes
+                bge.s   SSTrack_OrientationReturn       ; Return if yes
 ; We only get here for straight frame 6
                 movea.l (SS_CurrentLevelLayout).w,a5    ; Get current level layout
                 move.b  (SpecialStage_CurrentSegment).w,d1  ; Get current segment
@@ -45,10 +45,10 @@ SSTrackSetOrientation:
                 sf.b    (SSTrack_Orientation).w         ; Mark as being unflipped
                 move.b  (SSTrack_drawing_index).w,d0    ; Get drawing position
                 cmp.b   (SS_player_anim_frame_timer).w,d0  ; Is it lower than the player's frame?
-                blt.s   GameSpecialStageOrientationAndScroll_Return  ; Return if yes
+                blt.s   SSTrack_OrientationReturn       ; Return if yes
                 sf.b    (SS_Alternate_HorizScroll_Buf).w  ; Don't use the alternate horizontal scroll buffer
 
-GameSpecialStageOrientationAndScroll_Return:
+SSTrack_OrientationReturn:
                 rts
 ; End of function SSTrack_Draw
 
@@ -172,29 +172,29 @@ SS_ScrollBG:
 
 ; ===========================================================================
 ; special stage background vertical and horizontal scroll offsets
-GameSpecialStageOrientationAndScroll_BackgroundScroll:  offsetTable
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples0  ; 0
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples1  ; 1
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples2  ; 2
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples3  ; 3
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples4  ; 4
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples5  ; 5
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples6  ; 6
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples7  ; 7
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples8  ; 8
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples9  ; 9
-                offsetTableEntry.w GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples10  ; $A
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples0:   dc.b    2,  2,  2,  2,  2
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples1:   dc.b    4,  4,  5,  4,  5
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples2:   dc.b    $B, $B, $B, $B, $C
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples3:   dc.b    0,  0,  1,  0,  0
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples4:   dc.b    1,  1,  1,  1,  1
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples5:   dc.b    9,  9,  8,  9,  9
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples6:   dc.b    9,  9,  9,  9, $A
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples7:   dc.b    7,  7,  6,  7,  7
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples8:   dc.b    0,  1,  1,  1,  0
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples9:   dc.b    4,  3,  3,  3,  4
-GameSpecialStageOrientationAndScroll_BackgroundScroll_ScrollSamples10:  dc.b    0,  0,$FF,  0,  0
+SSBgScroll:     offsetTable
+                offsetTableEntry.w SSBgScroll_Samples0  ; 0
+                offsetTableEntry.w SSBgScroll_Samples1  ; 1
+                offsetTableEntry.w SSBgScroll_Samples2  ; 2
+                offsetTableEntry.w SSBgScroll_Samples3  ; 3
+                offsetTableEntry.w SSBgScroll_Samples4  ; 4
+                offsetTableEntry.w SSBgScroll_Samples5  ; 5
+                offsetTableEntry.w SSBgScroll_Samples6  ; 6
+                offsetTableEntry.w SSBgScroll_Samples7  ; 7
+                offsetTableEntry.w SSBgScroll_Samples8  ; 8
+                offsetTableEntry.w SSBgScroll_Samples9  ; 9
+                offsetTableEntry.w SSBgScroll_Samples10  ; $A
+SSBgScroll_Samples0:    dc.b    2,  2,  2,  2,  2
+SSBgScroll_Samples1:    dc.b    4,  4,  5,  4,  5
+SSBgScroll_Samples2:    dc.b    $B, $B, $B, $B, $C
+SSBgScroll_Samples3:    dc.b    0,  0,  1,  0,  0
+SSBgScroll_Samples4:    dc.b    1,  1,  1,  1,  1
+SSBgScroll_Samples5:    dc.b    9,  9,  8,  9,  9
+SSBgScroll_Samples6:    dc.b    9,  9,  9,  9, $A
+SSBgScroll_Samples7:    dc.b    7,  7,  6,  7,  7
+SSBgScroll_Samples8:    dc.b    0,  1,  1,  1,  0
+SSBgScroll_Samples9:    dc.b    4,  3,  3,  3,  4
+SSBgScroll_Samples10:   dc.b    0,  0,$FF,  0,  0
                 even
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
@@ -240,7 +240,7 @@ off_6E54:       offsetTable
                 moveq   #0,d0
                 moveq   #0,d2
                 move.b  (SSTrack_drawing_index).w,d0    ; Get drawing position
-                lea_    GameSpecialStageOrientationAndScroll_BackgroundScroll,a0  ; a0 = pointer to background scroll data
+                lea_    SSBgScroll,a0                   ; a0 = pointer to background scroll data
                 adda.w  (a0,d1.w),a0                    ; a0 = pointer to background scroll data for current animation frame
                 move.b  (a0,d0.w),d2                    ; Get background offset for current frame duration
                 tst.b   (SS_Last_Alternate_HorizScroll_Buf).w  ; Was the alternate horizontal scroll buffer used last time?
@@ -391,7 +391,7 @@ SSTrack_ApplyVscroll:
                 moveq   #0,d0
                 moveq   #0,d2
                 move.b  (SSTrack_drawing_index).w,d0    ; Get drawing position
-                lea_    GameSpecialStageOrientationAndScroll_BackgroundScroll,a0  ; a0 = pointer to background scroll data
+                lea_    SSBgScroll,a0                   ; a0 = pointer to background scroll data
                 adda.w  (a0,d1.w),a0                    ; a0 = pointer to background scroll data for current animation frame
                 move.b  (a0,d0.w),d2                    ; Get background offset for current frame duration
                 tst.b   d7                              ; Are we supposed to increase the vertical scroll?

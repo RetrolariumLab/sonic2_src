@@ -340,28 +340,28 @@ Map_obj59_006E_End
 ; animation script:
 ; off_362D2:
 Ani_obj5B_obj60:offsetTable
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence0_Variant2  ; 0
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence1_Variant2  ; 1
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence2_Variant2  ; 2
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence3_Variant2  ; 3
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence4_Variant2  ; 4
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence5_Variant2  ; 5
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence6_Variant2  ; 6
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence7_Variant2  ; 7
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence8_Variant2  ; 8
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence9_Variant2  ; 9
+                offsetTableEntry.w ChaosEmerald_AnimSeq0_Variant2  ; 0
+                offsetTableEntry.w ChaosEmerald_AnimSeq1_Variant2  ; 1
+                offsetTableEntry.w ChaosEmerald_AnimSeq2_Variant2  ; 2
+                offsetTableEntry.w ChaosEmerald_AnimSeq3_Variant2  ; 3
+                offsetTableEntry.w ChaosEmerald_AnimSeq4_Variant2  ; 4
+                offsetTableEntry.w ChaosEmerald_AnimSeq5_Variant2  ; 5
+                offsetTableEntry.w ChaosEmerald_AnimSeq6_Variant2  ; 6
+                offsetTableEntry.w ChaosEmerald_AnimSeq7_Variant2  ; 7
+                offsetTableEntry.w ChaosEmerald_AnimSeq8_Variant2  ; 8
+                offsetTableEntry.w ChaosEmerald_AnimSeq9_Variant2  ; 9
                 offsetTableEntry.w ChaosEmerald_Animation_Sequence10  ; $A
-ChaosEmerald_Animation_Sequence0_Variant2:  dc.b    5,  0, $A,$14, $A,$FF
-ChaosEmerald_Animation_Sequence1_Variant2:  dc.b    5,  1, $B,$15, $B,$FF
-ChaosEmerald_Animation_Sequence2_Variant2:  dc.b    5,  2, $C,$16, $C,$FF
-ChaosEmerald_Animation_Sequence3_Variant2:  dc.b    5,  3, $D,$17, $D,$FF
-ChaosEmerald_Animation_Sequence4_Variant2:  dc.b    5,  4, $E,$18, $E,$FF
-ChaosEmerald_Animation_Sequence5_Variant2:  dc.b    5,  5, $F,$19, $F,$FF
-ChaosEmerald_Animation_Sequence6_Variant2:  dc.b    5,  6,$10,$1A,$10,$FF
-ChaosEmerald_Animation_Sequence7_Variant2:  dc.b    5,  7,$11,$1B,$11,$FF
-ChaosEmerald_Animation_Sequence8_Variant2:  dc.b    5,  8,$12,$1C,$12,$FF
-ChaosEmerald_Animation_Sequence9_Variant2:  dc.b    5,  9,$13,$1D,$13,$FF
-ChaosEmerald_Animation_Sequence10:          dc.b    1,$1E,$1F,$20,$FF
+ChaosEmerald_AnimSeq0_Variant2:     dc.b    5,  0, $A,$14, $A,$FF
+ChaosEmerald_AnimSeq1_Variant2:     dc.b    5,  1, $B,$15, $B,$FF
+ChaosEmerald_AnimSeq2_Variant2:     dc.b    5,  2, $C,$16, $C,$FF
+ChaosEmerald_AnimSeq3_Variant2:     dc.b    5,  3, $D,$17, $D,$FF
+ChaosEmerald_AnimSeq4_Variant2:     dc.b    5,  4, $E,$18, $E,$FF
+ChaosEmerald_AnimSeq5_Variant2:     dc.b    5,  5, $F,$19, $F,$FF
+ChaosEmerald_AnimSeq6_Variant2:     dc.b    5,  6,$10,$1A,$10,$FF
+ChaosEmerald_AnimSeq7_Variant2:     dc.b    5,  7,$11,$1B,$11,$FF
+ChaosEmerald_AnimSeq8_Variant2:     dc.b    5,  8,$12,$1C,$12,$FF
+ChaosEmerald_AnimSeq9_Variant2:     dc.b    5,  9,$13,$1D,$13,$FF
+ChaosEmerald_Animation_Sequence10:  dc.b    1,$1E,$1F,$20,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings
@@ -371,28 +371,28 @@ Obj5A_Obj5B_Obj60_MapUnc_3632A: include "src/game/special_stage/objects/messages
 ; animation script:
 ; off_364CE:
 Ani_obj61:      offsetTable
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence0_Variant3  ; 0
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence1_Variant3  ; 1
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence2_Variant3  ; 2
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence3_Variant3  ; 3
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence4_Variant3  ; 4
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence5_Variant3  ; 5
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence6_Variant3  ; 6
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence7_Variant3  ; 7
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence8_Variant3  ; 8
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence9_Variant3  ; 9
-                offsetTableEntry.w ChaosEmerald_Animation_Sequence10_Variant2  ; $A
-ChaosEmerald_Animation_Sequence0_Variant3:  dc.b    $B,  0,$FF
-ChaosEmerald_Animation_Sequence1_Variant3:  dc.b    $B,  1,$FF
-ChaosEmerald_Animation_Sequence2_Variant3:  dc.b    $B,  2,$FF
-ChaosEmerald_Animation_Sequence3_Variant3:  dc.b    $B,  3,$FF
-ChaosEmerald_Animation_Sequence4_Variant3:  dc.b    $B,  4,$FF
-ChaosEmerald_Animation_Sequence5_Variant3:  dc.b    $B,  5,$FF
-ChaosEmerald_Animation_Sequence6_Variant3:  dc.b    $B,  6,$FF
-ChaosEmerald_Animation_Sequence7_Variant3:  dc.b    $B,  7,$FF
-ChaosEmerald_Animation_Sequence8_Variant3:  dc.b    $B,  8,$FF
-ChaosEmerald_Animation_Sequence9_Variant3:  dc.b    $B,  9,$FF
-ChaosEmerald_Animation_Sequence10_Variant2: dc.b    2, $A, $B, $C,$FF
+                offsetTableEntry.w ChaosEmerald_AnimSeq0_Variant3  ; 0
+                offsetTableEntry.w ChaosEmerald_AnimSeq1_Variant3  ; 1
+                offsetTableEntry.w ChaosEmerald_AnimSeq2_Variant3  ; 2
+                offsetTableEntry.w ChaosEmerald_AnimSeq3_Variant3  ; 3
+                offsetTableEntry.w ChaosEmerald_AnimSeq4_Variant3  ; 4
+                offsetTableEntry.w ChaosEmerald_AnimSeq5_Variant3  ; 5
+                offsetTableEntry.w ChaosEmerald_AnimSeq6_Variant3  ; 6
+                offsetTableEntry.w ChaosEmerald_AnimSeq7_Variant3  ; 7
+                offsetTableEntry.w ChaosEmerald_AnimSeq8_Variant3  ; 8
+                offsetTableEntry.w ChaosEmerald_AnimSeq9_Variant3  ; 9
+                offsetTableEntry.w ChaosEmerald_AnimSeq10_Variant2  ; $A
+ChaosEmerald_AnimSeq0_Variant3:     dc.b    $B,  0,$FF
+ChaosEmerald_AnimSeq1_Variant3:     dc.b    $B,  1,$FF
+ChaosEmerald_AnimSeq2_Variant3:     dc.b    $B,  2,$FF
+ChaosEmerald_AnimSeq3_Variant3:     dc.b    $B,  3,$FF
+ChaosEmerald_AnimSeq4_Variant3:     dc.b    $B,  4,$FF
+ChaosEmerald_AnimSeq5_Variant3:     dc.b    $B,  5,$FF
+ChaosEmerald_AnimSeq6_Variant3:     dc.b    $B,  6,$FF
+ChaosEmerald_AnimSeq7_Variant3:     dc.b    $B,  7,$FF
+ChaosEmerald_AnimSeq8_Variant3:     dc.b    $B,  8,$FF
+ChaosEmerald_AnimSeq9_Variant3:     dc.b    $B,  9,$FF
+ChaosEmerald_AnimSeq10_Variant2:    dc.b    2, $A, $B, $C,$FF
                 even
 ; ----------------------------------------------------------------------------
 ; sprite mappings

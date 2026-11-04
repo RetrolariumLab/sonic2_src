@@ -17,7 +17,7 @@ Obj6F_Index:    offsetTable
                 offsetTableEntry.w Obj6F_Emerald4       ; $E
                 offsetTableEntry.w Obj6F_Emerald5       ; $10
                 offsetTableEntry.w Obj6F_Emerald6       ; $12
-                offsetTableEntry.w BranchTo3_Obj34_MoveTowardsTargetPosition  ; $14
+                offsetTableEntry.w SSResults_MoveToTarget  ; $14
                 offsetTableEntry.w Obj6F_P1Rings        ; $16
                 offsetTableEntry.w Obj6F_P2Rings        ; $18
                 offsetTableEntry.w Obj6F_DeleteIfNotEmerald  ; $1A
@@ -71,11 +71,11 @@ Obj6F_InitEmeraldText:
 +
                 move.w  titlecard_x_target(a0),d0
                 cmp.w   x_pixel(a0),d0
-                bne.s   BranchTo2_Obj34_MoveTowardsTargetPosition
+                bne.s   SSResults_MoveTimedTextToTarget
                 move.b  #$1C,routine(a0)                ; => Obj6F_TimedDisplay
                 move.w  #$B4,anim_frame_duration(a0)
 
-BranchTo2_Obj34_MoveTowardsTargetPosition               ; BranchTo
+SSResults_MoveTimedTextToTarget                         ; BranchTo
                 bra.w   Obj34_MoveTowardsTargetPosition
 ; ===========================================================================
 ; loc_14484
@@ -181,14 +181,14 @@ loc_1455A:
 +
                 move.b  d0,mapping_frame(a0)
 
-BranchTo3_Obj34_MoveTowardsTargetPosition               ; BranchTo
+SSResults_MoveToTarget                                  ; BranchTo
                 bra.w   Obj34_MoveTowardsTargetPosition
 ; ===========================================================================
 ; loc_14568
 Obj6F_DeleteIfNotEmerald:
                 tst.b   (Got_Emerald).w
                 beq.w   DeleteObject
-                bra.s   BranchTo3_Obj34_MoveTowardsTargetPosition
+                bra.s   SSResults_MoveToTarget
 ; ===========================================================================
 ; loc_14572
 Obj6F_TimedDisplay:
@@ -305,7 +305,7 @@ Obj6F_InitAndMoveSuperMsg:
                 move.w  x_pixel(a0),d0
                 cmp.w   titlecard_x_source(a0),d0
                 bne.s   Obj6F_MoveTowardsSourcePosition
-                move.b  #$14,next_object+routine(a0)    ; => BranchTo3_Obj34_MoveTowardsTargetPosition
+                move.b  #$14,next_object+routine(a0)    ; => SSResults_MoveToTarget
                 subq.w  #8,next_object+y_pixel(a0)
                 move.b  #$1A,next_object+mapping_frame(a0)  ; "Now Sonic can"
                 move.b  #$34,routine(a0)                ; => Obj6F_MoveAndDisplay
@@ -316,7 +316,7 @@ Obj6F_InitAndMoveSuperMsg:
                 clr.w   x_pixel(a1)
                 move.w  #spriteScreenPositionXCentered(0),titlecard_x_target(a1)
                 move.w  #spriteScreenPositionYCentered(-60),y_pixel(a1)
-                move.b  #$14,routine(a1)                ; => BranchTo3_Obj34_MoveTowardsTargetPosition
+                move.b  #$14,routine(a1)                ; => SSResults_MoveToTarget
                 move.b  #$1C,mapping_frame(a1)          ; "Super Sonic"
                 move.l  #Obj6F_MapUnc_14ED0,mappings(a1)
                 move.b  #$78,width_pixels(a1)

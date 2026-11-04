@@ -102,7 +102,7 @@ loc_AB9C:
                 move.l  (RNG_seed).w,d0
                 andi.w  #$1F,d0
                 move.w  d0,objoff_30(a0)
-                lea     (UiEndingSequenceData_EndingSeqCloudsChildSlot3E).l,a2
+                lea     (EndingCloudsChildSlot3E).l,a2
                 jsrto   JmpTo_LoadChildObject
 +
                 rts

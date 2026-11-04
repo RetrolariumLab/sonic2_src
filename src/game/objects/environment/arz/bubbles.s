@@ -329,12 +329,12 @@ Obj24_MapUnc_1FC18: mappingsTable
                 mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame5
                 mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame6
                 mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame7
-                mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame8_Variant2
-                mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame8_Variant2
-                mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame8_Variant2
-                mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame8_Variant2
-                mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame8_Variant2
-                mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame8_Variant2
+                mappingsTableEntry.w ArzBubbles_MapFrame8_Variant2
+                mappingsTableEntry.w ArzBubbles_MapFrame8_Variant2
+                mappingsTableEntry.w ArzBubbles_MapFrame8_Variant2
+                mappingsTableEntry.w ArzBubbles_MapFrame8_Variant2
+                mappingsTableEntry.w ArzBubbles_MapFrame8_Variant2
+                mappingsTableEntry.w ArzBubbles_MapFrame8_Variant2
                 mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame14
                 mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame15
                 mappingsTableEntry.w ArzBubbles_SpriteMappings_Frame16
@@ -385,9 +385,9 @@ ArzBubbles_SpriteMappings_Frame15_End
 ArzBubbles_SpriteMappings_Frame16:  spriteHeader
 ArzBubbles_SpriteMappings_Frame16_End
 
-ArzBubbles_SpriteMappings_Frame8_Variant2:  spriteHeader
+ArzBubbles_MapFrame8_Variant2:  spriteHeader
                 spritePiece -8, -$C, 2, 3, $731, 1, 1, 0, 0
-ArzBubbles_SpriteMappings_Frame8_Variant2_End
+ArzBubbles_MapFrame8_Variant2_End
 
                 even
 

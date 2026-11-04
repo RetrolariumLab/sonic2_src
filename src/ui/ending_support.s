@@ -7,7 +7,7 @@ EndingSequence_SpawnTimedBird:
                 move.l  (RNG_seed).w,d0
                 andi.w  #$F,d0
                 move.w  d0,objoff_30(a0)
-                lea     (UiEndingSequenceData_EndingSeqBirdChildSlot3E).l,a2
+                lea     (EndingBirdChildSlot3E).l,a2
                 jsrto   JmpTo_LoadChildObject
 +               rts
 ; End of function EndingSequence_SpawnTimedBird
@@ -17,14 +17,14 @@ EndingSequence_SpawnTimedBird:
 ; sub_ABE2:
 EndingSequence_LoadCharacterArt:
                 move.w  (Ending_Routine).w,d0
-                move.w  EndingSequence_LoadCharacterArt_Characters(pc,d0.w),d0
-                jmp     EndingSequence_LoadCharacterArt_Characters(pc,d0.w)
+                move.w  EndingArt_CharacterDispatch(pc,d0.w),d0
+                jmp     EndingArt_CharacterDispatch(pc,d0.w)
 ; End of function EndingSequence_LoadCharacterArt
 
 ; ===========================================================================
-EndingSequence_LoadCharacterArt_Characters: offsetTable
+EndingArt_CharacterDispatch:    offsetTable
                 offsetTableEntry.w EndingSequence_LoadCharacterArt_Sonic  ; 0
-                offsetTableEntry.w EndingSequence_LoadCharacterArt_SuperSonic  ; 2
+                offsetTableEntry.w EndingArt_LoadSuperSonic  ; 2
                 offsetTableEntry.w EndingSequence_LoadCharacterArt_Tails  ; 4
 ; ===========================================================================
 ; loc_ABF4:
@@ -34,7 +34,7 @@ EndingSequence_LoadCharacterArt_Sonic:
                 jmpto   JmpTo_NemDec
 ; ===========================================================================
 ; loc_AC08:
-EndingSequence_LoadCharacterArt_SuperSonic:
+EndingArt_LoadSuperSonic:
                 move.l  #vdpComm(tiles_to_bytes(ArtTile_EndingCharacter),VRAM,WRITE),(VDP_control_port).l
                 lea     (ArtNem_EndingSuperSonic).l,a0
                 jmpto   JmpTo_NemDec
@@ -84,11 +84,11 @@ Palette_EndingBackground:   BINCLUDE "data/art/palettes/Ending Background.bin"
 Palette_EndingPhotos:       BINCLUDE "data/art/palettes/Ending Photos.bin"
 Palette_EndingSuperSonic:   BINCLUDE "data/art/palettes/Ending Super Sonic.bin"
 
-UiEndingSequenceData_EndingSeqCloudsChildSlot3E:    childObjectData objoff_3E, ObjID_EndingSeqClouds, $00
-UiEndingSequenceData_EndingSeqTriggerChildSlot3E:   childObjectData objoff_3E, ObjID_EndingSeqTrigger, $00
-UiEndingSequenceData_EndingSeqBirdChildSlot3E:      childObjectData objoff_3E, ObjID_EndingSeqBird, $00
-UiEndingSequenceData_EndingSeqSonicChildSlot3E:     childObjectData objoff_3E, ObjID_EndingSeqSonic, $00
-UiEndingSequenceData_TornadoHelixesChildSlot3E:     childObjectData objoff_3E, ObjID_TornadoHelixes, $00
+EndingCloudsChildSlot3E:            childObjectData objoff_3E, ObjID_EndingSeqClouds, $00
+EndingTriggerChildSlot3E:           childObjectData objoff_3E, ObjID_EndingSeqTrigger, $00
+EndingBirdChildSlot3E:              childObjectData objoff_3E, ObjID_EndingSeqBird, $00
+EndingSonicChildSlot3E:             childObjectData objoff_3E, ObjID_EndingSeqSonic, $00
+EndingTornadoHelixesChildSlot3E:    childObjectData objoff_3E, ObjID_TornadoHelixes, $00
 
 ; off_AD72:
 ObjCD_SubObjData:

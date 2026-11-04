@@ -72,13 +72,13 @@ loc_1E292:
                 move.w  (sp)+,d0                        ; d0 = distance to floor right side
                 bsr.w   Sonic_Angle                     ; update angle
                 tst.w   d1
-                beq.s   GamePlayerCollisionSurfaceAlignment_Return  ; branch if Sonic is 0px from floor
+                beq.s   SurfaceAlignment_Return         ; branch if Sonic is 0px from floor
                 bpl.s   loc_1E31E                       ; branch if Sonic is above floor
                 cmpi.w  #-$E,d1
-                blt.s   GamePlayerCollisionSurfaceAlignment_Return  ; branch if Sonic is > 14px below floor
+                blt.s   SurfaceAlignment_Return         ; branch if Sonic is > 14px below floor
                 add.w   d1,y_pos(a0)                    ; align to floor
 
-GamePlayerCollisionSurfaceAlignment_Return:
+SurfaceAlignment_Return:
                 rts
 ; ===========================================================================
 
@@ -180,13 +180,13 @@ Sonic_WalkVertR:
                 move.w  (sp)+,d0                        ; d0 = distance to wall upper side
                 bsr.w   Sonic_Angle                     ; update angle
                 tst.w   d1
-                beq.s   GamePlayerCollisionSurfaceAlignment_Return_Variant2  ; branch if Sonic is 0px from wall
+                beq.s   SurfaceAlignment_Return_Variant2  ; branch if Sonic is 0px from wall
                 bpl.s   loc_1E402                       ; branch if Sonic is outside wall
                 cmpi.w  #-$E,d1
-                blt.s   GamePlayerCollisionSurfaceAlignment_Return_Variant2  ; branch if Sonic is > 14px inside wall
+                blt.s   SurfaceAlignment_Return_Variant2  ; branch if Sonic is > 14px inside wall
                 add.w   d1,x_pos(a0)                    ; align to wall
 
-GamePlayerCollisionSurfaceAlignment_Return_Variant2:
+SurfaceAlignment_Return_Variant2:
                 rts
 ; ===========================================================================
 
@@ -247,13 +247,13 @@ Sonic_WalkCeiling:
                 move.w  (sp)+,d0                        ; d0 = distance to ceiling right side
                 bsr.w   Sonic_Angle                     ; update angle
                 tst.w   d1
-                beq.s   GamePlayerCollisionSurfaceAlignment_Return_Variant3  ; branch if Sonic is 0px from ceiling
+                beq.s   SurfaceAlignment_Return_Variant3  ; branch if Sonic is 0px from ceiling
                 bpl.s   loc_1E4B0                       ; branch if Sonic is below ceiling
                 cmpi.w  #-$E,d1
-                blt.s   GamePlayerCollisionSurfaceAlignment_Return_Variant3  ; branch if Sonic is > 14px inside ceiling
+                blt.s   SurfaceAlignment_Return_Variant3  ; branch if Sonic is > 14px inside ceiling
                 sub.w   d1,y_pos(a0)                    ; align to ceiling
 
-GamePlayerCollisionSurfaceAlignment_Return_Variant3:
+SurfaceAlignment_Return_Variant3:
                 rts
 ; ===========================================================================
 
@@ -314,13 +314,13 @@ Sonic_WalkVertL:
                 move.w  (sp)+,d0                        ; d0 = distance to wall upper side
                 bsr.w   Sonic_Angle                     ; update angle
                 tst.w   d1
-                beq.s   GamePlayerCollisionSurfaceAlignment_Return_Variant4  ; branch if Sonic is 0px from wall
+                beq.s   SurfaceAlignment_Return_Variant4  ; branch if Sonic is 0px from wall
                 bpl.s   loc_1E55E                       ; branch if Sonic is outside wall
                 cmpi.w  #-$E,d1
-                blt.s   GamePlayerCollisionSurfaceAlignment_Return_Variant4  ; branch if Sonic is > 14px inside wall
+                blt.s   SurfaceAlignment_Return_Variant4  ; branch if Sonic is > 14px inside wall
                 sub.w   d1,x_pos(a0)                    ; align to wall
 
-GamePlayerCollisionSurfaceAlignment_Return_Variant4:
+SurfaceAlignment_Return_Variant4:
                 rts
 ; ===========================================================================
 

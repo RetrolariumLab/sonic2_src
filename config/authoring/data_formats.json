@@ -11388,7 +11388,7 @@
         "first_line": 765,
         "last_line": 897,
         "initial_scope": "loc_22952",
-        "code_sha256": "f5cf160b45855b648182bf5e919247bb0eb41f9ddd9267176e70de6abddcb6c7"
+        "code_sha256": "7185a03c33043d48c242a142d8a0e588d09103fe0a3692df6bf90830395234e0"
       }
     },
     {
@@ -11422,7 +11422,7 @@
     },
     {
       "source": "src/game/special_stage/orientation_and_scroll.s",
-      "root_symbol": "GameSpecialStageOrientationAndScroll_BackgroundScroll",
+      "root_symbol": "SSBgScroll",
       "codec": "background-scroll-s2",
       "storage": "assembly",
       "round_trip": "exact",
@@ -13028,7 +13028,7 @@
     },
     {
       "source": "src/game/objects/bosses/mecha_sonic.s",
-      "root_symbol": "MechaSonic_ProjectileSpawnRecords",
+      "root_symbol": "MechaSonic_ProjSpawns",
       "codec": "engine-records-s2",
       "storage": "assembly",
       "round_trip": "exact",
@@ -13237,7 +13237,7 @@
     },
     {
       "source": "src/game/objects/enemies/asteron.s",
-      "root_symbol": "Asteron_ProjectileSpawnRecords",
+      "root_symbol": "Asteron_ProjSpawns",
       "codec": "engine-records-s2",
       "storage": "assembly",
       "round_trip": "exact",
@@ -16119,7 +16119,7 @@
     },
     {
       "source": "src/ui/ending_support.s",
-      "root_symbol": "UiEndingSequenceData_EndingSeqCloudsChildSlot3E",
+      "root_symbol": "EndingCloudsChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
       "round_trip": "exact",
@@ -16130,7 +16130,7 @@
     },
     {
       "source": "src/ui/ending_support.s",
-      "root_symbol": "UiEndingSequenceData_EndingSeqTriggerChildSlot3E",
+      "root_symbol": "EndingTriggerChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
       "round_trip": "exact",
@@ -16141,7 +16141,7 @@
     },
     {
       "source": "src/ui/ending_support.s",
-      "root_symbol": "UiEndingSequenceData_EndingSeqBirdChildSlot3E",
+      "root_symbol": "EndingBirdChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
       "round_trip": "exact",
@@ -16152,7 +16152,7 @@
     },
     {
       "source": "src/ui/ending_support.s",
-      "root_symbol": "UiEndingSequenceData_EndingSeqSonicChildSlot3E",
+      "root_symbol": "EndingSonicChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
       "round_trip": "exact",
@@ -16163,7 +16163,7 @@
     },
     {
       "source": "src/ui/ending_support.s",
-      "root_symbol": "UiEndingSequenceData_TornadoHelixesChildSlot3E",
+      "root_symbol": "EndingTornadoHelixesChildSlot3E",
       "codec": "engine-records-s2",
       "storage": "assembly",
       "round_trip": "exact",

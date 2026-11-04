@@ -42,14 +42,14 @@ loc_155EA:
                 lea     (TitleCard_Bottom+titlecard_vram_dest).w,a0
                 moveq   #1,d7                           ; Once for P1, once for P2 (if in 2p mode)
 
-GameLevelTitleCards_CountedLoopD7_Variant2:
+TitleCards_LoopD7_Variant2:
                 move.w  (a0)+,d0
                 beq.s   loc_15614
                 clr.w   -2(a0)
                 jsr     TitleCard_MakeVramWriteCommand(pc)
                 move.w  d5,d4
 
-GameLevelTitleCards_CountedLoopD4_Variant2:
+TitleCards_LoopD4_Variant2:
                 move.l  d0,VDP_control_port-VDP_data_port(a6)
                 move.w  d1,d3
 
@@ -57,10 +57,10 @@ GameLevelTitleCards_CountedLoopD3:
                 move.l  d6,(a6)
                 dbf     d3,GameLevelTitleCards_CountedLoopD3
                 addi.l  #vdpCommDelta(gameplay_plane_width/tile_width*2),d0
-                dbf     d4,GameLevelTitleCards_CountedLoopD4_Variant2
+                dbf     d4,TitleCards_LoopD4_Variant2
 
 loc_15614:
-                dbf     d7,GameLevelTitleCards_CountedLoopD7_Variant2
+                dbf     d7,TitleCards_LoopD7_Variant2
                 move.w  (TitleCard_Left+titlecard_split_point).w,d1  ; horizontal draw from left until this position
                 subq.w  #1,d1
                 moveq   #$D,d5
@@ -75,25 +75,25 @@ loc_15634:
                 moveq   #1,d7                           ; Once for P1, once for P2 (if in 2p mode)
                 move.w  #$8F80,VDP_control_port-VDP_data_port(a6)  ; VRAM pointer increment: $0080
 
-GameLevelTitleCards_CountedLoopD7_Variant3:
+TitleCards_LoopD7_Variant3:
                 move.w  (a0)+,d0
                 beq.s   loc_15664
                 clr.w   -2(a0)
                 jsr     TitleCard_MakeVramWriteCommand(pc)
                 move.w  d1,d4
 
-GameLevelTitleCards_CountedLoopD4_Variant3:
+TitleCards_LoopD4_Variant3:
                 move.l  d0,VDP_control_port-VDP_data_port(a6)
                 move.w  d5,d3
 
-GameLevelTitleCards_CountedLoopD3_Variant2:
+TitleCards_LoopD3_Variant2:
                 move.l  d6,(a6)
-                dbf     d3,GameLevelTitleCards_CountedLoopD3_Variant2
+                dbf     d3,TitleCards_LoopD3_Variant2
                 addi.l  #vdpCommDelta($0002),d0
-                dbf     d4,GameLevelTitleCards_CountedLoopD4_Variant3
+                dbf     d4,TitleCards_LoopD4_Variant3
 
 loc_15664:
-                dbf     d7,GameLevelTitleCards_CountedLoopD7_Variant3
+                dbf     d7,TitleCards_LoopD7_Variant3
                 move.w  #$8F02,VDP_control_port-VDP_data_port(a6)  ; VRAM pointer increment: $0002
                 rts
 ; ===========================================================================
@@ -114,7 +114,7 @@ loc_15670:
                 moveq   #1,d7                           ; Once for P1, once for P2 (if in 2p mode)
                 move.w  #$8F80,VDP_control_port-VDP_data_port(a6)  ; VRAM pointer increment: $0080
 
-GameLevelTitleCards_CountedLoopD7_Variant4:
+TitleCards_LoopD7_Variant4:
                 move.w  (a0)+,d0
                 beq.s   loc_156CE
                 clr.w   -2(a0)
@@ -136,7 +136,7 @@ GameLevelTitleCards_CountedLoopD2:
                 dbf     d2,GameLevelTitleCards_CountedLoopD2
 
 loc_156CE:
-                dbf     d7,GameLevelTitleCards_CountedLoopD7_Variant4
+                dbf     d7,TitleCards_LoopD7_Variant4
                 move.w  #$8F02,VDP_control_port-VDP_data_port(a6)  ; VRAM pointer increment: $0002
                 moveq   #7,d5
                 move.l  #make_block_tile_pair(ArtTile_ArtNem_TitleCard+$5A,0,0,0,1),d6
@@ -148,7 +148,7 @@ loc_156CE:
                 lea     (TitleCard_Bottom+titlecard_vram_dest).w,a0
                 moveq   #1,d7                           ; Once for P1, once for P2 (if in 2p mode)
 
-GameLevelTitleCards_CountedLoopD7_Variant5:
+TitleCards_LoopD7_Variant5:
                 move.w  (a0)+,d0
                 beq.s   loc_15714
                 clr.w   -2(a0)
@@ -162,7 +162,7 @@ GameLevelTitleCards_CountedLoopD7_Variant5:
                 dbf     d4,-
 
 loc_15714:
-                dbf     d7,GameLevelTitleCards_CountedLoopD7_Variant5
+                dbf     d7,TitleCards_LoopD7_Variant5
                 move.w  (TitleCard_Background+titlecard_vram_dest).w,d4
                 beq.s   loc_1578C
 ; Initialize plane A for both players; we have to do this here as otherwise
