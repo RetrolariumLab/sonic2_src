@@ -1,4 +1,6 @@
 .DEFAULT_GOAL := help
+# Shared compiler outputs and emulator stages require serial Make execution.
+.NOTPARALLEL:
 PYTHON ?= python
 export PYTHONDONTWRITEBYTECODE := 1
 REV ?=

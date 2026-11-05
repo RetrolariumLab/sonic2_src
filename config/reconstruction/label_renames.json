@@ -29671,5 +29671,6 @@
       }
     }
   ],
-  "review_status": "reviewed"
+  "review_status": "reviewed",
+  "review_packets": "config/reconstruction/semantic_packets.json"
 }

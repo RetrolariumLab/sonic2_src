@@ -9,3 +9,7 @@ roundtrip-formats:
 	$(RUN) authoring.roundtrip formats
 check-content-zero-edit:
 	$(RUN) authoring.roundtrip zero-edit
+
+.PHONY: check-content-edits
+check-content-edits:
+	$(RUN) authoring.edit_probes

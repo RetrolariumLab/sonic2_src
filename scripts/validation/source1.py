@@ -74,6 +74,9 @@ def run(root=ROOT):
     for selected in profiles(root)["profiles"]:
         reference(selected["id"], root)
     toolchain(root)
+    from scripts.validation.evidence import public_hash, output_hashes
+
+    public = public_hash(root)
     inputs = prepare_inputs(root)
     clean_profile_outputs(root)
     identities = [verify(item["id"], root) for item in profiles(root)["profiles"]]
@@ -95,7 +98,27 @@ def run(root=ROOT):
     print(result.stdout, end="", flush=True)
     if result.returncode or "0 stop words in the history" not in result.stdout:
         raise ValueError("The all-ref stop-word history audit did not run successfully")
+    if public_hash(root) != public:
+        raise ValueError("Public inputs changed during preservation acceptance")
+    evidence_paths = ["build/semantic-symbols.json", "build/pointer-audit.json", "build/runtime/check-report.json"]
+    for item in profiles(root)["profiles"]:
+        revision = item["id"]
+        listing = project_path(item["output"], root).parent / "main.lst"
+        atomic_write(root / "build/acceptance/source1" / (revision + ".lst"), listing.read_bytes())
+        evidence_paths.extend(
+            [
+                item["output"],
+                "build/acceptance/source1/" + revision + ".lst",
+                item["output"].replace("sonic2.bin", "identity.json"),
+                "build/relocated/" + revision + "/sonic2.bin",
+                "build/relocated/" + revision + "/report.json",
+                "build/relocated/" + revision + "/main.lst",
+                "build/runtime/" + revision + "-check.log",
+            ]
+        )
     report = {
+        "public_sha256": public,
+        "evidence": output_hashes(evidence_paths, root),
         "gate": "source-1-check",
         "passed": True,
         "inputs": inputs,

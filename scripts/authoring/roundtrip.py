@@ -30,6 +30,18 @@ def digest(data):
 
 def public_sources(root=ROOT):
     result = {}
+    if (root / ".git").exists():
+        names = (
+            subprocess.check_output(["git", "ls-files", "-z", "--cached", "--others", "--exclude-standard"], cwd=root)
+            .decode()
+            .split("\0")
+        )
+        for name in sorted(set(names) - {""}):
+            path = project_path(name, root)
+            if not path.is_file():
+                raise ValueError("Public input is missing: " + name)
+            result[name] = digest(path.read_bytes())
+        return result
     for name in VIEW_ROOTS:
         parent = project_path(name, root)
         if parent.is_dir():
@@ -45,8 +57,10 @@ def public_sources(root=ROOT):
     return result
 
 
-def prepare_view(root=ROOT):
-    view = root / "build/authoring/zero-edit/project"
+def prepare_view(root=ROOT, kind="zero-edit"):
+    if kind not in {"zero-edit", "edit-probes"}:
+        raise ValueError("Unknown private authoring workspace")
+    view = root / "build/authoring" / kind / "project"
     resolved = view.resolve()
     build = (root / "build").resolve()
     if resolved == build or not resolved.is_relative_to(build):

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scope": "fixed-palette-slots",
+  "probes": [
+    {
+      "asset": "art/palettes/EHZ.bin",
+      "index": 1,
+      "channel": "red"
+    },
+    {
+      "asset": "art/palettes/CPZ.bin",
+      "index": 2,
+      "channel": "blue"
+    }
+  ]
+}

@@ -35,7 +35,10 @@ separate [reviewed evidence](docs/symbols.md); complete reverse engineering is
 not claimed.
 
 The release tags identify fixed, checked snapshots. Main may contain later
-maintenance and documentation changes.
+maintenance and documentation changes. Current main also checks four
+original-ROM controller routes on canonical and relocated images, proves two
+palette edits in rebuilt ROMs, and binds complete acceptance to the actual
+public inputs and generated artifacts. See [validation](docs/validation.md).
 
 ## Quick start
 

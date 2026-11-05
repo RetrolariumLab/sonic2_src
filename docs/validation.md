@@ -147,3 +147,20 @@ arithmetic or prove every runtime dereference. Fresh compiled fixed-region,
 relocation, identity and runtime checks remain independent requirements. A
 failed pointer audit removes its prior success report before checking sources.
 The ROM-free scaffold includes the pointer regressions.
+
+## Current acceptance evidence
+
+The complete 2.0 aggregate includes the real edited-ROM proof and all extended
+controller routes. Successful reports bind the complete tracked and unignored
+public input tree, including documentation and tests. They also bind the actual
+ROMs, listings, runtime logs and subordinate reports by SHA-256. Preservation
+listings are saved as stage-owned evidence because later canonical reassembly
+refreshes AS listing timestamps. Final acceptance additionally binds the current
+canonical listings and both private export workspaces.
+
+`make acceptance-audit` checks the completed current-commit aggregate, its exact
+artifacts, subordinate reports and full extended runtime matrix. Changing a
+public input, replacing a generated output or removing a scenario invalidates
+the result. A failed rerun removes the previous success report before work
+starts. This re-audit does not replace a fresh complete gate for changed inputs.
+GNU Make stages are serial even when invoked with `-j`.

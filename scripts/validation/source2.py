@@ -145,6 +145,15 @@ def run(root=ROOT):
     from scripts.authoring.roundtrip import run as content_check
 
     content = content_check("zero-edit", root)
+    from scripts.authoring.edit_probes import run as edited_check
+    from scripts.runtime.extended import execute as extended_check
+    from scripts.validation.evidence import validate, output_hashes, public_hash
+
+    validate(predecessor, root)
+    edited = edited_check(root)
+    extended = extended_check(root=root)
+    validate(edited, root)
+    validate(extended, root)
     corpus = documentation.audit(root)
     manifest = manifest_check(root, final=True)
     from scripts.validation.release_audit import audit as release_audit
@@ -162,7 +171,27 @@ def run(root=ROOT):
         raise ValueError("The final all-ref stop-word audit did not run successfully")
     if public_sources(root) != before or git("status", "--porcelain", root=root):
         raise ValueError("The Source 2.0 gate changed source or left a dirty working tree")
+    evidence_paths = [
+        "build/source-1-check.json",
+        "build/authoring/content-zero-edit.json",
+        "build/authoring/content-edits.json",
+        "build/runtime/extended-report.json",
+        "build/source-layout-check.json",
+        "build/documentation-check.json",
+        "build/release-audit.json",
+    ]
+    for item in profiles(root)["profiles"]:
+        evidence_paths.extend(
+            [
+                item["output"],
+                item["output"].replace("sonic2.bin", "main.lst"),
+                "build/authoring/zero-edit/project/" + item["output"],
+                "build/authoring/zero-edit/project/" + item["output"].replace("sonic2.bin", "main.lst"),
+            ]
+        )
     report = {
+        "public_sha256": public_hash(root),
+        "evidence": output_hashes(evidence_paths, root),
         "gate": "source-2-check",
         "passed": True,
         "release_line": manifest["release_line"],
@@ -180,6 +209,10 @@ def run(root=ROOT):
         "corpus_review": corpus["substance_review_status"],
         "source_hashes": before,
     }
+    validate(report, root)
+    from scripts.runtime.extended import audit as extended_audit
+
+    extended_audit(root)
     atomic_write(destination, (json.dumps(report, indent=2) + "\n").encode())
     print("[OK] Source Reconstruction 2.0 complete predecessor and acceptance delta")
     return report

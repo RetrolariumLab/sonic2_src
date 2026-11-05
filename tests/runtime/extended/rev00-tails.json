@@ -1,0 +1,281 @@
+{
+  "schema": "retrolarium.movie-check",
+  "schema_version": 1,
+  "id": "rev00-tails",
+  "source_profile": "rev00",
+  "movie": "tails.rlmovie",
+  "machine": "genesis",
+  "frames": [900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400],
+  "cells": {
+    "mode": {
+      "symbol": "Game_Mode",
+      "length": 1,
+      "address": "0xfff600"
+    },
+    "zone": {
+      "symbol": "Current_Zone",
+      "length": 1,
+      "address": "0xfffe10"
+    },
+    "player_mode": {
+      "symbol": "Player_mode",
+      "length": 2,
+      "address": "0xffff70"
+    },
+    "option": {
+      "symbol": "Player_option",
+      "length": 2,
+      "address": "0xffff72"
+    },
+    "two_player": {
+      "symbol": "Two_player_mode",
+      "length": 2,
+      "address": "0xffffd8"
+    },
+    "pause": {
+      "symbol": "Game_paused",
+      "length": 2,
+      "address": "0xfff63a"
+    },
+    "x": {
+      "symbol": "MainCharacter+x_pos",
+      "length": 2,
+      "address": "0xffb008"
+    },
+    "y": {
+      "symbol": "MainCharacter+y_pos",
+      "length": 2,
+      "address": "0xffb00c"
+    },
+    "x2": {
+      "symbol": "Sidekick+x_pos",
+      "length": 2,
+      "address": "0xffb048"
+    },
+    "y2": {
+      "symbol": "Sidekick+y_pos",
+      "length": 2,
+      "address": "0xffb04c"
+    },
+    "stage": {
+      "symbol": "Current_Special_Stage",
+      "length": 1,
+      "address": "0xfffe16"
+    }
+  },
+  "expected": {
+    "900": {
+      "mode": "04",
+      "zone": "00",
+      "player_mode": "0000",
+      "option": "0000",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "0000",
+      "y": "0000",
+      "x2": "0108",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1000": {
+      "mode": "24",
+      "zone": "00",
+      "player_mode": "0000",
+      "option": "0000",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "0000",
+      "y": "0000",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1100": {
+      "mode": "24",
+      "zone": "00",
+      "player_mode": "0000",
+      "option": "0000",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "0000",
+      "y": "0000",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1200": {
+      "mode": "8c",
+      "zone": "00",
+      "player_mode": "0000",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "0000",
+      "y": "0000",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1300": {
+      "mode": "8c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "0060",
+      "y": "028f",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1400": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "0060",
+      "y": "0294",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1500": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "0065",
+      "y": "0294",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1600": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "0160",
+      "y": "0275",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1700": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "0378",
+      "y": "0230",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1800": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "03a6",
+      "y": "0233",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "1900": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "03a6",
+      "y": "0233",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "2000": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "03a6",
+      "y": "0233",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "2100": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "03a6",
+      "y": "0233",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "2200": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "03a6",
+      "y": "0233",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "2300": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "03a6",
+      "y": "0233",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    },
+    "2400": {
+      "mode": "0c",
+      "zone": "00",
+      "player_mode": "0002",
+      "option": "0002",
+      "two_player": "0000",
+      "pause": "0000",
+      "x": "03a6",
+      "y": "0233",
+      "x2": "0000",
+      "y2": "0000",
+      "stage": "00"
+    }
+  },
+  "provenance": {
+    "original_sha256": "07329f4561044a504923eb0742894485c61fc42ebb0891eebff247ca2e086d61",
+    "emulator_sha256": "ff35833b41905185cd16dd591a8b1c8652e98c45c2dc5518e566a78ce63400ab",
+    "movie_sha256": "4a2e868de2f5db187d11d42c7f667b478991e612ecdc99a3fe4cca3d99960256"
+  }
+}

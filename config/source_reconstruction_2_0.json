@@ -19,7 +19,7 @@
   "delta_history": {
     "base_commit": "36f3648a9a031cd0baa26491e83f19b63f9edd2d",
     "tip": "HEAD",
-    "commit_count": 13
+    "commit_count": 14
   },
   "included_scope": [
     "retail_rev00_rev01_preservation",
@@ -145,8 +145,20 @@
       "id": "assembly_label_length",
       "kind": "source",
       "summary": "Shorten long assembly names and check the original declarations with Kit while preserving all symbol values and ROM bytes.",
-      "commits": ["release-commit"],
+      "commits": ["aacab419be0f419e55daf18a59c2ff663c474b20"],
       "evidence": ["config/lint.json", "config/reconstruction/label_renames.json", "semantic-symbols-check"]
+    },
+    {
+      "id": "acceptance_depth",
+      "kind": "tooling",
+      "summary": "Bind complete acceptance to the public tree and artifacts; prove real palette edits, original-ROM controller routes and complete subsystem review packets.",
+      "commits": ["release-commit"],
+      "evidence": [
+        "config/runtime_extended.json",
+        "config/authoring/edit_probes.json",
+        "config/reconstruction/semantic_packets.json",
+        "acceptance-audit"
+      ]
     }
   ],
   "reference": {
@@ -293,7 +305,11 @@
     "split",
     "test",
     "verify",
-    "verify-all"
+    "verify-all",
+    "check-content-edits",
+    "runtime-extended-check",
+    "runtime-extended-golden",
+    "acceptance-audit"
   ],
   "complete_milestones": [
     "semantic_source_layout",
@@ -352,6 +368,17 @@
       "evidence": {
         "files": ["scripts/validation/source2.py"],
         "targets": ["source-2-check"]
+      }
+    },
+    "acceptance_depth": {
+      "status": "satisfied",
+      "evidence": {
+        "files": [
+          "config/runtime_extended.json",
+          "config/authoring/edit_probes.json",
+          "config/reconstruction/semantic_packets.json"
+        ],
+        "targets": ["check-content-edits", "runtime-extended-check", "acceptance-audit"]
       }
     }
   },

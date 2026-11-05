@@ -18,7 +18,7 @@ temporary files, staged MAME and reports go under build/runtime/.
 
 The scanner duplicates terminal 68000 RTS/RTE words before the next global
 owner. Conditional exits within procedures and instruction slots inside
-fixed-stride jump tables are not padded. The current layout inserts 1452
+fixed-stride jump tables are not padded. The current layout inserts 1453
 unreachable return words per profile. Synthetic tests protect conditional exits,
 return instruction slots and the AS listing parser. The report records every
 insertion with its source file, owner and line; the exact coverage is
@@ -111,6 +111,24 @@ using this project's exact staged executable path are stopped, then the launcher
 is reaped. A leftover owned emulator makes the check fail. Full runtime jobs
 must not be launched in parallel.
 
-Coverage is limited to the recorded attract cycle and watched RAM fields. This
-is not a claim that all stages, special-stage play, menus or every instruction
-have been exercised. Source audits and content validation are separate checks.
+## Controller-driven routes
+
+`make runtime-extended-check` runs four power-on controller movies for both
+revisions against the canonical and relocated ROMs. The routes select Sonic
+alone and pause/resume, Tails alone, an Emerald Hill versus race with both
+controllers, and the special stage reached through the versus selection menu.
+Each run compares eleven RAM cells at sixteen checkpoints. Required states must
+occur in order and the selected player coordinates must change after play
+starts. Identical idle menus cannot satisfy the declared gameplay coverage.
+
+`config/runtime_extended.json` owns the movies, exact input hashes, state
+requirements and watches. Goldens below `tests/runtime/extended/` retain the
+original ROM, emulator and movie hashes. `make runtime-extended-golden` always
+uses hash-verified original ROMs. Normal checks use the accepted values and
+never derive them from a candidate. Movie headers allow only power-on execution
+and controller input; RAM writes, initial-state overrides and alignment offsets
+are rejected. The complete 2.0 gate executes all sixteen comparisons.
+
+Coverage remains limited to the recorded routes and watched RAM fields. Ending
+sequences, all stages, exhaustive special-stage play and every instruction
+remain outside the reached-state contract.

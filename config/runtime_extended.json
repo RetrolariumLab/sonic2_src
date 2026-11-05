@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "watches": {
+    "mode": {
+      "symbol": "Game_Mode",
+      "length": 1
+    },
+    "zone": {
+      "symbol": "Current_Zone",
+      "length": 1
+    },
+    "player_mode": {
+      "symbol": "Player_mode",
+      "length": 2
+    },
+    "option": {
+      "symbol": "Player_option",
+      "length": 2
+    },
+    "two_player": {
+      "symbol": "Two_player_mode",
+      "length": 2
+    },
+    "pause": {
+      "symbol": "Game_paused",
+      "length": 2
+    },
+    "x": {
+      "symbol": "MainCharacter+x_pos",
+      "length": 2
+    },
+    "y": {
+      "symbol": "MainCharacter+y_pos",
+      "length": 2
+    },
+    "x2": {
+      "symbol": "Sidekick+x_pos",
+      "length": 2
+    },
+    "y2": {
+      "symbol": "Sidekick+y_pos",
+      "length": 2
+    },
+    "stage": {
+      "symbol": "Current_Special_Stage",
+      "length": 1
+    }
+  },
+  "cases": [
+    {
+      "id": "sonic",
+      "frames": 2400,
+      "checkpoints": [900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400],
+      "movie_sha256": "9b8a95494189c33bab01ef76be727b58376382ac0e9a06d361abd64affbe1d64",
+      "checks": {
+        "rev00": "tests/runtime/extended/rev00-sonic.json",
+        "rev01": "tests/runtime/extended/rev01-sonic.json"
+      },
+      "required_states": [
+        {
+          "after": 1400,
+          "values": {
+            "mode": "0c",
+            "player_mode": "0001",
+            "two_player": "0000"
+          }
+        },
+        {
+          "after": 1980,
+          "values": {
+            "pause": "0001",
+            "mode": "0c"
+          }
+        },
+        {
+          "after": 2200,
+          "values": {
+            "pause": "0000",
+            "mode": "0c"
+          }
+        }
+      ],
+      "motion_after": 1400,
+      "motion_cells": ["x"]
+    },
+    {
+      "id": "tails",
+      "frames": 2400,
+      "checkpoints": [900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400],
+      "movie_sha256": "4a2e868de2f5db187d11d42c7f667b478991e612ecdc99a3fe4cca3d99960256",
+      "checks": {
+        "rev00": "tests/runtime/extended/rev00-tails.json",
+        "rev01": "tests/runtime/extended/rev01-tails.json"
+      },
+      "required_states": [
+        {
+          "after": 1400,
+          "values": {
+            "mode": "0c",
+            "player_mode": "0002",
+            "two_player": "0000"
+          }
+        }
+      ],
+      "motion_after": 1400,
+      "motion_cells": ["x"]
+    },
+    {
+      "id": "versus",
+      "frames": 2400,
+      "checkpoints": [900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400],
+      "movie_sha256": "933db0371cdc3a4e4e7d05d0994c8632e9e93fba27cd9a6f77cab595d8cd9da1",
+      "checks": {
+        "rev00": "tests/runtime/extended/rev00-versus.json",
+        "rev01": "tests/runtime/extended/rev01-versus.json"
+      },
+      "required_states": [
+        {
+          "after": 1400,
+          "values": {
+            "mode": "0c",
+            "player_mode": "0000",
+            "two_player": "0001"
+          }
+        }
+      ],
+      "motion_after": 1400,
+      "motion_cells": ["x", "x2"]
+    },
+    {
+      "id": "special",
+      "frames": 2400,
+      "checkpoints": [900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400],
+      "movie_sha256": "b6ddc9badba3c0a77131349a9ddb30b7a81b7dfc4dbcea21ab27f7a1ebd01323",
+      "checks": {
+        "rev00": "tests/runtime/extended/rev00-special.json",
+        "rev01": "tests/runtime/extended/rev01-special.json"
+      },
+      "required_states": [
+        {
+          "after": 1400,
+          "values": {
+            "mode": "10",
+            "stage": "04"
+          }
+        }
+      ],
+      "motion_after": 1400,
+      "motion_cells": ["x"]
+    }
+  ]
+}

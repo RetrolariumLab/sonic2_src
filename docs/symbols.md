@@ -64,3 +64,12 @@ the relevant continuation and data consumer. Rename exact identifier tokens,
 update the single registry and remove its unknown record. Rebuild both profiles,
 preserve original symbol values through the mapping, update source fingerprints
 and repeat the complete aggregate before declaring readiness.
+
+## Subsystem review packets
+
+The canonical registry links `config/reconstruction/semantic_packets.json`. Its
+packets partition all confirmed mappings and explicit unknowns by physical
+source owner. The naming gate rejects missing, duplicated or foreign members.
+Packets reference the canonical records and their existing per-profile values;
+they do not duplicate destination names or promote unresolved meanings.
+Generated markers continue to belong to their checked parent declarations.

@@ -30,6 +30,7 @@ GROUPS = [
             ("prepare-core", "Build pinned Core CLI; CORE_SOURCE=path, optional CMAKE_GENERATOR=name"),
             ("roundtrip-formats", "Check all registered formats and active placements"),
             ("check-content-zero-edit", "Round-trip content and rebuild every complete ROM"),
+            ("check-content-edits", "Rebuild two typed palette edits and check exact ROM differences"),
         ],
     ),
     (
@@ -39,6 +40,8 @@ GROUPS = [
             ("build-relocated", "Build the controlled relocation probe; optional REV=profile"),
             ("runtime-check", "Compare complete original MAME goldens; optional REV=profile"),
             ("runtime-golden", "Capture original-ROM goldens; optional REV=profile"),
+            ("runtime-extended-check", "Check menu, character, pause, versus and special-stage routes"),
+            ("runtime-extended-golden", "Capture extended goldens from verified original ROMs"),
         ],
     ),
     (
@@ -56,6 +59,7 @@ GROUPS = [
             ("source-1-check", "Alias for release-check"),
             ("source-2-check", "Run preservation first, then the complete Source 2.0 delta"),
             ("source-2-audit", "Alias for the complete source-2-check"),
+            ("acceptance-audit", "Recheck the current full acceptance report and bound artifacts"),
         ],
     ),
 ]

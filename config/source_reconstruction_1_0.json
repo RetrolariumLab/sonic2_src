@@ -332,7 +332,11 @@
     "split",
     "test",
     "verify",
-    "verify-all"
+    "verify-all",
+    "check-content-edits",
+    "runtime-extended-check",
+    "runtime-extended-golden",
+    "acceptance-audit"
   ],
   "complete_milestones": [
     "private_audio_history",

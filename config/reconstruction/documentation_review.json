@@ -87,6 +87,10 @@
     {
       "id": "DOC-021",
       "resolution": "Separate the 40-character check on original declarations from formatting on the temporary ASL mirror."
+    },
+    {
+      "id": "DOC-022",
+      "resolution": "Describe executed acceptance depth separately from frozen release snapshots and retain explicit gameplay limits."
     }
   ],
   "documents": [
@@ -123,8 +127,8 @@
     {
       "path": "docs/content_workflow.md",
       "action": "updated",
-      "reason": "Correct authoring placement safety limits and context binding; document numeric alias and immediate-address auditing with narrow scalar exceptions and explicit static coverage limits.",
-      "sha256": "3000d74c091b4215bef677e0cfc88ba733a172eb72c2488c26845a98255a247b"
+      "reason": "Describe current controller-route coverage, typed ROM edit proof, subsystem review packets and artifact-bound acceptance.",
+      "sha256": "cf331df0b11e7251eb692201909fb3cb5a57ae87ca20d3a24ae6e10a802906c3"
     },
     {
       "path": "docs/data_formats.md",
@@ -159,8 +163,8 @@
     {
       "path": "docs/runtime.md",
       "action": "updated",
-      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
-      "sha256": "fe7312bd6dc713e951620e3cd5215447f0edeba2b298b0d0a120ee5dbb1fa5f6"
+      "reason": "Describe current controller-route coverage, typed ROM edit proof, subsystem review packets and artifact-bound acceptance.",
+      "sha256": "1ae9ce958180a62618d1076c256b0e8f81306479655c40bb4f8d3f9c39087266"
     },
     {
       "path": "docs/source_layout.md",
@@ -183,26 +187,26 @@
     {
       "path": "docs/symbols.md",
       "action": "updated",
-      "reason": "Align the reader-facing contract with reviewed names, explicit unknowns, complete source-record coverage and strict release/output controls; retain the documented runtime, host and licensing limits.",
-      "sha256": "aba14e3e47fa937b7302317743c26fba62cf953d99805f76c13a026ca3923f9c"
+      "reason": "Describe current controller-route coverage, typed ROM edit proof, subsystem review packets and artifact-bound acceptance.",
+      "sha256": "9b6c96627778f1a656a597877cdec52319dc774ecc2ffe586a62a8e2a6d9925f"
     },
     {
       "path": "docs/unknowns.md",
       "action": "updated",
-      "reason": "Document singleton mapping files beside their owners, four contiguous mapping groups and role-based names, retaining checked source regions and complete original provenance.",
-      "sha256": "c79b9884472fd4fa921e49d40d39a74abc23d27d6b226f417ccc3d652aa9e23d"
+      "reason": "Describe current controller-route coverage, typed ROM edit proof, subsystem review packets and artifact-bound acceptance.",
+      "sha256": "e4a5a143047b13790563e694b322ea2d5c49c6e9c9cf22b6c938764523f5a420"
     },
     {
       "path": "docs/validation.md",
       "action": "updated",
-      "reason": "Correct authoring placement safety limits and context binding; document numeric alias and immediate-address auditing with narrow scalar exceptions and explicit static coverage limits.",
-      "sha256": "677a491165ae543c9586c6549ee7e3177de7b1030ad0d5e96dec23210e6a1980"
+      "reason": "Describe current controller-route coverage, typed ROM edit proof, subsystem review packets and artifact-bound acceptance.",
+      "sha256": "4867d66f6d950c44d7e087225a22f98a316cab987b0360dadd70ede07d35bb3d"
     },
     {
       "path": "README.md",
-      "action": "rewritten",
-      "reason": "Use the established Sonic 1 README structure while retaining Sonic 2's REV selectors, AS build 313, two accepted retail images, bounded content/runtime coverage and original attribution; distinguish immutable published tags from later main changes.",
-      "sha256": "6e651e96c25fe4b0c9747d87739ba5516b79424fd5123e4027f63febba4ff9bd"
+      "action": "updated",
+      "reason": "Describe current controller-route coverage, typed ROM edit proof, subsystem review packets and artifact-bound acceptance.",
+      "sha256": "a4bbb5162a44e52011337b8748d87f3e6b9679fc254478c984c1ca8545da31c4"
     }
   ],
   "merges": [],

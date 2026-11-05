@@ -128,3 +128,16 @@ The complete aggregate also supports a ROM-only checkout through
 implementation owns extraction and refuses to overwrite changed existing
 preservation assets. Standalone content commands retain the preparation workflow
 above; the aggregate does not rely on it being run beforehand.
+
+## Actual edited ROM proof
+
+After a current zero-edit export, `make check-content-edits` opens EHZ and CPZ
+palettes through their typed documents, changes one RGB channel in each and
+rebuilds both ROMs in `build/authoring/edit-probes/project`. It uses the real
+assembler and driver-compression pipeline. The expected images are independently
+constructed from verified original ROMs, every listing-bound palette consumer
+and the cartridge checksum. Any difference outside those exact changes fails.
+Both complete symbol dictionaries must retain their original values and moved
+allocations must be rejected. Original private assets remain the evidence owner.
+The report binds the actual edited images and listings. The complete 2.0 gate
+runs this proof after zero-edit reconstruction.

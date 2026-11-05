@@ -32,3 +32,7 @@ scaffold-check:
 	$(RUN) validation.scaffold
 source-2-check source-2-audit:
 	$(RUN) validation.source2
+
+.PHONY: acceptance-audit
+acceptance-audit:
+	$(RUN) validation.evidence

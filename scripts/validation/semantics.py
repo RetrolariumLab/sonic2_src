@@ -292,7 +292,13 @@ def audit(root=ROOT, compiled=False):
                 actual = tables[revision].get(endpoint)
                 if actual is None or (actual & mask if mask is not None else actual) != end:
                     raise ValueError("Unknown end marker changed: " + name)
+    packet_count = 0
+    if registry.get("review_packets"):
+        from scripts.validation.semantic_packets import validate
+
+        packet_count = validate(load(registry["review_packets"], root), rows, unknown_rows)
     report = {
+        "review_packets": packet_count,
         "gate": "semantic-symbols-check",
         "passed": True,
         "renames": len(rows),
